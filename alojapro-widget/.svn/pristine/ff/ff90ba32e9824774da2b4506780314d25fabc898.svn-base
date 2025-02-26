@@ -1,0 +1,27 @@
+{
+  "name": "alojapro-widget",
+  "version": "2.0.6",
+  "description": "Alojapro Booking Engine",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/alojapro_widget.scss css/alojapro_widget.min.css",
+    "watch-css": "./bin/watch-css",
+    "minifyJS": "uglifyjs js/alojapro_widget.js --compress --mangle --warn --output js/scripts.min.js",
+    "generate": "npm run version:bump --silent && rm -f js/scripts.min.js && npm run minifyJS --silent && npm run version:add --silent",
+    "version:add": "echo \"/*! Alojapro Widget Plugin v - $(npm run version:extract --silent)\n * © Alojapro \n * Build time: $(date '+%m-%d-%Y %H:%M:%S')\n */\n$(cat js/scripts.min.js)\" > js/scripts.min.js",
+    "version:bump": "npm version patch --no-git-tag-version --silent",
+    "version:extract": "cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]'"
+  },
+  "keywords": [
+    "booking",
+    "reservas"
+  ],
+  "author": "Alojapro",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "uglify-js": "^3.3.11",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.3"
+  }
+}
