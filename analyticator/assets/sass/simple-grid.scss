@@ -1,0 +1,230 @@
+// SIMPLE GRID - SASS/SCSS
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Roboto);
+
+// fonts
+$font-family: 'Open Sans', sans-serif;
+$font-titles: 'Roboto', sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-heavy: 700;
+$font-height: 1.5;
+
+// colors
+$dark-grey: #333447;
+$dark-gray: #333447; // for the Americans
+$primary_color: #B0B825; 
+$secondary_color: #1C1F26;
+$social_links_color: #fff;
+$social_hover_color: #B0B825;
+
+/* Effects */
+.transition { 
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+// html elments modified
+#seventhemeswrapper ul.list-unstyled {
+  list-style-type: none;
+}
+#seventhemeswrapper ul.social-links li {
+  float: right;
+}
+
+#seventhemeswrapper ul.social-links li a {
+  color: $social_links_color;
+  font-size: 25px;
+  padding: 5px 10px;
+  display: block;
+  text-decoration: none;
+  @extend .transition
+}
+#seventhemeswrapper ul.social-links li a:hover {
+  color: $social_hover_color;
+}
+#seventhemeswrapper img.responsive {
+  width: 100%;
+  height: auto;
+}
+#seventhemeswrapper img.sts-brand {
+  width: 125px;
+  height: 115px;
+  margin: 0 auto;
+}
+
+
+
+// typography
+#seventhemeswrapper h1, #seventhemeswrapper h2, #seventhemeswrapper h3, #seventhemeswrapper h4, #seventhemeswrapper h5, #seventhemeswrapper h6 {
+  color: $secondary_color;
+  font-family: $font-titles;
+}
+#seventhemeswrapper h1 {
+  font-size: 2.5rem;
+}
+
+#seventhemeswrapper h2 {
+  font-size: 2rem;
+}
+
+#seventhemeswrapper h3 {
+  font-size: 1.375rem;
+}
+
+#seventhemeswrapper h4 {
+  font-size: 1.125rem;
+}
+
+#seventhemeswrapper h5 {
+  font-size: 1rem;
+}
+
+#seventhemeswrapper h6 {
+  font-size: 0.875rem;
+}
+
+#seventhemeswrapper p {
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+#seventhemeswrapper th {
+  //font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+#seventhemeswrapper label {
+  //font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+#seventhemeswrapper .font-light {
+  font-weight: $font-weight-light;
+}
+
+#seventhemeswrapper .font-regular {
+  font-weight: $font-weight-regular;
+}
+
+#seventhemeswrapper .font-heavy {
+  font-weight: $font-weight-heavy;
+}
+
+#seventhemeswrapper .text-center {
+  text-align: center !important;
+}
+// utility
+
+#seventhemeswrapper .left {
+  text-align: left;
+}
+
+#seventhemeswrapper .right {
+  text-align: right;
+}
+
+#seventhemeswrapper .center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#seventhemeswrapper .justify {
+  text-align: justify;
+}
+
+#seventhemeswrapper .hidden-sm {
+  display: none;
+}
+
+// grid
+
+$width: 96%;
+$gutter: 4%;
+$breakpoint-small: 33.75em; // 540px
+$breakpoint-med: 45em; // 720px
+$breakpoint-large: 60em; // 960px
+
+#seventhemeswrapper .container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media only screen and (min-width: $breakpoint-small) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    width: 75%;
+    max-width: 60rem;
+  }
+}
+
+#seventhemeswrapper .row {
+  position: relative;
+  width: 100%;
+}
+
+#seventhemeswrapper .row [class^="col"] {
+  float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem;
+}
+
+#seventhemeswrapper .row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#seventhemeswrapper .col-1,
+#seventhemeswrapper .col-2,
+#seventhemeswrapper .col-3,
+#seventhemeswrapper .col-4,
+#seventhemeswrapper .col-5,
+#seventhemeswrapper .col-6,
+#seventhemeswrapper .col-7,
+#seventhemeswrapper .col-8,
+#seventhemeswrapper .col-9,
+#seventhemeswrapper .col-10,
+#seventhemeswrapper .col-11,
+#seventhemeswrapper .col-12 {
+  width: $width;
+}
+
+#seventhemeswrapper .col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
+#seventhemeswrapper .col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
+#seventhemeswrapper .col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
+#seventhemeswrapper .col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
+#seventhemeswrapper .col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+#seventhemeswrapper .col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
+#seventhemeswrapper .col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+#seventhemeswrapper .col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+#seventhemeswrapper .col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+#seventhemeswrapper .col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+#seventhemeswrapper .col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+#seventhemeswrapper .col-12-sm { width: $width; }
+
+@media only screen and (min-width: $breakpoint-med) {
+  #seventhemeswrapper .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
+  #seventhemeswrapper .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
+  #seventhemeswrapper .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
+  #seventhemeswrapper .col-4 { width: ($width / 3) - ($gutter * 8 / 12); }
+  #seventhemeswrapper .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+  #seventhemeswrapper .col-6 { width: ($width / 2) - ($gutter * 6 / 12); }
+  #seventhemeswrapper .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+  #seventhemeswrapper .col-8 { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+  #seventhemeswrapper .col-9 { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+  #seventhemeswrapper .col-10 { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+  #seventhemeswrapper .col-11 { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  #seventhemeswrapper .col-12 { width: $width; }
+
+  #seventhemeswrapper .hidden-sm {
+    display: block;
+  }
+}
