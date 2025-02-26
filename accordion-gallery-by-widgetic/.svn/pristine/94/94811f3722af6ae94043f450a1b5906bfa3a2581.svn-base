@@ -1,0 +1,676 @@
+{
+  "id": "542173f409c7e222028b4568",
+  "category": "photo",
+  "content": [
+    {
+      "label": "Nature",
+      "value": "1",
+      "content": [
+        {
+          "order": "1",
+          "image": "https:\/\/files.widgetic.com\/file\/widgetic-uploads\/assets\/photo\/image01.jpg",
+          "titleText": "Juice",
+          "descriptionText": "Serve fresh pressed organic juice daily!"
+        },
+        {
+          "order": "2",
+          "image": "https:\/\/files.widgetic.com\/file\/widgetic-uploads\/assets\/photo\/image02.jpg",
+          "titleText": "Appetizers",
+          "descriptionText": "Begin your dinner or party with an appetizer.",
+          "href": "http:\/\/widgetic.com",
+          "target": "_blank"
+        },
+        {
+          "order": "3",
+          "image": "https:\/\/files.widgetic.com\/file\/widgetic-uploads\/assets\/photo\/image03.jpg",
+          "titleText": "Side menus",
+          "descriptionText": "Wide variety of pasta, potatos, risotto and more."
+        }
+      ]
+    }
+  ],
+  "contentMeta": {
+    "options": {
+      "max": 500,
+      "min": 1,
+      "free_user_limit": 5,
+      "notification": {
+        "min": "Please add at least one item!",
+        "max": "You reached the maximum number of items."
+      },
+      "mainAttribute": "image",
+      "preview": "core\/controls\/image\/preview"
+    },
+    "browser": {
+      "options": {
+        "types": [
+          "image"
+        ],
+        "attribute": "image"
+      },
+      "sources": {
+        "blogvio": {
+          "browser": "browser\/controller\/blogvio",
+          "module": "editor\/content\/service\/blogvio"
+        },
+        "dropbox": {
+          "module": "editor\/content\/service\/dropbox"
+        },
+        "google-drive": {
+          "module": "editor\/content\/service\/google-drive"
+        },
+        "facebook": {
+          "module": "editor\/content\/service\/facebook"
+        },
+        "instagram": {
+          "module": "editor\/content\/service\/instagram"
+        },
+        "flickr": {
+          "module": "editor\/content\/service\/flickr"
+        }
+      }
+    },
+    "input": {
+      "attribute": "image",
+      "control": "core\/controls\/image",
+      "options": {
+        "help_text": "",
+        "placeholder": "Add URL to image file (jpg, jpeg, png, gif)",
+        "preview": true
+      }
+    },
+    "attributes": {
+      "image": {
+        "control": "core\/controls\/image",
+        "options": {
+          "help_text": "",
+          "label": "Image",
+          "placeholder": "Add URL to image file (jpg, jpeg, png, gif)",
+          "readonly": true,
+          "preview": true
+        }
+      },
+      "titleText": {
+        "control": "core\/controls\/text",
+        "options": {
+          "help_text": " Set the title text for the slide.",
+          "label": "Title",
+          "default": "",
+          "placeholder": "Add text"
+        }
+      },
+      "descriptionText": {
+        "control": "core\/controls\/text",
+        "options": {
+          "help_text": "Set the description text for the slide.",
+          "label": "Description",
+          "default": "",
+          "placeholder": "Add text"
+        }
+      },
+      "href": {
+        "control": "core\/controls\/url",
+        "options": {
+          "label": "Web Address",
+          "placeholder": "Add address here",
+          "help_text": "Set the URL to open on click."
+        }
+      },
+      "target": {
+        "control": "core\/controls\/dropdown",
+        "options": {
+          "label": "Open link",
+          "help_text": "Select the window in which the link will open if clicked.",
+          "default": "_blank",
+          "options": [
+            {
+              "label": "In a new page",
+              "value": "_blank"
+            },
+            {
+              "label": "In the same page",
+              "value": "_top"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "css": ".widget-container{width:560;height:1250}.image{position:static;-webkit-transform:translate3d(-50%,-50%,0);-moz-transform:translate3d(-50%,-50%,0);-o-transform:translate3d(-50%,-50%,0);-ms-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);-webkit-filter:blur(0);display:inline-block}.image,.container-image{-webkit-backface-visibility:visible;-moz-backface-visibility:visible;-ms-backface-visibility:visible;backface-visibility:visible}.container-image{position:absolute;top:0;left:0;overflow:hidden;font-family:'Oswald';-webkit-transition:opacity 200ms;-moz-transition:opacity 200ms;-o-transition:opacity 200ms;-ms-transition:opacity 200ms;transition:opacity 200ms;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;background-position:50% 50%}.image-description{left:0;right:0;bottom:0;top:0;position:absolute;pointer-events:none;-webkit-transition:background .3s ease;-moz-transition:background .3s ease;-o-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;-webkit-perspective:1000}-webkit-backface-visibility hidden .image-title,.widget-accordion-gallery .image-title{left:0;right:0;bottom:0;top:0;position:absolute;pointer-events:none;-webkit-backface-visibility:hidden;text-align:center}.text-title{-webkit-transition:all 0;-moz-transition:all 0;-o-transition:all 0;-ms-transition:all 0;transition:all 0;display:inline-block;opacity:0;-ms-filter:\"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";filter:alpha(opacity=0);top:50%;left:50%;white-space:nowrap;-webkit-perspective:1000}.text-title,.text-description{position:absolute;z-index:10;-webkit-filter:blur(0);-webkit-font-smoothing:antialiased;-webkit-backface-visibility:hidden}.text-description{right:0;bottom:0;opacity:.99;-ms-filter:\"progid:DXImageTransform.Microsoft.Alpha(Opacity=99)\";filter:alpha(opacity=99)}.centered-image{top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.widget-accordion-gallery{text-align:left;width:100%;height:100%;-webkit-transform:translate3d(0,0,0);-webkit-backface-visibility:hidden}.no-transition,.no-transition *{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}",
+  "description": "Display your images in vertical strips",
+  "js": "window.require.define({accordion_gallery_widget:function(t,i,e){e.exports=function(t){function i(n){if(e[n])return e[n].exports;var o=e[n]={exports:{},id:n,loaded:!1};return t[n].call(o.exports,o,o.exports,i),o.loaded=!0,o.exports}var e={};return i.m=t,i.c=e,i.p=\"lib\/\",i(0)}([function(t,i,e){var n,o,r,s,a,l,c,h=function(t,i){return function(){return t.apply(i,arguments)}},d={}.hasOwnProperty,u=function(t,i){function e(){this.constructor=t}for(var n in i)d.call(i,n)&&(t[n]=i[n]);return e.prototype=i.prototype,t.prototype=new e,t.__super__=i.prototype,t};e(6),e(4),o=e(1),c=e(7),s=e(2),r=e(3),a=\"<link href='https:\/\/fonts.googleapis.com\/css?family=Oswald' rel='stylesheet' type='text\/css'>\",n=function(t){function i(){this._arrangeItems=h(this._arrangeItems,this),this._autoPlay=h(this._autoPlay,this),this._playSlideInstantly=h(this._playSlideInstantly,this),this._playSlide=h(this._playSlide,this),this._onItemDestroy=h(this._onItemDestroy,this),this.initializeVertical=h(this.initializeVertical,this),this.initializeHorizontal=h(this.initializeHorizontal,this),this.checkTextAndDscription=h(this.checkTextAndDscription,this),this._mouseLeave=h(this._mouseLeave,this),this.reInitialize=h(this.reInitialize,this),this._tapMobile=h(this._tapMobile,this),this._mouseDown=h(this._mouseDown,this),this.sendSkin=h(this.sendSkin,this),this.changeStyle=h(this.changeStyle,this),this.changeSkin=h(this.changeSkin,this),this._onResize=h(this._onResize,this),this._changeOrder=h(this._changeOrder,this),this._destroyItem=h(this._destroyItem,this),console.log,console.log(c.is_touch),c.is_touch&&(i.prototype.events={\"touchstart .container-image\":\"_tapMobile\"}),i.__super__.constructor.apply(this,arguments),$(window).on(\"resize\",this._onResize),$(\"head\").append(a)}var e;return u(i,t),i.prototype.className=\"widget widget-accordion-gallery\",i.prototype.children=[],i.prototype.events={\"tap .container-image\":\"_tapMobile\",\"click .container-image\":\"_mouseDown\",\"mouseover .container-image\":\"_mouseOver\",mouseleave:\"_mouseLeave\"},i.prototype.index=0,e=!0,i.prototype.order=0,i.prototype.changeOrientation=!1,i.prototype.mouseOver=!0,i.prototype.horizontal=!0,i.prototype.vertical=!1,i.prototype.firstTime=!0,i.prototype.randomize=!1,i.prototype.interval=null,i.prototype.arangeItemsInterval=null,i.prototype.firstInitialize=!0,i.prototype.skin_copy={},i.prototype.distanceItems=0,i.prototype.getControllers=function(){return this.controllers=this.el.children().map(function(t,i){return $(i).controller()}).toArray()},i.prototype.addContent=function(t){var i,e;return i=new r({item:t,skin_copy:this.skin_copy}),this.el.addClass(\"no-transition\"),setTimeout(function(t){return function(){return t.el.removeClass(\"no-transition\")}}(this),10),this.children.push(i),console.log(c,\"isTouch\"),i.setSkin(this.skin_copy,this.slideOnHover),e=this.children.length-1,this.el.append(i.el),this._playSlideInstantly(),this.ready=!1,this.changeOrientation=0===this.el.find(\"style\").index()?!0:!1,clearInterval(this.play),clearTimeout(null!=this.a),clearInterval(null!=this.initInterval),this.ready=!0,i.on(\"_onItemDestroy\",this._onItemDestroy),i.on(\"imageReady\",this.reInitialize),setTimeout(function(t){return function(){return i.on(\"getSkin\",t.sendSkin)}}(this),100),i.bind(\"create\",function(t){return function(i){return t._destroyItem(i)}}(this)),i.bind(\"arrangeItems\",this._arrangeItems),i.bind(\"changeOrder\",function(t){return function(i,e){return t._changeOrder(i,e-1)}}(this)),i.bind(\"doAnAccordion\",this.reInitialize),this},i.prototype._destroyItem=function(t){return this.children.splice(t-1,1),clearInterval(this.play),this.verticalDirection?this.initializeVertical(this.index,!0):this.initializeHorizontal(this.index,!0),this._autoPlay()},i.prototype._changeOrder=function(t,i){return this.children[i]=t,clearInterval(this.play),this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index),this._autoPlay()},i.prototype.clearContent=function(){return $.each(this.children,function(t,i){return i.release()}),this.children=[],this},i.prototype._onResize=function(){var t;return t=this.children.length,clearInterval(this.play),t?(this.skin_copy.verticalDirection?this.initializeVertical(this.index,!0):this.initializeHorizontal(this.index,!0),this._autoPlay()):void 0},i.prototype.changeSkin=function(t,i){var e,n,r,s,a,c,h,d,u,p,m;return h=t.titleFontStyle||{family:\"Oswald\",style:\"Regular\",size:t.titleFontSize},e=t.descriptionFontStyle||{family:\"Oswald\",style:\"Regular\",size:t.descriptionFontSize},this.lastFontDescription=e,this.lastFontTitle=h,this.el.css({\"background-color\":this.skin.backgroundcolor}),this.autoPlay=this.skin.slideTime,this.loopSlideshow=this.skin.loopSlideshow,this.slideOnHover=this.skin.slideOnHover,this.maximumSpace=this.skin.maximumSpace\/100,this.skin_copy=this.skin,this.distanceItems=this.skin.distanceBetweenItems>10?10:this.skin.distanceBetweenItems,this.skin.distanceBetweenItems<0&&(this.distanceItems=0),d=\"visible\",\"titleFontStyle\"===(null!=i?i.attribute:void 0)&&(d=\"hidden\"),(void 0===(u=null!=i?i.attribute:void 0)||\"randomizeOrder\"===u||\"verticalDirection\"===u||\"titleColor\"===u||\"descriptionColor\"===u||\"backgroundcolor\"===u||\"slideColor\"===u)&&this.el.addClass(\"no-transition\"),a=\".widget-accordion-gallery .text-title {margin-top: 0px;  font-family: '\"+this.lastFontTitle.family+\"';\"+l((null!=(p=this.lastFontTitle)?p.style:void 0)||\"\")+\"; font-size:\"+this.lastFontTitle.size+\"px; transition: opacity \"+this.skin.animationSpeed\/8+\"ms, color \"+this.skin.animationSpeed\/2+\"ms; color: \"+this.skin.titleColor+\";}\",s=\".widget-accordion-gallery .text-description { color: \"+this.skin.descriptionColor+\"; background: \"+this.skin.descriptionBackgroundColor+\"; font-family: '\"+this.lastFontDescription.family+\"';\"+l((null!=(m=this.lastFontDescription)?m.style:void 0)||\"\")+\"; font-size:\"+this.lastFontDescription.size+\"px; margin-top: -\"+this.skin.distanceBetweenItems\/2+\"px;  padding: \"+Math.min(this.skin.descriptionPadding,15)+\"px; padding-right: \"+Math.max(this.skin.descriptionPadding,4)+\"px;}\",this.skin.verticalDirection?(n=\".widget-accordion-gallery .image-title { top: 0px; bottom: 0px; transition: background-color \"+this.skin.animationSpeed\/2+\"ms, opacity \"+this.skin.animationSpeed\/1.5+\"ms;}\\n.widget-accordion-gallery .container-image:last-of-type .text-title {margin-top: 0px;}\\n.widget-accordion-gallery .container-image:hover .text-title { color: \"+(this.skin.titleHoverColor||this.skin.titleColor)+\" !important; }\\n.widget-accordion-gallery .text-title {position: static;}\\n\",c=\"\"+a+\"\\n\"+s+\"\\n\"+n):(n=\".widget-accordion-gallery .image-title { left: 0px; right: 0px; transition: background-color \"+this.skin.animationSpeed\/2+\"ms,  opacity \"+this.skin.animationSpeed\/1.5+\"ms;}\\n.widget-accordion-gallery .container-image:last-of-type .text-description {right: 0px;}\\n.widget-accordion-gallery .transition-speed { transition: background-color \"+this.skin.animationSpeed+\"ms; }\\n.widget-accordion-gallery .container-image:hover .text-title { color: \"+(this.skin.titleHoverColor||this.skin.titleColor)+\" !important; }\",c=\"\"+a+\"\\n\"+s+\"\\n\"+n),this.style.append(n),r=function(t){return function(){return t.style.text(c),$.each(t.getControllers(),function(t,i){return setTimeout(function(){return function(){return i.renderText()}}(this),0)})}}(this),this.changeStyle(i),\"titleFontStyle\"===(null!=i?i.attribute:void 0)?o.load({families:[h.family],source:h.source},window).then(function(){return function(){return r()}}(this)):\"descriptionFontStyle\"===(null!=i?i.attribute:void 0)?o.load({families:[e.family],source:e.source},window).then(function(){return function(){return r()}}(this)):o.load({families:[h.family],source:h.source},window).then(function(){return function(){return o.load({families:[e.family],source:e.source},window).then(function(){return r()})}}(this))},i.prototype.changeStyle=function(t){var i,e;return i=null!=t?t.attribute:void 0,this.firstTime?(e=1e3,i=\"randomizeOrder\"):(e=this.skin.animationSpeed,i=null!=t?t.attribute:void 0),setTimeout(function(t){return function(){return t.el.removeClass(\"no-transition\")}}(this),50),(\"randomizeOrder\"===i||this.randomize!==this.skin.randomizeOrder&&this.ready)&&(this.skin.randomizeOrder?(this.shuffleElements(),this.skin_copy.verticalDirection?this.initializeVertical(this.index,!0):this.initializeHorizontal(this.index,!0)):this.ready&&this.getControllers().forEach(function(){return function(t){return t.insertItemNormally()}}(this))),this.firstTime=!1,this.randomize=this.skin_copy.randomizeOrder,this.skin_copy.verticalDirection?this.initializeVertical(this.index,!0):this.initializeHorizontal(this.index,!0),this.verticalDirection=this.skin_copy.verticalDirection,this.getControllers().forEach(function(){return function(t){return t.updateSkin()}}(this)),clearInterval(this.play),this._autoPlay()},i.prototype.sendSkin=function(){return this.getControllers().forEach(function(t){return function(i){return i.setSkin(t.skin_copy,t.slideOnHover)}}(this))},i.prototype._mouseOver=function(t){return clearInterval(this.play),this.slideOnHover?t?(this.index=this.el.find(\".container-image\").index($(t.currentTarget)),this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index)):this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index):void 0},i.prototype._mouseDown=function(t){return console.log(\"here2?\"),this.slideOnHover?void 0:t?(this.index=this.el.find(\".container-image\").index($(t.currentTarget)),clearInterval(this.play),this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index)):this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index)},i.prototype._tapMobile=function(t){return clearInterval(this.play),console.log(\"here?\"),t?(this.index=this.el.find(\".container-image\").index($(t.currentTarget)),clearInterval(this.play),this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index)):this.verticalDirection?this.initializeVertical(this.index):this.initializeHorizontal(this.index),this._autoPlay(),t.stopPropagation()},i.prototype.reInitialize=function(){return this.el.addClass(\"no-transition\"),setTimeout(function(t){return function(){return t.el.removeClass(\"no-transition\")}}(this),10),clearInterval(this.play),this.verticalDirection?this.initializeVertical(this.index,!0):this.initializeHorizontal(this.index,!0),this._autoPlay()},i.prototype._mouseLeave=function(){return clearInterval(this.play),this._autoPlay()},i.prototype.checkTextAndDscription=function(t){return this.getControllers()[t]?(this.getControllers()[t]._onMouseOver(),$.each(this.getControllers(),function(i,e){return i!==t&&e._onMouseLeave(),e._onAlignTextHorizontal()})):void 0},i.prototype.initializeHorizontal=function(t,i){var e,n,o,r,s,a,l,c,h,d,u,p;return e=i?0:this.skin_copy.animationSpeed,l=this.el.find(\".container-image\"),l.height(\"100%\"),n=this.el.height(),o=this.el.width(),h=l.length,t>=h&&(t=h-1),0>t&&(t=0),u=$(l[t]),(s=u.controller())?(p=[s.originalWidth,s.originalHeight],r=this.distanceItems,a=Math.round(n*p[0]\/p[1]),a>(o-this.distanceItems*h)*this.maximumSpace&&(a=(o-this.distanceItems*h)*this.maximumSpace),c=o-a,d=Math.round(c\/(h-1)-this.distanceItems),this.getControllers()[t]&&(this.getControllers()[t]._onMouseOver(a),$.each(this.getControllers(),function(i,e){return i!==t&&e._onMouseLeave(),e._onAlignTextHorizontal(),e.renderText()})),c=0,this.getControllers().forEach(function(i){return function(s,l){var u,m;return s.destroyed===!0?setTimeout(function(){return s.onRelease()},i.skin_copy.animationSpeed\/2):(p=[s.originalWidth,s.originalHeight],u=Math.ceil(n*p[0]\/p[1]),m=l===h-1?o-c:l===t?Math.min(a,u):Math.min(d,u),l===t&&s.description.width(m),s.el.stop().animate({top:0,left:c,width:m},{duration:e,easing:\"easeOutExpo\"}),c+=m+r||0)}}(this))):void 0},i.prototype.initializeVertical=function(t,i){var e,n,o,r,s,a,l,c,h,d,u,p,m;return n=i?0:this.skin_copy.animationSpeed,c=this.el.find(\".container-image\"),c.width(\"100%\"),c.find(\"img\").width(\"100%\"),r=this.el.width(),o=this.el.height(),h=c.length,t>h&&(t=h-1),0>t&&(t=0),u=$(c[t]),(l=u.controller())?(m=[l.originalWidth,l.originalHeight],s=this.distanceItems,a=Math.round(r*m[1]\/m[0]),a>(o-this.distanceItems*h)*this.maximumSpace&&(a=(o-this.distanceItems*h)*this.maximumSpace),p=Math.round(o-a),d=Math.round(p\/(h-1)-this.distanceItems),this.getControllers()[t]&&(this.getControllers()[t]._onMouseOver(r),$.each(this.getControllers(),function(i,e){return i!==t&&e._onMouseLeave(),e._onAlignTextVertical(),e.renderText()})),p=0,e=0,this.getControllers().forEach(function(i){return function(e,l){var c,u;return e.destroyed===!0?setTimeout(function(){return e.onRelease()},i.skin_copy.animationSpeed\/2):(m=[e.originalWidth,e.originalHeight],u=Math.ceil(r*m[1]\/m[0])+1.5,e.el.find(\".image-description\").width(\"auto\"),c=l===h-1?o-p:Math.round(l===t?Math.min(a,u):Math.min(d,u)),e.el.stop().animate({left:0,top:Math.round(p),height:c},{duration:n,easing:\"easeOutQuint\"}),e.setLineHeight(c),p+=c+s||0)}}(this))):void 0},i.prototype._onItemDestroy=function(){var t,i;return t=this.el.find(\".container-image\"),i=t.length,this.el.addClass(\"no-transition\"),setTimeout(function(t){return function(){return t.el.removeClass(\"no-transition\")}}(this),10),this.index>i-1&&i?(this.index=i-1,this.verticalDirection?this.initializeVertical(this.index-1,!0,!0):this.initializeHorizontal(this.index-1,!0,!0),clearInterval(this.play),this._autoPlay()):this.index>=0&&i?(this.verticalDirection?this.initializeVertical(this.index-1,!0,!0):this.initializeHorizontal(this.index-1,!0,!0),clearInterval(this.play),this._autoPlay()):void 0},i.prototype._playSlide=function(){return setTimeout(function(t){return function(){return t.verticalDirection?t.initializeVertical(t.index):t.initializeHorizontal(t.index)}}(this),50)},i.prototype._playSlideInstantly=function(){return this.verticalDirection?this.initializeVertical(this.index,!0):this.initializeHorizontal(this.index,!0)},i.prototype._autoPlay=function(){var t,i;return t=this.el.find(\".container-image\"),i=t.length,setTimeout(function(t){return function(){var e,n;return clearInterval(t.play),t.autoPlay>0&&i>1?(n=0,!t.loopSlideshow&&t.randomizeOrder&&(e=t.shuffleArray(i)),t.play=setInterval(function(){return t.loopSlideshow?t.randomizeOrder?(null==e&&(e=t.shuffleArray(i)),i>n?(t.index=e[n],n++):(n=1,e=t.shuffleArray(i),t.index===e[0]?(t.index=e[1],n++):t.index=e[0])):(t.index++,t.index>=i&&(t.index=0)):t.randomizeOrder?i>n?(t.index=e[n],n++):(t.index=e[0],clearInterval(t.play)):(t.index++,t.index>=i&&(clearInterval(t.play),t.index=0)),t._playSlide()},t.skin_copy.slideTime+t.skin_copy.animationSpeed)):void 0}}(this),0)},i.prototype._arrangeItems=function(){return clearTimeout(this.arangeItemsInterval),this.arangeItemsInterval=setTimeout(function(t){return function(){return t.getControllers().forEach(function(t){return t.insertItemNormally()}),t.el.addClass(\"no-transition\"),setTimeout(function(){return t.el.removeClass(\"no-transition\")},10),t.verticalDirection?t.initializeVertical(t.index,!0):t.initializeHorizontal(t.index,!0)}}(this),50)},i.prototype.shuffleArray=function(t){var i,e,n,o,r;for(i=[],n=0;t>n;)i.push(n),n++;for(e=t,r=0,o=0;e;)o=Math.floor(Math.random()*e),e-=1,r=i[e],i[e]=i[o],i[o]=r;return i},i.prototype.shuffleElements=function(){var t,i;for(t=this.el.children(\".container-image\"),i=[];t.length;)i.push(this.el.append(t.splice(Math.floor(Math.random()*t.length),1)[0]));return i},i}(s),l=function(t){var i;return i=\/italic\/i.test(t),i&&(t=t.replace(\/italic\/i,\"\")),\/regular\/i.test(t)&&(t=\"normal\"),t=\"font-weight: \"+(t||\"normal\")+\"; font-style: \"+(i?\"italic\":\"normal\")},t.exports=n},function(t){t.exports=window.require(\"core\/controller\/font-loader\")},function(t){t.exports=window.require(\"core\/widget\")},function(t,i,e){var n,o,r=function(t,i){return function(){return t.apply(i,arguments)}},s={}.hasOwnProperty,a=function(t,i){function e(){this.constructor=t}for(var n in i)s.call(i,n)&&(t[n]=i[n]);return e.prototype=i.prototype,t.prototype=new e,t.__super__=i.prototype,t};n=e(5),o=function(t){function i(t){this.release=r(this.release,this),this.loadWithoutMeta=r(this.loadWithoutMeta,this),this.saveOriginalDimensions=r(this.saveOriginalDimensions,this),this.setSkin=r(this.setSkin,this),this.centerTextAndImage=r(this.centerTextAndImage,this),this._onAlignTextHorizontal=r(this._onAlignTextHorizontal,this),this._onAlignTextVertical=r(this._onAlignTextVertical,this),this._onItemDestroy=r(this._onItemDestroy,this),this.onRelease=r(this.onRelease,this),this._onClickImage=r(this._onClickImage,this),this.updateSkin=r(this.updateSkin,this),this._onItemUpdate=r(this._onItemUpdate,this),i.__super__.constructor.apply(this,arguments),this.originalWidth=this.item._metadata(\"width\")||this.item.width,this.originalHeight=this.item._metadata(\"height\")||this.item.height,this.title=$(\"<div class='image-title'><span class='text-title'><\/span><\/div>\"),this.description=$(\"<a class='image-description'><span class='text-description'><\/span><\/a>\"),this.el.append(this.title),this.el.append(this.description),this.originalWidth&&this.originalHeight?(this.state=!0,setTimeout(function(t){return function(){return t.trigger(\"imageReady\")}}(this),20),this.imageLoaded=imagesLoaded(this.el,this.loadWithoutMeta)):this.imageLoaded=imagesLoaded(this.el,this.saveOriginalDimensions),this.lastItem=t.item.order,this.textTitle=this.title.find(\".text-title\"),this.textDescription=this.description.find(\".text-description\"),setTimeout(function(i){return function(){return i.trigger(\"getSkin\"),i.textTitle.text(t.item.titleText).css({color:i.skin_copy.titleColor,opacity:1}),i.textDescription.text(t.item.descriptionText).css({color:i.skin_copy.descriptionColor,background:i.skin_copy.descriptionBackgroundColor}),i.open&&i.textDescription.css({opacity:1}),i.renderText()}}(this),50),this.item=t.item,this.listenTo(this.item,\"update\",this._onItemUpdate),this.listenTo(this.item,\"destroy\",this._onItemDestroy),\"\"===this.item.descriptionText&&this.description.css({opacity:0}),this.link=this.item.href}return a(i,t),i.prototype.tag=\"div\",i.prototype.className=\"container-image\",i.prototype.linkOk=!1,i.prototype.open=!0,i.prototype.hover=!0,i.prototype.firstTime=!0,i.prototype.destroyed=!1,i.prototype.state=!1,i.prototype.leftWidth=0,i.prototype.topHeight=0,i.prototype.events={\"click \":\"_onClickImage\",mouseover:\"_MouseOver\",mouseleave:\"_MouseLeave\"},i.prototype._onItemUpdate=function(t,i){var e,n;return this.el.attr(\"data-href\",t.href),e=null!=i?i.attribute:void 0,n=!e,\"order\"===e&&this.trigger(\"arrangeItems\"),this.item=t,this.widgetImages=$(\".widget\").find(\".container-image\"),this.link=this.item.href,this.textTitle.text(t.titleText||\"\").css({color:this.skin.titleColor}),this.textDescription.text(t.descriptionText||\"\").css({color:this.skin.descriptionColor,background:this.skin.descriptionBackgroundColor}),this.renderText(),\"titleText\"===e&&this.trigger(\"doAnAccordion\"),this.title.css({background:this.item.slideColor}),this.lastItem=this.item.order},i.prototype.updateSkin=function(){var t;return this.textTitle.css({color:this.skin.titleColor}),this.textDescription.css({color:this.skin.descriptionColor,background:this.skin.descriptionBackgroundColor}),t=\"background-color 0s, opacity 0s\",this.title.css({transition:t,background:this.item.slideColor})},i.prototype.insertItemNormally=function(){return this.widgetImages=$(\".widget\").find(\".container-image\"),this.el.insertBefore(this.widgetImages.eq(this.item.order-1))},i.prototype._onMouseOver=function(){var t;return this.trigger(\"getSkin\"),t=\"background-color \"+this.skin.animationSpeed\/2+\"ms,opacity \"+this.skin.animationSpeed\/1+\"ms\",this.title.css({transition:t}),this.detectLink(),this.open=!0,this.title.css({opacity:0}),this.textTitle.css({opacity:0}),clearTimeout(this.textTransition),this.textDescription.text()?this.description.stop().animate({opacity:1},this.skin.animationSpeed\/2):void 0},i.prototype._MouseOver=function(){var t,i;return this.trigger(\"getSkin\"),t=\"background-color \"+this.skin.animationSpeed\/2+\"ms, opacity \"+this.skin.animationSpeed\/1+\"ms\",this.title.css({transition:t}),this.skin.slideOnHover?this.detectLink():this.open?this.detectLink():this.el.css({cursor:\"pointer\"}),i=this.skin.slideHoverColor,this.hover||this.open||(this.title.css({background:i,opacity:1}),this.textTitle.css({opacity:1})),this.open?(this.title.css({opacity:0}),this.textTitle.css({opacity:0})):void 0},i.prototype.detectLink=function(){return this.link?(this.open?this.el.css({cursor:\"pointer\"}):this.correctLink&&clearTimeout(this.correctLink),this.correctLink=setTimeout(function(t){return function(){return t.linkOk=!0,t.el.css({cursor:\"pointer\"})}}(this),this.skin.animationSpeed\/2)):(this.el.css({cursor:\"default\"}),this.linkOk=!1)},i.prototype._onMouseLeave=function(){var t;return this.trigger(\"getSkin\"),t=this.skin.slideColor,this.open=!1,this.linkOk=!1,clearTimeout(this.textTransition),this.title.css({background:t,opacity:1}),this.textTitle.css({opacity:1}),this.description.finish().animate({opacity:0},this.skin.animationSpeed\/10)},i.prototype._MouseLeave=function(){var t;return this.el.css({cursor:\"default\"}),t=this.skin.slideColor,this.hover||this.open?void 0:(this.title.css({background:t,opacity:1}),this.textTitle.css({opacity:1}))},i.prototype._onClickImage=function(){return this.open?this.linkOk&&(this.link&&\"_top\"===this.item.target&&(top.location=this.link),this.link&&\"_blank\"===this.item.target)?window.open(this.link):void 0:(this.link?(this.el.css({cursor:\"pointer\"}),this.linkOk=!0):(this.el.css({cursor:\"default\"}),this.linkOk=!1),this.open=!0)},i.prototype.onRelease=function(){return this.release()},i.prototype._onItemDestroy=function(){return this.destroyed=!0,this.el.fadeOut(0),this.el.remove(),this.trigger(\"_onItemDestroy\")},i.prototype._onAlignTextVertical=function(){return this.textTitle.css({transform:\"\"})},i.prototype._onAlignTextHorizontal=function(){return this.textTitle.css({transform:\"translate3d(-50%, -50%, 0) rotate(-90deg)\"})},i.prototype.setLineHeight=function(t){return this.textTitle.css({\"line-height\":t+\"px\"})},i.prototype.centerTextAndImage=function(){},i.prototype.renderText=function(){var t;return this.textTitle.width(\"\"),t=this.textTitle.width(),this.isOdd(t)?this.textTitle.width(t+1):void 0},i.prototype.setSkin=function(t,i){return this.skin=t,this.hover=i},i.prototype.saveOriginalDimensions=function(){var t;return t=$(\"<img\/>\").attr(\"src\",this.item.image),t.load(function(i){return function(e){var n;return n=e.target,i.originalWidth=t[0].naturalWidth,i.originalHeight=t[0].naturalHeight,i.item._metadata(\"width\",i.originalWidth),i.item._metadata(\"height\",i.originalHeight),i.el.css({\"background-image\":\"url(\"+i.item.image+\")\"}),i.state=!0,setTimeout(function(){return i.trigger(\"imageReady\"),i.el.css({opacity:1})})}}(this))},i.prototype.loadWithoutMeta=function(){var t;return t=$(\"<img\/>\").attr(\"src\",this.item.image),t.load(function(t){return function(){return t.el.css({\"background-image\":\"url(\"+t.item.image+\")\"}),setTimeout(function(){return t.el.addClass(\"no-transition\"),setTimeout(function(){return t.el.removeClass(\"no-transition\")},10),t.el.css({opacity:1})},100)}}(this))},i.prototype.isOdd=function(t){return t%2},i.prototype.release=function(){return i.__super__.release.apply(this,arguments),this.deleted=!0,this.el.hide()},i}(n),t.exports=o},function(){jQuery.easing.jswing=jQuery.easing.swing,jQuery.extend(jQuery.easing,{def:\"easeOutQuad\",swing:function(t,i,e,n,o){return jQuery.easing[jQuery.easing.def](t,i,e,n,o)},easeInQuad:function(t,i,e,n,o){return n*(i\/=o)*i+e},easeOutQuad:function(t,i,e,n,o){return-n*(i\/=o)*(i-2)+e},easeInOutQuad:function(t,i,e,n,o){return(i\/=o\/2)<1?n\/2*i*i+e:-n\/2*(--i*(i-2)-1)+e},easeInCubic:function(t,i,e,n,o){return n*(i\/=o)*i*i+e},easeOutCubic:function(t,i,e,n,o){return n*((i=i\/o-1)*i*i+1)+e},easeInOutCubic:function(t,i,e,n,o){return(i\/=o\/2)<1?n\/2*i*i*i+e:n\/2*((i-=2)*i*i+2)+e},easeInQuart:function(t,i,e,n,o){return n*(i\/=o)*i*i*i+e},easeOutQuart:function(t,i,e,n,o){return-n*((i=i\/o-1)*i*i*i-1)+e},easeInOutQuart:function(t,i,e,n,o){return(i\/=o\/2)<1?n\/2*i*i*i*i+e:-n\/2*((i-=2)*i*i*i-2)+e},easeInQuint:function(t,i,e,n,o){return n*(i\/=o)*i*i*i*i+e},easeOutQuint:function(t,i,e,n,o){return n*((i=i\/o-1)*i*i*i*i+1)+e},easeInOutQuint:function(t,i,e,n,o){return(i\/=o\/2)<1?n\/2*i*i*i*i*i+e:n\/2*((i-=2)*i*i*i*i+2)+e},easeInSine:function(t,i,e,n,o){return-n*Math.cos(i\/o*(Math.PI\/2))+n+e},easeOutSine:function(t,i,e,n,o){return n*Math.sin(i\/o*(Math.PI\/2))+e},easeInOutSine:function(t,i,e,n,o){return-n\/2*(Math.cos(Math.PI*i\/o)-1)+e},easeInExpo:function(t,i,e,n,o){return 0==i?e:n*Math.pow(2,10*(i\/o-1))+e},easeOutExpo:function(t,i,e,n,o){return i==o?e+n:n*(-Math.pow(2,-10*i\/o)+1)+e},easeInOutExpo:function(t,i,e,n,o){return 0==i?e:i==o?e+n:(i\/=o\/2)<1?n\/2*Math.pow(2,10*(i-1))+e:n\/2*(-Math.pow(2,-10*--i)+2)+e},easeInCirc:function(t,i,e,n,o){return-n*(Math.sqrt(1-(i\/=o)*i)-1)+e},easeOutCirc:function(t,i,e,n,o){return n*Math.sqrt(1-(i=i\/o-1)*i)+e},easeInOutCirc:function(t,i,e,n,o){return(i\/=o\/2)<1?-n\/2*(Math.sqrt(1-i*i)-1)+e:n\/2*(Math.sqrt(1-(i-=2)*i)+1)+e},easeInElastic:function(t,i,e,n,o){var r=1.70158,s=0,a=n;if(0==i)return e;if(1==(i\/=o))return e+n;if(s||(s=.3*o),a<Math.abs(n)){a=n;var r=s\/4}else var r=s\/(2*Math.PI)*Math.asin(n\/a);return-(a*Math.pow(2,10*(i-=1))*Math.sin(2*(i*o-r)*Math.PI\/s))+e},easeOutElastic:function(t,i,e,n,o){var r=1.70158,s=0,a=n;if(0==i)return e;if(1==(i\/=o))return e+n;if(s||(s=.3*o),a<Math.abs(n)){a=n;var r=s\/4}else var r=s\/(2*Math.PI)*Math.asin(n\/a);return a*Math.pow(2,-10*i)*Math.sin(2*(i*o-r)*Math.PI\/s)+n+e},easeInOutElastic:function(t,i,e,n,o){var r=1.70158,s=0,a=n;if(0==i)return e;if(2==(i\/=o\/2))return e+n;if(s||(s=.3*o*1.5),a<Math.abs(n)){a=n;var r=s\/4}else var r=s\/(2*Math.PI)*Math.asin(n\/a);return 1>i?-.5*a*Math.pow(2,10*(i-=1))*Math.sin(2*(i*o-r)*Math.PI\/s)+e:a*Math.pow(2,-10*(i-=1))*Math.sin(2*(i*o-r)*Math.PI\/s)*.5+n+e},easeInBack:function(t,i,e,n,o,r){return void 0==r&&(r=1.70158),n*(i\/=o)*i*((r+1)*i-r)+e},easeOutBack:function(t,i,e,n,o,r){return void 0==r&&(r=1.70158),n*((i=i\/o-1)*i*((r+1)*i+r)+1)+e},easeInOutBack:function(t,i,e,n,o,r){return void 0==r&&(r=1.70158),(i\/=o\/2)<1?n\/2*i*i*(((r*=1.525)+1)*i-r)+e:n\/2*((i-=2)*i*(((r*=1.525)+1)*i+r)+2)+e},easeInBounce:function(t,i,e,n,o){return n-jQuery.easing.easeOutBounce(t,o-i,0,n,o)+e},easeOutBounce:function(t,i,e,n,o){return(i\/=o)<1\/2.75?7.5625*n*i*i+e:2\/2.75>i?n*(7.5625*(i-=1.5\/2.75)*i+.75)+e:2.5\/2.75>i?n*(7.5625*(i-=2.25\/2.75)*i+.9375)+e:n*(7.5625*(i-=2.625\/2.75)*i+.984375)+e},easeInOutBounce:function(t,i,e,n,o){return o\/2>i?.5*jQuery.easing.easeInBounce(t,2*i,0,n,o)+e:.5*jQuery.easing.easeOutBounce(t,2*i-o,0,n,o)+.5*n+e}})},function(t){t.exports=window.require(\"spine\/controller\")},function(){},function(t){var i;i=+(void 0!==window.ontouchstart),t.exports={mousedown:[\"mousedown\",\"touchstart\"][i],mouseup:[\"mouseup\",\"touchend touchcancel\"][i],mouseenter:[\"mouseenter\",\"touchstart\"][i],mouseleave:[\"mouseleave\",\"touchend touchleave\"][i],mousemove:[\"mousemove\",\"touchmove\"][i],is_touch:!!i,mouse_position:function(t){var e,n,o;return e=[t,null!=(n=t.originalEvent)&&null!=(o=n.touches)?o[0]:void 0][i],{x:e.pageX,y:e.pageY}}}}])}});",
+  "module": "accordion_gallery_widget",
+  "name": "Accordion Gallery",
+  "previews": {
+    "full": "\/assets\/uploads\/widgets\/previews\/accordion-large.png",
+    "large": "\/assets\/uploads\/widgets\/previews\/accordion-large.png",
+    "small": "\/assets\/uploads\/widgets\/previews\/accordion-large.png"
+  },
+  "short_description": "Display your images in vertical strips",
+  "skinMeta": {
+    "colorAttributes": [
+      "backgroundcolor",
+      "descriptionBackgroundColor"
+    ],
+    "tabs": {
+      "Layout": {
+        "backgroundcolor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the widget's background.",
+            "label": "Background Color",
+            "default": "#ffff"
+          }
+        },
+        "slideColor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the slide.",
+            "label": "Slide Color",
+            "default": "rgba(255, 255, 255, 0)"
+          }
+        },
+        "slideHoverColor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the slide on hover.",
+            "label": "Slide Hover Color",
+            "default": "rgba(255, 255, 255, 0)"
+          }
+        },
+        "distanceBetweenItems": {
+          "control": "core\/controls\/slider",
+          "access": 1,
+          "options": {
+            "help_text": "Set the distance between any two items.",
+            "label": "Distance Between Slides",
+            "default": 0,
+            "unit": " px",
+            "min": 0,
+            "max": 10
+          }
+        },
+        "maximumSpace": {
+          "control": "core\/controls\/slider",
+          "access": 1,
+          "options": {
+            "help_text": "Set the visible area of your images.",
+            "label": "Image Visibility",
+            "default": 75,
+            "unit": " %",
+            "min": 50,
+            "max": 95
+          }
+        },
+        "verticalDirection": {
+          "control": "core\/controls\/toggle",
+          "options": {
+            "help_text": "If true, the slides will be positioned vertically.",
+            "label": "Slides Direction",
+            "values_labels": {
+              "true": "Vertical",
+              "false": "Horizontal"
+            },
+            "default": false
+          }
+        },
+        "randomizeOrder": {
+          "control": "core\/controls\/toggle",
+          "access": 1,
+          "options": {
+            "help_text": "If true, the items are displayed in a random order.",
+            "label": "Slides Shuffle",
+            "default": false
+          }
+        },
+        "slideOnHover": {
+          "control": "core\/controls\/toggle",
+          "options": {
+            "help_text": "If false, the image will show on clicking the masked items.",
+            "label": "Slide On Hover",
+            "default": true
+          }
+        },
+        "slideshow": {
+          "control": "core\/controls\/toggle",
+          "options": {
+            "help_text": "If on, the images will slide until the user interacts with any of them.",
+            "label": "Slideshow",
+            "default": false
+          }
+        },
+        "slideshowTime": {
+          "control": "core\/controls\/stepper",
+          "options": {
+            "help_text": "Change the speed of the slideshow (in seconds).",
+            "label": "Slideshow Time",
+            "default": 5,
+            "unit": " sec",
+            "min": 1,
+            "max": 10
+          }
+        }
+      },
+      "Text": {
+        "titleFontStyle": {
+          "control": "core\/controls\/font",
+          "options": {
+            "label": "Title Font Style",
+            "family": "Oswald",
+            "style": "regular",
+            "help_text": "Set the font style for the title text.",
+            "size": {
+              "default": 20,
+              "unit": " px",
+              "min": 0,
+              "max": 60
+            }
+          }
+        },
+        "titleColor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the title text.",
+            "label": "Title Color",
+            "default": "rgba(255, 255, 255, 1)"
+          }
+        },
+        "titleHoverColor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the title text on hover.",
+            "label": "Title Hover Color",
+            "default": "rgba(255, 255, 255, 1)"
+          }
+        },
+        "descriptionFontStyle": {
+          "control": "core\/controls\/font",
+          "options": {
+            "label": "Description Font Style",
+            "family": "Oswald",
+            "style": "regular",
+            "help_text": "Set the font style for the description text.",
+            "size": {
+              "default": 20,
+              "unit": " px",
+              "min": 0,
+              "max": 60
+            }
+          }
+        },
+        "descriptionPadding": {
+          "control": "core\/controls\/stepper",
+          "options": {
+            "help_text": "Set the distance between the description text and it\u2019s background margin.",
+            "label": "Description Padding",
+            "default": 2,
+            "unit": " px",
+            "min": 0,
+            "max": 15
+          }
+        },
+        "descriptionColor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the description text.",
+            "label": "Description Color",
+            "default": "rgba(255, 255, 255, 1)"
+          }
+        },
+        "descriptionBackgroundColor": {
+          "control": "core\/controls\/color",
+          "options": {
+            "help_text": "Select the color and transparency for the description\u2019s text background.",
+            "label": "Description Background Color",
+            "default": "rgba(255, 255, 255, 0)"
+          }
+        }
+      }
+    }
+  },
+  "skins": [
+    {
+      "id": "p1_542173f409c7e222028b4568",
+      "name": "Blue Slides",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(24, 70, 164)",
+      "slideColor": "rgb(39, 94, 209)",
+      "slideHoverColor": "rgb(24, 70, 164)",
+      "distanceBetweenItems": 10,
+      "verticalDirection": false,
+      "maximumSpace": 80,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": false,
+      "slideshowTime": 1,
+      "titleFontStyle": {
+        "family": "Arial",
+        "style": "regular",
+        "size": 23,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Arial",
+        "style": "regular",
+        "size": 20,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 5,
+      "titleColor": "rgb(255, 255, 255)",
+      "titleHoverColor": "rgb(255, 255, 255)",
+      "descriptionColor": "rgba(255, 255, 255, 0)",
+      "descriptionBackgroundColor": "rgba(223, 209, 186, 0)"
+    },
+    {
+      "id": "p2_542173f409c7e222028b4568",
+      "name": "Transparent Overlays",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(208, 208, 208)",
+      "slideColor": "rgba(255, 255, 255, 0)",
+      "slideHoverColor": "rgba(6, 6, 6, 0.2)",
+      "distanceBetweenItems": 1,
+      "verticalDirection": false,
+      "maximumSpace": 75,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": false,
+      "slideshowTime": 1,
+      "titleFontStyle": {
+        "family": "Oswald",
+        "style": "regular",
+        "size": 22,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Arial",
+        "style": "regular",
+        "size": 16,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 2,
+      "titleColor": "rgba(51, 51, 51, 0)",
+      "titleHoverColor": "rgba(255, 255, 255, 0)",
+      "descriptionColor": "rgb(51, 51, 51)",
+      "descriptionBackgroundColor": "rgba(246, 246, 246, 0.85)"
+    },
+    {
+      "id": "p3_542173f409c7e222028b4568",
+      "name": "Titles and Strips",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(91, 70, 34)",
+      "slideColor": "rgba(46, 30, 42, 0.5)",
+      "slideHoverColor": "rgba(46, 30, 42, 0.5)",
+      "distanceBetweenItems": 1.6981132075472,
+      "verticalDirection": false,
+      "maximumSpace": 50,
+      "randomizeOrder": true,
+      "slideOnHover": false,
+      "slideshow": false,
+      "slideshowTime": 1,
+      "titleFontStyle": {
+        "family": "Marcellus SC",
+        "style": "regular",
+        "size": 60,
+        "source": "google",
+        "category": "serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Oswald",
+        "style": "regular",
+        "size": 22,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 0,
+      "titleColor": "rgb(255, 255, 255)",
+      "titleHoverColor": "rgb(253, 255, 209)",
+      "descriptionColor": "rgba(255, 255, 255, 0)",
+      "descriptionBackgroundColor": "rgba(223, 209, 186, 0)"
+    },
+    {
+      "id": "p4_542173f409c7e222028b4568",
+      "name": "White Description",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(197, 197, 197)",
+      "slideColor": "rgba(255, 255, 255, 0)",
+      "slideHoverColor": "rgba(0, 0, 0, 0.1)",
+      "distanceBetweenItems": 1.2264150943396,
+      "verticalDirection": true,
+      "maximumSpace": 75,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": false,
+      "slideshowTime": 1,
+      "titleFontStyle": {
+        "family": "Oswald",
+        "style": "regular",
+        "size": 22,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Oswald",
+        "style": "regular",
+        "size": 26,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 10,
+      "titleColor": "rgba(255, 255, 255, 0)",
+      "titleHoverColor": "rgba(0, 0, 0, 0)",
+      "descriptionColor": "rgb(26, 24, 24)",
+      "descriptionBackgroundColor": "rgb(255, 255, 255)"
+    },
+    {
+      "id": "p5_542173f409c7e222028b4568",
+      "name": "Artistic Slides",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(221, 227, 232)",
+      "slideColor": "rgba(115, 63, 26, 0.9)",
+      "slideHoverColor": "rgba(115, 63, 26, 0.8)",
+      "distanceBetweenItems": 0,
+      "verticalDirection": false,
+      "maximumSpace": 72.712264150943,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": true,
+      "slideshowTime": 3,
+      "titleFontStyle": {
+        "family": "Actor",
+        "style": "regular",
+        "size": 26,
+        "source": "google",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Georgia",
+        "style": "regular",
+        "size": 18,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 7,
+      "titleColor": "rgba(255, 255, 255, 0.75)",
+      "titleHoverColor": "rgba(255, 255, 255, 0.9)",
+      "descriptionColor": "rgb(255, 255, 255)",
+      "descriptionBackgroundColor": "rgba(69, 54, 57, 0.44)"
+    },
+    {
+      "id": "p6_542173f409c7e222028b4568",
+      "name": "Hover Overlay",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(255, 255, 255)",
+      "slideColor": "rgb(124, 104, 76)",
+      "slideHoverColor": "rgb(124, 104, 76)",
+      "distanceBetweenItems": 10,
+      "verticalDirection": false,
+      "maximumSpace": 91.816037735849,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": true,
+      "slideshowTime": 5,
+      "titleFontStyle": {
+        "family": "Lato",
+        "style": "100",
+        "size": 30,
+        "source": "google",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Oswald",
+        "style": "regular",
+        "size": 30,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 0,
+      "titleColor": "rgba(255, 255, 255, 0)",
+      "titleHoverColor": "rgba(255, 255, 255, 0)",
+      "descriptionColor": "rgba(255, 255, 255, 0)",
+      "descriptionBackgroundColor": "rgba(223, 209, 186, 0)"
+    },
+    {
+      "id": "p7_542173f409c7e222028b4568",
+      "name": "No Overlay",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(255, 255, 255)",
+      "slideColor": "rgba(252, 252, 252, 0)",
+      "slideHoverColor": "rgba(0, 0, 0, 0)",
+      "distanceBetweenItems": 1,
+      "verticalDirection": false,
+      "maximumSpace": 85.02358490566,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": false,
+      "slideshowTime": 1,
+      "titleFontStyle": {
+        "family": "Lato",
+        "style": "100",
+        "size": 30,
+        "source": "google",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Oswald",
+        "style": "regular",
+        "size": 30,
+        "source": "local",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 0,
+      "titleColor": "rgba(255, 255, 255, 0)",
+      "titleHoverColor": "rgba(255, 255, 255, 0)",
+      "descriptionColor": "rgba(255, 255, 255, 0)",
+      "descriptionBackgroundColor": "rgba(223, 209, 186, 0)"
+    },
+    {
+      "id": "p8_542173f409c7e222028b4568",
+      "name": "Horizontal Strips",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(221, 227, 232)",
+      "slideColor": "rgb(255, 255, 255)",
+      "slideHoverColor": "rgb(247, 250, 255)",
+      "distanceBetweenItems": 1.8396226415094,
+      "verticalDirection": true,
+      "maximumSpace": 79.292452830189,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": false,
+      "slideshowTime": 1,
+      "titleFontStyle": {
+        "family": "Fasthand",
+        "style": "regular",
+        "size": 18,
+        "source": "google",
+        "category": "serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Trocchi",
+        "style": "regular",
+        "size": 20,
+        "source": "google",
+        "category": "serif"
+      },
+      "descriptionPadding": 10,
+      "titleColor": "rgba(58, 81, 129, 0.5)",
+      "titleHoverColor": "rgb(58, 81, 129)",
+      "descriptionColor": "rgba(58, 81, 129, 0.84)",
+      "descriptionBackgroundColor": "rgb(255, 255, 255)"
+    },
+    {
+      "id": "p9_542173f409c7e222028b4568",
+      "name": "Black Stripes",
+      "widget_id": "542173f409c7e222028b4568",
+      "backgroundcolor": "rgb(0, 0, 0)",
+      "slideColor": "rgb(0, 0, 0)",
+      "slideHoverColor": "rgb(0, 0, 0)",
+      "distanceBetweenItems": 0,
+      "verticalDirection": true,
+      "maximumSpace": 80.353773584906,
+      "randomizeOrder": false,
+      "slideOnHover": false,
+      "slideshow": true,
+      "slideshowTime": 3,
+      "titleFontStyle": {
+        "family": "Roboto",
+        "style": "100",
+        "size": 19,
+        "source": "google",
+        "category": "sans-serif"
+      },
+      "descriptionFontStyle": {
+        "family": "Roboto Condensed",
+        "style": "300",
+        "size": 18,
+        "source": "google",
+        "category": "sans-serif"
+      },
+      "descriptionPadding": 8,
+      "titleColor": "rgb(255, 255, 255)",
+      "titleHoverColor": "rgb(237, 235, 235)",
+      "descriptionColor": "rgb(255, 255, 255)",
+      "descriptionBackgroundColor": "rgba(0, 0, 0, 0.65)"
+    }
+  ],
+  "slug": "accordion-gallery",
+  "tags": [
+    "gallery",
+    "responsive",
+    "media gallery",
+    "grid",
+    "media",
+    "photo",
+    "image",
+    "collage",
+    "mosaic",
+    "matrice",
+    "isotope",
+    "responsive galleries",
+    "responsive gallery",
+    "images",
+    "galleries",
+    "photo gallery",
+    "thumbnails",
+    "thumbnail gallery",
+    "thumbnail galleries",
+    "picture gallery",
+    "photo albums",
+    "image gallery",
+    "image album",
+    "album",
+    "albums",
+    "picture",
+    "pictures",
+    "photos",
+    "banner",
+    "strips",
+    "sliding"
+  ],
+  "width": 560,
+  "height": 350,
+  "version": "4f2e398"
+}
