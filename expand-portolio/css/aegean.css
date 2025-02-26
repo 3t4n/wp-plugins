@@ -1,0 +1,673 @@
+/**********************************************
+ * Aegean Films :: Stylesheet
+ * Created by Lamped.co.uk
+ *********************************************/
+
+/**********************************************
+ * jScrollPane
+ *********************************************/
+
+.jspContainer { overflow: hidden; position: relative; }
+.jspPane { position: absolute; }
+.jspVerticalBar { position: absolute; top: 0; right: 0; width: 12px; height: 100%; background: red; }
+.jspHorizontalBar { position: absolute; bottom: 0; left: 0; width: 100%; height: 12px; background: red; }
+.jspVerticalBar *, .jspHorizontalBar * { margin: 0; padding: 0; }
+.jspCap { display: none; }
+.jspHorizontalBar .jspCap { float: left; }
+/*.jspTrack { background: #dde; position: relative; }
+.jspDrag { background: #bbd; position: relative; top: 0; left: 0; cursor: pointer; }*/
+.jspTrack { background: #f2f2f2; position: relative; }
+.jspDrag { background: #dfdfdf; position: relative; top: 0; left: 0; cursor: pointer; }
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag { float: left; height: 100%; }
+.jspArrow { background: #50506d; text-indent: -20000px; display: block; cursor: pointer; }
+.jspArrow.jspDisabled { cursor: default; background: #80808d; }
+.jspVerticalBar .jspArrow { height: 16px; }
+.jspHorizontalBar .jspArrow { width: 16px; float: left; height: 100%; }
+.jspVerticalBar .jspArrow:focus { outline: none; }
+.jspCorner { background: #eeeef4; float: left; height: 100%; }
+* html .jspCorner { margin: 0 -3px 0 0; } /* IE6 Hack */
+
+/**********************************************
+ * General
+ *********************************************/
+
+@font-face {
+    font-family: "Helvetica Neue Light";
+    /*src: url("/inc/fonts/HelveticaNeue-Light.eot"); /* IE */
+    src: local("Helvetica Neue Light"), url("/inc/fonts/HelveticaNeue-Light.ttf") format("truetype"); /* non-IE */
+}
+
+@font-face {
+    font-family: "Helvetica Neue Bold";
+    /*src: url("/inc/fonts/HelveticaNeue-Bold.eot"); /* IE */
+    src: local("Helvetica Neue Bold"), url("/inc/fonts/HelveticaNeue-Bold.ttf") format("truetype"); /* non-IE */
+}
+
+
+img {
+    border: 0;
+    outline: 0;
+}
+
+a {
+    outline: 0;
+}
+
+p, td {
+    text-align: justify;
+    line-height: 1.8em;
+    letter-spacing: 0.09em;
+    margin: 0 0 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #333333;
+}
+
+h2 {
+    color: #333333;
+    margin: 0 0 8px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 0.1em;
+}
+
+h3 {
+    color: #333333;
+    margin: 0 0 8px 0;
+    padding: 0;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+h4 {
+	color: #333333;
+	margin: 0 0 4px 0;
+	padding: 0;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+}
+
+#aeg-wrapper-index {
+    position: relative;
+    width: 960px;
+    height: 742px;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    background-color: #c7eef6;
+    background-image: url('/inc/img/aeg-index-bg.jpg');
+    background-repeat: no-repeat;
+}
+
+#aeg-wrapper {
+    position: relative;
+    width: 960px;
+    height: 742px;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    background-color: #fff;
+    background-image: url('/inc/img/aeg-all-bg.png');
+    background-repeat: no-repeat;
+}
+
+.centeri {
+    text-align: center;
+}
+
+.centerb {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clear {
+    display: block;
+    clear: both;
+}
+
+.aeg-scrollable {
+    padding: 2px 10px 2px 2px;
+    outline: 0 !important;
+    margin-bottom: 10px;
+}
+
+iframe {
+    outline: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#aeg-audio { z-index: 1; position: absolute; bottom: 55px; right: 82px; }
+
+/**********************************************
+ * Preloading Screen
+ *********************************************/
+
+#aeg-preloading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+#aeg-preloading p {
+    margin-top: 250px;
+    text-align: center;
+}
+
+.aeg-preloading-pcbar {
+    width: 400px;
+    height: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    border: 1px solid #666666;
+}
+
+#aeg-preloading-pc {
+    background-color: #666666;
+    height: 10px;
+}
+
+/**********************************************
+ * Menu
+ *********************************************/
+
+ul#aeg-mainmenu {
+    position: absolute;
+    top: 80px;
+    left: 220px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1; /* Just incase, over the content */
+}
+
+ul#aeg-mainmenu li {
+    float: left;
+    margin-left: 45px;
+    height: 17px; /* Max height of existing buttons */
+}
+
+ul#aeg-submenu {
+    position: absolute;
+    top: 100px;
+    left: 320px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1; /* Just incase, over the content */
+}
+
+ul#aeg-submenu li {
+    float: left;
+    margin-left: 20px;
+    height: 17px; /* Max height of existing buttons */
+}
+
+/**********************************************
+ * Zoom Controls (JS Only)
+ *********************************************/
+
+#aeg-zoom {
+  
+}
+
+#aeg-zoom img {
+  
+	display:none;
+}
+
+/**********************************************
+ * Content
+ *********************************************/
+
+#aeg-wrapper-index .aeg-logo {
+    position: absolute;
+    height: 180px;
+    width: 130px;
+    top: 244px;
+    left: 424px;
+}
+
+#aeg-wrapper .aeg-logo {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 30px;
+    left: 50px;
+    width: 130px;
+    height: 180px;
+}
+
+.aeg-copyright {
+    position: absolute;
+    bottom: 32px;
+    left: 40px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-indent: -99999px;
+    background-image: url('/inc/img/aeg-copyright.png');
+    background-repeat: no-repeat;
+    width: 363px;
+    height: 15px;
+}
+
+#aeg-zoom img {
+    cursor: hand;
+    cursor: pointer;
+}
+
+a.aeg-image-swap {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+}
+
+a.aeg-image-swap img {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+	display:none;
+}
+
+a.aeg-image-swap img.aeg-image-swap-replacement {
+    position: absolute;
+    display: none;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+	
+}
+
+#aeg-centering {
+    height: 0px;
+}
+
+.aeg-social-buttons {
+    position: absolute;
+    bottom: 14px;
+    right: 44px;
+}
+
+.aeg-idevice {
+	position: absolute;
+	top: 32px;
+	left: 150px;
+	width: 600px;
+	border-left: 4px solid #aaa;
+	border-bottom: 1px dashed #aaa;
+	padding-left: 8px;
+}
+
+
+/**********************************************
+ * Index
+ *********************************************/
+
+ul.aeg-flags {
+    position: absolute;
+    top: 460px;
+    left: 350px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 300px;
+}
+
+ul.aeg-flags li {
+    float: left;
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+li.aeg-flag {
+    text-indent: -99999px;
+    background-image: url('/inc/img/aeg-flags.png');
+}
+
+.aeg-flag-france {
+    background-position: 0 0;
+}
+
+.aeg-flag-germany {
+    background-position: -29px 0;
+}
+
+.aeg-flag-china {
+    background-position: -58px 0;
+}
+
+.aeg-flag-greece {
+    background-position: -116px 0;
+}
+
+.aeg-flag-spain {
+    background-position: -145px 0;
+}
+
+.aeg-flag-italy {
+    background-position: -174px 0;
+}
+
+.aeg-flag-russia {
+    background-position: -203px 0;
+}
+
+.aeg-flag-turkey {
+    background-position: -232px 0;
+}
+
+/**********************************************
+ * Services
+ *********************************************/
+
+#aeg-content-services {
+}
+
+.aeg-services-text {
+    display: none;
+    position: absolute;
+    top: 238px;
+    left: 204px;
+    width: 560px;
+    height: 215px;
+}
+
+.aeg-services-chooseyourfilm {
+    position: absolute;
+    top: 463px;
+    left: 440px;
+    background-image: url('img/aeg-chooseyourfilm.png');
+    background-repeat: no-repeat;
+    text-indent: -99999px;
+    height: 18px;
+    width: 117px;
+}
+
+#aeg-services-buttons {
+    position: absolute;
+    top: 483px;
+    left: 180px;
+    height: 107px;
+    width: 700px;
+}
+
+#aeg-services-buttons a {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 20px 19px 0px 19px;
+    padding: 0;
+    height: 107px;
+}
+
+.aeg-services-caption {
+    position: absolute;
+    top: 630px;
+    display: none;
+}
+
+.aeg-services-caption-1 {
+    left: 192px;
+}
+
+.aeg-services-caption-2 {
+    left: 285px;
+}
+
+.aeg-services-caption-3 {
+    left: 390px;
+}
+
+.aeg-services-caption-4 {
+    left: 514px;
+}
+
+.aeg-services-caption-5 {
+    left: 615px;
+}
+
+.aeg-services-caption-6 {
+    left: 728px;
+}
+
+.aeg-services-button-color {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/**********************************************
+ * Gallery
+ *********************************************/
+
+#aeg-content-gallery {
+    position: absolute;
+    top: 240px;
+    left: 178px;
+    right: 150px; /* 180px + room for error */
+    bottom: 150px; /* 190px + room for error */
+}
+
+#aeg-gallery-thumbs {
+    overflow: auto;
+}
+
+.aeg-gallery-thumb {
+    position: relative;
+    float: left;
+    background-color: #f7f7f7;
+    height: 86px;
+    width: 149px;
+    /*border: 1px solid #eee;
+    margin: 3px 3px 3px 3px;*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+}
+
+.aeg-gallery-thumb .aeg-gallery-thumb-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+.aeg-gallery-thumb:hover .aeg-gallery-thumb-content {
+    display: block;
+}
+
+.aeg-gallery-thumb:hover .aeg-gallery-thumb-content p {
+    margin: 0;
+    padding: 4px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 9pt;
+    text-align: left;
+}
+
+#aeg-overlay-content {
+    box-shadow: 0 0 20px #444;
+    -webkit-box-shadow: 0 0 20px #444;
+    -moz-box-shadow: 0 0 20px #444;
+    border: 1px solid #666;
+	padding: 8px;
+}
+
+/**********************************************
+ * Investment
+ *********************************************/
+
+#aeg-content-investment {
+    position: absolute;
+    top: 250px;
+    left: 161px;
+    right: 180px;
+    bottom: 153px;
+	overflow: auto;
+}
+
+.aeg-spacer {
+    height: 32px;
+}
+
+.aeg-investment-price {
+    text-align: right;
+}
+
+.aeg-investment-tooltip {
+    position: absolute;
+    display: none;
+    border: 1px solid #ddd;
+    padding: 0;
+    margin-bottom: 0;
+    box-shadow: 0 0 20px #ccc;
+    -webkit-box-shadow: 0 0 20px #ccc;
+    -moz-box-shadow: 0 0 20px #ccc;
+    background-color: #fff;
+    opacity: 0.9;
+    width: 330px; /* 380 - 16x2 padding */
+    height: 250px;
+    z-index: 2500;
+}
+
+.aeg-investment-tooltip>div {
+    margin: 25px;
+    height: 200px;
+    width: 280px;
+    overflow: auto;
+}
+
+/**********************************************
+ * About
+ *********************************************/
+
+#aeg-content-about {
+    position: absolute;
+    top: 130px;
+    left: 70px;
+    height: 540px;
+    width: 810px;
+    overflow: hidden;
+}
+
+.aeg-about-background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 540px;
+    width: 810px;
+    z-index: 0;
+    background-repeat: no-repeat;
+}
+
+.aeg-about-left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 350px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.aeg-about-right {
+    position: absolute;
+    top: 100px;
+    left: 530px;
+    width: 250px;
+    height: 410px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.aeg-about-right p {
+    text-align: left;
+}
+
+/**********************************************
+ * Contact
+ *********************************************/
+
+#aeg-content-contact {
+    position: absolute;
+    top: 190px;
+    left: 165px;
+    width: 700px;
+    height: 450px;
+}
+
+#aeg-contact-left {
+    float: left;
+    width: 290px;
+    height: 440px;
+    overflow: auto;
+}
+
+#aeg-contact-right {
+    float: left;
+    font-size: 8pt;
+    margin-left: 40px;
+    width: 300px;
+    height: 440px;
+    overflow: auto;
+}
+
+#aeg-contact-right input {
+    outline: none;
+    border: 1px solid #bbbbbb;
+    width: 290px;
+    opacity: 0.6;
+    color: #666666;
+}
+
+#aeg-contact-right textarea {
+    margin: 0;
+    padding: 2px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    width: 290px;
+    height: 80px;
+    opacity: 0.6;
+    color: #666666;
+    font-family: inherit;
+}
+
+#aeg-contact-right .aeg-submit {
+    display: block;
+    margin-left: 218px;
+}
+
+.aeg-contact-status {
+    text-align: center !important;
+    margin-top: 150px;
+    margin-right: 20px;
+}
