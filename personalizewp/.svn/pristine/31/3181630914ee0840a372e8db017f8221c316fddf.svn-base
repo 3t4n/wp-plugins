@@ -1,0 +1,114 @@
+// components-panel
+.components-panel {
+	input:is([type=url],[type=email],[type=number]):where(:disabled,.disabled) {
+		// Duplicate select disabled styles for more specialised inputs
+		background-color: var(--wp-components-color-gray-100, #f0f0f0);
+		border-color: var(--wp-components-color-gray-400, #ccc);
+		border-radius: 2px;
+
+		&::placeholder {
+			color: var(--wp-components-color-gray-600, #949494);
+		}
+	}
+	.pwp-panel {
+		&:not(.password) {
+			position: relative;
+			margin-top: 18px; // Matching padding that WP sets for components-panel 16px plus heading leading 2px
+			padding-top: 16px; // Matching margin
+			border-top: 1px solid #c4c4c4a1;
+		}
+		&:where(.rules,.segments,.profile-fields) {
+			.components-base-control,
+			.components-base-control__field {
+				margin-bottom: 0;
+				width: 100%;
+			}
+			.components-button {
+				padding: 0;
+				height: 30px;
+				min-width: min-content;
+			}
+		}
+		&:where(.rules,.segments) {
+			.select-rule + .select-rule {
+				margin-top: 0.5em;
+			}
+			.help {
+				margin-block: 0;
+			}
+		}
+		&.profile-fields {
+			.profile-field {
+				display: grid;
+				gap: 8px;
+				+ .profile-field {
+					margin-top: 16px;
+				}
+			}
+		}
+		&.action {
+			margin-bottom: 2px; // To bring in line with panel margins
+			&::before {
+				content: 'THEN';
+				display: block;
+				position: absolute;
+				top: -.6rem;
+				left: calc( 50% - ( 2ch + 1em) );
+				padding-inline: 1em;
+				background-color: white;
+				font-size: .9rem;
+				font-weight: bold;
+			}
+		}
+
+		.rule-set__add-rule {
+			margin-top: 12px;
+		}
+
+		:where(.bi, .dashicons, button svg) {
+			width: 24px;
+			height: 24px;
+			aspect-ratio: 1;
+			cursor: pointer;
+		}
+		button:disabled :where(.bi, .dashicons, svg) {
+			cursor: default;
+		}
+
+		.score-error {
+			margin-inline: -15px; // Expand to fill sidebar
+
+			> * {
+				margin-inline: 0;
+				margin-block-end: 1em;
+			}
+		}
+
+		// PWP Access Control Panel
+		.pwp-toggle label {
+			flex: initial;
+			cursor: pointer;
+		}
+
+		.search-option-selected {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 5px;
+
+			.search-option-selected-item {
+				padding: 8px;
+				background: #f9f9f9;
+			}
+		}
+
+	}
+}
+
+// Richtext toolbar
+.block-editor-format-toolbar__personalizewp-popover {
+	.components-popover__content {
+		padding: 1rem;
+		width: auto;
+	}
+}
+

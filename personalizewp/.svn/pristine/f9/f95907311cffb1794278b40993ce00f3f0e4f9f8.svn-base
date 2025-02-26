@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/*! PersonalizeWP v2.8.0 | (c) 2025 PersonalizeWP | GPL-3.0 License */
+.components-panel input:is([type=url], [type=email], [type=number]):where(:disabled, .disabled) {
+	background-color: var(--wp-components-color-gray-100, #f0f0f0);
+	border-color: var(--wp-components-color-gray-400, #ccc);
+	border-radius: 2px;
+}
+.components-panel input:is([type=url], [type=email], [type=number]):where(:disabled, .disabled)::placeholder {
+	color: var(--wp-components-color-gray-600, #949494);
+}
+.components-panel .pwp-panel:not(.password) {
+	position: relative;
+	margin-top: 18px;
+	padding-top: 16px;
+	border-top: 1px solid rgba(196, 196, 196, 0.631372549);
+}
+.components-panel .pwp-panel:where(.rules, .segments, .profile-fields) .components-base-control,
+.components-panel .pwp-panel:where(.rules, .segments, .profile-fields) .components-base-control__field {
+	margin-bottom: 0;
+	width: 100%;
+}
+.components-panel .pwp-panel:where(.rules, .segments, .profile-fields) .components-button {
+	padding: 0;
+	height: 30px;
+	min-width: min-content;
+}
+.components-panel .pwp-panel:where(.rules, .segments) .select-rule + .select-rule {
+	margin-top: 0.5em;
+}
+.components-panel .pwp-panel:where(.rules, .segments) .help {
+	margin-block: 0;
+}
+.components-panel .pwp-panel.profile-fields .profile-field {
+	display: grid;
+	gap: 8px;
+}
+.components-panel .pwp-panel.profile-fields .profile-field + .profile-field {
+	margin-top: 16px;
+}
+.components-panel .pwp-panel.action {
+	margin-bottom: 2px;
+}
+.components-panel .pwp-panel.action::before {
+	content: "THEN";
+	display: block;
+	position: absolute;
+	top: -0.6rem;
+	left: calc(50% - (2ch + 1em));
+	padding-inline: 1em;
+	background-color: white;
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+.components-panel .pwp-panel .rule-set__add-rule {
+	margin-top: 12px;
+}
+.components-panel .pwp-panel :where(.bi, .dashicons, button svg) {
+	width: 24px;
+	height: 24px;
+	aspect-ratio: 1;
+	cursor: pointer;
+}
+.components-panel .pwp-panel button:disabled :where(.bi, .dashicons, svg) {
+	cursor: default;
+}
+.components-panel .pwp-panel .score-error {
+	margin-inline: -15px;
+}
+.components-panel .pwp-panel .score-error > * {
+	margin-inline: 0;
+	margin-block-end: 1em;
+}
+.components-panel .pwp-panel .pwp-toggle label {
+	flex: initial;
+	cursor: pointer;
+}
+.components-panel .pwp-panel .search-option-selected {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 5px;
+}
+.components-panel .pwp-panel .search-option-selected .search-option-selected-item {
+	padding: 8px;
+	background: #f9f9f9;
+}
+
+.block-editor-format-toolbar__personalizewp-popover .components-popover__content {
+	padding: 1rem;
+	width: auto;
+}
