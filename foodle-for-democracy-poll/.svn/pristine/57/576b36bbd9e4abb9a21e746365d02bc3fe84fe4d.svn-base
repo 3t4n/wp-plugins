@@ -1,0 +1,212 @@
+/*
+ * Author: Michael Finkenberger
+ * @since V1.4.0.0 (split version)
+ * Last change in plugin version: V2.5.21.0 (Introduce styles for unexpected-voters AJAX: A table with a list of unexpected voters. Plus a few optimizations and with 2.5.21.0: foodle-soritng-row, foodle-sorting-row-above)
+ * Date: 05.11.2024
+ * Tested with the latest plugin version
+*/
+
+
+/* ***************************************** */
+/* Back-End Foodle & Democracy-Poll Formats  */
+/* ***************************************** */
+
+/* General Back-End Definitions */
+
+.foodle-headline {
+  margin: 12px 0px;
+  padding:0px;
+  font-size:1.2em;
+  font-weight:bold;
+}
+.foodle-text {
+  margin: 12px 0px 5px 0px;
+  padding:0px;
+  font-size:1.1em;
+  font-weight:normal;
+  max-width:1045px;
+}
+.foodle-ul {
+  margin:0px 0px 13px 26px;
+  padding:0px;
+  list-style-type:disc;
+  font-size:1.1em;
+  font-weight:normal;
+  max-width:1045px;
+}
+.foodle-tips-table {
+  max-width:1045px;
+}
+.foodle-settings-row-hidden {
+  background-size:8px;
+  background-position-y:top;
+  background-position-x:right;
+  background-repeat:no-repeat;
+}
+
+
+/* The Foodle Back-End Tables */
+
+.foodle-meta-table, .foodle-sort-table, .foodle-special-roles-table, .foodle-usage-table, .foodle-settings-table, .foodle-tips-table {
+  border: 1px solid grey !important;
+  border-collapse: collapse !important;
+}
+.foodle-tips-table th, .foodle-tips-table td {
+  border: 1px solid #888888 !important;
+  padding: 10px !important;
+}
+.foodle-tips-table tr {
+  background-color:#dddddd !important;
+}
+tr.foodle-header-row {
+  background-color:#8Db8c6 !important;
+}
+tr.foodle-standard-row {
+    border-top: 1px solid #888888 !important;
+    background-color:#dddddd !important;
+}
+tr.foodle-meta-row-above {
+  border-top: 0px solid #888888 !important;
+  background-color:LightBlue !important;
+}
+tr.foodle-meta-row {
+    border-top: 1px solid #888888 !important;
+    background-color:#dddddd !important;
+}
+tr.foodle-sorting-row-above {
+  border-top: 0px solid #888888 !important;
+  background-color:LightBlue !important;
+}
+tr.foodle-sorting-row {
+    border-top: 1px solid #888888 !important;
+    background-color:#dddddd !important;
+}
+tr.foodle-functions-row {
+    border-top: 1px solid #888888 !important;
+    background-color:#dddddd !important;
+}
+
+
+/* Back end part for the comments AJAX */
+
+/* Back End Foodle AJAX Container */
+
+#mf_foodle_comments_load,
+#mf_foodle_non_voters_load,
+#mf_foodle_auto_sortlist_load {
+	position: relative !important;
+}
+#mf_foodle_comments_load .mf_foodle_comments_overlay,
+#mf_foodle_non_voters_load .mf_foodle_non_voters_overlay,
+#mf_foodle_auto_sortlist_load .mf_foodle_auto_sortlist_overlay {
+	position: absolute !important;
+	z-index: 99999999999 !important;
+  opacity: 0.6 !important;
+	background-image: url(../img/loader.svg) !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+	background-size:55px !important;
+}
+.mf_foodle_comments_content,
+.mf_foodle_non_voters_content,
+.mf_foodle_auto_sortlist_content {
+	position: relative !important;
+	z-index: 1 !important;
+	-moz-transition: all 0.05s ease-in-out !important;
+	-webkit-transition: all 0.05s ease-in-out !important;
+	-ie-transition: all 0.05s ease-in-out !important;
+	-ms-transition: all 0.05s ease-in-out !important;
+	-o-transition: all 0.05s ease-in-out !important;
+	transition: all 0.05s ease-in-out !important;
+}
+
+/* Back End Comments Structure and Table */
+
+.foodle-comments-complete {
+  border:1px solid #ebebeb!important;
+  margin:0px!important;
+  padding:6px!important;
+  background-color:#fbfbfb!important;
+}
+.foodle-comment-table-space {
+  height:0px!important;
+  margin:0px 0px 20px 0px!important;
+  padding:0px!important;
+}
+.foodle-comments-table,
+.foodle-non-voters-table,
+.foodle-unexpected-voters-table {
+  width: 100% !important;
+  margin: 0px !important;
+  border-collapse:collapse!important;
+  font-size: 0.72em!important; /* consolidated here */
+  word-break: normal !important; /* To work with themes like "McLuhan" */
+}
+.foodle-comments-table th,
+.foodle-comments-table td,
+.foodle-comments-table th:first-child,
+.foodle-comments-table td:first-child,
+.foodle-non-voters-table th,
+.foodle-non-voters-table td,
+.foodle-non-voters-table th:first-child,
+.foodle-non-voters-table td:first-child,
+.foodle-unexpected-voters-table th,
+.foodle-unexpected-voters-table td,
+.foodle-unexpected-voters-table th:first-child,
+.foodle-unexpected-voters-table td:first-child  {
+  padding: 4px !important;
+}
+.foodle-comments-table th {
+	color: #500404!important;
+}
+.foodle-comments-table td {
+	color: #333333!important;
+}
+.foodle-non-voters-table th,
+.foodle-unexpected-voters-table th,
+.foodle-non-voters-table td,
+.foodle-unexpected-voters-table td {
+	color: #500404!important;
+  white-space:nowrap!important;
+  color:DarkRed!important;
+  font-weight:normal!important;
+}
+.foodle-comments-table th,
+.foodle-comments-table td,
+.foodle-non-voters-table th,
+.foodle-non-voters-table td,
+.foodle-unexpected-voters-table th,
+.foodle-unexpected-voters-table td {
+	text-align:center!important;
+}
+.foodle-comments-table th,
+.foodle-comments-table td,
+.foodle-non-voters-table th,
+.foodle-non-voters-table td {
+	border: 1px solid #cccccc !important;
+}
+.foodle-unexpected-voters-table th,
+.foodle-unexpected-voters-table td {
+	border: 1px dotted Red !important;
+}
+.foodle-comments-table th,
+.foodle-non-voters-table th,
+.foodle-unexpected-voters-table th {
+  background-color:#f7f7f7!important;
+}
+.foodle-comments-table td,
+.foodle-non-voters-table td,
+.foodle-unexpected-voters-table td {
+  background-color:#fdfdfd!important;
+}
+.foodle-comment-edited td {
+  background-color: AliceBlue!important;
+}
+figure.foodle-comments-table-figure,
+figure.foodle-non-voters-table-figure,
+figure.foodle-unexpected-voters-table-figure {
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  margin: 0px 0px 0px 0px !important; /* 1.5em */
+  padding: 2px !important;
+}
