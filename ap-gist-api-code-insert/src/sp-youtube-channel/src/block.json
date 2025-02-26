@@ -1,0 +1,138 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/sp-youtube-channel",
+	"version": "0.1.0",
+	"title": "SP Youtube channel videos",
+	"category": "social-patch",
+	"description": "The YouTube SocialPatch block is a simple and elegant way to showcase your YouTube channel videos on your website. ",
+	"supports": {
+		"html": true
+	},
+	"textdomain": "sp-youtube-channel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": [
+		"file:./public.js",
+		"sp-youtube-channel-js"
+	],
+	"attributes": {
+		"channel": {
+			"type": "string",
+			"default": "",
+			"label": "Channel url"
+		},
+		"channelData": {
+			"type": "object",
+			"default": []
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDuration": {
+			"type": "boolean",
+			"default": true
+		},
+		"showViewCount": {
+			"type": "boolean",
+			"default": true
+		},
+		"showLoadMore": {
+			"type": "boolean",
+			"default": false
+		},
+		"maxResults": {
+			"type": "number",
+			"default": 10,
+			"min": 1,
+			"max": 50
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date",
+			"label": "Order by",
+			"options": [
+				{
+					"label": "Date",
+					"value": "date"
+				},
+				{
+					"label": "Rating",
+					"value": "rating"
+				},
+				{
+					"label": "Title",
+					"value": "title"
+				},
+				{
+					"label": "Views count",
+					"value": "viewCount"
+				}
+			]
+		},
+		"width": {
+			"type": "number",
+			"default": 320,
+			"min": 1,
+			"max": 1024
+		},
+		"height": {
+			"type": "number",
+			"default": 180,
+			"min": 1,
+			"max": 1024
+		},
+		"thumb": {
+			"type": "string",
+			"default": "high",
+			"label": "Thumbnail quality",
+			"options": [
+				{
+					"label": "Default",
+					"value": "default"
+				},
+				{
+					"label": "SD",
+					"value": "standard"
+				},
+				{
+					"label": "MQ",
+					"value": "medium"
+				},
+				{
+					"label": "HQ",
+					"value": "high"
+				},
+				{
+					"label": "Max",
+					"value": "maxres"
+				}
+			]
+		},
+		"videoDuration": {
+			"type": "string",
+			"default": "any",
+			"label": "Video duration",
+			"options": [
+				{
+					"label": "Any",
+					"value": "any"
+				},
+				{
+					"label": "Long",
+					"value": "long"
+				},
+				{
+					"label": "Medium",
+					"value": "medium"
+				},
+				{
+					"label": "Short",
+					"value": "short"
+				}
+			]
+		}
+	}
+}

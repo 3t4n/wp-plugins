@@ -1,0 +1,1 @@
+<div class="wplugins-block-error">{{ $message }}</div>
