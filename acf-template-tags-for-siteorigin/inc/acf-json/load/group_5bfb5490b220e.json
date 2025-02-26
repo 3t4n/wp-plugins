@@ -1,0 +1,105 @@
+{
+	"key": "group_5bfb5490b220e",
+	"title": "Template Builder",
+	"fields": [
+		{
+			"key": "field_5bff0cdccf536",
+			"label": "Layout",
+			"name": "acftt_layout_type",
+			"type": "select",
+			"instructions": "Choose if this layout should be used as a theme template.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"none": "None",
+				"loop_item": "Loop Item",
+				"single": "Single",
+				"archive": "Archive Layout",
+				"author_archive": "Author Archive Layout",
+				"search": "Search Results Page",
+				"x404": "404",
+				"nothing_found": "Nothing Found"
+			},
+			"default_value": [
+				"none"
+			],
+			"allow_null": 0,
+			"multiple": 0,
+			"ui": 0,
+			"return_format": "value",
+			"ajax": 0,
+			"placeholder": ""
+		},
+		{
+			"key": "field_5bfb54a195dae",
+			"label": "Post Type",
+			"name": "acftt_post_type",
+			"type": "select",
+			"instructions": "The type of post this layout works with.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_5bff0cdccf536",
+						"operator": "==",
+						"value": "archive"
+					}
+				],
+				[
+					{
+						"field": "field_5bff0cdccf536",
+						"operator": "==",
+						"value": "single"
+					}
+				],
+				[
+					{
+						"field": "field_5bff0cdccf536",
+						"operator": "==",
+						"value": "loop_item"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"post": "post",
+				"team": "team",
+				"location": "location"
+			},
+			"default_value": [],
+			"allow_null": 0,
+			"multiple": 0,
+			"ui": 0,
+			"return_format": "value",
+			"ajax": 0,
+			"placeholder": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "echelonso_layout"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": 1,
+	"description": "",
+	"modified": 1544797502
+}
