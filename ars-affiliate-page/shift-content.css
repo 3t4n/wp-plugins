@@ -1,0 +1,126 @@
+@font-face {
+    font-family: Gotham-Bold;
+    src: url(fonts/Gotham-Bold.otf);
+}
+@font-face{
+    font-family: Gotham-Book;
+    src: url(fonts/GothamBook.woff);
+}
+  
+.atom-main-content *{
+    font-family:Arial, Helvetica, sans-serif;
+    box-sizing:border-box;
+}
+
+.atom-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing:border-box;
+    padding:15px;
+}
+.atom-main-content-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width:1150px;
+    gap:50px;
+}
+a.atom-shift-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background: #1e3a65;
+    width: fit-content;
+    /* padding: 15px 40px; */
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    height: 60px;
+    padding: 0 46px;
+    border-radius: 10px;
+    transition:all .3s;
+}
+    a.atom-shift-btn:hover{
+        background:#475569;
+    }
+.atom-shift-btn p{
+    text-transform:uppercase;
+    margin:0;
+}
+.atom-shift-btn p.atom-shift-btn-text {
+    font-size:18px;
+    font-family:'Gotham-Bold', sans-serif;
+}
+.atom-shift-btn-icon {
+    font-size: 18px;
+    padding-top: 4px;
+}
+.atom-main-content-inner-left {
+    flex-basis: 60%;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+.atom-main-content-inner-right {
+    flex-basis: 40%;
+}
+img.shift-btn-image {
+    max-height: 75%;
+}
+img.atom-shift-logo {
+    width: 60%;
+    min-width:200px;
+}
+.atom-shift-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+img.big-shift-logo-img {
+    max-width: 100%;
+}
+img.big-shift-logo-img-mobile{
+    max-width:100%;
+}
+.big-shift-logo-img-mobile-container{
+    display:none;
+    align-self:center;
+}
+.atom-shift-text, p{
+    font-size: 17px;
+    line-height: 1.5em;
+}
+h1{
+    font-size: 28px
+}
+.fluid-width-video-wrapper, iframe{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:552px){
+
+    .atom-main-content-inner{
+        flex-direction:column;
+    }
+    .atom-main-content-inner-left{
+        flex-basis:60%;
+    }
+    .atom-main-content-inner-right{
+        flex-basis:40%;
+    }
+    .big-shift-logo-img-mobile-container{
+        display:block;
+    }
+    .big-shift-logo-container {
+        display: none;
+    }
+    img.big-shift-logo-img-mobile{
+        width:100%;
+        max-width:200px;
+    }
+}
