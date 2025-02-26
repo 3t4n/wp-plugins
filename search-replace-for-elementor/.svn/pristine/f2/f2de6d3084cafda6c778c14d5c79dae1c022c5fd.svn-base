@@ -1,0 +1,1 @@
+var ELEMSNR=ELEMSNR||{},$=jQuery||{};ELEMSNR.pluginUrl=elemsnr.plugin_url,ELEMSNR.pluginDomain=elemsnr.plugin_domain,ELEMSNR.ajaxUrl=elemsnr.ajax_url,ELEMSNR.ajaxNonce=elemsnr.ajax_nonce,jQuery;
