@@ -1,0 +1,71 @@
+.wpas-review-pros-cons-main,
+.editor-styles-wrapper .wpas-review-pros-cons-main {
+    max-width: 1200px !important;
+    border: 2px solid #f73859;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-bottom: 20px;
+}
+.wpas-pc-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ul.wpas-pc-pros-list,
+ul.wpas-pc-cons-list {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+ul.wpas-pc-pros-list li:before,
+ul.wpas-pc-cons-list li:before {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    transform: translate(-4px, 4px);
+}
+ul.wpas-pc-pros-list li:before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11.0026 16L6.75999 11.7574L8.17421 10.3431L11.0026 13.1716L16.6595 7.51472L18.0737 8.92893L11.0026 16Z' fill='green'/%3E%3C/svg%3E");
+}
+ul.wpas-pc-cons-list li:before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z' fill='red'/%3E%3C/svg%3E");
+}
+ul.wpas-pc-pros-list li,
+ul.wpas-pc-cons-list li {
+    font-size: 17px;
+}
+.wpas-pc-columns .wp-block-column:not(:last-child) {
+    position: relative;
+}
+.wpas-pc-columns .wp-block-column:not(:last-child):after {
+    position: absolute;
+    right: 0;
+    bottom: -31px;
+    width: 2px;
+    height: 100%;
+    background: #f73859;
+    content: "";
+}
+.wpas-pc-column ul li:not(:last-child) {
+    margin-bottom: 2px;
+}
+@media (min-width: 781px) {
+    .wpas-pc-columns .wpas-pc-column:not(:last-child) {
+        padding-right: 20px;
+    }
+}
+@media (max-width: 781px) {
+    .wpas-pc-columns .wp-block-column:not(:last-child):after {
+        position: absolute;
+        right: auto;
+        bottom: -20px;
+        width: 200px;
+        height: 1px;
+    }
+    .wpas-pc-columns .wp-block-column:not(:last-child) {
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+}

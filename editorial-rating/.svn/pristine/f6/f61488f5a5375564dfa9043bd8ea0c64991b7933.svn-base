@@ -1,0 +1,326 @@
+/* Reset */
+.wpas--rating-wrap a {
+    text-decoration: none !important;
+}
+.wpas--rating-wrap p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.wpas-theme-1 .wpas--rating-header {
+    display: flex;
+    padding: 20px;
+    background-color: #f1f1f1;
+    box-shadow: rgb(50 50 93 / 20%) 0px 13px 10px -10px, rgb(0 0 0 / 30%) 0px 8px 0px -8px;
+    gap: 20px;
+}
+.wpas-theme-1.wpas--rating-wrap {
+    clear: both;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 8%);
+    margin-bottom: 15px;
+    margin-top: 40px;
+}
+.wpas--rating-wrap .wpas--rating-rate {
+    margin-bottom: 0;
+    margin-top: auto;
+    color: #E43917;
+}
+.wpas--rating-wrap .wpas--pros-list li,
+.wpas--rating-wrap .wpas--cons-list li,
+.wpas--rating-wrap .wpas--bl-wrap {
+    margin-bottom: 5px;
+}
+.wpas--rating-score {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 125px;
+}
+.wpas--rating-score,
+.frhd--user-rating {flex-basis: 25%;}
+.wpas--rating-meta {flex-basis: 50%;}
+span.wpas--overall-score {
+    background: #E43917;
+    color: #fff;
+    font-size: 52px;
+    padding: 0px 20px;
+    line-height: 80px;
+    font-weight: bold;
+}
+span.wpas--rating-text {
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 0;
+}
+h4.wpas--rating-title {
+    margin: 0 !important;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+    line-height: 26px;
+    padding-bottom: 15px;
+}
+a.wpas--product-link {
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    background-color: #da291c;
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    text-decoration: none !important;
+}
+a.wpas--product-link:hover {
+    box-shadow: -1px 6px 13px rgb(218 41 28 / 40%) !important;
+}
+.wpas--rating-meter {
+    background: #dddddd;
+    border-radius: 7px;
+}
+span.wpas--rating-bar {
+    background: #E43917;
+    padding: 7px;
+    border-radius: 7px;
+    display: block;
+}
+.wpas--rating-detail {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 3px;
+}
+.wpas--rating-categories .wpas--rating-meter:not(:last-child) {
+    margin-bottom: 10px;
+}
+.wpas--rating-categories {
+    margin-bottom: 25px;
+}
+
+/* Pros-Cons */
+.wpas--pros-cons-wrap {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 20px;
+    border-top: 1px solid #f1f1f1;
+}
+span.wpas--pros-title,
+span.wpas--cons-title,
+span.wpas--bl-title {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+span.wpas--pros-title {color: #58c649;}
+span.wpas--cons-title {color: #f24f4f;}
+span.wpas--bl-title {color: #222;}
+.wpas--rating-categories {
+    margin-bottom: 25px;
+}
+ul.wpas--pros-list,
+ul.wpas--cons-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul.wpas--pros-list li {
+    font-size: 18px;
+}
+ul.wpas--pros-list span.icon-checkmark:before {
+    background-color: #58c649;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 50%;
+    color: #fff;
+    margin-right: 8px;
+}
+ul.wpas--cons-list span.icon-cross:before {
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #f24f4f;
+    margin-right: 3px;
+}
+
+.frhd--user-rating {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+}
+.frhd--user-rating,
+.frhd--user-rating span {font-size: 18px;}
+.wpas-theme-1 strong.wpas--total-category {
+    border: 3px solid #ffc107;
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin-top: -10px;
+}
+.frhd--user-rating p {font-size: 80%;}
+
+/* User Rating Stars At Header */
+.frhd--rate-cover {
+    position: relative;
+    width: 136px;
+    height: 27px;
+    margin: 5px auto;
+    margin-top: 0;
+    background: #f1f1f1;
+}
+.frhd--rate-visual:before,
+.frhd--rate-visual:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 27px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.frhd--rate-visual:before {
+    width: 100%;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 304 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m181.9 23.2c0.4 1.2 0 2.6-0.9 3.4l-13.2 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.5c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 7-16.2c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.3 0.1 2.4 0.9 2.7 2.3z' fill='%23bdbdbd'/%3E%3Cpath d='m121 23.1c0.4 1.2 0 2.6-0.9 3.4l-13.1 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.6c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.4 0 2.4 0.9 2.8 2.2z' fill='%23bdbdbd'/%3E%3Cpath d='m303 26.4-13.2 11.6 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.5c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16.1c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.3 0.1 2.4 1 2.8 2.2s0.1 2.6-0.8 3.3z' fill='%23bdbdbd'/%3E%3Cpath d='m242.9 23.2c0.4 1.2 0 2.6-0.9 3.4l-13.2 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.5c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16.2c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.5 0.1 2.5 0.9 2.9 2.3z' fill='%23bdbdbd'/%3E%3Cpath d='m60.1 23.1c0.4 1.2 0 2.6-0.9 3.4l-13.1 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3s-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.6c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16.1c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.4 0.1 2.5 1 2.8 2.3z' fill='%23bdbdbd'/%3E%3C/svg%3E");
+    filter: drop-shadow(0px 1px 0px gray);
+}
+.frhd--rate-visual:after {
+    width: 90%;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 304 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m181.9 23.2c0.4 1.2 0 2.6-0.9 3.4l-13.2 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.5c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 7-16.2c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.3 0.1 2.4 0.9 2.7 2.3z' fill='%23FFC107'/%3E%3Cpath d='m121 23.1c0.4 1.2 0 2.6-0.9 3.4l-13.1 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.6c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.4 0 2.4 0.9 2.8 2.2z' fill='%23FFC107'/%3E%3Cpath d='m303 26.4-13.2 11.6 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.5c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16.1c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.3 0.1 2.4 1 2.8 2.2s0.1 2.6-0.8 3.3z' fill='%23FFC107'/%3E%3Cpath d='m242.9 23.2c0.4 1.2 0 2.6-0.9 3.4l-13.2 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3-1.1 0.8-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.5c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16.2c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.5 0.1 2.5 0.9 2.9 2.3z' fill='%23FFC107'/%3E%3Cpath d='m60.1 23.1c0.4 1.2 0 2.6-0.9 3.4l-13.1 11.5 3.8 17c0.3 1.2-0.2 2.5-1.2 3.3s-2.5 0.9-3.6 0.2l-15-8.9-15 8.9c-0.5 0.3-1.1 0.5-1.6 0.5s-1.2-0.2-1.8-0.6c-1.1-0.7-1.5-2-1.2-3.3l3.8-17-13.2-11.6c-1-0.8-1.3-2.1-1-3.4 0.5-1.2 1.5-2.1 2.8-2.2l17.4-1.6 6.8-16.1c0.6-1.2 1.7-1.9 3-1.9s2.5 0.8 3 1.9l6.8 16.1 17.4 1.5c1.4 0.1 2.5 1 2.8 2.3z' fill='%23FFC107'/%3E%3C/svg%3E");
+}
+
+/* Stars Styles At Footer */
+.wpas-star-rating input[type=radio] {
+	display: none;
+}
+.wpas-star-rating {
+	direction: rtl;
+	display: inline-block;
+	padding: 0 20px;
+}
+.wpas-star-rating input[type=checkbox],
+.wpas-star-rating input[type=radio] {
+	box-sizing: border-box;
+	padding: 0;
+}
+.wpas-star-rating label {
+	margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+.wpas-star-rating svg {
+	overflow: hidden;
+	vertical-align: middle;
+}
+.wpas-star-rating label svg path {
+	-webkit-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+.wpas-star-rating label:hover svg path,
+.wpas-star-rating label:hover ~ label svg path,
+.wpas-star-rating input[type=radio]:checked ~ label  svg path {
+	stroke: #f2b600;
+	fill: #f2b600;
+}
+.wpas-star-rating-wrap {
+    background: #f1f1f1;
+    padding: 15px 10px;
+    text-align: center;
+}
+.frhd--user-rating-math-wrap {
+    display: inline-block;
+}
+.frhd-rate-math {
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .wpas--pros-cons-wrap {
+        flex-direction: column;
+    }
+    .wpas--pros-wrap,
+    .wpas--cons-wrap {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 567px) {
+    .wpas--rating-wrap {
+        padding: 15px;
+    }
+    .wpas--rating-header {
+        flex-direction: column;
+    }
+    .wpas--rating-score {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin: 0 0 20px;
+    }
+    .wpas--rating-meta,
+    .wpas--pros-cons-wrap {text-align: center;}
+    .frhd--user-rating {margin: 0 auto;}
+}
+
+.wpas-rating-content-wrap {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+figure.wpas--product-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 40%;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+.wpas--rating-categories {
+    flex-basis: 60%;
+    margin: auto;
+}
+.wpas--pros-cons-wrap .wpas--pros-wrap,
+.wpas--pros-cons-wrap .wpas--cons-wrap {
+    flex-basis: 30%;
+}
+.wpas--pros-cons-wrap .wpas--bl-wrap {
+    flex-basis: 40%;
+}
+/* Updated date */
+.wpas--rating-wrap {
+    position: relative;
+}
+.wpas--rating-date svg {
+    fill: #222;
+    width: 16px;
+    height: 16px;
+    margin-bottom: -1px;
+}
+.wpas--rating-date {
+    position: absolute;
+    right: 4px;
+    top: -34px;
+}
+/* Responsive */
+@media (max-width: 767px) {
+    .wpas-rating-content-wrap {
+        flex-direction: column;
+        gap: 20px;
+    }
+    figure.wpas--product-img,
+    .wpas--rating-categories {
+        flex-basis: 100%;
+        margin: 0;
+    }
+}

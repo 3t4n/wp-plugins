@@ -1,0 +1,536 @@
+/* Preloader Start */
+#_wpas_er_options:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #f0f0f1;
+    content: '';
+    z-index: 99;
+}
+#_wpas_er_options:after {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    content: "";
+    z-index: 999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #009688, #4CAF50) !important;
+    -webkit-mask: radial-gradient(circle closest-side at 50% 40%,#0000 94%, #000);
+    transform-origin: 50% 40%;
+    animation: wpas-spin-loader 1s infinite linear;
+}
+@keyframes wpas-spin-loader {
+   100% {
+      transform: rotate(1turn);
+   }
+}
+#_wpas_er_options.wpas--after-none:before,
+#_wpas_er_options.wpas--after-none:after {content: none;}
+/* Preloader End */
+
+/* Admin menu */
+#menu-posts-wpas_review li:not(:last-child) a[href^="edit-tags.php?taxonomy=er_cat&post_type=wpas_review"]:after,
+#menu-posts-wpas_review li:not(:last-child) a[href^="post-new.php?post_type=wpas_cross_rating"]:after {
+    border-bottom: 1px solid hsla(0,0%,100%,.2);
+    display: block;
+    float: left;
+    margin: 13px -15px 8px;
+    content: "";
+    width: calc(100% + 26px);
+}
+#adminmenu #menu-posts-wpas_review ul.wp-submenu-wrap li {
+    clear: both;
+}
+#menu-posts-wpas_review li:not(:last-child) a[href^="edit.php?post_type=wpas_cross_rating"] {
+    position: relative;
+}
+#menu-posts-wpas_review li:not(:last-child) a[href^="edit.php?post_type=wpas_cross_rating"]:before {
+    content: "NEW";
+    background: #e91e63;
+    color: #fff;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 0 2px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    max-height: 13px;
+}
+
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ .edit-post-layout__metaboxes:not(:empty) .edit-post-meta-boxes-area {
+    margin: 15px 20px;
+}
+.wpgper--metabox-wrap.postbox .handlediv:focus {
+    box-shadow: 0 0;
+}
+.wpgper--metabox-wrap .edit-post-layout__metaboxes{
+    border-top: none !important;
+    padding: 0px 0;
+}
+.wpgper--metabox-wrap.postbox,
+.wpgper--metabox-wrap h2 {
+    border-radius: 10px;
+}
+.wpgper--metabox-wrap.postbox .handle-order-higher,
+.wpgper--metabox-wrap.postbox .handle-order-lower,
+.wpgper--metabox-wrap .toggle-indicator {
+    color: #ffffff;
+}
+.wpgper--metabox-wrap .wpas-field-repeater .wpas-repeater-content,
+.wpas-field-fieldset .wpas-fieldset-content {
+    background-color: rgb(247 247 247 / 50%);
+}
+.wpgper--metabox-wrap .edit-post-layout__metaboxes {
+    background-color: #F6F8FA;
+    border-bottom: none;
+    padding: 20px 0px;
+}
+.wpgper--metabox-wrap #_wpas_er_options {
+    border-radius: 10px !important;
+}
+.wpgper--metabox-wrap .wpas-section > .wpas-field > .wpas-title > h4 {
+    font-size: 1.2em;
+    color: #333333;
+}
+.wpgper--metabox-wrap .wpas-field .wpas-title h4,
+.wpgper--metabox-wrap span.wpas--text {
+    color: #727697;
+}
+.wpgper--metabox-wrap .wpas-field-fieldset .wpas-fieldset-content {
+    border: 1px solid #eee;
+}
+.wpgper--metabox-wrap input[type=number],
+.wpgper--metabox-wrap input[type=text] {
+    color: #727697;
+    border: 1px solid #ededed;
+}
+#_wpas_er_options.wpgper--metabox-wrap input[type=text]::placeholder {
+    color: #b2b2b2;
+}
+#_wpas_er_options.wpgper--metabox-wrap input[type=text]::-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.wpgper--metabox-wrap .button.button-primary.wpas-repeater-add {
+    background: #00c292;
+    border-color: #00c292;
+}
+.wpgper--metabox-wrap .wpas-field-spinner .ui-button {
+    color: #aeb3b9;
+    border: 1px solid #ced4da;
+    background-color: #f5f5f5;
+}
+.edit-post-meta-boxes-area .postbox > .inside {
+    border-bottom: none;
+}
+.wpgper--metabox-wrap input {
+    box-shadow: transparent 0px 2px 8px 0px;
+}
+.wpgper--metabox-wrap input:focus {
+    border: none !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.wpgper--metabox-wrap input[type=checkbox]:focus,
+.wpgper--metabox-wrap input[type=radio]:focus {
+    border: 1px solid #8c8f94 !important;
+}
+.wpgper--metabox-wrap .wpas-field-text input {
+    width: 100%;
+    padding: 4px 14px;
+}
+.wpgper--metabox-wrap .wpas-field + .wpas-field {
+    border-top: none;
+}
+.wpgper--metabox-wrap .wpas-metabox .wpas-field {
+    padding: 30px 20px;
+    background: rgb(206 255 243 / 10%);
+}
+.wpgper--metabox-wrap .wpas-field-heading {
+    text-align: center;
+}
+.wpgper--metabox-wrap .wpas-repeater-content > .wpas-field,
+.wpgper--metabox-wrap .wpas-fieldset-content > .wpas-field {
+    padding: 15px 20px;
+}
+.wpgper--metabox-wrap .wpas-field.wpas-field-heading {
+    padding: 10px;
+    color: #fff;
+    font-size: 1.2em;
+    background: #567935;
+}
+@media only screen and (min-width: 1200px) {
+    .wpgper--metabox-wrap .wpas-fieldset-content {
+        width: 50%;
+    }
+}
+
+/* Prevent sorting and dragging metabox bar */
+#_wpas_er_options .handle-actions,
+#_wpas_shortcode_options .handle-actions,
+#_wpas_er_options .postbox-header {
+    pointer-events: none;
+    display: none;
+}
+
+/* Theme Selection */
+.wpgper--metabox-wrap .wpas-field.wpas-theme-numb-list,
+.wpgper--metabox-wrap .wpas-field.wpas-theme-prev-list {
+    padding: 0;
+}
+.wpgper--metabox-wrap .wpas-field.wpas-theme-prev-list {
+    margin-left: calc(20% + 35px);
+}
+.wpgper--metabox-wrap .wpas-field.wpas-theme-numb-list {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.wpgper--metabox-wrap .wpas-field.wpas-theme-prev-list img {
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: 1px solid #e1e1e1;
+}
+
+/* Others */
+.wpas-after-text {
+    display: inline-block;
+    margin-left: 8px;
+}
+@media (min-width: 783px) {
+    .wpas--heading-ff .wpas-fieldset {
+        width: 50%;
+        float: left;
+    }
+}
+.wpas--typo-tabbed .wpas-tabbed-nav a {
+    font-size: 18px;
+    padding: 20px 40px;
+}
+.wpas--spacing .wpas--label {
+    padding: 5px 10px;
+}
+.wpas--spacing input::placeholder {
+    opacity: 0;
+}
+.wpas-field-spacing .wpas-input-number {
+    border: 1px solid #795548 !important;
+}
+.wpas--db-tar .wpas-after-text {
+    display: block;
+    text-align: right;
+}
+.wpas-field-40-percent .wpas-fieldset input,
+.wpas-field-chosen-40 .chosen-container-multi .chosen-choices,
+.wpas-field-chosen-40 .chosen-container .chosen-drop {
+    width: 40%;
+}
+.wpas-pro-img-gallery .wpas-fieldset > ul:has(li) ~ .wpas-after-text {
+    display: none !important;
+}
+.wpas-pro-img-gallery .wpas-after-text {
+    display: block;
+    margin: 0;
+    padding-top: 10px;
+}
+
+/* Typography Field */
+.wpas-field-typography .wpas--preview {
+    position: relative;
+    text-align: center;
+}
+.wpas-field-typography .wpas--preview:before {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    padding: 2px 7px 5px;
+    background: rgb(158 158 158 / 70%);
+    color: #fff;
+    content: "Preview";
+    font-size: 13px;
+    line-height: 13px;
+}
+.wpas-field-typography .wpas--black-background {
+    color: #fff;
+}
+.wpas--block.wpas--block-font-style {
+    display: none;
+}
+
+/* Remove Transparent Slider From Color Field */
+.wpas-no-transparent-slider .wpas--transparent-wrap {
+    display: none !important;
+}
+
+/* Nav */
+#_wpas_er_options .wpas-nav {
+    width: 100%;
+}
+#_wpas_er_options .wpas-nav ul {
+    background: linear-gradient(to right, #009688, #009688, #4caf50, #009688) !important;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#_wpas_er_options .wpas-nav ul li {
+    display: inline-block;
+    border-right: 1px solid #d3d3d3;
+}
+#_wpas_er_options .wpas-nav li:nth-child(1) a {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#_wpas_er_options .wpas-content {
+    margin-left: 0;
+}
+#_wpas_er_options .wpas-nav-background {
+    display: none;
+}
+#_wpas_er_options .wpas-nav ul li a {
+    padding: 24px 26px;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: bold;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #b1c5b2;
+    border: 0;
+}
+#_wpas_er_options .wpas-nav ul li .wpas-active,
+#_wpas_er_options .wpas-nav ul li a:hover {
+    color: #fff;
+}
+#_wpas_er_options .wpas-nav ul li a svg,
+.wpas-section-title h3 svg {
+    width: 18px;
+    height: 18px;
+    fill: #b1c5b2;
+}
+#_wpas_er_options .wpas-nav ul li .wpas-active svg,
+#_wpas_er_options .wpas-nav ul li a:hover svg {
+    fill: #fff;
+}
+#_wpas_er_options .wpas-nav-normal ul li .wpas-active:after {
+    border-width: 6px;
+    top: auto;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+.wpas-section-title h3 { /* For mobile size */
+    display: flex;
+    gap: 10px;
+}
+#_wpas_er_options .wpas-nav ul li:last-child,
+#_wpas_er_options .wpas-section.wpas-user-rating-tab {
+    display: none;
+}
+/* Nav End*/
+
+/* Shortcode Area Start */
+#_wpas_shortcode_options .postbox-header {
+    background: linear-gradient(to right, #009688, #009688, #4caf50, #009688) !important;
+    pointer-events: none;
+}
+#_wpas_shortcode_options .postbox-header h2,
+#_wpas_shortcode_options .handle-order-higher,
+#_wpas_shortcode_options .handle-order-lower,
+#_wpas_shortcode_options .toggle-indicator {
+    color: #fff;
+}
+#_wpas_shortcode_options .postbox-header svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    animation: faqsu-anim-hs 1s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+#_wpas_shortcode_options h2.hndle.ui-sortable-handle {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+#_wpas_shortcode_options {
+    background: #EBECF0;
+    padding: 5px;
+}
+#_wpas_shortcode_options .wpas-field-shortcode {
+    padding: 20px 0 50px;
+    text-align: center;
+}
+#_wpas_shortcode_options .wpas-shortcode-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#_wpas_shortcode_options .wpas-shortcode-btn {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #293133;
+    color: #7b8c8f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 8px 11px 9px;
+    min-width: 140px;
+}
+#_wpas_shortcode_options .wpas-shortcode-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: #737e80;
+}
+#_wpas_shortcode_options .wpas-shortcode-btn:hover {
+    cursor: pointer;
+    color: #fff;
+}
+#_wpas_shortcode_options .wpas-shortcode-btn:hover svg {
+    fill: #fff;
+}
+#wpasCTCinput {
+    text-align: center;
+    min-width: 200px;
+    background-color: #ffffff;
+}
+@keyframes faqsu-anim-hs {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+#_wpas_shortcode_options .wpfaqsu-field {
+    padding: 15px 10px;
+}
+/* Shortcode Area End */
+
+/* Start ER-Byproduct on selected post types */
+#_wpas_er_byproduct_options .postbox-header .handle-actions {
+    margin-left: auto;
+    height: 0;
+}
+#_wpas_er_byproduct_options h2.hndle.ui-sortable-handle {
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 15px 20px 15px;
+    color: #fff;
+    font-size: 15px;
+    border-top: 1px solid #a7fff7;
+}
+#_wpas_er_byproduct_options .postbox-header .handle-actions button {
+    border: 1px solid #fff;
+    height: 25px;
+    width: 25px;
+}
+#_wpas_er_byproduct_options .order-higher-indicator::before,
+#_wpas_er_byproduct_options .order-lower-indicator::before,
+#_wpas_er_byproduct_options .toggle-indicator::before {
+    color: #fff;
+}
+#_wpas_er_byproduct_options .postbox-header {
+    background-image: linear-gradient(to right, #009688, #009688, #4caf50, #009688) !important;
+    border-bottom: 1px solid #a7fff7 !important;
+    flex-direction: column-reverse;
+}
+/* END ER-Byproduct on selected post types */
+
+/* Adding PRO tags on PRO features */
+.wpas-copy-lite .wpas-theme-prev-list.wpas-theme-pro {
+    position: relative;
+}
+.wpas-copy-lite .wpas-theme-prev-list.wpas-theme-pro:before {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    content: "PRO";
+    background: #9c27b0;
+    color: #ffffff;
+    font-weight: bold;
+    display: inline-block;
+    padding: 3px 23px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.wpas-copy-lite .wpas-theme-prev-list.wpas-theme-pro img {
+    opacity: .5;
+    outline: 2px solid #9c27b0;
+}
+.wpas-copy-lite .wpas-field-switcher-pro .wpas--switcher {
+    background: #9c27b0;
+    pointer-events: none;
+}
+.wpas-copy-lite .wpas-field-switcher-pro .wpas-fieldset {
+    position: relative;
+}
+.wpas-copy-lite .wpas-field-switcher-pro .wpas-fieldset:before {
+    position: absolute;
+    left: 2px;
+    top: -20px;
+    width: 32px;
+    background: transparent;
+    content: "PRO";
+    color: #9c27b0;
+    font-weight: bold;
+    border: 2px solid #9c27b0;
+    text-align: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.wpas-field-text-pro input[type="text"] {
+    outline: 2px solid #9c27b0;
+    pointer-events: none;
+}
+.wpas-field-text-pro .wpas-fieldset {
+    position: relative;
+}
+.wpas-field-text-pro .wpas-fieldset:before {
+    position: absolute;
+    left: 2px;
+    top: -22px;
+    width: 34px;
+    height: 20px;
+    background: #9c27b0;
+    color: #fff;
+    font-weight: bold;
+    content: "PRO";
+    text-align: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wpas-copy-lite .wpas-field-color .wpas-fieldset,
+.wpas-copy-lite .wpas-field-color_group .wpas-fieldset,
+.wpas-copy-lite .wpas--typography,
+.wpas-copy-lite .wpas-field-spacing .wpas-fieldset {
+    pointer-events: none;
+    opacity: .5;
+}
+.wpas-copy-pro .wpas-section-noty-for-pro {
+    display: none !important;
+}
+/* END -- Adding PRO tags on PRO features */

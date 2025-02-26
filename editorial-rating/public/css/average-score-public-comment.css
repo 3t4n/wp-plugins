@@ -1,0 +1,232 @@
+/* Switch */
+.wpas-review-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.wpas-review-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.wpas-review-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.wpas-review-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.wpas-review-switch input:checked+.wpas-review-switch-slider {
+    background-color: #2196F3;
+}
+.wpas-review-switch input:focus+.wpas-review-switch-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+.wpas-review-switch input:checked+.wpas-review-switch-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded The Switch */
+.wpas-review-switch-slider.wpas-round {
+    border-radius: 34px;
+}
+.wpas-review-switch-slider.wpas-round:before {
+    border-radius: 50%;
+}
+.wpas--rating-meter-comment input {
+    width: 100%;
+}
+.wpas--rating-meter-comment input:hover {
+    cursor: pointer;
+}
+
+/* Range Styles */
+.wpas-review-comment-box input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+}
+.wpas-review-comment-box input[type=range]:focus {
+    outline: none;
+}
+.wpas-review-comment-box input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    background: #E43917;
+    border-radius: 0px;
+    border: 0px solid #000101;
+}
+.wpas-review-comment-box input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 15px;
+    border-radius: 0px;
+    background: #000;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+}
+.wpas-review-comment-box input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    background: #E43917;
+    border-radius: 0px;
+    border: 0px solid #000101;
+}
+.wpas-review-comment-box input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    height: 25px;
+    width: 15px;
+    border-radius: 0px;
+    background: #000;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+}
+.wpas-review-comment-box input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #673ab7;
+}
+
+/* User Rating Comment in Display  */
+h4.wpas-cc-rating-headline {
+    color: #000;
+    font-size: 22px;
+    margin-bottom: 12px !important;
+}
+.wpas-comment-content-rating {
+    background: #f1f1f1;
+    padding: 20px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 8%), 0 5px 26px 0 rgb(67 94 131 / 15%);
+}
+.wpas-comment-content-rating ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.wpas-comment-content-rating ul li .wpas-cc-rating-wrap {
+    border-left: 1px solid #222;
+    padding: 8px 0;
+}
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-origin,
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-updated{
+    position: relative;
+    display: block;
+    text-align: right;
+    color: #4f4f4f;
+    height: 10px;
+}
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-origin{
+    background: #0f283e;
+    width: 70%;
+}
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-updated{
+    background: #E43917;
+    width: 50%;
+}
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-origin strong,
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-updated strong {
+    position: absolute;
+    right: -11px;
+    top: -2px;
+    font-size: 13px;
+    line-height: 17px;
+    display: inline-block;
+}
+.wpas-comment-content-rating ul li .wpas-cc-rating-rate-origin strong {top: -7px;}
+.wpas-cc-total-rate-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 15px;
+    border-top: 1px solid #d5d5d5;
+    padding-top: 15px;
+}
+span.wpas-cc-total-rate-origin,
+span.wpas-cc-total-rate-updated {
+    position: relative;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold;
+}
+span.wpas-cc-total-rate-origin:before,
+span.wpas-cc-total-rate-updated:before {
+    position: absolute;
+    left: -17px;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+    content: "";
+    border-radius: 50%;
+}
+span.wpas-cc-total-rate-origin:before {background: #0f283e;}
+span.wpas-cc-total-rate-updated:before {background: #E43917;}
+
+/* Others */
+.wpas-comment-form-review {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+.wpas-comment-form-review span {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+}
+#wpas_comment_review_headline {
+    display: block;
+    width: 100%;
+    border: 1px solid #c1c1c1;
+    margin-bottom: 20px;
+}
+.wpas-review-comment-box label {
+    font-size: 20px;
+    line-height: 20px;
+}
+.wpas-review-comment-box {
+    background: #f1f1f1;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.wpas--rating-score-math {
+    margin-top: 15px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+.wpas--rating-score-comment {
+    margin-top: 20px;
+}
+.wpas-final-user-rate {
+    font-size: 20px;
+    text-shadow: 2px 2px 0px #c1c1c1;
+}

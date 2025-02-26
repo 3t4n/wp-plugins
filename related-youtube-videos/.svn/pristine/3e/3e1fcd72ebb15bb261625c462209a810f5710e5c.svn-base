@@ -1,0 +1,217 @@
+<ul class="changelog">
+ <li>1.9.9
+  <ul>
+    <li>Security fixes: nonce + js sanitization</li>
+  </ul>
+ </li>
+ <li>1.9.7
+  <ul>
+    <li>https fix</li>
+    <li>random picking fixed</li>
+  </ul>
+ </li>
+ <li>1.8.5
+  <ul><li>orderBy="pubslished" fixed.</li></ul>
+ </li>
+ <li>1.8.4
+  <ul>
+   <li>showVideoTitle fix (for non-preview mode).</li>
+   <li>Delete plugin options when uninstalling the plugin.</li>
+  </ul>
+ </li>
+ <li>1.8.3
+  <ul>
+   <li>Google autoloader fix.</li>
+  </ul>
+ </li>
+ <li>1.8.1
+  <ul>
+   <li>YouTube API v3 support (v2 has been dropped!)</li>
+  </ul>
+ </li>
+ <li>1.6.8
+  <ul>
+   <li>Option/Parameter added: autoplay="true" will start playing the video(s) as soon as they're ready. Does <strong>not</strong> work in <em>preview</em> mode!</li>
+  </ul>
+ </li>
+ <li>1.6.7
+  <ul>
+   <li>New filter added: "+postMeta:key" will add post meta data to the search string.</li>
+  </ul>
+ </li>
+ <li>1.6.6
+  <ul>
+   <li>Added timeout functionality so you don't run into related errors when you have to wait longer for YouTube to respond than you server allows (PHP) script execution.</li>
+  </ul>
+ </li>
+ <li>1.6.5
+  <ul>
+   <li>Widget: 'before' and 'after' code output fixed</li>
+  </ul>
+ </li>
+ <li>1.6.4
+  <ul>
+   <li>You now can also select the categories of a post (<strong>postCategories</strong>) as <em>relation</em>.</li>
+   <li>You can now add the post title, tags, or categories by adding "+postTags", "+postTitle", and/or "+postCategories" in the <strong>filter</strong> field.</li>
+  </ul>
+ </li>
+ <li>1.6.3
+  <ul>
+   <li>New shortcode/widget parameter: viewRelated="no" or viewRelated="false" will <strong>not</strong> show more related videos at the end of a clip.</li>
+  </ul>
+ </li>
+ <li>1.6.1
+  <ul>
+   <li>Plugin settings: You can now set your own message when no videos were found .</li>
+  </ul>
+ </li>
+ <li>1.6.0
+  <ul>
+   <li>In case no videos can be found, spit out the YouTube request URL.</li>
+  </ul>
+ </li>
+ <li>1.5.9
+  <ul>
+   <li>Workaround: In case curl is not install simply try calling the YouTube API, no matter if the (officially) required HTTPS wrapper is installed or not.</li>
+  </ul>
+ </li>
+ <li>1.5.7
+  <ul>
+   <li>Fix: Detection of which method to use to call the remote YouTube API.</li>
+  </ul>
+ </li>
+ <li>1.5.6
+  <ul>
+   <li>Fix: Behavior when not a single video is returning from YT.</li>
+  </ul>
+ </li>
+ <li>1.5.4
+  <ul>
+   <li>Randomizer maths fix.</li>
+  </ul>
+ </li>
+ <li>1.5.3
+  <ul>
+   <li>Quick typo fix in the JS code. Oh Boy^^.</li>
+  </ul>
+ </li>
+ <li>1.5.2
+  <ul>
+   <li>Fix: Preview mode now shows title and description again (if you want it to).</li>
+  </ul>
+ </li>
+ <li>1.5.1
+  <ul>
+   <li>HTML/JS fix for displaying the videos.</li>
+  </ul>
+ </li>
+ <li>1.5.0
+  <ul>
+   <li>A backend page has been added! It includes some basic settings/options, a system requirement check, and the documentation.</li>
+   <li>The documentation has been visually cleaned up a bit and the copy has been edited.
+   <li>New attribute added: filter="" (e.g. filter="intitle:official") will add more search parameters. Might be useful when the relation is set to be the post title or the tags to add some "static" filters.</li>
+  </ul>
+ </li>
+ <li>1.4.6
+  <ul>
+   <li>New attribute added: author="{YouTube Username}" will only show videos from that very YT user.</li>
+  </ul>
+ </li>
+ <li>1.4.5
+  <ul>
+   <li>New attribute added: lang="", e.g. lang="en". Inserting a two-letter language code should restricts the videos to that very language.</li>
+   <li>New attribute added: region="", e.g. region="de". Only show videos that are viewable for a given (two-letter country code) region.</li>
+  </ul>
+ </li>
+ <li>1.4.3
+  <ul>
+   <li>Added Serbo-Croatian translation, thanks to by Borisa Djuraskovic.</li>
+  </ul>
+ </li>
+ <li>1.4.2
+  <ul>
+   <li>Added internal "Allow fullscreen mode" (HTML) parameter.</li>
+  </ul>
+ </li>
+ <li>1.4.1
+  <ul>
+   <li>Request only videos of a certain length: "short" = less than four minutes. "medium" = between 4 and 20 minutes. "long" = longer than 20 minutes.</li>
+  </ul>
+ </li>
+ <li>1.4.0
+  <ul>
+   <li>New attribute: preview. Set to 'true' will display preview thumbnail images and only load (and play) the video when such an image has been clicked.</li>
+  </ul>
+ </li>
+ <li>1.3.2
+  <ul>
+   <li>Issues fixed with relation="postTitle" and id attribute.</li>
+  </ul>
+ </li>
+ <li>1.3.1
+  <ul>
+   <li>Two new attributes/options added: showVideoTitle and showVideoDescription.</li>
+  </ul>
+ </li>
+ <li>1.2.1
+  <ul>
+   <li>Fixes issues when adding custom HTML class or id attribute.</li>
+  </ul>
+ </li>
+ <li>1.2.0
+  <ul>
+   <li>New RANDOM option/parameter added. "Random" has to be a numeric value and determines the size of a pool, {MAX} number of random videos will be picked from. It could read like: Give me {MAX} random videos from a pool of {RANDOM}. Don't worry, I'm about to revise the documentation to make it understandable again^^</li>
+  </ul>
+ </li>
+ <li>1.1.3
+  <ul>
+   <li>Shortcode fix (return, don't echo...)</li>
+  </ul>
+ </li>
+ <li>1.1.2
+  <ul>
+   <li>Updating half the fix makes only half sense, sry^^</li>
+  </ul>
+ </li>
+ <li>1.1.1
+  <ul>
+   <li>API fix for handling the "orderBy" parameter more robust.</li>
+  </ul>
+ </li>
+ <li>1.1.0
+  <ul>
+   <li>Added optional parameter 'exact' which allows you to search for an exact phrase. It basically equals a search on YouTube with quotation marks around your search terms.</li>
+   <li>Also changed the API for the sake of scalability! The API method "searchYouTube" now takes an array(!) of configurational parameters as argument.</li>
+  </ul>
+ </li>
+ <li>1.0.9
+  <ul>
+   <li>Bug fixed: YouTube API seems to be case sensitive on some parameters which had caused problems with the "viewCount" (orderBy) parameter.</li>
+  </ul>
+ </li>
+ <li>1.0.8
+  <ul>
+   <li>Added parameter "wmode = transparent" which should allow HTML elements to be positioned above a video object.</li>
+  </ul>
+ </li>
+ <li>1.0.5
+  <ul>
+   <li>New widget option "Site Search". It allows (if checked) to use the terms a user has entered into the WordPress search box an look these up at YouTube. On "normal" pages (other than the search results page) your other settings will be used to define the relation. So there's no harm done here :)</li>
+  </ul>
+ </li>
+ <li>1.0.4
+  <ul>
+   <li>Spelling corrections</li>
+  </ul>
+ </li>
+ <li>1.0.3
+  <ul>
+   <li>Added a ReadMe or How-To page to the WordPress backend under Settings > Related YT Videos</li>
+  </ul>
+ </li>
+ <li>1.0.2
+  <ul>
+   <li>Plugin launch.</li>
+  </ul>
+ </li>
+</ul>
