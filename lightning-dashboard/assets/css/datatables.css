@@ -1,0 +1,112 @@
+/* Elements Around Table */
+
+body {
+	color: #444;
+}
+
+.dataTables_wrapper {
+	color: #444 !important;
+}
+
+.dataTables_wrapper .top,
+.dataTables_wrapper .bottom {
+	height: 46px;
+}
+
+.dataTables_wrapper .top {
+	border-bottom: 1px solid #ccc;
+}
+
+.dataTables_wrapper .dataTables_info {
+	padding-top: 14px;
+	font-size: 11px;
+}
+
+.dataTables_wrapper .dataTables_info .select-item {
+	color: #0073aa;
+	font-weight: 700;
+}
+
+.dataTables_wrapper .dataTables_filter {
+	float: right;
+	padding-top: 10px;
+	margin-right: 15px;
+	font-size: 11px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+	width: 150px;
+	font-size: 11px;
+	height: 23px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+	padding-top: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .ellipsis {
+	padding: 0;
+	margin-right: 15px;
+}
+
+.dataTables_wrapper .dataTables_paginate a {
+	margin-right: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate a.last {
+	margin-right: 0;
+}
+
+/* Table */
+
+.dataTable {
+	width: 100% !important;
+	border-bottom: 1px solid #ccc !important;
+}
+
+.dataTable thead .sorting_asc {
+	background-image: url( '../images/icons/datatables/sort-asc.png' ) !important;
+}
+
+.dataTable thead .sorting_desc {
+	background-image: url( '../images/icons/datatables/sort-desc.png' ) !important;
+}
+
+.dataTable thead tr:nth-child(2) th {
+	font-weight: 400;
+}
+
+.dataTable thead th {
+	border-bottom: 1px solid #ccc !important;
+	padding: 10px !important;
+}
+
+.dataTable thead th input,
+.dataTable thead th select {
+	min-width: 100px; /* This must be set to ensure select filter columns are wide enough */
+	width: 100%;
+	height: 28px;
+}
+
+.dataTable thead th input::placeholder {
+	color: #32373c;
+}
+
+.dataTable tbody tr.selected {
+	background-color: #0073aa !important;
+}
+
+.dataTable tbody tr.selected:nth-child(even) {
+	background-color: #1f73a9d9 !important;
+}
+
+.dataTable tbody tr.selected td,
+.dataTable tbody tr.selected td a:not(.button) {
+	color: #FFFFFF !important;
+}
+
+/* :not(.dataTables_empty) to stop the loading message aligning right */
+.dataTable tbody tr td:not(.dataTables_empty):last-child,
+.dataTable#ldash-datatable-customers tbody tr td:not(.dataTables_empty):nth-last-child(2) /* Customers orders button column */ {
+	text-align: right;
+}

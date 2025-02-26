@@ -1,0 +1,72 @@
+/* Options & Sub Options */
+
+#ldash-options,
+#ldash-sub-options {
+	border-bottom: 1px solid #ccc;
+	padding-top: 10px;
+	height: 35px;
+}
+
+#ldash-options a:not(.button),
+#ldash-sub-options a:not(.button) {
+	display: block;
+	padding: 2px 10px 0px 10px;
+	border-right: 1px solid #ddd;
+	float: left;
+	height: 22px;
+}
+
+#ldash-options a:focus,
+#ldash-sub-options a:focus {
+	outline: none;
+	outline-style: none;
+	box-shadow: none;
+}
+
+#ldash-options a:first-child:not(.button),
+#ldash-sub-options a:first-child:not(.button) {
+	padding-left: 0;
+}
+
+#ldash-options a:last-child:not(.button),
+#ldash-sub-options a:last-child:not(.button) {
+	border-right: 0;
+}
+
+#ldash-options .ldash-options-left,
+#ldash-options .ldash-options-right {
+	float: left;
+	width: 50%;
+}
+
+#ldash-options .ldash-options-right form > .button {
+	float: right;
+	margin-right: 10px;
+}
+
+#ldash-options .ldash-options-right form > .button:first-child { /* This is the last item because of float right */
+	margin-right: 0;
+}
+
+#ldash-options .ldash-options-right form .dt-button-collection {
+	z-index: 100060 !important /* Higher than overlay set in general css*/;
+	/* Below brings inline with Thickbox so no radius to be consistent */
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 0 !important;
+}
+
+#ldash-options .ldash-options-right form .dt-button-collection .button {
+	width: 130px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+#ldash-options .ldash-options-right form .dt-button-collection-title {
+	padding: 5px 0 5px 0;
+	font-weight: 600;
+	background: #fcfcfc;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 10px;
+	font-size: 12px;
+}

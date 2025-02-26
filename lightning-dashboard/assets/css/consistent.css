@@ -1,0 +1,18 @@
+/* Styles for elements from other stylesheets which need the same styles for consistency */
+
+/* Overlays */
+
+div.dt-button-background /* Datatables button collection overlay */,
+#TB_overlay /* Thickbox overlay */ {
+	background: #000000 !important;
+	opacity: 0.8 !important;
+	z-index: 100050 !important; /* This is the default Thickbox z-index, we also apply to datatable overlay as we want the WordPress menu overlaid too so consistent */
+}
+
+/* Lightbox Shadows */
+
+div.dt-button-collection /* Datatables button collection shadow */,
+#TB_window /* Thickbox shadow */ {
+	-webkit-box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 ) !important;
+	box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 ) !important;
+}

@@ -1,0 +1,68 @@
+/* Form Elements */
+
+.ldash-form h2 {
+	margin-bottom: 22px;
+}
+
+.ldash-form .ldash-form-element {
+	margin-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 15px;
+	overflow: auto; /* Ensures height of div is enlarged when label goes onto more than 1 line */
+}
+
+.ldash-form .ldash-form-element .form-row { /* woocommerce_form_field generates inputs with this wrapper so we need to remove these styles for it to display nicely */
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.ldash-form .ldash-form-element:last-child {
+	border-bottom: 0;
+	margin-bottom: 0;
+}
+
+.ldash-form#ldash-form-element-form .ldash-form-element:last-child {
+	padding-bottom: 1px; /* Allows shadow of button to show */
+}
+
+.ldash-form .ldash-form-element label {
+	width: 160px;
+	float: left;
+	padding-top: 5px;
+}
+
+.ldash-form .ldash-form-element label.checkbox-label {
+	padding-top: 0;
+}
+
+.ldash-form .ldash-form-element .wp-picker-input-wrap label {
+	width: auto;
+	padding-top: 0; /* Styles specific to the input field which appears for hex code entry and this also effects the clear button to the right of it */
+}
+
+.ldash-form .ldash-form-element > small {
+	display: block;
+	font-style: italic;
+	margin-top: 10px;
+	padding-left: 160px;
+}
+
+.ldash-form .ldash-form-element.ldash-form-element-wider label {
+	width: 260px;
+}
+
+.ldash-form .ldash-form-element.ldash-form-element-wider > small {
+	padding-left: 260px;
+}
+
+.ldash-form-expander {
+	display: none;
+	border: 1px solid #ccc;
+	padding: 5px 15px;
+	background: #e5e5e5;
+}
+
+.ldash-form-expander .ldash-form-element:last-of-type {
+	border-bottom: 0;
+	margin-bottom: 0;
+}

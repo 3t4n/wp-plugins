@@ -1,0 +1,50 @@
+/* Logo */
+
+#ldash-logo {
+	height: 22px;
+	float: right;
+}
+
+/* Version */
+
+#ldash-version {
+	float: right;
+	font-size: 10px;
+	margin: 3px 10px 0 0;
+	color: #cccccc;
+	font-weight: 400;
+}
+
+#ldash-version::before { 
+  content: "v"; /* Adds a v for version before the number */
+}
+
+/* Nav Tab Sub Menu Hover .nav-tab class is standard WordPress, we have added with-menu class to show hovered menu */
+
+#ldash-tabs .nav-tab.with-menu {
+	position: relative;
+}
+
+#ldash-tabs .nav-tab.with-menu:hover {
+	border-bottom: 1px solid #fff;
+	margin-bottom: -1px;
+}
+
+#ldash-tabs .nav-tab.with-menu ul {
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: -1px;
+	background: #ffffff;
+	z-index: 99999;
+	padding: 15px;
+	border: 1px solid #c3c3c3;
+}
+
+#ldash-tabs .nav-tab.with-menu:hover ul {
+	display: block;
+}
+
+#ldash-tabs .nav-tab.with-menu ul li:last-child {
+	margin-bottom: 0;
+}
