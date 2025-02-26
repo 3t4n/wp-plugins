@@ -1,0 +1,19 @@
+{
+  "name": "novelist",
+  "version": "1.2.3",
+  "description": "Easily organize and display your portfolio of books.",
+  "author": "Nose Graze",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://novelistplugin.com",
+  "devDependencies": {
+    "laravel-mix": "^6.0.16",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.71.1",
+    "sass-loader": "^14.1.1"
+  },
+  "scripts": {
+    "build": "npx mix --production && npm run i18n",
+    "dev": "npx mix watch",
+    "i18n": "wp i18n make-pot . languages/novelist.pot --domain=novelist"
+  }
+}
