@@ -1,0 +1,8 @@
+{% if site_key %}
+    <div id="konfirmi-container-{{id}}" class="konfirmi-container">
+    <div onclick="const query = []; document.querySelectorAll('form input[name]').forEach(function(input) { query.push(`${input.name}=${input.value}`); }); window.konfirmiPopup = window.open(`{{url}}/form/{{site_key}}?${query.join(`&`)}`, `Konfirmi`,`resizable,height=520,width=640`); const w_containers = document.getElementsByClassName(`active_widget`); Array.from(w_containers)?.forEach(function(e) { e.classList.remove(`active_widget`) } ); this.previousSibling.parentElement.classList.add(`active_widget`); console.log('window window window',window)" data-url="{{url}}/form/{{site_key}}" style="display: inline-block; cursor: pointer">
+        <img src="{{url}}/form/{{site_key}}/get-button-background" onerror="document.querySelector('#konfirmi-container-{{id}}').innerHTML=''" style="pointer-events: none;">
+    </div>
+    <input type="hidden" value="test_input">
+    </div>
+{% endif %}

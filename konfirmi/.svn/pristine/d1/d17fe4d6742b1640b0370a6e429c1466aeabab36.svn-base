@@ -1,0 +1,121 @@
+<script>
+    var searchUrl = window.location.search;
+    var start = searchUrl.indexOf('token=');
+    var token = '';
+    if(start >= 0){
+        var last = searchUrl.indexOf('&', start) > 0 ? searchUrl.indexOf('&',start) : undefined;
+        token = searchUrl.substring(start, last ).replace('token=', '');
+    }
+    if (token) {
+    document.cookie = "konfirmiToken=" + token;
+    window.location.replace(window.location.href.replace(`&konfirmiToken=${token}`, ''));
+    }
+</script>
+<div class="konfirmi__container">
+    <div class="konfirmi__header">
+        <div class="konfirmi__logo-wrapper">
+            <img class="konfirmi__logo" src="{{pluginUrl}}/assets/images/logo.png" alt="Konfirmi">
+            <h1>{{admin.pageTitle}}</h1>
+        </div>
+        <div>
+        {% if not isUserLogged %}
+            <div class="konfirmi__header-auth">
+                <a class="btn-green" target="_blank" href="{{api.baseUrl}}/auth/auth2signup?redirect_uri={{site_url}}">Sign up</a>
+                <a class="btn-green" target="_blank" href="{{api.baseUrl}}/auth/auth2login?redirect_uri={{site_url}}">Login</a>
+            </div>
+        {% else %}
+            <div class="konfirmi__header-auth">
+                <a class="btn-green" href="{{site_url}}&logout=true">Logout</a>
+            </div>
+        {% endif %}
+            <a href="https://konfirmi.com/support/" target="blank" >Click here for HOW-TO VIDEOS AND INSTRUCTIONS</a>
+        </div>
+    </div>
+
+    {% if not isUserLogged %}
+        <h2 class="error-message">Please press the LOG IN button to set up or edit your widgets. If you do not yet have an account, please press the SIGN UP button.</h2>
+    {% endif %}
+    <div class="error-container">
+        {% if errors != null %}
+            {% for error in errors %}
+                <h2 class="error-message">{{error}}<h2>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="success-container">
+        {% if notifies != null %}
+                {% for notify in notifies %}
+                    <h2 class="success-message">{{notify}}<h2>
+                {% endfor %}
+        {% endif %}
+    </div>
+    {% if isUserLogged %}
+    <div class="konfirmi__table-block">
+        <h1 class="konfirmi__block-title">{{admin.widgetTableTitle}}</h1>
+        <table class="konfirmi__table">
+            <thead>
+                <tr>
+                    <th>Konfirmi-container</th>
+                    <th>Widget Integrations</th>
+                    <th>Widget ID</th>
+                    <th>Data checks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if widgets != null %}
+                    {% for widget in widgets %}
+                    <tr>
+                        <td>
+                            [konfirmi id="{{widget.id}}"]
+                        </td>
+                        <td>
+                            <select id="form-select-{{widget.id}}">
+                                <option selected="true">Select</option>
+                                {% for form in forms %}
+                                    {% if form.id == widget.form %}
+                                        <option selected="true" value="{{form.id}}">{{form.name}}</option>
+                                    {% else %}
+                                        <option value="{{form.id}}">{{form.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <div class="siteKey">
+                                {{widget.id}}
+                            </div>
+                        </td>
+                        <td>
+                            {{widget.dataChecks}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</div>
+<div class="modal" data-modal-name="sample-modal" id="sample-modal">
+    <div class="modal__dialog">
+        <button class="modal__close" data-modal-dismiss>×</button>
+        <header class="modal__header">
+            <h3 class="modal__title">Warning</h3>
+        </header>
+        <div class="modal__content">
+            <p>WooCommerce form already set to another konfirmi container. Do you want to change it to this container?</p>
+        </div>
+        <footer class="modal__footer">
+            <button  data-modal-confirm class="demo__btn">Ok</button>
+            <button  data-modal-dismiss class="demo__btn">Cancel</button>
+        </footer>
+    </div>
+</div>
+<script>
+    var FORMS = {{ forms|json_encode|raw }};
+    var wooCommerceForm = FORMS.find(function (form) {
+        return form.name === 'WooCommerce';
+    });
+</script>
+

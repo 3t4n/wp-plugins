@@ -1,0 +1,32 @@
+
+<script id="tmpl-nf-field-konfirmi" type="text/template">
+	{{{data.widget_id}}}
+	{{{ (() => {
+		if (isNaN(data.widget_id)) {
+			return;
+		}
+		const d = document;
+		let i;
+		const w = window;
+		const e = d.createElement("script");
+		w.addEventListener('load', () => {
+			e.src = window.konfirmiBackendUrl + "/static/konfirmi-script.min.js";
+			d.body.appendChild(e);
+			i = d.createElement('img');
+
+			i.src = window.konfirmiBackendUrl + "/form/site-key/" + data.widget_id + "/get-button-background";
+			i.style.cursor="pointer";
+			i.onerror= () => d.querySelector(".nf-field-container.konfirmi-container.label-above.textbox-container").innerHTML='';
+			i.onclick = () => {
+				fetch(window.konfirmiBackendUrl + "/form/site-key/" + data.widget_id)
+				.then(res => res.json())
+				.then((res) => {
+					w.kfModal = w.open(window.konfirmiBackendUrl  + "/form/" + res.data.siteKey, "Konfirmi", "width=650,height=350");
+				});
+				}
+			d.querySelector(".nf-field-container.konfirmi-container.label-above.textbox-container").innerHTML = '';
+			d.querySelector(".nf-field-container.konfirmi-container.label-above.textbox-container").appendChild(i);
+		}, false);
+	})()
+}}}
+</script>
