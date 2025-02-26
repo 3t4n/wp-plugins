@@ -1,0 +1,28 @@
+{
+    "name": "carmelosantana/alpaca-bot",
+    "description": "A privately hosted WordPress AI chatbot.",
+    "type": "wordpress-plugin",
+    "license": "GNU General Public License v2",
+    "authors": [
+        {
+            "name": "Carmelo Santana",
+            "email": "me@carmelosantana.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AlpacaBot\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "composer/installers": "^2.2",
+        "php-science/textrank": "^1.2",
+        "erusev/parsedown": "^1.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
