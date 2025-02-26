@@ -1,0 +1,31 @@
+{
+    "name": "vyskocilova/kybernaut-ic-dic",
+    "description": "Plugin for WooCommerce handling VAT numbers.",
+    "type": "project",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Karolína Vyskočilová",
+            "email": "karolina@kybernaut.cz"
+        }
+    ],
+    "require-dev": {
+        "10up/wp_mock": "^0.4.2"
+    },
+    "scripts" : {
+        "test:unit": "vendor/bin/phpunit --testsuite Unit"
+    },
+    "config": {
+        "allow-plugins": {
+            "wpify/scoper": true
+        },
+		"platform": {
+			"php": "7.3"
+		}
+    },
+	"extra": {
+        "wpify-scoper": {
+            "prefix": "KybernautIcDicDeps"
+        }
+    }
+}
