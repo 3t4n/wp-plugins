@@ -1,0 +1,959 @@
+#hollerbox-popup-content {
+  display: none !important;
+}
+
+body.holler-box-blurred {
+  filter: blur(4px);
+}
+body.holler-suppress-animations .holler-box-overlay,
+body.holler-suppress-animations .holler-box .animation {
+  animation: none !important;
+}
+body.holler-slide-down {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+body.disable-scrolling {
+  overflow: hidden;
+}
+
+body:not(.wp-admin) .holler-box {
+  position: fixed;
+}
+body:not(.wp-admin).admin-bar .positioner.top-left {
+  top: calc(20px + 32px);
+}
+body:not(.wp-admin).admin-bar .positioner.top-center {
+  top: calc(20px + 32px);
+}
+body:not(.wp-admin).admin-bar .positioner.top-right {
+  top: calc(20px + 32px);
+}
+body:not(.wp-admin).admin-bar .holler-box.holler-sidebar .positioner,
+body:not(.wp-admin).admin-bar .holler-box.holler-banner .positioner.top-left {
+  top: 32px !important;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 0 40px;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes holler-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes holler-overlay-appear {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes holler-appear {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes holler-disappear {
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes holler-slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes holler-slide-in-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes holler-slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes holler-slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes holler-slide-out-up {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes holler-slide-out-down {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+@keyframes holler-slide-out-right {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes holler-slide-out-left {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+.holler-box {
+  z-index: 1000;
+}
+.holler-box .hollerbox-integration-errors {
+  background: #FFFFFF;
+  color: #e91f4f;
+  padding: 20px;
+  font-size: 16px;
+}
+.holler-box .hollerbox-integration-errors p:first-child {
+  margin-top: 0;
+}
+.holler-box .hollerbox-integration-errors p:last-child {
+  margin-bottom: 0;
+}
+.holler-box.no-animation .holler-box-overlay,
+.holler-box.no-animation .holler-box-overlay::before,
+.holler-box.no-animation .holler-box-overlay::after,
+.holler-box.no-animation .animation {
+  animation: none !important;
+}
+.holler-box .animation {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.holler-box .animation.appear {
+  animation-name: holler-appear;
+}
+.holler-box .positioner {
+  position: fixed;
+}
+.holler-box .positioner.top {
+  top: 20px;
+  left: 20px;
+}
+.holler-box .positioner.top .slide-in {
+  animation-name: holler-slide-in-down;
+}
+.holler-box .positioner.top .slide-out {
+  animation-name: holler-slide-out-up;
+}
+.holler-box .positioner.top-left {
+  top: 20px;
+  left: 20px;
+}
+.holler-box .positioner.top-left .slide-in {
+  animation-name: holler-slide-in-down;
+}
+.holler-box .positioner.top-left .slide-out {
+  animation-name: holler-slide-out-up;
+}
+.holler-box .positioner.top-center {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.holler-box .positioner.top-center .slide-in {
+  animation-name: holler-slide-in-down;
+}
+.holler-box .positioner.top-center .slide-out {
+  animation-name: holler-slide-out-up;
+}
+.holler-box .positioner.top-right {
+  top: 20px;
+  right: 20px;
+}
+.holler-box .positioner.top-right .slide-in {
+  animation-name: holler-slide-in-down;
+}
+.holler-box .positioner.top-right .slide-out {
+  animation-name: holler-slide-out-up;
+}
+.holler-box .positioner.center-left {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.holler-box .positioner.center-left .slide-in {
+  animation-name: holler-slide-in-left;
+}
+.holler-box .positioner.center-left .slide-out {
+  animation-name: holler-slide-out-left;
+}
+.holler-box .positioner.center-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.holler-box .positioner.center-center .slide-in {
+  animation-name: holler-appear;
+}
+.holler-box .positioner.center-center .slide-out {
+  animation-name: holler-disappear;
+}
+.holler-box .positioner.center-right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.holler-box .positioner.center-right .slide-in {
+  animation-name: holler-slide-in-right;
+}
+.holler-box .positioner.center-right .slide-out {
+  animation-name: holler-slide-out-right;
+}
+.holler-box .positioner.bottom {
+  bottom: 20px;
+  left: 20px;
+}
+.holler-box .positioner.bottom .slide-in {
+  animation-name: holler-slide-in-up;
+}
+.holler-box .positioner.bottom .slide-out {
+  animation-name: holler-slide-out-down;
+}
+.holler-box .positioner.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+.holler-box .positioner.bottom-left .slide-in {
+  animation-name: holler-slide-in-up;
+}
+.holler-box .positioner.bottom-left .slide-out {
+  animation-name: holler-slide-out-down;
+}
+.holler-box .positioner.bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.holler-box .positioner.bottom-center .slide-in {
+  animation-name: holler-slide-in-up;
+}
+.holler-box .positioner.bottom-center .slide-out {
+  animation-name: holler-slide-out-down;
+}
+.holler-box .positioner.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+.holler-box .positioner.bottom-right .slide-in {
+  animation-name: holler-slide-in-up;
+}
+.holler-box .positioner.bottom-right .slide-out {
+  animation-name: holler-slide-out-down;
+}
+.holler-box .holler-box-credit {
+  margin-top: 10px;
+  text-align: center;
+}
+.holler-box .holler-box-credit a {
+  color: #e8ad0b;
+  text-decoration: none;
+  font-size: 16px;
+}
+.holler-box .holler-box-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+  opacity: 1;
+  animation: holler-overlay-appear 0.4s ease-in-out;
+}
+.holler-box .holler-box-overlay::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #333;
+  opacity: 0.5;
+}
+.holler-box .holler-box-overlay.no-animation {
+  animation: none;
+}
+.holler-box .display-flex {
+  display: flex;
+  gap: 20px;
+}
+.holler-box .holler-box-modal {
+  min-width: 300px;
+  width: min-content;
+  max-width: calc(100vw - 40px);
+  background: #ffffff;
+  padding: 30px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.15);
+}
+.holler-box .holler-box-modal.notification-closed {
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0075ff;
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.15);
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+.holler-box .holler-box-modal.notification-closed svg {
+  height: 30px;
+  width: 30px;
+}
+.holler-box .holler-box-modal img {
+  max-width: 100%;
+}
+.holler-box .holler-box-modal img.alignright {
+  float: right;
+}
+.holler-box .holler-box-modal img.alignleft {
+  float: left;
+}
+.holler-box .holler-box-modal img.aligncenter {
+  margin: 0 auto;
+  display: block;
+}
+.holler-box .holler-box-modal .holler-box-modal-content {
+  box-sizing: border-box;
+}
+.holler-box .holler-box-modal .holler-box-modal-content p, .holler-box .holler-box-modal .holler-box-modal-content li, .holler-box .holler-box-modal .holler-box-modal-content ul, .holler-box .holler-box-modal .holler-box-modal-content ol {
+  font-size: 18px;
+}
+.holler-box .holler-box-modal .holler-box-modal-content h1 {
+  font-size: 40px;
+}
+.holler-box .holler-box-modal .holler-box-modal-content h2 {
+  font-size: 32px;
+}
+.holler-box .holler-box-modal .holler-box-modal-content h3 {
+  font-size: 24px;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close {
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 12px;
+  width: 12px;
+  background-color: transparent !important;
+  background: none;
+  color: #102640;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close svg {
+  height: 100%;
+  width: 100%;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close.medium {
+  top: 7px;
+  right: 7px;
+  height: 16px;
+  width: 16px;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close.large {
+  top: 9px;
+  right: 9px;
+  height: 22px;
+  width: 22px;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close.filled {
+  top: 0;
+  right: 0;
+  height: 18px;
+  width: 18px;
+  transform: translate(50%, -50%);
+}
+.holler-box .holler-box-modal button.holler-box-modal-close.filled.icon-inside {
+  top: 5px;
+  right: 5px;
+  transform: none;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close.filled.medium {
+  height: 24px;
+  width: 24px;
+}
+.holler-box .holler-box-modal button.holler-box-modal-close.filled.large {
+  height: 30px;
+  width: 30px;
+}
+.holler-box.holler-notification-box .holler-box-credit {
+  margin-top: 10px;
+  text-align: right;
+}
+.holler-box.holler-notification-box .holler-box-credit a {
+  color: #e8ad0b;
+  text-decoration: none;
+  font-size: 14px;
+}
+.holler-box.holler-notification-box.with-chat {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.holler-box.holler-notification-box.with-chat ::-webkit-scrollbar {
+  width: 5px;
+}
+.holler-box.holler-notification-box.with-chat ::-webkit-scrollbar-track {
+  background: rgba(16, 38, 64, 0.05);
+}
+.holler-box.holler-notification-box.with-chat ::-webkit-scrollbar-thumb {
+  background: rgba(16, 38, 64, 0.3);
+  border-radius: 5px;
+}
+.holler-box.holler-notification-box.with-chat ::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 38, 64, 0.5);
+}
+.holler-box.holler-notification-box.with-chat .holler-box-modal {
+  max-height: 600px;
+  overflow-y: auto;
+}
+.holler-box.holler-notification-box.with-chat .close-chat-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.holler-box.holler-notification-box.with-chat .close-chat-wrap button.close-chat {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgba(16, 38, 64, 0.3);
+  font-weight: 500;
+  font-size: 14px;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-response {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-response .content {
+  padding: 10px;
+  background: #0075ff;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-response .content * {
+  background: #0075ff;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-message {
+  display: flex;
+  gap: 10px;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-message img.avatar {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-message .content {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.holler-box.holler-notification-box.with-chat .holler-box-chat-message .content > * {
+  padding: 10px;
+  background: rgba(0, 117, 255, 0.07);
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0;
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 15px;
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form textarea,
+.holler-box.holler-notification-box.with-chat form.holler-chat-form .holler-box-input {
+  border-radius: 5px 0 0 5px;
+  background: #ffffff;
+  padding: 6px 16px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid rgba(16, 38, 64, 0.3);
+  line-height: 2;
+  min-height: 30px;
+  box-sizing: border-box;
+  max-height: 42px;
+  min-width: 0;
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form textarea::placeholder,
+.holler-box.holler-notification-box.with-chat form.holler-chat-form .holler-box-input::placeholder {
+  color: #cccccc;
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form textarea:-ms-input-placeholder,
+.holler-box.holler-notification-box.with-chat form.holler-chat-form .holler-box-input:-ms-input-placeholder {
+  color: #cccccc;
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form button.send-message {
+  cursor: pointer;
+  border: none;
+  background: #0075ff;
+  color: #ffffff;
+  border-radius: 0 5px 5px 0;
+  padding: 5px 10px;
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form button.send-message:focus, .holler-box.holler-notification-box.with-chat form.holler-chat-form button.send-message:hover {
+  background: rgba(0, 117, 255, 0.6);
+}
+.holler-box.holler-notification-box.with-chat form.holler-chat-form button.send-message svg {
+  height: 20px;
+  width: 20px;
+}
+.holler-box.holler-notification-box.with-button .holler-button-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.holler-box.holler-notification-box.with-button .holler-button-cta .holler-box-button {
+  border-radius: 5px;
+  font-size: 18px;
+}
+.holler-box.holler-notification-box.with-form form.holler-box-form {
+  margin-top: 10px;
+}
+.holler-box.holler-notification-box.with-form form.holler-box-form .fields {
+  gap: 0;
+}
+.holler-box.holler-notification-box.with-form form.holler-box-form input[type=email] {
+  width: 100%;
+  background: rgba(16, 38, 64, 0.05);
+  border: none;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+}
+.holler-box.holler-notification-box.with-form form.holler-box-form button {
+  border-radius: 0 5px 5px 0;
+  font-size: 18px;
+}
+.holler-box.holler-notification-box .holler-box-modal {
+  width: 400px;
+  padding: 20px 10px 10px 10px;
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.15);
+  border-radius: 5px;
+}
+.holler-box.holler-notification-box .holler-box-modal .display-flex {
+  align-items: flex-start;
+  gap: 10px;
+}
+.holler-box.holler-notification-box .holler-box-modal img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.holler-box.holler-notification-box .holler-box-modal .holler-box-modal-content {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 117, 255, 0.07);
+  border-radius: 5px;
+}
+.holler-box.holler-notification-box .holler-box-modal .holler-box-modal-content p {
+  font-size: 16px;
+  margin: 0.8em 0;
+  line-height: 1.1;
+}
+.holler-box.holler-notification-box .holler-box-modal .holler-box-modal-content p:first-child {
+  margin-top: 0;
+}
+.holler-box.holler-notification-box .holler-box-modal .holler-box-modal-content p:last-child {
+  margin-bottom: 0;
+}
+.holler-box.holler-popup-custom .holler-box-modal-content {
+  width: 400px;
+}
+.holler-box.holler-popup-standard .holler-box-modal-content {
+  width: 400px;
+}
+.holler-box.holler-popup-image-left .holler-box-modal {
+  padding: 0;
+}
+.holler-box.holler-popup-image-left .holler-box-modal .holler-box-modal-content {
+  width: 330px;
+}
+.holler-box.holler-popup-image-left .display-flex {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.holler-box.holler-popup-image-left .display-flex .left {
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center center;
+  width: 300px;
+}
+.holler-box.holler-popup-image-left .display-flex .right {
+  align-self: flex-start;
+  padding: 30px;
+}
+.holler-box.holler-popup-image-right .holler-box-modal {
+  padding: 0;
+}
+.holler-box.holler-popup-image-right .holler-box-modal .holler-box-modal-content {
+  width: 330px;
+}
+.holler-box.holler-popup-image-right .display-flex {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.holler-box.holler-popup-image-right .display-flex .right {
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center center;
+  width: 300px;
+}
+.holler-box.holler-popup-image-right .display-flex .left {
+  align-self: flex-start;
+  padding: 30px;
+}
+.holler-box.holler-popup-form-below .holler-box-modal {
+  padding: 0;
+}
+.holler-box.holler-popup-form-below .holler-box-modal .holler-box-modal-content {
+  width: 330px;
+}
+.holler-box.holler-popup-form-below .display-flex {
+  align-items: stretch;
+  gap: 0;
+}
+.holler-box.holler-popup-form-below .display-flex .left {
+  padding: 30px;
+}
+.holler-box.holler-popup-form-below .display-flex .right {
+  flex-shrink: 0;
+  width: 300px;
+  background-size: cover;
+  background-position: center center;
+}
+.holler-box.holler-popup-form-below .holler-box-form {
+  padding: 20px;
+  background: rgba(0, 117, 255, 0.07);
+}
+.holler-box.holler-popup-progress-bar .holler-box-progress-bar-wrap .holler-box-progress-bar {
+  display: flex;
+  overflow: hidden;
+  background-color: #e9ecef;
+}
+.holler-box.holler-popup-progress-bar .holler-box-progress-bar-wrap .holler-box-progress-bar .holler-box-progress-bar-fill {
+  background-color: #337ab7;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+  height: 20px;
+  width: 50%;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+.holler-box.holler-popup-progress-bar .holler-box-progress-bar-wrap .holler-box-progress-bar .holler-box-progress-bar-fill.filled {
+  animation: none;
+  width: 100% !important;
+}
+.holler-box.holler-popup-progress-bar .holler-box-modal {
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.holler-box.holler-popup-progress-bar .holler-box-modal .holler-box-modal-content {
+  width: 330px;
+}
+.holler-box.holler-popup-progress-bar .holler-box-modal button.holler-box-modal-close {
+  top: 25px;
+}
+.holler-box.holler-popup-progress-bar .display-flex {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.holler-box.holler-popup-progress-bar .display-flex .left {
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center center;
+  width: 300px;
+}
+.holler-box.holler-popup-progress-bar .display-flex .right {
+  align-self: flex-start;
+  padding: 30px;
+}
+.holler-box.holler-popup-image-beside-text-top .holler-box-modal {
+  padding: 0;
+}
+.holler-box.holler-popup-image-beside-text-top .holler-box-modal-content {
+  padding: 30px;
+}
+.holler-box.holler-popup-image-beside-text-top .display-flex {
+  align-items: stretch;
+  gap: 0;
+}
+.holler-box.holler-popup-image-beside-text-top .display-flex .left {
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center center;
+  width: 250px;
+}
+.holler-box.holler-popup-image-beside-text-top .display-flex .holler-box-form {
+  padding: 30px;
+  min-width: 250px;
+  background-color: rgba(0, 117, 255, 0.07);
+}
+.holler-box.holler-popup-full-image-background .holler-box-modal {
+  background-size: cover;
+  background-position: center center;
+}
+.holler-box.holler-popup-full-image-background .holler-box-modal .holler-box-modal-content {
+  width: 400px;
+}
+.holler-box input[type=submit].holler-box-button,
+.holler-box input[type=button].holler-box-button,
+.holler-box button.holler-box-button,
+.holler-box button.holler-choice,
+.holler-box button.holler-survey-next {
+  font-size: 20px;
+  padding: 10px 16px;
+  border-radius: 0;
+  background: #2196F3;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.holler-box input[type=submit].holler-box-button:disabled,
+.holler-box input[type=button].holler-box-button:disabled,
+.holler-box button.holler-box-button:disabled,
+.holler-box button.holler-choice:disabled,
+.holler-box button.holler-survey-next:disabled {
+  opacity: 0.8;
+}
+.holler-box input[type=submit].holler-box-button .holler-spinner,
+.holler-box input[type=button].holler-box-button .holler-spinner,
+.holler-box button.holler-box-button .holler-spinner,
+.holler-box button.holler-choice .holler-spinner,
+.holler-box button.holler-survey-next .holler-spinner {
+  display: block;
+  margin: 0 auto;
+  height: 15px;
+  width: 15px;
+  border: 5px solid rgba(255, 255, 255, 0.4);
+  border-bottom-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  animation: holler-rotation 1s linear infinite;
+}
+.holler-box input[type=submit].holler-box-button.inverse,
+.holler-box input[type=button].holler-box-button.inverse,
+.holler-box button.holler-box-button.inverse,
+.holler-box button.holler-choice.inverse,
+.holler-box button.holler-survey-next.inverse {
+  background-color: transparent;
+  color: #2196f3;
+  border: 1px solid #2196F3;
+}
+.holler-box input[type=submit].holler-box-button.inverse .holler-spinner,
+.holler-box input[type=button].holler-box-button.inverse .holler-spinner,
+.holler-box button.holler-box-button.inverse .holler-spinner,
+.holler-box button.holler-choice.inverse .holler-spinner,
+.holler-box button.holler-survey-next.inverse .holler-spinner {
+  border: 5px solid rgba(33, 150, 243, 0.4);
+  border-bottom-color: #2196f3;
+}
+.holler-box form.holler-box-form.custom-form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.holler-box form.holler-box-form .fields {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+.holler-box form.holler-box-form.vertical .fields {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+.holler-box form.holler-box-form.vertical .fields label.holler-gdpr-consent {
+  align-self: center;
+}
+.holler-box form.holler-box-form label.holler-gdpr-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.holler-box form.holler-box-form label.holler-gdpr-consent span {
+  line-height: 1.1;
+}
+.holler-box form.holler-box-form.horizontal label.holler-gdpr-consent {
+  margin-top: 10px;
+}
+.holler-box form.holler-box-form input.holler-box-input {
+  border-radius: 0;
+  background: #ffffff;
+  padding: 6px 16px;
+  font-size: 18px;
+  width: 100%;
+  border: 1px solid rgba(16, 38, 64, 0.3);
+  line-height: 2;
+  min-height: 30px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.holler-box form.holler-box-form input.holler-box-input::placeholder {
+  color: #cccccc;
+}
+.holler-box form.holler-box-form input.holler-box-input:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+@media (max-width: 600px) {
+  .holler-box.holler-popup .holler-box-modal {
+    width: calc( 100vw - 40px );
+    max-height: calc( 100vw - 40px );
+  }
+
+  .holler-box.holler-notification-box .positioner:not(:has(.notification-closed)) {
+    left: 0;
+    right: 0;
+  }
+  .holler-box.holler-notification-box .positioner.top-left, .holler-box.holler-notification-box .positioner.top-center, .holler-box.holler-notification-box .positioner.top-right {
+    top: 0;
+    transform: none;
+  }
+  .holler-box.holler-notification-box .positioner.top-left .notification-closed, .holler-box.holler-notification-box .positioner.top-center .notification-closed, .holler-box.holler-notification-box .positioner.top-right .notification-closed {
+    margin-top: 10px;
+  }
+  .holler-box.holler-notification-box .positioner.center-right, .holler-box.holler-notification-box .positioner.center-center, .holler-box.holler-notification-box .positioner.center-left, .holler-box.holler-notification-box .positioner.bottom-right, .holler-box.holler-notification-box .positioner.bottom-center, .holler-box.holler-notification-box .positioner.bottom-left {
+    top: auto;
+    bottom: 0;
+    transform: none;
+  }
+  .holler-box.holler-notification-box .positioner.center-right .notification-closed, .holler-box.holler-notification-box .positioner.center-center .notification-closed, .holler-box.holler-notification-box .positioner.center-left .notification-closed, .holler-box.holler-notification-box .positioner.bottom-right .notification-closed, .holler-box.holler-notification-box .positioner.bottom-center .notification-closed, .holler-box.holler-notification-box .positioner.bottom-left .notification-closed {
+    margin-bottom: 10px;
+  }
+  .holler-box.holler-notification-box .positioner.top-center, .holler-box.holler-notification-box .positioner.center-center, .holler-box.holler-notification-box .positioner.bottom-center, .holler-box.holler-notification-box .positioner.top-left, .holler-box.holler-notification-box .positioner.center-left, .holler-box.holler-notification-box .positioner.bottom-left {
+    left: 0;
+  }
+  .holler-box.holler-notification-box .positioner.top-center .notification-closed, .holler-box.holler-notification-box .positioner.center-center .notification-closed, .holler-box.holler-notification-box .positioner.bottom-center .notification-closed, .holler-box.holler-notification-box .positioner.top-left .notification-closed, .holler-box.holler-notification-box .positioner.center-left .notification-closed, .holler-box.holler-notification-box .positioner.bottom-left .notification-closed {
+    margin-left: 10px;
+  }
+  .holler-box.holler-notification-box .positioner.top-right, .holler-box.holler-notification-box .positioner.center-right, .holler-box.holler-notification-box .positioner.bottom-right {
+    right: 0;
+  }
+  .holler-box.holler-notification-box .positioner.top-right .notification-closed, .holler-box.holler-notification-box .positioner.center-right .notification-closed, .holler-box.holler-notification-box .positioner.bottom-right .notification-closed {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  .holler-box.holler-notification-box .positioner .holler-box-modal {
+    border-radius: 0;
+  }
+  .holler-box.holler-notification-box .positioner .holler-box-modal:not(.notification-closed) {
+    max-width: 100vw;
+    width: auto;
+  }
+
+  .holler-box:not(.holler-notification-box) .holler-box-modal {
+    overflow: auto !important;
+    max-height: calc(100vh - 40px);
+  }
+  .holler-box:not(.holler-notification-box) .holler-box-modal .holler-box-modal-content {
+    width: 100%;
+  }
+  .holler-box:not(.holler-notification-box) .holler-box-modal .display-flex {
+    flex-direction: column;
+  }
+  .holler-box:not(.holler-notification-box) .holler-box-modal .display-flex > * {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .holler-box:not(.holler-notification-box) .holler-box-modal .display-flex .image-width {
+    min-height: 300px;
+    width: 100% !important;
+  }
+  .holler-box:not(.holler-notification-box) .holler-box-modal form.holler-box-form.horizontal .fields {
+    display: grid;
+    grid-auto-rows: 1fr;
+    width: 100%;
+  }
+  .holler-box:not(.holler-notification-box) .holler-box-modal form.holler-box-form.horizontal .holler-box-input {
+    max-width: 100% !important;
+  }
+  .holler-box:not(.holler-notification-box).holler-popup-form-below .display-flex {
+    flex-direction: column-reverse;
+  }
+}
+
+/*# sourceMappingURL=popups.css.map */

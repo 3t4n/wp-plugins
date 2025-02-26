@@ -1,0 +1,597 @@
+@charset "UTF-8";
+input#post-title {
+  font-size: 16px;
+  min-width: 500px;
+}
+
+.holler-pro-ad {
+  padding: 20px;
+  font-size: 18px;
+  background: #e8ad0b;
+  color: #fff;
+  text-align: center;
+  margin: 20px 30px 0 30px;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+.holler-pro-ad a {
+  color: #fff;
+}
+
+#triggers .holler-pro-ad {
+  margin: 0;
+}
+
+.integration-group .holler-pro-ad {
+  margin: 0;
+  grid-column: span 3;
+}
+
+.promote-groundhogg img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+.promote-groundhogg h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+.promote-groundhogg p, .promote-groundhogg ul, .promote-groundhogg li {
+  font-size: 18px;
+}
+
+.pro-feature {
+  max-width: 400px;
+}
+.pro-feature h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+.pro-feature p, .pro-feature ul, .pro-feature li {
+  font-size: 18px;
+}
+
+#wpcontent {
+  padding: 0;
+}
+
+#wpfooter {
+  display: none;
+}
+
+@keyframes holler-grow {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 100vh;
+  }
+}
+table.display-conditions-grid {
+  box-sizing: border-box;
+  border-collapse: collapse;
+  width: 100%;
+}
+table.display-conditions-grid .picker-here {
+  margin-top: 10px;
+}
+table.display-conditions-grid .rules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+table.display-conditions-grid .rules .rule {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(16, 38, 64, 0.15);
+}
+table.display-conditions-grid .rules select {
+  max-width: 100%;
+}
+table.display-conditions-grid th {
+  text-align: left;
+  font-size: 16px;
+  padding: 30px;
+  border-right: 1px solid rgba(16, 38, 64, 0.15);
+}
+table.display-conditions-grid td {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+table.display-conditions-grid tr:not(:last-child) td, table.display-conditions-grid tr:not(:last-child) th {
+  border-bottom: 1px solid rgba(16, 38, 64, 0.15);
+}
+
+#triggers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#triggers .trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(16, 38, 64, 0.15);
+  border-radius: 5px;
+  padding: 10px 10px 10px 15px;
+  min-height: 30px;
+}
+#triggers .trigger input[type=number] {
+  width: 60px;
+}
+#triggers .trigger .controls {
+  display: none;
+}
+#triggers .trigger.enabled .controls {
+  display: block;
+}
+#triggers .trigger.enabled .name {
+  opacity: 1;
+}
+#triggers .trigger:hover {
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.05);
+}
+#triggers .trigger .name {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.6;
+}
+#triggers .trigger button {
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+#integrations-here {
+  padding: 30px;
+}
+#integrations-here h2 {
+  font-size: 24px;
+}
+#integrations-here .integration-group {
+  margin: 20px 0 40px 0;
+  box-sizing: content-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+#integrations-here .integration-group:last-child {
+  margin-bottom: 0;
+}
+#integrations-here .integration {
+  position: relative;
+  min-width: calc(100% / 6);
+  cursor: pointer;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 38, 64, 0.15);
+}
+#integrations-here .integration:hover {
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.05);
+}
+#integrations-here .integration:hover .integration-name {
+  font-weight: bold;
+  color: #0075ff;
+}
+#integrations-here .integration:hover svg {
+  transform: scale(1.1);
+}
+#integrations-here .integration .integration-name {
+  text-align: center;
+}
+#integrations-here .integration .icon {
+  border-bottom: 1px solid rgba(16, 38, 64, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  height: 110px;
+}
+#integrations-here .integration .icon svg {
+  transition: 0.4s;
+  width: 60px;
+  height: 60px;
+}
+
+.edit-integration #edit-here {
+  padding: 30px;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+.lds-facebook {
+  display: block;
+  margin: auto;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: rgba(16, 38, 64, 0.5);
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+
+#templates .template-filters {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+#templates .template-grid {
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 30px;
+  grid-auto-flow: row;
+  padding: 30px;
+}
+#templates .template-grid.library {
+  grid-template-columns: 1fr 1fr;
+}
+#templates .template-grid.library .template .preview-wrap {
+  height: 300px;
+}
+#templates .template-grid .template {
+  box-sizing: content-box;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgba(16, 38, 64, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+#templates .template-grid .template span.pro-template {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e8ad0b;
+  padding: 4px 6px;
+  border-radius: 5px;
+  color: #ffffff;
+  z-index: 9999;
+}
+#templates .template-grid .template span.pro-template svg {
+  height: 14px;
+  width: 14px;
+}
+#templates .template-grid .template .template-name {
+  text-align: center;
+}
+#templates .template-grid .template .preview-wrap {
+  overflow: hidden;
+  height: 250px;
+  background: rgba(0, 117, 255, 0.02);
+  border-bottom: 1px solid rgba(16, 38, 64, 0.15);
+}
+#templates .template-grid .template .preview-wrap .preview {
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  zoom: 40%;
+}
+#templates .template-grid .template .preview-wrap .preview .holler-box .holler-box-overlay,
+#templates .template-grid .template .preview-wrap .preview .holler-box .holler-box-overlay::after,
+#templates .template-grid .template .preview-wrap .preview .holler-box .holler-box-overlay::before {
+  position: absolute;
+}
+#templates .template-grid .template .preview-wrap .preview .holler-box .positioner {
+  position: absolute;
+}
+#templates .template-grid .template .preview-wrap .preview .holler-box .holler-box-modal {
+  transition: 0.3s;
+}
+#templates .template-grid .template .preview-wrap .preview:not(.show-overlay) .holler-box .holler-box-overlay,
+#templates .template-grid .template .preview-wrap .preview:not(.show-overlay) .holler-box .holler-box-overlay::after,
+#templates .template-grid .template .preview-wrap .preview:not(.show-overlay) .holler-box .holler-box-overlay::before {
+  display: none;
+}
+#templates .template-grid .template:hover {
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.05);
+  transition: 0.4s;
+}
+#templates .template-grid .template:hover .template-name {
+  font-weight: bold;
+  color: #0075ff;
+}
+#templates .template-grid .template:hover .preview-wrap .preview .holler-box-modal {
+  transform: scale(1.1);
+}
+
+.holler-header:has(.tab-select) {
+  padding: 0;
+  min-height: 0;
+}
+.holler-header:has(.tab-select) .holler-button {
+  margin-right: 10px;
+}
+
+menu.tab-select {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+menu.tab-select li.tab {
+  list-style: none;
+  padding: 20px;
+  box-sizing: content-box;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0;
+}
+menu.tab-select li.tab.active {
+  color: #0075ff;
+  border-bottom: #0075ff 3px solid;
+}
+menu.tab-select li.tab:hover {
+  background-color: rgba(16, 38, 64, 0.05);
+}
+
+#import-popup {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#holler-app {
+  position: fixed;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  left: 160px;
+  display: flex;
+  flex-direction: column;
+}
+#holler-app #header {
+  background: #ffffff;
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid rgba(16, 38, 64, 0.1);
+  align-items: center;
+}
+#holler-app #header .holler {
+  padding: 0 10px;
+  border-right: 1px solid rgba(16, 38, 64, 0.1);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#holler-app #header .holler svg {
+  height: 30px;
+  width: 30px;
+}
+#holler-app #header .inside-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+#holler-app #header .inside-header h1.holler-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+#holler-app #header .inside-header h1.holler-title:hover b {
+  color: #0075ff;
+}
+#holler-app #editor {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: stretch;
+}
+#holler-app #editor #frame {
+  margin: 20px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+#holler-app #editor #frame.mobile {
+  width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 853px;
+  max-height: calc( 100vh - 32px - 56px - 40px );
+}
+#holler-app #editor #frame iframe {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+#holler-app #editor #frame #preview.suppress-animations .animation {
+  animation: none !important;
+}
+#holler-app #editor #frame #preview .holler-box .holler-box-overlay,
+#holler-app #editor #frame #preview .holler-box .holler-box-overlay::after,
+#holler-app #editor #frame #preview .holler-box .holler-box-overlay::before {
+  position: absolute;
+  border-radius: 5px;
+}
+#holler-app #editor #frame #preview .holler-box .positioner {
+  position: absolute;
+}
+#holler-app #editor .control-wrap {
+  flex-shrink: 0;
+  width: 360px;
+  background: #ffffff;
+  border-right: 1px solid rgba(16, 38, 64, 0.1);
+  overflow: auto;
+}
+#holler-app #editor .control-wrap #controls {
+  display: flex;
+  flex-direction: column;
+}
+#holler-app #editor .control-wrap #controls .control-button {
+  border: none;
+  border-bottom: 1px solid rgba(16, 38, 64, 0.1);
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 12px 10px 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+#holler-app #editor .control-wrap #controls .control-button:hover {
+  background-color: rgba(16, 38, 64, 0.05);
+}
+#holler-app #editor .control-wrap #controls .control-group {
+  border-bottom: 1px solid rgba(16, 38, 64, 0.1);
+}
+#holler-app #editor .control-wrap #controls .control-group hr {
+  width: calc( 100% + 40px );
+  margin: 10px -20px;
+}
+#holler-app #editor .control-wrap #controls .control-group:has(.CodeMirror) .controls {
+  padding: 0;
+}
+#holler-app #editor .control-wrap #controls .control-group:has(.CodeMirror) .controls > .CodeMirror {
+  border: solid rgba(16, 38, 64, 0.1);
+  border-width: 1px 0 1px 0;
+}
+#holler-app #editor .control-wrap #controls .control-group:has(.CodeMirror) .controls p {
+  padding: 0 20px;
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header:hover {
+  background-color: rgba(16, 38, 64, 0.05);
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header .control-group-name {
+  padding: 12px 0 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header > button.toggle-indicator {
+  background: transparent;
+  border: none;
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header > button.toggle-indicator:hover {
+  background: rgba(16, 38, 64, 0.05);
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header > button.toggle-indicator:focus {
+  box-shadow: 0 0 0 1px #0075ff, 0 0 2px 1px rgba(0, 117, 255, 0.6);
+  outline: 1px solid transparent;
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header > button.toggle-indicator::before {
+  display: inline-block;
+  font: normal 20px/1 dashicons;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+}
+#holler-app #editor .control-wrap #controls .control-group .control-group-header > button.toggle-indicator::before {
+  content: "";
+}
+#holler-app #editor .control-wrap #controls .control-group.open .controls {
+  display: flex;
+  animation: holler-grow 0.5s linear;
+  overflow: hidden;
+}
+#holler-app #editor .control-wrap #controls .control-group.open .control-group-header > button.toggle-indicator::before {
+  content: "";
+}
+#holler-app #editor .control-wrap #controls .control-group .controls {
+  display: none;
+  padding: 20px;
+  flex-direction: column;
+  gap: 10px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls label {
+  font-size: 14px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls .control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls .control.hidden {
+  display: none;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls .control.stacked {
+  flex-direction: column;
+  align-items: stretch;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls .control input[type=number].input {
+  max-width: 80px;
+  padding-right: 0;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls .control .width-control {
+  display: flex;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls .control .width-control input.width-number {
+  max-width: 60px;
+  padding-right: 0;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations .integration {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 1px solid rgba(16, 38, 64, 0.15);
+  border-radius: 5px;
+  padding: 5px 5px 5px 15px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations .integration:hover {
+  box-shadow: 5px 5px 30px 0 rgba(24, 45, 70, 0.05);
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations .integration > .icon {
+  display: flex;
+  align-items: center;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations .integration > .icon > svg {
+  height: 20px;
+  width: 20px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations .integration .name {
+  font-size: 16px;
+}
+#holler-app #editor .control-wrap #controls .control-group .controls #integrations .integration button {
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+/*# sourceMappingURL=popup-builder.css.map */
