@@ -1,0 +1,29 @@
+{
+    "name": "technosailor/bonsai-elasticpress",
+    "description": "Adds necessary Authentication fields to allow ElasticPress to communicate with Bonsai hosted Elasticsearch",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.0.0",
+        "php-di/php-di": "^6"
+    },
+    "require-dev": {
+        "symfony/console": "^3.2",
+        "symfony/finder": "^3.0",
+        "symfony/process": "^3.0",
+        "symfony/yaml": "^3.0",
+        "symfony/debug": "^3.0",
+        "overtrue/phplint": "1.1.9"
+    },
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Aaron Brazell",
+            "email": "aaron@technosailor.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bonsai\\":"src"
+        }
+    }
+}
