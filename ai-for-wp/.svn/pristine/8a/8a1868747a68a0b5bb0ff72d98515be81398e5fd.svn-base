@@ -1,0 +1,42 @@
+{
+  "name": "wpai/codewp-helper",
+  "description": "",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "version": "0.1.0",
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "bamarni/composer-bin-plugin": "^1.8.2",
+    "composer/installers": "^1.12",
+    "phpunit/phpunit": "^9.5.26",
+    "squizlabs/php_codesniffer": "^3.7",
+    "phpcompatibility/php-compatibility": "^9.3.5",
+    "friendsofphp/php-cs-fixer": "^3.38",
+    "wp-coding-standards/wpcs": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "WpAi\\CodeWpHelper\\": "includes"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WpAi\\CodeWpHelper\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+    "test": "vendor/bin/phpunit"
+  },
+  "config": {
+    "allow-plugins": {
+      "automattic/jetpack-autoloader": true,
+      "bamarni/composer-bin-plugin": true,
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
