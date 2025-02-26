@@ -1,0 +1,46 @@
+<?php
+error_reporting( -1 );
+ini_set( 'display_errors', 'On' );
+// require "vendor/autoload.php";
+require 'src/FNM.php';
+use indradevzapbuild\FNM\FNM;
+
+$fnmObj = new FNM();
+$array  = array();
+/**
+*Export FNM
+*JSON to FNM FILE
+ *
+* @param json data
+*/
+/*
+$get_json = json_decode(file_get_contents('sample.json'));
+$fnmObj->export($get_json);*/
+/**
+*Import FNM
+*FNM file to JSON data
+ *
+*@param $fnmfile path | $_FILES['fnm_file']['tmp_name']
+*/
+/*
+$fnmfilepath = dirname(__FILE__).'/sample.fnm';
+$arrObj = $fnmObj->import($fnmfilepath);
+echo "<pre>";
+print_r($arrObj);*/
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+$get_json = isset( $_REQUEST['new_fanny'] ) ? (object) $_REQUEST['new_fanny'] : '' ;
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+$file_name = isset( $_REQUEST['file_name'] ) ? $_REQUEST['file_name'] : '';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+$upload_dir_path = isset( $_REQUEST['upload_dir_path'] ) ? $_REQUEST['upload_dir_path'] : '';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+$application_id = isset( $_REQUEST['application_id'] ) ? $_REQUEST['application_id'] : '';
+// $fnmfilepath = dirname(__FILE__).'/sample.fnm';
+// $arrObj = $fnmObj->import($fnmfilepath);
+// phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+$rr = $fnmObj->export( $get_json, $file_name . '-' . $application_id . '.fnm', $upload_dir_path );
+/*
+echo "<pre>";
+print_r($rr);
+echo '</pre>';
+*/
