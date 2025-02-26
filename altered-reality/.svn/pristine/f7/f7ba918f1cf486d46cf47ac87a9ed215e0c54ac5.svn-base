@@ -1,0 +1,28 @@
+@import "cssgram/cssgram.scss";
+
+$filters: (
+	_1977, aden, brannan, brooklyn, clarendon,
+	earlybird, gingham, hudson, inkwell, kelvin,
+	lark, lofi, maven, mayfair, moon, nashville,
+	perpetua, reyes, rise, slumber, stinson,
+	toaster, valencia, walden, willow, xpro2 );
+
+@each $filter in $filters {
+	.is-style-#{$filter} {
+		@extend %#{$filter};
+	}
+}
+
+.is-style-vhs img {
+	-webkit-filter: url(#vhs);
+	filter: url(#vhs);
+}
+
+.is-style-acidtrip img {
+	-webkit-filter: url(#acidtrip);
+	filter: url(#acidtrip);
+}
+.is-style-glitch img {
+	-webkit-filter: url(#glitch);
+	filter: url(#glitch);
+}
