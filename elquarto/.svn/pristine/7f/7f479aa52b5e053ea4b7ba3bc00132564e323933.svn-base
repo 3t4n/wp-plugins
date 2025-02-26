@@ -1,0 +1,311 @@
+.ElForm {
+  --pixels: 20;
+  padding: 24px;
+  display: grid;
+  row-gap: 24px;
+  background-color: #2b4fac;
+  border-radius: 8px;
+  margin-bottom: 24px; }
+  .ElForm * {
+    font-family: "Rubik", sans-serif;
+    box-sizing: border-box;
+    --font-size: calc((var(--pixels) / 16) * 0.8rem);
+    font-size: var(--font-size);
+    /* To use on an HTML element */
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    margin: 0px;
+    padding: 0px; }
+  .ElForm__title {
+    font-family: "Rubik", sans-serif;
+    color: #ffffff;
+    font-weight: 500;
+    --pixels: 20;
+    font-size: var(--font-size); }
+  .ElForm__line {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 4px 4px 0px 0px;
+    border-bottom: 1px solid #ffffff;
+    min-height: 55px;
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 38px 1fr !important;
+    align-items: center;
+    column-gap: 17px !important; }
+    .ElForm__line label {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.58);
+      font-family: "Rubik", sans-serif;
+      --pixels: 16;
+      font-size: var(--font-size);
+      top: 5px !important;
+      font-size: 12px !important;
+      left: 57px; }
+  .ElForm__location img, .ElForm__check img, .ElForm__guests img {
+    justify-self: end; }
+  .ElForm__location input, .ElForm__check input, .ElForm__guests input {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    background: none !important;
+    color: #ffffff;
+    font-family: "Rubik", sans-serif;
+    padding-top: 15px !important;
+    padding-right: 16px;
+    padding-left: 0 !important;
+    padding-bottom: 0 !important;
+    --pixels: 20;
+    font-size: var(--font-size); }
+  .ElForm .ElButton {
+    --pixels: 18; }
+
+.guestSelector {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  top: 55px;
+  display: none;
+  z-index: 9999;
+  --pixels: 20;
+  --font-size: 14px;
+  /* select starting stylings ------------------------------*/
+  /* Remove focus */
+  /* Use custom arrow */
+  /* active state */
+  /* BOTTOM BARS ================================= */
+  /* active state */
+  /* HIGHLIGHTER ================================== */ }
+  .guestSelector * {
+    font-size: --font-size !important; }
+  .guestSelector button {
+    cursor: pointer;
+    font-weight: bold; }
+  .guestSelector .guestSelectorControl {
+    padding: 10px 0; }
+  .guestSelector .guestSelectorBtn {
+    border-radius: 100%;
+    border: none;
+    color: #ffff;
+    background: #f3624d;
+    font-size: 0.875rem;
+    height: 40px;
+    width: 40px; }
+  .guestSelector .guestSelectorApply {
+    border: none;
+    color: #ffff;
+    background: #f3624d;
+    font-size: 0.875rem;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    font-weight: bold; }
+  .guestSelector .applyContainer {
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-align: right; }
+  .guestSelector .ElForm__guests.ElForm__line.guests {
+    grid-template-columns: 120px 1fr !important;
+    column-gap: 8px !important;
+    padding: 10px 20px; }
+  .guestSelector .guestSelectorControls span {
+    width: 40px;
+    text-align: center;
+    display: inline-block; }
+  .guestSelector .child-age-message {
+    font-weight: bold; }
+  .guestSelector .child-age-select-container {
+    border-top: 1px solid #ccc;
+    padding: 20px; }
+  .guestSelector .childAgeSelectField {
+    padding-top: 10px;
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 70% 1fr !important;
+    align-items: center;
+    column-gap: 17px !important; }
+  .guestSelector .childAgeFieldContainer {
+    padding-top: 15px; }
+  .guestSelector .select {
+    font-family: 'Roboto','Helvetica','Arial',sans-serif;
+    position: relative;
+    width: 100%; }
+  .guestSelector .select-text {
+    position: relative;
+    font-family: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 10px 10px 0;
+    font-size: 18px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .guestSelector .select-text:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0); }
+  .guestSelector .select .select-text {
+    appearance: none;
+    -webkit-appearance: none; }
+  .guestSelector .select:after {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    /* Styling the down arrow */
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(0, 0, 0, 0.12);
+    pointer-events: none; }
+  .guestSelector .select-text:focus ~ .select-label, .guestSelector .select-text:valid ~ .select-label {
+    color: #2F80ED;
+    transition: 0.2s ease all;
+    font-size: 14px; }
+  .guestSelector .select-bar {
+    position: relative;
+    display: block;
+    width: 100%; }
+  .guestSelector .select-bar:before, .guestSelector .select-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #2F80ED;
+    transition: 0.2s ease all; }
+  .guestSelector .select-bar:before {
+    left: 50%; }
+  .guestSelector .select-bar:after {
+    right: 50%; }
+  .guestSelector .select-text:focus ~ .select-bar:before, .guestSelector .select-text:focus ~ .select-bar:after {
+    width: 50%; }
+  .guestSelector .select-highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5; }
+
+.autoComplete_wrapper {
+  position: relative;
+  display: inline-block;
+  width: 370px; }
+
+#autoComplete_list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin-top: .5rem;
+  border-radius: .6rem;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
+  border: 1px solid rgba(33, 33, 33, 0.07);
+  z-index: 1000;
+  outline: 0; }
+
+.autoComplete_result {
+  margin: .3rem;
+  padding: .3rem .5rem;
+  list-style: none;
+  text-align: left;
+  font-size: 1rem;
+  color: #212121;
+  transition: all .1s ease-in-out;
+  border-radius: .35rem;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all .2s ease; }
+
+.autoComplete_result::selection {
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0); }
+
+.autoComplete_result:hover {
+  cursor: pointer;
+  background-color: rgba(255, 122, 122, 0.15); }
+
+.autoComplete_highlighted {
+  color: #ff7a7a;
+  font-weight: 700; }
+
+.autoComplete_highlighted::selection {
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0); }
+
+.autoComplete_selected {
+  cursor: pointer;
+  background-color: rgba(255, 122, 122, 0.15); }
+
+@media only screen and (max-width: 600px) {
+  .autoComplete_wrapper {
+    width: 320px; } }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  #autoComplete {
+    border-width: 1px; } }
+
+@-moz-document url-prefix() {
+  #autoComplete {
+    background-size: 1.2rem;
+    background-origin: border-box;
+    border-width: 1px;
+    background-position: left 1.1rem top .8rem; } }
+
+.ElForm #destinations_list {
+  position: absolute !important;
+  top: 54px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  z-index: 100 !important; }
+  .ElForm #destinations_list:hover {
+    background: #fefefe !important; }
+  .ElForm #destinations_list li {
+    padding: 20px 16px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    list-style: none !important; }
+  .ElForm #destinations_list li.separator {
+    padding: 16px !important;
+    background: #ffebe8 !important;
+    color: #f3624d;
+    cursor: default; }
+
+:root {
+  --litepickerDayIsStartBg: #ed5434;
+  --litepickerDayColor: #333;
+  --litepickerDayColorHover: #ed5434;
+  --litepickerDayIsTodayColor: #ed5434;
+  --litepickerDayIsInRange: #ed5434;
+  --litepickerDayIsInRangeColor: #fff;
+  --litepickerDayIsLockedColor: #9e9e9e;
+  --litepickerDayIsBookedColor: #9e9e9e;
+  --litepickerDayIsStartColor: #fff;
+  --litepickerDayIsEndColor: #fff;
+  --litepickerDayIsEndBg: #ed5434;
+  --litepickerDayWidth: 38px;
+  --litepickerHighlightedDayColor: #333;
+  --litepickerHighlightedDayBg: #ffeb3b; }
+
+.litepicker {
+  font-size: 14px !important; }
+  @media screen and (min-width: 480px) {
+    .litepicker {
+      right: 0 !important;
+      left: unset !important; } }
+  .litepicker .day-item.is-in-range {
+    color: var(--litepickerDayIsInRangeColor); }
+  .litepicker .container__months {
+    border-radius: 0 !important;
+    box-shadow: 0 0px 5px -2px rgba(0, 0, 0, 0.25) !important; }
