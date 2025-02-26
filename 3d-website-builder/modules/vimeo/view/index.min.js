@@ -1,0 +1,7 @@
+/**
+* Version:     1.0.0
+* Author:      Keivan Kamali
+*/
+wb3d_setupdata.vimeo=function(g){function l(b,a,d,e,f){"undefined"!==typeof Vimeo&&Vimeo&&Vimeo.Player?setTimeout(function(){t(b,d,a,e,f)},0):setTimeout(function(){l(b,a,d,e,f)},120)}function t(b,a,d,e,f){f.vimeo_player[e]=new Vimeo.Player("video-"+e,{id:b["id_"+d],controls:1});f.vimeo_player[e].loadVideo(b["id_"+d]).then(function(c){}).catch(function(c){})}g.vimeo_player=[];g.runfirst=[];var m=document.createElement("script");m.src="https://player.vimeo.com/api/player.js";var n=document.getElementsByTagName("script")[0];
+n.parentNode.insertBefore(m,n);g.createobj.vimeo=function(b,a,d,e,f,c,p,h,q,r,u){b='<div id="wb3df-'+a+'" style="position:absolute;top:0px;left:0px; height:auto;width:300px;">';c=wb3d_set_tag(d,c);d=c.tag2;c='<div id="wb3dg-'+a+'" style="position:absolute;overflow:hidden;">'+b+("<"+c.tag1+' id="wb3de-'+a+'" style="overflow:hidden">');c=c+('<div class="wb3d_vimeo" id="video-'+a+'"  style=" width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:12;"></div></')+(d+">");c+="</div>";c+="</div>";
+document.getElementById(e).insertAdjacentHTML("beforeend",c);f.bk_create_layer[h]=-1;wb3d_reset_obj_xy3(h)};g.addon.wb3d_vimeo_run=function(b,a,d,e,f,c,p,h,q,r,u,k,v,w,x,y,z,A,B){2!=a.runfirst[k]&&(l(e,h,b,k,a),a.runfirst[k]=2)};g.setupobj.vimeo=function(b,a,d,e,f,c,p,h,q,r){b.size1[a]=1;b.newsize[a]=0;b.runfirst[a]=-1;b.show_obj[a]=3;wb3d_events("wb3dg-"+a,b)}};

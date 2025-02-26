@@ -1,0 +1,6 @@
+/**
+* Version:     1.0.0
+* Author:      Keivan Kamali
+*/
+wb3d_setupdata.video=function(k){k.createobj.video=function(d,a,b,l,m,c,f,g,e,h,n){d='<div  id="wb3df-'+a+'" style="position:absolute;top:0px;left:0px; height:auto;width:300px;">';e=wb3d_set_tag(b,c);f=e.tag1;e=e.tag2;h=1===b["mute-"+c]?" muted ":" ";n=1!=b["download-"+c]?'controlsList="nodownload"':" ";var p=1===b["control-"+c]?" controls ":" ";var q=1===b["loop-"+c]?" loop ":" ";var r=""!=b["image_"+c]?' poster="'+b["image_"+c]+'" ':" ";b=b["video_"+c];a='<div id="wb3dg-'+a+'" style="position:absolute;overflow:hidden;">'+
+d+("<"+f+' id="wb3de-'+a+'" style="overflow:hidden">')+('<video preload="auto" '+r+h+n+p+q+'  id="wb3d2-'+a+'" src="'+b+'"  style=" width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:1;"></video>');a+="</"+e+">";a+="</div>";a+="</div>";document.getElementById(l).insertAdjacentHTML("beforeend",a);m.bk_create_layer[g]=-1;wb3d_reset_obj_xy3(g)};k.setupobj.video=function(d,a,b,l,m,c,f,g,e,h){d.size1[a]=1;d.newsize[a]=0;d.show_obj[a]=3;wb3d_events("wb3dg-"+a,d)}};

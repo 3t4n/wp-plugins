@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to 3D website Builder</title>
+
+	<style>
+		body {
+			margin:0 ;
+		}  	  
+
+
+		.wb3d_class_button {
+
+			padding: 20px 40px;
+			background: #4b1819;
+			cursor: pointer;
+			z-index: 0;
+			border-radius: 6px;
+			border: none;
+			outline: none;
+			color: #fff;
+		}
+
+		.wb3d_class_button:before {
+			content: '';
+			background: linear-gradient(45deg, #fa0000, #ff7400, #fffc00, #49ff00, #00ffd8, #002cff, #7b00ff, #fa0000);
+			position: absolute;
+
+			background-size: 300%;
+			z-index: -1;
+
+			width: calc(100% + 5px);
+			height: calc(100% + 5px);
+			animation: wb3d_animation 20s linear infinite;
+			opacity: 0;
+			transition: opacity .4s ease-in-out;
+			border-radius: 6px;
+			filter: blur(6px);
+			top: -2px;
+			left:-2px;
+		}
+
+		.wb3d_class_button:hover:before {
+			opacity: 1;
+		}
+
+		.wb3d_class_button:after {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 100%;
+			border-radius: 6px;
+			background: #040209;
+			left: 0;
+			z-index: -1;
+			top: 0;
+		}
+
+		@keyframes wb3d_animation {
+		0% { background-position: 0 0; }
+		50% { background-position: 300% 0; }
+		100% { background-position: 0 0; }
+		}
+
+		#wb3d_0{
+			position: absolute;
+			top: 45%;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+		#wb3d_1{
+			position: relative;
+			margin-right: 30px;
+		}
+
+		#wb3d_3{
+			position: relative;
+		}
+		#wb3d_a{
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+			background: linear-gradient(0deg, rgb(30, 140, 195) 0%, rgb(9, 100, 100) 50%);
+		}
+
+	</style>
+</head>
+<body >
+	<div id="wb3d_a">
+		<div id="wb3d_0">
+			<a id="wb3d_1" class="wb3d_class_button" href="https://3dwebsitebuilder.com/install-plugin/" target="_blank">Online Document</a>
+			<a id="wb3d_3" class="wb3d_class_button" href="https://3dwebsitebuilder.com/" target="_blank">Website</a>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,7 @@
+/**
+* Version:     1.0.0
+* Author:      Keivan Kamali
+*/
+wb3d_setupdata.youtube=function(h){function k(b,a,f,d,e){"undefined"!==typeof YT&&YT&&YT.Player?2!=e.runfirst[d]&&("undefined"!==typeof YT&&YT&&YT.Player&&(e.youtube_player[d]=new YT.Player("video-"+d,{height:"380",width:"280",videoId:b["id_"+a],playerVars:{disablekb:0,start:0,html5:1,fs:1,controls:1,modestbranding:0,autohide:0,autoplay:0},events:{}})),e.runfirst[d]=2):setTimeout(function(){k(b,a,f,d,e)},100)}var l=document.createElement("script");l.src="//www.youtube.com/player_api";
+var m=document.getElementsByTagName("script")[0];m.parentNode.insertBefore(l,m);h.youtube_player=[];h.addon.wb3d_youtube_run=function(b,a,f,d,e,c,n,g,p,q,t,r,u,v,w,x,y,z,A){2!=a.runfirst[r]&&k(d,g,b,r,a)};h.createobj.youtube=function(b,a,f,d,e,c,n,g,p,q,t){b='<div id="wb3df-'+a+'" style="position:absolute;top:0px;left:0px; height:auto;width:300px;">';c=wb3d_set_tag(f,c);f=c.tag2;c='<div id="wb3dg-'+a+'" style="position:absolute;overflow:hidden;">'+b+("<"+c.tag1+' id="wb3de-'+a+'" style="overflow:hidden">');
+c=c+('<video id="video-'+a+'"  style=" width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:1;"></video></')+(f+" >");c+="</div>";c+="</div>";document.getElementById(d).insertAdjacentHTML("beforeend",c);e.bk_create_layer[g]=-1;wb3d_reset_obj_xy3(g)};h.setupobj.youtube=function(b,a,f,d,e,c,n,g,p,q){b.size1[a]=1;b.runfirst[a]=-1;b.show_obj[a]=3;wb3d_events("wb3dg-"+a,b)}};

@@ -1,0 +1,8 @@
+/**
+* Version:     1.0.0
+* Author:      Keivan Kamali
+*/
+wb3d_setupdata.screans=function(e){e.screans_enter=[];e.screans_bk=[];e.createobj.screans=function(c,a,b,g,h,k,l,f,m,n,p){b=wb3d_set_tag(b,k);c=b.tag2;b='<div id="wb3dg-'+a+'" style="position:absolute;overflow:hidden;"><div id="wb3df-'+(a+'"  style="position:absolute;top:0px;left:0px; height:auto;width:300px;"><')+(b.tag1+' id="wb3de-'+a+'" style="overflow:hidden;" >');b+='<img id="wb3d0-'+a+'" src="'+wb3d.wb3d_plagin_URL+'/images/1.png" style="position:absolute;z-index:1;width:100%;height:100%" />';
+b+='<img id="wb3d1-'+a+'" src="'+wb3d.wb3d_plagin_URL+'/images/2.png" style="position:absolute;z-index:1;width:100%;height:100%" />';b+='<img id="wb3d2-'+a+'" src="'+wb3d.wb3d_plagin_URL+'/images/3.png" style="position:absolute;z-index:1;width:100%;height:100%" />';b+='<img id="wb3d3-'+a+'" src="'+wb3d.wb3d_plagin_URL+'/images/4.png" style="position:absolute;z-index:1;width:100%;height:100%" />';b+="</"+c+" ></div></div>";document.getElementById(g).insertAdjacentHTML("beforeend",b);h.bk_create_layer[f]=
+-1;wb3d_reset_obj_xy3(f)};e.addon.wb3d_screans_run=function(c,a,b,g,h,k,l,f,m,n,p,d,q,r,t,u,v,w,x){a.screans_bk[d]!=a.d&&(document.getElementById("wb3d0-"+d).style.display="none",document.getElementById("wb3d1-"+d).style.display="none",document.getElementById("wb3d2-"+d).style.display="none",document.getElementById("wb3d3-"+d).style.display="none",document.getElementById("wb3d"+a.d+"-"+d).style.display="",a.screans_bk[d]=a.d)};e.setupobj.screans=function(c,a,b,g,h,k,l,f,m,n){c.size1[a]=1;c.screans_enter[a]=
+-1;c.show_obj[a]=3;wb3d_events("wb3dg-"+a,c)}};

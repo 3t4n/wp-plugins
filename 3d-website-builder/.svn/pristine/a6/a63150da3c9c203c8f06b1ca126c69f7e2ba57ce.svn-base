@@ -1,0 +1,8 @@
+/**
+* Version:     1.0.0
+* Author:      Keivan Kamali
+*/
+wb3d_setupdata.button1=function(d){d.button1_data=[];d.button1_run=[];d.button1_style="left";d.createobj.button1=function(b,a,e,k,l,g,f,h,m,n,p){b='<div id="wb3dg-'+a+'" style="position:absolute;overflow:hidden;"><div  id="wb3df-'+(a+'" style="position:absolute;top:0px;left:0px; height:auto;width:300px;">');f=wb3d_set_tag(e,g);b+="<"+f.tag1+' id="wb3de-'+a+'" style="overflow:hidden;height:auto;width:auto;position:absolute;">'+e["text_"+g]+"</"+f.tag2+">";b+="</div></div>";document.getElementById(k).insertAdjacentHTML("beforeend",
+b);l.bk_create_layer[h]=-1;wb3d_reset_obj_xy3(h)};d.addon.wb3d_button1_run=function(b,a,e,k,l,g,f,h,m,n,p,c,q,r,t,u,v,w,x){a.button1_run[c]!=a.txt1[c]+"-"+a.txt2[c]+"-"+a.txt3[c]+"-"+a.chenge_details_obj[c]&&(b=document.querySelector(":root"),b.style.setProperty("--wb3d_button1_color1-"+c,a.txt1[c]),b.style.setProperty("--wb3d_button1_color2-"+c,a.txt2[c]),b.style.setProperty("--wb3d_button1_color3-"+c,a.txt3[c]),a.button1_run[c]=a.txt1[c]+"-"+a.txt2[c]+"-"+a.txt3[c]+"-"+a.chenge_details_obj[c])};
+d.setupobj.button1=function(b,a,e,k,l,g,f,h,m,n){b.size1[a]=2;b.newsize[a]=2;b.bg[a]=1;b.show_obj[a]=3;b.button1_run[a]=-1;wb3d_checkstyle(a);e=":root{--wb3d_button1_color1-"+a+": #270b46;--wb3d_button1_color2-"+a+": #0f0;--wb3d_button1_color3-"+a+": #00f;}#wb3de-"+a+"{background: var(--wb3d_button1_color1-"+a+");color: var(--wb3d_button1_color2-"+a+");}#wb3de-"+a+":hover{background:none;background-color: var(--wb3d_button1_color3-"+a+");}";document.getElementById("wb3d_style_"+a).innerHTML=e;wb3d_events("wb3dg-"+
+a,b)}};
