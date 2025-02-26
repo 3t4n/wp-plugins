@@ -1,0 +1,57 @@
+<?php
+/**
+ * Functions file.
+ *
+ * @package arcaptcha-wp
+ */
+
+// If this file is called directly, abort.
+if (!defined('ABSPATH')) {
+    // @codeCoverageIgnoreStart
+    exit;
+    // @codeCoverageIgnoreEnd
+}
+
+/**
+ * Action that fires immediately before the submit button element is displayed.
+ *
+ * @link  https://wpforms.com/developers/wpforms_display_submit_before/
+ *
+ * @param array $form_data Form data and settings...
+ */
+function arcaptcha_wpforms_display($form_data)
+{
+    arcap_form_display();
+    wp_nonce_field('arcaptcha_wpforms', 'arcaptcha_wpforms_nounce');
+}
+
+add_filter('wpforms_display_submit_before', 'arcaptcha_wpforms_display', 10, 1);
+
+/**
+ * Action that fires during form entry processing after initial field validation.
+ *
+ * @link   https://wpforms.com/developers/wpforms_process/
+ *
+ * @param  array $fields    Sanitized entry field. values/properties.
+ * @param  array $entry     Original $_POST global.
+ * @param  array $form_data Form data and settings.
+ *
+ * @return array|null
+ */
+function arcaptcha_wpforms_validate($fields, $entry, $form_data)
+{
+    $error_message = arcaptcha_get_verify_message(
+        'arcaptcha_wpforms_nounce',
+        'arcaptcha_wpforms'
+    );
+
+    if (null === $error_message) {
+        return $fields;
+    }
+
+    wpforms()->process->errors[$form_data['id']]['footer'] = __('Captcha Failed', 'arcaptcha-plugin');
+
+    return null;
+}
+
+add_filter('wpforms_process', 'arcaptcha_wpforms_validate', 10, 3);
