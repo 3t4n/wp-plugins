@@ -1,0 +1,85 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "ap360v/panorama-viewer",
+    "version": "1.0.0",
+    "title": "Advanced 360 Panorama Viewer",
+    "category": "media",
+    "icon": "format-image",
+    "description": "Display a 360-degree panorama image or video.",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "advanced-panorama-360-viewer",
+    "attributes": {
+        "clientId": { "type": "string", "default": "uniqueId" },
+        "align": { "type": "string",  "default": ""},
+        "scene": {
+            "type": "object",
+            "default": {
+                "title": "First Scene",
+                "panorama": "",
+                "hotSpots": []
+            }
+        },
+        "defaultScene": {
+        "type": "string",
+        "default": ""
+        },
+        "options": {
+            "type": "object",
+            "default": {
+                "autoLoad": true,
+                "autoRotate": 0,
+                "draggable": true,
+                "showControls": true,
+                "nextPrevBtn": false,
+                "keyboardZoom": false,
+                "mouseZoom": false,
+                "compass": false,
+                "sceneFadeDuration": 1000,
+                "preview": "",
+                "default": {
+                    "firstScene": "0"
+                }
+        }
+        },
+        "controls": {
+            "type": "object",
+            "default": {
+                "moveUp": false,
+                "moveRight": false,
+                "moveDown": false,
+                "moveLeft": false,
+                "zoomIn": false,
+                "zoomOut": false,
+                "fullscreen": false
+            }
+        },
+        "style": {
+            "type": "object",
+            "default": {
+                "height": "400px",
+                "width": "100%"
+            }
+        },
+        "css": {
+            "type": "string",
+            "default": ""
+        },
+        "additional": {
+            "type": "object",
+            "default": {
+                "Class": "",
+                "ID": "",
+                "CSS": ""
+            }
+        }
+    },
+    "editorScript": ["file:./index.js", "pannellum-2.5.6"],
+    "editorStyle": ["file:./index.css"],
+    "style": ["file:./view.css", "pannellum-2.5.6"],
+    "viewScript": ["file:./view.js", "pannellum-2.5.6"],
+    "render": "file:./render.php"
+}
