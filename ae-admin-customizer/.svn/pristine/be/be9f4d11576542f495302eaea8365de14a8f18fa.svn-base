@@ -1,0 +1,190 @@
+html.wp-toolbar { padding-top: 50px; }
+
+body.wp-admin {
+    transition : all 0.5s;
+}
+
+
+/* Admin Top Bar */
+#wpadminbar, #wpadminbar * { line-height: 50px; }
+
+#wpadminbar .yoast-logo.svg,
+#wpadminbar > ul > li:last-child, #wpadminbar ul > li:last-child .ab-item,
+#wpadminbar ul#wp-admin-bar-root-default > li > a,
+#wpadminbar { height: 50px; transition: all 0.5s; color : #FFF; }
+
+
+/* Topbar Icon */
+#wpadminbar .ab-item:after, #wpadminbar .ab-item:before,
+#wpadminbar .ab-icon, #wpadminbar .ab-item:before, 
+#wpadminbar>#wp-toolbar>#wp-admin-bar-root-default .ab-icon 
+{ 
+    padding : 12px 0; 
+}
+
+#wpadminbar { box-shadow: 0 0 2px 1px #333; }
+#wpadminbar #adminbarsearch:before { top : 15px; }
+
+#wpadminbar img.ae-topbar-logo {
+    max-height: 48px;
+    max-width: 200px;
+    vertical-align: middle;
+}
+
+#adminmenu .wp-submenu { left : 220px }
+#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap { width : 220px; }
+#wpcontent, #wpfooter {
+    margin-left: 220px;
+}
+#wp-admin-bar-ae-topbar-logo {
+    max-width: 220px;
+    overflow: hidden;
+    width: 100%;
+    background: rgba(255,255,255,0.1) !important;
+}
+
+#wp-version-message { display: none; } /* removes version on dashboard widget */
+
+.ae-admin-customizer-info-box a { text-decoration: none; }
+
+body.wp-admin .ae-table-cell table.form-table tr:nth-child(odd) {
+    background: #f7f7f7;
+}
+
+body.wp-admin .ae-table-cell table.form-table tr {
+    border: 1px solid #cecece;
+}
+
+body.wp-admin .ae-table-cell table.form-table tr th, table.form-table tr td {
+    padding: 15px;
+}
+
+body.wp-admin .wrap-ae-admin-customizer-info {
+    min-height: 100px;
+    color: #FFF;
+    background: #0073aa;
+    padding: 20px;
+    border: 1px solid #005caa;
+}
+
+
+body.wp-admin .ae-admin-customizer-info-box {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
+}
+
+body.wp-admin img.logo-poweredby {
+    background: #283891;
+    padding: 10px;
+    display: block;
+    margin : 0 auto;
+}
+
+body.wp-admin .ae-admin-customizer-info-box a.ae-rate-us {
+    color: #e2960b;
+    transition: all 0.5s;
+}
+
+body.wp-admin .ae-admin-customizer-info-box a:hover.ae-rate-us {
+    color: #bb0505;
+}
+
+body.wp-admin .ae-admin-customizer-info-box a {
+    color: #283891;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+body.wp-admin .ae-admin-customizer-info-box a:hover {
+    color: #bb0505;
+    opacity: 0.8s;
+}
+
+body.wp-admin .ae-admin-customizer-info-box {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background: #e2e1e1;
+    color: #676767;
+    border: 1px solid #cecece;
+}
+
+
+body.wp-admin .ae-warning-info {
+    font-weight: normal;
+    padding: 10px;
+    border: 2px dashed #7f0505;
+    background: #f9bbbb;
+    color: #900;
+    margin: 10px 0;
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+.blink-image {
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+
+
+@media screen and (max-width: 782px) {
+    html #wpadminbar { height: 65px; }
+    #wpadminbar .ab-icon { height: 65px; }
+
+    #wpadminbar .yoast-logo.svg, #wpadminbar > ul > li:last-child, #wpadminbar ul > li:last-child .ab-item, #wpadminbar ul#wp-admin-bar-root-default > li > a, #wpadminbar { line-height: 64px; height: 64px; }
+}
+
+@media screen and (max-width: 600px) {
+    html.wp-toolbar { padding-top: 0; }
+
+}
