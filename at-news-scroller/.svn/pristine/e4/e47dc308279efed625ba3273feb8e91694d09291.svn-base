@@ -1,0 +1,95 @@
+.tickercontainer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 38px;
+}
+
+.tickercontainer .mask {
+
+    /* that serves as a mask. so you get a sort of padding both left and right */
+    position: relative;
+    overflow: hidden;
+    padding: 8px 0px 5px 0px !important;
+    margin: 0px 15px 0px 15px ;
+   }
+
+ul.newsticker {
+    position: relative;
+    left: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.newsticker li {
+    float: left;
+    margin-left: 50px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+ul.newsticker li:before {
+    content: "»";
+    margin-right: 10px;
+
+}
+
+.at_scroll_area {
+    color: white;
+    width: 100%;
+    height: 38px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.at_scroll_content {
+    left: 100%;    
+    height: 38px;
+    position: relative;
+}
+
+.at_scroll_title {
+    background: #F44A55;
+    height: 38px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    float: left;
+    padding: 5px 10px 5px 10px !important;
+}
+
+.at_scroll_div_content {
+    overflow: hidden;
+    background: #333333;
+}
+
+.at_scroll_div_content a {
+    color: #ffffff;
+}
+
+.at_scroll_title_right-arrow {
+    display: inline-block;
+    position: relative;
+    background: #F44A55;
+}
+
+.at_scroll_title_right-arrow:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    margin-top: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #F44A55;
+}
+
+.at-news-ticker-li:last-child {
+    display: none;
+}
