@@ -1,0 +1,93 @@
+<div class="wrap">
+   <h1>Easy Affiliate Cloaker</h1>
+   <h2>Lista Cloaks</h2>
+   <table class="wp-list-table widefat fixed striped posts">
+      <thead>
+         <tr>
+            <th scope="col" id="safe-page">{{ affiliateLinkCloaker.trans('IP Address') }}</th>
+            <th scope="col" id="redirect-url">{{ affiliateLinkCloaker.trans('Nation') }}</th>
+            <th scope="col" id="status">{{ affiliateLinkCloaker.trans('Region') }}</th>
+            <th scope="col" id="visite">{{ affiliateLinkCloaker.trans('City') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('ISP') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Organization') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('AS Number') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Mobile') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Device') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Platform') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Platform Version') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Browser') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Browser Version') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Redirect') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Error') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Date') }}</th>
+         </tr>
+      </thead>
+      <tbody id="the-list">
+      	{% for visit in visits %}
+         <tr id="post-587" class="iedit author-self level-0 post-587 type-post status-draft format-standard hentry category-uncategorized">
+            <td>{{visit.ip_address}}</td>
+            <td>{{visit.country}}</td>
+            <td>{{visit.region}}</td>
+            <td>{{visit.city}}</td>
+            <td>{{visit.isp}}</td>
+            <td>{{visit.organization}}</td>
+            <td>{{visit.as_number}}</td>
+            <td>{{(visit.mobile_network) ? 'Si' : 'No'}}</td>
+            <td>{{visit.device}}</td>
+            <td>{{visit.platform}}</td>
+            <td>{{visit.platform_version}}</td>
+            <td>{{visit.browser}}</td>
+            <td>{{visit.browser_version}}</td>
+            <td>{{(visit.redirected) ? 'Si' : 'No'}}</td>
+            <td>{{(visit.error) ? 'Si' : 'No'}}</td>
+            <td>{{visit.created_at.format('d/m/y H:i:s')}}</td>
+         </tr>
+     	   {% endfor %}
+         {% if visits|length == 0 %}
+         <tr>
+            <td colspan="16" style="text-align:center;">{{ affiliateLinkCloaker.trans('No results found') }}</td>
+         </tr>
+         {% endif %}
+      </tbody>
+      <tfoot>
+         <tr>
+            <th scope="col" id="safe-page">{{ affiliateLinkCloaker.trans('IP Address') }}</th>
+            <th scope="col" id="redirect-url">{{ affiliateLinkCloaker.trans('Nation') }}</th>
+            <th scope="col" id="status">{{ affiliateLinkCloaker.trans('Region') }}</th>
+            <th scope="col" id="visite">{{ affiliateLinkCloaker.trans('City') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('ISP') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Organization') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('AS Number') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Mobile') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Device') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Platform') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Platform Version') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Browser') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Browser Version') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Redirect') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Error') }}</th>
+            <th scope="col" id="actions">{{ affiliateLinkCloaker.trans('Date') }}</th>
+         </tr>
+      </tfoot>
+   </table>
+   <div class="tablenav bottom">
+      <div class="tablenav-pages">
+         <span class="displaying-num">{{count}} {{ affiliateLinkCloaker.trans('total visits') }}</span>
+         {% if prev_url != '' %}
+            <a class="next-page" href="{{prev_url}}">
+               <span>‹</span>
+            </a>
+         {% else %}
+            <span class="tablenav-pages-navspan">‹</span>
+         {% endif %}
+         {% if next_url != '' %}
+            <a class="next-page" href="{{next_url}}">
+               <span>›</span>
+            </a>
+         {% else %}
+            <span class="tablenav-pages-navspan">›</span>
+         {% endif %}
+         <br class="clear">
+      </div>
+   </div>
+</div>

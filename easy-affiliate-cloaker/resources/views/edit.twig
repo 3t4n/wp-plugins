@@ -1,0 +1,155 @@
+<div class="wrap">
+	<h1>Easy Affiliate Cloaker</h1>
+	<form action="{{panel_url('AffiliateLinkCloaker::dashboard') }}&action=edit_cloak" method="post">
+		<input type="hidden" name="cloak_id" value="{{cloak.id}}" />
+		<div class="metabox-holder">
+			<div class="postbox">
+				<h2 class="hndle"><span>{{ affiliateLinkCloaker.trans('Safe Page and Money Page') }}</span></h2>
+				<div class="inside">
+					<table class="form-table">
+						<tbody>
+							<tr valign="top">
+								<th scope="row">
+									<label for="safe-page">{{ affiliateLinkCloaker.trans('Select your Safe Page') }}</label>
+								</th>
+								<td>
+									<p>
+										<input type="text" value="{{ cloak.post.post_title }}" class="regular-text autocomplete" id="safe-page" placeholder="{{ affiliateLinkCloaker.trans('Select page or article') }}" />
+										<p class="description">
+											{{ affiliateLinkCloaker.trans('This page will be displayed during when Learning Mode is active.<br/>Once the Cloak is active, we will show this page only if at least one of the rules specified is true.')|raw }}
+										</p>
+										<input type="hidden" value="{{ cloak.safe_page_id }}" name="safe-page" />
+									</p>
+								</td>
+							</tr>
+
+							<tr valign="top">
+								<th scope="row">
+									<label for="landing-page">{{ affiliateLinkCloaker.trans('Insert your Money Page url') }}</label>
+								</th>
+								<td>
+									<p>
+										<input type="text" value="{{ cloak.redirect_url }}" name="landing-page" class="regular-text" id="landing-page" placeholder="{{ affiliateLinkCloaker.trans('Insert your Money Page url') }}" />
+										<p class="description">
+											{{ affiliateLinkCloaker.trans('The url of your Landing Page does not have to be a link to a WordPress page or article.<br/>All the GET parameters will be preserved.')|raw }}
+										</p>
+									</p>
+								</td>
+							</tr>
+
+							<tr valign="top">
+								<th scope="row">
+									<label for="landing-page">{{ affiliateLinkCloaker.trans('Redirect Type') }}</label>
+								</th>
+								<td>
+									<p>
+										<select name="redirect_type">
+											<option {{ (cloak.redirect_type == '301') ? 'selected' : '' }} value="301">301</option>
+											<option {{ (cloak.redirect_type == '302') ? 'selected' : '' }} value="302">302</option>
+											<option {{ (cloak.redirect_type == '303') ? 'selected' : '' }} value="303">303</option>
+											<option {{ (cloak.redirect_type == '307') ? 'selected' : '' }} value="307">307</option>
+										</select>
+										<p class="description">
+											{{ affiliateLinkCloaker.trans('The redirect type can have repercussions on search engine\'s indexing. If you don\'t know what you do select "302".') }}
+										</p>
+									</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="postbox">
+				<h2 class="hndle"><span>{{ affiliateLinkCloaker.trans('Rules') }}</span></h2>
+				<div class="inside">
+					<table class="form-table">
+						<tbody id="rules-list">
+							{% for rule in cloak.rules %}
+							<tr valign="top">
+								<td>
+									<p>
+										<select name="param[]">
+											<option value="countryCode" {{ (rule.param == 'countryCode') ? 'selected' : '' }}>{{ affiliateLinkCloaker.trans('Nation') }}</option>
+											<option value="isp" {{ (rule.param == 'isp') ? 'selected' : '' }}>{{ affiliateLinkCloaker.trans('ISP') }}</option>
+											<option value="as" {{ (rule.param == 'as') ? 'selected' : '' }}>{{ affiliateLinkCloaker.trans('AS Number') }}</option>
+										</select>
+										<select name="condition[]">
+											<option value="equal_to" {{ (rule.condition == 'equal_to') ? 'selected' : '' }}>{{ affiliateLinkCloaker.trans('It\'s equal to') }}</option>
+											<option value="not_equal_to" {{ (rule.condition == 'not_equal_to') ? 'selected' : '' }}>{{ affiliateLinkCloaker.trans('It\'s not equal to') }}</option>
+											<option value="contain" {{ (rule.condition == 'contain') ? 'selected' : '' }}>{{ affiliateLinkCloaker.trans('Contains') }}</option>
+										</select>
+										<input type="text" name="content[]" value="{{ rule.content }}" class="regular-text" placeholder="{{ affiliateLinkCloaker.trans('Value...') }}" />
+										<button type="button" class="deleteRow button button-primary">{{ affiliateLinkCloaker.trans('Delete rule') }}</button>
+									</p>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div class="inside">
+						<button type="button" id="addRule" class="button button-primary">{{ affiliateLinkCloaker.trans('Add rule') }}</button>
+					</div>
+				</div>
+			</div>
+			<div class="postbox">
+				<h2 class="hndle"><span>{{ affiliateLinkCloaker.trans('Other options') }}</span></h2>
+				<div class="inside">
+					<table class="form-table">
+						<tbody id="rules-list">
+							<tr>
+								<th scope="row">{{ affiliateLinkCloaker.trans('Learning Mode') }}</th>
+								<td>
+									<fieldset>
+										<label>
+											<input type="radio" name="learning_mode" value="1" {{ (cloak.status == 1) ? 'checked' : '' }}>
+											<span>{{ affiliateLinkCloaker.trans('Disabled') }}</span>
+										</label><br>
+										<label>
+											<input type="radio" name="learning_mode" value="0" {{ (cloak.status == 0) ? 'checked' : '' }}>
+											<span>{{ affiliateLinkCloaker.trans('Enabled') }}</span>
+										</label><br>
+									</fieldset>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<input type="submit" class="button button-primary" value="{{ affiliateLinkCloaker.trans('Save') }}" />
+	</form>
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		jQuery('input.autocomplete').autocomplete({
+	        source: function(request, response) {
+		        jQuery.ajax( {
+		          	url: "{{ panel_url('AffiliateLinkCloaker::dashboard') }}&action=autocomplete",
+		          	type: 'POST',
+        			dataType: 'application/json; charset=utf-8',
+		          	data: {
+		            	term: request.term
+		          	},
+		          	complete: function(data) {
+		          		if(data.status == 200){
+			            	response(JSON.parse(data.responseText));
+			            }
+		          	}
+		        } );
+	      	},
+	        minLength: 1,
+	        select: function( event, ui ) {
+	        	jQuery('input[name='+jQuery(this).attr('id')+']').val(ui.item.id);
+		    }
+	    });
+
+	    jQuery('#rules-list').on('click', '.deleteRow', function(e){
+	    	$(this).closest('tr').remove();
+	    });
+
+	    jQuery('#addRule').click(function(e){
+	    	$('#rules-list').append('<tr valign="top"><td><p><select name="param[]"><option value="countryCode">{{ affiliateLinkCloaker.trans('Nation') }}</option><option value="isp">{{ affiliateLinkCloaker.trans('ISP') }}</option><option value="as">{{ affiliateLinkCloaker.trans('AS Number') }}</option></select>&nbsp;<select name="condition[]"><option value="equal_to">{{ affiliateLinkCloaker.trans('It\'s equal to') }}</option><option value="not_equal_to">{{ affiliateLinkCloaker.trans('It\'s not equal to') }}</option><option value="contain">{{ affiliateLinkCloaker.trans('Contains') }}</option></select>&nbsp;<input type="text" name="content[]" class="regular-text" placeholder="{{ affiliateLinkCloaker.trans('Value...') }}"/>&nbsp;<button type="button" class="deleteRow button button-primary">{{ affiliateLinkCloaker.trans('Delete rule') }}</button></p></td></tr>');
+	    });
+	});    
+</script>
