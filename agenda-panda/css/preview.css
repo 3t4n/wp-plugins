@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.previewdiv {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+:root {
+  --yellowtheme: #FFEB3B;
+  --yellowthemesec: #F57F17;
+  --bluetheme: #00C4FF;
+  --bluethemesec: #006064;
+  --greentheme: #25D366;
+  --greenthemesec: #0C8731;
+  --pinktheme: #F94877;
+  --pinkthemesec: #880E4F;
+}
+ul#newtablist {
+  margin: 0;
+  padding: 0;
+}
+div.previewblock.yellowtheme ul#newtablist,
+div.previewblock.yellowtheme #newtablistdrop {
+  background-color: var(--yellowtheme);
+}
+div.previewblock.bluetheme ul#newtablist,
+div.previewblock.bluetheme #newtablistdrop {
+  background-color: var(--bluetheme);
+}
+div.previewblock.greentheme ul#newtablist,
+div.previewblock.greentheme #newtablistdrop {
+  background-color: var(--greentheme);
+}
+div.previewblock.pinktheme ul#newtablist,
+div.previewblock.pinktheme #newtablistdrop {
+  background-color: var(--pinktheme);
+}
+ul#newtablist li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+ul#newtablist li a.tablink,
+#newtablistdrop button {
+  padding: 15px 20px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+}
+ul#newtablist li.active {
+  border-bottom: 4px inset black;
+}
+ul#newtablist li.active a.tablink,
+#newtablistdrop button {
+  font-size: 20px;
+  font-weight: bold;
+}
+div.new-tab-content div.content-block {
+  display: none;
+}
+div.new-tab-content div.content-block.active {
+  display: block;
+}
+div.previewblock {
+  border: 1px solid #dedede;
+}
+table.eventlineup {
+  border: none;
+}
+table.eventlineup tr td {
+  padding: 20px;
+  color: #4e4e4e;
+}
+table.eventlineup td.starttime,
+table.eventlineup td.slot-details p.slot-description {
+  font-size: 24px;
+  font-weight: bold;
+}
+table.eventlineup tr:last-child,
+table.eventlineup tr:last-child td,
+table.eventlineup {
+  border-bottom: none;
+}
+@media (max-width: 767px) {
+  table.eventlineup tr td.starttime {
+    font-size: 18px;
+  }
+  table.eventlineup tr td.slot-details p.slot-description {
+    font-size: 18px;
+  }
+  table.eventlineup tr td.slot-details p.slot-sec-description {
+    font-size: 14px;
+  }
+}
+/*@media (max-width: 1200px) {
+	table.eventlineup td.starttime
+	{
+    	font-size: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    table.eventlineup td.starttime
+	{
+    	font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    table.eventlineup td.starttime
+	{
+		font-size: 12px;
+	}
+}*/
+table.eventlineup td.slot-details p.slot-sec-description {
+  font-size: 18px;
+  color: #9e9e9e;
+  font-weight: normal;
+}
+#newtablistdrop button {
+  border: none;
+  background-color: transparent;
+}
