@@ -1,0 +1,99 @@
+<?php
+
+namespace AR_TRY_ON;
+
+class AR_TRY_ON_Cache {
+	/**
+	 * Get Cached Data
+	 *
+	 * @param string $key Cache Name
+	 *
+	 * @return mixed|false  false if cache not found.
+	 * @since 3.3.10
+	 */
+	public static function get( $key, $prefix = '__ar_try_on_cache_' ) {
+		if ( empty( $key ) ) {
+			return false;
+		}
+
+		return get_transient( $prefix . $key );
+	}
+
+	/**
+	 * Set Cached Data
+	 *
+	 * @param string $key Cache name. Expected to not be SQL-escaped. Must be
+	 *                             172 characters or fewer.
+	 * @param mixed $data Data to cache. Must be serializable if non-scalar.
+	 *                             Expected to not be SQL-escaped.
+	 * @param int|bool $expiration Optional. Time until expiration in seconds. Default 0 (no expiration).
+	 *
+	 * @return bool
+	 */
+	public static function set( $key, $data, $expiration = false, $prefix = '__ar_try_on_cache_' ) {
+		if ( empty( $key ) ) {
+			return false;
+		}
+
+		if ( false === $expiration ) {
+			// TODO: this dynamic.
+//			$expiration = get_option( '_settings', array( 'cache_ttl' => 6 * HOUR_IN_SECONDS ) );
+//			$expiration =  6 * HOUR_IN_SECONDS;
+		}
+
+		return set_transient( $prefix . $key, $data, $expiration );
+	}
+
+	public static function delete( $key, $prefix = '__ar_try_on_cache_' ) {
+		if ( empty( $key ) ) {
+			return false;
+		}
+
+		return delete_transient( $prefix . $key );
+
+	}
+
+	/**
+	 * Delete All Cached Data
+	 *
+	 * @return bool
+	 */
+	public static function flush() {
+		global $wpdb;
+
+		return $wpdb->query( "DELETE FROM $wpdb->options WHERE ({$wpdb->options}.option_name LIKE '_transient_timeout___ar_try_on_cache_%') OR ({$wpdb->options}.option_name LIKE '_transient___ar_try_on_cache_%')" ); // phpcs:ignore
+	}
+
+	public static function get_key( $cache_key = 'all' ) {
+		// key will be method name and value will be cache key,
+		$cache_keys = [
+			'get_post_types'     => 'get_post_types',
+		];
+
+		if ( $cache_key == 'all' ) {
+			return $cache_keys;
+		}
+
+		return $cache_keys[ $cache_key ] ?? '';
+	}
+
+
+	// Static function to update cache for all post types
+	public static function update_post_type_cache( $post_id ) {
+		// Get the post type of the current post
+		$cache_key = self::get_key( 'get_post_types' );
+		self::delete( $cache_key );
+		// Only proceed if the post type is valid
+		AR_TRY_ON_Helper::get_post_types();
+	}
+
+	public static function update_transient_during_plugins_crud() {
+		$cache_key = self::get_key( 'is_pro_active' );
+		self::delete( $cache_key );
+
+		$cache_key = self::get_key( 'all_plugins' );
+		self::delete( $cache_key );
+
+	}
+
+}
