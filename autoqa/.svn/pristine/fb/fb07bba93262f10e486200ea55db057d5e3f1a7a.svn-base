@@ -1,0 +1,1 @@
+var cauto_is_running_flow=!1,cauto_running_flow_data={};if(window.frameElement){let n=window.frameElement,a=n.className,_=n.dataset.flowId,r=n.dataset.runnerId;"cauto-runner-area-frame"===a&&(cauto_is_running_flow=!0,cauto_running_flow_data.flow_id=_,cauto_running_flow_data.runner_id=r)}
