@@ -1,0 +1,325 @@
+#wpwrap {
+  display: none;
+}
+
+html.wp-toolbar {
+  padding-top: 0;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.nimap-setup-wizard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 60px 0;
+
+  .nimap-wizard-message {
+    width: 100%;
+    box-sizing: inherit;
+  }
+
+  .nimap-setup-wizard-column {
+  }
+
+
+  .nimap-wrapper {
+    max-width: 840px;
+    box-sizing: border-box;
+
+    &.nimap-wrap-content-wizard {
+
+    }
+  }
+
+  .vi-ui.steps {
+    .step {
+      flex-direction: column;
+      padding: 10px 5px 10px 5px;
+      text-align: center;
+
+      .title ~ .description {
+        margin-top: .75em;
+      }
+
+      .icon {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .nimap-row {
+    text-align: center;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+
+    &.nimap-center {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.nimap-left {
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    &.nimap-right {
+      align-items: center;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    &.nimap-flex-between {
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    a {
+      color: #8c8c8c;
+    }
+  }
+
+  .nimap-setup-store-line-wrap {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.nimap-tag {
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 9;
+  position: relative;
+  padding: 3px 5px;
+
+  .nimap_item_icon {
+    background-color: transparent;
+    position: relative;
+    bottom: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    margin: auto;
+  }
+}
+
+.nimap-setup-form {
+  width: 100%;
+}
+
+.nimap-loading {
+  position: relative;
+  color: transparent !important;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #777 transparent #777 transparent;
+    animation: nimap-spinner-animation 700ms linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.wrap_choose_template_form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+
+  .item_template_form {
+    flex: 1 0 30%;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+    &.nimap_exist_template {
+      opacity: 1;
+      position: relative;
+      cursor: no-drop;
+
+      .exist_message {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffffa1;
+        text-shadow: 0 0 5px #0303035c;
+        border-radius: 10px;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .item_template_form_bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+  }
+}
+
+th.action_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .nimap-wizard-open-popup {
+
+  }
+}
+
+td.action_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .nimap-wizard-open-popup {
+
+  }
+}
+
+.nimap-wizard-popup {
+  .content {
+    box-sizing: border-box;
+
+    .nimap_wrap_icons {
+      box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
+      padding: 15px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      max-height: 220px;
+      overflow-y: scroll;
+
+
+      &::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #cecece;
+        border-radius: 20px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      .nimap_choose_icon {
+        background-color: transparent;
+        position: relative;
+        font-size: 20px !important;
+        padding: 5px !important;
+        margin: 5px !important;
+        opacity: 0.4;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px #0000004f !important;
+        border-radius: 4px !important;
+
+        &.nimap_icon_selected {
+          background: unset;
+          opacity: 1;
+          transform: scale3d(1.2, 1.2, 1.2);
+          border: solid 1px #000000 !important;
+        }
+
+        .nimap_item_icon {
+          left: unset !important;
+          position: relative;
+          margin: 0 !important;
+          display: flex;
+          bottom: unset !important;
+          top: unset !important;
+          right: unset !important;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .nimap-btn-group {
+    margin-top: 20px;
+  }
+
+  .nimap-setup-map-wrap {
+    width: 100%;
+    height: 300px;
+
+    #nimap_setup_map_canvas {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .nimap-setup-store-address-wrap {
+    position: relative;
+
+    .nimap-setup-locate-icon {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      cursor: pointer;
+
+      .nimap-location-icon-loading {
+        display: none;
+      }
+    }
+  }
+}
+
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #aaa;
+}
+
+.cp-color-picker {
+  z-index: 999999;
+}
+
+@keyframes nimap-spinner-animation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

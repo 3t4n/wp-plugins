@@ -1,0 +1,268 @@
+#wpwrap {
+  display: none;
+}
+
+html.wp-toolbar {
+  padding-top: 0;
+}
+html.wp-toolbar * {
+  box-sizing: border-box;
+}
+html.wp-toolbar body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nimap-setup-wizard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 60px 0;
+}
+.nimap-setup-wizard-container .nimap-wizard-message {
+  width: 100%;
+  box-sizing: inherit;
+}
+.nimap-setup-wizard-container .nimap-wrapper {
+  max-width: 840px;
+  box-sizing: border-box;
+}
+.nimap-setup-wizard-container .vi-ui.steps .step {
+  flex-direction: column;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+}
+.nimap-setup-wizard-container .vi-ui.steps .step .title ~ .description {
+  margin-top: 0.75em;
+}
+.nimap-setup-wizard-container .vi-ui.steps .step .icon {
+  font-weight: bold;
+}
+.nimap-setup-wizard-container .nimap-row {
+  text-align: center;
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+.nimap-setup-wizard-container .nimap-row.nimap-center {
+  align-items: center;
+  justify-content: center;
+}
+.nimap-setup-wizard-container .nimap-row.nimap-left {
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+.nimap-setup-wizard-container .nimap-row.nimap-right {
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+.nimap-setup-wizard-container .nimap-row.nimap-flex-between {
+  align-items: center;
+  justify-content: space-between;
+}
+.nimap-setup-wizard-container .nimap-row a {
+  color: #8c8c8c;
+}
+.nimap-setup-wizard-container .nimap-setup-store-line-wrap {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.nimap-tag {
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 9;
+  position: relative;
+  padding: 3px 5px;
+}
+.nimap-tag .nimap_item_icon {
+  background-color: transparent;
+  position: relative;
+  bottom: unset;
+  top: unset;
+  left: unset;
+  right: unset;
+  margin: auto;
+}
+
+.nimap-setup-form {
+  width: 100%;
+}
+
+.nimap-loading {
+  position: relative;
+  color: transparent !important;
+}
+.nimap-loading:after {
+  content: " ";
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #777 transparent #777 transparent;
+  animation: nimap-spinner-animation 700ms linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.wrap_choose_template_form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.wrap_choose_template_form .item_template_form {
+  flex: 1 0 30%;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.wrap_choose_template_form .item_template_form.nimap_exist_template {
+  opacity: 1;
+  position: relative;
+  cursor: no-drop;
+}
+.wrap_choose_template_form .item_template_form.nimap_exist_template .exist_message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffffa1;
+  text-shadow: 0 0 5px #0303035c;
+  border-radius: 10px;
+}
+.wrap_choose_template_form .item_template_form img {
+  width: 100%;
+}
+.wrap_choose_template_form .item_template_form .item_template_form_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+th.action_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+td.action_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nimap-wizard-popup .content {
+  box-sizing: border-box;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons {
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  padding: 15px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 220px;
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.nimap-wizard-popup .content .nimap_wrap_icons::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 20px;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons .nimap_choose_icon {
+  background-color: transparent;
+  position: relative;
+  font-size: 20px !important;
+  padding: 5px !important;
+  margin: 5px !important;
+  opacity: 0.4;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #0000004f !important;
+  border-radius: 4px !important;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons .nimap_choose_icon.nimap_icon_selected {
+  background: unset;
+  opacity: 1;
+  transform: scale3d(1.2, 1.2, 1.2);
+  border: solid 1px #000000 !important;
+}
+.nimap-wizard-popup .content .nimap_wrap_icons .nimap_choose_icon .nimap_item_icon {
+  left: unset !important;
+  position: relative;
+  margin: 0 !important;
+  display: flex;
+  bottom: unset !important;
+  top: unset !important;
+  right: unset !important;
+  align-items: center;
+  justify-content: center;
+}
+.nimap-wizard-popup .nimap-btn-group {
+  margin-top: 20px;
+}
+.nimap-wizard-popup .nimap-setup-map-wrap {
+  width: 100%;
+  height: 300px;
+}
+.nimap-wizard-popup .nimap-setup-map-wrap #nimap_setup_map_canvas {
+  width: 100%;
+  height: 100%;
+}
+.nimap-wizard-popup .nimap-setup-store-address-wrap {
+  position: relative;
+}
+.nimap-wizard-popup .nimap-setup-store-address-wrap .nimap-setup-locate-icon {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  cursor: pointer;
+}
+.nimap-wizard-popup .nimap-setup-store-address-wrap .nimap-setup-locate-icon .nimap-location-icon-loading {
+  display: none;
+}
+
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #aaa;
+}
+
+.cp-color-picker {
+  z-index: 999999;
+}
+
+@keyframes nimap-spinner-animation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=nimap-setup.css.map */

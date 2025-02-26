@@ -1,0 +1,252 @@
+/**
+  * Alpha Color Picker Custom Control
+  *
+  * @author Braad Martin <http://braadmartin.com>
+  * @license http://www.gnu.org/licenses/gpl-3.0.html
+  * @link https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker
+  */
+/* ==========================================================================
+   CSS for Customizer Custom Controls
+   ========================================================================== */
+
+/* ==========================================================================
+   Standard Selection
+   ========================================================================== */
+.customize-control #sub-accordion-section-mappin_design_map select,
+#sub-accordion-section-mappin_design_map .select2-container--default .selection .select2-selection--single {
+	border: none;
+	background: #fcfcff;
+	position: relative;
+	border-radius: 0;
+	height: 27px;
+	line-height: 27px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.wp-customizer #sub-accordion-section-mappin_design_map  .select2-container--default .selection .select2-selection--multiple {
+	border: none;
+	background: #fcfcff;
+	border-radius: 0;
+	height: auto;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.wp-customizer #sub-accordion-section-mappin_design_map  .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	width: 95%;
+}
+
+.wp-customizer #sub-accordion-section-mappin_design_map  .select2-container--default .select2-selection--multiple .select2-selection__clear {
+	position: absolute;
+	right: 0;
+}
+
+.wp-customizer #sub-accordion-section-mappin_design_map  .select2-container .select2-dropdown {
+	z-index: 900000;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control select:active,
+#sub-accordion-section-mappin_design_map .customize-control select:focus {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/* ==========================================================================
+   Standard Input
+   ========================================================================== */
+#sub-accordion-section-mappin_design_map input[type="text"],
+#sub-accordion-section-mappin_design_map input[type="number"],
+#sub-accordion-section-mappin_design_map input[type="url"],
+#sub-accordion-section-mappin_design_map input[type="email"],
+#sub-accordion-section-mappin_design_map input[type="date"] {
+	background: #fcfcff;
+	position: relative;
+	border-radius: 0;
+	border: 1px solid #eee;
+	height: 27px;
+	line-height: 27px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#sub-accordion-section-mappin_design_map input[type="text"]:active,
+#sub-accordion-section-mappin_design_map input[type="text"]:focus,
+#sub-accordion-section-mappin_design_map input[type="number"]:active,
+#sub-accordion-section-mappin_design_map input[type="number"]:focus {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+
+/* ==========================================================================
+   Alpha Color Picker
+   ========================================================================== */
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-container .iris-picker {
+	border-bottom:none;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-container {
+	max-width: 257px;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
+	width: 100%;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.wcb-alpha-color-control {
+	float: left;
+	width: 195px;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-input-wrap .button {
+	margin-left: 0;
+	float: right;
+}
+
+#sub-accordion-section-mappin_design_map .wp-picker-container .wp-picker-open ~ .wp-picker-holder .alpha-color-picker-container {
+	display: block;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container {
+	border: 1px solid #dfdfdf;
+	border-top: none;
+	display: none;
+	background: #FFF;
+	padding: 0 11px 10px;
+	position: relative;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .ui-widget-content,
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .ui-widget-header,
+#sub-accordion-section-mappin_design_map .alpha-color-picker-wrap .ui-state-focus {
+	background: transparent;
+	border: none;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-wrap a.iris-square-value:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .ui-slider {
+	position: relative;
+	z-index: 1;
+	height: 24px;
+	text-align: center;
+	margin: 0 auto;
+	width: 88%;
+	width: calc( 100% - 28px );
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .ui-slider-handle,
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .ui-widget-content .ui-state-default {
+	color: #777;
+	background-color: #FFF;
+	text-shadow: 0 1px 0 #FFF;
+	text-decoration: none;
+	position: absolute;
+	z-index: 2;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	border: 1px solid #aaa;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: -2px;
+	top: 0;
+	height: 26px;
+	width: 26px;
+	cursor: ew-resize;
+	font-size: 0;
+	padding: 0;
+	line-height: 27px;
+	margin-left: -14px;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .ui-slider-handle.show-opacity {
+	font-size: 12px;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .click-zone {
+	width: 14px;
+	height: 24px;
+	display: block;
+	position: absolute;
+	left: 10px;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .max-click-zone {
+	right: 10px;
+	left: auto;
+}
+
+#sub-accordion-section-mappin_design_map .wp-picker-container button.wp-color-result.mappin-color-picker-transparency {
+	background-image: url(../images/color-picker-transparency-grid.png);
+	background-position: right;
+	background-size: contain;
+}
+
+#sub-accordion-section-mappin_design_map .alpha-color-picker-container .transparency {
+	height: 24px;
+	width: 100%;
+	background-color: #FFF;
+	background-image: url(../images/color-picker-transparency-grid.png);
+	box-shadow: 0 0 5px rgba(0,0,0,0.4) inset;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 0;
+	margin-top: -24px;
+}
+
+@media only screen and (max-width: 782px) {
+	#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.wcb-alpha-color-control {
+		width: 184px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.wcb-alpha-color-control {
+		width: 172px;
+		height: 33px;
+	}
+}
+
+/* ==========================================================================
+   Alpha Color Picker & Standard Color Picker
+   ========================================================================== */
+#sub-accordion-section-mappin_design_map .customize-control-color .wp-color-result,
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-color-result {
+	border: none;
+	box-shadow: none;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control-color .wp-color-result:after,
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-color-result:after {
+	border: none;
+}
+
+#sub-accordion-section-mappin_design_map .customize-control-color .wp-color-result .wp-color-result-text,
+#sub-accordion-section-mappin_design_map .customize-control-alpha-color .wp-color-result .wp-color-result-text {
+	line-height: 24px;
+	border-left: none;
+}
+
+#sub-accordion-section-mappin_design_map .wp-picker-holder .iris-picker .iris-palette {
+	box-shadow: none;
+}
+
+#sub-accordion-section-mappin_design_map .wp-picker-container .iris-picker,
+#sub-accordion-section-mappin_design_map .wp-picker-container .alpha-color-picker-container {
+	border-radius: 0;
+	border: none;
+}
+
+#sub-accordion-section-mappin_design_map .wp-picker-container .alpha-color-picker-container {
+	width: 233px;
+}
