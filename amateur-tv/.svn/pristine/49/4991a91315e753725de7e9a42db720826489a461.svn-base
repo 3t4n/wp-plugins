@@ -1,0 +1,111 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "amateur-tv/feed",
+	"version": "1.1.2",
+	"title": "Amateur Tv Cams",
+	"category": "media",
+	"icon": "video-alt2",
+	"description": "Simple site builder using blocks with content from http://Amateur.tv to increase your profits as an affiliate. Online cams feed and live cam viewer ready to use on your WP site.",
+	"supports": {
+		"html": false,
+		"align": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontFamily": true
+		},
+		"reusable": false
+	},
+	"attributes": {
+		"api": {
+			"type": "string",
+			"default": "https://public-api.amateur.cash/v3/cache/affiliates/promo/json"
+		},
+		"align": {
+			"type": "string"
+		},
+		"lang": {
+			"type": "string"
+		},
+		"genre": {
+			"type": "array"
+		},
+		"age": {
+			"type": "array"
+		},
+		"link": {
+			"type": "string"
+		},
+		"targetNew": {
+			"type": "boolean",
+			"default": false
+		},
+		"usernameColor": {
+			"type": "string"
+		},
+		"bgColor": {
+			"type": "string"
+		},
+		"topicColor": {
+			"type": "string"
+		},
+		"liveColor": {
+			"type": "string"
+		},
+		"labelBgColor": {
+			"type": "string"
+		},
+		"displayLive": {
+			"type": "boolean"
+		},
+		"displayTopic": {
+			"type": "boolean"
+		},
+		"displayGenre": {
+			"type": "boolean"
+		},
+		"displayUsers": {
+			"type": "boolean"
+		},
+		"imageWidth": {
+			"type": "number",
+			"default": 216
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 115
+		},
+		"columnGap": {
+			"type": "number"
+		},
+		"autoRefresh": {
+			"type": "number",
+			"default": 0
+		},
+		"count": {
+			"type": "number"
+		},
+		"textShadowColor": {
+			"type": "string"
+		},
+		"camLang": {
+			"type": "array"
+		},
+		"tags": {
+			"type": "array"
+		},
+		"order":{
+			"type": "string",
+			"default": "highlighted"
+		}
+	},
+	"textdomain": "amateur-tv",
+	"editorScript": "file:../build/index.js",
+	"editorStyle": "file:../build/index.css",
+	"style": "file:../build/style-index.css"
+}
