@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+	<description>PHP_CodeSniffer configuration</description>
+
+	<config
+		name="installed_paths"
+		value="../../slevomat/coding-standard,../../wp-coding-standards/wpcs,../../phpcsstandards/phpcsutils,../../phpcsstandards/phpcsextra,../../phpcompatibility/php-compatibility/"
+	/>
+
+	<arg name="extensions" value="php,js,css"/>
+
+	<rule ref="PHPCompatibility">
+	</rule>
+	<config name="testVersion" value="8.2-"/>
+
+	<!-- Use WordPress as the basis of our ruleset -->
+	<rule ref="WordPress">
+		<!--
+		Absolutely ignoring that slow queries may occur when looking things up
+		by meta.
+		-->
+		<exclude name="WordPress.DB.SlowDBQuery" />
+
+		<!--
+		We are not limited by WordPress' naming constraints and are using PSR-4
+		autoloading, so we'll use that file naming convention.
+		-->
+		<exclude name="WordPress.Files.FileName" />
+
+		<!--
+		As there is only a single class and a single namepsace in each file,
+		we'll skip the file comment rule as it is sufficient to document that
+		single class.
+		-->
+		<exclude name="Squiz.Commenting.FileComment.Missing" />
+
+		<!--
+		Disable file comment checks as the only file comment is the one in the
+		root file, used for WordPress specific metadata.
+		-->
+		<exclude name="Squiz.Commenting.FileComment" />
+
+		<!--
+		Disables a check for JS being loaded from the footer. It is a silly idea
+		and heresy.
+		-->
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
+
+		<!--
+		Disable checks for class property types being dockblocked when it's
+		sufficient to declare their type.
+		-->
+		<exclude name="Squiz.Commenting.VariableComment.MissingVar"></exclude>
+
+		<!--
+		Disabling the check for the "use of" object properties that are not in
+		snake case as we are using code and data from 3rd parties.
+		-->
+		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"></exclude>
+
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda"></exclude>
+
+		<exclude-pattern>./tests/**</exclude-pattern>
+	</rule>
+
+	<!--
+	Disable multiline function call checks for JS files.
+	This sniff seems to be buggy as it is insisiting on spaces, instead of tabs.
+	-->
+	<rule ref="PEAR.Functions.FunctionCallSignature.Indent">
+		<exclude-pattern>./js/**</exclude-pattern>
+	</rule>
+
+	<!--
+	Excluding commenting rules from tests, as we are using TestDox instead
+	-->
+	<rule ref="Squiz.Commenting.ClassComment.Missing">
+		<exclude-pattern>./tests/**</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>./tests/**</exclude-pattern>
+	</rule>
+
+	<!-- Disable everything from the phpcsextra package -->
+	<rule ref="Universal">
+		<exclude name="Universal"></exclude>
+	</rule>
+
+	<!-- Enforce strict type decleration at top of all PHP files -->
+	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+		<properties>
+			<property name="spacesCountAroundEqualsSign" value="1" />
+			<property name="linesCountBeforeDeclare" value="1" />
+			<property name="linesCountAfterDeclare" value="1" />
+		</properties>
+	</rule>
+
+	<!-- Enforce type hinting for function parameters -->
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
+		<exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" />
+	</rule>
+
+	<!-- Enforce type hinting for function return values -->
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint">
+		<exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
+	</rule>
+
+	<!-- Disallow "sloppy" equals operators -->
+	<rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
+	</rule>
+
+	<rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"></rule>
+
+	<rule ref="Generic.ControlStructures.DisallowYodaConditions"></rule>
+
+	<!--
+	Exclude the vendor direcotry because of course
+	-->
+	<exclude-pattern>./vendor/*</exclude-pattern>
+</ruleset>
