@@ -1,0 +1,26 @@
+<div class="c-constraint__editor">
+    <p>Provide the following information and click "Apply"</p>
+    <br>
+
+    <h5>By Bounding Box</h5>
+    <div id="extent-constraint-map-container"></div>
+    <br>
+
+    <h5>By Location</h5>
+    <ngbd-typeahead-http [service]="service"
+      [formatter]="getLocationLabel"
+      (resultSelected)="selectLocation($event)">
+    </ngbd-typeahead-http>
+
+    <footer>
+        <div class="flex-1">
+            <button type="button" class="btn btn-secondary"
+                *ngIf="value"
+                (click)="clear()">
+                Clear
+            </button>
+        </div>
+        <button type="button" class="btn btn-primary applyBtn" (click)="apply()">Apply</button>
+    </footer>
+
+</div>

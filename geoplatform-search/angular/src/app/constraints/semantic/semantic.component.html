@@ -1,0 +1,39 @@
+<div class="c-constraint__editor">
+    <p>
+        Select suggested concepts using the box and dropdown list that appears below.
+        Click "Apply" to apply all selected concepts to the current constraints.
+    </p>
+    <br>
+
+    <label for="semFilter">Find Concepts</label>
+
+    <ng-template #semanticTypeaheadTemplate let-r="result" let-t="term">
+        <div>
+            <span class="u-break--all t-text--strong u-pd-bottom--sm">{{r.prefLabel}}</span>
+            <br>
+            <span class="u-break--all u-text--sm t-text--italic">{{r.uri}}</span>
+        </div>
+    </ng-template>
+    <ngbd-typeahead-http [service]="service"
+        [formatter]="getSuggestionLabel"
+        (resultSelected)="selectSuggestion($event)"
+        [template]="semanticTypeaheadTemplate"
+        [failMessage]="'Sorry, suggestions could not be loaded.'">
+    </ngbd-typeahead-http>
+
+    <div *ngIf="searchError" class="t-bg--danger t-fg--white">
+        {{searchError.message}}
+    </div>
+
+    <div *ngFor="let option of selections" class="list-item">
+        <button type="button" class="btn btn-link btn-sm" (click)="select(option)">
+            <span class="far fa-times-circle t-fg--danger"></span>
+        </button>
+        {{option.label}}<br>
+        <span class="u-break--all u-text--sm">{{option.uri}}</span>
+    </div>
+
+    <footer>
+        <button type="button" class="btn btn-primary applyBtn" (click)="apply()">Apply</button>
+    </footer>
+</div>

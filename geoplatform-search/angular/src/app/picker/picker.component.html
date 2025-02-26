@@ -1,0 +1,45 @@
+<div class="c-constraint-picker">
+
+    <div class="c-constraint-selector">
+        <h4 class="heading">
+            <button type="button" class="btn btn-sm btn-link closeBtn" (click)="toggle()">
+                <span *ngIf="isClosed" class="far fa-plus-square"></span>
+                <span *ngIf="!isClosed" class="far fa-minus-square"></span>
+            </button>
+            <span>Add Constraints...</span>
+        </h4>
+
+        <div *ngIf="isClosed" (click)="toggle()">
+            <em>Expand to see available constraint options</em>
+        </div>
+
+        <div class="c-constraint-options" *ngIf="inPickerMode">
+
+            <div class="u-text--sm">
+                For information about the following constraint options and
+                how they can be used to refine search results, please visit the
+                <a href="{{helpBaseUrl}}#constraints" target="_blank">Search Help Page</a>.
+                <br><br>
+            </div>
+
+
+            <div *ngFor="let opt of options"
+                class="c-constraint__option"
+                (click)="activateConstraint(opt)">
+                <div>{{opt.label}}</div>
+                <span class="fas fa-arrow-alt-circle-right"></span>
+            </div>
+
+        </div>
+
+        <div *ngIf="!inPickerMode">
+            <picker-editor
+                [constraints]="constraints"
+                [component]="activeConstraint?.component"
+                (onClose)="onEditorClosed($event)">
+            </picker-editor>
+        </div>
+
+    </div>
+
+</div>
