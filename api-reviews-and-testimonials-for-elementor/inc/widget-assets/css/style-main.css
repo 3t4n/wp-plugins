@@ -1,0 +1,98 @@
+/* Container for the review slider */
+.review-slider {
+    display: flex;
+    
+    gap: 20px; /* Space between items */
+}
+
+/* Individual review item */
+.review-item {
+    flex: 1 1 calc(33.333% - 20px); /* 3 items per row, adjust as needed */
+    box-sizing: border-box;
+   
+    padding: 15px;
+    text-align: center;
+
+}
+
+.review-item h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+}
+
+.review-item p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0 0 10px;
+}
+
+.review-item span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    font-size: 1.5em;
+    color: #ffcc00; /* Gold color for stars */
+    display: flex;
+    justify-content: center;
+}
+
+.star-rating .star {
+    margin: 0 2px;
+}
+
+.star-rating .star.empty {
+    color: #e0e0e0; /* Grey color for empty stars */
+}
+
+.review-slider button.slick-arrow {
+    font-size: 0;
+    padding: 0;
+    border: none;
+    line-height: 0;
+    width: 175px;
+    color: #000;
+    background: none;
+    outline: 0;
+}
+
+.review-slider button.slick-arrow.slick-prev:before {
+    content: '↤';
+}
+
+.review-slider button.slick-arrow.slick-next:before {
+    content: '↦';
+}
+
+.review-slider button.slick-arrow:before {
+    font-size: 36px;
+}
+
+
+/* Responsive styling */
+@media (max-width: 1200px) {
+    .review-item {
+        flex: 1 1 calc(50% - 20px); /* 2 items per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .review-item {
+        flex: 1 1 100%; /* 1 item per row for small screens */
+    }
+}
+.review-item .star-rating {
+    font-size: 1.5em;
+    color: #ffcc00; /* Gold color for stars */
+    display: flex;
+}
+
+.review-item .star-rating .star {
+    margin-right: 2px;
+}
+
+.review-item .star-rating .star.empty {
+    color: #e0e0e0; /* Grey color for empty stars */
+}
