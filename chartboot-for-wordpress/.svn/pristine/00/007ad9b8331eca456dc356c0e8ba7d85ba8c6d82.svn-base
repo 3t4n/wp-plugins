@@ -1,0 +1,1 @@
+Stable tag: 3.0
