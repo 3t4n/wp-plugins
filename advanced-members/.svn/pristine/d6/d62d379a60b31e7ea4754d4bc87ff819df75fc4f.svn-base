@@ -1,0 +1,1 @@
+(function(c){var d=function(b){b.find(".acf-field input").each(function(){if(!this.checkValidity()){var a=c(this).parents(".acf-postbox");a.length&&(a=acf.getPostbox(a))&&a.isHiddenByScreenOptions()&&(a.$el.removeClass("hide-if-js"),a.$el.css("display",""))}})};acf.validation.onClickSubmit=function(b,a){a=a.closest("form");a.length&&(d(a),this.set("originalEvent",b))}})(jQuery);
