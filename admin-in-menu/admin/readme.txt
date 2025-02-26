@@ -1,0 +1,1 @@
+this function will be in the next version of this plugin ;)
