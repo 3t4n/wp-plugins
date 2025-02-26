@@ -1,0 +1,109 @@
+/* Style the action buttons */
+.column-actions .row-actions {
+    color: #555;
+    font-size: 13px;
+}
+
+.column-actions .row-actions a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.column-actions .row-actions a:hover {
+    color: #00a0d2;
+}
+
+.column-actions .row-actions .delete a {
+    color: #a00;
+}
+
+.column-actions .row-actions .delete a:hover {
+    color: #d63638;
+}
+
+.column-actions .row-actions .copy {
+    margin-right: 10px;
+}
+
+.field-group-horizontal {
+	display: flex;
+	gap: 0.5em;
+}
+
+.field-group-horizontal-no-gap {
+	gap: 0;
+}
+
+.ll-form {
+
+}
+
+.ll-form__field {
+	margin: 1.25em 0;
+}
+
+.ll-label {
+	margin-bottom: 0.25em;
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+}
+
+.ll-radio-button {
+	border: 1px solid #135e96;
+    border-radius: 0.25em;
+    padding: 0.5em;
+	cursor: pointer;
+}
+
+.ll-radio-button input[type="radio"] {
+	margin: 0;
+}
+
+.ll-submit {
+	display: flex;
+	align-items: center;
+}
+
+a.advanced-settings-toggler, a.advanced-settings-toggler:hover{
+	color: #1d2327 !important;
+	text-decoration: none !important;
+}
+
+.advanced-settings-toggler {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.advanced-settings-toggler__icon {
+	width: 12px;
+	height: 18px;
+    margin-right: 6px;
+    transition: transform 0.3s ease;
+}
+
+.advanced-settings-toggler__icon.rotate {
+    transform: rotate(90deg);
+}
+
+.advanced-settings-toggler__text {
+    font-size: 14px;
+}
+
+.advanced-settings-toggler:hover {
+    color: #0073e6;
+}
+
+.link-row td:first-child {
+    white-space: nowrap;      /* Prevent the text from wrapping to the next line */
+    overflow: hidden;         /* Hide the overflowed text */
+    text-overflow: ellipsis;  /* Show ellipsis (...) when the text is too long */
+    max-width: 20ch;         /* Set a maximum width (adjust as necessary) */
+    display: inline-block;    /* Ensure the ellipsis works properly */
+}
+
+.link-row[data-is-expired="1"] {
+	background-color: rgb(255, 187, 163) !important;
+}
