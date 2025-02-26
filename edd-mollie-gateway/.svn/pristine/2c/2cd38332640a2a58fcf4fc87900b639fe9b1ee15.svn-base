@@ -1,0 +1,905 @@
+# Copyright (C) 2025 WP Overnight
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Payment Gateway using Mollie for Easy Digital Downloads 3.2.17\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/edd-mollie-gateway\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-14T10:37:34+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: edd-mollie-gateway\n"
+
+#. Plugin Name of the plugin
+#: edd-mollie-gateway.php
+msgid "Payment Gateway using Mollie for Easy Digital Downloads"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: edd-mollie-gateway.php
+msgid "https://wpovernight.com/downloads/easy-digital-downloads-mollie-pro/"
+msgstr ""
+
+#. Description of the plugin
+#: edd-mollie-gateway.php
+msgid "Accept payments via Mollie in your Easy Digital Downloads (EDD) store"
+msgstr ""
+
+#. Author of the plugin
+#: edd-mollie-gateway.php
+msgid "WP Overnight"
+msgstr ""
+
+#. Author URI of the plugin
+#: edd-mollie-gateway.php
+msgid "https://wpovernight.com"
+msgstr ""
+
+#: edd-mollie-gateway.php:72
+msgid "Your version of PHP is below the minimum version of PHP required by Payment Gateway using Mollie for Easy Digital Downloads. Please contact your host and request that your version be upgraded to 5.6.0 or greater."
+msgstr ""
+
+#: includes/abstracts/abstract-settings.php:701
+msgid "Select all"
+msgstr ""
+
+#: includes/abstracts/abstract-settings.php:701
+msgid "Select none"
+msgstr ""
+
+#: includes/admin/settings-general.php:29
+msgid "Mollie Settings"
+msgstr ""
+
+#: includes/admin/settings-general.php:34
+msgid "Live API key"
+msgstr ""
+
+#. translators: Placeholder 1: API key mode (live or test). The surrounding %s's Will be replaced by a link to the Mollie profile
+#: includes/admin/settings-general.php:39
+#: includes/admin/settings-general.php:57
+msgid "The API key is used to connect to Mollie. You can find your <strong>%1$s</strong> API key in your %2$sMollie profile%3$s"
+msgstr ""
+
+#: includes/admin/settings-general.php:45
+msgid "Live API key should start with live_"
+msgstr ""
+
+#: includes/admin/settings-general.php:52
+msgid "Test API key"
+msgstr ""
+
+#: includes/admin/settings-general.php:62
+#: includes/admin/settings-general.php:64
+msgid "Test API key should start with test_"
+msgstr ""
+
+#: includes/admin/settings-general.php:71
+msgid "Payment screen language"
+msgstr ""
+
+#: includes/admin/settings-general.php:74
+msgid "Automatically send WordPress language"
+msgstr ""
+
+#: includes/admin/settings-general.php:77
+#: includes/gateways/abstract-mollie.php:161
+msgid "default"
+msgstr ""
+
+#: includes/admin/settings-general.php:78
+msgid "Detect using browser language"
+msgstr ""
+
+#: includes/admin/settings-general.php:83
+msgid "English"
+msgstr ""
+
+#: includes/admin/settings-general.php:84
+msgid "Dutch"
+msgstr ""
+
+#: includes/admin/settings-general.php:85
+msgid "Flemish (Belgium)"
+msgstr ""
+
+#: includes/admin/settings-general.php:86
+msgid "French"
+msgstr ""
+
+#: includes/admin/settings-general.php:87
+msgid "French (Belgium)"
+msgstr ""
+
+#: includes/admin/settings-general.php:88
+msgid "German"
+msgstr ""
+
+#: includes/admin/settings-general.php:89
+msgid "Austrian German"
+msgstr ""
+
+#: includes/admin/settings-general.php:90
+msgid "Swiss German"
+msgstr ""
+
+#: includes/admin/settings-general.php:91
+msgid "Spanish"
+msgstr ""
+
+#: includes/admin/settings-general.php:92
+msgid "Catalan"
+msgstr ""
+
+#: includes/admin/settings-general.php:93
+msgid "Portuguese"
+msgstr ""
+
+#: includes/admin/settings-general.php:94
+msgid "Italian"
+msgstr ""
+
+#: includes/admin/settings-general.php:95
+msgid "Norwegian"
+msgstr ""
+
+#: includes/admin/settings-general.php:96
+msgid "Swedish"
+msgstr ""
+
+#: includes/admin/settings-general.php:97
+msgid "Finnish"
+msgstr ""
+
+#: includes/admin/settings-general.php:98
+msgid "Danish"
+msgstr ""
+
+#: includes/admin/settings-general.php:99
+msgid "Icelandic"
+msgstr ""
+
+#: includes/admin/settings-general.php:100
+msgid "Hungarian"
+msgstr ""
+
+#: includes/admin/settings-general.php:101
+msgid "Polish"
+msgstr ""
+
+#: includes/admin/settings-general.php:102
+msgid "Latvian"
+msgstr ""
+
+#: includes/admin/settings-general.php:103
+msgid "Lithuanian"
+msgstr ""
+
+#: includes/admin/settings-general.php:106
+msgid "Sending a language (or locale) is required. The option 'Automatically send WordPress language' will try get the customer's language in WordPress (and respects multilanguage plugins) and convert it to a format Mollie understands. If this fails, or if the language is not supported, it will fall back to American English. You can also select one of the locales currently supported by Mollie, that will then be used for all customers."
+msgstr ""
+
+#: includes/admin/settings-general.php:113
+msgid "Store customer details at Mollie"
+msgstr ""
+
+#. translators: %s: enabled value
+#: includes/admin/settings-general.php:116
+msgid "Should Mollie store customers name and email address for Single Click Payments? Default <code>%s</code>. Required if Recurring Payments is being used!"
+msgstr ""
+
+#: includes/admin/settings-general.php:117
+#: includes/admin/settings-general.php:184
+msgid "Enabled"
+msgstr ""
+
+#: includes/admin/settings-general.php:123
+msgid "Check payment status on order confirmation page"
+msgstr ""
+
+#: includes/admin/settings-general.php:124
+msgid "By default, EDD Mollie handles payment confirmation solely via webhooks - this is the most reliable method (preventing duplicate confirmations), but in some instances these webhooks may not be processed correctly by your site. This option adds an extra check on the order confirmation page. Only recommended when you have issues with the regular confirmation (or when testing on a local site)"
+msgstr ""
+
+#: includes/admin/settings-general.php:129
+msgid "Debug Log"
+msgstr ""
+
+#: includes/admin/settings-general.php:130
+msgid "Log plugin events."
+msgstr ""
+
+#: includes/admin/settings-general.php:143
+msgid "The following options are required to use the plugin and are used by all Mollie payment methods"
+msgstr ""
+
+#: includes/admin/settings-general.php:183
+#: includes/strings.php:38
+msgid "Method"
+msgstr ""
+
+#: includes/admin/settings-general.php:185
+#: includes/gateways/abstract-mollie.php:143
+msgid "Description"
+msgstr ""
+
+#. Translators: %1$s and %2$s are anchor tags.
+#: includes/admin/settings-general.php:225
+msgid "Disabled - Enable in your %1$sMollie profile%2$s first."
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:236
+msgid "Manage the \"%s\" payment method"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:236
+msgid "Manage"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:239
+msgid "Set up the \"%s\" payment method"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:239
+msgid "Set up"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:251
+msgid "The \"%s\" payment method is currently enabled"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:251
+msgid "Yes"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:254
+msgid "The \"%s\" payment method is currently disabled"
+msgstr ""
+
+#. Translators: %s Payment gateway name.
+#: includes/admin/settings-general.php:254
+msgid "No"
+msgstr ""
+
+#: includes/admin/settings-general.php:267
+msgid "Fully enabled"
+msgstr ""
+
+#: includes/admin/settings-general.php:268
+msgid "Only webooks enabled (not available in checkout)"
+msgstr ""
+
+#: includes/admin/settings-general.php:269
+msgid "Disabled"
+msgstr ""
+
+#: includes/admin/settings-general.php:270
+msgid "Unavailable for checkout"
+msgstr ""
+
+#: includes/admin/views/pro-ad.php:4
+msgid "Upgrade to EDD Mollie PRO to receive subscription payments!"
+msgstr ""
+
+#: includes/admin/views/pro-ad.php:5
+msgid "The EDD Mollie PRO extension enables support for Recurring Payments (with or without Software Licensing), allowing you to receive subscription payments via Mollie with any of the payment methods supporting this. For bank payments (iDEAL, bancontact, SOFORT, etc.) initial payments are processed as usual, and recurring payments are automatically processed via SEPA Direct Debit."
+msgstr ""
+
+#: includes/admin/views/pro-ad.php:6
+msgid "Buy now"
+msgstr ""
+
+#: includes/gateways/abstract-gateway.php:159
+msgid "Back to main Mollie settings"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:107
+msgid "Enable/Disable"
+msgstr ""
+
+#. translators: %s: payment method title
+#: includes/gateways/abstract-mollie.php:111
+msgid "Enable %s"
+msgstr ""
+
+#. translators: %s: general settings link
+#: includes/gateways/abstract-mollie.php:116
+msgid "When enabled, your store can receive/process payments for this method, even when it is not activated for your checkout. You can activate the method for the checkout in the %s settings section"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:119
+msgid "General"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:125
+msgid "Title"
+msgstr ""
+
+#. translators: %s: payment method title
+#: includes/gateways/abstract-mollie.php:129
+msgid "This controls the title which the user sees during checkout. Default <code>%s</code>"
+msgstr ""
+
+#. translators: %s: payment method default description
+#: includes/gateways/abstract-mollie.php:147
+msgid "Payment method description that the customer will see on your checkout. Default <code>%s</code>"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:158
+msgid "Initial order status"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:165
+msgid "Some payment methods take longer than a few hours to complete. The initial order state is then set to this status to signify payment has been initiated."
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:209
+msgid "Gateway Disabled"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:245
+msgid "Test mode enabled."
+msgstr ""
+
+#. translators: The surrounding %s's Will be replaced by a link to the global setting page
+#: includes/gateways/abstract-mollie.php:247
+msgid "No API key provided. Please %1$sset you Mollie API key%2$s first."
+msgstr ""
+
+#. translators: 1. Payment method title, 2,3. anchor tags
+#: includes/gateways/abstract-mollie.php:259
+msgid "%1$s not enabled in your Mollie profile. You can enabled it by editing your %2$sMollie profile%3$s."
+msgstr ""
+
+#. translators: Placeholder 1: WooCommerce currency, placeholder 2: Supported Mollie currencies
+#: includes/gateways/abstract-mollie.php:271
+msgid "Current shop currency %1$s not supported by Mollie. Read more about %2$ssupported currencies and payment methods.%3$s "
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:437
+msgid "Nonce verification has failed"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:437
+msgid "Error"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:482
+msgid "Payment Error"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:482
+msgid "Payment creation failed before sending buyer to Mollie"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:501
+msgid "Order"
+msgstr ""
+
+#. translators: Placeholder 1: Payment method title, placeholder 2: payment ID
+#: includes/gateways/abstract-mollie.php:550
+msgid "%1$s payment started (%2$s)."
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:552
+#: includes/gateways/abstract-mollie.php:826
+#: includes/gateways/abstract-mollie.php:859
+#: includes/gateways/abstract-mollie.php:876
+#: includes/gateways/abstract-mollie.php:904
+msgid "test mode"
+msgstr ""
+
+#. translators: Placeholder 1: payment method title, placeholder 2: payment ID
+#: includes/gateways/abstract-mollie.php:824
+msgid "%1$s payment (%2$s) cancelled ."
+msgstr ""
+
+#. translators: Placeholder 1: payment method title, placeholder 2: payment ID
+#: includes/gateways/abstract-mollie.php:857
+msgid "%1$s payment failed via Mollie (%2$s)."
+msgstr ""
+
+#. translators: 1. payment method title, 2. payment ID, 3. transaction ID
+#: includes/gateways/abstract-mollie.php:874
+msgid "%1$s payment expired (%2$s) but order not cancelled because of another pending payment (%3$s)."
+msgstr ""
+
+#. translators: Placeholder 1: old method title, placeholder 2: new method
+#: includes/gateways/abstract-mollie.php:891
+msgid "Mollie webhook for %1$s called, but payment also started via %2$s, so the order status is not updated."
+msgstr ""
+
+#. translators: Placeholder 1: payment method title, placeholder 2: payment ID
+#: includes/gateways/abstract-mollie.php:902
+msgid "%1$s payment expired (%2$s)."
+msgstr ""
+
+#. translators: refund ID
+#: includes/gateways/abstract-mollie.php:964
+msgid "New refund %s created in Mollie Dashboard, order refunded!"
+msgstr ""
+
+#. translators: refund ID
+#: includes/gateways/abstract-mollie.php:970
+msgid "Partial refund %s created in Mollie Dashboard!"
+msgstr ""
+
+#. translators: refund IDs
+#: includes/gateways/abstract-mollie.php:983
+msgid "Multiple refunds %s created in Mollie Dashboard, order fully refunded!"
+msgstr ""
+
+#. translators: chargeback ID
+#: includes/gateways/abstract-mollie.php:1051
+msgid "Full chargeback %s reported by Mollie"
+msgstr ""
+
+#. translators: chargeback ID
+#: includes/gateways/abstract-mollie.php:1057
+msgid "Partial chargeback %s reported by Mollie"
+msgstr ""
+
+#. translators: Placeholder 1: currency, placeholder 2: refunded amount, placeholder 3: optional refund reason, placeholder 4: payment ID, placeholder 5: refund ID
+#: includes/gateways/abstract-mollie.php:1194
+msgid "Refunded %1$s%2$s%3$s - Payment: %4$s, Refund: %5$s"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:1294
+msgid "We have not received a definite payment status."
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:1299
+msgid "We have not received a definite payment status. You will receive an email as soon as we receive a confirmation of the bank/merchant."
+msgstr ""
+
+#. translators: Placeholder 1: payment method
+#: includes/gateways/abstract-mollie.php:1306
+msgid "Payment completed with <strong>%s</strong>"
+msgstr ""
+
+#: includes/gateways/abstract-mollie.php:1329
+msgid "Your order has been cancelled."
+msgstr ""
+
+#: includes/gateways/bancontact.php:32
+#: includes/strings.php:48
+msgid "Bancontact"
+msgstr ""
+
+#: includes/gateways/banktransfer.php:41
+msgid "Expiry date"
+msgstr ""
+
+#. translators: default expiry days
+#: includes/gateways/banktransfer.php:45
+msgid "Number of days after the payment will expire. Default <code>%d</code> days"
+msgstr ""
+
+#: includes/gateways/banktransfer.php:57
+msgid "Skip Mollie payment screen"
+msgstr ""
+
+#: includes/gateways/banktransfer.php:58
+msgid "Skip Mollie payment screen when Bank Transfer is selected"
+msgstr ""
+
+#: includes/gateways/banktransfer.php:59
+msgid "Enable this option if you want to skip redirecting your user to the Mollie payment screen, instead this will redirect your user directly to the EDD order received page displaying instructions how to complete the Bank Transfer payment."
+msgstr ""
+
+#: includes/gateways/banktransfer.php:98
+msgid "Bank Transfer"
+msgstr ""
+
+#. translators: Placeholder 1: consumer name, placeholder 2: consumer IBAN, placeholder 3: consumer BIC
+#: includes/gateways/banktransfer.php:171
+#: includes/gateways/directdebit.php:87
+#: includes/gateways/ideal.php:113
+#: includes/gateways/sofort.php:66
+msgid "Payment completed by <strong>%1$s</strong> (IBAN (last 4 digits): %2$s, BIC: %3$s)"
+msgstr ""
+
+#: includes/gateways/banktransfer.php:178
+msgid "Please complete your payment by transferring the total amount to the following bank account:"
+msgstr ""
+
+#. translators: Bank name
+#: includes/gateways/banktransfer.php:183
+msgid "Beneficiary: %s"
+msgstr ""
+
+#. translators: IBAN number
+#: includes/gateways/banktransfer.php:188
+msgid "IBAN: <strong>%s</strong>"
+msgstr ""
+
+#. translators: BIC number
+#: includes/gateways/banktransfer.php:193
+#: includes/strings.php:23
+msgid "BIC: %s"
+msgstr ""
+
+#. translators: Placeholder 1: Payment reference e.g. RF49-0000-4716-6216 (SEPA) or +++513/7587/59959+++ (Belgium)
+#: includes/gateways/banktransfer.php:200
+msgid "Payment reference: %s"
+msgstr ""
+
+#. translators: Placeholder 1: Payment reference e.g. RF49-0000-4716-6216 (SEPA) or +++513/7587/59959+++ (Belgium)
+#: includes/gateways/banktransfer.php:206
+msgid "Please provide the payment reference <strong>%s</strong>"
+msgstr ""
+
+#. translators: Expiry date
+#: includes/gateways/banktransfer.php:217
+msgid "The payment will expire on <strong>%s</strong>."
+msgstr ""
+
+#. translators: Expiry date
+#: includes/gateways/banktransfer.php:223
+msgid "The payment will expire on <strong>%s</strong>. Please make sure you transfer the total amount before this date."
+msgstr ""
+
+#: includes/gateways/belfius.php:32
+#: includes/strings.php:49
+msgid "Belfius Direct Net"
+msgstr ""
+
+#: includes/gateways/creditcard.php:33
+#: includes/strings.php:50
+msgid "Credit card"
+msgstr ""
+
+#. translators: Placeholder 1: card holder
+#: includes/gateways/creditcard.php:64
+msgid "Payment completed by <strong>%s</strong>"
+msgstr ""
+
+#: includes/gateways/directdebit.php:33
+msgid "Start renewal"
+msgstr ""
+
+#: includes/gateways/directdebit.php:34
+msgid "days in advance"
+msgstr ""
+
+#: includes/gateways/directdebit.php:37
+msgid "Mollie reports a minimum processing time of 1-2 work days, and the average processing time is around 4 days. To avoid gaps between the expiration date and the renewal, this setting allows initiating the transaction a few days in advance."
+msgstr ""
+
+#: includes/gateways/directdebit.php:49
+#: includes/strings.php:51
+msgid "SEPA Direct Debit"
+msgstr ""
+
+#: includes/gateways/directdebit.php:56
+msgid "SEPA Direct Debit is used for Recurring Payments, and will not be shown in the EDD checkout for regular payments! You also need to enable iDEAL and/or other \"first\" payment methods if you want to use SEPA Direct Debit."
+msgstr ""
+
+#: includes/gateways/eps.php:32
+#: includes/strings.php:52
+msgid "EPS"
+msgstr ""
+
+#: includes/gateways/giftcard.php:57
+msgid "Gift cards"
+msgstr ""
+
+#. translators: Default gift card dropdown description, displayed above issuer drop down
+#: includes/gateways/giftcard.php:72
+msgid "Select your gift card"
+msgstr ""
+
+#: includes/gateways/giropay.php:32
+#: includes/strings.php:53
+msgid "Giropay"
+msgstr ""
+
+#: includes/gateways/ideal.php:53
+#: includes/strings.php:54
+msgid "iDEAL"
+msgstr ""
+
+#. translators: Default KBC/CBC dropdown description, displayed above issuer drop down
+#: includes/gateways/ideal.php:66
+#: includes/gateways/kbc.php:74
+msgid "Select your bank"
+msgstr ""
+
+#: includes/gateways/inghomepay.php:32
+#: includes/strings.php:55
+msgid "ING Home'Pay"
+msgstr ""
+
+#: includes/gateways/kbc.php:59
+#: includes/strings.php:56
+msgid "KBC/CBC Payment Button"
+msgstr ""
+
+#: includes/gateways/mybank.php:32
+#: includes/strings.php:57
+msgid "MyBank"
+msgstr ""
+
+#. translators: Placeholder 1: MyBank consumer name, placeholder 2: Consumer Account number
+#: includes/gateways/mybank.php:62
+msgid "Payment completed by <strong>%1$s</strong> - %2$s"
+msgstr ""
+
+#: includes/gateways/paypal.php:30
+#: includes/strings.php:58
+msgid "PayPal"
+msgstr ""
+
+#. translators: Placeholder 1: PayPal consumer name, placeholder 2: PayPal email, placeholder 3: PayPal transaction ID
+#: includes/gateways/paypal.php:60
+msgid "Payment completed by <strong>%1$s</strong> - %2$s (PayPal transaction ID: %3$s)"
+msgstr ""
+
+#: includes/gateways/paysafecard.php:18
+msgid "paysafecard"
+msgstr ""
+
+#: includes/gateways/przelewy24.php:31
+msgid "Przelewy24"
+msgstr ""
+
+#: includes/gateways/przelewy24.php:38
+msgid "To accept payments via Przelewy24, a customer email is required for every payment."
+msgstr ""
+
+#. translators: Placeholder 1: customer billing email
+#: includes/gateways/przelewy24.php:61
+msgid "Payment completed by <strong>%s</strong>."
+msgstr ""
+
+#: includes/gateways/sofort.php:35
+#: includes/strings.php:59
+msgid "SOFORT Banking"
+msgstr ""
+
+#: includes/helper/api.php:30
+msgid "No API key provided. Please set you Mollie API keys below."
+msgstr ""
+
+#. translators: %1$s and %2$s are placeholders for the link to the Mollie dashboard and %3$s and %4$s are placeholders for the test and live API key prefixes
+#: includes/helper/api.php:34
+msgid "Invalid API key(s). Get them on the %1$sDevelopers page in the Mollie dashboard%2$s. The API key(s) must start with %3$s or %4$s, be at least 30 characters and can't further contain any special characters."
+msgstr ""
+
+#: includes/main.php:108
+#: includes/main.php:180
+msgid "Mollie"
+msgstr ""
+
+#: includes/main.php:187
+msgid "Online payment"
+msgstr ""
+
+#: includes/main.php:265
+msgid "Refund Charge in Mollie"
+msgstr ""
+
+#: includes/main.php:306
+msgid "A chargeback for the following payment(s) has been registered in Mollie:"
+msgstr ""
+
+#. translators: 1: date, 2: order link, 3: chargeback link, 4: reason
+#: includes/main.php:320
+msgid "%1$s Order %2$s, chargeback %3$s (%4$s)"
+msgstr ""
+
+#. translators: 1: date, 2: order link, 3: chargeback link
+#: includes/main.php:330
+msgid "%1$s Order %2$s, chargeback %3$s"
+msgstr ""
+
+#: includes/main.php:338
+msgid "remove from notice"
+msgstr ""
+
+#: includes/main.php:346
+msgid "Hide this message"
+msgstr ""
+
+#: includes/main.php:359
+msgid "The IBAN is incorrect or unknown"
+msgstr ""
+
+#: includes/main.php:360
+msgid "Account closed"
+msgstr ""
+
+#: includes/main.php:361
+msgid "Account blocked"
+msgstr ""
+
+#: includes/main.php:362
+msgid "Debtor account is a consumer account"
+msgstr ""
+
+#: includes/main.php:363
+msgid "Direct Debit forbidden on this account for regulatory reasons"
+msgstr ""
+
+#: includes/main.php:364
+msgid "Transaction information is incorrect"
+msgstr ""
+
+#: includes/main.php:365
+msgid "Insufficient funds"
+msgstr ""
+
+#: includes/main.php:366
+msgid "Duplication"
+msgstr ""
+
+#: includes/main.php:367
+msgid "Identifier of the Creditor incorrect"
+msgstr ""
+
+#: includes/main.php:368
+msgid "Creditor PSP is not registered under this BIC in the CSM"
+msgstr ""
+
+#: includes/main.php:369
+msgid "Debtor PSP is not registered under this BIC in the CSM"
+msgstr ""
+
+#: includes/main.php:370
+msgid "Settlement of the collection failed"
+msgstr ""
+
+#: includes/main.php:371
+msgid "Invalid file format"
+msgstr ""
+
+#: includes/main.php:372
+msgid "Invalid mandate"
+msgstr ""
+
+#: includes/main.php:373
+msgid "Mandate data missing or incorrect"
+msgstr ""
+
+#: includes/main.php:374
+msgid "Disputed authorized transaction"
+msgstr ""
+
+#: includes/main.php:375
+msgid "Debtor deceased"
+msgstr ""
+
+#: includes/main.php:376
+msgid "Refusal by the Debtor"
+msgstr ""
+
+#: includes/main.php:377
+msgid "Reason not specified"
+msgstr ""
+
+#: includes/main.php:378
+msgid "PSP identifier (BIC) incorrect"
+msgstr ""
+
+#: includes/main.php:379
+#: includes/main.php:380
+#: includes/main.php:381
+#: includes/main.php:382
+msgid "Regulatory reason"
+msgstr ""
+
+#: includes/main.php:383
+msgid "Bank refused direct debit"
+msgstr ""
+
+#. translators: card holder name
+#: includes/strings.php:9
+msgid "Card holder: %s"
+msgstr ""
+
+#. translators: card last 4 digits
+#: includes/strings.php:11
+msgid "Last 4 digits: %s"
+msgstr ""
+
+#. translators: card label
+#: includes/strings.php:13
+msgid "Card label: %s"
+msgstr ""
+
+#. translators: card expiration
+#: includes/strings.php:15
+msgid "expires: %s"
+msgstr ""
+
+#. translators: consumer name
+#: includes/strings.php:17
+msgid "Consumer name: %s"
+msgstr ""
+
+#. translators: email address
+#: includes/strings.php:19
+msgid "Email address: %s"
+msgstr ""
+
+#. translators: IBAN number
+#: includes/strings.php:21
+msgid "IBAN: %s"
+msgstr ""
+
+#. translators: amount
+#: includes/strings.php:25
+msgid "Amount: %s"
+msgstr ""
+
+#. translators: description
+#: includes/strings.php:27
+msgid "Description: %s"
+msgstr ""
+
+#. translators: interval
+#: includes/strings.php:29
+msgid "Interval: %s"
+msgstr ""
+
+#. translators: ID
+#: includes/strings.php:31
+msgid "ID: %s"
+msgstr ""
+
+#. translators: method
+#: includes/strings.php:33
+msgid "Method: %s"
+msgstr ""
+
+#: includes/strings.php:35
+msgid "Mollie payment mandates"
+msgstr ""
+
+#: includes/strings.php:36
+msgid "Date"
+msgstr ""
+
+#: includes/strings.php:37
+msgid "ID"
+msgstr ""
+
+#: includes/strings.php:39
+#: includes/strings.php:44
+msgid "Details"
+msgstr ""
+
+#: includes/strings.php:40
+msgid "Mollie subscriptions"
+msgstr ""
+
+#: includes/strings.php:41
+msgid "Status"
+msgstr ""
+
+#: includes/strings.php:42
+msgid "Created"
+msgstr ""
+
+#: includes/strings.php:43
+msgid "Next Payment"
+msgstr ""
+
+#: includes/strings.php:46
+msgid "Failed canceling subscription in Mollie"
+msgstr ""
+
+#: includes/strings.php:47
+msgid "Failed reactivating subscription in Mollie"
+msgstr ""
