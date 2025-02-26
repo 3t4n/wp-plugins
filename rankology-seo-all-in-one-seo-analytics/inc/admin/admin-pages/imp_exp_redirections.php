@@ -1,0 +1,310 @@
+<?php
+
+defined('ABSPATH') or exit('Please don&rsquo;t call the plugin directly. Thanks :)');
+
+function rankology_get_redirection_pro_html() {
+?>
+
+<div class="postbox section-tool">
+    <div class="rkseo-section-header">
+        <h2>
+            <?php esc_html_e('Redirections', 'wp-rankology'); ?>
+        </h2>
+    </div>
+    <h3>
+        <?php esc_html_e('Import your redirections', 'wp-rankology'); ?>
+    </h3>
+    <select id="select-wizard-redirects" name="select-wizard-redirects">
+        <option value="none"><?php esc_html_e('Select an option', 'wp-rankology'); ?>
+        </option>
+        <option value="section-import-redirects"><?php esc_html_e('CSV file (must match the template)', 'wp-rankology'); ?>
+        </option>
+        <option value="section-import-redirects-plugin"><?php esc_html_e('Redirections plugin (JSON - WordPress Redirects)', 'wp-rankology'); ?>
+        </option>
+        <option value="section-import-yoast-redirects"><?php esc_html_e('Yoast Premium plugin (CSV)', 'wp-rankology'); ?>
+        </option>
+        <option value="section-import-rk-redirects"><?php esc_html_e('Rank Math plugin (JSON)', 'wp-rankology'); ?>
+        </option>
+    </select>
+
+    <br>
+    <br>
+    <br>
+</div>
+
+<div id="section-import-redirects" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Import Redirections', 'wp-rankology'); ?>
+        </h3>
+
+        <div class="rankology-notice">
+            <p>
+                <?php esc_html_e('Import your own redirections from a .csv file (separator ";" or ","). You must have these columns in this order:', 'wp-rankology'); ?>
+            </p>
+
+            <ul>
+                <li>
+                    <?php esc_html_e('URL to match (without your domain name)', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('URL to redirect in absolute,', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('type of redirection ("301", "302", "307", "410" or "451"),', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('"yes" to enable the redirect (leave it empty to disable the redirect)', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('the query parameter without the quotes ("exact_match" = Exact match with all parameters, "without_param" = Exclude all parameters or "with_ignored_param" = Exclude all parameters and pass them to the redirection),', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('the counter (optional),', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('category redirect IDs separated by commas (optional),', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('"yes" to enable regular expressions (leave it empty to disable this),', 'wp-rankology'); ?>
+                </li>
+                <li>
+                    <?php esc_html_e('and the last parameter, the connection status without the quotes ("both", "only_logged_in" or "only_not_logged_in").', 'wp-rankology'); ?>
+                </li>
+            </ul>
+            <p>
+                <?php esc_html_e('Duplicate entries will be automatically removed during import.', 'wp-rankology'); ?>
+            </p>
+        </div>
+
+        <p>
+            <strong>
+                <?php esc_html_e('Select your separator:', 'wp-rankology'); ?>
+            </strong>
+        </p>
+
+        <form method="post" enctype="multipart/form-data">
+            <p>
+                <input id="import_sep_comma" name="import_sep" type="radio" value="comma" />
+                <label for="import_sep_comma"><?php esc_html_e('Comma separator: "<strong>,</strong>"', 'wp-rankology'); ?></label>
+            </p>
+            <p>
+                <input id="import_sep_semicolon" name="import_sep" type="radio" value="semicolon" />
+                <label for="import_sep_semicolon"><?php esc_html_e('Semicolon separator: "<strong>;</strong>"', 'wp-rankology'); ?></label>
+            </p>
+
+            <input type="file" name="import_file" />
+
+            <input type="hidden" name="rankology_action" value="import_redirections_settings" />
+            <?php wp_nonce_field('rankology_import_redirections_nonce', 'rankology_import_redirections_nonce'); ?>
+            <?php rkseo_submit_button(__('Import', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+<div id="section-import-redirects-plugin" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Import Redirections from the Redirections plugin', 'wp-rankology'); ?>
+        </h3>
+
+        <div class="rankology-notice">
+            <p>
+                <?php esc_html_e('Import your own redirections from a .json file generated by the Redirections plugin (make sure to select <strong>"WordPress redirects"</strong> when you export your file).', 'wp-rankology'); ?>
+            </p>
+            <p>
+                <?php esc_html_e('To avoid conflicts, make sure there are no duplicates between your file and existing redirects.', 'wp-rankology'); ?>
+            </p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="import_file" />
+            <input type="hidden" name="rankology_action" value="import_redirections_plugin_settings" />
+            <?php wp_nonce_field('rankology_import_redirections_plugin_nonce', 'rankology_import_redirections_plugin_nonce'); ?>
+            <?php rkseo_submit_button(__('Import', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-import-yoast-redirects" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Import Redirections from Yoast Premium', 'wp-rankology'); ?>
+        </h3>
+
+        <div class="rankology-notice">
+            <p>
+                <?php esc_html_e('Import your own redirections from a .csv file generated by Yoast Premium.', 'wp-rankology'); ?>
+            </p>
+            <p>
+                <?php esc_html_e('To avoid conflicts, make sure there are no duplicates between your file and existing redirects.', 'wp-rankology'); ?>
+            </p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="import_file" />
+            <input type="hidden" name="rankology_action" value="import_yoast_redirections" />
+            <?php wp_nonce_field('rankology_import_yoast_redirections_nonce', 'rankology_import_yoast_redirections_nonce'); ?>
+            <?php rkseo_submit_button(__('Import', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-import-rk-redirects" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Import Redirections from Rank Math', 'wp-rankology'); ?>
+        </h3>
+
+        <div class="rankology-notice">
+            <p>
+                <?php esc_html_e('Import your own redirections from a .json file generated by Rank Math.', 'wp-rankology'); ?>
+            </p>
+            <p>
+                <?php esc_html_e('To avoid conflicts, make sure there are no duplicates between your file and existing redirects.', 'wp-rankology'); ?>
+            </p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="import_file" />
+            <input type="hidden" name="rankology_action" value="import_rk_redirections" />
+            <?php wp_nonce_field('rankology_import_rk_redirections_nonce', 'rankology_import_rk_redirections_nonce'); ?>
+            <?php rkseo_submit_button(__('Import', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-export-redirects" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Export Redirections', 'wp-rankology'); ?>
+        </h3>
+
+        <p>
+            <?php esc_html_e('Export all redirections for this site as a .csv file. This allows you to easily import the redirections into another site, to Excel / Google Sheets...', 'wp-rankology'); ?>
+        </p>
+        <p>
+            <strong><?php esc_html_e('Separator: ', 'wp-rankology'); ?></strong><code>;</code>
+        </p>
+
+        <form method="post">
+            <input type="hidden" name="rankology_action" value="export_redirections" />
+            <?php wp_nonce_field('rankology_export_redirections_nonce', 'rankology_export_redirections_nonce'); ?>
+            <?php rkseo_submit_button(__('Export', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-export-redirects-htaccess" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Export Redirections for an .htaccess file', 'wp-rankology'); ?>
+        </h3>
+
+        <p>
+            <?php esc_html_e('Export all redirects from this site to a txt file. Then copy and paste the formatted URLs into your .htaccess file.', 'wp-rankology'); ?>
+        </p>
+
+        <p>
+            <?php esc_html_e('Only active redirections will be exported.', 'wp-rankology'); ?>
+        </p>
+
+        <div class="rankology-notice is-warning">
+            <p>
+                <?php esc_html_e('Save your .htaccess file before editing it. <strong>Safety first!</strong>', 'wp-rankology'); ?>
+            </p>
+        </div>
+
+        <p>
+            <?php esc_html_e('Do not forget to test every redirects!', 'wp-rankology'); ?>
+        </p>
+
+        <form method="post">
+            <input type="hidden" name="rankology_action" value="export_redirections_htaccess" />
+            <?php wp_nonce_field('rankology_export_redirections_htaccess_nonce', 'rankology_export_redirections_htaccess_nonce'); ?>
+            <?php rkseo_submit_button(__('Export', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-clean-404" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Clean your 404', 'wp-rankology'); ?>
+        </h3>
+
+        <p>
+            <?php esc_html_e('Delete all your 404 errors. We don‘t delete any redirects.', 'wp-rankology'); ?>
+        </p>
+
+        <p class="rankology-help">
+            <?php
+    esc_html_e('You can also use this following query if necessary.', 'wp-rankology'); ?>
+        </p>
+        <pre>
+        DELETE wp_posts
+        FROM wp_posts
+        LEFT JOIN wp_postmeta
+        ON (wp_posts.ID = wp_postmeta.post_id
+        AND wp_postmeta.meta_key = '_rankology_redirections_type' )
+        WHERE 1=1
+        AND ( wp_postmeta.post_id IS NULL )
+        AND wp_posts.post_type = 'rankology_404'
+        AND (wp_posts.post_status = 'publish'
+        OR wp_posts.post_status = 'future'
+        OR wp_posts.post_status = 'draft'
+        OR wp_posts.post_status = 'pending'
+        OR wp_posts.post_status = 'private')
+        </pre>
+
+        <form method="post">
+            <input type="hidden" name="rankology_action" value="clean_404" />
+            <?php wp_nonce_field('rankology_clean_404_nonce', 'rankology_clean_404_nonce'); ?>
+            <?php rkseo_submit_button(__('Delete all 404', 'wp-rankology'), 'btn btnTertiary is-deletable'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-clean-counters" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Reset the Counters column', 'wp-rankology'); ?>
+        </h3>
+
+        <p>
+            <?php esc_html_e('Reset counters for the number of times a redirect has been loaded.', 'wp-rankology'); ?>
+        </p>
+
+        <form method="post">
+            <input type="hidden" name="rankology_action" value="clean_counters" />
+            <?php wp_nonce_field('rankology_clean_counters_nonce', 'rankology_clean_counters_nonce'); ?>
+            <?php rkseo_submit_button(__('Reset Count column', 'wp-rankology'), 'btn btnTertiary'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+
+<div id="section-clean-redirects" class="postbox section-tool">
+    <div class="inside">
+        <h3>
+            <?php esc_html_e('Clean all your redirects and 404 errors', 'wp-rankology'); ?>
+        </h3>
+
+        <p>
+            <?php esc_html_e('Delete all your 301, 302, 307, 404, 410 and 451 entries.', 'wp-rankology'); ?>
+        </p>
+
+        <div class="rankology-notice is-warning">
+            <p>
+                <?php esc_html_e('<strong>WARNING:</strong> Backup your database before deletion. Safety FIRST!', 'wp-rankology'); ?>
+            </p>
+        </div>
+
+        <form method="post">
+            <input type="hidden" name="rankology_action" value="clean_all" />
+            <?php wp_nonce_field('rankology_clean_all_nonce', 'rankology_clean_all_nonce'); ?>
+            <?php rkseo_submit_button(__('Delete', 'wp-rankology'), 'btn btnTertiary is-deletable'); ?>
+        </form>
+    </div><!-- .inside -->
+</div><!-- .postbox -->
+<?php
+}
+add_action('rankology_redirections_sections','rankology_get_redirection_pro_html');

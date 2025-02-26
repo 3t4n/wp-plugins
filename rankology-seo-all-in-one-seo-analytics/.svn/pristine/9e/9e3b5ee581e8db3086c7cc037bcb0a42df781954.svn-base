@@ -1,0 +1,1032 @@
+/*Page Speed*/
+:root{
+    --primaryColor: #282745;
+    --paragraphColor: #433f65;
+    --fontSize: 13px;
+    --fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --color: #757575;
+    --colorDark: #1e1e1e;
+    --colorAlert: #eb0f00;
+    --colorWarning: #ffba00;
+    --colorSuccess: #4ab866;
+    --colorLowAlert: #e39f48;
+    --colorPre: #37864b;
+    --colorIcon: #d7dade;
+    --lineHeight: 24px;
+    --titleColor: #0C082F;
+    --titlewhiteColor: #ffffff;
+    --titleFontSize: 20px;
+    --titleFontWeight: normal;
+    --titleMargin: 10px 0;
+    --backgroundPrimary: #282745;
+    --backgroundPrimaryHover: #282745;
+    --backgroundSecondary: #fff8ef;
+    --backgroundSecondaryHover: #f0f0f0;
+    --borderColor: #e6e6e8;
+    --borderColorLight: #dcdcde;
+    --borderColorLight40: rgba(220, 220, 222, 0.4);
+    --borderColorCard: #e2e4e7;
+    --borderColorTab: #c3c4c7;
+    --rkseo-wp-default-color: #282745;
+}
+#rankology-page-speed-results {
+    display: inline-block;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#rankology-tabs.wrap #rankology-page-speed-results ul {
+    max-width: inherit;
+}
+
+#rankology-tabs.wrap #rankology-page-speed-results ul.screens {
+    display: grid;
+    justify-content: space-between;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 60px);
+}
+
+#tab_rankology_ps .wrap-chart,
+.rankology-option .wrap-rankology-score .wrap-chart {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+#tab_rankology_ps .wrap-chart .chart,
+.rankology-option .wrap-rankology-score .wrap-chart .chart {
+    display: inline-block;
+    position: relative;
+}
+
+#tab_rankology_ps .wrap-chart .chart span,
+.rankology-option .wrap-rankology-score .wrap-chart .chart span {
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    width: 100%;
+    line-height: 100px;
+}
+
+#tab_rankology_ps .wrap-chart .chart span,
+.rankology-option .wrap-rankology-score .wrap-info span {
+    font-weight: bold;
+}
+
+.rankology-option .wrap-rankology-score .clearfix {
+    clear: both;
+}
+
+.rankology-option .wrap-rankology-score .your-screenshot {
+    text-align: center;
+}
+
+.rankology-option .wrap-scale {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.rankology-option .wrap-scale span {
+    margin-right: 10px;
+}
+
+.rankology-cwv {
+    border-bottom: 1px solid #f1f1f2;
+    display: flex;
+    padding-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#tab_rankology_ps .rankology-cwv {
+    padding: 20px 0;
+}
+
+.rankology-cwv img {
+    margin-right: 10px;
+}
+
+#tab_rankology_ps .wrap-chart {
+    margin-right: 20px;
+}
+
+.rankology-option .rankology-option .wrap-speed-SLOW .ps-desc span,
+.rankology-option .wrap-speed-SLOW .metric-value,
+.rankology-cwv .red {
+    color: var(--colorAlert);
+}
+
+.rankology-option .wrap-speed-FAST .ps-desc span,
+.rankology-option .wrap-speed-FAST .metric-value,
+.rankology-cwv .green {
+    color: var(--colorSuccess);
+}
+
+.rankology-option .metric-desc {
+    font-weight: 700;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.rankology-option .metric-value {
+    font-weight: normal;
+}
+
+.rankology-option .wrap-dist {
+    display: flex;
+}
+
+.rankology-option .wrap-dist .ps-fast {
+    display: inline-block;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    line-height: 10px;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.rankology-option .wrap-dist .ps-fast:first-child {
+    background: var(--colorSuccess);
+    border-radius: 4px 0 0 4px;
+}
+
+.rankology-option .wrap-dist .ps-fast:nth-child(2) {
+    background: var(--colorWarning);
+    color: #000;
+}
+
+.rankology-option .wrap-dist .ps-fast:last-child {
+    background: var(--colorAlert);
+    border-radius: 0 4px 4px 0;
+}
+
+.rankology-option .lab-data ul.screens {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.rankology-option .lab-data ul.screens li {
+    display: block;
+    margin: 20px 10px 0 0;
+}
+
+.rankology-option .lab-data ul.screens span {
+    display: block;
+    margin: 10px 0 0 0;
+}
+
+.rankology-option .lab-data {
+    border-bottom: 1px solid var(--borderColorLight40);
+    padding-bottom: 20px;
+}
+
+.rankology-option .lab-data img {
+    border: 1px solid var(--borderColorLight);
+    max-height: 100px;
+    max-width: 60px;
+}
+
+#rankology-page-speed-results .ps-audit .ps-audit-desc {
+    display: none;
+    padding: 0 35px;
+}
+
+#rankology-page-speed-results .ps-audit.is-open * {
+    display: block;
+}
+
+#rankology-page-speed-results .ps-audit-title {
+    border-bottom: 1px solid var(--borderColorLight40);
+    padding: 10px 30px 10px 10px;
+    margin: 0;
+    position: relative;
+}
+
+#rankology-page-speed-results .ps-audit-title:hover {
+    cursor: pointer;
+    background: var(--backgroundSecondaryHover);
+}
+
+#rankology-page-speed-results .ps-audit .ps-audit-title:first-child {
+    border-top: 1px solid var(--borderColorLight40);
+}
+
+#rankology-page-speed-results .ps-audit-title::after {
+    content: "\f347";
+    position: absolute;
+    font-family: "Dashicons";
+    right: 10px;
+    top: 10px;
+}
+
+/*Rich Snippets/Data Structure Type*/
+#rankology_fno_cpt .cf,
+#rankology_fno_cpt .tax,
+#rankology_fno_cpt .lb,
+#rankology_fno_cpt .manual_time_global,
+#rankology_fno_cpt .manual_rating_global {
+    margin: 0 0 0 10px;
+    position: relative;
+    top: -5px;
+}
+
+#rankology_fno_cpt .dyn {
+    margin: 0 0 10px 0;
+}
+
+#rankology_fno_cpt .schema_type {
+    font-weight: bold;
+    text-transform: uppercase;
+    width: calc(100% - 2px);
+    margin: 0 0 1em 0;
+    padding: 0.5em 1em;
+    position: relative;
+    left: -12px;
+    background: #f3f4f5;
+}
+
+#rankology_fno_cpt .schema_type span.label {
+    font-weight: normal;
+    text-transform: none;
+    font-style: italic;
+}
+
+#rankology_fno_cpt .schema_type span.edit {
+    text-transform: none;
+    float: right;
+    font-weight: normal;
+}
+
+#rankology_fno_cpt .schema-steps {
+    border-bottom: 1px solid var(--backgroundSecondaryHover);
+    margin: 0px -12px 12px -12px;
+    padding: 0 12px 12px;
+    display: inline-block;
+    width: 100%;
+}
+
+#rankology_fno_cpt label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#rankology-schemas-tabs-2 label {
+    font-weight: normal;
+}
+
+#rankology_content_analysis .inside,
+#rankology_fno_cpt .inside {
+    padding: 0;
+    margin: 0;
+}
+
+#rankology_fno_cpt #wrap-faq .faq,
+#rankology_fno_cpt #wrap-how-to .step {
+    background-color: #fff;
+}
+
+#rankology_fno_cpt #wrap-faq .faq .inside,
+#rankology_fno_cpt #wrap-how-to .step .inside {
+    padding: 0 12px 12px;
+}
+
+#rankology_schemas .inside {
+    width: calc(100% - 12px);
+}
+
+#rankology_schemas #rankology_fno_cpt input[type="text"],
+#rankology_schemas #rankology_fno_cpt input[type="textarea"] {
+    width: 300px;
+    position: relative;
+    top: -5px;
+    left: 10px;
+    margin-right: 15px;
+}
+
+#rankology_fno_cpt #rankology-your-schema .wrap-rich-snippets-rules input[type="text"] {
+    left: inherit;
+    top: inherit;
+    margin-right: 0;
+}
+
+#rankology-ca-tabs,
+#rankology-schemas-tabs {
+    /*padding-left: 20%;*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-family: var(--fontFamily);
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    min-height: 150px;
+    font-size: 1em;
+    background: none;
+    padding-right: 14px;
+}
+
+#rankology-schemas-tabs .box-schema-item {
+    padding: 0 12px;
+}
+
+#rankology-schemas-tabs .js-handle-snippet-type {
+    align-self: center;
+    margin: 20px 10px 0 0;
+    padding: 5px;
+    background: none;
+    border: none;
+}
+
+#rankology-schemas-tabs .js-handle-snippet-type .toggle-indicator::before {
+    content: "\f343";
+}
+
+#rankology-schemas-tabs .js-handle-snippet-type.closed .toggle-indicator::before {
+    content: "\f347";
+}
+
+#rankology-schemas-tabs .js-handle-snippet-type:hover {
+    cursor: pointer;
+}
+
+/*#rankology-ca-tabs::before,*/
+/*#rankology-schemas-tabs::before {*/
+    /*content: "";*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: calc(20% - 15px);*/
+    /*bottom: 0;*/
+    /*border-right: var(--borderColorLight) solid 1px;*/
+    /*background: #f9f9f9;*/
+    /*z-index: 1;*/
+/*}*/
+
+#rankology-ca-tabs .wrap-ca-list,
+#rankology-schemas-tabs .wrap-schemas-list {
+    position: absolute;
+    left: 0;
+    width: calc(20% - 15px);
+    border: 0 none;
+    z-index: 5;
+    padding: 0 !important;
+    margin: 0;
+    background: none;
+}
+
+#rankology-ca-tabs .wrap-ca-list li,
+#rankology-schemas-tabs .wrap-schemas-list li {
+    margin: 0;
+    padding: 0;
+    float: none;
+    border: none;
+    background: none;
+    border-radius: 0;
+}
+
+#rankology-ca-tabs .wrap-ca-list li a,
+#rankology-schemas-tabs .wrap-schemas-list li a {
+    border-bottom: 1px solid var(--borderColorLight);
+    font-size: var(--fontSize);
+    line-height: 18px;
+    color: var(--titlewhiteColor) !important;
+    padding: 10px;
+    margin: 0;
+    font-weight: normal;
+    border-width: 1px 0;
+    border-radius: 0;
+    background: transparent;
+    display: block;
+    float: none;
+    text-decoration: none;
+}
+
+#rankology-ca-tabs .wrap-ca-list li:hover a,
+#rankology-ca-tabs .wrap-ca-list li a:focus,
+#rankology-ca-tabs .wrap-ca-list li a:active,
+#rankology-schemas-tabs .wrap-schemas-list li:hover a,
+#rankology-schemas-tabs .wrap-schemas-list li a:focus,
+#rankology-schemas-tabs .wrap-schemas-list li a:active {
+    background: #fff;
+    box-shadow: none;
+}
+
+#rankology-ca-tabs .wrap-ca-list li.ui-tabs-active a,
+#rankology-schemas-tabs .wrap-schemas-list li.ui-tabs-active a {
+    border-color: #dfdfdf;
+    color: #000;
+    margin-right: -1px;
+    background: #fff;
+}
+
+#rankology_fno_cpt,
+#rankology_fno_cpt input[type="text"],
+#rankology_fno_cpt textarea {
+    width: 100%;
+}
+
+#rankology_fno_cpt select {
+    width: 300px;
+}
+
+#rankology_fno_cpt #wrap-faq .faq:nth-child(odd),
+#rankology_fno_cpt #wrap-how-to .step:nth-child(odd),
+#rankology_fno_cpt #wrap-positive-notes .ui-accordion:nth-child(odd),
+#rankology_fno_cpt #wrap-negative-notes .ui-accordion:nth-child(odd) {
+    background: var(--backgroundSecondaryHover);
+}
+
+#rankology_fno_cpt #wrap-faq .faq,
+#rankology_fno_cpt #wrap-how-to .step {
+    border-top: 1px solid var(--borderColorLight);
+}
+
+#rankology_fno_cpt #wrap-faq .faq .accordion-section-title,
+#rankology_fno_cpt #wrap-how-to .step .accordion-section-title,
+#rankology_fno_cpt #wrap-positive-notes .accordion-section-title,
+#rankology_fno_cpt #wrap-negative-notes .accordion-section-title {
+    border: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#rankology_fno_cpt .wrap-rich-snippets-faq,
+#rankology_fno_cpt .wrap-rich-snippets-how-to {
+    counter-reset: faq;
+}
+
+#rankology_fno_cpt #wrap-faq .faq .accordion-section-title::before,
+#rankology_fno_cpt #wrap-how-to .step .accordion-section-title::before {
+    counter-increment: faq;
+    content: "#" counter(faq) " - ";
+    left: 10px;
+    top: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    float: left;
+}
+
+#rankology_fno_cpt #wrap-faq .faq .ui-accordion-header-active,
+#rankology_fno_cpt #wrap-how-to .step .ui-accordion-header-active,
+#rankology_fno_cpt #wrap-positive-notes .ui-accordion-header-active,
+#rankology_fno_cpt #wrap-negative-notes .ui-accordion-header-active {
+    border-bottom: 1px solid var(--borderColorLight);
+}
+
+#rankology_fno_cpt #wrap-positive-notes .ui-accordion-content,
+#rankology_fno_cpt #wrap-negative-notes .ui-accordion-content {
+    padding: 10px 20px 15px;
+}
+
+#rankology_fno_cpt #wrap-faq .faq input,
+#rankology_fno_cpt #wrap-how-to .step input,
+#rankology_fno_cpt #wrap-faq .faq textarea,
+#rankology_fno_cpt #wrap-how-to .step textarea {
+    width: 100%;
+    display: block;
+}
+
+#rankology_fno_cpt .notice {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#rankology_fno_rich_snippets_type {
+    margin: 0 0 10px 0;
+}
+
+.rankology-list li,
+#rankology_fno_cpt .box-left li {
+    position: relative;
+    margin: 0 0 15px 0;
+    vertical-align: middle;
+}
+
+.rankology-list li::before {
+    font-family: "Dashicons";
+    content: "\f147";
+    left: -20px;
+    position: absolute;
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours,
+#rankology_fno_cpt ul.wrap-opening-hours ul {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours>li {
+    padding: 0 20px 10px;
+    margin: 0 0 0 -12px;
+    width: calc(100% + 24px);
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours>li:nth-child(even) {
+    background: var(--backgroundSecondaryHover);
+    border-bottom: 1px solid var(--borderColorLight);
+    border-top: 1px solid var(--borderColorLight);
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours li::before {
+    content: none;
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours li li {
+    margin: 5px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours label {
+    min-width: 250px;
+    margin: 0;
+    font-weight: normal;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours select {
+    width: auto;
+}
+
+#rankology_fno_cpt ul.wrap-opening-hours span {
+    font-weight: bold;
+    margin: 10px 0;
+    width: 100%;
+}
+
+#rankology_fno_cpt .sublist {
+    border: none;
+    background: inherit;
+    padding: 0;
+}
+
+#rankology_fno_cpt .sublist li::before,
+#rankology_fno_cpt .advice li::before {
+    content: none;
+}
+
+#rankology_fno_cpt .dashicons-no {
+    color: var(--colorAlert);
+}
+
+#rankology_fno_cpt .dashicons-plus-alt {
+    color: var(--colorSuccess);
+    line-height: 1.5;
+    opacity: 1;
+    transition: all 300ms linear;
+}
+
+#rankology_fno_cpt .dashicons-plus-alt:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+#rankology-your-schema .rankology_fno_rich_snippets_rules_and,
+#rankology-your-schema .rankology_fno_rich_snippets_rules_del {
+    color: var(--colorSuccess);
+    line-height: 1;
+    opacity: 1;
+    transition: all 300ms linear;
+    vertical-align: middle;
+}
+
+#rankology-your-schema .rankology_fno_rich_snippets_rules_and:hover,
+#rankology-your-schema .rankology_fno_rich_snippets_rules_del:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+#rankology-your-schema .rankology_fno_rich_snippets_rules_del {
+    font-size: 18px;
+}
+
+#rankology_fno_cpt select.small-text {
+    width: 150px;
+}
+
+#rankology_fno_cpt .advice {
+    display: block;
+}
+
+#rkseo-automatic-tab span:not(:empty) {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin: 1px 0 -1px 5px;
+    padding: 0 5px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background-color: var(--colorAlert);
+    color: #fff;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+    z-index: 26;
+    font-weight: bold;
+}
+
+.rankology_bot_404,
+.rankology_bot_403,
+.rankology_bot_402,
+.rankology_bot_401,
+.rankology_bot_400 {
+    color: var(--colorAlert);
+}
+
+.rankology_bot_200,
+.rankology_redirection_301 {
+    color: var(--colorSuccess);
+    background: rgb(74 184 102 / 10%);
+}
+
+.rankology_redirection_302,
+.rankology_redirection_307 {
+    color: var(--primaryColor);
+    background: rgb(0 124 186 / 10%);
+}
+
+.rankology_redirection_410,
+.rankology_redirection_451 {
+    color: var(--colorWarning);
+    background: rgb(255 186 0 / 10%);
+}
+
+.rankology_redirection_default {
+    color: var(--colorAlert);
+    background: rgb(170 0 0 / 10%);
+}
+
+.rankology_bot_status,
+.rankology_redirection_status {
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.rankology_redirection_status {
+    position: relative;
+    cursor: help;
+}
+
+.wrap-toggle-checkboxes {
+    position: inherit;
+    margin: 20px 0;
+    display: block;
+}
+
+/*Date Picker Default Styles*/
+.rankology-ui-datepicker {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    background-color: #fff;
+    border: 1px solid var(--borderColorLight);
+    border-top: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.075);
+    min-width: 17em;
+    width: auto !important;
+    z-index: 1000 !important;
+}
+
+body.wp-admin:not(.rtl) .rankology-ui-datepicker {
+    margin-left: -1px;
+}
+
+body.wp-admin.rtl .rankology-ui-datepicker {
+    margin-right: -1px;
+}
+
+.rankology-ui-datepicker * {
+    padding: 0;
+    font-family: var(--fontFamily);
+    border-radius: 0;
+}
+
+.rankology-ui-datepicker table {
+    font-size: --var(--fontSize);
+    margin: 0;
+    border: none;
+    border-collapse: collapse;
+}
+
+.rankology-ui-datepicker .ui-widget-header,
+.rankology-ui-datepicker .ui-datepicker-header {
+    background-image: none;
+    border: none;
+    color: var(--primaryColor);
+    font-weight: normal;
+}
+
+.rankology-ui-datepicker .ui-datepicker-header .ui-state-hover {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.rankology-ui-datepicker .ui-datepicker-title {
+    margin: 0;
+    padding: 10px 0;
+    color: var(--colorDark);
+    font-size: var(--fontSize);
+    line-height: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.rankology-ui-datepicker .ui-datepicker-prev,
+.rankology-ui-datepicker .ui-datepicker-next {
+    position: relative;
+    top: 0;
+    height: 34px;
+    width: 34px;
+}
+
+.rankology-ui-datepicker .ui-state-hover.ui-datepicker-prev,
+.rankology-ui-datepicker .ui-state-hover.ui-datepicker-next {
+    border: none;
+}
+
+.rankology-ui-datepicker .ui-datepicker-prev,
+.rankology-ui-datepicker .ui-datepicker-prev-hover {
+    left: 0;
+}
+
+.rankology-ui-datepicker .ui-datepicker-next,
+.rankology-ui-datepicker .ui-datepicker-next-hover {
+    right: 0;
+}
+
+.rankology-ui-datepicker .ui-datepicker-next span,
+.rankology-ui-datepicker .ui-datepicker-prev span {
+    display: none;
+}
+
+.rankology-ui-datepicker .ui-datepicker-prev {
+    float: left;
+}
+
+.rankology-ui-datepicker .ui-datepicker-next {
+    float: right;
+}
+
+.rankology-ui-datepicker .ui-datepicker-prev:before,
+.rankology-ui-datepicker .ui-datepicker-next:before {
+    font: normal 20px/34px "dashicons";
+    padding-left: 0;
+    color: var(--primaryColor);
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 34px;
+    height: 34px;
+}
+
+.rankology-ui-datepicker .ui-datepicker-prev:before {
+    content: "\f341";
+}
+
+.rankology-ui-datepicker .ui-datepicker-next:before {
+    content: "\f345";
+}
+
+.rankology-ui-datepicker .ui-datepicker-prev-hover:before,
+.rankology-ui-datepicker .ui-datepicker-next-hover:before {
+    opacity: 0.7;
+}
+
+.rankology-ui-datepicker select.ui-datepicker-month,
+.rankology-ui-datepicker select.ui-datepicker-year {
+    width: 33%;
+}
+
+.rankology-ui-datepicker thead {
+    color: #fff;
+    font-weight: 600;
+}
+
+.rankology-ui-datepicker th {
+    padding: 10px;
+}
+
+.rankology-ui-datepicker td {
+    padding: 0;
+    border: 1px solid var(--borderColorCard);
+}
+
+.rankology-ui-datepicker td.ui-datepicker-other-month {
+    border: transparent;
+}
+
+.rankology-ui-datepicker tr:first-of-type td {
+    border-top: 1px solid #f0f0f0;
+}
+
+.rankology-ui-datepicker td.ui-datepicker-week-end {
+    background-color: var(--borderColorCard);
+    border: 1px solid #f0f0f0;
+}
+
+.rankology-ui-datepicker td.ui-datepicker-today {
+    background-color: var(--backgroundSecondaryHover);
+}
+
+.rankology-ui-datepicker td.ui-datepicker-current-day {
+    background: #bbdd88;
+}
+
+.rankology-ui-datepicker td .ui-state-default {
+    background: transparent;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    display: block;
+    padding: 5px 10px;
+    font-weight: normal;
+    color: #444;
+}
+
+.rankology-ui-datepicker td.ui-state-disabled .ui-state-default {
+    opacity: 0.5;
+}
+
+.rankology-ui-datepicker thead {
+    background: var(--backgroundPrimary);
+}
+
+.rankology-ui-datepicker td .ui-state-hover {
+    background: var(--backgroundPrimary);
+    color: #fff;
+}
+
+/*Breadcrumbs*/
+#rankology-breadcrumbs-notice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 16px;
+}
+
+#rankology-breadcrumbs-notice .dashicons {
+    font-size: 30px;
+    margin: 0 0 20px 0;
+}
+
+/*Local Business*/
+#rankology-tabs.wrap .wrap-opening-hours {
+    list-style: none;
+    padding: 0;
+}
+
+.wrap-opening-hours li {
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.wrap-opening-hours .day {
+    display: block;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--borderColorLight);
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.wrap-opening-hours .hours .range {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.wrap-opening-hours .hours .range select {
+    width: auto;
+}
+
+/* Redirections */
+.rankology_404_redirect_value.column-rankology_404_redirect_value {
+    word-break: break-all;
+}
+
+.manage-column.column-rankology_404,
+.manage-column.column-rankology_404_redirect_enable {
+    width: 60px;
+}
+
+.manage-column.column-rankology_404_redirect_type {
+    width: 70px;
+}
+
+.manage-column.column-rankology_404_redirect_regex_enable {
+    width: 80px;
+}
+
+.post-type-rankology_404 .wrap .subtitle {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    padding-left: 0;
+}
+
+.post-type-rankology_404 #posts-filter {
+    position: relative;
+}
+
+.post-type-rankology_404 .search-box {
+    display: flex;
+    float: none;
+    width: 100%;
+    position: absolute;
+    top: -85px;
+}
+
+.post-type-rankology_404 .search-box #post-search-input {
+    width: 100%;
+    float: none;
+}
+
+.post-type-rankology_404 .subsubsub {
+    float: none;
+    margin-top: 60px;
+}
+
+.schemas-bar-new {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--borderColorCard);
+    position: sticky;
+    background: #fff;
+    z-index: 20;
+    top: 32px;
+    justify-content: space-between;
+}
+
+.block-editor-page .schemas-bar-new {
+    top: 0;
+}
+
+.wrap-rich-snippets-type {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--borderColorLight);
+    margin-bottom: 15px;
+}
+
+/* Print CSS (Google Page Speed) */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        /* Chrome, Safari, Edge */
+        color-adjust: exact !important;
+        /*Firefox*/
+    }
+
+    #tab_rankology_page_speed>p,
+    #tab_rankology_page_speed .form-table tbody tr:first-child,
+    #tab_rankology_page_speed .form-table tbody tr:nth-child(2) th,
+    #tab_rankology_page_speed .form-table tbody tr:nth-child(2) td>input,
+    .rankology-help,
+    .nav-tab-wrapper,
+    .rankology-notice,
+    #rankology-notice-save,
+    .submit,
+    .rankology-styles .rankology-option h1,
+    #screen-meta,
+    #rankology-header,
+    #wpadminbar,
+    #adminmenumain,
+    #wpfooter {
+        display: none !important;
+    }
+
+    #rankology-page-speed-results,
+    .form-table,
+    #wpcontent,
+    #wpfooter,
+    #rankology-tabs.wrap,
+    .rankology-styles .rankology-option {
+        margin: 0 !important;
+    }
+
+    #rankology-page-speed-results .ps-audit .ps-audit-desc {
+        display: block !important;
+        height: 100% !important;
+    }
+}
