@@ -1,0 +1,33 @@
+
+body {
+  .aqb-icon-swift {
+    color: var(--aqb-error-color);
+    cursor: pointer;
+
+    &.is-in-cache {
+      color: var(--aqb-success-color);
+    }
+
+    &::before {
+      display: inline-block;
+    }
+
+    &.loading::before {
+      animation: rotating 1.5s linear infinite;
+    }
+  }
+
+  &.swift-setup .admin-quickbar {
+    display: none !important;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
