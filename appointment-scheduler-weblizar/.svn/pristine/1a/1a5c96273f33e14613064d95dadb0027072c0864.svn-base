@@ -1,0 +1,1 @@
+<?phpif ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly// appointment short code first fileadd_shortcode('appointment','ap_system');function ap_system() {	ob_start();		include ("appointment.php");	return ob_get_clean();}?>
