@@ -1,0 +1,215 @@
+/* Settings page */
+.aiks-keyword-swap-settings-form label{
+  font-weight: bold;
+}
+.aiks-keyword-swap-settings-form input, .aiks-keyword-swap-settings-form textarea{
+  width: 40%;
+}
+.aiks-keyword-swap-settings-form input[type="submit"]{
+  width: 100px;
+  font-weight: bold;
+}
+.aiks-keyword-swap-heading{
+  margin-bottom: 30px !important;
+}
+/* CSS for modal */
+.aiks_keyword_swap_modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 110000; /* Sit on top - increase z-index */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal content */
+.aiks-keyword-swap-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 400px; /* Set maximum width */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Box shadow */
+}
+
+/* Close button */
+.aiks-keyword-swap-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.aiks-keyword-swap-close:hover,
+.aiks-keyword-swap-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Replace button */
+#aiks-keyword-swap-replace-btn {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#aiks-keyword-swap-replace-btn:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+/* Modal box loader style */
+.aks-loader {
+  width: 40px;
+  aspect-ratio: 1;
+  display: grid;
+  border-radius: 50%;
+  background:
+    linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,
+    linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;
+  background-repeat: no-repeat;
+  animation: l23 1s infinite steps(12);
+}
+.aks-loader::before,
+.aks-loader::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
+.aks-loader::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+@keyframes l23 {
+  100% {transform: rotate(1turn)}
+}
+/* Modal box overlay style */
+.aks-overlay{   
+  position: absolute;
+  transition: 0.5s ease;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.1;
+  border-radius: 5px;  
+}
+/* Modal box close button style */
+.aks-close-btn {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  padding: 5px 4px 7px 4px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.aks-close-btn:hover, .aks-close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Modal box replace button style */
+.aks-replace-btn{
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* Modal box skip button style */
+.aks-skip-btn{
+  background-color: #aaaaaa;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* Error message */
+#aks-msg-input{
+  color: #FF0000;
+}
+/* Admin menu icon */
+#adminmenu .toplevel_page_aiks-keyword-swap-settings .wp-menu-image img {
+  width: 20px;
+  height: 20px;
+  padding: 5px 0 !important;
+}
+.aiks-required{
+  color: #FF0000;
+}
+
+div.notice.aiks--notice{
+  background-image: url('../image/bg_image.png');
+  border: 1px solid #c3c4c7;
+  padding: 12px 22px;
+}
+div.notice.aiks--notice h3, div.notice.aiks--notice p{
+  color: #ffffff;
+}
+
+div.notice.aiks--notice p.e-note{
+    margin-top: 11px;
+}
+
+div.notice.aiks--notice .e-notice__actions a{
+  margin-right: 6px;
+}
+
+div.notice.aiks--notice .e-button--cta.cta-secondary{
+  color: #FFFFFF;
+  background-color: #54375E;
+  border-color: #54375E;
+}
+
+div.notice.aiks--notice .e-button--cta{
+  box-shadow: none;
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 2.15384615;
+  min-height: 30px;
+  margin: 0;
+  padding: 0 10px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
