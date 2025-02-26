@@ -1,0 +1,73 @@
+.flexitype_sticky {
+    position: sticky;
+    z-index: 99;
+    height: 100%;
+ }
+@keyframes rollShape {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-359deg);
+	}
+}
+@keyframes bounce-y {
+    0% {        
+        transform: translateY(0);
+    }
+    50% {        
+        transform: translateY(-10px);
+    }
+    100% {        
+        transform: translateY(0);
+    }
+}
+@keyframes bounce-x {
+    0% {        
+        transform: translateX(0);
+    }
+    50% {        
+        transform: translateX(5px);
+    }
+    100% {        
+        transform: translateX(0);
+    }
+}
+@keyframes animateStripe {
+    0% {        
+        transform: translate(0, 0);
+    }
+    
+    100% {        
+        transform: translate(35px, 0);
+    }
+}
+@keyframes animateStripe2 {
+    0% {        
+        transform: translate(0, 0);
+    }
+    
+    100% {        
+        transform: translate(-35px, 0);
+    }
+}
+.bounce_y {
+	animation: bounce-y 3s infinite linear;
+}
+.bounce_x {
+	animation: bounce-x 2s infinite linear;
+}
+.roll_in {
+    animation: rollShape 20s infinite linear;
+}
+.custom_social {
+    .elementor-social-icon {
+        display: flex;
+    }
+}
+// Custom Front Size
+@for $i from 1 to 30 {
+    .fs-#{1 * $i}{
+        font-size: 1px * $i;
+    }
+}
