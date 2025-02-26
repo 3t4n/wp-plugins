@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    function downloadAcimaConfig(nonce) {
+        // Save form first
+        const form = jQuery('#mainform');
+        const formData = form.serialize();
+
+        jQuery.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: formData,
+            success: function() {
+                // After save, proceed with config download
+                jQuery.ajax({
+                    url: ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'download_acima_config',
+                        nonce: nonce
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            Object.entries(response.data.fields).forEach(([key, value]) => {
+                                const field = jQuery(`#woocommerce_acima_credit_${key}`);
+                                if (field.length) {
+                                    if (field.attr('type') === 'checkbox') {
+                                        field.prop('checked', value === 'yes');
+                                    } else {
+                                        field.val(value);
+                                    }
+                                }
+                            });
+                            alert('Configuration updated successfully');
+                        } else {
+                            alert('Error downloading configuration: ' + response.data.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Ajax error:', status, error);
+                        alert('Error connecting to server');
+                    }
+                });
+            },
+            error: function() {
+                alert('Error saving form data');
+            }
+        });
+    }
+</script>

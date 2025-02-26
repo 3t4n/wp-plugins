@@ -1,0 +1,36 @@
+<div class="pre-approval-button-acima-credit-container">
+    <a href="javascript:void(0);">
+        <img src="%IMAGE_URL%" alt="Acima Digital Pre Approval Button" id="acima-preapproval-button">
+    </a>
+</div>
+<script>
+    (function() {
+        function initAcimaPreApproval() {
+            if (typeof window.Acima === 'undefined' || typeof window.Acima.Client !== 'function' || typeof window.AcimaCreditPreApproval !== 'function') {
+                console.error('Acima SDK or AcimaCreditPreApproval not loaded properly');
+                return;
+            }
+
+            const acimaClient = new window.Acima.Client({
+                merchantId: acima_credit_settings.merchant_id,
+                source: "retailer",
+                platform: "woo_commerce",
+                phpVersion: acima_credit_settings.phpVersion,
+                pluginVersion: acima_credit_settings.pluginVersion,
+                databaseVersion: acima_credit_settings.databaseVersion
+            });
+
+            const preApproval = new window.AcimaCreditPreApproval(acimaClient);
+
+            document.getElementById('acima-preapproval-button').addEventListener('click', function () {
+                preApproval.start();
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAcimaPreApproval);
+        } else {
+            initAcimaPreApproval();
+        }
+    })();
+</script>

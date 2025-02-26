@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Acima Credit Checkout</title>
+</head>
+<body>
+<script>
+    var AcimaCreditCheckout = {
+        client: null,
+        transaction: null,
+        customer: null,
+        thankYouPage: null,
+        orderId: null,
+        nonce: null,
+
+        onDOMContentLoaded: function () {
+            AcimaCreditCheckout.client = AcimaCredit.client;
+
+            var customerData = JSON.parse(decodeURIComponent('%CUSTOMER_DATA%'));
+            var transactionData = JSON.parse(decodeURIComponent('%TRANSACTION_DATA%'));
+            var thankYouPage = decodeURIComponent('%THANK_YOU_PAGE%');
+            var orderId = '%ORDER_ID%';
+            var nonce = '%NONCE%';
+
+            AcimaCreditCheckout.customer = customerData;
+            AcimaCreditCheckout.transaction = transactionData;
+            AcimaCreditCheckout.thankYouPage = thankYouPage;
+            AcimaCreditCheckout.orderId = orderId;
+            AcimaCreditCheckout.nonce = nonce;
+
+            AcimaCreditCheckout.initCheckout();
+        },
+
+        redirectToThankYouPage: function () {
+            console.log(`thankYouPage: ${this.thankYouPage}`);
+            if (this.thankYouPage) {
+                window.location.href = this.thankYouPage;
+            } else {
+                console.error('Thank you page URL is not set');
+            }
+        },
+
+        initCheckout: function () {
+            AcimaCreditCheckout.client.checkout({
+                customer: AcimaCreditCheckout.customer,
+                transaction: AcimaCreditCheckout.transaction,
+                isSuccessCallbackMode: true, /** this flag will make the application wait on the finalizing screen until response.createOrderComplete is called **/
+                onSuccess: AcimaCreditCheckout.success,
+                onError: function (error) {
+                    console.error("Checkout error:", error);
+                },
+                onEventNotification: function (result) {
+                    console.log("onEventNotification:", result);
+                    var leaseId = result.leaseId || result.applicationId;
+                    if (leaseId) {
+                        AcimaCreditCheckout.saveLeaseInfo(result);
+                    }
+                },
+            }).then((response) => {
+                console.log("Checkout response:", JSON.stringify(response));
+                AcimaCreditCheckout.closeOrder(response);
+                response.createOrderComplete()
+                AcimaCreditCheckout.redirectToThankYouPage();
+            }).catch(function (error) {
+                if (error.code === 'CheckoutInterrupted') {
+                    console.log(error.message);
+                } else {
+                    console.error("Unhandled error:", error);
+                }
+            });
+        },
+
+        closeOrder: function (result) {
+            var orderId = AcimaCreditCheckout.orderId;
+            var nonce = AcimaCreditCheckout.nonce;
+            var data = {
+                action: 'acima_leasing_checkout_successful',
+                order: orderId,
+                nonce: nonce,
+                lease_id: result.leaseId || result.applicationId,
+                checkout_token: result.checkoutToken
+            };
+            AcimaCredit.ajaxCall(data, function (response) {
+                if (response.success) {
+                    console.log('Order closed successfully:', response);
+                } else {
+                    console.error('Error closing order:', response);
+                }
+            });
+        },
+
+        saveLeaseInfo: function (result) {
+            var orderId = AcimaCreditCheckout.orderId;
+            jQuery.ajax({
+                url: '/?rest_route=/acima/v1/cancel-checkout',
+                contentType: 'application/json',
+                method: 'POST',
+                processData: false,
+                headers: {
+                    'X-WP-Nonce': '%REST_NONCE%'
+                },
+                data: JSON.stringify({
+                    leaseId: result.leaseId || result.applicationId,
+                    leaseNumber: result.leaseNumber,
+                    orderId: orderId
+                }),
+                success: function (response) {
+                    console.log('Lease saved successfully:', response);
+                },
+                error: function (error) {
+                    console.error('Error saving lease:', error);
+                }
+            });
+        },
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const maxAttempts = 10;
+        let attempts = 0;
+
+        const checkClient = setInterval(() => {
+            if (window.parent.AcimaCredit?.client) {
+                clearInterval(checkClient);
+                AcimaCreditCheckout.onDOMContentLoaded();
+            } else if (attempts >= maxAttempts) {
+                clearInterval(checkClient);
+                console.error('AcimaJS Client initialization timeout');
+            }
+            attempts++;
+        }, 500);
+    });
+</script>
+</body>
+</html>
