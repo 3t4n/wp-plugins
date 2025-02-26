@@ -1,0 +1,1890 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+ /*!
+ * 
+ * EnvyNotifs WP Plugin - Stylesheet
+ * 
+ */
+ 
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/** 
+EnvyNotifs Bar
+=======================**/
+.envynotifs-bar {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/** EnvyNotifs Bar bottom
+=====================================================**/
+
+.envynotifs-bar.envynotifs-bar-bottom {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.envynotifs-bar.envynotifs-bar-bottom .envynotifs-details {
+  top: -22px;
+  bottom: 0;
+}
+
+.envynotifs-bar.envynotifs-bar-bottom .envynotifs-details .envynotifs-details-show {
+  border-radius: 50% 50% 0 0 !important;
+}
+
+.envynotifs-bar.envynotifs-bar-bottom .envynotifs-details .envynotifsshow {
+  top: auto;
+  bottom: 0;
+  border-top: none;
+  border-bottom: 1px solid #ffffff;
+}
+
+.envynotifs-bar.envynotifs-bar-bottom .envynotifs-details .envynotifsshow .envynotifs-details-hide {
+  bottom: auto;
+  top: -22px;
+  border-radius: 50% 50% 0 0;
+}
+
+.envynotifs-bar.envynotifs-bar-bottom .envynotifs-details .envynotifsshow.active {
+  top: auto;
+  bottom: 62px;
+}
+
+.envynotifs-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: -1;
+    display: none;
+}
+
+.envynotifs-bar .envynotifs-container {
+    max-width: 100%;
+    margin: auto;
+    display: table;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 0;
+}
+
+.envynotifs-bar .envynotifs-wrap {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: initial !important;
+    letter-spacing: initial !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single {
+    display: inline-block;
+    margin: 0 10px;
+    line-height: normal !important;
+    letter-spacing: initial !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-title h2 {
+    margin: 0;
+    font-family: "Poppins", sans-serif !important;
+    letter-spacing: initial !important;
+    line-height: 2.1 !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 5px;
+    font-family: "Poppins", sans-serif !important;
+    line-height: normal !important;
+    letter-spacing: initial !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li span {
+    display: inline;
+    font-size: 14px;
+    position: relative;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li span::before, .envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li span::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    width: 3px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li span::after {
+    top: 12px;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li:last-child span::before, .envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-time .envynotifs-time-list li:last-child span::after {
+    display: none;
+}
+
+.running .labels span {
+  padding: 0 4px;
+}
+
+.running timer .days {
+  padding: 0 15px;
+  margin-right: 10px;
+}
+
+.running timer .hours {
+  padding: 0 15px;
+  margin-right: 10px;
+}
+
+.running timer .minutes {
+  padding: 0 15px;
+  margin-right: 10px;
+}
+
+.running timer .seconds {
+  padding: 0 15px;
+  margin-right: 10px;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form {
+    position: relative;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form .form-control {
+    height: 40px;
+    border: none;
+    padding: 0 5px;
+    border-radius: 4px;
+}
+
+.envynotifs-email {
+    display: initial !important;
+    font-size: initial !important;
+    letter-spacing: initial !important;
+    width: 50% !important;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.envynotifs-sign-up-btn {
+    font-weight: initial;
+    letter-spacing: initial;
+    line-height: initial;
+    margin: 0;
+    text-transform: initial;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form .form-control:focus {
+    outline: none !important;
+    border: none !important;
+    background-color: #f5f5f5 !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form .form-control::-webkit-input-placeholder {
+    font-size: 12px;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form .form-control:-ms-input-placeholder {
+    font-size: 12px;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form .form-control::-ms-input-placeholder {
+    font-size: 12px;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up form .form-control::placeholder {
+    font-size: 12px;
+}
+
+form .envynotifs-sign-up-btn {
+    height: 40px;
+    border: none;
+    background-color: #222222 !important;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 4px;
+    margin-left: -10px;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    padding-top: 3px;
+}
+
+form .envynotifs-sign-up-btn:focus {
+    outline: none;
+    border: none;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-sign-up .envynotifs-subscribe-title {
+    font-size: 14px;
+    margin-right: 5px;
+    position: relative;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.mc4wp-form-fields p label {
+  display: inline !important;
+}
+
+.mc4wp-form-fields p {
+  display: inline !important;
+}
+
+.mc4wp-form-fields p label input[type='email'] {
+  display: inline !important;
+}
+
+.mc4wp-form-fields p input[type='submit'] {
+  display: inline !important;
+  border-radius: 4px !important;
+  line-height: 1.25 !important;
+}
+
+.envynotifs-social-icon-list li {
+    letter-spacing: initial !important
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li:last-child {
+    margin-right: 0;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li .envynotifs-social {
+    font-size: 14px;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li a {
+    color: #ffffff;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li a i {
+    font-size: 13px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #5b5bff;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li a:hover i {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li:nth-child(2) a i {
+    background-color: #3b5998;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li:nth-child(3) a i {
+    background-color: #00acee;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li:nth-child(4) a i {
+    background-color: #dd4b39;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li:nth-child(5) a i {
+    background-color: #0e76a8;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-social-icon .envynotifs-social-icon-list li:nth-child(6) a i {
+    background-color: #00aff0;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-btn .envynotifs-button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 15px;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.envynotifs-bar .envynotifs-wrap .envynotifs-single .envynotifs-btn .envynotifs-button:hover {
+    background-color: #fa7035;
+}
+
+.envynotifs-bar .envynotifs-details {
+    text-align: center;
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+}
+
+.envynotifs-bar .envynotifs-details .envynotifs-details-show {
+    font-size: 16px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #5b5bff;
+    color: #ffffff;
+    border-radius: 0 0 50% 50%;
+    cursor: pointer;
+}
+
+.envynotifs-bar .envynotifs-details .envynotifsshow {
+    margin: auto;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    position: absolute;
+    top: -170px;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    border-top: 1px solid #ffffff;
+}
+
+.envynotifs-bar .envynotifs-details .envynotifsshow p {
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: initial !important;
+    font-family: "Poppins", sans-serif;
+}
+
+.envynotifs-bar .envynotifs-details .envynotifsshow .envynotifs-details-hide {
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #5b5bff;
+    color: #ffffff;
+    border-radius: 0 0 50% 50%;
+    cursor: pointer;
+}
+
+.envynotifs-bar .envynotifs-details .envynotifsshow.active {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+}
+
+.envynotifs-bar .envynotifs-close-button {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 0 !important;
+}
+
+.envynotifs-bar .envynotifs-close-button:focus {
+    outline: 0;
+}
+
+.envynotifs-bar .envynotifs-close-button i {
+    position: relative;
+    left: 0.60px;
+    top: -1px;
+}
+
+.envynotifs-bar .envynotifs-close-button:hover {
+    background-color: #fa7035;
+}
+
+.envynotifs-bar .envynotifs-show-button1 {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #dd3333;
+    display: inline-block;
+    color: #ffffff;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    opacity: 0;
+}
+
+.envynotifs-bar .envynotifs-show-button1:focus {
+    outline: 0;
+}
+
+.envynotifs-bar .envynotifs-show-button1 i {
+    position: relative;
+    left: 0.90px;
+    font-size: 20px;
+}
+
+.envynotifs-bar .envynotifs-show-button1:hover {
+    background-color: #fa7035;
+}
+
+#notifino-open-close1, #notifino-open-close2, #notifino-open-close4, #notifino-open-close5, #notifino-open-close6, #notifino-open-close7 {
+  	border-radius: 0%;
+  	height: 30px;
+  	width: 30px;
+  	padding: 0 !important;
+    text-align: center;
+    line-height: 24px !important;
+}
+
+#notifino-open-close1 i, #notifino-open-close2 i, #notifino-open-close4 i, 
+#notifino-open-close5 i, #notifino-open-close6 i, #notifino-open-close7 i {
+    margin: 5px 0;
+}
+
+#notifino-open-close1 {
+  	display: none;
+  	top: 0;
+    right: 20px;
+    position: fixed;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#notifino-open-close2 {
+  	display: none;
+  	bottom: 0;
+    right: 20px;
+    position: fixed;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#notifino-open-close4, #notifino-open-close6 {
+  	display: none;
+  	top: 20px;
+    left: 0px;
+    position: fixed;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#notifino-open-close5, #notifino-open-close7 {
+    display: none;
+    top: 20px;
+    right: 0px;
+    position: fixed;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+/* Top Panel */
+.notifino-top-panel {
+  	position: fixed;
+  	top: 0;
+  	z-index: 9999;
+    width: 100%;
+}
+
+/* Bottom Panel */
+.notifino-bottom-panel {
+  	position: sticky;
+  	bottom: 0;
+  	z-index: 9999;
+    width: 100%;
+}
+
+/** 
+EnvyNotifs Left Sidebar
+=====================================================**/
+.envynotifs-left-sidebar {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5b5bff;
+  padding: 30px;
+  z-index: 9999;
+  max-width: 320px;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  margin: auto;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+
+.envynotifs-left-sidebar-wrap, .envynotifs-left-sidebar-container {
+  font-size: smaller !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.envynotifs-left-sidebar.envynotifs-left-sidebar-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single {
+  margin: 0 0;
+  margin-bottom: 30px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-title h2 {
+  font-size: 22px;
+  color: #ffffff;
+  margin: 10px 0 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0 5px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li:first-child {
+  margin-left: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li:last-child {
+  margin-right: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li span {
+  display: inline;
+  font-size: 15px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li span::before, .envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li span::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: -10px;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li span::after {
+  top: 14px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li:last-child span::before, .envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-time .envynotifs-left-sidebar-time-list li:last-child span::after {
+  display: none;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form {
+  position: relative;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .form-control {
+  height: 40px;
+  border: none;
+  padding: 0 5px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .form-control:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .form-control::-webkit-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .form-control:-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .form-control::-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .form-control::placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .envynotifs-left-sidebar-sign-up-btn {
+  height: 40px;
+  border: none;
+  background-color: #222222;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0 10px;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up form .envynotifs-left-sidebar-sign-up-btn:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-sign-up .envynotifs-left-sidebar-subscribe-title {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  position: relative;
+  display: block;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li:last-child {
+  margin-right: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li .envynotifs-left-sidebar-social {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li a {
+  color: #ffffff;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li a i {
+  font-size: 13px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #5b5bff;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li a:hover i {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li:nth-child(2) a i {
+  background-color: #3b5998;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li:nth-child(3) a i {
+  background-color: #00acee;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li:nth-child(4) a i {
+  background-color: #dd4b39;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li:nth-child(5) a i {
+  background-color: #0e76a8;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-social-icon .envynotifs-left-sidebar-social-icon-list li:nth-child(6) a i {
+  background-color: #00aff0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single.envynotifs-left-sidebar-read-more {
+  margin-bottom: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-btn .envynotifs-left-sidebar-button {
+  text-decoration: none;
+  background-color: #dd3333;
+  display: inline-block;
+  padding: 10px 15px;
+  color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  font-size: 14px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-wrap .envynotifs-left-sidebar-single .envynotifs-left-sidebar-btn .envynotifs-left-sidebar-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: transparent;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0 !important;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-close-button:focus {
+  outline: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-close-button i {
+  position: relative;
+  left: 0px;
+  font-size: 15px;
+  top: 0px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-close-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-show-button {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #dd3333;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  opacity: 0;
+  display: none;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-show-button:focus {
+  outline: 0;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-show-button i {
+  position: relative;
+  left: 0.90px;
+  font-size: 20px;
+}
+
+.envynotifs-left-sidebar .envynotifs-left-sidebar-show-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-left-sidebar-sign-up .envynotifs-email {
+  width: 60% !important;
+}
+
+/** 
+EnvyNotifs Right Sidebar
+=====================================================**/
+.envynotifs-right-sidebar {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5b5bff;
+  padding: 30px;
+  z-index: 9999;
+  max-width: 320px;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  margin: auto;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+
+.envynotifs-right-sidebar-wrap, .envynotifs-right-sidebar-container {
+  font-size: smaller !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.envynotifs-right-sidebar.envynotifs-right-sidebar-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single {
+  margin: 0 0;
+  margin-bottom: 30px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-title h2 {
+  font-size: 22px;
+  color: #ffffff;
+  margin: 10px 0 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0 5px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li:first-child {
+  margin-right: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li:last-child {
+  margin-right: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li span {
+  display: inline;
+  font-size: 15px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li span::before, .envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li span::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: -10px;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li span::after {
+  top: 14px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li:last-child span::before, .envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-time .envynotifs-right-sidebar-time-list li:last-child span::after {
+  display: none;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form {
+  position: relative;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .form-control {
+  height: 40px;
+  border: none;
+  padding: 0 5px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .form-control:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .form-control::-webkit-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .form-control:-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .form-control::-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .form-control::placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .envynotifs-right-sidebar-sign-up-btn {
+  height: 40px;
+  border: none;
+  background-color: #222222;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0 10px;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up form .envynotifs-right-sidebar-sign-up-btn:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-sign-up .envynotifs-right-sidebar-subscribe-title {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  position: relative;
+  display: block;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li:last-child {
+  margin-right: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li .envynotifs-right-sidebar-social {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li a {
+  color: #ffffff;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li a i {
+  font-size: 13px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #5b5bff;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li a:hover i {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li:nth-child(2) a i {
+  background-color: #3b5998;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li:nth-child(3) a i {
+  background-color: #00acee;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li:nth-child(4) a i {
+  background-color: #dd4b39;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li:nth-child(5) a i {
+  background-color: #0e76a8;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-social-icon .envynotifs-right-sidebar-social-icon-list li:nth-child(6) a i {
+  background-color: #00aff0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single.envynotifs-right-sidebar-read-more {
+  margin-bottom: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-btn .envynotifs-right-sidebar-button {
+  text-decoration: none;
+  background-color: #dd3333;
+  display: inline-block;
+  padding: 10px 15px;
+  color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  font-size: 14px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-wrap .envynotifs-right-sidebar-single .envynotifs-right-sidebar-btn .envynotifs-right-sidebar-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: transparent;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0 !important;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-close-button:focus {
+  outline: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-close-button i {
+  position: relative;
+  left: 0;
+  font-size: 15px;
+  top: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-close-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-show-button {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #dd3333;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  opacity: 0;
+  display: none;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-show-button:focus {
+  outline: 0;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-show-button i {
+  position: relative;
+  right: 0.90px;
+  font-size: 20px;
+}
+
+.envynotifs-right-sidebar .envynotifs-right-sidebar-show-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-right-sidebar-sign-up .envynotifs-email {
+  width: 60% !important;
+}
+
+/** 
+EnvyNotifs Popup
+=====================================================**/
+.envynotifs-popup {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+  z-index: 9999;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.envynotifs-popup.envynotifs-popup-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single {
+  margin: 0 0;
+  margin-bottom: 30px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-title h2 {
+  margin: 10px 0 0;
+  letter-spacing: initial;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li {
+  display: inline-block;
+  font-size: 14px;
+  margin: 0 15px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li:first-child {
+  margin-left: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li:last-child {
+  margin-right: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li span {
+  display: inline;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+  position: relative;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li span::before, .envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li span::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: -20px;
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li span::after {
+  top: 17px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li:last-child span::before, .envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-time .envynotifs-popup-time-list li:last-child span::after {
+  display: none;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form {
+  position: relative;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .form-control {
+  height: 40px;
+  border: none;
+  padding: 0 5px;
+  border-radius: 4px;
+  width: 50%;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .form-control:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .form-control::-webkit-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .form-control:-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .form-control::-ms-input-placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .form-control::placeholder {
+  font-size: 12px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .envynotifs-popup-sign-up-btn {
+  height: 40px;
+  border: none;
+  background-color: #222222;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0 10px;
+  border-radius: 4px;
+  margin-left: -15px;
+  top: 0;
+  right: -10px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up form .envynotifs-popup-sign-up-btn:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #f5f5f5 !important;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-sign-up .envynotifs-popup-subscribe-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  position: relative;
+  display: block;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li:last-child {
+  margin-right: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li .envynotifs-popup-social {
+  font-size: 14px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li a {
+  color: #ffffff;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li a i {
+  font-size: 13px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #5b5bff;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li a:hover i {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li:nth-child(2) a i {
+  background-color: #3b5998;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li:nth-child(3) a i {
+  background-color: #00acee;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li:nth-child(4) a i {
+  background-color: #dd4b39;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li:nth-child(5) a i {
+  background-color: #0e76a8;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-social-icon .envynotifs-popup-social-icon-list li:nth-child(6) a i {
+  background-color: #00aff0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single.envynotifs-popup-read-more {
+  margin-bottom: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-btn .envynotifs-popup-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 15px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  font-size: 14px;
+}
+
+.envynotifs-popup .envynotifs-popup-wrap .envynotifs-popup-single .envynotifs-popup-btn .envynotifs-popup-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-popup .envynotifs-popup-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0 !important;
+}
+
+.envynotifs-popup .envynotifs-popup-close-button:focus {
+  outline: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-close-button i {
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+.envynotifs-popup .envynotifs-popup-close-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-popup .envynotifs-popup-show-button {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #dd3333;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  opacity: 0;
+  display: none;
+}
+
+.envynotifs-popup .envynotifs-popup-show-button:focus {
+  outline: 0;
+}
+
+.envynotifs-popup .envynotifs-popup-show-button i {
+  position: relative;
+  left: 0.90px;
+  font-size: 20px;
+}
+
+.envynotifs-popup .envynotifs-popup-show-button:hover {
+  background-color: #fa7035;
+}
+
+/** 
+EnvyNotifs Left Sidebar Two
+=====================================================**/
+.envynotifs-left-sidebar-two {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5b5bff;
+  padding: 0 20px;
+  z-index: 9999;
+  text-align: center;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  overflow: hidden;
+}
+
+.envynotifs-left-sidebar-two.envynotifs-left-sidebar-two-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single {
+  padding: 15px 0;
+  display: inline-block;
+  margin: 0 !important;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single:last-child {
+  padding-top: 0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single:first-child {
+  padding-top: 0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-title {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-title h2 {
+  font-size: 22px;
+  color: #ffffff;
+  margin: -8px 0 0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li {
+  display: inline-block;
+  margin: 5px 0 0 0 !important;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li .envynotifs-left-sidebar-two-social {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li a {
+  color: #ffffff;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li a i {
+  font-size: 13px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #5b5bff;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li:nth-child(2) a i {
+  background-color: #3b5998;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li:nth-child(3) a i {
+  background-color: #00acee;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li:nth-child(4) a i {
+  background-color: #dd4b39;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li:nth-child(5) a i {
+  background-color: #0e76a8;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-social-icon .envynotifs-left-sidebar-two-social-icon-list li:nth-child(6) a i {
+  background-color: #00aff0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-read-more {
+  margin-bottom: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-btn .envynotifs-left-sidebar-two-button {
+  text-decoration: none;
+  background-color: #dd3333;
+  display: inline-block;
+  padding: 10px 8px;
+  color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  font-size: 14px;
+      transform: rotate(180deg);
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-wrap .envynotifs-left-sidebar-two-single .envynotifs-left-sidebar-two-btn .envynotifs-left-sidebar-two-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-close-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: transparent;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-close-button:focus {
+  outline: 0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-close-button i {
+  position: relative;
+  left: 0px;
+  font-size: 15px;
+  top: -1px;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-close-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-show-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #dd3333;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  display: none;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-show-button:focus {
+  outline: 0;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-show-button i {
+  position: relative;
+  left: 0.90px;
+  font-size: 20px;
+}
+
+.envynotifs-left-sidebar-two .envynotifs-left-sidebar-two-show-button:hover {
+  background-color: #fa7035;
+}
+
+/** 
+EnvyNotifs Right Sidebar Two
+=====================================================**/
+.envynotifs-right-sidebar-two {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #5b5bff;
+  padding: 0 20px;
+  z-index: 9999;
+  text-align: center;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  overflow: hidden;
+}
+
+.envynotifs-right-sidebar-two.envynotifs-right-sidebar-two-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single {
+  padding: 15px 0;
+  display: inline-block;
+  margin: 0 !important;
+  padding-top: 0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single:last-child {
+  padding-bottom: 0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-title h2 {
+  font-size: 22px;
+  color: #ffffff;
+  margin: -8px 0 0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li {
+  display: inline-block;
+  margin: 5px 0 0 0 !important;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li .envynotifs-right-sidebar-two-social {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li a {
+  color: #ffffff;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li a i {
+  font-size: 13px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #5b5bff;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li:nth-child(2) a i {
+  background-color: #3b5998;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li:nth-child(3) a i {
+  background-color: #00acee;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li:nth-child(4) a i {
+  background-color: #dd4b39;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li:nth-child(5) a i {
+  background-color: #0e76a8;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-social-icon .envynotifs-right-sidebar-two-social-icon-list li:nth-child(6) a i {
+  background-color: #00aff0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single.envynotifs-right-sidebar-two-read-more {
+  margin-bottom: 0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-btn .envynotifs-right-sidebar-two-button {
+  text-decoration: none;
+  background-color: #dd3333;
+  display: inline-block;
+  padding: 10px 8px;
+  color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  font-size: 14px;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-wrap .envynotifs-right-sidebar-two-single .envynotifs-right-sidebar-two-btn .envynotifs-right-sidebar-two-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: transparent;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0 !important;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-close-button:focus {
+  outline: 0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-close-button i {
+  position: relative;
+  left: 0.60px;
+  font-size: 15px;
+  top: -1px;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-close-button:hover {
+  background-color: #fa7035;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-show-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #dd3333;
+  display: inline-block;
+  color: #ffffff;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  display: none;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-show-button:focus {
+  outline: 0;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-show-button i {
+  position: relative;
+  left: 0.90px;
+  font-size: 20px;
+}
+
+.envynotifs-right-sidebar-two .envynotifs-right-sidebar-two-show-button:hover {
+  background-color: #fa7035;
+}
