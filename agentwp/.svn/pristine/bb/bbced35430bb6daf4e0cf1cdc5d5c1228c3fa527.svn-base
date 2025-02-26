@@ -1,0 +1,2 @@
+import{f as e,j as t,R as r,N as n,P as a}from"./ClientSettingsProvider-daa02826.js";/* empty css               */import{C as i}from"./Chat-3a9ab25d.js";import"./_commonjsHelpers-725317a4.js";import"./WriteToEditor-63b22c42.js";const o=document.getElementById("agentwp-admin-chat");o?(window.agentwp=o,e.createRoot(o).render(t.jsx(r.StrictMode,{children:t.jsx(n,{children:t.jsx(a,{page:agentwpData,children:t.jsx(i,{})})})}))):console.error("Root element not found");
+//# sourceMappingURL=chat-32237a72.js.map
