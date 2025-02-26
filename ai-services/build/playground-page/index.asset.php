@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('ais-ai', 'ais-components', 'ais-interface', 'react', 'react-jsx-runtime', 'wp-components', 'wp-compose', 'wp-core-data', 'wp-data', 'wp-dom-ready', 'wp-element', 'wp-i18n', 'wp-keyboard-shortcuts', 'wp-keycodes', 'wp-media-utils', 'wp-preferences', 'wp-primitives'), 'version' => 'd10af910ba191cf612dc');
