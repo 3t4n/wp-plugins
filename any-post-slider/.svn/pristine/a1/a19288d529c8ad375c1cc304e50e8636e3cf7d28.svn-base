@@ -1,0 +1,205 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ .app-slider-wrap .aps-slider.owl-carousel {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    
+ }
+
+ .app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    top: 36%;
+    left: 0;
+    margin-left: -55px;
+}
+
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    top: 36%;
+    right: 0;
+    margin-right: -55px;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev span, .app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-next span {
+    background: inherit !important;
+    /* border-radius: 50%; */
+    padding: 5px;
+    width: 41px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-weight: bold;
+    
+}
+
+.aps-slider .item img.eq_height {
+    object-fit: cover;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev, .app-slider-wrap .aps-slider .owl-nav .owl-next {
+    outline: none;
+    border: 1px grey solid;
+    text-decoration: none;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev:hover, .app-slider-wrap .aps-slider .owl-nav .owl-next:hover {
+    background-color: unset;
+    background: gray;
+    text-decoration: none;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev.disabled , .app-slider-wrap .aps-slider .owl-nav .owl-next.disabled  {
+    cursor:not-allowed;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .button,.app-slider-wrap .aps-slider a {
+    text-decoration: none;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-dots {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-dots button.owl-dot span {
+    background: inherit;
+    padding: 3px;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-dots button.owl-dot span {
+    background: #ffffff;
+    border: 1px #000000 solid;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.app-slider-wrap .aps-slider.owl-carousel .owl-dots button.owl-dot.active span {
+    background: #000000;
+}
+
+.aps-excerpt {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.aps-slider .owl-dots button {
+    background-color: transparent;
+}
+
+.aps-slider .owl-dots button:focus {
+    outline: none;
+}
+.app-slider-wrap .aps_main img,.app-slider-wrap .item img {
+    margin: 0;
+}
+.aps_desc {
+    background: #f7f9fc;
+    padding: 15px 20px;
+}
+/*Slider 4 */
+.layout-4 .aps_equalheight .owl-stage {
+    display: flex;
+}
+.layout-4 .aps_equalheight .owl-stage .item {
+    display: flex;
+    flex: 1 0 auto;
+    height: 100%;
+}
+.layout-4 .aps-single-item:before {
+    content: '';
+    background: rgba(10,0,0,0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.layout-4 .aps-description {
+    position: relative;
+    z-index: 9;
+    padding: 30px;
+}
+.layout-4 .aps-description h3, .layout-4 .aps-description p, .layout-4 .aps-description span{
+    color: #fff;
+}
+.layout-4 .aps-description span {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+.layout-4 .aps-description span svg{
+    padding-left: 10px;
+}
+.layout-4 .aps-single-item {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+.layout-4 .aps-slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+.layout-4 .aps-slider .item img{
+    height: 100% !important;
+    transition: 0.4s all ease;
+    transform: scale(1.0);
+    object-fit: cover;
+}
+.layout-4 .aps-slider .item:hover .aps-slide-image img{
+    transform: scale(1.2);
+}
+.layout-5 .aps-slide-image {
+    position: relative;
+}
+.layout-5 .aps-captions {
+    border-radius: 0 0 0px 0px;
+    background: rgba(10,10,10,0.54);
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.aps-captions h3 {
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+}
+@media(max-width: 991px){
+    .app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-next{
+        margin-right: -16px;
+    }
+    .app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev{
+        margin-left: -16px;
+    }
+}
+@media(max-width: 767px){
+    .app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-next{
+        margin-right: 0;
+    }
+    .app-slider-wrap .aps-slider.owl-carousel .owl-nav .owl-prev{
+        margin-left: 0;
+    }
+}
