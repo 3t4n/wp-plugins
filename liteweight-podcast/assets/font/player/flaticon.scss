@@ -1,0 +1,45 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?a0f2c7b729b117e908e3c9e010fe74ff") format("truetype"),
+url("./flaticon.woff?a0f2c7b729b117e908e3c9e010fe74ff") format("woff"),
+url("./flaticon.woff2?a0f2c7b729b117e908e3c9e010fe74ff") format("woff2"),
+url("./flaticon.eot?a0f2c7b729b117e908e3c9e010fe74ff#iefix") format("embedded-opentype"),
+url("./flaticon.svg?a0f2c7b729b117e908e3c9e010fe74ff#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "rewind-button": "\f101",
+    "play-button-arrowhead": "\f102",
+    "pause": "\f103",
+    "fast-forward": "\f104",
+    "information": "\f105",
+);
+
+.flaticon-rewind-button:before {
+    content: map-get($flaticon-map, "rewind-button");
+}
+.flaticon-play-button-arrowhead:before {
+    content: map-get($flaticon-map, "play-button-arrowhead");
+}
+.flaticon-pause:before {
+    content: map-get($flaticon-map, "pause");
+}
+.flaticon-fast-forward:before {
+    content: map-get($flaticon-map, "fast-forward");
+}
+.flaticon-information:before {
+    content: map-get($flaticon-map, "information");
+}
