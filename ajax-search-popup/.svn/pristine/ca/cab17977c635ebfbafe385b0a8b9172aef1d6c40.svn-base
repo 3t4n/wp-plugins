@@ -1,0 +1,264 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+
+
+.overlay {
+                height: 100%;
+                width: 100%;
+                display: none;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0, 0.9);
+                direction:ltr;
+}
+
+.overlay-close {
+                height: 100%;
+                width: 100%;
+                display: block;
+                position: fixed;
+                }
+
+
+.overlay-content {
+                position: relative;
+                top: 46%;
+                width: 60%;
+                text-align: center;
+                margin-top: 30px;
+                margin: auto;
+}
+
+
+
+
+.search {
+    width: 100%;
+    position: relative;
+}
+
+
+.sr input[type=text]{
+padding:6px !important;
+font: normal 14px/1.5 Roboto;
+min-height: 46px;
+opacity:1;
+}
+
+.searchTerm {
+    float: left;
+    width: 93%;
+    border: 3px solid #FFF;
+    border-radius: 3px;
+    outline: none;
+    color: #34495E;
+    font-size: 14px;
+    font-family: 'Roboto';
+
+}
+
+
+
+.searchButton {
+    position: absolute;
+    right: -1px;
+    min-width: 140px;
+    min-height: 46px;
+	padding:0;
+    border: 1px solid #FF5733;
+    background-color: #E74C3C;
+    text-align: center;
+    color: #fff;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    background-image: url("../img/115702-32.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    outline:none;
+    transition:all 0.3s ease-out;
+
+}
+
+.searchButton:hover {
+        background-color: #FF3C33;
+
+        }
+
+ .setting-se {
+    position: absolute;
+    float:right;
+    top:46px;
+    right: -1px;
+    width:140px !important;
+    height: auto;
+    padding-top:8px;
+    background:#FFF;
+    color:#333;
+    font-family: 'Roboto';
+    font-size:14px;
+    text-align:center;
+    padding-left:4px;
+    border:1px solid #ccc;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    display: none;
+ }
+
+ #ajax-response2 { /* set this ------------------ */
+    position: absolute;
+    float:left;
+    top:48px;
+    width:100%;
+    height: auto;
+    background:#FFF;
+    color:#333;
+    font-family: 'Roboto';
+    font-size:14px;
+    text-align:left;
+    border-radius:2px;
+    z-index:-1;
+ }
+
+
+ 
+ .pop_title {
+ float:left;
+ width:100%;
+ padding:4px;
+ background:#FFF;
+ color:#333;
+ font-family: 'Roboto';
+ border-bottom:1px solid #ccc;
+ }
+ 
+ .pop_title a{
+ color:#007acc;
+ font-family: 'Roboto';
+ }
+ .pop_title a:hover{
+ color:#777;
+ font-family: 'Roboto';
+ }
+
+ 
+.pop_archive a{
+text-align:center;
+display:block;
+padding: 2px 0 2px 0;
+color:#007acc;
+font-family: 'Roboto';
+background: lavender;
+}
+
+.pop_archive a:hover{
+ color:#777;
+ font-family: 'Roboto';
+ }
+
+.wrap{
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.openBtn {
+        border:none;
+        padding:7px;
+        background:#FF263A;
+        color:#fff;
+        font-family: 'Roboto';
+        font-size:14px;
+        text-align:left;
+        width:100%;
+        border-radius:3px;
+        cursor:pointer;
+        transition:all 0.3s ease-out;
+        background-image:url("../img/296814-322.png");
+        background-repeat: no-repeat;
+        background-position: right;
+
+}
+.openBtn:hover {
+        background:#FE081F;
+        background-image:url("../img/296814-322.png");
+        background-repeat: no-repeat;
+        background-position: right;
+        }
+
+
+
+
+
+    /* The container */
+.container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+.container input {
+        opacity: 0;
+        cursor: pointer;
+}
+/* Create a custom checkbox */
+.checkmark {
+        position: absolute;
+        top: 0;
+        left: 4px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container input ~ .checkmark {
+        background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+        background-color: #FF263A;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+        display: block;
+}
+
+/* Style the checkmark/indicator */
+ .checkmark:after {
+        left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+}
+
