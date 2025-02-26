@@ -1,0 +1,79 @@
+/** Timeline styling **/
+
+div.et-event-list {
+	position: relative;
+}
+
+div.et-event-list::before {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: chocolate;
+	left: 50%;
+}
+
+div.et-event-item {
+	box-sizing: border-box;
+	width: 50%;
+	position: relative;
+	margin-bottom: 40px;	
+}
+
+div.et-align-left {
+	text-align: right;
+}
+
+div.et-align-left::before {
+	content: '';
+	height: 1px;
+	width: 10px;
+	right: 0;
+	position: absolute;
+	background-color: chocolate;
+	top: 10px;
+}
+
+div.et-align-left span {
+	position: relative;
+	right: 15px;
+}
+
+div.et-align-right {
+	left: 50%;
+	text-align: left;
+}
+
+div.et-align-right::before {
+	content: '';
+	height: 1px;
+	width: 10px;
+	position: absolute;
+	background-color: chocolate;
+	top: 10px;
+}
+
+div.et-align-right span {
+	left: 15px;
+	position: relative;
+}
+
+
+/** Drag and drop timeline reordering meta box styling */
+li.et-event-item {
+	cursor: move;
+}
+
+li.et-event-item.odd {
+	background-color: #F9F9F9;
+}
+
+.draggable-ui-icon::before {
+	background-position: -128px -48px;
+	background-image: url('../images/smoothness-ui-icons_888888_256x240.png');
+	content: '';
+	display: inline-block;
+	margin-right: 15px;
+	width: 15px;
+	height: 15px;
+}
