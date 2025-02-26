@@ -1,0 +1,107 @@
+<div class="wrap">
+  <h1>Welcome to Animate WP</h1>
+  <h5>v 0.0.1</h5>
+  
+  <p>This has great many animations that you can use in your website. Just add the following class to your element. </p>
+</div>
+
+<ul>
+    <li>animate__bounce</li>
+    <li>animate__flash</li>
+    <li>animate__pulse</li>
+    <li>animate__rubberBand</li>
+    <li>animate__shakeX</li>
+    <li>animate__shakeY</li>
+    <li>animate__headShake</li>
+    <li>animate__swing</li>
+    <li>animate__tada</li>
+    <li>animate__wobble</li>
+    <li>animate__jello</li>
+    <li>animate__heartBeat</li>
+    <li>animate__backInDown</li>
+    <li>animate__backInLeft</li>
+    <li>animate__backInRight</li>
+    <li>animate__backInUp</li>
+    <li>animate__backOutDown</li>
+    <li>animate__backOutLeft</li>
+    <li>animate__backOutRight</li>
+    <li>animate__backOutUp</li>
+    <li>animate__bounceIn</li>
+    <li>animate__bounceInDown</li>
+    <li>animate__bounceInLeft</li>
+    <li>animate__bounceInRight</li>
+    <li>animate__bounceInUp</li>
+    <li>animate__bounceOut</li>
+    <li>animate__bounceOutDown</li>
+    <li>animate__bounceOutLeft</li>
+    <li>animate__bounceOutRight</li>
+    <li>animate__bounceOutUp</li>
+    <li>animate__fadeIn</li>
+    <li>animate__fadeInDown</li>
+    <li>animate__fadeInDownBig</li>
+    <li>animate__fadeInLeft</li>
+    <li>animate__fadeInLeftBig</li>
+    <li>animate__fadeInRight</li>
+    <li>animate__fadeInRightBig</li>
+    <li>animate__fadeInUp</li>
+    <li>animate__fadeInUpBig</li>
+    <li>animate__fadeInTopLeft</li>
+    <li>animate__fadeInTopRight</li>
+    <li>animate__fadeInBottomLeft</li>
+    <li>animate__fadeInBottomRight</li>
+    <li>animate__fadeOut</li>
+    <li>animate__fadeOutDown</li>
+    <li>animate__fadeOutDownBig</li>
+    <li>animate__fadeOutLeft</li>
+    <li>animate__fadeOutLeftBig</li>
+    <li>animate__fadeOutRight</li>
+    <li>animate__fadeOutRightBig</li>
+    <li>animate__fadeOutUp</li>
+    <li>animate__fadeOutUpBig</li>
+    <li>animate__fadeOutTopLeft</li>
+    <li>animate__fadeOutTopRight</li>
+    <li>animate__fadeOutBottomRight</li>
+    <li>animate__fadeOutBottomLeft</li>
+    <li>animate__flip</li>
+    <li>animate__flipInX</li>
+    <li>animate__flipInY</li>
+    <li>animate__flipOutX</li>
+    <li>animate__flipOutY</li>
+    <li>animate__lightSpeedInRight</li>
+    <li>animate__lightSpeedInLeft</li>
+    <li>animate__lightSpeedOutRight</li>
+    <li>animate__lightSpeedOutLeft</li>
+    <li>animate__rotateIn</li>
+    <li>animate__rotateInDownLeft</li>
+    <li>animate__rotateInDownRight</li>
+    <li>animate__rotateInUpLeft</li>
+    <li>animate__rotateInUpRight</li>
+    <li>animate__rotateOut</li>
+    <li>animate__rotateOutDownLeft</li>
+    <li>animate__rotateOutDownRight</li>
+    <li>animate__rotateOutUpLeft</li>
+    <li>animate__rotateOutUpRight</li>
+    <li>animate__hinge</li>
+    <li>animate__jackInTheBox</li>
+    <li>animate__rollIn</li>
+    <li>animate__rollOut</li>
+    <li>animate__zoomIn</li>
+    <li>animate__zoomInDown</li>
+    <li>animate__zoomInLeft</li>
+    <li>animate__zoomInRight</li>
+    <li>animate__zoomInUp</li>
+    <li>animate__zoomOutDown</li>
+    <li>animate__zoomOutLeft</li>
+    <li>animate__zoomOutRight</li>
+    <li>animate__zoomOutUp</li>
+    <li>animate__slideInDown</li>
+    <li>animate__slideInLeft</li>
+    <li>animate__slideInRight</li>
+    <li>animate__slideInUp</li>
+    <li>animate__slideOutDown</li>
+    <li>animate__slideOutLeft</li>
+    <li>animate__slideOutRight</li>
+    <li>animate__slideOutUp</li>
+</ul>
+
+<p>This plugin made using Animate CSS open source project</p><a href="https://github.com/animate-css/animate.css/" target="_blank">animate.css</a>
