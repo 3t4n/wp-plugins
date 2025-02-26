@@ -1,0 +1,599 @@
+/* Disable default Divi menu */
+
+.et_mobile_menu {
+  display: none !important;
+  visibility: hidden;
+}
+
+#offcanvas_menu_inner {
+  min-height: calc(100% - 46px);
+}
+
+#page-container {
+  width: 100%;
+}
+
+body.offcanvas-open #offcanvas_container {
+  left: 0;
+  transition: left 0.3s;
+}
+
+body.offcanvas-open #offcanvas_container + .offcanvas-menu-background {
+  left: 240px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s ease 0s, width 0s ease 0s, height 0s ease 0s, left 0.3s;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.admin-bar #offcanvas_container {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar #offcanvas_container {
+    top: 46px;
+  }
+}
+
+body.admin-bar #offcanvas_container + .offcanvas-menu-background {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar #offcanvas_container + .offcanvas-menu-background {
+    top: 46px;
+  }
+}
+
+#offcanvas_container {
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  top: 0;
+  height: 100vh;
+  display: block;
+  z-index: 200000;
+  transition: left 0.3s;
+  overflow-y: auto; /* Scrollbar aktivieren, wenn Inhalt über die Höhe hinausgeht */
+  -webkit-overflow-scrolling: touch; /* Smooth Scrolling auf mobilen Geräten */
+
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  min-height: 40px;
+  font-weight: 400;
+  font-family: Arial;
+  font-size: 13.5px;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item.menu-item-has-children {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item.menu-item-has-children > a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item.menu-item-has-children > a:after {
+  content: "5";
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+    font-family: ETmodules;
+    text-shadow: 0 0;
+    font-style: normal;
+    font-variant: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    text-transform: none;
+    speak: none;
+    vertical-align: middle;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item.menu-item-has-children.visible > a {
+  transition: background-color 0.2s;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item.menu-item-has-children.visible > a:after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu {
+  display: none;
+  padding-left: 0;
+  flex-basis: 100%;
+
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > a {
+  font-weight: 400;
+  font-family: Arial;
+  font-size: 13.5px;
+  cursor: pointer;
+  line-height: 40px;
+  display: block;
+  padding: 0 10px 0 25px;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li.menu-item-has-children {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li.menu-item-has-children > a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li.menu-item-has-children > a:after {
+  content: "5";
+  font-family: ETmodules !important;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: ' . get_theme_mod('awoc_offcanvas_right_arrow_background_setting', '#7cba3d') . ' !important;
+  color: #ffffff;
+  transition: transform 0.2s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li.menu-item-has-children.visible > a {
+  transition: background-color 0.2s;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li.menu-item-has-children.visible > a:after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu {
+  display: none;
+  padding-left: 0;
+  flex-basis: 100%;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li > a {
+  font-weight: 400;
+  font-family: Arial;
+  font-size: 13.5px;
+  cursor: pointer;
+  line-height: 40px;
+  display: block;
+  padding: 0 10px 0 35px;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li.menu-item-has-children {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li.menu-item-has-children > a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+
+/* Styling für den Pfeil im Untermenü */
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li.menu-item-has-children > a:after {
+  content: "5";
+  font-family: ETmodules !important;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ' . get_theme_mod('awoc_offcanvas_right_arrow_submenu_background_setting', '#7cba3d') . ' !important;
+  color: #ffffff;
+  transition: transform 0.2s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li.menu-item-has-children.visible > a {
+  transition: background-color 0.2s;
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li.menu-item-has-children.visible > a:after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+#offcanvas_container #offcanvas_menu_inner > li.menu-item > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
+  display: none;
+  padding-left: 0;
+  flex-basis: 100%;
+}
+
+#offcanvas_container .ps__rail-y {
+  opacity: 1;
+  display: block !important;
+  width: 10px;
+  height: 100%;
+}
+
+#offcanvas_container .close-sidebar-inner {
+  height: 46px;
+  vertical-align: middle;
+  font-family: Arial;
+  font-size: 13.5px;
+  cursor: pointer;
+  padding: 7px 15px;
+}
+
+#offcanvas_container .close-sidebar-inner .fa {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  opacity: 0.4;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#offcanvas_container .close-sidebar-inner .fa:before,
+#offcanvas_container .close-sidebar-inner .fa:after {
+  position: absolute;
+  left: 15px;
+  height: 33px;
+  width: 2px;
+  background-color: currentColor;
+}
+
+#offcanvas_container .close-sidebar-inner .fa:before {
+  transform: rotate(45deg);
+}
+
+#offcanvas_container .close-sidebar-inner .fa:after {
+  transform: rotate(-45deg);
+}
+
+#offcanvas_container .close-sidebar-inner:hover .fa {
+  opacity: 1;
+}
+
+#offcanvas_container .close-sidebar-inner:hover span:first-child {
+  opacity: 1;
+}
+
+#offcanvas_container .close-sidebar-inner span:first-child {
+  vertical-align: middle;
+  width: calc(100% - 32px);
+  display: inline-block;
+  opacity: 0.8;
+}
+
+#offcanvas_container + .offcanvas-menu-background {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s, width 0s ease 0.3s, height 0s ease 0.3s, left 0.3s;
+  z-index: 100000;
+  position: fixed;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+/* Styles für das close-icon als Ersatz für font-awesome */
+#offcanvas_container .close-sidebar-inner .close-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  opacity: 0.4;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#offcanvas_container .close-sidebar-inner .close-icon:before,
+#offcanvas_container .close-sidebar-inner .close-icon:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: currentColor;
+}
+
+#offcanvas_container .close-sidebar-inner .close-icon:before {
+  transform: rotate(45deg);
+}
+
+#offcanvas_container .close-sidebar-inner .close-icon:after {
+  transform: rotate(-45deg);
+}
+
+/* Hover Effekt für das close-icon */
+#offcanvas_container .close-sidebar-inner:hover .close-icon {
+  opacity: 1;
+}
+
+/* Styles für den Text neben dem close-icon */
+#offcanvas_container .close-sidebar-inner > span:first-child {
+  vertical-align: middle;
+  width: calc(100% - 32px);
+  display: inline-block;
+  opacity: 0.8;
+}
+
+#offcanvas_container .close-sidebar-inner:hover > span:first-child {
+  opacity: 1;
+}
+
+/* ETmodules Icon Styles */
+#offcanvas_container #offcanvas_menu_inner li.menu-item-has-children > a:after {
+  content: "5";
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  font-family: ETmodules;
+  text-shadow: 0 0;
+  font-style: normal;
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  vertical-align: middle;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  border-radius: 0;
+}
+
+#offcanvas_container #offcanvas_menu_inner li.menu-item-has-children.visible > a:after {
+  transform: rotate(90deg);
+}
+
+/* Submenu Styles */
+#offcanvas_container #offcanvas_menu_inner .sub-menu {
+  display: none;
+
+}
+
+#offcanvas_container #offcanvas_menu_inner .sub-menu > li > a {
+  padding-left: 25px;
+}
+
+#offcanvas_container #offcanvas_menu_inner .sub-menu .sub-menu > li > a {
+  padding-left: 35px;
+}
+
+/* Allgemeine Styles für alle Menü-Ebenen */
+#offcanvas_menu_inner li.menu-item-has-children {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#offcanvas_menu_inner li.menu-item-has-children > a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+
+#offcanvas_menu_inner li.menu-item-has-children > a:after {
+  content: "5";
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  font-family: ETmodules;
+  text-shadow: 0 0;
+  font-style: normal;
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  vertical-align: middle;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  border-radius: 0;
+}
+
+#offcanvas_menu_inner li.menu-item-has-children.visible > a:after {
+  transform: rotate(90deg);
+}
+
+/* Submenu Styles */
+#offcanvas_menu_inner .sub-menu {
+  display: block;
+  padding-left: 0;
+  flex-basis: 100%;
+}
+
+/* Padding für verschiedene Menü-Ebenen */
+#offcanvas_menu_inner > li > a {
+  padding: 0 10px 0 15px;
+}
+
+#offcanvas_menu_inner > li > .sub-menu > li > a {
+  padding: 0 10px 0 25px;
+}
+
+#offcanvas_menu_inner > li > .sub-menu > li > .sub-menu > li > a {
+  padding: 0 10px 0 35px;
+}
+
+/* Untermenü-Pfeile auch mit Hintergrund */
+#offcanvas_container #offcanvas_menu_inner .sub-menu li.menu-item-has-children > a:after {
+  background-color: #7cba3d !important;
+  color: #ffffff;
+  padding: 10px;
+  margin-right: 0px;
+}
+
+/* Gemeinsame Styles für alle Menü-Pfeile */
+#offcanvas_container #offcanvas_menu_inner li.menu-item-has-children > a:after {
+    content: "5";
+    font-family: ETmodules !important;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: auto;
+    height: auto;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    transition: transform 0.2s;
+    -webkit-font-smoothing: antialiased;
+    background-color: #4dbc2f !important;
+    padding: 10px;
+    border-radius: 0;
+}
+
+/* Rotation für aufgeklappte Menüpunkte */
+#offcanvas_container #offcanvas_menu_inner li.menu-item-has-children.visible > a:after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Styles für das X-Icon */
+#offcanvas_container .close-sidebar-inner .fa {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    opacity: 0.4;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#offcanvas_container .close-sidebar-inner .fa:before,
+#offcanvas_container .close-sidebar-inner .fa:after {
+    position: absolute;
+    left: 15px;
+    content: "";
+    height: 33px;
+    width: 2px;
+    background-color: currentColor;
+}
+
+#offcanvas_container .close-sidebar-inner .fa:before {
+    transform: rotate(45deg);
+}
+
+#offcanvas_container .close-sidebar-inner .fa:after {
+    transform: rotate(-45deg);
+}
+
+/* Hover Effekt für das X */
+#offcanvas_container .close-sidebar-inner:hover .fa {
+    opacity: 1;
+}
+
+/* 4.4 Arrows - Touch-optimized */
+#offcanvas_menu_inner li.menu-item-has-children > a:after {
+    content: "5";
+    font-family: ETmodules !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--arrow-width);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--arrow-background);
+    color: var(--menu-text);
+    font-size: 1.3rem;
+    transition: transform var(--transition-speed) ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Verhindert Highlight auf iOS */
+    touch-action: auto; /* Optimiert Touch-Verhalten */
+
+}
+/* Customizer-spezifische Styles */
+.customize-partial-edit-shortcuts-shown #offcanvas_menu {
+    display: block !important;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.customize-partial-edit-shortcuts-shown .awoc-overlay {
+    display: block !important;
+    opacity: 0.5 !important;
+    visibility: visible !important;
+}
+
+/* Optional: Wenn das Menu zu weit links ist und Einstellungen verdeckt */
+.customize-partial-edit-shortcuts-shown #offcanvas_menu {
+    right: auto !important;
+    left: 300px !important; /* Anpassen je nach Breite des Customizer-Panels */
+}
+
+/* Damit der Close-Button im Customizer nicht stört */
+.customize-partial-edit-shortcuts-shown .awoc-close {
+    display: none !important;
+}
+
+/* Tooltip unter dem Slider links bündig positionieren */
+.awoc-range-tooltip {
+  position: absolute; /* Positionieren Sie es absolut */
+  left: 0; /* Links bündig */
+  top: 100%; /* Direkt unter dem Slider */
+  transform: translateX(0); /* Keine Verschiebung */
+  margin-top: 10px; /* Abstand zum Slider */
+  z-index: 1000; /* Sicherstellen, dass es über anderen Elementen liegt */
+}
+
+
+
+/* Schriftfarbe für den Hauptmenüpunkt, wenn das Untermenü geöffnet ist */
+#offcanvas_container #offcanvas_menu_inner > li.menu-item.menu-item-has-children.visible > a {
+  color: ' . get_theme_mod('awoc_offcanvas_open_font_setting', '#444444') . '; /* Schriftfarbe für den Hauptmenüpunkt */
+  background-color: ' . get_theme_mod('awoc_offcanvas_open_background_setting', 'orange') . '; /* Hintergrundfarbe für den Hauptmenüpunkt */
+}
+
