@@ -1,0 +1,143 @@
+body.glamour-dragging {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+.glamour-inspector-indicators .glamour-inspector-indicator {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: rgba(46, 173, 190, 0.7); }
+  .glamour-inspector-indicators .glamour-inspector-indicator.glamour-ii-main {
+    border-style: solid;
+    border-color: rgba(46, 173, 190, 0.9); }
+  .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar {
+    display: flex;
+    position: absolute;
+    top: -31px;
+    left: -2px;
+    white-space: nowrap;
+    background-color: #0dcbe4;
+    background-color: #00a2ba;
+    background-image: linear-gradient(to right, #00a2ba 0%, #00e18a 100%);
+    color: #fff;
+    font-size: 13px;
+    border-radius: 3px 3px 0 0;
+    z-index: 99;
+    max-width: 80%;
+    min-width: 260px; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span {
+      display: inline-block;
+      padding: 5px 15px;
+      border-right: 2px solid rgba(46, 173, 190, 0.5); }
+      .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span.glamour-iit-more {
+        border-right: none; }
+      .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span.glamour-svg-icon svg {
+        text-align: center;
+        display: inline-block;
+        font-size: inherit;
+        height: 1em;
+        width: 1em;
+        overflow: visible;
+        vertical-align: -.125em; }
+      .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span.glamour-iit-more {
+        padding: 5px 8px;
+        pointer-events: all;
+        cursor: pointer;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none; }
+      .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span.glamour-iit-move {
+        pointer-events: all;
+        cursor: move; }
+      .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span.glamour-iit-title {
+        width: calc(100% - 29px);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; }
+        .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar > span.glamour-iit-title.glamour-iit-title-no-selector {
+          width: 100%;
+          border-right: none; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar .glamour-iit-selectors {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #2EADBE;
+      min-width: 150px;
+      max-width: 100%;
+      border-radius: 0 0 3px 3px;
+      overflow: hidden;
+      border-top: 2px solid #2EADBE; }
+      .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar .glamour-iit-selectors li {
+        padding: 5px 15px;
+        border-bottom: 1px solid #299aa9;
+        cursor: pointer;
+        pointer-events: all; }
+        .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar .glamour-iit-selectors li:last-child {
+          border-bottom: none; }
+        .glamour-inspector-indicators .glamour-inspector-indicator .glamour-ii-titlebar .glamour-iit-selectors li:hover {
+          background-color: #00a2ba;
+          background-image: linear-gradient(to right, #00a2ba 0%, #00e18a 100%); }
+  .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div,
+  .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div {
+    position: absolute;
+    pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    z-index: 9;
+    opacity: 0;
+    transition: opacity .2s; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-active, .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div:hover,
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-active,
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div:hover {
+      opacity: 1; }
+  .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div {
+    background-color: rgba(70, 255, 156, 0.3); }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-top, .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-bottom {
+      width: 100%;
+      min-height: 5px;
+      left: 0;
+      cursor: n-resize; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-top {
+      top: 0; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-bottom {
+      bottom: 0; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-left, .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-right {
+      height: 100%;
+      min-width: 5px;
+      top: 0;
+      cursor: e-resize; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-left {
+      left: 0; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-padding-controls > div.glamour-padding-control-right {
+      right: 0; }
+  .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div {
+    background-color: rgba(62, 79, 255, 0.3); }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-top, .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-bottom {
+      width: calc(100% + 4px);
+      min-height: 5px;
+      left: -2px;
+      cursor: n-resize; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-top {
+      top: -7px; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-bottom {
+      bottom: -7px; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-left, .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-right {
+      height: calc(100% + 4px);
+      min-width: 5px;
+      top: -2px;
+      cursor: e-resize; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-left {
+      left: -7px; }
+    .glamour-inspector-indicators .glamour-inspector-indicator .glamour-margin-controls > div.glamour-margin-control-right {
+      right: -7px; }
+
