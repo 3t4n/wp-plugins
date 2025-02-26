@@ -1,0 +1,1 @@
+document.addEventListener( 'wpcf7mailsent', function( event ) {gtag('event', 'gesendet', {'event_category': 'Kontaktformular'});});

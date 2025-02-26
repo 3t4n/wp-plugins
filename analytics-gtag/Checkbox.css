@@ -1,0 +1,224 @@
+<style>
+.reset{
+  all: unset;
+}
+* { 
+  box-sizing: border-box; 
+} 
+ 
+
+ 
+body { 
+  
+  display: flex; 
+  flex-flow: column nowrap; 
+  align-items: center; 
+  justify-content: center; 
+} 
+ 
+input[type=checkbox] { 
+  display: none; 
+} 
+ 
+label { 
+  cursor: pointer; 
+  -webkit-user-select: none; 
+  text-indent: -2000px; 
+  width: 8em; 
+  height: 4.25em; 
+  border-radius: 2em; 
+  position: relative; 
+  background: #787878; 
+  box-shadow: inset 0 1px 3px #595959, inset 0 1px 1px 1px #1a1a1a, inset 0 -1.5em 1em rgba(26, 26, 26, 0.2); 
+  transition: background 300ms; 
+} 
+label span.eye { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 3.5em; 
+  height: 3.5em; 
+  border-radius: 50%; 
+  background: radial-gradient(#ffffff 25%, #cfecfb 50%, #39b2ed 100%); 
+  box-shadow: inset 0 0 5px 1px #0f72a2; 
+} 
+label span.eye:before { 
+  content: ""; 
+  position: absolute; 
+  top: 2px; 
+  left: 5px; 
+  width: 2.75em; 
+  height: 2.75em; 
+  border-radius: 50%; 
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 50%); 
+} 
+label span.eye:after { 
+  content: ""; 
+  position: absolute; 
+  bottom: 2px; 
+  left: .25em; 
+  width: 3em; 
+  height: 3em; 
+  border-radius: 50%; 
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 15%); 
+} 
+label span.eye span.iris { 
+  position: absolute; 
+  top: 1.45em; 
+  left: .5em; 
+  width: .750em; 
+  height: .750em; 
+  border-radius: 50%; 
+  background: radial-gradient(#666666 0%, #000000 100%); 
+  transition: top 300ms, left 300ms; 
+} 
+label span.eye span.iris:before { 
+  content: ""; 
+  position: absolute; 
+  top: .2em; 
+  left: .2em; 
+  width: .25em; 
+  height: .25em; 
+  border-radius: 50%; 
+  background: radial-gradient(#b7e3f9 0%, rgba(183, 227, 249, 0) 75%); 
+} 
+ 
+.lids { 
+  position: absolute; 
+  top: .375em; 
+  left: .375em; 
+  width: 3.5em; 
+  height: 3.5em; 
+  border-radius: 50%; 
+  box-shadow: 0 1px 5px #020f16; 
+  transition: left 200ms; 
+  overflow: hidden; 
+} 
+.lids:before { 
+  content: ""; 
+  position: absolute; 
+  top: -8.25em; 
+  left: -3em; 
+  width: 10em; 
+  height: 10em; 
+  border-radius: 50%; 
+  z-index: 1; 
+  box-shadow: 0 2px 1px 0 rgba(51, 51, 51, 0.4); 
+  background: radial-gradient(#4d4d4d 60%, #0d0d0d 100%); 
+  background-size: 40% 50%; 
+  background-repeat: no-repeat; 
+  background-position: center 165%; 
+  transition: top 100ms; 
+} 
+.lids:after { 
+  content: ""; 
+  position: absolute; 
+  top: 1.75em; 
+  left: 0; 
+  width: 3.5em; 
+  height: 2.5em; 
+  z-index: 1; 
+  background: radial-gradient(rgba(0, 0, 0, 0) 45%, #404040 50%, #595959 70%); 
+  background-size: 200%; 
+  background-repeat: no-repeat; 
+  background-position: center bottom -29%; 
+  transition: top 100ms; 
+} 
+ 
+input[type=checkbox]:checked + label { 
+  background: #2badec; 
+  box-shadow: inset 0 1px 3px #0a5174, inset 0 1px 1px 1px #1a1a1a, inset 0 -1.5em 1em rgba(15, 114, 162, 0.5); 
+} 
+ 
+input[type=checkbox]:checked + label span.lids { 
+  left: 4.25em; 
+} 
+ 
+input[type=checkbox]:checked + label span.lids:before { 
+  top: -10.5em; 
+} 
+ 
+input[type=checkbox]:checked + label span.lids:after { 
+  top: 2.6em; 
+} 
+ 
+input[type=checkbox]:checked + label span.eye span.iris { 
+  top: .875em; 
+  left: 2.25em; 
+} 
+ 
+@-webkit-keyframes iris { 
+  0% { 
+    left: .5em; 
+  } 
+ 
+  50% { 
+    left: 2.4em; 
+  } 
+ 
+  100% { 
+    left: .5em; 
+  } 
+} 
+ 
+.anime { 
+  -webkit-animation: iris 500ms linear; 
+} 
+</style>
+<style>
+/* option fields */
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: #34495e;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+.select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+</style>
