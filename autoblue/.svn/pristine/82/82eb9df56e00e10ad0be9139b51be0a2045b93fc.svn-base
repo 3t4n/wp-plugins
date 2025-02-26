@@ -1,0 +1,30 @@
+{
+	"$schema": "https://getcomposer.org/schema.json",
+	"name": "posty/autoblue",
+	"description": "Add Bluesky to your WordPress website. Automatically share new posts to Bluesky and integrate Bluesky replies with the comments on your website.",
+	"type": "project",
+	"license": "GPL-3.0",
+	"autoload": {
+		"classmap": [
+			"includes/"
+		]
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"wp-coding-standards/wpcs": "^3.0",
+		"phpcompatibility/php-compatibility": "^9.3",
+		"phpcompatibility/phpcompatibility-wp": "*",
+		"szepeviktor/phpstan-wordpress": "^2.0",
+		"phpstan/phpstan": "^2.0",
+		"php-stubs/wp-cli-stubs": "^2.11"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"require": {
+		"monolog/monolog": "^2.0",
+		"psr/log": "^1.1.4"
+	}
+}
