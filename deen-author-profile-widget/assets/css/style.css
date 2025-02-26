@@ -1,0 +1,289 @@
+:root {
+  --color-popup: #2e25ad;
+  --color-muted: #404145;
+  --color-white: #ffffff;
+  --color-border: #e4e5e7;
+  --color-gray: gray;
+  --color-semi-gray: #cec5c5;
+  --color-gunmetal: #4e4f53;
+}
+
+.wpdeen-custom-row ol,
+.wpdeen-custom-row ul {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wpdeen-co-gray {
+  color: var( --color-gray);
+}
+
+.wpdeen-fs-sm {
+  font-size: 14px;
+}
+
+.wpdeen-f-bold {
+  font-weight: bold;
+}
+
+.wpdeen-aspect-ratio-1 {
+  aspect-ratio: 1/1;
+}
+
+.wpdeen-o-fit-cover {
+  object-fit: cover;
+}
+
+div.wpdeen-author-container {
+  padding: 0;
+}
+
+/* 
+* Images  
+*/
+
+.wpdeen-wpdeen-profile-img-block {
+  transition: .3s linear;
+}
+
+.wpdeen-profile-img {
+  position: relative;
+  background: var(--color-white);
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.wpdeen-profile-img img {
+  position: sticky;
+  background: var(--color-white);
+  z-index: 99;
+}
+
+.wpdeen-profile-image {
+  height: 150px;
+  width: 150px;
+}
+
+.wpdeen-profile-img::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  background: linear-gradient( 225deg, var(--color-muted), var(--color-gunmetal) 37.55%, var(--color-muted) 63.2%, var(--color-gunmetal));
+  top: -8px;
+  left: -8px;
+}
+
+.wpdeen-profile-info  .wpdeen-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+
+.wpdeen-rating-text {
+  color: var(--color-gray);
+}
+
+.wpdeen-profile-list-item .wpdeen-expert-heading {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.wpdeen-icon-box-child svg {
+  height:100%;
+}
+
+.wpdeen-divider-wraper {
+  margin: 16px 0;
+}
+
+.wpdeen-author-container hr.wpdeen-divider {
+  opacity: unset;
+  color: var(--color-semi-gray);
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: transparent !important;
+}
+
+.wpdeen-profile-video {
+  position: absolute;
+  top: 50%;
+  z-index: 99;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-popup);
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50px;
+  opacity: 0;
+}
+
+.wpdeen-profile-img-block:hover .wpdeen-profile-video {
+  opacity: 1;
+  transition: .5s linear;
+}
+
+.wpdeen-profile-video svg {
+  color: var(--color-white);
+}
+
+.wpdeen-profile-badge {
+  background: var(--color-muted);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  bottom: -12px;
+  z-index: 99;
+  right: 18px;
+}
+
+.wpdeen-profile-badge svg {
+  fill: var(--color-white);
+}
+
+/* 
+* Profile info 
+*/
+
+.wpdeen-profile-info .wpdeen-card-text {
+  color: var(--color-muted);
+}
+
+.wpdeen-profile-info .wpdeen-card-text:hover {
+  text-decoration: underline;
+}
+
+.wpdeen-profile-info .wpdeen-author-description {
+  margin-bottom: 0;
+}
+
+/* 
+* Profile rating
+*/
+
+.wpdeen-profile-rating svg {
+  color: var(--color-muted);
+}
+
+.wpdeen-icon-box-child svg {
+  width: 16px;
+  fill: var(--color-popup);
+}
+
+.wpdeen-list-item-child:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.wpdeen-client-logo img{
+  width: 100%;
+  height: 50px;
+}
+
+.wpdeen-client-name {
+  color: var(--color-muted);
+}
+
+.wpdeen-client-group-list {
+  align-items: center;
+}
+
+.wpdeen-client-group-list:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.wpdeen-profile-info .wpdeen-card-text:hover {
+  text-decoration: none;
+}
+
+/* 
+* Buttons
+*/
+
+.wpdeen-call-to-action .wpdeen-header-primary-cta, 
+.wpdeen-call-to-action .wpdeen-header-primary-cta:hover {
+  background-color: var(--color-muted);
+  color: var(--color-white);
+}
+
+.wpdeen-call-to-action .wpdeen-header-secondary-cta, 
+.wpdeen-call-to-action .wpdeen-header-secondary-cta:hover {
+  background-color: var(--color-white);
+  color: var(--color-muted);
+  border: 1px solid var(--color-muted);
+}
+
+/*
+* Social card
+*/
+
+.wpdeen-social-list {
+  flex-wrap: wrap;
+}
+
+/* 
+* Skills card  
+*/
+
+.wpdeen-skills-card li {
+  display: inline-block;
+  border-radius: 15px;
+  min-width: 40px;
+  text-align: center;
+  padding: 5px 12px;
+  margin: 0 10px 10px 0;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.wpdeen-client-info .wpdeen-client-des {
+  color: var(--color-muted);
+}
+
+.wpdeen-social-presence-card li a {
+  border-radius: 30px;
+  border: 1px solid var(--color-muted);
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.wpdeen-social-presence-card li a svg {
+  width: 30px; 
+  height: 30px;
+}
+
+.wpdeen-social-presence-card li a i, .wpdeen-social-presence-card li a svg {
+  color: var(--color-muted);
+}
+
+.wpdeen-social-presence-card li a i {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+
+.wpdeen-education-card, .wpdeen-social-presence-card, .wpdeen-skills-card, .wpdeen-clients-wrap, .wpdeen-header-wrap {
+  padding: 24px;
+}
+
+/* Social Crad */
+
+.wpdeen-social-section-title {
+  margin-bottom: 0;
+}
