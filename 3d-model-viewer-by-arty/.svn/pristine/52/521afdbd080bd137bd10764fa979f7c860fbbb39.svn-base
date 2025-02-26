@@ -1,0 +1,111 @@
+.arty-block {
+    width: 100%;
+    max-width: 1200px;
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    /*border-left: solid 5px #1d1d1d;*/
+}
+
+.arty-logo {
+    display: block;
+    height: 40px;
+    background-image: url("../img/logo_arty_black.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 10px 0;
+}
+
+.arty-requirements ul {
+    padding: 10px 20px;
+    background: #f5f5f5;
+    border-left: solid 4px #ff0000;
+    list-style-type: disc;
+}
+
+.arty-requirements ul li {
+    margin-left: 10px;
+}
+
+.arty-button {
+    color: #1d1d1d;
+    background: #ecf403;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 42px;
+    border: none;
+    white-space: nowrap;
+    line-height: normal;
+    display: inline-block;
+    transition: all 0.5s;
+    margin-top: 20px;
+}
+
+.arty-button:hover,
+.arty-button:focus{
+    color: #1d1d1d;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.arty-button.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.arty-button-plus span {
+    pointer-events: none;
+}
+
+.arty-button-plus span:first-child {
+    transition: all 0.2s;
+}
+
+.arty-button-plus span:last-child:before {
+    content: "  →";
+    font-size: 15px;
+}
+
+.arty-button-plus:hover > span:first-child {
+    transform: translateX(7px);
+    display: inline-block;
+}
+
+.arty-button-plus:hover > span:last-child {
+    transform: translateX(5px);
+    display: inline-block;
+    opacity: 0;
+}
+
+
+
+
+.arty_3dmodelviewer_iframe {
+    width: 100%;
+    min-width: 300px;
+    height: 600px;
+    min-height: 300px;
+    /*border: 2px solid black;*/
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+@media only screen and (max-width: 480px) {
+    .arty_3dmodelviewer_iframe {
+        width: 300px;
+        height: 300px;
+        margin: 0;
+    }
+}
+@media only screen and (min-width: 481px) and (max-width: 680px) {
+    .arty_3dmodelviewer_iframe {
+        width: 420px;
+        height: 420px;
+        margin: 0;
+    }
+}
