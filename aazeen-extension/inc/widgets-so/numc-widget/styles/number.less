@@ -1,0 +1,24 @@
+@title: #ffffff;
+@num: #ffffff;
+@num-size: 48px;
+@t-pos: below;
+@background_color:#222328;
+
+
+#counter{
+	background:@background_color;
+}
+
+.cont_info{
+	font-size: 16px;
+	color: @title;
+	.position() when (@t-pos = above) { margin-top: 0; }
+	.position() when (@t-pos = below) { margin-bottom: 0; }
+	.position();
+}
+.stat_count_wrapper span {
+	color: @num;
+	font-size: @num-size;
+	line-height: @num-size;
+	margin: 0;
+}
