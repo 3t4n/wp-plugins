@@ -1,0 +1,22 @@
+paths:
+    tests:   tests
+    log:     tests/_logs
+    data:    tests/_data
+    helpers: tests/_helpers
+
+settings:
+    bootstrap:    _bootstrap.php
+    suite_class:  \PHPUnit_Framework_TestSuite
+    colors:       true
+    memory_limit: 1024M
+    log:          true
+
+modules:
+    config:
+        Db:
+            dsn:      'mysql:host=vvv;dbname=wordpress_unit_tests'
+            user:     'wp'
+            password: 'wp'
+            dump:     tests/_data/wordpress_unit_tests.sql
+            populate: true
+            cleanup:  true

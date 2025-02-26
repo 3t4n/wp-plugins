@@ -1,0 +1,128 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+var Global;
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./js/components/public/cookie-btn.js":
+/*!********************************************!*\
+  !*** ./js/components/public/cookie-btn.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ CookieBtn; }\n/* harmony export */ });\n/* harmony import */ var _global_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./global-functions */ \"./js/components/public/global-functions.js\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\nfunction _toPropertyKey(arg) { var key = _toPrimitive(arg, \"string\"); return _typeof(key) === \"symbol\" ? key : String(key); }\nfunction _toPrimitive(input, hint) { if (_typeof(input) !== \"object\" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || \"default\"); if (_typeof(res) !== \"object\") return res; throw new TypeError(\"@@toPrimitive must return a primitive value.\"); } return (hint === \"string\" ? String : Number)(input); }\n\nvar CookieBtn = /*#__PURE__*/function () {\n  function CookieBtn() {\n    _classCallCheck(this, CookieBtn);\n    /**\r\n     * DOM elements\r\n     */\n    this.container = document.querySelector('.cdc-cookie');\n    this.openBtn = document.querySelector('#cdc-cookie-open-btn');\n\n    /**\r\n     * Functions\r\n     */\n    this.events();\n  }\n\n  /**\r\n   * Evensts listenners\r\n   */\n  _createClass(CookieBtn, [{\n    key: \"events\",\n    value: function events() {\n      var _this = this;\n      window.addEventListener('DOMContentLoaded', function () {\n        _this.openBtn.addEventListener('click', function (e) {\n          return _this.toggleThePopup(e);\n        });\n        _this.toggleTheBtn();\n      });\n    }\n\n    /**\r\n     * Toggle the popup\r\n     */\n  }, {\n    key: \"toggleThePopup\",\n    value: function toggleThePopup(e) {\n      e.preventDefault();\n      if (this.openBtn.classList.contains('open')) {\n        _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closePopup();\n      } else {\n        _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].openPopup();\n      }\n    }\n\n    /**\r\n     * Show the btn if there is no cookie\r\n     */\n  }, {\n    key: \"toggleTheBtn\",\n    value: function toggleTheBtn() {\n      if (typeof CDC_PUBLIC_PHP_DATA == 'undefined') return;\n      var cookieExist = document.cookie.indexOf('; cdc-cookies=') != -1;\n      if (CDC_PUBLIC_PHP_DATA['disappears_accepted'] == 'yes') {\n        if (!cookieExist) {\n          this.showTheBtn();\n          this.openPopupWithDelay();\n        }\n      } else {\n        if (cookieExist) {\n          this.showTheBtn();\n        } else {\n          this.showTheBtn();\n          this.openPopupWithDelay();\n        }\n      }\n    }\n\n    /**\r\n     * Show the btn of the popup\r\n     */\n  }, {\n    key: \"showTheBtn\",\n    value: function showTheBtn() {\n      this.container.classList.add('show');\n    }\n\n    /**\r\n     * Open the popup automatiqualy after a delay\r\n     */\n  }, {\n    key: \"openPopupWithDelay\",\n    value: function openPopupWithDelay() {\n      var delay = parseInt(CDC_PUBLIC_PHP_DATA['delay_opening']);\n      if (delay > 0) {\n        setTimeout(function () {\n          if (!_global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getAlreadyOpened()) {\n            _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].openPopup();\n          }\n        }, delay * 1000);\n      }\n    }\n  }]);\n  return CookieBtn;\n}();\n\n\n//# sourceURL=webpack://Global/./js/components/public/cookie-btn.js?");
+
+/***/ }),
+
+/***/ "./js/components/public/cookie-popup.js":
+/*!**********************************************!*\
+  !*** ./js/components/public/cookie-popup.js ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ CookiePopup; }\n/* harmony export */ });\n/* harmony import */ var _global_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./global-functions */ \"./js/components/public/global-functions.js\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\nfunction _toPropertyKey(arg) { var key = _toPrimitive(arg, \"string\"); return _typeof(key) === \"symbol\" ? key : String(key); }\nfunction _toPrimitive(input, hint) { if (_typeof(input) !== \"object\" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || \"default\"); if (_typeof(res) !== \"object\") return res; throw new TypeError(\"@@toPrimitive must return a primitive value.\"); } return (hint === \"string\" ? String : Number)(input); }\n\nvar CookiePopup = /*#__PURE__*/function () {\n  function CookiePopup() {\n    _classCallCheck(this, CookiePopup);\n    /**\r\n     * DOM elements\r\n     */\n    this.container = document.querySelector('.cdc-cookie');\n    this.popup = document.querySelector('#cdc-cookie-popup');\n\n    /**\r\n     * Functions\r\n     */\n    this.events();\n  }\n\n  /**\r\n   * Events listenners\r\n   */\n  _createClass(CookiePopup, [{\n    key: \"events\",\n    value: function events() {\n      var _this = this;\n      window.addEventListener('DOMContentLoaded', function () {\n        _this.popup.addEventListener('click', function (e) {\n          return _this.popupClicked(e);\n        });\n        _this.popup.addEventListener('change', function (e) {\n          return _this.popupChange(e);\n        });\n      });\n    }\n\n    /**\r\n     * Trigger when the popup clicked\r\n     */\n  }, {\n    key: \"popupClicked\",\n    value: function popupClicked(e) {\n      var mainSummaryLink = e.target.closest('.cdc-cookie__popup__steps__step__body__summary__content__item');\n      var mainBtnReject = e.target.closest('#cdc-cookie-step-main-reject');\n      var mainBtnChoose = e.target.closest('#cdc-cookie-step-main-choose');\n      var mainBtnAcceptall = e.target.closest('#cdc-cookie-step-main-acceptall');\n      var mandatoryBtnAccept = e.target.closest('#cdc-cookie-step-mandatory-acceptall');\n      var mandatoryBtnNext = e.target.closest('#cdc-cookie-step-mandatory-next');\n      var optionalBtnAccept = e.target.closest('#cdc-cookie-step-optional-acceptall');\n      var optionalBtnConfirm = e.target.closest('#cdc-cookie-step-optional-confirm');\n      var powerByHeader = e.target.closest('.cdc-cookie__popup__steps__step__footer__powered__header');\n      var customLink = e.target.closest('.cdc-cookie__popup__link');\n      if (mainSummaryLink) {\n        var index = mainSummaryLink.dataset.index;\n        _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].goToStep(index);\n      } else if (mainBtnReject) {\n        //Main step reject\n\n        if (_global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].isFront()) {\n          this.refuseAllCookies();\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closePopup();\n        } else {\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].showMessagePopup();\n        }\n      } else if (mainBtnChoose) {\n        //Main step choose\n\n        _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].goToNextStep();\n      } else if (mainBtnAcceptall) {\n        //Main step accept all\n\n        if (_global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].isFront()) {\n          this.acceptAllCookies();\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closePopup();\n        } else {\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].showMessagePopup();\n        }\n      } else if (mandatoryBtnAccept) {\n        //Mandatory accept all\n\n        if (_global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].isFront()) {\n          this.acceptAllCookies();\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closePopup();\n        } else {\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].showMessagePopup();\n        }\n      } else if (mandatoryBtnNext) {\n        //Mandatory next\n\n        _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].goToNextStep();\n      } else if (optionalBtnAccept) {\n        //Optional accept all\n\n        if (_global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].isFront()) {\n          this.acceptAllCookies();\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closePopup();\n        } else {\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].showMessagePopup();\n        }\n      } else if (optionalBtnConfirm) {\n        //Optional confirm\n\n        if (_global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].isFront()) {\n          this.saveCookies();\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].closePopup();\n        } else {\n          _global_functions__WEBPACK_IMPORTED_MODULE_0__[\"default\"].showMessagePopup();\n        }\n      } else if (powerByHeader) {\n        // Toggle powered by section\n\n        var container = powerByHeader.closest('.cdc-cookie__popup__steps__step__footer__powered');\n        if (container.classList.contains('close')) {\n          container.classList.remove('close');\n        } else {\n          container.classList.add('close');\n        }\n      } else if (customLink) {\n        var link = customLink.dataset.href;\n        window.open(link, '_blank');\n      }\n    }\n\n    /**\r\n     * Trigger when the popup change\r\n     */\n  }, {\n    key: \"popupChange\",\n    value: function popupChange(e) {\n      var optionalCheckboxAll = e.target.closest('#cdc-cookie-step-optional-checkbox-all');\n      var optionalCheckboxes = e.target.closest('.cdc-cookie__popup__steps__step__body__toggles__items__item__right__checkbox__field');\n      if (optionalCheckboxAll) {\n        //Optional Checkbox all\n\n        if (optionalCheckboxAll.checked) {\n          this.checkAllCheckboxes(optionalCheckboxAll);\n        } else {\n          this.unCheckAllCheckboxes(optionalCheckboxAll);\n        }\n      } else if (optionalCheckboxes) {\n        //Optional Checkboxes container\n\n        var parent = optionalCheckboxes.closest('.cdc-cookie__popup__steps__step__body__toggles');\n        var checkboxAll = parent.querySelector('#cdc-cookie-step-optional-checkbox-all');\n        var itemsContainer = parent.querySelector('.cdc-cookie__popup__steps__step__body__toggles__items');\n        var checkboxes = itemsContainer.querySelectorAll('input[type=checkbox]:not(:checked)');\n        if (checkboxes.length > 0) {\n          checkboxAll.checked = false;\n        } else {\n          checkboxAll.checked = true;\n        }\n      }\n    }\n\n    /**\r\n     * Accept all cookies\r\n     */\n  }, {\n    key: \"acceptAllCookies\",\n    value: function acceptAllCookies() {\n      var optionalCheckboxAll = document.querySelector('#cdc-cookie-step-optional-checkbox-all');\n      if (optionalCheckboxAll) {\n        optionalCheckboxAll.checked = true;\n        this.checkAllCheckboxes(optionalCheckboxAll);\n        this.saveCookies();\n      }\n    }\n\n    /**\r\n     * Refuse all cookies\r\n     */\n  }, {\n    key: \"refuseAllCookies\",\n    value: function refuseAllCookies() {\n      var optionalCheckboxAll = document.querySelector('#cdc-cookie-step-optional-checkbox-all');\n      if (optionalCheckboxAll) {\n        optionalCheckboxAll.checked = false;\n        this.unCheckAllCheckboxes(optionalCheckboxAll);\n        this.saveCookies();\n      }\n    }\n\n    /**\r\n     * Save data to cookies\r\n     */\n  }, {\n    key: \"saveCookies\",\n    value: function saveCookies() {\n      var optionalCookies = document.querySelectorAll('.cdc-cookie__popup__steps__step__body__toggles__items__item');\n      var durationAcceptall = CDC_PUBLIC_PHP_DATA['cookie_duration_acceptall'];\n      var durationNotacceptall = CDC_PUBLIC_PHP_DATA['cookie_duration_notacceptall'];\n      var cookiesObject = {};\n      var hasUncheckedCookies = false;\n      for (var i = 0; i < optionalCookies.length; i++) {\n        var cookie = optionalCookies[i];\n        var cookieId = cookie.dataset.id;\n        var cookieChckbox = cookie.querySelector('input[type=checkbox]');\n        if (!cookieChckbox.checked) {\n          cookiesObject[cookieId] = false;\n          hasUncheckedCookies = true;\n        } else {\n          cookiesObject[cookieId] = true;\n          if (typeof window.cdcRunScripts === \"function\") {\n            window.cdcRunScripts(cookieId);\n          }\n        }\n      }\n      var duration = hasUncheckedCookies ? durationNotacceptall : durationAcceptall;\n      var d = new Date();\n      d.setTime(d.getTime() + duration * 24 * 60 * 60 * 1000);\n      var secure = \";secure\";\n      if (window.location.protocol !== \"https:\") secure = '';\n      document.cookie = \"cdc-cookies=\" + JSON.stringify(cookiesObject) + \";SameSite=Lax\" + secure + \";expires=\" + d.toUTCString() + \";path=/\";\n    }\n\n    /**\r\n     * Check all checkboxes\r\n     */\n  }, {\n    key: \"checkAllCheckboxes\",\n    value: function checkAllCheckboxes(checkbox) {\n      var parent = checkbox.closest('.cdc-cookie__popup__steps__step__body__toggles');\n      var itemsContainer = parent.querySelector('.cdc-cookie__popup__steps__step__body__toggles__items');\n      var checkboxes = itemsContainer.querySelectorAll('input[type=checkbox]');\n      for (var i = 0; i < checkboxes.length; i++) {\n        var _checkbox = checkboxes[i];\n        _checkbox.checked = true;\n      }\n    }\n\n    /**\r\n     * uncheck all checkboxes\r\n     */\n  }, {\n    key: \"unCheckAllCheckboxes\",\n    value: function unCheckAllCheckboxes(checkbox) {\n      var parent = checkbox.closest('.cdc-cookie__popup__steps__step__body__toggles');\n      var itemsContainer = parent.querySelector('.cdc-cookie__popup__steps__step__body__toggles__items');\n      var checkboxes = itemsContainer.querySelectorAll('input[type=checkbox]');\n      for (var i = 0; i < checkboxes.length; i++) {\n        var _checkbox2 = checkboxes[i];\n        _checkbox2.checked = false;\n      }\n    }\n  }]);\n  return CookiePopup;\n}();\n\n\n//# sourceURL=webpack://Global/./js/components/public/cookie-popup.js?");
+
+/***/ }),
+
+/***/ "./js/components/public/global-functions.js":
+/*!**************************************************!*\
+  !*** ./js/components/public/global-functions.js ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Global vars\r\n */\nvar secondStep;\nvar thirdStep;\nvar _alreadyOpened = false;\n\n/**\r\n * Check if this is the front\r\n */\nvar isFront = function isFront() {\n  var front = true;\n  if (typeof CDC_PUBLIC_PHP_DATA == 'undefined') {\n    front = false;\n  }\n  return front;\n};\n\n/**\r\n * Open the popup\r\n */\nvar openPopup = function openPopup() {\n  var openBtn = document.querySelector('#cdc-cookie-open-btn');\n  var popup = document.querySelector('#cdc-cookie-popup');\n  openBtn.classList.add('open');\n  popup.classList.remove('closed');\n  setAlreadyOpened(true);\n};\n\n/**\r\n * Close the popup\r\n */\nvar closePopup = function closePopup() {\n  var openBtn = document.querySelector('#cdc-cookie-open-btn');\n  var popup = document.querySelector('#cdc-cookie-popup');\n  openBtn.classList.remove('open');\n  popup.classList.add('closed');\n  goToStep(0);\n};\n\n/**\r\n * Get current step\r\n */\nvar getCurrentStep = function getCurrentStep() {\n  var currentStep = document.querySelector('.cdc-cookie__popup__steps__step.selected');\n  var currentStepIndex = Array.from(currentStep.parentNode.children).indexOf(currentStep);\n  return currentStepIndex;\n};\n\n/**\r\n * Go to a step\r\n */\nvar goToStep = function goToStep(index) {\n  var steps = document.querySelectorAll('.cdc-cookie__popup__steps__step');\n  for (var i = 0; i < steps.length; i++) {\n    var step = steps[i];\n    if (i == index) {\n      step.classList.add('selected');\n    } else {\n      step.classList.remove('selected');\n    }\n  }\n};\n\n/**\r\n * Go to next step\r\n */\nvar goToNextStep = function goToNextStep() {\n  var steps = document.querySelectorAll('.cdc-cookie__popup__steps__step');\n  var currentStepIndex = getCurrentStep();\n  var nextStepIndex = currentStepIndex + 1;\n  if (steps.length - 1 >= nextStepIndex) {\n    goToStep(nextStepIndex);\n  }\n};\n\n/**\r\n * Go to previous step\r\n */\nvar goToPreviousStep = function goToPreviousStep() {\n  var currentStepIndex = getCurrentStep();\n  var previousStepIndex = currentStepIndex - 1;\n  if (previousStepIndex >= 0) {\n    goToStep(previousStepIndex);\n  }\n};\n\n/**\r\n * Convert a html string to an element\r\n */\nvar stringToElement = function stringToElement(htmlString) {\n  var placeholder = document.createElement('div');\n  placeholder.insertAdjacentHTML('afterbegin', htmlString);\n  return placeholder.firstElementChild;\n};\nvar getAlreadyOpened = function getAlreadyOpened() {\n  return _alreadyOpened;\n};\nvar setAlreadyOpened = function setAlreadyOpened(value) {\n  _alreadyOpened = value;\n};\n\n/**\r\n * Show the popup message in the preview\r\n */\nvar showMessagePopup = function showMessagePopup() {\n  var popup = document.querySelector('.cdc-content__preview__content__message');\n  popup.classList.add('show');\n  setTimeout(function () {\n    hideMessagePopup();\n  }, 2000);\n};\n\n/**\r\n * Hide the popup message in the preview\r\n */\nvar hideMessagePopup = function hideMessagePopup() {\n  var popup = document.querySelector('.cdc-content__preview__content__message');\n  popup.classList.remove('show');\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (Global = {\n  'secondStep': secondStep,\n  'thirdStep': thirdStep,\n  'isFront': isFront,\n  'openPopup': openPopup,\n  'closePopup': closePopup,\n  'getCurrentStep': getCurrentStep,\n  'goToStep': goToStep,\n  'goToNextStep': goToNextStep,\n  'goToPreviousStep': goToPreviousStep,\n  'stringToElement': stringToElement,\n  'getAlreadyOpened': getAlreadyOpened,\n  'setAlreadyOpened': setAlreadyOpened,\n  'showMessagePopup': showMessagePopup,\n  'hideMessagePopup': hideMessagePopup\n});\n\n//# sourceURL=webpack://Global/./js/components/public/global-functions.js?");
+
+/***/ }),
+
+/***/ "./js/front.js":
+/*!*********************!*\
+  !*** ./js/front.js ***!
+  \*********************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_front_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/front.scss */ \"./scss/front.scss\");\n/* harmony import */ var _components_public_cookie_btn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/public/cookie-btn */ \"./js/components/public/cookie-btn.js\");\n/* harmony import */ var _components_public_cookie_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/public/cookie-popup */ \"./js/components/public/cookie-popup.js\");\n\n\n\nnew _components_public_cookie_btn__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\nnew _components_public_cookie_popup__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n\n//# sourceURL=webpack://Global/./js/front.js?");
+
+/***/ }),
+
+/***/ "./scss/front.scss":
+/*!*************************!*\
+  !*** ./scss/front.scss ***!
+  \*************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://Global/./scss/front.scss?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./js/front.js");
+/******/ 	Global = __webpack_exports__;
+/******/ 	
+/******/ })()
+;
