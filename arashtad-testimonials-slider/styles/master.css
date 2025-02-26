@@ -1,0 +1,246 @@
+/**
+ * Plugin Name		Arashtad Testimonials Slider
+ * Plugin URI	  	https://arashtad.com/wordpress-plugins/introductions/arashtad-testimonials/
+ * Description		Responsive testimonials slider widget for WordPress
+ * Author			Amin Shahrokhi
+ * Author URI		https://arashtad.com/
+ * Author Email		support@arashtad.com
+ * Creation Date	December 18, 2015
+ * Copyright		Copyright (c) 2011 - 2016 Arashtad Ltd. All rights reserved.
+ * License			GNU General Public License version 3 or later; see LICENSE.txt
+ * License URI: 	https://www.gnu.org/licenses/gpl-2.0.html
+**/
+
+/* ------------------ Begin default styles ------------------ */
+.testimonials {
+	width: 92%;
+	padding: 4%;
+	border: 1px solid #dddddd;
+	background: #f8f9f9;
+	overflow: hidden;
+}
+.testimonials,
+.artestimonialsheadertext,
+.artestimonialsfootertext,
+.artestimonialsfooterlink {
+	font: normal 100%/1.5em "Open Sans",sans-serif;
+}
+.testimonials section {
+	width: 100%;
+	clear: both;
+	display: none;
+}
+.testimonials section:first-child {
+	display: block;
+}
+
+.testimonials section:before {
+	font-family: FontAwesome;
+	content: '\f10d';
+	font-size: 350%;
+	line-height: .3em;
+	float: left;
+	margin: 20px 20px 20px 0;
+	opacity: .3;
+}
+.testimonials section p {
+
+}
+.testimonials section figure {
+	text-align: center;
+	display: block;
+	font: bold 110%/1.3em "Open Sans",sans-serif;
+	margin-bottom: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.testimonials section figure a {
+	color: #46ceb5;
+}
+.testimonials section figure:before {
+	width: 200px;
+	max-width: 94%;
+	height: 1px;
+	border-top: 5px solid #eeeeee;
+	display: block;
+	content: ' ';
+	margin: 20px auto;
+}
+.testimonials section figure a:hover {
+	color: #666666;
+}
+.company_name {
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	font: normal 80%/2.3em 'Helvetica Neue', Helvetica, 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 200;
+	color: #bbbbbb;
+}
+ul.stars {
+	list-style: none;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+ul.stars li {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+	margin: 2px;
+	padding: 0;
+}
+ul.stars li:before {
+	font-family: FontAwesome;
+	content: '\f005';
+	color: #dddddd;
+}
+.star_1 li:first-child:before {
+	color: #ffc400;
+}
+.star_2 li:nth-child(-n+2):before {
+	color: #ffc400;
+}
+.star_3 li:nth-child(-n+3):before {
+	color: #ffc400;
+}
+.star_4 li:nth-child(-n+4):before {
+	color: #ffc400;
+}
+.star_5 li:before {
+	color: #ffc400 !important;
+}
+.artestimonialsheadertext,
+.artestimonialsfootertext {
+	margin: 10px 0;
+}
+.testimonials .clear {
+	clear: both;
+}
+
+/* ------------------ Begin nude styles ------------------ */
+.testimonials.nude {
+	border: none;
+	background: none;
+}
+.testimonials.nude section:before {
+	font-family: FontAwesome;
+	content: '\f10d';
+	font-size: 350%;
+	line-height: .3em;
+	float: left;
+	margin: 20px 20px 20px 0;
+	opacity: .3;
+}
+.testimonials.nude section figure:before {
+	border-top: 5px solid #cccccc;
+}
+
+/* ------------------ Begin colorized styles ------------------ */
+.testimonials.colorized {
+	width: 92%;
+	padding: 4%;
+	border: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #46ceb5;
+	color: white;
+}
+.testimonials.colorized section:before {
+	font-family: FontAwesome;
+	content: '\f10d';
+	font-size: 350%;
+	line-height: .3em;
+	float: left;
+	margin: 20px 20px 20px 0;
+	opacity: .3;
+	color: white;
+}
+.testimonials.colorized section figure:before {
+	border-top: 5px solid white;
+	opacity: .5;
+}
+.testimonials.colorized section figure a {
+	color: white;
+}
+.testimonials.colorized section figure a:hover {
+	color: #217263;
+}
+.testimonials.colorized .company_name {
+	color: #a8ece0;
+}
+
+/* ------------------ Begin Yutab styles ------------------ */
+.testimonials.yutab {
+	width: 92%;
+	padding: 4%;
+	border-left: 8px solid #46ceb5;
+	background: #f8f9f9;
+	overflow: hidden;
+}
+.testimonials.yutab,
+.artestimonialsheadertext,
+.artestimonialsfootertext,
+.artestimonialsfooterlink {
+	font: normal 100%/1.5em "Open Sans",sans-serif;
+}
+.testimonials.yutab section {
+	width: 100%;
+	clear: both;
+	display: none;
+}
+.testimonials.yutab section:first-child {
+	display: block;
+}
+
+.testimonials.yutab section:before {
+	font-family: FontAwesome;
+	content: '\f10d';
+	font-size: 350%;
+	line-height: .3em;
+	color: #46ceb5;
+	float: left;
+	margin: 20px 20px 20px 0;
+	opacity: .3;
+}
+.testimonials.yutab section p {
+
+}
+.testimonials.yutab section figure {
+	text-align: center;
+	display: block;
+	font: bold 110%/1.3em "Open Sans",sans-serif;
+	margin-bottom: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.testimonials.yutab section figure a {
+	color: #46ceb5;
+}
+.testimonials.yutab section figure:before {
+	width: 200px;
+	max-width: 94%;
+	height: 1px;
+	border-top: 5px solid #eeeeee;
+	display: block;
+	content: ' ';
+	margin: 20px auto;
+}
+.testimonials.yutab section figure a:hover {
+	color: #666666;
+}
+.artestimonialsheadertext,
+.artestimonialsfootertext {
+	margin: 10px 0;
+}
