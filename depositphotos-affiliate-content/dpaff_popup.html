@@ -1,0 +1,235 @@
+<div id="depositphotos-affiliate-form">
+    <table id="depositphotos-affiliate-table" class="form-table">
+        <tr id="block-type">
+            <th><label>Format widget</label></th>
+            <td>
+            <input type="radio" name="block_type" value="iframe"/> iframe
+            <input type="radio" name="block_type" value="block"/> block
+            <input type="radio" name="block_type" value="php" /> php
+            </td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-tracking-link">Your tracking link</label></th>
+            <td><input type="text" name="tracking_link" size="60" id="depositphotos-affiliate-tracking-link" value="" /><br /></td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-feed">Feed Type</label></th>
+            <td><select name="feed" id="depositphotos-affiliate-feed" onchange="category_changed(this)">
+                <option value="categories">Category</option>
+                <!--option value="user">Portfolio</option-->
+                <option value="search">Search</option>
+            </select><br />
+            <small></small></td>
+        </tr>
+        <tr id="category-list">
+            <th><label for="depositphotos-affiliate-categories-list">Category List</label></th>
+            <td><select name="category_list" id="depositphotos-affiliate-categories-list">
+                 <option value="6">Abstract</option> 
+                 <option value="7">Animals</option> 
+                 <option value="8">Architecture &amp; Buildings</option> 
+                 <option value="9">Art Objects</option> 
+                 <option value="10">Beauty &amp; Fashion</option> 
+                 <option value="11">Business &amp; Finance</option> 
+                 <option value="12">Celebrities</option> 
+                 <option value="13">Cities</option> 
+                 <option value="14">Computers &amp; Electronics</option> 
+                 <option value="15">Concepts</option> 
+                 <option value="16">Decoration</option> 
+                 <option value="17">Education</option> 
+                 <option value="18">Fauna &amp; Flora</option> 
+                 <option value="19">Food and Drink</option> 
+                 <option value="20">Holidays &amp; Events</option> 
+                 <option value="21">Illustrations </option> 
+                 <option value="22">Industrial</option> 
+                 <option value="23">Interiors</option> 
+                 <option value="24">Jewelry &amp; Gems</option> 
+                 <option value="25">Medicine &amp; Health</option> 
+                 <option value="26">Miscellaneous</option> 
+                 <option value="42">Nature</option> 
+                 <option value="27">Objects</option> 
+                 <option value="28">Other</option> 
+                 <option value="29">People</option> 
+                 <option value="30">Places</option> 
+                 <option value="44">Professions</option> 
+                 <option value="31">Religious</option> 
+                 <option value="32">Science</option> 
+                 <option value="33">Shopping</option> 
+                 <option value="34">Signs &amp; Symbols</option> 
+                 <option value="35">Sport</option> 
+                 <option value="36">Technology</option> 
+                 <option value="37">Textures &amp; Backgrounds</option> 
+                 <option value="38">Tools</option> 
+                 <option value="39">Transport &amp; Auto</option> 
+                 <option value="43">Travel</option> 
+                 <option value="41">Vintage &amp; Retro</option>
+            </select></td>
+        </tr>
+        <tr id="author-id" style="display: none;">
+            <th><label for="depositphotos-affiliate-author-id">Author ID / Login</label></th>
+            <td><input type="text" name="author_id"  size="60" id="depositphotos-affiliate-author-id" value="" /><br /></td>
+        </tr>
+        <tr id="portfolio-checkbox" style="display: none;">
+            <th><label for="depositphotos-affiliate-portfolio-checkbox">Show the link to the portfolio</label></th>
+            <td><input type="checkbox" name="portfolio_checkbox" id="depositphotos-affiliate-portfolio-checkbox"/> Show portfolio checkbox<br /></td>
+        </tr>
+        <tr id="search-query" style="display: none;">
+            <th><label for="depositphotos-affiliate-search-query">Search query</label></th>
+            <td><input type="text" name="search_query"  size="60" id="depositphotos-affiliate-search-query" value="" /><br /></td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-style">Theme</label></th>
+            <td><select name="theme" id="depositphotos-affiliate-style">
+                <option value="light">Light</option>
+                <option value="dark" selected>Dark</option>
+                <option value="white">White</option>
+                <option value="transparent">Transparent</option>
+            </select><br />
+            <small></small></td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-background">Background</label></th>
+            <td><select name="background" id="depositphotos-affiliate-background">
+                <option value="false">Light</option>
+                <option value="dark">Dark</option>
+                <option value="transparent">Transparent</option>
+            </select><br />
+            <small></small></td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-image-type">Type</label></th>
+            <td>
+            <input type="checkbox" name="image_type_photo" checked="checked" /> Photo
+            <input type="checkbox" name="image_type_vector" checked="checked" /> Vector Image
+            <input type="checkbox" name="image_type_video" checked="checked" /> Video
+            </td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-editorial">Editorial</label></th>
+            <td><input type="checkbox" name="editorial" id="depositphotos-affiliate-editorial"/> Editorial Only<br />
+            <small></small></td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-sorting">Sort by</label></th>
+            <td><select name="sortby" id="depositphotos-affiliate-sorting">
+                <option value="5">Newest</option>
+                <option value="1" selected="selected">Popular</option>
+                <option value="randrom">Random</option>
+            </select><br />
+            <small></small></td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-thumb-size">Thumbnail Size</label></th>
+            <td><select name="thumb_size" id="depositphotos-affiliate-thumb-size" onchange="thumb_changed(this)">
+                <option value="110" selected="selected">110px</option>
+                <option value="170">170px</option>
+                <option value="specify_size">Specify the size</option>
+            </select><br />
+            <small></small></td>
+        </tr>
+        <tr id="size-custom" style="display: none;">
+            <th><label for="depositphotos-affiliate-thumb-size-custom">Select thumbnail size</label></th>
+            <td><input type="text" name="thumb_size_custom" id="depositphotos-affiliate-thumb-size-custom" value="300" /></td><br />
+        </tr>
+        <tr>
+            <th><label>Feed size</label></th>
+            <td>
+            Width <input type="text" name="feed_width" size="4" value="700" /> Height <input type="text" name="feed_height" size="4" value="450" />
+            </td><br />
+        </tr>
+        <tr>
+            <th><label>Search bar</label></th>
+            <td>
+            <input type="radio" name="search_bar" value="yes" checked="checked" /> Yes
+            <input type="radio" name="search_bar" value="no"/> No
+            </td>
+        </tr>
+        <tr>
+            <th><label>Show logo</label></th>
+            <td>
+            <input type="radio" name="show_logo" value="yes" checked="checked"/> Yes
+            <input type="radio" name="show_logo" value="no"/> No
+            </td>
+        </tr>
+        <tr>
+            <th><label>Thumbnails preview</label></th>
+            <td>
+            <input type="radio" name="thumbnails_preview" value="yes" checked="checked"/> Yes
+            <input type="radio" name="thumbnails_preview" value="no"/> No
+            </td>
+        </tr>
+        <tr>
+            <th><label>Hide pager</label></th>
+            <td>
+            <input type="radio" name="hide_pagination" value="yes"/> Yes
+            <input type="radio" name="hide_pagination" value="no" checked="checked"/> No
+            </td>
+        </tr>
+        <tr>
+            <th><label>Show border</label></th>
+            <td>
+            <input type="radio" name="show_borders" value="yes" checked="checked"/> Yes
+            <input type="radio" name="show_borders" value="no"/> No
+            </td>
+        </tr>
+        <tr>
+            <th><label>Responsive Mode</label></th>
+            <td>
+            <input type="radio" name="responsive" value="yes"/> Yes
+            <input type="radio" name="responsive" value="no" checked="checked"/> No
+            </td>
+        </tr>
+        <tr>
+            <th><label for="depositphotos-affiliate-additional">Additional</label></th>
+            <td><input type="checkbox" name="additional_nofollow" id="depositphotos-affiliate-additional"/> Add rel="nofollow" to a search result hyperlinks<br /></td>
+        </tr>
+    </table>
+    <p class="submit">
+        <input type="button" id="depositphotos-affiliate-submit" class="button-primary" value="Insert" name="submit" />
+    </p>
+</div>
+<script type="text/javascript">
+    function category_changed(el) {
+        var cur_cat_val = jQuery(el).val();
+        if(cur_cat_val == "categories") {
+            jQuery("#category-list").show();
+            jQuery("#author-id").hide();
+            jQuery("#portfolio-checkbox").hide();
+            jQuery("#search-query").hide();
+        }
+        if(cur_cat_val == "user") {
+            jQuery("#category-list").hide();
+            jQuery("#author-id").show();
+            jQuery("#portfolio-checkbox").show();
+            jQuery("#search-query").hide();
+        }
+        if(cur_cat_val == "search") {
+            jQuery("#category-list").hide();
+            jQuery("#author-id").hide();
+            jQuery("#portfolio-checkbox").hide();
+            jQuery("#search-query").show();
+        }
+    }
+    function thumb_changed(el) {
+        var cur_thumb_val = jQuery(el).val();
+        if(cur_thumb_val == "specify_size") {
+            jQuery("#size-custom").show();
+        } else {
+            jQuery("#size-custom").hide();
+        }
+    }
+    jQuery( document ).ready(function() {
+        jQuery.post(
+            ajaxurl, 
+            {
+                'action': 'dpaff_get_options',
+            }, 
+            function(response){
+                var resp_obj = jQuery.parseJSON(response);
+                if(resp_obj) {
+                    jQuery("#depositphotos-affiliate-tracking-link").val(resp_obj.affiliate_url);
+                    jQuery("#block-type input[value=" + resp_obj.block_type + "]").attr("checked", "checked");
+                }
+            }
+        );
+    });
+</script>
