@@ -1,0 +1,277 @@
+:root {
+    --emv-primary: #00346c;
+    --emv-secondary: #135e96;
+    --emv-button-color: var(--emv-primary);
+    --emv-button-focus-color: var(--emv-secondary);
+}
+
+/*
+.emv-container * {
+    outline: 1px solid red;
+}
+*/
+
+.emv-container {
+    color: var(--emv-primary);
+    /* WTF */
+    line-height: normal;
+    box-sizing: border-box;
+    width: 75%;
+}
+
+.emv-container lord-icon {
+    width: 7rem;
+    height: 7rem;
+}
+
+.emv-flex-grow {
+    flex-grow: 1;
+}
+
+.emv-bold {
+    font-weight: bold;
+}
+
+.emv-text-nowrap {
+    white-space: nowrap;
+}
+
+#emv-topleft {
+    min-width: 400px;
+    margin-bottom: auto;
+}
+
+@media (max-width: 991.98px) {
+    #emv-topright {
+        display: none;
+    }
+
+    .emv-container {
+        width: 100%;
+    }
+
+    .emv-center {
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .emv-top {
+        margin-bottom: -5rem;
+    }
+}
+
+@media (min-width: 767.98px) {
+    .emv-brand-text {
+        font-size: 1.5rem;
+    }
+
+    .emv-medium-text {
+        font-size: 1.2rem;
+    }
+
+    #emv-topleft .emv-brand-text {
+        font-size: 2rem;
+    }
+
+    #emv-topleft .emv-medium-text {
+        font-size: 1.5rem;
+    }
+}
+
+#emv-registration {
+    max-width: 58rem;
+}
+
+@media (min-width: 576px) {
+    #emv-registration-form .emv-flex-grow {
+        padding: 0 0.8rem;
+    }
+}
+
+#emv-cards, #emv-premium {
+    justify-content: space-between;
+    width: 90%;
+}
+
+.emv-card {
+    background-color: white;
+    border-radius: 10px;
+    width: 20rem;
+    height: 20rem;
+    padding: 1.5rem 1.2rem 1.5rem 1.2rem;
+    margin-bottom: 2rem;
+    /* vertically */
+    justify-content: space-between;
+}
+
+.emv-card.premium {
+    color: white;
+    height: 15rem;
+    background-color: var(--emv-primary);
+}
+
+ul.formats {
+    list-style: none;
+    display: flex;
+}
+
+ul.formats li {
+    text-transform: uppercase;
+    display: inline-block;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.emv-center {
+    align-items: center;
+}
+
+.emv-mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.emv-right {
+    margin-left: auto;
+}
+
+.emv-row {
+    display: flex;
+    align-items: center;
+}
+
+.emv-row.label {
+    padding-top: 0.8rem;
+    padding-bottom: 0.4rem;
+}
+
+.emv-wrap {
+    flex-wrap: wrap;
+}
+
+.emv-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.emv-top {
+    align-items: center;
+}
+
+.emv-pad {
+    padding: 1.2rem;
+}
+
+.emv-py-1 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.emv-py-2 {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+}
+
+.emv-video>iframe {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 640px;
+    height: 385px;
+    z-index: 1;
+}
+
+.emv-brand-text {
+    font-weight: bold;
+}
+
+.emv-card.premium .emv-brand-text {
+    text-transform: uppercase;
+}
+
+.emv-card .button.emv {
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.emv-container .dashicons-star-filled {
+    display: inline;
+    color: gold;
+}
+
+#emv-cards .dashicons-star-filled {
+    vertical-align: text-top;
+}
+
+.button.emv {
+    color: white !important;
+    background-color: var(--emv-button-color);
+    border-color: var(--emv-button-color);
+    box-shadow: none !important;
+}
+
+.button.emv.focus,
+.button.emv.hover,
+.button.emv:focus,
+.button.emv:hover {
+    background: var(--emv-button-focus-color);
+    border-color: var(--emv-button-focus-color);
+}
+
+.premium .button.emv {
+    font-weight: bold;
+    color: var(--emv-primary) !important;
+    background-color: white;
+}
+
+.premium .button.emv.focus,
+.premium .button.emv.hover,
+.premium .button.emv:focus,
+.premium .button.emv:hover {
+    background: lightgray;
+    border-color: lightgray;
+}
+
+#emv-register-plugin-status {
+    color: green;
+}
+
+#emv-register-plugin-status.error {
+    color: red;
+}
+
+#emv-meta-box-output {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.emv-row>input[type='checkbox'] {
+    margin-left: 0.2rem;
+}
+
+.wp-picker-input-wrap input[type='button'] {
+    margin-left: 0 !important;
+}
+
+.wp-picker-input-wrap input.color-picker {
+    padding-bottom: 0.4rem;
+}
+
+#emv-model>div {
+    display: flex;
+    align-items: center;
+    color: var(--emv-primary);
+}
+
+#emv-select-model {
+    margin-top: 0.4rem;
+}
+
+#emv-remove-model .dashicons {
+    text-decoration: none;
+    padding-left: 0.1rem;
+}
