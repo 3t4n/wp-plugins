@@ -1,0 +1,69 @@
+.cham-demo-wrapper{
+    position: relative;
+    width: 470px; /* with + 20px Note: 20px is monitor's border two 10px on left and right */
+}
+.cham-demo-screen {
+  width: 100%;
+  height: 250px; /* half image height*/
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #000;
+  border-radius: 10px 10px 0 0;
+  background: #fff;
+  cursor: pointer;
+  margin-bottom: 200px;
+}
+.cham-demo-screen img.cham-demo-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 4s ease-in-out;
+  width:100%;
+  height: auto;
+}
+.swiper-zoom-container {
+  overflow-y: scroll;
+}
+.elementor-lightbox .elementor-lightbox-image {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none;
+}
+body .swiper-zoom-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  align-items:flex-start !important;
+  text-align: center;
+}
+.cham-demo-screen:hover img.cham-demo-image {
+  transform: translateY(calc(-100% + 250px));
+}
+.cham-demo-frame {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transform: translateY(100%);
+}
+@media (max-width:470px) {
+
+  .cham-demo-wrapper{
+    position: relative;
+    width: 320px; /* with + 20px Note: 20px is monitor's border two 10px on left and right */
+  }
+  .cham-demo-screen {
+    height: 200px;
+  }
+  .cham-demo-screen:hover img.cham-demo-image {
+    transform: translateY(calc(-100% + 200px));
+  }
+
+}
