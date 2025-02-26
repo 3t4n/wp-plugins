@@ -1,0 +1,536 @@
+/*////LOGO/CABECERA////*/
+#acip_logo{
+  margin-bottom:25px;
+  font-size:2em;
+  background-size: contain !important;
+  width: 306px;
+  height: 100px;
+  margin-left: 10px;
+}
+#acip_logo_heading{
+  margin-bottom:20px;
+  font-size:2em;
+  margin-left: 14px;
+}
+/*////CONTENEDOR GENERAL////*/
+.acip_wrap{
+  overflow: hidden;
+}
+/*////PESTAÑA CALENDARIO////*/
+.acip_conTitle{
+  color: #fff;
+  text-align: center;
+  background: #4F4F5D;
+  margin: 0;
+  padding: 10px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  font-style: normal;
+}
+/*Generador del Calendario*/
+#acip_container1{
+  width: 18%;
+  float:left;
+  box-sizing: border-box;
+  min-height: 297px;
+  margin-bottom: 15px;
+}
+#acip_container1 form#calTypeForm{
+  width: 100%;
+  background: #fff;
+  padding: 20px 20px 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#acip_container1 form#calTypeForm div:first-child{
+  float: left;
+}
+#acip_container1 form#calTypeForm div:last-child{
+  float: right;
+}
+#acip_container1 form#calTypeForm div{
+  width: 50%;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  font-weight: bold;
+}
+#acip_container1 form#normalCal,#acip_container1 div#simpleCal, #acip_container1 div#multiCal{
+  width: 100%;
+  background: #fff;
+  padding: 0 20px 20px 20px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+#acip_container1 label{
+  cursor: default;
+}
+#acip_container1 form#normalCal .code_container,#acip_container1 div#simpleCal .code_container, #acip_container1 div#multiCal .code_container{
+  text-align: center;
+}
+#acip_container1 form#normalCal label, #acip_container2 #formularioCal label:not([id="acip_logo_url"]), #acip_container1 div#multiCal label,  #acip_container1 #simplEstab label{
+  width:200px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+}
+#acip_container1 form#normalCal label, #acip_container1 div#multiCal label{
+  width:100%;
+}
+#acip_container1 form#normalCal input:not([type='radio']):not([type='checkbox']), #acip_container1 div#multiCal input:not([type='radio']):not([type='checkbox']), #acip_container1 div#simpleCal input:not([type='radio']):not([type='checkbox']) {
+  margin-bottom: 10px;
+  width: 100%;
+  display: block;
+}
+#acip_container1 #acip_externo, #acip_container1 #acip_externo1, #acip_container1 #acip_externoS{
+  background: #0085ba;
+  border-color: #0085ba;
+  border-width: 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+#checkNew{
+  text-align: center;
+}
+/*Editor de Estilos*/
+#acip_container2{
+  width: 40%;
+  float: left;
+  box-sizing: border-box;
+  min-height: 297px;
+  margin-left: .9%;
+}
+
+#acip_container2 #formularioCal{
+  width: 100%;
+  background: #fff;
+  padding: 20px 20px 0px 20px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  min-height: 573px;
+}
+#acip_container2 #formularioCal label:not([id="acip_logo_url"]){
+  margin-bottom: 10px;
+}
+#acip_container2 #formularioCal label[id="acip_logo_url"]{
+  display: inline-block;
+  font-size: 12px
+}
+#acip_container2 #formularioCal input[type='color']{
+  margin-bottom: 10px;
+  height: 28px;
+}
+#acip_container2 #formularioCal input[type='number']{
+  margin-bottom: 10px;
+  height: 28px;
+  width: 50px;
+}
+#acip_container2 #formularioCal input[type='text']:first-of-type{
+  width: 60%;
+}
+#acip_container2 #formularioCal .submit{
+  text-align: center;
+}
+#acip_container1 div#multiCal #multiEstab input:not([type='radio']):not([type='checkbox']){
+  margin-bottom: 10.5px;
+}
+#acip_container2 #formularioCal .submit #submit{
+  width: 165px !important;
+  margin-left: 0!important;
+}
+#acip_container2 #formularioCal img{
+  display:block;
+  border: 1px solid #222;
+  margin: 10px auto 0;
+}
+#acip_shortcode_text{
+  font-weight: normal;
+  margin-left: 15px;
+  box-sizing: border-box;
+}
+#Calendario_1 #acip_container2 #formularioCal label.acip_defaultSuccess{
+  /*display:none;*/
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px 10px;
+  color:#fff;
+  background: #29BA9C;
+  opacity: 0;
+  height: 0;
+
+}
+#formularioCal .submit{
+  margin-top: 0;
+}
+#Calendario_1 #acip_container2 #formularioCal label.acip_success{
+  -webkit-animation: alertsuccess 5s ; /* Safari 4.0 - 8.0 */
+  animation: alertsuccess 5s ;
+  animation-fill-mode:backwards;
+}
+@-webkit-keyframes alertsuccess {
+  0%   {opacity: 0;height: 0;}
+  25%  {opacity: 1;height: 30px;}
+  75%  {opacity: 1;height: 30px;}
+  100% {opacity: 0;height: 0;}
+}
+
+/* Standard syntax */
+@keyframes alertsuccess {
+  0%   {opacity: 0;height: 0;}
+  25%  {opacity: 1;height: 30px;}
+  75%  {opacity: 1;height: 30px;}
+  100% {opacity: 0;height: 0;}
+}
+
+
+/*////INTEGRACION////*/
+#acip_container3{
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+#acip_container3 div{
+  background: #fff;
+  padding: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  min-height: 215px;
+}
+#acip_container3 p{
+  margin: 0;
+  font-size: 16px;
+}
+/*////PREVISUALIZACION////*/
+#acip_container4{
+  width: 40%;
+  float: left;
+  box-sizing: border-box;
+  min-height: 297px;
+  margin-left: .9%;
+}
+#acip_container4 #acip_cont4_cont{
+  background: #fff;
+  padding: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+}
+/*////PESTAÑA BOTONES////*/
+html #Calendario_2 > div{
+  background: #fff;
+  margin-top: 0;
+  padding: 25px;
+  padding-right: 10px;
+  overflow: hidden;
+  border-radius: 0 ;
+
+}
+#Calendario_2 div h3{
+  margin-left: 10px;
+  width: fit-content;
+}
+#Calendario_2 div h3 i{
+  text-decoration: underline;
+}
+#Calendario_2 div ul{
+  list-style: disc;
+  width: 95%;
+  margin: 0 auto;
+}
+#Calendario_2 div ul li:first-of-type{
+  line-height: 2;
+  list-style: none;
+  margin-top: 25px;
+}
+#Calendario_2 div ul li:first-of-type span:last-of-type{
+  width: 25%;
+}
+#Calendario_2 div ul li:first-of-type span{
+  font-weight: bolder;
+}
+
+/*////PESTAÑA AYUDA////*/
+#Calendario_3  #acip_cal3_cont{
+  background: #fff;
+  padding: 10px ;
+  overflow: hidden;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+#Calendario_3 #acip_ul1{
+  list-style: disc;
+  margin-left: 25px;
+}
+#Calendario_3 #acip_ul2{
+  padding: 0 10px;
+  list-style: circle;
+}
+
+/*////SISTEMA DE PESTAÑAS////*/
+div.acip_tab {
+  overflow: hidden;
+  background-color: transparent;
+}
+div.acip_tab button {
+  background-color: #ccc;
+  float: left;
+  border:none;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 16px;
+  transition: 0.3s;
+}
+div.acip_tab button:first-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+div.acip_tab button:last-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+div.acip_tab button:not(:first-child) {
+  border-left: 1px solid #bbb;
+}
+div.acip_tab button:hover {
+  background-color: #ddd;
+}
+div.acip_tab button.active {
+  background: #4F4F5D;
+  color: #fff;
+  font-weight: bold;
+}
+.acip_tabcontent {
+  display: none;
+  margin-top: 15px;
+}
+.acip_radioContent{
+  display: none;
+}
+.acip_Calendario1{
+  display: block;
+  overflow: hidden;
+}
+#simpleCal{
+  display: block;
+  overflow: hidden;
+}
+#addEstab, #removeEstab{
+
+  text-align: center;
+  margin: 0 auto 15px;
+  width: 24.91px;
+}
+
+#acip_alertInput{
+  opacity: 0;
+  height: 0;
+  font-size: 14px;
+  transition: height 1s, opacity 3s;
+  -webkit-transition: height 1s, opacity 3s;
+  -moz-transition: height 1s, opacity 3s;
+  -o-transition: height 1s, opacity 3s;
+  -ms-transition: height 1s, opacity 3s;
+  margin-top: 0;
+  overflow: hidden;
+}
+#acip_alertInput1{
+  opacity: 0;
+  height: 0;
+  font-size: 14px;
+  transition: height 1s, opacity 3s;
+  -webkit-transition: height 1s, opacity 3s;
+  -moz-transition: height 1s, opacity 3s;
+  -o-transition: height 1s, opacity 3s;
+  -ms-transition: height 1s, opacity 3s;
+  margin-top: 0;
+  overflow: hidden;
+}
+#acip_noShow{
+  display: none;
+}
+/*////GENERAL WP////*/
+#wpcontent {
+  padding-right: 20px;
+}
+#wpfooter {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  color: #555d66;
+}
+#check-availability{
+  -webkit-appearance:none;
+}
+
+.ahc-row {
+  display: flex;
+  align-items: center;
+  margin: 30px auto;
+  background: #fff;
+  width: 75%;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+.ahc-widget-wrap {
+  width: 33.333%;
+  text-align: center;
+  padding: 15px;
+}
+.ahc-button-wrapper {
+  background: #0073aa;
+  color: #fff;
+  padding: 10px;
+  border-radius: 25px;
+  width: 50%;
+  margin: 0 auto;
+}
+.ahc-button-wrapper a .ahc-button-text{
+  color:#fff;
+}
+/*////MEDIA QUERIES////*/
+@media (max-width:1882px){
+  #acip_container1{
+    width: 41%;
+  }
+  #acip_container2{
+    width: 57%;
+    float: right;
+  }
+  #acip_container3{
+    width: 100%;
+  }
+  #acip_container4 {
+    width: 99%;
+    clear: left;
+    margin-top: 15px;
+  }
+}
+@media (max-width:1373px){
+  #acip_container1{
+    width: 34%;
+  }
+  #acip_container2{
+    width: 65%;
+    float: left;
+  }
+  #acip_container4{
+    clear: none;
+  }
+}
+@media (max-width:1249px){
+  #acip_container1 br{
+    display: none;
+  }
+  #acip_container1 #acip_externo, #acip_container1 #acip_externo1, #acip_container1 #acip_externoS{
+    clear: both;
+  }
+  #acip_container1{
+    width: 100%;
+    float: none;
+  }
+  #acip_container2{
+    width: 100%;
+    float: none;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  #acip_container3{
+    float: none;
+    margin-left: 0;
+  }
+  #acip_container1 form .code_container:first-of-type{
+    float: left;
+    width: 47%;
+  }
+  #acip_container1 form .code_container:last-of-type{
+    float: right;
+    width: 47%;
+  }
+  #acip_container3 div{
+    min-height: 0;
+  }
+}
+@media (max-width:580px){
+  #acip_container1{
+    float:none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  #acip_container2{
+    float:none !important;
+    margin-top: 15px;
+    width: 100% !important;
+  }
+}
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.no-close.ui-dialog-buttons {
+  z-index: 99;
+}
+#catSelect.animationSelect {
+  background: linear-gradient(-45deg,  #222222, #ffffff);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient.5s ease 1;
+  -moz-animation: Gradient .5s ease 1;
+  animation: Gradient .5s ease 1;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+    color:#fff;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+    color:#fff;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+    color:#fff;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.caleRow{
+  display:none;
+}
+#Calendario_4 input[type="submit"]{
+  cursor: pointer;
+}

@@ -1,0 +1,299 @@
+
+
+.avirato_form * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+
+}
+
+* html .clearfix {
+    zoom: 1;
+}
+
+IE6 
+*:first-child + html .clearfix {
+    zoom: 1;
+}
+/*================avirato_form================*/
+
+#datePickerContainer img#icoCal {
+    width: 22px;
+}
+#reserv{
+    display: block;
+    width: 125px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #222;
+}
+#reserv:hover{
+    background: rgba(2,2,2,.5) !important;
+    color:#fff !important;
+
+}
+#cerrarCal{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 1px solid #222;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    line-height: 1.8;
+    cursor:pointer;
+}
+#mask{
+    background: #222;
+    opacity:0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    transition: all ease-in-out .5s;
+    overflow: hidden;
+    z-index: 99999999999999;
+}
+
+.avirato_form {
+    background-color: #fff;
+    transition: all 0.6s;
+    bottom: 0;
+    text-align: center;
+    padding: 40px;
+    width: 900px;
+    min-width: 250px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -800px;
+    min-height: 380px;
+    max-height: 630px;
+    overflow: hidden;
+    transition: all ease-in-out 1s;
+    border: 2px solid #222;
+    border-radius: 15px;
+    z-index: 999999999999999999999999;
+
+}
+
+
+#form_avirato{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+
+}
+
+.avirato_form .orig{
+    width:49%;
+    background: #fff;
+    position: relative;
+    float: left;
+
+}
+.avirato_form .orig:last-of-type{
+    float: none;
+    width: 100%;
+}
+.avirato_form .orig:not(:first-of-type), .avirato_form .orig:not(:last-of-type){
+    margin: 15px 0;
+}
+.avirato_form .orig:first-of-type{
+    margin-right: 2%;
+}
+.avirato_form select, .avirato_form input{
+
+    height: 40px;
+    padding: 0 15px;
+    width: 100%;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    border:1px solid #444;
+    border-radius: 10px;
+}
+.orig >*{
+    border-radius: 10px;
+
+}
+.avirato_form .btn {
+    /*background-color: !important;*/
+    border-radius: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.avirato_form .btn:hover {
+    border-radius: 0;
+    opacity: .5;
+}
+
+
+
+#datePickerContainer  >*:not([class="material-icons iconAv"]){
+    display: block;
+    width: 49%;
+    float: left;
+}
+#datePickerContainer .inputcon:not(:last-of-type){
+    margin-right: 2%;
+}
+
+#datePickerContainer div:nth-child(2) >*:first-child{
+    margin-right: 2%;
+}
+
+#datePickerContainer  >*>*:not(input){
+    display: block;
+    width: 100%;
+    border:none;
+}
+#datePickerContainer .iconAv{
+    /*color:;*/
+    margin: 0px!important;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    font-size: 19px;
+    z-index: 1;
+    display: initial;
+    width: auto;
+    border:none;
+}
+
+#datePickerContainer .inputcon >*>*{
+    display: block;
+    width: 100%;
+    border:none;
+}
+#datePickerContainer{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+
+
+}
+.ui-datepicker .ui-datepicker-header{
+    border:none;
+}
+.ui-datepicker table {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+#check-availability{
+    width: 33%;
+    margin: 0 auto 0;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    color:#222;
+    -webkit-appearance:none;
+
+}
+.ui-widget-header{
+    background: none;
+}
+/*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background: none;
+
+}*/
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+    border:1px solid red; 
+
+}
+
+.avirato_form #datePickerContainer div p{
+    display: inline-block;
+    width: auto;
+}
+#ui-datepicker-div{
+    z-index: 9999999999999999999999 !important;
+}
+input.datepicker, input.datepicker2{
+    margin-top: 15px;
+    border-radius: 10px;
+}
+/*div#datePickerContainer div:nth-child(2) input:first-of-type {
+    margin-right: 2%;
+}*/
+input.datepicker:after{
+    content: 'event';
+    position: absolute;
+    right: 25px;
+}
+.avirato_form #check-availability {
+    border:none;
+}
+.avirato_form #check-availability:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+div#alertMsg {
+    text-align: center;
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+}
+@media (max-width:1200px){
+    #datePickerContainer >*:not([class="material-icons iconAv"]) {
+        display: block;
+        width: 49%;
+        float: left;
+        position: relative;
+    }
+
+
+    .avirato_form {
+        width: 75%;
+        height: 300px;
+    }
+    #check-availability {
+        margin-top: 25px;
+    }
+}
+@media (min-width:1201px){
+    #ui-datepicker-div{
+        display:none !important;
+    }
+    .iconAv{
+        display: none !important;
+    }
+}
+@media (max-width:622px){
+    #datePickerContainer .inputcon >*:not(span) {
+        display: block;
+        width: 100%;
+        float: none;
+    }
+    .avirato_form .orig {
+        width: 100%;
+        float: none;
+    }
+    .avirato_form {
+
+        width: 75%;
+        height: 410px;
+    }
+    #check-availability {
+        margin-top: 5px;
+    }
+    #datePickerContainer >*:not([class="material-icons iconAv"]) {
+        width: 100%;
+    }
+    #check-availability {
+        width: 166px;
+    }
+}
+div#ui-datepicker-div {
+    display: none;
+}
