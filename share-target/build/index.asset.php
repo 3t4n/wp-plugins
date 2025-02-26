@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('wp-blocks', 'wp-data', 'wp-i18n', 'wp-media-utils', 'wp-polyfill'), 'version' => '7fec9dda77dff436d0d1c37db1fde58d');
