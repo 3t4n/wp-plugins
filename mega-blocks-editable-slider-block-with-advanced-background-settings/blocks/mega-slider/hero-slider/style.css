@@ -1,0 +1,283 @@
+body{overflow-x: hidden}
+a {text-decoration: none!important;}
+.mega-slider-block {
+    background-color: ''; 
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mega-slider-block h1,
+.mega-slider-block h5 {
+    color: #fff;
+}
+
+.full-width-slider {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow-x: hidden;
+}
+
+.container-slider {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.mega-slider-block .slider-text {
+    width: 100%;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Style for the Slick Slider arrows */
+.slick-prev, .slick-next {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    color: #fff; /* Adjust color */
+    z-index: 1; /* Ensure it appears above the slides */
+}
+
+/* Position the arrows */
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+/* Optional hover effect */
+.slick-prev:hover, .slick-next:hover {
+    color: #ccc; /* Adjust hover color */
+}
+
+/* Align Pagination Dots */
+.slick-dots {
+    position: absolute;
+    bottom: 10px; /* Overlap the slider at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex !important;
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Remove default list styling */
+}
+
+/* Remove list-style for dots */
+.slick-dots li {
+    margin: 0 5px;
+    list-style: none;
+}
+
+/* Custom dot styles */
+.slick-dots li {
+    margin: 0 5px; /* Adjust spacing between dots */
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: '';
+    background-color: rgba(255, 255, 255, 0.5); /* Inactive dots color */
+    border: none;
+}
+
+.slick-dots li.slick-active button {
+    background-color: #ffc000; /* Active dot color */
+}
+
+/* Full-width layout */
+.mega-slider-wrapper.mega-slider-full-width {
+    width: 100vw;
+    position: relative;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* Boxed layout */
+.mega-slider-wrapper.mega-slider-boxed {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Slick Slider styles */
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    opacity: 1;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-dots {
+    z-index: 1;
+}
+
+.mega-slider-wrapper .slick-track,
+.mega-slider-wrapper .slick-list,
+.mega-slider-wrapper .slick-slide {
+    width: 100%;
+}
+
+/* Two-column layout */
+.two-column-layout .column-1, 
+.two-column-layout .column-2 {
+    padding: 10px;
+}
+
+.slider-slide {
+    position: relative;
+    min-height: 300px; /* Adjust the min-height */
+    max-height: 600px; /* Adjust the max-height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 100%
+}
+
+/* Ensure the video stays within the slider dimensions */
+.slider-slide video,
+.slider-slide iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -999;
+}
+
+/* Container for content on top of the video or image */
+.slider-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+    position: absolute;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    margin: 5px;
+}
+
+.social-icons.vertical-middle-left {
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+.social-icons.vertical-middle-right {
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+.social-icons.bottom-left {
+    bottom: 30px;
+    left: 30px;
+}
+
+.social-icons.bottom-right {
+    bottom: 30px;
+    right: 30px;
+}
+
+.social-icons li a {
+    color: #fff;
+    font-size: 24px; /* Adjust as needed */
+}
+
+.mark, mark{
+	background-color: transparent;
+	padding:0;
+}
+
+.youtube-video-wrapper iframe {
+    pointer-events: none; /* Make the video non-interactive (if it is just a background) */
+    object-fit: cover; /* Ensure the video behaves like a background image */
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2; /* Ensures the content appears above the video */
+}
+
+.slider-slide {
+    position: relative;
+    overflow: hidden; /* Ensures nothing overflows outside the slider area */
+    z-index: 0;
+}
+
+
+.particles-js-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none; /* Ensures particles do not block interaction */
+}
