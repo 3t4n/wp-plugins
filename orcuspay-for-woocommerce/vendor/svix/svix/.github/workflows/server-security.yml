@@ -1,0 +1,24 @@
+name: Server Security
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - 'server/**/Cargo.toml'
+      - 'server/**/Cargo.lock'
+      - '.github/workflows/server-security.yml'
+  pull_request:
+    paths:
+      - 'server/**/Cargo.toml'
+      - 'server/**/Cargo.lock'
+      - '.github/workflows/server-security.yml'
+
+jobs:
+  security_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: EmbarkStudios/cargo-deny-action@v1
+        with:
+            arguments: --manifest-path=server/Cargo.toml

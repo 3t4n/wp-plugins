@@ -1,0 +1,87 @@
+name: Server CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'server/**'
+      - '.github/workflows/server-ci.yml'
+  pull_request:
+    paths:
+      - 'server/**'
+      - '.github/workflows/server-ci.yml'
+
+jobs:
+  test-versions:
+    name: Server CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust: [stable, beta]
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{ matrix.rust }}
+        override: true
+        profile: minimal
+        components: clippy, rustfmt
+    - uses: Swatinem/rust-cache@v1
+      with:
+        working-directory: server
+
+    - name: rustfmt
+      uses: actions-rs/cargo@v1
+      with:
+        command: fmt
+        args: --manifest-path server/Cargo.toml --all -- --check
+
+    - name: Build
+      uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --manifest-path server/Cargo.toml --all --locked
+
+    - name: Start dependencies
+      run: docker-compose -f "server/testing-docker-compose.yml" up -d
+
+    - name: Clippy
+      uses: actions-rs/cargo@v1
+      with:
+        command: clippy
+        args: --manifest-path server/Cargo.toml --all --all-targets --all-features -- -D warnings
+
+    - name: Run migrations
+      uses: actions-rs/cargo@v1
+      env:
+        DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+        SVIX_REDIS_DSN: "redis://localhost:6379"
+        SVIX_QUEUE_TYPE: "redis"
+        SVIX_JWT_SECRET: "test value"
+        SVIX_CACHE_TYPE: "memory"
+      with:
+        command: run
+        args: --manifest-path server/Cargo.toml -- --wait-for 15 migrate
+
+    - name: Run tests
+      working-directory: ./server
+      run: ./run-tests.sh
+
+    - name: Stop dependencies
+      run: docker-compose -f "server/testing-docker-compose.yml" down
+#  deny-check:
+#    name: cargo-deny check
+#    runs-on: ubuntu-latest
+#    continue-on-error: ${{ matrix.checks == 'advisories' }}
+#    strategy:
+#      matrix:
+#        checks:
+#          - advisories
+#          - bans licenses sources
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: EmbarkStudios/cargo-deny-action@v1
+#        with:
+#          command: check ${{ matrix.checks }}
+#          arguments: --all-features --manifest-path axum/Cargo.toml
