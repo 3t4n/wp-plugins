@@ -1,0 +1,91 @@
+@font-face {
+	font-family: 'actunv_fontello';
+	src: url('font/fontello.eot?19824276');
+	src:
+		url('font/fontello.eot?19824276#iefix') format('embedded-opentype'),
+		url('font/fontello.woff?19824276') format('woff'),
+		url('font/fontello.ttf?19824276') format('truetype'),
+		url('font/fontello.svg?19824276#fontello') format('svg')
+	;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.be_mch_actunv {
+	counter-reset: actunv_hooks;
+	counter-reset: actunv_messages;
+}
+
+.be_mch_actunv:not(.show) {
+	display: none;
+}
+
+.be_mch_actunv {
+	margin: 0;
+	padding: 0;
+}
+
+.be_mch_actunv
+, .be_mch_actunv OL
+, .be_mch_actunv LI {
+	font-size: 1rem;
+}
+
+.be_mch_actunv OL {
+	margin: 0.5em 0 1em 5.5em;
+	padding: 0;
+}
+
+.be_mch_actunv LI {
+	list-style: none;
+}
+
+.be_mch_actunv LI.hook {
+	counter-increment: actunv_hooks;
+}
+
+.be_mch_actunv LI.message {
+	counter-increment: actunv_messages;
+}
+
+.be_mch_actunv LI:before {
+	display: inline-block;
+	font-family: actunv_fontello;
+	box-sizing: content-box;
+	width: 1em;
+	text-align: left;
+	padding-right: 0.5em;
+}
+
+.be_mch_actunv LI SPAN:before {
+	display: inline-block;
+	box-sizing: content-box;
+	width: 3.5em;
+	text-align: left;	
+	padding-right: 0.5em;
+}
+
+.be_mch_actunv LI.hook SPAN:before {
+	content: counter(actunv_hooks) '.';
+}
+
+.be_mch_actunv LI.empty_hook SPAN:before {
+	content: '-';
+}
+
+.be_mch_actunv LI.message SPAN:before {
+	content: counter(actunv_messages) '.';
+}
+
+.be_mch_actunv LI.hook:before {
+	content: '\e805';
+}
+
+.be_mch_actunv LI.empty_hook:before {
+	content: '\e801';
+}
+
+
+.be_mch_actunv LI.message:before {
+	content:'\e800';
+}
