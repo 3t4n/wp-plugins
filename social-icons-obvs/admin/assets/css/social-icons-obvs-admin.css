@@ -1,0 +1,360 @@
+.sio-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 40px; }
+  .sio-switch:hover .sio-slider {
+    background-color: #3d596d; }
+  .sio-switch input {
+    display: none; }
+  .sio-switch input:checked + .sio-slider {
+    background-color: #4ab866; }
+  .sio-switch input:focus + .sio-slider {
+    box-shadow: 0 0 1px #4ab866; }
+  .sio-switch input:checked + .sio-slider::before {
+    transform: translateX(16px); }
+
+.sio-slider {
+  background-color: #87a6bc;
+  border-radius: 24px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s; }
+  .sio-slider::before {
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: 4px;
+    content: '';
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 16px; }
+
+.sio-field-group {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%; }
+
+.sio-account-url {
+  padding-left: 20px;
+  transition: 0.4s;
+  width: calc(100% - 60px); }
+  .sio-account-url span {
+    font-size: 0.75rem;
+    color: #2e4453;
+    display: block;
+    margin-bottom: 0.1875rem; }
+  .sio-account-url.disabled {
+    opacity: 0;
+    pointer-events: none; }
+
+.sio-input {
+  border-radius: 4px;
+  padding: 6px;
+  width: 50%; }
+
+.sio-spectrum {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+  color: #2e4453;
+  padding: 4px;
+  transition: border 0.4s ease-in-out; }
+  .sio-spectrum:hover, .sio-spectrum.sp-active {
+    border-color: rgba(0, 0, 0, 0.25);
+    color: #2e4453; }
+  .sio-spectrum .sp-preview {
+    border: 1px solid #ddd;
+    height: 16px; }
+  .sio-spectrum .sp-dd {
+    font-size: 8px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0; }
+
+.sio-colour-picker {
+  background-color: #fff;
+  border: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  box-shadow: 0 2px 2px rgba(204, 204, 204, 0.25);
+  display: none;
+  font: inherit; }
+  .sio-colour-picker .sp-picker-container {
+    border: 0; }
+  .sio-colour-picker button,
+  .sio-colour-picker input,
+  .sio-colour-picker .sp-color,
+  .sio-colour-picker .sp-hue,
+  .sio-colour-picker .sp-clear {
+    font: inherit; }
+
+.sio-icon {
+  display: block; }
+  .sio-icon::before {
+    background-size: contain;
+    content: '';
+    display: block;
+    height: inherit;
+    width: inherit; }
+  .sio-icon--behance.sio-icon--bg-brand {
+    background-color: #1769ff; }
+  .sio-icon--behance::before {
+    background-image: url("../image/icon-behance.svg"); }
+  .sio-icon--bitbucket.sio-icon--bg-brand {
+    background-color: #205081; }
+  .sio-icon--bitbucket::before {
+    background-image: url("../image/icon-bitbucket.svg"); }
+  .sio-icon--dribbble.sio-icon--bg-brand {
+    background-color: #ea4c89; }
+  .sio-icon--dribbble::before {
+    background-image: url("../image/icon-dribbble.svg"); }
+  .sio-icon--facebook.sio-icon--bg-brand {
+    background-color: #3b5998; }
+  .sio-icon--facebook::before {
+    background-image: url("../image/icon-facebook.svg"); }
+  .sio-icon--github.sio-icon--bg-brand {
+    background-color: #333; }
+  .sio-icon--github::before {
+    background-image: url("../image/icon-github.svg"); }
+  .sio-icon--instagram.sio-icon--bg-brand {
+    background-color: #e1306c; }
+  .sio-icon--instagram::before {
+    background-image: url("../image/icon-instagram.svg"); }
+  .sio-icon--linkedin.sio-icon--bg-brand {
+    background-color: #0077b5; }
+  .sio-icon--linkedin::before {
+    background-image: url("../image/icon-linkedin.svg"); }
+  .sio-icon--pinterest.sio-icon--bg-brand {
+    background-color: #bd081c; }
+  .sio-icon--pinterest::before {
+    background-image: url("../image/icon-pinterest.svg"); }
+  .sio-icon--soundcloud.sio-icon--bg-brand {
+    background-color: #f30; }
+  .sio-icon--soundcloud::before {
+    background-image: url("../image/icon-soundcloud.svg"); }
+  .sio-icon--tumblr.sio-icon--bg-brand {
+    background-color: #35465c; }
+  .sio-icon--tumblr::before {
+    background-image: url("../image/icon-tumblr.svg"); }
+  .sio-icon--twitter.sio-icon--bg-brand {
+    background-color: #1da1f2; }
+  .sio-icon--twitter::before {
+    background-image: url("../image/icon-twitter.svg"); }
+  .sio-icon--vimeo.sio-icon--bg-brand {
+    background-color: #1ab7ea; }
+  .sio-icon--vimeo::before {
+    background-image: url("../image/icon-vimeo.svg"); }
+  .sio-icon--whatsapp.sio-icon--bg-brand {
+    background-color: #25d366; }
+  .sio-icon--whatsapp::before {
+    background-image: url("../image/icon-whatsapp.svg"); }
+  .sio-icon--youtube.sio-icon--bg-brand {
+    background-color: #cd201f; }
+  .sio-icon--youtube::before {
+    background-image: url("../image/icon-youtube.svg"); }
+  .sio-icon--yunojuno.sio-icon--bg-brand {
+    background-color: #47d7ac; }
+  .sio-icon--yunojuno::before {
+    background-image: url("../image/icon-yunojuno.svg"); }
+  .sio-icon--bg-transparent {
+    background-color: transparent !important; }
+  .sio-icon--bg-custom {
+    background-color: #2e4453; }
+  .sio-icon--shape-rounded {
+    border-radius: 4px; }
+  .sio-icon--shape-square {
+    border-radius: 0; }
+  .sio-icon--shape-circle {
+    border-radius: 50%; }
+  .sio-icon--size-sm {
+    height: 30px;
+    width: 30px; }
+  .sio-icon--size-md {
+    height: 40px;
+    width: 40px; }
+  .sio-icon--size-lg {
+    height: 50px;
+    width: 50px; }
+
+.sio-wrap h2,
+.sio-wrap .sio-heading {
+  margin-top: 2em; }
+
+.sio-wrap table {
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(204, 204, 204, 0.25);
+  margin-top: 1.5em; }
+  .sio-wrap table tbody > tr {
+    background-color: #fff; }
+  .sio-wrap table tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9; }
+  .sio-wrap table tbody > tr:first-of-type th {
+    border-top-left-radius: 4px; }
+  .sio-wrap table tbody > tr:first-of-type td {
+    border-top-right-radius: 4px; }
+  .sio-wrap table tbody > tr:last-of-type th {
+    border-bottom-left-radius: 4px; }
+  .sio-wrap table tbody > tr:last-of-type td {
+    border-bottom-right-radius: 4px; }
+  .sio-wrap table th,
+  .sio-wrap table td {
+    padding: 1em 3em;
+    vertical-align: middle; }
+
+.sio-tabs {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  list-style: none;
+  margin: 1em 0 2em;
+  padding: 0 0 0 1em; }
+  .sio-tabs li {
+    background: none;
+    border: 1px solid transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: #0087be;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 1em 2em;
+    position: relative;
+    top: 1px;
+    vertical-align: bottom; }
+    .sio-tabs li:hover {
+      color: #78dcfa; }
+    .sio-tabs li.current {
+      border-bottom-color: #f1f1f1;
+      border-left-color: rgba(0, 0, 0, 0.25);
+      border-right-color: rgba(0, 0, 0, 0.25);
+      border-top-color: rgba(0, 0, 0, 0.25); }
+      .sio-tabs li.current a {
+        color: #2e4453;
+        text-decoration: none; }
+  .sio-tabs a:focus {
+    box-shadow: none;
+    outline: none; }
+
+.sio-tab-content {
+  display: none;
+  position: relative; }
+  .sio-tab-content.current {
+    display: inherit; }
+  .sio-tab-content.tab-display .form-table {
+    display: none; }
+
+.sio-wrap {
+  padding-right: 20px; }
+
+.sio-heading-icon {
+  display: block;
+  line-height: 30px;
+  margin-left: 30px;
+  padding-left: 15px;
+  position: relative;
+  transition: 0.4s; }
+  .sio-heading-icon.disabled {
+    opacity: .3; }
+  .sio-heading-icon .sio-icon {
+    height: 30px;
+    left: -30px;
+    position: absolute;
+    top: 0;
+    width: 30px; }
+
+.sio-preview {
+  background: url("../image/preview-bg.png") top left repeat;
+  background-size: 20px 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(191, 191, 191, 0.25);
+  box-sizing: border-box;
+  margin-top: 1.5em;
+  padding: 3em; }
+  .sio-preview__icons {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .sio-preview__icons--center {
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .sio-preview__icons--left {
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .sio-preview__icons--right {
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .sio-preview__icons li {
+      display: inline-block;
+      margin: 0; }
+      .sio-preview__icons li.sio-icon--space-xs {
+        padding: 20px 5px; }
+      .sio-preview__icons li.sio-icon--space-sm {
+        padding: 20px 10px; }
+      .sio-preview__icons li.sio-icon--space-md {
+        padding: 20px 15px; }
+      .sio-preview__icons li.sio-icon--space-lg {
+        padding: 20px; }
+      .sio-preview__icons li.sio-icon--space-xl {
+        padding: 20px 25px; }
+
+.sio-sort__icons li {
+  background-color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 1em 3em;
+  position: relative;
+  text-align: center; }
+  .sio-sort__icons li::before {
+    background: url("../image/sort.svg") center center/contain no-repeat;
+    content: '';
+    display: block;
+    height: 30px;
+    left: 3em;
+    opacity: .4;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.4s ease-in-out;
+    width: 30px; }
+  .sio-sort__icons li:nth-of-type(odd) {
+    background-color: #f9f9f9; }
+  .sio-sort__icons li > span {
+    display: inline-block;
+    vertical-align: bottom; }
+  .sio-sort__icons li:hover::before {
+    opacity: .8; }
+
+.sio-preview__icons .sio-empty,
+.sio-sort__icons .sio-empty {
+  background: #d94f4f;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  margin: 3em;
+  padding: 1em 2em;
+  width: calc(100% - 6em); }
+  .sio-preview__icons .sio-empty::before,
+  .sio-sort__icons .sio-empty::before {
+    display: none; }
+
+.wp-core-ui .notice.is-dismissible {
+  margin-left: 0;
+  margin-top: 20px; }

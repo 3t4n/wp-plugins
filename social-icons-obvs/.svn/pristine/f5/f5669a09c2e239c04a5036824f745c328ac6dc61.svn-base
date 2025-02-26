@@ -1,0 +1,56 @@
+.sio-tabs {
+  border-bottom: 1px solid $sio-color-border;
+  list-style: none;
+  margin: $sio-spacing-xs 0 $sio-spacing-sm 0;
+  padding: 0 0 0 $sio-spacing-xs;
+
+  li {
+    background: none;
+    border: 1px solid transparent;
+    border-top-left-radius: $sio-border-radius;
+    border-top-right-radius: $sio-border-radius;
+    color: $wp-color-blue-primary;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: $sio-spacing-xs $sio-spacing-sm;
+    position: relative;
+    top: 1px;
+    vertical-align: bottom;
+  }
+
+  li:hover {
+    color: $wp-color-blue-light;
+  }
+
+  li.current {
+    border-bottom-color: $wp-color-body;
+    border-left-color: $sio-color-border;
+    border-right-color: $sio-color-border;
+    border-top-color: $sio-color-border;
+
+    a {
+      color: $wp-color-grey-dark;
+      text-decoration: none;
+    }
+
+  }
+
+  a:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.sio-tab-content {
+  display: none;
+  position: relative;
+
+  &.current {
+    display: inherit;
+  }
+
+  &.tab-display .form-table {
+    display: none;
+  }
+}

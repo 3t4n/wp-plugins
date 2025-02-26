@@ -1,0 +1,228 @@
+.sio-icons {
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    // alignment
+    &--center {
+      justify-content: center;
+    }
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+
+    // background
+    &--transparent .sio-icons__list-item .sio-icons__icon {
+      background-color: transparent;
+    }
+
+    &--brand .sio-icons__list-item .sio-icons__icon {
+
+      &--behance {
+        background-color: $brand-color-behance;
+      }
+
+      &--bitbucket {
+        background-color: $brand-color-bitbucket;
+      }
+
+      &--dribbble {
+        background-color: $brand-color-dribbble;
+      }
+
+      &--facebook {
+        background-color: $brand-color-facebook;
+      }
+
+      &--github {
+        background-color: $brand-color-github;
+      }
+
+      &--instagram {
+        background-color: $brand-color-instagram;
+      }
+
+      &--linkedin {
+        background-color: $brand-color-linkedin;
+      }
+
+      &--pinterest {
+        background-color: $brand-color-pinterest;
+      }
+
+      &--soundcloud {
+        background-color: $brand-color-soundcloud;
+      }
+
+      &--tumblr {
+        background-color: $brand-color-tumblr;
+      }
+
+      &--twitter {
+        background-color: $brand-color-twitter;
+      }
+
+      &--vimeo {
+        background-color: $brand-color-vimeo;
+      }
+
+      &--youtube {
+        background-color: $brand-color-youtube;
+      }
+
+      &--yunojuno {
+        background-color: $brand-color-yunojuno;
+      }
+    }
+
+    // shape
+    &--rounded .sio-icons__list-item .sio-icons__icon {
+      border-radius: $border-radius;
+    }
+
+    &--square .sio-icons__list-item .sio-icons__icon {
+      border-radius: 0;
+    }
+
+    &--circle .sio-icons__list-item .sio-icons__icon {
+      border-radius: 50%;
+    }
+
+    // size
+    &--sm .sio-icons__list-item .sio-icons__icon {
+      height: $icon-sizing-sm;
+      width: $icon-sizing-sm;
+    }
+
+    &--md .sio-icons__list-item .sio-icons__icon {
+      height: $icon-sizing-md;
+      width: $icon-sizing-md;
+    }
+
+    &--lg .sio-icons__list-item .sio-icons__icon {
+      height: $icon-sizing-lg;
+      width: $icon-sizing-lg;
+    }
+  }
+
+  &__list-item {
+    display: inline-block;
+    margin: $icon-spacing-xl 0;
+
+    &--xs {
+      padding: 0 $icon-spacing-xs;
+    }
+
+    &--sm {
+      padding: 0 $icon-spacing-sm;
+    }
+
+    &--md {
+      padding: 0 $icon-spacing-md;
+    }
+
+    &--lg {
+      padding: 0 $icon-spacing-lg;
+    }
+
+    &--xl {
+      padding: 0 $icon-spacing-xl;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  // icons
+  &__icon {
+    border: 1px solid transparent;
+    box-shadow: none;
+    display: block;
+    transition: all .3s ease;
+
+    &:focus {
+      border-color: rgba(black, 0.15);
+      box-shadow: 0 0 0 0.2rem rgba(black, 0.25);
+      outline: none;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    &--behance::before {
+      background-image: url('../image/sio-icon-behance.svg');
+    }
+
+    &--bitbucket::before {
+      background-image: url('../image/sio-icon-bitbucket.svg');
+    }
+
+    &--dribbble::before {
+      background-image: url('../image/sio-icon-dribbble.svg');
+    }
+
+    &--facebook::before {
+      background-image: url('../image/sio-icon-facebook.svg');
+    }
+
+    &--github::before {
+      background-image: url('../image/sio-icon-github.svg');
+    }
+
+    &--instagram::before {
+      background-image: url('../image/sio-icon-instagram.svg');
+    }
+
+    &--linkedin::before {
+      background-image: url('../image/sio-icon-linkedin.svg');
+    }
+
+    &--pinterest::before {
+      background-image: url('../image/sio-icon-pinterest.svg');
+    }
+
+    &--soundcloud::before {
+      background-image: url('../image/sio-icon-soundcloud.svg');
+    }
+
+    &--tumblr::before {
+      background-image: url('../image/sio-icon-tumblr.svg');
+    }
+
+    &--twitter::before {
+      background-image: url('../image/sio-icon-twitter.svg');
+    }
+
+    &--vimeo::before {
+      background-image: url('../image/sio-icon-vimeo.svg');
+    }
+
+    &--youtube::before {
+      background-image: url('../image/sio-icon-youtube.svg');
+    }
+
+    &--yunojuno::before {
+      background-image: url('../image/sio-icon-yunojuno.svg');
+    }
+  }
+}

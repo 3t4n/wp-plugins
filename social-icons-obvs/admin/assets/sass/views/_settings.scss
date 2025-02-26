@@ -1,0 +1,156 @@
+.sio-wrap {
+  padding-right: 20px;
+}
+
+.sio-heading-icon {
+  display: block;
+  line-height: $sio-icon-sizing-sm;
+  margin-left: $sio-icon-sizing-sm;
+  padding-left: $sio-icon-sizing-sm / 2;
+  position: relative;
+  transition: $sio-transition;
+
+  &.disabled {
+    opacity: 0.3;
+  }
+
+  .sio-icon {
+    height: $sio-icon-sizing-sm;
+    left: -$sio-icon-sizing-sm;
+    position: absolute;
+    top: 0;
+    width: $sio-icon-sizing-sm;
+  }
+}
+
+.sio-preview {
+  background: url('../image/sio-preview-background.png') top left repeat;
+  background-size: 20px 20px;
+  border-radius: $sio-border-radius;
+  box-shadow: 0 2px 2px lighten( $sio-color-border, 75 );
+  box-sizing: border-box;
+  margin-top: $sio-spacing-lg / 2;
+  padding: $sio-spacing-lg;
+
+  &__icons {
+    @extend %clearfix;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &--center {
+      justify-content: center;
+    }
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0;
+
+      &.sio-icon--space-xs {
+        padding: $sio-icon-spacing-lg $sio-icon-spacing-xs;
+      }
+
+      &.sio-icon--space-sm {
+        padding: $sio-icon-spacing-lg $sio-icon-spacing-sm;
+      }
+
+      &.sio-icon--space-md {
+        padding: $sio-icon-spacing-lg $sio-icon-spacing-md;
+      }
+
+      &.sio-icon--space-lg {
+        padding: $sio-icon-spacing-lg $sio-icon-spacing-lg;
+      }
+
+      &.sio-icon--space-xl {
+        padding: $sio-icon-spacing-lg $sio-icon-spacing-xl;
+      }
+
+    }
+
+  }
+}
+
+.sio-sort {
+
+  &__icons {
+
+    li {
+      background-color: $sio-color-white;
+      cursor: pointer;
+      display: block;
+      margin: 0;
+      padding: $sio-spacing-xs $sio-spacing-lg;
+      position: relative;
+      text-align: center;
+
+      &::before {
+        @include background-image('sio-icon-sort');
+        @include opacity(0.25);
+        background-size: 100% 100%;
+        content: '';
+        display: block;
+        height: 30px;
+        left: $sio-spacing-lg;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity $sio-transition ease-in-out;
+        width: 30px;
+      }
+
+      &:nth-of-type(odd) {
+        background-color: $sio-color-grey-light;
+      }
+
+      & > span {
+        display: inline-block;
+        vertical-align: bottom;
+      }
+
+      &:hover::before {
+        @include opacity(0.5);
+      }
+
+    }
+  }
+}
+
+.sio-preview, .sio-sort {
+  &__icons {
+    li.sio-empty {
+      background: $wp-color-red-error;
+      border-radius: $wp-border-radius;
+      box-shadow: $wp-box-shadow;
+      box-sizing: border-box;
+      color: $sio-color-white;
+      font-size: 14px;
+      margin: $sio-spacing-lg;
+      padding: $sio-spacing-xs $sio-spacing-sm;
+      width: calc( 100% - 6em );
+
+      &::before {
+        display: none;
+      }
+
+    }
+  }
+}
+
+// WP saved notification override (styles only fired on plugin settings page, so no slapped wrists!)
+.wp-core-ui .notice.is-dismissible {
+  margin-left: 0;
+  margin-top: 20px;
+}
