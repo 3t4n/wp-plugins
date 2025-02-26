@@ -1,0 +1,53 @@
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+// Actions
+import { changeStatusLoader } from "../actions/global.actions";
+
+// Components
+import MainButton from "../components/Buttons/MainButton";
+import { Content } from "../components/Styles";
+
+// Main Component
+export default function ScreenSubscriptionUpdated() {
+  const dispatch = useDispatch();
+  const { global } = useSelector((state) => ({
+    global: state.global,
+  }));
+  const [yourDonationURL, setYourDonationURL] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(changeStatusLoader(true));
+    location.href = yourDonationURL;
+  };
+
+  useEffect(() => {
+    if (global.settings.donations_url_type === "page") {
+      setYourDonationURL(
+        `${location.origin}?p=${global.settings.donations_page}`
+      );
+    }
+
+    if (global.settings.donations_url_type === "url") {
+      setYourDonationURL(global.settings.donations_url);
+    }
+  }, []);
+
+  return (
+    <>
+      <Content>
+        <h6 className="dydo_thanks__paragraph">
+          Your subscription was updated successfully. You can check in{" "}
+          <a href={yourDonationURL}>
+            <strong>{dydo_texts.screens.thanks.link}</strong>.</a> It is recommended that you reload the page,{" "}
+          <a onClick={() => window.location.reload()}> <strong> click here to do it</strong></a>.
+        </h6>
+      </Content>
+      <MainButton
+        title={dydo_texts.screens.thanks.done}
+        onClick={handleSubmit}
+      />
+    </>
+  );
+}

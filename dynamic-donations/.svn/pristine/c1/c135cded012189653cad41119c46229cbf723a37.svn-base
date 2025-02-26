@@ -1,0 +1,878 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+.dydo_modal {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.dydo_modal__wrapper,
+.dydo_modal__wrapper--animation {}
+
+.dydo_modal__wrapper--animation {
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-name: headShake;
+  animation-name: headShake;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes headShake {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  6.5% {
+    -webkit-transform: translateX(-6px) rotateY(-9deg);
+    transform: translateX(-6px) rotateY(-9deg);
+  }
+
+  18.5% {
+    -webkit-transform: translateX(5px) rotateY(7deg);
+    transform: translateX(5px) rotateY(7deg);
+  }
+
+  31.5% {
+    -webkit-transform: translateX(-3px) rotateY(-5deg);
+    transform: translateX(-3px) rotateY(-5deg);
+  }
+
+  43.5% {
+    -webkit-transform: translateX(2px) rotateY(3deg);
+    transform: translateX(2px) rotateY(3deg);
+  }
+
+  50% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.dydo_modal__bg {
+  background: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.dydo_modal__header {
+  background: #F6F8FA;
+}
+
+.dydo_modal__title {
+  color: #000;
+  font-weight: normal;
+  margin: 0 !important;
+}
+
+.dydo_modal__close-button {
+  background: transparent !important;
+  color: #EB5757 !important;
+  font-weight: bold;
+  font-size: 28px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  height: 100%;
+}
+
+.dydo_modal__close-button img {
+  height: 100%;
+}
+
+.dydo_modal__close-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.dydo_modal__content {}
+
+.dydo_content-paragraph {
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  margin: 0 0 2rem 0;
+  font-weight: 300;
+}
+
+.dydo_modal__footer {}
+
+.dydo_action-button {
+  appearance: none;
+  background: #1A73E8 !important;
+  border: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.dydo_action-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.dydo_action-button:disabled {
+  background: #82b1ef !important;
+}
+
+/*Checkout form*/
+.dydo_toggle-button {
+  appearance: none !important;
+  background: #1A73E8 !important;
+  border: 0 !important;
+  width: auto !important;
+  height: 20px !important;
+  text-align: center !important;
+  color: #fff !important;
+  font-size: 14px !important;
+}
+
+.dydo_radio-payment {
+  background-color: #e6e6e6;
+  font-weight: normal;
+}
+
+.dydo_label-payment {
+  color: #555;
+  font-size: 12px !important;
+}
+
+/*
+Donation Amount
+*/
+.dydo_donation-amount {
+  margin-top: 16px;
+}
+
+.dydo_donation-amount__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #676767;
+}
+
+.dydo_donation-amount__items {}
+
+.dydo_donation-amount__item {
+  display: flex;
+  align-items: center;
+}
+
+.dydo_donation-amount__item--custom,
+.dydo_donation-amount__custom-label {
+  display: flex;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+
+.dydo_donation-amount__radio {
+  appearance: auto !important;
+  border-color: #1A73E8 !important;
+  outline: none !important;
+  margin-right: 10px !important;
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.dydo_donation-amount__radio:after {
+  display: none !important;
+}
+
+.dydo_donation-amount__text {
+  margin: 0 !important;
+  font-size: 14px !important;
+  color: #555;
+  padding: 0 !important;
+}
+
+.dydo_donation-amount__custom-label {
+  width: 75px;
+  margin: 0 14px 0 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.dydo_donation-amount__custom-label label {
+  font-weight: bold !important;
+}
+
+.dydo_donation-amount__custom-amount,
+.dydo_donation-amount__edit-amount {
+  padding: 8px !important;
+  border: 1px solid #cacaca !important;
+  width: 100% !important;
+  margin: 0 !important;
+  background: transparent !important;
+  outline: none !important;
+  font-size: 14px !important;
+  height: 40px !important;
+  font-family: 'Ubuntu', sans-serif;
+  border-radius: 3px !important;
+}
+
+/*
+Donations Type
+*/
+.dydo_donation-type {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid rgb(236, 236, 236);
+  background-color: rgb(249, 249, 249);
+}
+
+.dydo_donation-type__input {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dydo_donation-type__input,
+.dydo_donation-type__input::after {
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+}
+
+.dydo_donation-type__radio {
+  background-color: #e6e6e6;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  font-weight: normal;
+}
+
+.dydo_donation-type__radio::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d2d2d2;
+  position: absolute;
+}
+
+.dydo_donation-type__text {
+  font-size: 15px;
+  color: #555;
+}
+
+.dydo_donation-type__placeholder {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.dydo_donation-type--active {
+  border: 1px solid rgb(39, 174, 96) !important;
+  background-color: rgb(245, 255, 249) !important;
+}
+
+.dydo_donation-type--active .dydo_donation-type__text {
+  color: #27AE60;
+}
+
+.dydo_donation-type--active .dydo_donation-type__radio {
+  background-color: rgba(39, 174, 96, 0.2);
+}
+
+.dydo_donation-type--active .dydo_donation-type__radio::after {
+  background-color: #27AE60;
+}
+
+/* ==== Donations - Intervals ==== */
+.dydo_interval,
+.dydo_start_date,
+.dydo_startDate_options,
+.dydo_new-payment-method {
+  margin: 20px 0 16px 0;
+  display: flex;
+  align-items: center;
+}
+
+.dydo_interval label,
+.dydo_start_date label,
+.dydo_startDate_options label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.dydo_interval label h6,
+.dydo_start_date label h6,
+.dydo_startDate_options label h6 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #676767;
+}
+
+.dydo_interval select,
+.dydo_interval input,
+.dydo_start_date input,
+.dydo_startDate_options select {
+  padding: 8px !important;
+  border: 1px solid #cacaca !important;
+  width: 100% !important;
+  margin: 0 !important;
+  outline: none !important;
+  font-size: 14px !important;
+  height: 40px !important;
+  font-family: 'Ubuntu', sans-serif;
+  border-radius: 3px !important;
+}
+
+/* ==== Login Form ==== */
+.dydo_auth-form {}
+
+.dydo_auth-form__item {
+  margin-bottom: 16px;
+}
+
+.dydo_auth-form__label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #676767;
+  text-align: left;
+}
+
+.dydo_auth-form__label input[type=checkbox] {
+  margin-right: 10px;
+}
+
+.dydo_auth-form__input {
+  padding: 8px !important;
+  border: 1px solid #cacaca !important;
+  width: 100% !important;
+  margin: 0 !important;
+  outline: none !important;
+  font-size: 14px !important;
+  height: 40px !important;
+  font-family: 'Ubuntu', sans-serif;
+  border-radius: 3px !important;
+}
+
+.dydo_auth-form__button {
+  display: flex;
+  background: #1A73E8 !important;
+  border: 0;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  color: #fff !important;
+  font-size: 18px;
+  margin-top: 16px;
+}
+
+/* ==== Back Button ==== */
+.dydo_back-button {
+  display: flex;
+  /*padding: 5px 10px;*/
+  /*border: 1px solid #c3dcff;*/
+  border: none;
+  outline: none;
+  color: #1A73E8 !important;
+  appearance: none !important;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  background-color: transparent;
+  /*background-color: #f6faff;*/
+  align-items: center;
+}
+
+.dydo_back-button svg {
+  margin-right: 5px;
+}
+
+/* ==== Error ==== */
+.dydo_error-section {
+  padding: 32px 32px 0 32px;
+}
+
+.dydo_error-section__content {
+  background-color: #ffe4e4fa;
+  color: #ff6565;
+  border: 1px solid #ffb5b5;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.dydo_error-section__paragraph {
+  margin-bottom: 0 !important;
+}
+
+.dydo_error-section__button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ff6565;
+  font-weight: bold;
+}
+
+/* ==== Notification ==== */
+.dydo_notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 40px;
+  width: 100%;
+  background: #ffdbdb;
+  border: 1px solid #ffabab;
+  color: #ff5959;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* ==== Payment Method ==== */
+.dydo_paymentmethods {
+  margin: 15px 0 30px 0;
+}
+
+.dydo_paymentmethods__item {
+  background: #F2F2F2;
+  padding: 6px 15px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 8px;
+  position: relative;
+}
+
+.dydo_paymentmethods__item > div {
+  width: 100%;
+}
+
+.dydo_container_date_inputs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dydo_container_date_inputs .input_month {
+  width: 50px !important;
+}
+
+.dydo_container_date_inputs .input_year {
+  width: 70px !important;
+}
+
+.dydo_paymentmethods-item__label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.dydo_paymentmethods-item__separator::before {
+  content: '';
+  display: block;
+  height: 25px;
+  width: 2px;
+  background-color: #BDBDBD;
+  margin: 0 1rem;
+}
+
+.dydo_paymentmethods-item__radio,
+.dydo_paymentmethods-item__checkbox {
+  appearance: auto !important;
+  border-color: #1A73E8 !important;
+  outline: none !important;
+  margin-right: 10px !important;
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.dydo_paymentmethods-item__radio::after {
+  display: none !important;
+}
+
+.dydo_paymentmethods-item__checkbox:checked:after {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  opacity: 0 !important;
+  background: transparent;
+}
+
+.dydo_paymentmethods__toggle {
+  display: flex;
+  margin-left: auto;
+  font-size: 14px;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  background-color: rgba(26, 115, 232, 0.2);
+  color: #4F4F4F;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.dydo_paymentmethods-empty {
+  background: #f6f8fa;
+  font-size: 15px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 30px 0;
+  border-radius: 3px;
+}
+
+.dydo_card-element-container {
+  width: 100%;
+}
+
+.dydo_btn-enable-solid {
+  background: #8C56FF;
+  padding: 8px 30px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  border: none;
+  font-size: 14px;
+}
+
+.dydo_btn-enable-empty {
+  background: #FFFFFF;
+  border: 1px solid #8C56FF;
+  border-radius: 10px;
+  padding: 8px 30px;
+  font-size: 14px;
+  color: #8C56FF;
+}
+
+.dydo_btn-enable {
+  border: none;
+  background: none;
+}
+
+.dydo_btn-enable img {
+  width: 40px;
+}
+
+.dydo_icons_container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.dydo_disabled_false {
+  /* justify-content: space-between; */
+}
+
+.dydo_paymentnethods-item-header-titles {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+}
+
+.dydo_paymentnethods-item-header-titles .dydo_labels-header-titles {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #737373;
+}
+
+.dydo_paymentnethods-item-header-titles .dydo_label-set-as-primary {
+  color: #8C56FF;
+}
+
+.dydo_confirm_dialog {
+  position: fixed;
+  background: #FFF;
+  z-index: 2;
+  padding: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 350px;
+  margin: auto;
+  height: 210px;
+}
+
+.dydo_confirm-backdrop {
+  font-family: 'Mukta', sans-serif;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  padding-top: 15vh;
+  box-sizing: border-box;
+  animation: confirmo-come-up 0.5s forwards ease-in-out;
+}
+
+.dydo_confirm-modal {
+  width: 550px;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px #2a2b2d;
+  border-radius: 15px;
+  animation: confirmo-fade-in 0.5s forwards ease-in-out;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.dydo_confirm-modal button {
+  margin: 0 10px;
+}
+
+.dydo_confirm-modal .dydo_confirm-label-title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.dydo_confirm-modal .dydo_confirm-message  {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #737373;
+  margin-bottom: 18px;
+}
+
+.dydo_paymentmethods_item_close_to_expiring {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(253, 37, 37, 0.05);
+}
+
+.dydo_paymentmethods_message_close_to_expiring {
+  color: #FD2525;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dydo_container_message_info {
+  display: flex;
+  padding: 10px 16px;
+  align-items: flex-start;
+  gap: 10px;
+  border-left: 5px solid #0C87F9;
+  background: #F7F8FA;
+}
+
+.dydo_message_info {
+  font-size: 14px;
+  color: #787878;
+}
+
+.dydo_update-paymentmethod_edit-amount-small {
+  width: 70% !important;
+}
+
+.dydo_paymentmethods__item > div:first-child {
+  margin-top: 15px !important;
+}
+
+.dydo_paymentmethods__item .dydo_middle-xs .dydo_col-xs-6:last-child {
+  margin-top: 0;
+}
+
+.dydo_container_default_payment_method {
+  margin-top: 15px;
+}
+
+.dydo_container_primary_payment {
+  color: #FFF;
+  font-size: 11px;
+  font-style: normal;
+  line-height: normal;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #8B56FE;
+  padding: 5px;
+  display: flex;
+}
+
+.dydo_container_primary_payment img {
+  margin-left: 8px;
+}
+
+/* ==== Screen - Thanks ==== */
+.dydo_thanks__paragraph {
+  text-align: center;
+  font-weight: normal;
+}
+
+/* ==== Woocommerce ==== */
+.dydo_submit-one-time-donation,
+.dydo_subscription {
+  background-color: rgba(47, 128, 237, 0.2);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.dydo_subscription {
+  background-color: rgba(130, 130, 130, 0.2);
+}
+
+.dydo_subscription--active {
+  background-color: rgba(47, 128, 237, 0.2);
+}
+
+.dydo_submit-one-time-donation__amount,
+.dydo_subscription__amount {
+  font-weight: bold;
+  color: #4F4F4F;
+  font-size: 18px;
+}
+
+.dydo_subscription__amount {
+  margin-bottom: 15px;
+}
+
+.dydo_submit-one-time-donation__date,
+.dydo_subscription__date,
+.dydo_subscription__date_edit,
+.dydo_subscription__amount_edit,
+.dydo_subscription__cancel,
+.dydo_subscription__change_payment_method {
+  font-size: 12px;
+  color: #4F4F4F;
+}
+
+.dydo_submit-one-time-donation__button,
+.dydo_submit-add-payment-method__button {
+  text-align: right;
+  font-size: 14px;
+  color: #4F4F4F;
+  font-weight: normal;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.dydo_manage-payment-button {
+  border: 1px solid #4F4F4F;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #efefef;
+}
+
+.dydo_subscription__status {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  font-weight: normal;
+  color: #828282;
+}
+
+.dydo_subscription__status::before {
+  background-color: #828282;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.dydo_subscription__status--active {
+  color: #219653;
+}
+
+.dydo_subscription__status--active::before {
+  background-color: #219653;
+}
+
+.dydo_subscription__interval {
+  color: #828282;
+  font-size: 16px;
+  font-weight: normal;
+  display: block;
+}
+
+.dydo_subscription__interval--active {
+  color: #2F80ED;
+}
+
+.dydo_subscription-slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  margin: 0;
+}
+
+.dydo_subscription-slider__input {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0;
+  height: 0;
+}
+
+.dydo_subscription-slider__input::after {
+  display: none !important;
+}
+
+.dydo_subscription-slider__switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E0E0E0;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.dydo_subscription-slider__switch::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 17px;
+  left: 4px;
+  bottom: 1.75px;
+  background-color: #828282;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.dydo_subscription-slider__input:checked+.dydo_subscription-slider__switch {
+  background-color: rgba(39, 174, 96, 0.2);
+}
+
+.dydo_subscription-slider__input:checked+.dydo_subscription-slider__switch::before {
+  background-color: #27AE60;
+  transform: translateX(16px);
+}
+
+
