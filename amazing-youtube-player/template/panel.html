@@ -1,0 +1,516 @@
+<?php
+function my_init() {
+		wp_enqueue_script('jquery');	
+}
+add_action('init', 'my_init');
+?>
+<script>
+var head = document.getElementsByTagName('head')[0],
+    style = document.createElement('style'),
+    rules = document.createTextNode('UL.tabNavigation{list-style:none;margin:0;padding:0}UL.tabNavigation LI{display:inline}UL.tabNavigation LI A{background-color:#ccc;color:#000;text-decoration:none;padding:3px 5px}UL.tabNavigation LI A.selected,UL.tabNavigation LI A:hover{background-color:#333;color:#fff;padding-top:7px}UL.tabNavigation LI A:focus{outline:0}div.tabs > div{margin-top:3px;border:5px solid #333;padding:5px}div.tabs > div h2{margin-top:0}#first{background-color:#f0f0f0;margin-top:1px}#second{background-color:#f0f0f0;margin-top:1px}');
+
+style.type = 'text/css';
+if(style.styleSheet)
+    style.styleSheet.cssText = rules.nodeValue;
+else style.appendChild(rules);
+head.appendChild(style);
+
+
+function popup(link,windowname,w,h)
+	{
+		var winl = (screen.width-w)/2;
+		var wint = (screen.height-h)/2;
+		var settings='height='+h+',width='+w+',top='+wint+',left='+winl;
+		ventana=window.open(link, windowname, settings);
+		ventana.focus();
+		return ventana;
+	}
+function mostrarPopUpPreview()
+{
+	var wind;
+	//horizontal
+	var width=788;
+	var height=363;
+	if (_textAreaVal2=='horizontal') 
+		{
+			if ((_textAreaVal3b2=='mini') && (_textAreaVal4b2==1))
+			{
+				width=563;					
+			}
+			wind=popup('http://es.netplayed.com/views/editor/previewDeveloper.php?aspect=horizontal&language='+document.getElementById('npl_language').value+'&autostart='+_textAreaVal2b2+'&autoPreview='+_textAreaValPreview+'&player='+_textAreaVal3b2+'&blockPlayer='+_textAreaVal4b2+'&limitItems='+_textAreaVal5b2+'&llamadaYoutube='+_textAreaVal7b+'&paisLLamada='+_textAreaVal7d+'&timeLLamada='+_textAreaVal7f+'&idsvideos='+_textAreaVal6b+'&videosWeb='+_textAreaVal6c,'<?php echo $language_previsualizar;?>',width,height);
+		}
+		else
+		{
+			width=440;
+			height=719;
+			if ((_textAreaVal3b2=='mini') && (_textAreaVal4b2==1))
+			{
+				height=460;					
+			}		
+			wind=popup('http://es.netplayed.com/views/editor/previewDeveloper.php?aspect=vertical&language='+document.getElementById('npl_language').value+'&autostart='+_textAreaVal2b2+'&autoPreview='+_textAreaValPreview+'&player='+_textAreaVal3b2+'&blockPlayer='+_textAreaVal4b2+'&limitItems='+_textAreaVal5b2+'&llamadaYoutube='+_textAreaVal7b+'&paisLLamada='+_textAreaVal7d+'&timeLLamada='+_textAreaVal7f+'&idsvideos='+_textAreaVal6b+'&videosWeb='+_textAreaVal6c,'<?php echo $language_previsualizar;?>',width,height);
+		};
+}
+
+function anyadeejmplovideos()
+{
+	jQuery('#listVideosIds').val('Procesando....');
+	var yt_url='http://gdata.youtube.com/feeds/api/standardfeeds/top_rated?v=2&alt=jsonc';
+	yt_url +='&key=AI39si51aHF3W3jN5YT3yLebrETP_zgunbecx0dCj6V3WlIFeHuOXLKEAMDg_D3AwruUg6BxIuvuiixhrAsft9wFx1H5t6-P1Q';
+	var x=jQuery.ajax
+	({
+	type: "GET",
+	url: yt_url,
+	dataType:"jsonp",
+	async:true,	
+	error: function(){
+		jQuery('#listVideosIds').val('Error, try it later....');
+	},		
+	success: function(response)
+			{					
+				jQuery('#listVideosIds').val("");
+				if(response.data.items)
+				{
+					jQuery.each(response.data.items, function(i,data)
+					{
+						//alert(data.toSource());
+						var video_id=data.id;
+						if (jQuery('#listVideosIds').val()=="")
+{ jQuery('#listVideosIds').val(video_id);;
+}else
+{						jQuery('#listVideosIds').val(jQuery('#listVideosIds').val()+","+video_id);
+}
+					});
+					_textAreaVal6b=jQuery('#listVideosIds').val();establecerCodigoInsercion();
+				}
+			}
+	});
+}
+//var _textAreaVal2b2=0;
+//var _textAreaVal2='horizontal';
+//var _textAreaVal3b2='mini';
+//var _textAreaVal4b2=0;
+//var _textAreaVal5b2=10;
+//var _textAreaVal6c='';
+
+var aleat=Math.floor(Math.random()*9999);
+var _textAreaVal1a='&lt;!--INIT EMBEDDED NETPLAYED OBJECT--&gt;#LINE_BREAK#';
+_textAreaVal1a+='&lt;div id="nplDiv_'+aleat+'" &gt;#LINE_BREAK#';
+var _textAreaVal1b="&lt;a target='_blank' title='reproductor videos de youtube sin pausas' href='http://es.netplayed.com'&gt;Videos Online Gratis&lt;/a&gt;";
+var _textAreaVal1c='&lt;/div&gt;';
+_textAreaVal1c+='&lt;script type="text/javascript" src="http://static.netplayed.com/js/spec/addNetplayedVideos_min_v_45.js"&gt;&lt;/script&gt;#LINE_BREAK#';
+_textAreaVal1c+='&lt;script&gt;#LINE_BREAK#';
+_textAreaVal1c+='var npl_config = {#LINE_BREAK#target_id: "nplDiv_'+aleat+'",#LINE_BREAK#language:"';
+var _textAreaVal1d='es';
+var _textAreaVal1e='",#LINE_BREAK#aspect:"';
+var _textAreaVal2='horizontal';
+var _textAreaVal2b1='",#LINE_BREAK#autostart:';
+var _textAreaVal2b2='0';
+var _textAreaValPreview1=',#LINE_BREAK#autoPreview:"';
+var _textAreaValPreview='1';
+var _textAreaVal3b1='",#LINE_BREAK#player:"';
+var _textAreaVal3b2='mini';
+var _textAreaVal4b1='",#LINE_BREAK#blockPlayer:';
+var _textAreaVal4b2='0';
+var _textAreaVal5b1=',#LINE_BREAK#limitItems:';
+var _textAreaVal5b2='10';
+var _textAreaVal7a=',#LINE_BREAK#llamadaYoutube:"';
+var _textAreaVal7b='';
+var _textAreaVal7c='",#LINE_BREAK#paisLLamada:"';
+var _textAreaVal7d='';
+var _textAreaVal7e='",#LINE_BREAK#timeLLamada:"';
+var _textAreaVal7f='';
+var _textAreaVal6a='",#LINE_BREAK#idsVideos:"';
+var _textAreaVal6b='';
+var _textAreaVal6c1='",#LINE_BREAK#videosWeb:"';
+var _textAreaVal6c='';
+
+var _textAreaVal3='"};#LINE_BREAK#';
+_textAreaVal3+="addIframeAdv(npl_config);#LINE_BREAK#";
+_textAreaVal3+="&lt;/script&gt;#LINE_BREAK#";
+_textAreaVal3+="&lt;!--END EMBEDDED NETPLAYED OBJECT--&gt;#LINE_BREAK#";
+
+function replaceAll(txt, replace, with_this) {
+  return txt.replace(new RegExp(replace, 'g'),with_this);
+}
+function getRadioButtonSelectedValue(ctrl)
+{
+    for(i=0;i<ctrl.length;i++)
+        if(ctrl[i].checked) return ctrl[i].value;
+}
+function establecerCodigoInsercion()
+{
+
+_textAreaVal2b2=(document.getElementById('npl_autoiniciar').checked)?1:0;
+_textAreaValPreview=(document.getElementById('npl_autopreview').checked)?1:0;
+_textAreaVal2=getRadioButtonSelectedValue(document.formNPL.npl_aspecto_player);
+_textAreaVal3b2=getRadioButtonSelectedValue(document.formNPL.npl_tipo_player);
+_textAreaVal4b2=(document.getElementById('npl_non_blocking').checked)?0:1;
+_textAreaVal5b2=document.getElementById('npl_listItems').value;
+_textAreaVal6c=document.getElementById('npl_videoWeb').value;
+
+document.getElementById('textInsercion').innerHTML=(replaceAll(_textAreaVal1a+_textAreaVal1b+_textAreaVal1c+_textAreaVal1d+_textAreaVal1e+_textAreaVal2+_textAreaVal2b1+_textAreaVal2b2+_textAreaValPreview1+_textAreaValPreview+_textAreaVal3b1+_textAreaVal3b2+_textAreaVal4b1+_textAreaVal4b2+_textAreaVal5b1+_textAreaVal5b2+_textAreaVal7a+_textAreaVal7b+_textAreaVal7c+_textAreaVal7d+_textAreaVal7e+_textAreaVal7f+_textAreaVal6a+_textAreaVal6b+_textAreaVal6c1+_textAreaVal6c+_textAreaVal3,'#LINE_BREAK#','\r\n'));
+document.getElementById('textInsercion').focus();
+document.getElementById('textInsercion').select();
+}
+function setLanguage(language)
+{
+
+document.getElementById('npl_language').value=language;
+if (language=="es")
+	{
+_textAreaVal1b="&lt;a target='_blank' title='reproductor videos de youtube sin pausas' href='http://es.netplayed.com'&gt;Videos Online Gratis&lt;/a&gt;"
+_textAreaVal1d='es';
+	document.getElementById('submit_form').value='Salvar Opciones';
+	document.getElementById('message_lang').innerHTML='Elige tu idioma (este será el idioma del reproductor):';
+	document.getElementById('message_0').innerHTML='Reproductor automático';
+	document.getElementById('message_1').innerHTML='Este plugin incrustará en su web un reproductor de videos que aparecerá automáticamente en aquellas páginas que tengan videos Youtube, de este modo mostrará todos los videos juntos a sus usuarios.';
+	document.getElementById('message_2').innerHTML='Opciones del reproductor';
+	document.getElementById('message_3').innerHTML='Textos alrededor del reproductor';
+	document.getElementById('message_4').innerHTML='AutoIniciar:';
+	document.getElementById('message_AutoPreview').innerHTML='Previsualizar en imagenes:';
+	document.getElementById('message_5').innerHTML='Aspecto:';
+	document.getElementById('message_6').innerHTML='Tamaño Player:';
+	document.getElementById('message_7').innerHTML='Maximizado';
+	document.getElementById('message_8').innerHTML='Minimizado';
+	document.getElementById('message_8b').innerHTML='(Te recomendamos probar las posibilidades de esta opción)';
+	document.getElementById('message_9').innerHTML='Permitir cambiar el tamaño del Player:';
+	document.getElementById('message_10').innerHTML='Numero de items simultaneos:';
+	document.getElementById('message_11').innerHTML='Texto (use formato HTML) previo al reproductor:';
+	document.getElementById('message_12').innerHTML='Texto (use formato HTML) posterior al reproductor:';
+	document.getElementById('message_9b').innerHTML='Capa anexa al reproductor:';
+	document.getElementById('message_13').innerHTML='Si usted prefiere mostrar el reproductor <b>únicamente en las páginas que usted desee</b> marque la siguiente opción';
+	document.getElementById('message_14').innerHTML='No añadir player automáticamente:';
+	document.getElementById('message_15').innerHTML='Permitanos incluir un enlace a netplayed.com(oculto al usuario) para que Google nos valore.Si prefiere no incluir en enlace se mostrará un minianuncio durante 7 segundos:';
+	document.getElementById('message_16').innerHTML='Pulse ';
+	document.getElementById('message_17').innerHTML='para actualizar sus opciones';
+	document.getElementById('message_18').innerHTML='Reproductor específico';
+	document.getElementById('message_19').innerHTML='Si usted seleccionó la opción 10 para usar el reproductor únicamente en algunas páginas siga los pasos siguientes:';
+	document.getElementById('message_20').innerHTML='Indique la página (de su web) que contiene los videos que desea reproducir';
+	document.getElementById('message_21').innerHTML='Añada el código siguiente desde el modo HTML de la página o del post donde quiera añadir el reproductor de videos';
+	document.getElementById('message_22').innerHTML='Repita los pasos A y B tantas veces como reproductores distintos quiera insertar';
+	document.getElementById('message_23').innerHTML='Ver código para incrustar en Post / Página';
+	document.getElementById('message_24').innerHTML='Nota:este código se genera teniendo en cuenta las opciones del reproductor seleccionadas anteriormente';
+	document.getElementById('message_25').innerHTML='Recuerde que tiene <u>más opciones para insertar videos en su web</u>:';
+	document.getElementById('message_26').innerHTML='A través de listas de videos de <a href="http://es.netplayed.com" target="_blank">netplayed</a>';
+	document.getElementById('message_27').innerHTML='A través de la herramienta para <a href="http://es.netplayed.com/desarrollador" target="_blank">desarrolladores</a>';
+
+jQuery('#message_20A').html('Elija una de las tres opciones siguientes como fuente de videos');
+jQuery('#span_message_20').attr('title','como ejemplo pondremos la página inicial de la web');
+jQuery('#message_example').html('ejemplo');
+jQuery('#no_previsualizable').attr('title','Este modo no admite previsualización');
+jQuery('#message_sin_previsualizar').html('Sin previsualización');
+jQuery('#message_20B').html('Videos youtube a reproducir:');
+jQuery('#span_message_20B').attr('title','Como ejemplo pondremos los videos más valorados del momento según Youtube');
+jQuery('#message_example2').html('ejemplo');
+jQuery('#message_previsualizar_1').html('PREVISUALIZAR');
+jQuery('#message_20C').html('Feeds Youtube');
+jQuery('#message_20C_1').html('de');
+jQuery('#message_20C_2').html('durante');
+_alert1='Debe rellenar la lista de videos que quiere visualizar';
+_alert2='Debe rellenar los tres campos de Feed de Youtube';
+jQuery('#message_previsualizar_2').html('PREVISUALIZAR');
+
+	document.getElementById('npl_autoiniciar').title='Pulse aquí para que su lista incrustada inice automaticamente a reproducirse';
+document.getElementById('npl_autopreview').title='Pulse aquí para que su lista incrustada se muestre previsualizada en imagenes. Cuando el usuario pulse en el play la lista autoiniciará.';
+	//document.getElementById('npl_tipo_player').title='aaa';
+	document.getElementById('npl_listItems').title='Numero de videos que se desean cargar simultaneamente (-1 implica cargar todos)';
+	document.getElementById('npl_non_blocking').title='Permitir al usuario cambiar el reproductor entre maximizado y minimizado';
+	document.getElementById('npl_help').title='Si le gusta este plugin ayude a su desarrollador permitiendo que el plugin añada un enlace hacia netplayed.com con el texto Videos Gratis Online';
+	}else
+if (language=="en")
+	{
+_textAreaVal1b="&lt;a target='_blank' title='youtube videos player without pauses' href='http://en.netplayed.com'&gt;Videos Online &lt;/a&gt;"
+_textAreaVal1d='en';
+	document.getElementById('submit_form').value='Save Options';
+	document.getElementById('message_lang').innerHTML='Choose your language (this will be the language of the player):';
+	document.getElementById('message_0').innerHTML='Automatic player';
+	document.getElementById('message_1').innerHTML='This plugin will embed a videos player at the end of your pages with Youtube videos. So, your users can enjoy all the videos together.';
+	document.getElementById('message_2').innerHTML='Player options';
+	document.getElementById('message_3').innerHTML='Texts arround the player';
+	document.getElementById('message_4').innerHTML='AutoInit:';
+	document.getElementById('message_AutoPreview').innerHTML='Preview in images:';
+	document.getElementById('message_5').innerHTML='Aspect:';
+	document.getElementById('message_6').innerHTML='Player size:';
+	document.getElementById('message_7').innerHTML='Maximized';
+	document.getElementById('message_8').innerHTML='Minimized';
+	document.getElementById('message_8b').innerHTML='(We recommend you to try changing this option)';
+	document.getElementById('message_9').innerHTML='Allow to change Player size by users:';
+	document.getElementById('message_10').innerHTML='Simultaneous items number:';
+	document.getElementById('message_11').innerHTML='Text (use HTML fortmat) previous the player:';
+	document.getElementById('message_12').innerHTML='Text (use HTML fortmat) after the player:';
+	document.getElementById('message_9b').innerHTML='Layer next to the player:';
+	document.getElementById('message_13').innerHTML='If you prefer to show the player <b>olnly at selected pages</b> you should mark this option';
+	document.getElementById('message_14').innerHTML='Don\'t add player automátically:';
+	document.getElementById('message_15').innerHTML='Click here to allow us to place a link to netplayed.com(hidden to user),so Google value us. If you prefer not to include a link a little advertisement will be shown during 7 seconds:';
+	document.getElementById('message_16').innerHTML='Press ';
+	document.getElementById('message_17').innerHTML='to update your options';
+	document.getElementById('message_18').innerHTML='Specific player';
+	document.getElementById('message_19').innerHTML='If you selected the option number 10 to use the player at selected pages you should follow next instructions:';
+	document.getElementById('message_20').innerHTML='Specify the page (of your web) which contains videos you would like to play';
+	document.getElementById('message_21').innerHTML='Add the next code using the HTML mode of the page or post where you would like to add the videos player';
+	document.getElementById('message_22').innerHTML='Repeat steps A and B as many times as different players you would like to insert';
+	document.getElementById('message_23').innerHTML='See code to embed at Post / Page';
+	document.getElementById('message_24').innerHTML='Note: This code is generated following the player options selected before';
+	document.getElementById('message_25').innerHTML='Remind you have <u>more option to embed videos at your web</u>:';
+	document.getElementById('message_26').innerHTML='Using videolists of <a href="http://en.netplayed.com" target="_blank">netplayed</a>';
+	document.getElementById('message_27').innerHTML='Using the videos tool for <a href="http://en.netplayed.com/developer" target="_blank">developers</a>';
+jQuery('#message_20A').html('Choose one of the next three options as videos source');
+jQuery('#span_message_20').attr('title','as example we put the initial page of your web');
+jQuery('#message_example').html('example');
+jQuery('#no_previsualizable').attr('title','This option has not preview available');
+jQuery('#message_sin_previsualizar').html('Without preview');
+jQuery('#message_20B').html('Youtube videos to play:');
+jQuery('#span_message_20B').attr('title','As example we\'ll put the currently top rated videos according to Youtube');
+jQuery('#message_example2').html('example');
+jQuery('#message_previsualizar_1').html('PREVIEW');
+jQuery('#message_20C').html('Youtube feeds');
+jQuery('#message_20C_1').html('from');
+jQuery('#message_20C_2').html('at');
+_alert1='You should fill the videos lists that you would like to play';
+_alert2='You should fill the three Youtube feeds fields';
+jQuery('#message_previsualizar_2').html('PREVIEW');
+	document.getElementById('npl_autoiniciar').title='Press here to let the embedded videoslist starts automatically';
+document.getElementById('npl_autopreview').title='Press here to show a preview of the list in images. When the user click on the play the list will autostart';
+	//document.getElementById('npl_tipo_player').title='aaa';
+	document.getElementById('npl_listItems').title='Number of videos which would be loaded simulatenously (-1 implies to load all)';
+	document.getElementById('npl_non_blocking').title='Allow to the user to change the size player between maximized and minimized';
+	document.getElementById('npl_help').title='If you like this plugin you can help the developer allowing to the player to add a link to netplayed.com with the text Videos Online';
+	}
+establecerCodigoInsercion();
+}
+</script>
+ 
+<div style="margin-top:5px;"></div>
+<i><label id="message_lang">Choose your language (this will be the language of the player):</label></i>
+<a href="#" onclick="setLanguage('en');return false;"><img src="http://static.netplayed.com/images/english.jpg" border=0 />English</a>
+&nbsp;
+<a href="#" onclick="setLanguage('es');return false;"><img src="http://static.netplayed.com/images/espana.jpg" border=0 />Spanish</a>
+
+<h1 id="message_0">Reproductor automático</h1>
+<label id="message_1">Este plugin incrustará en su web un reproductor de videos que aparecerá automáticamente en aquellas páginas que tengan videos Youtube, de este modo mostrará todos los videos juntos a sus usuarios.</label>
+
+﻿ <div style="margin-top:10px">
+  
+<?php
+/*
+<div id="message_2" style="float:left;margin-right:100px;COLOR: #1a7eb9; TEXT-DECORATION: underline;cursor:pointer;" onclick="document.getElementById('opciones_visuales').style.display='block';document.getElementById('opciones_textuales').style.display='none'">
+Opciones del reproductor
+</div>
+<div id="message_3" style="COLOR: #1a7eb9; TEXT-DECORATION: underline;cursor:pointer;" onclick="document.getElementById('opciones_visuales').style.display='none';document.getElementById('opciones_textuales').style.display='block'">
+Textos alrededor del reproductor
+</div>
+*/
+?>
+
+   <form name="formNPL" method="post" action="">
+<input type="hidden" name="npl_language" id="npl_language" value="en">
+
+<div class="tabs">
+        <ul class="tabNavigation">
+            <li><a href="#first"><label id="message_2">Player Options</label></a></li>
+            <li><a href="#second"><label id="message_3">Textos alrededor del reproductor</label></a></li>
+        </ul>
+                         
+<div id="first">
+<div id="opciones_visuales">
+<div style="width:329px;margin-top;10px;">
+<label style="font-size:20px;color:gray;"><b>1.&nbsp;</b></label><b><label id="message_4">AutoIniciar:</label></b>
+<input style="display: inline;" type="checkbox" title="Pulse aquí para que su lista incrustada inice automaticamente a reproducirse" id="npl_autoiniciar" name="npl_autoiniciar" onclick="_textAreaVal2b2=(this.checked)?1:0;establecerCodigoInsercion();" <?php if ($npl_autoiniciar==1) echo "checked";?>>
+</div>
+
+<div style="width:329px;margin-top;10px;">
+<label style="font-size:20px;color:gray;"><b>2.&nbsp;</b></label><b><label id="message_AutoPreview">Preview in images:</label></b>
+<input style="display: inline;" type="checkbox" title="Pulse aquí para que su lista se previsualize como imagenes" id="npl_autopreview" name="npl_autopreview" onclick="_textAreaValPreview=(this.checked)?1:0;establecerCodigoInsercion();" <?php if ($npl_autopreview==1) echo "checked";?>>
+</div>
+
+<div style="width:329px;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>3.&nbsp;</b></label><b><label id="message_5">Aspecto:</label></b>
+<input style="display: inline;" type="radio" name="npl_aspecto_player" id="npl_aspecto_player" title="" onclick="_textAreaVal2='horizontal';establecerCodigoInsercion();" value="horizontal" <?php if ($npl_is_aspecto_player=='horizontal') echo "checked";?>>Horizontal
+<input style="display: inline;" type="radio" name="npl_aspecto_player" id="npl_aspecto_player" title="" onclick="_textAreaVal2='vertical';establecerCodigoInsercion();" value="vertical" <?php if ($npl_is_aspecto_player=='vertical') echo "checked";?>>Vertical
+</div>			
+			
+<div style="width:799px;margin-top:3px;">				
+<label style="font-size:20px;color:gray;"><b>4.&nbsp;</b></label><b><label id="message_6">Tamaño Player:</label></b>
+<input style="display: inline;" type="radio" name="npl_tipo_player" id="npl_tipo_player" title="" onclick="_textAreaVal3b2='normal';establecerCodigoInsercion();" value="normal" <?php if ($npl_is_tipo_player=='normal') echo "checked";?>><label id="message_7">Maximizado</label>
+<input style="display: inline;" type="radio" name="npl_tipo_player" id="npl_tipo_player" title="" onclick="_textAreaVal3b2='mini';establecerCodigoInsercion();" value="mini" <?php if ($npl_is_tipo_player=='mini') echo "checked";?>><label id="message_8">Minimizado</label><label style="margin-left:10px;font-size:16px;color:gray;" id="message_8b">(We recommend you to try changing this option)</label>				
+</div>
+
+<div style="width:399px;margin-top:3px;">				
+<label style="font-size:20px;color:gray;"><b>5.&nbsp;</b></label><b><label id="message_9">Permitir cambiar el tamaño del Player:</label></b><input style="display: inline;" type="checkbox" title="Permitir al usuario cambiar el reproductor entre maximizado y minimizado" onclick="_textAreaVal4b2=(this.checked)?0:1;establecerCodigoInsercion();" id="npl_non_blocking" name="npl_blocking" <?php if ($npl_is_non_blocking==1) echo "checked";?>>
+</div>
+			
+<div style="width:329px;margin-top:3px;">				
+<label style="font-size:20px;color:gray;"><b>6.&nbsp;</b></label><b><label id="message_10">Numero de items simultaneos:</label></b><input style="display: inline;" id="npl_listItems" name="npl_listItems" type="text" value="<?php echo $npl_is_listItems?>" size=3 title="Numero de videos que se desean cargar simultaneamente (-1 implica cargar todos)" onchange="_textAreaVal5b2=this.value;establecerCodigoInsercion();">
+</div>
+</div>
+</div>
+
+<div id="second">
+<div id="opciones_textuales" style="display:block">
+<div style="width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>7.&nbsp;</b></label><b><label id="message_11">Texto (use formato HTML) previo al reproductor:</label></b><br>
+<textarea style="width: 750px; height: 150px;" id="npl_intro_texto" name="npl_intro_texto" rows=24 cols=85><?php echo stripslashes(html_entity_decode($npl_intro_texto));?></textarea>
+</div>
+<div style="width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>8.&nbsp;</b></label><b><label id="message_12">Texto (use formato HTML) posterior al reproductor:</label></b><br>
+<textarea  style="width: 750px; height: 150px;" id="npl_fin_texto" name="npl_fin_texto"  rows=24 cols=85><?php echo stripslashes(html_entity_decode($npl_fin_texto));?></textarea>
+</div>
+
+<div style="width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>9.&nbsp;</b></label><b><label id="message_9b">Capa anexa al reproductor:</label></b><br>
+<textarea  style="width: 750px; height: 150px;" id="npl_style_mediana" name="npl_style_mediana"  rows=24 cols=85><?php echo stripslashes(html_entity_decode($npl_style_mediana));?></textarea>
+</div>
+
+</div>
+</div>
+</div>
+<div id="message_13" style="width:100%;margin-top:15px;">
+Si usted prefiere mostrar el reproductor <b>únicamente en las páginas que usted desee</b> marque la siguiente opción
+</div>
+<div style="width:329px;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>10.&nbsp;</b></label><b><label id="message_14">No añadir player automáticamente:</label></b><input style="display: inline;" type="checkbox" id="npl_no_anyadir" name="npl_no_anyadir" <?php if ($npl_no_anyadir==1) echo "checked";?>>
+</div>
+<div style="width:100%;margin-top;10px;">
+<label style="font-size:20px;color:gray;"><b>11.&nbsp;</b></label><b><label id="message_15" style="font-size:16px;color:#002AA6;">Permitanos incluir un enlace a netplayed.com(oculto al usuario) para que Google nos valore.Si prefiere no incluir el enlace se mostrará un minianuncio durante 7 segundos:</label></b>
+<input style="display: inline;" type="checkbox" title="Si le gusta este plugin ayude a su desarrollador permitiendo que el plugin añada un enlace hacia netplayed.com con el texto Videos Gratis Online" id="npl_help" name="npl_help"  <?php if ($npl_help==1) echo "checked";?>>
+</div>
+
+<div style="margin-top:20px">
+	<input type='hidden' name='envio' id='envio' value='envio' />
+         <label id="message_16">Pulse </label><input type='submit' id="submit_form" name='' value='Guardar opciones' /> <label id="message_17">para actualizar sus opciones</label>
+</div>
+   </form>
+</div>
+<br>
+<hr style="width:90%;color: #f8b500;background-color: #f8b500;height: 5px;border:none;">
+<br>
+<h1 id="message_18">Reproductor especifico</h1>
+<label id="message_19">Si usted seleccionó la opción 10 para usar el reproductor únicamente en algunas páginas siga los pasos siguientes:</label>
+<div style="width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>A.&nbsp;</b></label><label id="message_20A">Elija una de las tres opciones siguientes como fuente de videos</label>
+</div>
+<div style="margin-left:10px;width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>A.1.&nbsp;</b></label>
+<label id="message_20">Indique la página (de su web) que contiene los videos que desea reproducir</label>
+<input style="display: inline;" id="npl_videoWeb" type="text" value="" size=30 onchange="_textAreaVal6c=this.value;document.getElementById('listVideosIds').value='';_textAreaVal7b='';jQuery('#llamadaYoutube').val('');_textAreaVal7d='';jQuery('#paisYoutube').val('');_textAreaVal7f='';jQuery('#tempYoutube').val('');establecerCodigoInsercion();">
+<span id="span_message_20" onclick="_textAreaVal6b='';jQuery('#listVideosIds').val('');jQuery('#npl_videoWeb').val('/');_textAreaVal7b='';jQuery('#llamadaYoutube').val('');_textAreaVal7d='';jQuery('#paisYoutube').val('');_textAreaVal7f='';jQuery('#tempYoutube').val('');establecerCodigoInsercion();return false;" title="como ejemplo pondremos la página inicial de la web">
+<label id="message_example" style="TEXT-DECORATION: underline;color:#2276c3;cursor:pointer">ejemplo</label>
+</span>
+<span id="no_previsualizable" style="COLOR: lightgray;" title="Este modo no admite previsualización">
+	<label id="message_sin_previsualizar">Sin previsualización</label>		
+</span>
+</div>
+<div style="margin-left:10px;width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>A.2.&nbsp;</b></label>
+<label id="message_20B">Videos youtube a reproducir:</label>
+<input style="display: inline;" id="listVideosIds" type="text" value="" size=40 onchange="_textAreaVal6c='';_textAreaVal6b=this.value;jQuery('#npl_videoWeb').val("");_textAreaVal7b='';jQuery('#llamadaYoutube').val('');_textAreaVal7d='';jQuery('#paisYoutube').val('');_textAreaVal7f='';jQuery('#tempYoutube').val('');establecerCodigoInsercion();">
+<span id="span_message_20B" onclick="_textAreaVal6c='';jQuery('#npl_videoWeb').val('');_textAreaVal7b='';jQuery('#llamadaYoutube').val('');_textAreaVal7d='';jQuery('#paisYoutube').val('');_textAreaVal7f='';jQuery('#tempYoutube').val('');anyadeejmplovideos();establecerCodigoInsercion();return false;" title="como ejemplo pondremos los videos más valorados del momento según Youtube">
+<label id="message_example2" style="TEXT-DECORATION: underline;color:#2276c3;cursor:pointer">ejemplo</label>
+</span>
+<span style="margin-left:10px;COLOR: #1a7eb9; TEXT-DECORATION: underline;cursor:pointer;" onclick="if (jQuery('#listVideosIds').val()==''){alert(_alert1)}else{mostrarPopUpPreview()}">
+	<label id="message_previsualizar_1" style="color:#2276c3;cursor:pointer">PREVISUALIZAR</label>		
+</span>
+</div>
+
+<div style="margin-left:10px;width:800px;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>A.3.&nbsp;</b></label>
+<label id="message_20C">Feeds Youtube:</label>
+<select id="llamadaYoutube" onchange="_textAreaVal7b=jQuery('#llamadaYoutube').val();_textAreaVal6b='';jQuery('#npl_videoWeb').val('');_textAreaVal6c='';jQuery('#listVideosIds').val('');establecerCodigoInsercion();">
+<option value=""></option>
+<option value="top_rated">Top rated</option>
+<option value="top_favorites">Top favorites</option>
+<option value="most_viewed">Most viewed</option>
+<option value="most_discussed">Most discussed</option>
+<option value="most_responded">Most responded</option>
+<option value="on_the_web">On the web</option>
+<option value="most_popular">Most popular</option>
+<option value="most_recent">Most recent</option>
+<option value="recently_featured">Recently featured</option>
+<option value="most_shared">Most shared</option>
+</select>
+<label id="message_20C_1">from</label>
+<select id="paisYoutube" onchange="_textAreaVal7d=jQuery('#paisYoutube').val();_textAreaVal6b='';jQuery('#npl_videoWeb').val('');_textAreaVal6c='';jQuery('#listVideosIds').val('');establecerCodigoInsercion();">
+<option value=""></option>
+<option value="AR">Argentina</option>
+<option value="AU">Australia</option>
+<option value="BR">Brazil</option>
+<option value="CA">Canada</option>
+<option value="CZ">Czech Republic</option>
+<option value="FR">France</option>
+<option value="DE">Germany</option>
+<option value="GB">Great Britain</option>
+<option value="HK">Hong Kong</option>
+<option value="IN">India</option>
+<option value="IE">Ireland</option>
+<option value="IL">Israel</option>
+<option value="IT">Italy</option>
+<option value="NL">Netherlands</option>
+<option value="JP">Japan</option>
+<option value="MX">Mexico</option>
+<option value="NZ">New Zealand</option>
+<option value="PL">Poland</option>
+<option value="RU">Russia</option>
+<option value="ZA">South Africa</option>
+<option value="KR">South Korea</option>
+<option value="ES">Spain</option>
+<option value="SE">Sweden</option>
+<option value="TW">Taiwan</option>
+<option value="US">United States</option>
+</select>
+<label id="message_20C_2">at</label>
+<select id="tempYoutube" onchange="_textAreaVal7f=jQuery('#tempYoutube').val();_textAreaVal6b='';jQuery('#npl_videoWeb').val('');_textAreaVal6c='';jQuery('#listVideosIds').val('');establecerCodigoInsercion();">
+<option value=""></option>
+<option value="today">Today</option>
+<option value="this_week">This week</option>
+<option value="this_month">This month</option>
+<option value="all_time">All time</option>
+</select>
+<span style="margin-left:10px;COLOR: #1a7eb9; TEXT-DECORATION: underline;cursor:pointer;" onclick="if ((jQuery('#llamadaYoutube').val()=='')||(jQuery('#paisYoutube').val()=='')||(jQuery('#tempYoutube').val()=='')){alert(_alert2)}else{mostrarPopUpPreview()}">
+	<label id="message_previsualizar_2" style="color:#2276c3;cursor:pointer">PREVISUALIZAR</label>		
+</span>
+</div>
+
+<div style="width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>B.&nbsp;</b></label><label id="message_21">Añada el código siguiente desde el modo HTML de la página o del post donde quiera añadir el reproductor de videos</label>
+</div>
+<div style="width:100%;margin-top:3px;">
+<label style="font-size:20px;color:gray;"><b>C.&nbsp;</b></label><label id="message_22">Repita los pasos A y B tantas veces como reproductores distintos quiera insertar</label>
+
+<div style="margin-top:15px">
+<span id="enlaceInsercion" style="COLOR: #1a7eb9; TEXT-DECORATION: underline;cursor:pointer;" onclick="establecerCodigoInsercion();document.getElementById('divInsercion').style.display='block';document.getElementById('enlaceInsercion').style.display='none'">
+<label id="message_23">Ver código para incrustar en Post / Página</label>
+</span>
+</div>
+
+<div id="divInsercion" style="display:none;margin-bottom:10px;">
+<textarea id="textInsercion" onclick="focus();select();"  style="width: 750px; height: 308px;" rows=24 cols=85></textarea>					
+</div>
+<br>
+<font style="font-size:10px;color:gray"><label id="message_24">Nota:este código se genera teniendo en cuenta las opciones del reproductor seleccionadas anteriormente</label></font>
+</div>
+
+<div style="width:90%;border-width: .2em; border-style: dotted; border-color: #900;margin-top:30px;">
+<label id="message_25">Recuerde que tiene <u>más opciones para insertar videos en su web</u>:</label>
+<ul style="margin-top:10px;">
+<li><label id="message_26">A través de listas de videos de <a href="http://es.netplayed.com" target="_blank">netplayed</a></label></li>
+<li><label id="message_27">A través de la herramienta para <a href="http://es.netplayed.com/desarrollador" target="_blank">desarrolladores</a></label></li>
+</ul>
+</div>
+<script>
+jQuery('#npl_videoWeb').val('');
+jQuery('#listVideosIds').val('');
+jQuery('#llamadaYoutube').val('');
+jQuery('#paisYoutube').val('');
+jQuery('#tempYoutube').val('');
+setLanguage('en');
+var tabContainers = jQuery('div.tabs > div');
+			tabContainers.hide().filter(':first').show();
+			
+			jQuery('div.tabs ul.tabNavigation a').click(function () {
+				tabContainers.hide();
+				tabContainers.filter(this.hash).show();
+				jQuery('div.tabs ul.tabNavigation a').removeClass('selected');
+				jQuery(this).addClass('selected');
+				return false;
+			}).filter(':first').click();
+</script>
