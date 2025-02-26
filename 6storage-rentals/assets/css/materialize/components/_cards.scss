@@ -1,0 +1,195 @@
+
+
+.six-storage-card-panel.cc {
+  transition: box-shadow .25s;
+  padding: $card-padding;
+  margin: $element-top-margin 0 $element-bottom-margin 0;
+  border-radius: 2px;
+  @extend .six-storage-z-depth-1;
+  background-color: $card-bg-color;
+}
+
+.six-storage-card.cc {
+  position: relative;
+  margin: $element-top-margin 0 $element-bottom-margin 0;
+  background-color: $card-bg-color;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+  @extend .six-storage-z-depth-1;
+
+
+  .six-storage-card-title {
+    font-size: 24px;
+    font-weight: 300;
+    &.six-storage-activator {
+      cursor: pointer;
+    }
+  }
+
+  // Card Sizes
+  &.six-storage-small, &.six-storage-medium, &.six-storage-large {
+    position: relative;
+
+    .six-storage-card-image {
+      max-height: 60%;
+      overflow: hidden;
+    }
+    .six-storage-card-image + .six-storage-card-content {
+      max-height: 40%;
+    }
+    .six-storage-card-content {
+      max-height: 100%;
+      overflow: hidden;
+    }
+    .six-storage-card-action {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &.six-storage-small {
+    height: 300px;
+  }
+
+  &.six-storage-medium {
+    height: 400px;
+  }
+
+  &.six-storage-large {
+    height: 500px;
+  }
+
+  // Horizontal Cards
+  &.six-storage-horizontal {
+    &.six-storage-small, &.six-storage-medium, &.six-storage-large {
+      .six-storage-card-image {
+        height: 100%;
+        max-height: none;
+        overflow: visible;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
+
+    display: flex;
+
+    .six-storage-card-image {
+      max-width: 50%;
+      img {
+        border-radius: 2px 0 0 2px;
+        max-width: 100%;
+        width: auto;
+      }
+    }
+
+    .six-storage-card-stacked {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative;
+
+      .six-storage-card-content {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  // Sticky Action Section
+  &.six-storage-sticky-action {
+    .six-storage-card-action {
+      z-index: 2;
+    }
+
+    .six-storage-card-reveal {
+      z-index: 1;
+      padding-bottom: 64px;
+    }
+  }
+
+
+
+
+  .six-storage-card-image {
+    position: relative;
+
+    // Image background for content
+    img {
+      display: block;
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .six-storage-card-title {
+      color: $card-bg-color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+      padding: $card-padding;
+    }
+  }
+
+  .six-storage-card-content {
+    padding: $card-padding;
+    border-radius: 0 0 2px 2px;
+
+    p {
+      margin: 0;
+    }
+    .six-storage-card-title {
+      display: block;
+      line-height: 32px;
+      margin-bottom: 8px;
+
+      i {
+        line-height: 32px;
+      }
+    }
+  }
+
+  .six-storage-card-action {
+    &:last-child {
+      border-radius: 0 0 2px 2px;
+    }
+    background-color: inherit; // Use inherit to inherit color classes
+    border-top: 1px solid rgba(160,160,160,.2);
+    position: relative;
+    padding: 16px $card-padding;
+
+    a:not(.six-storage-btn):not(.six-storage-btn-large):not(.six-storage-btn-floating) {
+      color: $card-link-color;
+      margin-right: $card-padding;
+      transition: color .3s ease;
+      text-transform: uppercase;
+
+      &:hover { color: $card-link-color-light; }
+    }
+  }
+
+  .six-storage-card-reveal {
+    padding: $card-padding;
+    position: absolute;
+    background-color: $card-bg-color;
+    width: 100%;
+    overflow-y: auto;
+    left: 0;
+    top: 100%;
+    height: 100%;
+    z-index: 3;
+    display: none;
+
+    .six-storage-card-title {
+      cursor: pointer;
+      display: block;
+    }
+  }
+}

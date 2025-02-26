@@ -1,0 +1,32 @@
+// Color Classes
+
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .six-storage-#{$color_name} {
+        background-color: $color_value !important ;
+      }
+      .six-storage-#{$color_name}-text {
+        color: $color_value !important;
+      }
+    }
+    @else if $color_name != "shades" {
+      .six-storage-#{$color_name}.six-storage-#{$color_type} {
+        background-color: $color_value !important;
+      }
+      .six-storage-#{$color_name}-text.six-storage-text-#{$color_type} {
+        color: $color_value !important;
+      }
+    }
+  }
+}
+
+// Shade classes
+@each $color, $color_value in $shades {
+  .six-storage-#{$color} {
+    background-color: $color_value !important;
+  }
+  .six-storage-#{$color}-text {
+    color: $color_value !important;
+  }
+}

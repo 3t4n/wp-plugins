@@ -1,0 +1,175 @@
+/* Radio Buttons
+   ========================================================================== */
+
+// Remove default Radio Buttons
+[type="radio"].cc:not(:checked),
+[type="radio"].cc:checked {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[type="radio"].cc:not(:checked) + span,
+[type="radio"].cc:checked + span {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-size: 1rem;
+  transition: 0.28s ease;
+  user-select: none;
+}
+
+input[type="radio"]:focus{
+  outline: unset ;
+}
+
+[type="radio"].cc + span:before,
+[type="radio"].cc + span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 4px;
+  width: 16px;
+  height: 16px;
+  z-index: 0;
+  transition: 0.28s ease;
+}
+
+[type="radio"].six-storage-customfield-customized-checkbox.cc + span:before,
+[type="radio"].six-storage-customfield-customized-checkbox.cc + span:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  z-index: 0;
+  border: 2px solid $radio-empty-color;
+  border-radius: 1px;
+  margin-top: 3px;
+  transition: 0.2s;
+}
+
+/* Unchecked styles */
+[type="radio"].cc:not(:checked) + span:before,
+[type="radio"].cc:not(:checked) + span:after,
+[type="radio"].cc:checked + span:before,
+[type="radio"].cc:checked + span:after,
+[type="radio"].cc.six-storage-with-gap:checked + span:before,
+[type="radio"].cc.six-storage-with-gap:checked + span:after {
+  border-radius: 50%;
+}
+
+[type="radio"].six-storage-customfield-customized-checkbox:not(:checked) + span:before,
+[type="radio"].six-storage-customfield-customized-checkbox:not(:checked) + span:after,
+[type="radio"].six-storage-customfield-customized-checkbox:checked + span:before,
+[type="radio"].six-storage-customfield-customized-checkbox:checked + span:after,
+[type="radio"].six-storage-customfield-customized-checkbox.six-storage-with-gap:checked + span:before,
+[type="radio"].six-storage-customfield-customized-checkbox.six-storage-with-gap:checked + span:after {
+  border-radius: 0% ;
+}
+
+[type="radio"].six-storage-customfield-customized-checkbox:checked {
+  + span:not(.six-storage-lever):before {
+    top: -4px;
+    left: -5px;
+    width: 12px;
+    height: 22px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: $radio-border;
+    border-bottom: $radio-border;
+    transform: rotate(40deg);
+    backface-visibility: hidden;
+    transform-origin: 100% 100%;
+  }
+
+  &:disabled + span:before {
+    border-right: 2px solid $input-disabled-color;
+    border-bottom: 2px solid $input-disabled-color;
+  }
+}
+
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after {
+  border: 2px solid $radio-empty-color;
+}
+
+[type="radio"].six-storage-customfield-customized-checkbox:not(:checked) + span:after {
+  border: 0 ;
+  transform: scale(0) ;
+}
+
+[type="radio"]:not(:checked) + span:after {
+  transform: scale(0);
+}
+
+/* Checked styles */
+[type="radio"].cc:checked + span:before {
+  border: 2px solid transparent;
+}
+
+[type="radio"].cc:checked + span:after,
+[type="radio"].cc.six-storage-with-gap:checked + span:before,
+[type="radio"].cc.six-storage-with-gap:checked + span:after {
+  border: $radio-border;
+}
+
+[type="radio"].cc:checked + span:after,
+[type="radio"].cc.six-storage-with-gap:checked + span:after {
+  background-color: $radio-fill-color;
+}
+
+[type="radio"].six-storage-customfield-customized-checkbox:checked + span:after,
+[type="radio"].six-storage-customfield-customized-checkbox.six-storage-with-gap:checked + span:after {
+  background-color: unset;
+  border: none;
+}
+
+[type="radio"].cc:checked + span:after {
+  transform: scale(1.02);
+}
+
+/* Radio With gap */
+[type="radio"].cc.six-storage-with-gap:checked + span:after {
+  transform: scale(0.5);
+}
+
+/* Focused styles */
+[type="radio"].cc.six-storage-tabbed:focus + span:before {
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled Radio With gap */
+[type="radio"].cc.six-storage-with-gap:disabled:checked + span:before {
+  border: 2px solid $input-disabled-color;
+}
+
+[type="radio"].cc.six-storage-with-gap:disabled:checked + span:after {
+  border: none;
+  background-color: $input-disabled-color;
+}
+
+/* Disabled style */
+[type="radio"].cc:disabled:not(:checked) + span:before,
+[type="radio"].cc:disabled:checked + span:before {
+  background-color: transparent;
+  border-color: $input-disabled-color;
+}
+
+[type="radio"].cc:disabled + span {
+  color: $input-disabled-color;
+}
+
+[type="radio"].cc:disabled:not(:checked) + span:before {
+  border-color: $input-disabled-color;
+}
+
+[type="radio"].cc:disabled:checked + span:after {
+  background-color: $input-disabled-color;
+  border-color: $input-disabled-solid-color;
+}

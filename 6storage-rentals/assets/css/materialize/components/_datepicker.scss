@@ -1,0 +1,220 @@
+/* Modal */
+.six-storage-datepicker-modal {
+  max-width: 325px;
+  min-width: 300px;
+  height: 100%;
+  position: fixed;
+}
+.six-storage-datepicker-container.six-storage-modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  //background-color: #fff;
+}
+
+
+.six-storage-modal-content.six-storage-datepicker-container {
+  background: transparent;
+}
+.six-storage-datepicker-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+
+  .six-storage-selects-container {
+    display: flex;
+  }
+
+  .six-storage-select-wrapper {
+    input {
+      &:focus {
+        border-bottom: none;
+      }
+      border-bottom: none;
+      text-align: center;
+      margin: 0;
+    }
+
+    .six-storage-caret {
+      display: none;
+    }
+  }
+
+  .six-storage-select-year input {
+    width: 50px;
+  }
+
+  .six-storage-select-month input {
+    width: 90px;
+  }
+}
+
+.six-storage-month-prev, .six-storage-month-next {
+  margin-top: 4px;
+  cursor: pointer;
+  background-color: transparent ;
+  border: none;
+  padding: 0px ;
+}
+
+
+/* Date Display */
+.six-storage-datepicker-date-display {
+  flex: 1 auto;
+  background-color: $secondary-color;
+  color: #fff;
+  padding: 20px 22px;
+  font-weight: 500;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+
+  .six-storage-year-text {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 25px;
+    color: $datepicker-year;
+  }
+
+  .six-storage-date-text {
+    display: block;
+    font-size: 2.8rem;
+    line-height: 47px;
+    font-weight: 500;
+  }
+}
+
+
+/* Calendar */
+.six-storage-datepicker-calendar-container {
+  flex: 2.5 auto;
+  border-bottom-right-radius: 10px;
+  background: white;
+  border-top-right-radius: 10px;
+}
+
+.six-storage-datepicker-table {
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 auto;
+
+  thead {
+    border-bottom: none;
+  }
+
+  th {
+    padding: 10px 5px;
+    text-align: center;
+  }
+
+  tr {
+    border: none;
+  }
+
+  abbr {
+    text-decoration: none;
+    color: $datepicker-calendar-header-color;
+  }
+
+  td {
+    &.six-storage-is-today {
+      color: $secondary-color;
+    }
+
+    &.six-storage-is-selected {
+      background-color: $secondary-color ;
+      color: #fff;
+      button.six-storage-datepicker-day-button{
+        color: #fff ;
+      }
+    }
+
+    &.six-storage-is-outside-current-month,
+    &.six-storage-is-disabled {
+      color: $datepicker-disabled-day-color;
+      pointer-events: none;
+      button{
+        color: $datepicker-disabled-day-color ;
+        background-color: transparent;
+      }
+    }
+
+    border-radius: 50%;
+    padding: 0;
+  }
+}
+
+.six-storage-datepicker-day-button {
+  &:focus {
+    background-color: $datepicker-day-focus ;
+  }
+  &:hover {
+    background-color: $datepicker-day-focus ;
+  }
+
+  background-color: transparent ;
+  border: none;
+  line-height: 38px;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  padding: 0 5px;
+  cursor: pointer;
+  color: inherit;
+  font-weight: 400;
+}
+
+
+/* Footer */
+.six-storage-datepicker-footer {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.six-storage-datepicker-cancel,
+.six-storage-datepicker-clear,
+.six-storage-datepicker-today,
+.six-storage-datepicker-done {
+  font-weight: 400 ;
+  color: $secondary-color ;
+  padding: 0 1rem;
+  background-color: transparent ;
+}
+
+.six-storage-datepicker-clear {
+  color: $error-color;
+}
+
+
+/* Media Queries */
+@media #{$medium-and-up} {
+  .six-storage-datepicker-modal {
+    max-width: 625px;
+  }
+
+  .six-storage-datepicker-container.six-storage-modal-content {
+    flex-direction: row;
+  }
+
+  .six-storage-datepicker-date-display {
+    flex: 0 1 270px;
+  }
+
+  .six-storage-datepicker-controls,
+  .six-storage-datepicker-table,
+  .six-storage-datepicker-footer {
+    width: 320px;
+  }
+
+  .six-storage-datepicker-day-button {
+    line-height: 44px;
+  }
+}
+@media(max-width:1024px){
+  .six-storage-datepicker-date-display .six-storage-date-text{
+    font-size: 2.2rem;
+  }
+}

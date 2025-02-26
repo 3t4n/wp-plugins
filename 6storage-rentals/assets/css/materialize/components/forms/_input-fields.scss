@@ -1,0 +1,371 @@
+/* Text Inputs + Textarea
+   ========================================================================== */
+
+/* Style Placeholders */
+
+::placeholder {
+  color: $placeholder-text-color;
+}
+
+/* Text inputs */
+
+input.cc:not([type]),
+input.cc[type=text]:not(.browser-default),
+input.cc[type=password]:not(.browser-default),
+input.cc[type=email]:not(.browser-default),
+input.cc[type=url]:not(.browser-default),
+input.cc[type=time]:not(.browser-default),
+input.cc[type=date]:not(.browser-default),
+input.cc[type=datetime]:not(.browser-default),
+input.cc[type=datetime-local]:not(.browser-default),
+input.cc[type=tel]:not(.browser-default),
+input.cc[type=number]:not(.browser-default),
+input.cc[type=search]:not(.browser-default),
+input.cc[type=Alphabet]:not(.browser-default),
+textarea.six-storage-materialize-textarea.cc {
+
+  // General Styles
+  background-color: transparent;
+  border: none;
+  border-bottom: $input-border;
+  border-radius: 0;
+  outline: none;
+  height: $input-height;
+  width: 100%;
+  font-size: $input-font-size;
+  margin: 0;
+  padding: $input-padding;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: box-shadow .3s, border .3s;
+
+  // Disabled input style
+  // &:disabled,
+  // &[readonly="readonly"] {
+  //   color: $input-disabled-color;
+  //   border-bottom: $input-disabled-border;
+  // }
+
+  // Disabled label style
+  // &:disabled+label,
+  // &[readonly="readonly"]+label {
+  //   color: $input-disabled-color;
+  // }
+
+  // Focused input style
+  &:focus:not([readonly]) {
+    border-bottom: 1px solid $input-focus-color;
+    box-shadow: 0 1px 0 0 $input-focus-color;
+    background-image: unset;
+  }
+
+  // Focused label style
+  &:focus:not([readonly])+label {
+    color: $input-focus-color;
+    background-image: unset;
+  }
+
+  // Hide helper text on data message
+  &.six-storage-valid ~ .six-storage-helper-text[data-success],
+  &:focus.six-storage-valid ~ .six-storage-helper-text[data-success],
+  &.six-storage-invalid ~ .six-storage-helper-text[data-error],
+  &:focus.six-storage-invalid ~ .six-storage-helper-text[data-error] {
+    @extend %hidden-text;
+    background-image: unset;
+  }
+
+  // Valid Input Style
+  &.six-storage-valid,
+  &:focus.six-storage-valid {
+    @extend %valid-input-style;
+    background-image: unset;
+  }
+
+  // Custom Success Message
+  &.six-storage-valid ~ .six-storage-helper-text:after,
+  &:focus.six-storage-valid ~ .six-storage-helper-text:after {
+    @extend %custom-success-message;
+    background-image: unset;
+  }
+  &:focus.six-storage-valid ~ label {
+    color: $input-success-color;
+    background-image: unset;
+  }
+
+  // Invalid Input Style
+  &.six-storage-invalid,
+  &:focus.six-storage-invalid {
+    @extend %invalid-input-style;
+    background-image: unset;
+  }
+
+  // Custom Error message
+  &.six-storage-invalid ~ .six-storage-helper-text:after,
+  &:focus.six-storage-invalid ~ .six-storage-helper-text:after {
+    @extend %custom-error-message;
+    background-image: unset;
+  }
+  &:focus.six-storage-invalid ~ label {
+    color: $input-error-color;
+    background-image: unset;
+  }
+
+  // Full width label when using validate for error messages
+  &.six-storage-validate + label {
+    width: 100%;
+  }
+
+  // Form Message Shared Styles
+  & + label:after {
+    @extend %input-after-style;
+  }
+}
+
+
+/* Validation Sass Placeholders */
+%valid-input-style {
+  border-bottom: 1px solid $input-success-color;
+  box-shadow: 0 1px 0 0 $input-success-color;
+}
+%invalid-input-style {
+  border-bottom: 1px solid #9e9e9e;
+}
+%hidden-text {
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+%custom-success-message {
+  content: attr(data-success);
+  color: $input-success-color;
+}
+%custom-error-message {
+  content: attr(data-error);
+  color: $input-error-color;
+}
+%input-after-style {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  transition: .2s opacity ease-out, .2s color ease-out;
+}
+
+
+// Styling for input field wrapper
+.six-storage-input-field {
+  // Inline styles
+  &.inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+
+    input.cc,
+    .six-storage-select-dropdown {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // Gutter spacing
+  &.six-storage-col {
+    label {
+      left: $gutter-width / 2 ;
+    }
+
+    .six-storage-prefix ~ label,
+    .six-storage-prefix ~ .six-storage-validate ~ label {
+      width: calc(100% - 3rem - #{$gutter-width});
+    }
+  }
+
+  position: relative !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  & > label {
+    color: #424242 ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    font-size: 1rem;
+    cursor: text;
+    transition: transform .2s ease-out, color .2s ease-out;
+    transform-origin: 0% 100%;
+    text-align: initial;
+    transform: translateY(12px);
+
+    &:not(.six-storage-label-icon).six-storage-active {
+      transform: translateY(-14px) scale(.8);
+      transform-origin: 0 0;
+      font-weight: 600;
+    }
+  }
+
+  // Autofill + date + time inputs
+  & > input[type]:-webkit-autofill:not(.browser-default) + label,
+  & > input[type=date]:not(.browser-default) + label,
+  & > input[type=time]:not(.browser-default) + label {
+    transform: translateY(-14px) scale(.8);
+    transform-origin: 0 0;
+  }
+
+  .six-storage-helper-text {
+    &::after {
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    position: relative;
+    min-height: 18px;
+    display: block;
+    font-size: 12px;
+    color: rgba(0,0,0,.54);
+  }
+
+  // Prefix Icons
+  .six-storage-prefix {
+    position: absolute;
+    width: $input-height;
+    font-size: $input-icon-size;
+    transition: color .2s;
+    top: ($input-height - $input-icon-size) / 2;
+
+    &.six-storage-active { color: $input-focus-color; }
+  }
+
+  .six-storage-prefix ~ input.cc,
+  .six-storage-prefix ~ textarea.cc,
+  .six-storage-prefix ~ label.cc,
+  .six-storage-prefix ~ .six-storage-validate ~ label.cc,
+  .six-storage-prefix ~ .six-storage-helper-text,
+  .six-storage-prefix ~ .six-storage-autocomplete-content {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
+  }
+
+  .six-storage-prefix ~ label.cc { margin-left: 3rem; }
+
+  @media #{$medium-and-down} {
+    .six-storage-prefix ~ input.cc {
+      width: 86%;
+      width: calc(100% - 3rem);
+    }
+  }
+
+  @media #{$small-and-down} {
+    .six-storage-prefix ~ input.cc {
+      width: 80%;
+      width: calc(100% - 3rem);
+    }
+  }
+}
+
+
+/* Search Field */
+
+.six-storage-input-field input.cc[type=search] {
+  display: block;
+  line-height: inherit;
+  transition: .3s background-color;
+
+  .six-storage-nav-wrapper & {
+    height: inherit;
+    padding-left: 4rem;
+    width: calc(100% - 4rem);
+    border: 0;
+    box-shadow: none;
+  }
+
+  &:focus:not(.browser-default) {
+    background-color: $input-background;
+    border: 0;
+    box-shadow: none;
+    color: #444;
+
+    & + label i,
+    & ~ .six-storage-mdi-navigation-close,
+    & ~ .six-storage-material-icons {
+      color: #444;
+    }
+  }
+
+  & + .six-storage-label-icon {
+    transform: none;
+    left: 1rem;
+  }
+
+  & ~ .six-storage-mdi-navigation-close,
+  & ~ .six-storage-material-icons {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    color: transparent;
+    cursor: pointer;
+    font-size: $input-icon-size;
+    transition: .3s color;
+  }
+}
+
+
+/* Textarea */
+
+// Default textarea
+textarea.cc {
+  width: 100%;
+  height: $input-height;
+  background-color: transparent;
+
+  &.six-storage-materialize-textarea {
+    line-height: normal;
+    overflow-y: hidden; /* prevents scroll bar flash */
+    padding: .8rem 0 .8rem 0; /* prevents text jump on Enter keypress */
+    resize: none;
+    min-height: $input-height;
+    box-sizing: border-box;
+  }
+}
+
+// For textarea autoresize
+.six-storage-hiddendiv {
+  visibility: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word; /* future version of deprecated 'word-wrap' */
+  padding-top: 1.2rem; /* prevents text jump on Enter keypress */
+
+  // Reduces repaints
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+
+/* Autocomplete */
+.six-storage-autocomplete-content {
+  li {
+    .six-storage-highlight { color: #444; }
+
+    img {
+      height: $dropdown-item-height - 10;
+      width: $dropdown-item-height - 10;
+      margin: 5px 15px;
+    }
+  }
+}
+
+/* Character Counter */
+.six-storage-character-counter {
+  min-height: 18px;
+}
+
+
+#six-storage-Enqleadsourcetext {
+  border-color: #9e9e9e;
+  box-shadow: 0 1px 0 0 transparent;
+}

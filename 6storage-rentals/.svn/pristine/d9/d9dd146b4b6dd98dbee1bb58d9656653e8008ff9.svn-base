@@ -1,0 +1,176 @@
+.six-storage-container.cc {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+@media #{$medium-and-up} {
+  .six-storage-container.cc {
+    width: 85%;
+  }
+}
+@media #{$large-and-up} {
+  .six-storage-container.cc {
+    width: 70%;
+  }
+}
+.six-storage-col .six-storage-row {
+  margin-left: (-1 * $gutter-width / 2);
+  margin-right: (-1 * $gutter-width / 2);
+}
+
+.six-storage-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  &.six-storage-no-pad {
+    padding: 0;
+  }
+  &.six-storage-no-pad-bot {
+    padding-bottom: 0;
+  }
+  &.six-storage-no-pad-top {
+    padding-top: 0;
+  }
+}
+
+
+// Mixins to eliminate code repitition
+@mixin reset-offset {
+  // margin-left: auto;
+  left: auto;
+  right: auto;
+}
+@mixin grid-classes($size, $i, $perc) {
+  &.six-storage-offset-#{$size}#{$i} {
+    margin-left: $perc;
+  }
+  &.six-storage-pull-#{$size}#{$i} {
+    right: $perc;
+  }
+  &.six-storage-push-#{$size}#{$i} {
+    left: $perc;
+  }
+}
+
+
+.six-storage-row.cc {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  height: auto ;
+  max-width: 100%;
+  width: 100%;
+
+  // Clear floating children
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  // Start -- CSS to Disable TimeZone Dropdown
+  #six-storage-time_zone_hide , #six-storage-time_zone_hide_tenants{
+    pointer-events: none !important;
+  }
+ 
+ 
+  #six-storage-time_zone_hide .six-storage-select-wrapper .six-storage-caret,   #six-storage-time_zone_hide_tenants .six-storage-select-wrapper .six-storage-caret {
+    display: none !important;
+  }
+  // End -- CSS to Disable TimeZone Dropdown
+
+  .six-storage-col {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 $gutter-width / 2;
+    min-height: 1px;
+    flex-grow: 0;
+    flex-basis: unset;
+    &.six-storage-m6 {
+      min-height: 68px;
+      margin-top: 0;
+    }
+
+    &[class*="six-storage-push-"],
+    &[class*="six-storage-pull-"] {
+      position: relative;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.six-storage-s#{$i} {
+        width: $perc;
+        @include reset-offset;
+      }
+      $i: $i + 1;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      @include grid-classes("six-storage-s", $i, $perc);
+      $i: $i + 1;
+    }
+
+    @media #{$medium-and-up} {
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.six-storage-m#{$i} {
+          width: $perc;
+          @include reset-offset;
+        }
+        $i: $i + 1
+      }
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        @include grid-classes("six-storage-m", $i, $perc);
+        $i: $i + 1;
+      }
+    }
+
+    @media #{$large-and-up} {
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.six-storage-l#{$i} {
+          width: $perc;
+          @include reset-offset;
+        }
+        $i: $i + 1;
+      }
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        @include grid-classes("six-storage-l", $i, $perc);
+        $i: $i + 1;
+      }
+    }
+
+    @media #{$extra-large-and-up} {
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.six-storage-xl#{$i} {
+          width: $perc;
+          @include reset-offset;
+        }
+        $i: $i + 1;
+      }
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        @include grid-classes("six-storage-xl", $i, $perc);
+        $i: $i + 1;
+      }
+    }
+  }
+}

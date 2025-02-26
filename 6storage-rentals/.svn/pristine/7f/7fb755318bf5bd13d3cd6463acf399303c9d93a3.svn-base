@@ -1,0 +1,1 @@
+<?php echo do_shortcode("[six_storage_online_storage_admin_settings]"); ?>

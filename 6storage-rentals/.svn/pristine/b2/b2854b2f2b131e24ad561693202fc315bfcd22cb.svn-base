@@ -1,0 +1,43 @@
+.six-storage-materialboxed {
+  &:hover {
+    &:not(.six-storage-active) {
+      opacity: .8;
+    }
+  }
+
+  display: block;
+  cursor: zoom-in;
+  position: relative;
+  transition: opacity .4s;
+  -webkit-backface-visibility: hidden;
+
+  &.six-storage-active {
+    cursor: zoom-out;
+  }
+}
+
+#six-storage-materialbox-overlay {
+  position:fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #292929;
+  z-index: 1000;
+  will-change: opacity;
+}
+
+.six-storage-materialbox-caption {
+  position: fixed;
+  display: none;
+  color: #fff;
+  line-height: 50px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0% 15%;
+  height: 50px;
+  z-index: 1000;
+  -webkit-font-smoothing: antialiased;
+}

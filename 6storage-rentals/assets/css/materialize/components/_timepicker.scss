@@ -1,0 +1,180 @@
+/* Timepicker Containers */
+.six-storage-timepicker-modal {
+	max-width: 325px;
+	max-height: none;
+}
+
+.six-storage-timepicker-container.six-storage-modal-content {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+.six-storage-text-primary {
+	color: rgba(255, 255, 255, 1);
+}
+
+/* Clock Digital Display */
+.six-storage-timepicker-digital-display {
+	flex: 1 auto;
+	background-color: $secondary-color;
+	padding: 10px;
+	font-weight: 300;
+}
+
+.six-storage-timepicker-text-container {
+	font-size: 4rem;
+	font-weight: bold;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.6);
+	font-weight: 400;
+	position: relative;
+	user-select: none;
+}
+
+.six-storage-timepicker-span-hours,
+.six-storage-timepicker-span-minutes,
+.six-storage-timepicker-span-am-pm div {
+	cursor: pointer;
+}
+
+.six-storage-timepicker-span-hours {
+	margin-right: 3px;
+}
+
+.six-storage-timepicker-span-minutes {
+	margin-left: 3px;
+}
+
+.six-storage-timepicker-display-am-pm {
+	font-size: 1.3rem;
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	font-weight: 400;
+}
+
+/* Analog Clock Display */
+.six-storage-timepicker-analog-display {
+	flex: 2.5 auto;
+}
+
+.six-storage-timepicker-plate {
+	background-color: $timepicker-clock-plate-bg;
+	border-radius: 50%;
+	width: 270px;
+	height: 270px;
+	overflow: visible;
+	position: relative;
+	margin: auto;
+	margin-top: 25px;
+	margin-bottom: 5px;
+	user-select: none;
+}
+
+.six-storage-timepicker-canvas,
+.six-storage-timepicker-dial {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.six-storage-timepicker-minutes {
+	visibility: hidden;
+}
+
+.six-storage-timepicker-tick {
+	border-radius: 50%;
+	color: $timepicker-clock-color;
+	line-height: 40px;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.six-storage-timepicker-tick.six-storage-active,
+.six-storage-timepicker-tick:hover {
+	background-color: transparentize($secondary-color, 0.75);
+}
+.six-storage-timepicker-dial {
+	transition: transform 350ms, opacity 350ms;
+}
+.six-storage-timepicker-dial-out {
+	&.six-storage-timepicker-hours {
+		transform: scale(1.1, 1.1);
+	}
+
+	&.six-storage-timepicker-minutes {
+		transform: scale(0.8, 0.8);
+	}
+
+	opacity: 0;
+}
+.six-storage-timepicker-canvas {
+	transition: opacity 175ms;
+
+	line {
+		stroke: $secondary-color;
+		stroke-width: 4;
+		stroke-linecap: round;
+	}
+}
+.six-storage-timepicker-canvas-out {
+	opacity: 0.25;
+}
+.six-storage-timepicker-canvas-bearing {
+	stroke: none;
+	fill: $secondary-color;
+}
+.six-storage-timepicker-canvas-bg {
+	stroke: none;
+	fill: $secondary-color;
+}
+
+/* Footer */
+.six-storage-timepicker-footer {
+	margin: 0 auto;
+	padding: 5px 1rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.six-storage-timepicker-clear {
+	color: $error-color;
+}
+
+.six-storage-timepicker-close {
+	color: $secondary-color;
+}
+
+.six-storage-timepicker-clear,
+.six-storage-timepicker-close {
+	padding: 0 20px;
+}
+
+/* Media Queries */
+@media #{$medium-and-up} {
+	.six-storage-timepicker-modal {
+		max-width: 600px;
+	}
+
+	.six-storage-timepicker-container.six-storage-modal-content {
+		flex-direction: row;
+	}
+
+	.six-storage-timepicker-text-container {
+		top: 32%;
+	}
+
+	.six-storage-timepicker-display-am-pm {
+		position: relative;
+		right: auto;
+		bottom: auto;
+		text-align: center;
+		margin-top: 1.2rem;
+	}
+}
