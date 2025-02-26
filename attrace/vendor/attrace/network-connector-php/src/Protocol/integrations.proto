@@ -1,0 +1,172 @@
+syntax = "proto3";
+package attrace.connector.protocol.integrations;
+
+option go_package = "gitlab.com/attrace/core/integrations";
+
+message Value {
+	string Str = 1;
+	int32 I32 = 2;
+	uint32 U32 = 3;
+	int64 I64 = 4;
+	uint64 U64 = 5;
+	bool Bool = 6;
+	bytes Blob = 7;
+
+	// List of multiple values.
+	repeated Value ListValues = 8;
+
+	// Int key:val lookups, list-based to have stable serializer.
+	ListMap ListMap = 9;
+}
+
+message ListMap {
+	repeated KeyValue Values = 1;
+}
+
+message KeyValue {
+	string Key = 1;
+	Value Value = 2;
+}
+
+// URL which triggers an action
+message UrlAction {
+  // Url part which is the trigger
+  // Eg: /sale
+  string Url = 1;
+
+  // Action which is triggered
+  // Eg: sale
+  string Action = 2;
+}
+
+message RedirectUrl {
+  // The URL to which we redirect.
+  string Url = 1;
+
+  // Alternative _URL-safe_ identifier that will redirect to this URL.
+  // Previously mapped from 'hashes'
+  string AliasId = 2;
+}
+
+message RootActionConfig {
+  // The root type this configures
+  // Eg: click, sale, ...
+  string RootType = 1;
+
+  // Redirect URL configurations
+  repeated RedirectUrl RedirectUrls = 2;
+}
+
+message IntegrationConfig {
+  // Role of this integration
+  // Can contain values like "advertiser", "publisher", "consultant", ...
+  string Role = 1; 
+
+  // The agreement address this configures
+  string Agreement = 2;
+
+  // Private key of an Account who can sign the transactions for this agreement.
+  // Normally this account has received permissions on the network to create the required actions.
+  // Previously: "Account"
+  string OperationalKey = 3;
+
+  // Who is the controlling account of this service account.
+  // Required for publishing correct transactions.
+  string DelegateOf = 4;
+
+  // Configs how to handle different root actions
+  repeated RootActionConfig RootActionConfigs = 5;
+
+  // The default root to create when an action request is fired without 
+  // Previously: defaultaction
+  string DefaultActionRootType = 6;
+  
+  // The number of days actions can be published since their root creation.
+  // Modules filter out expired events to avoid broadcasting invalid transactions.
+  // Cookie logic can use this to set correct cookie expiry times.
+  // Previously: "cookiedays".
+  int32 ExpireDays = 7;
+
+  // URLs which need to trigger actions
+  repeated UrlAction UrlActions = 8;
+
+  // Display name used in the UI
+  string Name = 9;
+
+  // This contains informative properties not used by our integration.
+  // Use as last resort. Extend datamodel when required.
+  repeated KeyValue Metadata = 10;
+
+  // Contains a list of client-side identifiers by which this agreement can be resolved.
+  // Typical use case is to store voucher codes in this list, but it's not limited to voucher codes.
+  // Being identifiers, the strings in this list are intended to be unique to the connector. No 2 integrations should share an identifiers.
+  // Connectors are required to reject integration configs which break this uniqueness constraint before accepting them.
+  // Any plugin setting these fields, should use show user feedback when codes are already in use by another integration.
+  repeated string ExternalIdentifiers = 11;
+}
+
+// {
+//   "Role": "publisher",
+//   "OperationalKey": ".....private key",
+//   "Agreement": "AT5KA65ABYULCIGOOFY66YSNPS43KZ2GNIEHXKUJ2YWU4AOSIP3L24SG",
+//   "DelegateOf": "ADYK267XYOOV4UDIM3Z3AWIM2HF2AVXRKIE7HWSJEIG5Z3P5A63PUCAL",
+//   "RootActionConfigs": [
+//     {
+//       "RootType": "click",
+//       "RedirectUrls": [
+//         {
+//           "Url": "https://madelonvos.nl/cursussen/",
+//           "AliasId": "mvos1",
+//         },
+//       ]
+//     }
+//   ],
+//   "DefaultActionRootType": "click",
+//   "ExpireDays": 30,
+//   "UrlActions": [
+//     {
+//       "Url": "/sale",
+//       "Action": "sale",
+//     },
+//   ],
+//   "Name": "Mypreserved hashes"
+//   "Metadata": [
+//     {
+//       "Key": "PublisherType",
+//       "Value": "Related website"
+//     },
+//     {
+//       "Key": "IntegrationType",
+//       "Value": "textlink"
+//     }
+//   ]
+// }
+
+// {
+//     "account": "IGIUKYP2IDUJQPPPDXBTMXXHLZ3AS5GNEMWY5SG4Q6KD4XRKYH33KOF4PJPVVDYRRIYE3K7EOUUQ4QTWQOZH4WGX32NETVN2R65IXTRZRY7A",
+//     "agreement": "ATO5WPDK3W7CBVSSN6GBQOFLTNCP7JEJFN7P2JY3FAT7SP6UN4VXG4UD",
+//     "delegateOf": "ABO3YCAIF6BVPT3HMB4PZRFZTA7OU6ENSOMDVMH7QXVQJGGI3UWVYS4R",
+//     "expireDays": 30,
+//     "roots": [
+//       {
+//         "type": "click",
+//         "redirecturl": "https://madelonvos.nl"
+//       }
+//     ],
+//     "defaultaction": "click",
+//     "metadata": {
+//       "PublisherType": "Related website",
+//       "IntegrationType": "textlink"
+//     },
+//     "type" : "ad"
+//   }
+
+
+// Account       string                 `json:"account,omitempty"`
+// 	DelegateOf    string                 `json:"delegateof,omitempty"`
+// 	Agreement     string                 `json:"agreement,omitempty"`
+// 	Roots         []*AgreementRootConfig `json:"roots,omitempty"`
+// 	DefaultAction string                 `json:"defaultaction,omitempty"`
+// 	Metadata      map[string]interface{} `json:"metadata,omitempty"`
+// 	CookieDays    int                    `json:"cookiedays,omitempty"`
+// 	URLActions    map[string]string      `json:"urlactions,omitempty"`

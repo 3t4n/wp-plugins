@@ -1,0 +1,588 @@
+syntax = "proto3";
+package connectors;
+
+option go_package = "gitlab.com/attrace/core/integrations/connectors";
+
+import "google/api/annotations.proto";
+import "integrations.proto";
+import "protocol.proto";
+
+/////////////////
+// Protocol for interfacing with connectors
+////////////////
+
+// Authentication levels:
+// -  "monitor": admin or monitor accounts can do these requests.
+// -  "admin": only admin account can do these requests.
+
+// -- Generic flows
+// { Items, Next } structures can be requested sequentially, stop requesting when Items is empty.
+
+// -- Generic models
+
+// JSON model which can be returned on errors
+message ErrorResponse {
+  // error message
+  string Error = 1;
+
+  // optional connector-specific error code
+  int64 Code = 2;
+
+  // optional JSON encoded trace data of this error
+  // only available when Mode is on Development
+  string Trace = 3;
+}
+
+// Restful HTTP response codes unless specified otherwise:
+// -  200 on success
+// -  500 on internal server error
+// -  400 on bad request
+// -  For deletes:
+//    -  200 on success
+//    -  204 on already deleted / not found
+
+// -- Routes + req/res models
+
+// POST /attrace/v1/account
+//
+// Configure an admin account 
+// Only works when the connector is not already configured
+//
+// Auth: none, request only works once on startup for initial configuration
+//
+// 200: success
+// 409: already configured
+message ConfigureAccountRequest {
+  // The admin account which is allowed to _modify_ the connector
+  string Account = 1;
+}
+
+// GET /attrace/v1/account
+// 
+// 200: success
+// 500: when node is not yet configured
+message AccountResponse {
+  // The account which has admin permissions (so the monitor can show this in the UI)
+  string Account = 1;
+}
+
+// GET /attrace/v1/transactions
+// Get transactions ordered by time desc
+// 
+// Auth: monitor 
+//
+// Query arguments:
+// -  From: utc timestamp millis
+// -  To: utc timestamp millis
+// -  Limit: optional, default 100
+// -  Next: optional next paging value from the previous response
+message Transaction {
+  // Hash
+  string Key = 1;
+
+  // base64 encoded protobuf binary tx
+  string Value = 2;
+  
+  // JSON encoded private metadata of this transaction
+  // TODO check "null"
+  string Metadata = 3;
+
+  // Error information of last try
+  string Error = 4;
+
+  // Amount of publish to network retries were tried
+  int32 Retries = 5;
+
+  // Flag if this transaction is published
+  int32 Synced = 6;
+
+  // Timestamp from the transaction
+  int64 Ts = 7;
+
+  // Int field, can be set to an internal ID. Has no further use.
+  string Id = 8;
+}
+
+message TransactionsResponse {
+  // Transactions
+  repeated Transaction Items = 1;
+
+  // The next offset value to pass along, if any
+  string Next = 2;
+}
+
+// GET /attrace/v1/status
+// 
+// Auth: monitor
+// 
+message StatusResponse {
+  string Account = 1;
+
+  // Configured with storage
+  // eg: none, mysql, wordpress, ...
+  string StoreType = 2; 
+
+  // Sytem architecture
+  // eg: x64, ...
+  string Arch = 3;
+
+  // Runtime language
+  // eg: php, nodejs, ...
+  string Language = 4;
+
+  // Runtime language version
+  // eg: 7.3.11-0ubuntu0.19.10.6
+  string LanguageVersion = 5;
+  
+  // Platform, for platform-specific connectors
+  // eg: wordpress, magento, ...
+  string Platform = 6;
+
+  // Platform version
+  // eg: 5.5.1
+  string PlatformVersion = 7;
+
+  // Request system time in millis
+  // eg: 1601730741694
+  int64 SystemTime = 8;
+
+  // JSON encoded plugin-specific extra props.
+  string PluginProps = 9;
+
+  // Version of the connector
+  string Version = 10;
+}
+
+// GET /attrace/v1/integrationconfigs
+//
+// Auth: monitor
+// 
+// Query arguments:
+// -  Next: optional next paging value from the previous response
+message IntegrationConfigsResponse {
+  // Configs
+  repeated integrations.IntegrationConfig Items = 1;
+
+  // The next offset value to pass along, if any
+  string Next = 2;
+}
+
+// DELETE /attrace/v1/integrationconfigs/:unique_id
+//
+// Auth: admin
+//
+// Query arguments:
+// -  unique_id: agreement_address + '-' + delegate_of_address
+// 
+
+// POST /attrace/v1/integrationconfigs
+//
+// 403: Already exists
+//
+// Auth: admin
+//
+// Body: integrations.IntegrationConfig
+
+// GET /attrace/v1/config
+//
+// Auth: monitor
+//
+message ConfigReponse {
+  // The url part which handles clickouts 
+  // eg: /clickout
+  string ClickoutPath = 1;
+
+  // Admin account configured
+  string Account = 2;
+
+  // The network this connector is talking to
+  // eg: betanet
+  string Network = 3;
+
+  // The URL where the master tag is available
+  string MasterTagUrl = 4;
+
+  // How the connector is broadcasting transactions to the network
+  //
+  // Options:
+  // -  blocking: broadcast to the network before the user is redirected (and blocks the user).
+  // -  queue: fast background processing, where a background thread or queue is broadcasting to the network near-realtime.
+  // -  cron: slower background processing than queue: some periodic job processes pending transactions, not realtime.
+  string NetworkBroadcastStrategy = 5;
+
+  // How the connector is setting cookies
+  //
+  // Options:
+  // -  backend: server module adds the necessary Set-Cookie headers.
+  // -  js: javascript master tag sets the cookies.
+  string TrackingStrategy = 6;
+
+  // How the integration tracks conversions
+  //
+  // Options:
+  // -  backend: backend module has configuration
+  // -  js: javascript tag handles conversions
+  string ConversionStrategy = 7;
+
+  // Additional tracing level for performance
+  // 
+  // Options:
+  // -  none: no profiling enabled (good)
+  // -  all: all requests are doing profiling  (degraded performance)
+  string ProfilingLevel = 8;
+
+  // Similar like NODE_ENV usage in node/webpack projects.
+  //
+  // Options:
+  // -  production: guarantees that all develop functionality is disabled.
+  // -  development: debug mode enabled, might expose phpinfo, etc..
+  //
+  // Default value when deployed should be "production".
+  string Mode = 9;
+
+  // Some deployments don't support PATCH/DELETE/POST or rewrite requests to GETs
+  // 
+  // Configuring this allows to bypass these systems. A plugin should do all efforts to avoid this.
+  // That also means, configuring cache exception rules. Otherwise we cause cache misses through monitoring.
+  // 
+  // Options:
+  // -  restful: (default) the normal protocol
+  // -  fallback: use FallbackRequest instead of normal request flow
+  string ProtocolMode = 10;
+
+
+  // API base path
+  //
+  // Default base path is /attrace/v1, changing this to /attr/v2 would result in enabling endpoint like /attr/v2/status.
+  // Recommended to only change if needed
+  // Important: should be _without_ trailing slash. Mounting on root-path '/' is not supported.
+  string ApiBasePath = 11;
+}
+
+// PATCH /attrace/v1/config
+//
+// Modify a config setting
+//
+// Auth: admin
+//
+message ModifyConfigRequest {
+  // Config key
+  string Key = 1;
+
+  // Value of this config
+  string Value = 2;
+
+  // True when key override should be reset to it's default value
+  bool Reset = 3;
+}
+
+// GET /attrace/v1/action
+//
+// Execute contract actions on the network
+// 
+// Auth: none
+// 
+// Query arguments:
+// - Agreement: base32 encoded agreement address
+// - Action: action to execute on the agreement, eg: sale
+// - ParentRoot: optional base32 encoded parent root address
+// - Param: optional action param to be passed to the network. Can occur multiple times, added to the transaction in order how it appears on the url.
+
+// POST /attrace/v1/monitors
+// 
+// Discovers monitor address from the passed monitor URL
+// Adds the monitor address in the auth table (so monitor-auth requests are allowed by this account)
+// 
+message CreateMonitorRequest {
+  // The monitor URL, on this URL /discover can be called and MonitorDiscoverResponse will be returned
+  string DiscoveryUrl = 1;
+
+  // If set, the discovery can be ignored
+  // The account which is allowed to do monitor requests
+  string Account = 2;
+}
+
+// GET /attrace/v1/monitors
+// 
+// Send back list of accounts which have monitor access and their respective URLs
+// 
+// Auth: monitor
+// 
+message MonitorsResponse {
+  message Monitor {
+    // The discovery URL, if provided during configuration
+    string DiscoveryUrl = 1;
+    
+    // The account which is allowed to do monitor requests
+    string Account = 2;
+  }
+
+  repeated Monitor Monitors = 1;
+}
+
+// DELETE /attrace/v1/monitors/:Account
+//
+// Delete this monitor
+//
+// Auth: admin
+
+// POST /attrace/v1/req
+// 
+// Workaround request for environments which have weird caching plugins installed.
+// Important to remember that using this interface will leak all bodies into the cache.
+//
+// A much much better approach is to whitelist the /attrace/v1/* in the caching module and not use this.
+message FallbackRequest {
+  // GET, POST, PATCH, DELETE, ...
+  string Method = 1;
+
+  // HTTP path
+  // eg: /attrace/v1/config
+  string Path = 2;
+
+  // url-encoded query params
+  // eg: name=123&id=1234
+  string QueryParams = 3;
+
+  // JSON-encoded body of the original request
+  string Body = 4;
+}
+
+// ! ONLY FOR THE MONITOR SERVICE, not the connectors!
+// GET /discover
+message MonitorDiscoverResponse {
+  // The monitor service account, to be granted access to do monitor requests.
+  string Account = 1;
+}
+
+
+// POST /attrace/v1/reset
+//
+// Reset a storage completely (drop table and create new)
+//
+// Auth: admin
+//
+message ResetRequest {
+  // Storage, can be Config, Transaction, IntegrationConfig, All
+  string Storage = 1;
+}
+
+message GetTransactionsRequest {
+  // UTC timestamp millis
+  uint64 From = 1;
+
+  // UTC timestamp millis
+  uint64 To = 2;
+
+  // optional, default 100
+  uint64 Limit = 3;
+
+  // optional page offset value from the previous response
+  string Next = 4;
+}
+
+message GetIntegrationConfigsRequest {
+  // optional page offset value from the previous response
+  string Next = 4;
+}
+
+message DeleteIntegrationConfigRequest {
+  // agreement_address + '-' + delegate_of_address
+  string UniqueId = 1;
+}
+
+message CreateActionRequest {
+  // base32 encoded agreement address
+  string Agreement = 1;
+
+  // action to execute on the agreement, eg: sale
+  string Action = 2;
+
+  // optional base32 encoded parent root address
+  string ParentRoot = 3;
+
+  // optional action param to be passed to the network. Can occur multiple times, added to the transaction in order how it appears on the url.
+  repeated string Param = 4;
+}
+
+message DeleteMonitorRequest { 
+  // Monitor account to remove
+  string Account = 1;
+}
+
+// Service interface every connector implements
+service Connector {
+
+  // Get configured admin account
+  // 
+  // 200: success
+  // 500: when node is not yet configured
+	rpc GetAccount(core.Void) returns (AccountResponse) {
+		option (google.api.http) = {
+			get: "/attrace/v1/account"
+		};
+  }
+
+  // Configure the connector with an admin account
+  // Only works when the connector is not already configured
+  //
+  // Auth: none, request only works once on startup for initial configuration
+  // 200: success
+  // 409: already configured
+	rpc ConfigureAccount(ConfigureAccountRequest) returns (core.Void) {
+		option (google.api.http) = {
+			post: "/attrace/v1/account"
+		};
+  }
+
+  // GET /attrace/v1/transactions
+  // Get transactions ordered by time desc
+  // 
+  // Auth: monitor 
+  //
+  // Query arguments:
+  // -  From: utc timestamp millis
+  // -  To: utc timestamp millis
+  // -  Limit: optional, default 100
+  // -  Next: optional next paging value from the previous response
+  rpc GetTransactions(GetTransactionsRequest) returns (TransactionsResponse) {
+    option (google.api.http) = {
+      get: "/attrace/v1/transactions"
+    };
+  }
+
+  // GET /attrace/v1/status
+  // 
+  // Auth: monitor
+  // 
+  rpc GetStatus(core.Void) returns (StatusResponse) {
+    option (google.api.http) = {
+      get: "/attrace/v1/status"
+    };
+  }
+
+  // GET /attrace/v1/integrationconfigs
+  // 
+  // Auth: monitor
+  // 
+  rpc GetIntegrationConfigs(GetIntegrationConfigsRequest) returns (IntegrationConfigsResponse) {
+    option (google.api.http) = {
+      get: "/attrace/v1/integrationconfigs"
+    };
+  }
+
+  // DELETE /attrace/v1/integrationconfigs/:unique_id
+  //
+  // Auth: admin
+  //
+  rpc DeleteIntegrationConfig(DeleteIntegrationConfigRequest) returns (IntegrationConfigsResponse) {
+    option (google.api.http) = {
+      delete: "/attrace/v1/integrationconfigs/{UniqueId}"
+    };
+  }
+
+  // POST /attrace/v1/integrationconfigs
+  //
+  // 403: Already exists
+  //
+  // Auth: admin
+  //
+  // Body: integrations.IntegrationConfig
+  rpc CreateIntegrationConfig(integrations.IntegrationConfig) returns (core.Void) {
+    option (google.api.http) = {
+      post: "/attrace/v1/integrationconfigs"
+    };
+  }
+
+  // GET /attrace/v1/config
+  // 
+  // Auth: monitor
+  // 
+  rpc GetConfig(core.Void) returns (ConfigReponse) {
+    option (google.api.http) = {
+      get: "/attrace/v1/config"
+    };
+  }
+
+  // PATCH /attrace/v1/config
+  //
+  // Modify a config setting
+  // 
+  // Auth: admin
+  // 
+  rpc PatchConfig(ModifyConfigRequest) returns (core.Void) {
+    option (google.api.http) = {
+      patch: "/attrace/v1/config"
+    };
+  }
+
+  // GET /attrace/v1/action
+  //
+  // Execute contract actions on the network
+  // 
+  // Auth: none
+  // 
+  rpc CreateAction(CreateActionRequest) returns (core.Void) {
+    option (google.api.http) = {
+      get: "/attrace/v1/action"
+    };
+  }
+
+  // POST /attrace/v1/monitors
+  // 
+  // Discovers monitor address from the passed monitor URL
+  // Adds the monitor address in the auth table (so monitor-auth requests are allowed by this account)
+  // 
+  rpc CreateMonitor(CreateMonitorRequest) returns (core.Void) {
+    option (google.api.http) = {
+      post: "/attrace/v1/monitors"
+    };
+  }
+
+  // GET /attrace/v1/monitors
+  // 
+  // Send back list of accounts which have monitor access and their respective URLs
+  // 
+  // Auth: monitor
+  // 
+  rpc GetMonitors(core.Void) returns (MonitorsResponse) {
+    option (google.api.http) = {
+      get: "/attrace/v1/monitors"
+    };
+  }
+
+  // DELETE /attrace/v1/monitors/:Account
+  //
+  // Delete this monitor
+  //
+  // Auth: admin
+  rpc DeleteMonitor(DeleteMonitorRequest) returns (core.Void) {
+    option (google.api.http) = {
+      delete: "/attrace/v1/monitors/{Account}"
+    };
+  }
+
+  // Fallback route signature cannot be implemented in rpc definition
+  // Missing from spec here.
+
+  // POST /attrace/v1/reset
+  //
+  // Reset a storage completely (drop table and create new)
+  //
+  // Auth: admin
+  //
+  rpc Reset(ResetRequest) returns (core.Void) {
+    option (google.api.http) = {
+      post: "/attrace/v1/reset"
+    };
+  }
+}
+
+// Service interface the connector monitor implements, incomplete.
+service ConnectorMonitor {
+  rpc Discover(core.Void) returns (MonitorDiscoverResponse) {
+    option (google.api.http) = {
+      get: "/discover"
+    };
+  }
+}

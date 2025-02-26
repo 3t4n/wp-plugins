@@ -1,0 +1,835 @@
+syntax = "proto3";
+package attrace.connector.protocol.core;
+
+option go_package = "gitlab.com/attrace/core";
+
+import "contractprotocol.proto";
+
+message Limit {
+	uint64 Count = 1;
+	bytes StartingBlock = 2;
+
+	// Optional block after which the result will end
+	bytes UntilBlock = 3;
+}
+
+message Paging {
+	int32 Limit = 1;
+	int32 Offset = 2;
+}
+
+message HashMessage {
+	bytes Hash = 1;
+}
+
+message HashQueryParam {
+	string Hash = 1;
+}
+
+message MultiHashQueryParam {
+	repeated string Hashes = 1;
+}
+
+message NodeStatusResponse {
+	bool Witness = 1;
+	bool Candidate = 2;
+	BlockHeader ConfirmedChainTip = 3;
+	string PeerAddress = 4;
+	uint64 LagInSec = 5;
+}
+
+// Empty placeholder structure
+message Void {}
+
+message BlocksRequest {
+	repeated bytes Hashes = 1;
+}
+
+message SyncBlocksRequest {
+	bytes OffsetBlockHash = 1;
+	int32 Limit = 2;
+}
+
+message RawData {
+	bytes Data = 1;
+}
+
+message RawDataList {
+	repeated RawData Datas = 1;
+}
+
+message FullNodeData {
+	PeerInfo PeerInfo = 1;
+	Gossip Gossip = 2;
+	BlockHeader BlockHeader = 3;
+	Transaction Transaction = 4;
+}
+
+message ChallengeInfo {
+	// Address of connecting client
+	bytes PeerAddr = 1;
+
+	// TTL of the challenge
+	uint64 TTL = 2;
+}
+
+message ChallengeResponse {
+	bytes Challenge = 1;
+	bytes SignedChallenge = 2;
+}
+
+message ChallengeRequest {
+	// Address of connecting client
+	bytes PeerAddr = 1;
+	bytes Challenge = 2;
+}
+
+message TokenRequest {
+	// originalChallenge contains original challenge from server
+	bytes OriginalChallenge = 1;
+
+	bytes ClientAddr = 2;
+
+	bytes SignedChallenge = 3;
+}
+
+message TokenResponse {
+	bytes Token = 2;
+}
+
+message Token {
+	// Request time + 120s
+	uint64 ExpireTime = 1;
+
+	// The source address
+	bytes Address = 2;
+
+	// Signed by the server
+	bytes Signature = 3;
+}
+
+// Serialization helper
+message Operations {
+	repeated Operation Values = 1;
+}
+
+// WIRE
+
+// Transaction is the building block of the network.
+// It contains the operations with state modifications or other actions to be handled by the witnesses.
+message Transaction {
+	// Hash of this transaction
+	bytes Hash = 1;
+
+	// Source defines the address which generated and signed this transaction.
+	bytes SourceAddress = 2;
+
+	// Timestamp millis when this TX was created on the source system
+	uint64 Timestamp = 3;
+
+	// Operations which should be applied to the blockchain state.
+	repeated Operation Operations = 4;
+
+	// Signature guarantees the Transaction originates from the source account
+	// It contains the result of Sign(hash, timestamp, sourceAddress, operations...)
+	// When consolidated into a block, these are stored at the block level
+	bytes Signature = 5;
+
+	// Optional tracing info, use to carry tracing context to another node
+	bytes TracingContext = 6;
+
+	// Incremental number by signing account providing processing order to messages.
+	// It's part of the hash and network will keep tx in mempool until all previous nonces are processed.
+	uint64 Nonce = 7;
+
+	// This is a reference to the last known block seen by a user when they created the transaction.
+	// It requires witnesses to only include the transaction if this block is included in the fork which is active.
+	// When another fork gets majority, it will cause this transaction to become invalid and fail.
+  // bytes lastKnownBlock = 7;
+
+	// Optional, who created the transaction on behalf of the owner. When this field is set, it will be used for verifying the signature. Just like the signature, `CreateAccount` might be dropped in consolidation of the chain.
+	bytes CreateAccount = 8;
+
+	// SecureHash is set by connector in order to verify transaction metadata context
+	bytes SecureHash = 9;
+
+	// Mark true if this is transaction is part of the Pulse system
+	bool IsPulse = 10;
+}
+
+// Compact
+message OperationCompensation {
+	// Who receives the compensation, a member of the agreement.
+	// Maps to the index (0-based) in the immutable CreateAgreement.Parties.
+	uint32 Beneficiary = 1;
+
+	// Encoded as bigint big endian
+	//  + ATTR: would saved as ACES values (default 18 decimal supported)
+	bytes Value = 2;
+
+	// Deprecated. Keep this field to avoid breaking when validating block.
+	// In new flow, the value is always ATTR value. Old data still have Currency values.
+	uint32 Currency = 3;
+
+	// Encoded as bigint big endian. Store the original value defined in the contract.
+	// Values are multiplied with 10^10, so they keep 9 digits correct.
+	bytes ConversionValue = 4;
+
+	// 1=USD, 2=EUR, ... See currency.go#L21
+	uint32 ConversionCurrency = 5;
+
+	// Conversion rate from ConversionValue to ATTR token. Encoded as bigint big endian as ACES values (6 decimal supported)
+	//  Ref: https://gitlab.com/attrace/docs/-/blob/develop/docs/guides/token-rates.md
+	bytes ConversionRate = 6;
+}
+
+message OperationReceipt {
+	// Amount of fees in ATTR consumed by processing this operation.
+	bytes Fees = 1;
+
+	// Optional field to indicate alternative fee owners.
+	// Setting this to Transaction.SourceAddress (when no TransactionReceipt.FeeOwner is configured) or the TransactionReceipt.FeeOwner will make the block invalid.
+	bytes FeeOwner = 2;
+
+	// Compensations generated by executing this operation
+	repeated OperationCompensation Compensations = 3;
+
+	// State changes done during exeuction of this operation.
+	// If a value is nil, the value was removed.
+	contractprotocol.ListMap StateDeltas = 4;
+}
+
+// Execution result of a Transaction
+message TransactionReceipt {
+	// Execution status of the transaction. False = failed. True = success.
+	bool Status = 1;
+
+	// When null, it means the fee owner is Transaction.SourceAddress, this is inferred by default.
+	// Optional to override the fee owner at transaction level.
+	// Setting this to Transaction.SourceAddress will make the block invalid.
+	bytes FeeOwner = 2;
+
+	// Allows to override specific behavior at operation level.
+	repeated OperationReceipt OperationReceipts = 3;
+
+	// Which operation caused the error
+	// The first operation which fails, stops processing
+	uint32 ErrorOperation = 4;
+
+	// Error code, can be set to an error string indicating problem. Eg: INSUFFICIENT_TOKEN, CONTRACT_MISSING, ...
+	string ErrorCode = 5;
+
+	// Optional error message and variable dump. Can be left empty.
+	string ErrorMessage = 6;
+}
+
+// A single state-change call on a dynamic contract
+message ActionCall {
+	// What method to call. Full method name for clarity, not a hash of the name. Eg: Create, Sale, ...
+	string Action = 1;
+
+	// Block deprecated fields usage
+	reserved 2, 3;
+
+	// An optional list of context values which can be passed around with method calls.
+	// Useful to pass dynamic variables.
+	repeated ContextValue Context = 4;
+
+	// Parameters to the action.
+	repeated contractprotocol.Value Params = 5;
+
+	// Named params, indexable by the contract.
+	contractprotocol.ListMap NamedParams = 6;
+}
+
+message ContextValue {
+	// Property name, eg: UserAgent
+	string Name = 1;
+
+	// The actual value
+	bytes Value = 2;
+
+	// Value serializer
+	int32 ValueType = 3;
+}
+
+message OperationActions {
+	// Root Actions which can be verified against Operation.secureHashes
+	repeated ActionCall RootActions = 3;
+}
+
+// The SecureTransaction is to be shared between parties directly over an encrypted channel.
+message SecureTransaction {
+	// Block deprecated fields usage
+	reserved 2, 3;
+
+	// The original transaction, which is also broadcasted to the public chain.
+	Transaction Transaction = 1;
+
+	// DEPRECATED
+	// OffsetDetails who's content can be verified against Operation.detailHashes
+	// The offsets refer to the operation indexes in the transaction
+	// repeated bytes OffsetDetails = 2;
+
+	// DEPRECATED
+	// Actions related to operations, entries can be empty for public-only transactions.
+	// repeated OperationActions OperationActions = 3;
+}
+
+// Individual operations
+// A transaction can have many (eg: distribute value to multiple accounts from one account; or add 100 roots at once)
+message Operation {
+	// The actual operation
+	OperationValue Value = 1;
+
+	// Hashes for verifying the secure actions in the channels before executing them.
+	// Multiple hashes can be listed, which can be required for sharing granular content in the channels (one hash should match).
+	repeated bytes SecureVerifyHashes = 2;
+}
+
+message DelegatedOperation {
+	// Operation to be executed by delegatee
+	Operation Operation = 1;
+
+	// Owner address of operation. The one who sign the DelegatedOperation. This could be account address or operational key address.
+	bytes Account = 2;
+
+	// Address of delegatee
+	bytes Delegatee = 3;
+}
+
+message SignedDelegatedOperation {
+	DelegatedOperation DelegatedOperation = 1;
+
+	// Verify signature of DelegatedOperation
+	bytes Signature = 2;
+}
+
+
+// Different operations possible
+message OperationValue {
+	OperationTransferValue	TransferValue = 1;
+	OperationChangeWitnessCandidacy ChangeWitnessCandidacy = 2;
+	OperationStake Stake = 3;
+	OperationUnstake Unstake = 4;
+	OperationCreateAgreement CreateAgreement = 5;
+	OperationConfirmAgreement ConfirmAgreement = 6;
+	OperationCreateRoot CreateRoot = 7;
+	OperationRootActionCall RootActionCall = 8;
+	OperationAssignTokenLease AssignTokenLease = 9;
+	OperationRevokeTokenLease RevokeTokenLease = 10;
+	OperationUpdateAccountTokenRates UpdateAccountTokenRates = 11;
+	OperationModifyAccountAccess ModifyAccountAccess = 12;
+	SignedDelegatedOperation SignedDelegatedOperation = 13;
+	OperationClaimRootCompensation ClaimRootCompensation = 14;
+}
+
+// ------- Operations
+
+// Transfer ATTR value in aces from account to another
+// This implies to origin address is allowed to send this amount
+message OperationTransferValue {
+	// TODO validate if this can be binary
+	bytes FromAddr = 1;
+	// TODO validate if this can be binary
+	bytes ToAddr = 2;
+	// The value transferred; uint256
+	bytes Value = 3;
+}
+
+// Register a root type, a piece of data which can be tracked over time and have state changes
+// The name comes from something which grows into different states over time.
+message OperationCreateRoot {
+	// The creator defines this and ideally this is the pubkey of a unique keypair (or derived).
+	// For space efficiency reasons, we don't track checksum and type here. We don't expect this hash to be copied manually by users.
+	// Keys can already exist and a single key can manage multiple roots
+	bytes RootOwner = 1;
+
+	// Agreement this root belongs to
+	bytes Agreement = 2;
+
+	// Field to control the amount of hours the network tracks this root.
+	// Required to set, it impacts cost of operation.
+	// If dependant operations require this root after it has been purged, those transactions will fail.
+	// Example: a lead which hasn't converted in 3 months time, can be dropped.
+	// Unit: hours.
+	uint32 TTL = 3;
+
+	// Source account generating the root (click, tap, trackable something)
+	// Will be somebody listed in OpCreateAgreement.rootCreators
+	// This is an internal type and should be emptied when storing the operation.
+	bytes SourceAccount = 4;
+
+	// Optional signatures by validators, which can be required before accepting the block into the network.
+	// For space efficiency reasons, the signatures should be droppable after consolidation behind LCP.
+	// repeated bytes validationSignatures = 5;
+
+	// Since the account who creates the root is currently paying for the processing, it's important they can set a limit how much work can be done.
+	// With every on-chain operation, this amount decreases with the amount of fees. Once there is insufficient allowance, the transaction will fail.
+	// In a later stage we can allow allowance increases.
+	bytes Allowance = 5;
+
+	ActionCall ActionCall = 6;
+
+	bytes ParentRootAddress = 7;
+}
+
+message OperationRootActionCall {
+	// The address of the root
+	bytes RootAddress = 1;
+
+	// Agreement which will process this.
+	bytes Agreement = 2;
+
+	// Source account generating the action
+	bytes SourceAccount = 3;
+
+	// Optional signatures by validators, which can be required before accepting the block into the network.
+	// For space efficiency reasons, the signatures should be droppable after consolidation behind LCP.
+	// repeated bytes validationSignatures = 3;
+
+	ActionCall ActionCall = 4;
+}
+
+// Created by a peer when they are up for election
+// The candidate should have 1000 ATTR, which will be locked
+message OperationChangeWitnessCandidacy {
+	// Address of the candidate
+	bytes Candidate = 1;
+	// Set to true, if candidate is up for election
+	bool UpForElection = 2;
+}
+
+// Stake (=vote) for a set of witnesses. This will replace any previous Stake operations you had active on the network.
+// This means "I want these candidates to become elected witnesses".
+// 1 token Value == 1 vote.
+message OperationStake {
+	// Total amount of value that gets staked; uint256
+	// When the network accepts this vote, the tokens will be locked.
+	bytes StakedValue = 1;
+	// The witnesses which will receive equal votes.
+	repeated bytes Candidates = 2;
+}
+
+// When the network accepts this release, the value will remain locked for a few days.
+// To change staked witnesses, another StakeWitness operation needs to be created.
+message OperationUnstake {
+	// Amount of funds to be released.
+	bytes ReleaseValue = 1;
+}
+
+// This will create an agreement on the network.
+message OperationCreateAgreement {
+	// Block the deprecated fields to clean the model
+	reserved 2, 3, 4, 6, 7;
+
+	// All involved parties, who all need to approve the contract to get it started.
+	repeated bytes Parties = 1;
+
+	// Agreement contract bytecode verification hash. sha256(compiledWasmCode, hashNonce).
+	bytes ContractHash = 5;
+
+	// Byte Code of the contract
+	bytes ContractByteCode = 8;
+
+	// The amount of hours until unconfirmed agreement will be purged
+	int32 ConfirmationDueInHours  = 9;
+
+	// Which contract is used from the contract library
+	string ContractId = 10;
+
+	// Dynamic initialization arguments for the contract
+	// This can hold things like customized commission rules, revsharing rules, pricing rules, product rules, ...
+	// The total size of all arguments combined should be below 1KB.
+	// TODO: validation on 1Kb
+	contractprotocol.ListMap Arguments = 11;
+
+	// Currency in which compensations are calculated.
+	// 0=NONE | 1 = USD | 2 = EUR | ...
+	uint32 CompensationCurrency = 12;
+}
+
+// This will sign an pending agreement on the network.
+message OperationConfirmAgreement {
+	// Agreement which we confirm
+	bytes Agreement = 1;
+}
+
+// This will allow another party to consume a specific amount of tokens from another account.
+// This is not locking the tokens on the network, it allows a contract to consume tokens from another account's balance for network operation tasks.
+// If there is an outstanding lease, the amounts are summed and available immediately.
+message OperationAssignTokenLease {
+	// The amount to add to the lease
+	// It's required for the Provider to have this amount of token balance at the time of processing.
+	bytes LeaseValue = 1;
+
+	// The party who is leasing (and is required to have this balance)
+	bytes Provider = 2;
+
+	// Who can consume the leased tokens
+	bytes Beneficiary = 3;
+}
+
+// This will revoke any open token lease from one account to another with any remaining lease value, effective immidiately.
+message OperationRevokeTokenLease {
+	// The party who is leasing (and is required to have this balance)
+	bytes Provider = 1;
+
+	// Who can consume the tokens
+	bytes Beneficiary = 2;
+}
+
+message OperationUpdateAccountTokenRates {
+  // time when operation generated
+  uint64 Time = 1;
+  // SourcesAccount address will get update token rates
+  bytes AccountAddress = 2;
+  //  rates list rate by given currency
+  repeated TokenRate Rates = 3;
+}
+
+// __replaces__ any previous access configuration for the targeted accounts + scopes
+message OperationModifyAccountAccess{
+	// (Optional) After this block sequence, operational key will be revoked
+	uint64 BlockSequence = 1;
+
+	// User has to be owner of the objects referenced for access: account or agreement
+	message AccessScope {
+		message TXScope {
+			bool CreateRoot = 1;
+			bool RootActionCall = 2;
+			bool ConfirmAgreement = 3;
+			bool CreateAgreement = 4;
+		}
+		message BlockScope{
+			bool ProduceBlock = 1;
+		}
+
+		message OperationScope {
+			// Map: <Agreement address string> : <AgreementScop>
+			map<string, AgreementScope> AgreementPermissionMap = 1;
+		}
+		message AgreementScope {
+			bool ClaimRootCompensation = 1;
+		}
+
+		bytes Delegatee = 1;
+		TXScope TXPermission = 2;
+		BlockScope BlockPermission = 3;
+		OperationScope OperationPermission = 4;
+	}
+
+	AccessScope GrantScope = 2;
+	AccessScope RevokeScope = 3;
+}
+
+// OperationClaimRootCompensation would sent ATTR from SourceAddress to Facilitator to receive fiat money
+// NOTE: Get value need to claim from rootState.Root.Compensation. This would ONLY work when this op in the same tx that have compensation
+message OperationClaimRootCompensation {
+	// Root address which makes the compensation
+	bytes Root = 1;
+	// SourceAddress owner of the compensation
+	bytes SourceAddress = 2;
+	// Address of the facilitator would handle the compensation
+	bytes Facilitator = 3;
+}
+
+message StateAccountTokenRates {
+  uint64 UpdateTime = 1;
+  repeated TokenRate Rates = 2;
+}
+
+message TokenRate {
+  uint32 Currency = 1;
+  uint64 Rate = 2;
+}
+
+// BlockHeader contains all block metadata to allow verification
+// Header is sent once block is completed and confirms a fully generated block (who's chunks have already been broadcasted)
+message BlockHeader {
+	// Ever-increasing number of this block in the chain.
+	uint64 Sequence = 1;
+	// Timestamp millis this block was generated
+	uint64 Timestamp = 2;
+	// Address of the witness that generated this block.
+	bytes Witness = 3;
+	// Hash of this block
+	// hash(sequence, timestamp, parentHash, merkleRoot, producer)
+	bytes Hash = 4;
+	// Hash of the previous block.
+	bytes PreviousHash = 5;
+	// Merke root of transactions and signatures.
+	bytes MerkleRoot = 6;
+	// Signature by the producer of this block.
+	// sign(append(sequence, timestamp, parentHash, hash, merkleRoot, producer))
+	bytes Signature = 7;
+	// Total amount of fees collected for processing the embedded transactions
+	bytes Fees = 8;
+	// Merkle root after processing the receipts
+	bytes ReceiptsRoot = 9;
+	// Merkle root of the annotation info we share with the other witnesses.
+	// Before committing to a block, witnesses need the annotations to validate the block.
+	// It's useful for storing and verifying volatile data, like failed transactions.
+	// When they are syncing (and thus not voting for), it's not required for witnesses to validate this (since the info might already be flushed from the network).
+	bytes AnnotationsRoot = 10;
+}
+
+message BlockTransactionSignatures {
+	// Transaction signature
+	bytes Signature = 1;
+}
+
+//
+message Block {
+	// Block metadata header
+	BlockHeader Header = 1;
+
+	// Transactions processed in this block.
+	// This includes failed transactions.
+	repeated Transaction Transactions = 2;
+
+	// Signature data of all transactions
+	// These signatures can be dropped from storage when blocks are sufficiently confirmed by the network
+	repeated BlockTransactionSignatures Signatures = 3;
+
+	// Transaction receipts
+	// One for every tx in Transactions
+	repeated TransactionReceipt Receipts = 4;
+
+	// Optional tracing info, use to carry tracing context to another node
+	bytes TracingContext = 5;
+}
+
+// A structure to share a transaction with it's execution receipt
+message EvaluatedTransaction {
+	// Position in the block transactions where we tried staging this transaction (and failed)
+	// This required to achieve stable evaluation behavior across witnesses, so they work in the same order
+	uint32 StagePosition = 1;
+
+	// The original transaction
+	Transaction Transaction = 2;
+
+	// The receipt detailing the failure reason
+	TransactionReceipt Receipt = 3;
+}
+
+// The BlockAnnotations is a structure to support properties to share between multiple witnesses, which are not required to be stored.
+// Having them on the block header shows that 2f+1 witnesses agree on the data.
+// Nodes can ignore validation of these optionals when syncing and only need to verify them when in hot consensus.
+// Initial use case is gossipping failed transactions and making it possible to verify that information.
+message BlockAnnotations {
+	// Failed transactions which can be removed from the mempools on the network.
+	repeated EvaluatedTransaction FailedTransactions = 1;
+}
+
+// Structure for sharing blocks during consensus and sync amongst the witnesses.
+// We want to avoid serialization overhead and allow witnesses to share bytes streamed directly from disk.
+message CachedBlock {
+	bytes RawBlock = 1;
+
+	// Optional block annotations
+	bytes RawBlockAnnotations = 2;
+}
+
+// Push of info from one node to another
+message Gossip {
+	// Source peer time when the message was generated
+	uint64 Time = 1;
+	// List of all known witnesses + info
+	// These are the commandline-seeds + top-1000 according to local chain copy
+	repeated PeerInfo Peers = 2;
+}
+
+message EdgeLocation {
+	// Latitude indication where this node is running (x 100000)
+	int32 Latitude = 1;
+
+	// Longitude indicatio nwhere this node is running (x 100000)
+	int32 Longitude = 2;
+
+	// Deprecated field
+	reserved 3;
+
+	// Nearest subdivision within a country (state/province), by distance to center of the subdivision.
+	// As ISO3166-2 state or province code. Eg: US-CA, NL-NH, ...
+	// See https://en.wikipedia.org/wiki/ISO_3166-2 and click the country.
+	string NearestSubdivision = 4;
+}
+
+// Info broadcast
+message PeerInfo {
+	// Address (key) of this node.
+	bytes Address = 1;
+
+	// Advertised gRPC hostname.
+	string Host = 2;
+
+	// Advertised gRPC port other peers can use to connect to this peer.
+	uint32 Port = 3;
+
+	// Optional additional API host override, if any
+	// We assume SSL by default
+	string ApiHost = 4;
+
+	// Optional additional API port override, if any
+	// We assume SSL by default
+	uint32 ApiPort = 5;
+
+	// Local time in milliseconds when this peer info was generated.
+	uint64 Time = 6;
+
+	// Signature of above data, allowing this object to be gossipped and trusted.
+	bytes Signature = 7;
+
+	// Optional geo location indication where this peer is located, used for ping-less server selection
+	EdgeLocation Location = 8;
+}
+
+// Lightweight model for client/channel validation.
+// Can send up to 65k block hashes at a time (4 MB).
+message BlockchainHashes {
+	// Confirmed hashes are to be processed first.
+	// Confirmed hashes are part of the chain incl. the last consensus block.
+	repeated bytes Confirmed = 1;
+	// Unconfirmed chain are not yet consolidated behind a last consensus block.
+	// They can be used, but should not yet be trusted.
+	// These blocks can still be reverted.
+	// When syncing a new chain, this will probably be empty.
+	repeated bytes Unconfirmed = 2;
+}
+
+// Node's current list of known witnesses
+message WitnessList {
+	// List of known elected witnesses
+	repeated PeerInfo Witnesses = 1;
+	// List of known candidates
+	repeated PeerInfo Candidates = 2;
+}
+
+message AuthResponse {
+	// Challenge the signature relates to
+	bytes Challenge = 1;
+	// Signature of the challenge
+	bytes Signature = 2;
+}
+
+message PrePrepare {
+	BlockHeader Header = 1;
+	bytes ValidatorAddress = 2;
+  bytes ValidatorSignature = 3;
+	bytes PeerAddress = 4;
+	bytes PeerSignature = 5;
+	View View = 6;
+}
+
+message Prepare {
+	bytes BlockHash = 1;
+	bytes PeerAddress = 2;
+	bytes PeerSignature = 3;
+	bytes ProducerAddress = 4;
+	bytes ProducerSignature = 5;
+}
+
+message Commit {
+	bytes BlockHash = 1;
+	bytes PeerAddress = 2;
+  bytes PeerSignature = 3;
+	bytes ProducerAddress = 4;
+	bytes ProducerSignature = 5;
+}
+
+// ViewChange = node requesting to change producer
+// ViewChanges are alive and only valid for a short time, so no need to store them.
+message ViewChange {
+	// Ever increasing number -- gaps can exist on the network of this when producers are down during re-election.
+	uint64 NewViewID = 1;
+
+	// What node should produce next according to this witness
+	bytes Producer = 2;
+
+	// What node should validate next according to this witness
+	bytes Validator = 3;
+
+	// Hash of the last committed block we have
+	// This allows to verify that the new view is correct and relevant
+	bytes LastBlock = 4;
+
+	// Nr of blocks planned to be generated by this witness
+	uint32 ProduceAmount = 5;
+
+	// Proof that 2f+1 of the network is committed to this point
+	// TODO add commit proofs to genesis block generation
+	repeated Commit LastBlockProofCommits = 6;
+
+	// Address of witness who has voted for this
+	bytes Witness = 7;
+
+	// Used by the view change algorithm to calculate network-relevant view change time offset
+	uint64 Timestamp = 8;
+
+	// Sig of this msg
+	bytes Signature = 9;
+}
+
+// Broadcasted by the producer-elect when the network agrees on him being the new producer
+// New view == New producer
+message View {
+	// The View ID of the round we are about to launch
+	uint64 ViewID = 1;
+
+	// Target of this message ( witnesses | blockhash ) mod n
+	bytes Producer = 3;
+
+	// Who should validate the round (witnesses-validator) mod n
+	bytes Validator = 4;
+
+	// Hash of the last committed block we have
+	// This allows to verify that the new view is correct and relevant
+	BlockHeader LastBlock = 5;
+
+	// Nr of blocks planned to be generated by this witness
+	uint32 ProduceAmount = 6;
+
+	// The viewchanges
+	// These proof that a view is valid or not
+	// Nodes receiving these verify these against elected witness status at that point in chain
+	repeated ViewChange ViewChangeRequests = 7;
+
+	// We don't do request piggy backing here. Blocks on the wire which are too late, we just drop.
+	// We close the door on extra blocks and timeout on insufficient blocks and viewchange on missing blocks.
+}
+
+message ConsensusEvent {
+	PrePrepare PrePrepare = 1;
+	Prepare Prepare = 2;
+	Commit Commit = 3;
+	ViewChange ViewChange = 4;
+	View NewView = 5;
+}
+
+message AccountTransactionCountRequest {
+	// The address which we want to request
+	bytes AccountAddress = 1;
+}
+
+message AccountTransactionCount {
+	uint64 TxCount = 1;
+	bytes Block = 2;
+	bytes BlockSequence = 3;
+	bytes AccountAddress = 4;
+}
+
+message DiscoveryManifest {
+	uint64 SnapshotTime = 1;
+	repeated PeerInfo Witnesses = 2;
+	// List of current airports
+	repeated Airport Airports = 3;
+}
+
+// Airport info
+message Airport {
+	// lowercase to work with json
+	string iata = 1;
+	double lat = 2;
+	double lon = 3;
+}

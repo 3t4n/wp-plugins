@@ -1,0 +1,48 @@
+syntax = "proto3";
+package attrace.connector.protocol.contractprotocol;
+option go_package = "gitlab.com/attrace/core/contractprotocol";
+
+// Goal of this separate protocol is a clean separation between core and contracts. 
+// So that contracts can be built and executed without requiring core access/import.
+// This package should never ever import core and any we should not add too many helpers on it.
+
+// Simple data model for exposing the internal contracts over RPC
+message ContractInfo {
+	string Id = 1;
+	string Version = 2;
+	string Description = 3;
+}
+
+// Simple value type like google type for dynamic values in the contract state.
+// 
+// Contracts can use internally whatever they want to store data efficiently.ly.
+// Network should avoid contracts with inefficient data storage -- on which in later stage we can do dynamic compensation, if we want.. it's not the goal to rebuild ethereum.
+//
+// The logic is expected to know what fields to query and requires the contracts to track int32 mappings internally.
+// When the value is null, the recommended workflow is to delete the value from the state so space is freed.
+// A value available on the state can be assumed to be set. 
+// If somebody wants to track a null field, which happens less than setting a value, they can store a secondary null marker value.
+message Value {
+	string Str = 1;
+	int32 I32 = 2;
+	uint32 U32 = 3;
+	int64 I64 = 4;
+	uint64 U64 = 5;
+	bool Bool = 6;
+	bytes Blob = 7;
+
+	// List of multiple values.
+	repeated Value ListValues = 8;
+
+	// Int key:val lookups, list-based to have stable serializer.
+	ListMap ListMap = 9;
+}
+
+message ListMap {
+	repeated MapValue Values = 1;
+}
+
+message MapValue {
+	int32 Key = 1;
+	Value Value = 2;
+}

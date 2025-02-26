@@ -1,0 +1,8 @@
+FROM php:7.0-cli-alpine3.7
+COPY . /var/www/html
+WORKDIR /var/www/html
+RUN apk update --no-cache && apk upgrade --no-cache && apk add --no-cache curl zip && mkdir tmp \
+	&& php -r "copy('https://getcomposer.org/installer', 'tmp/composer-setup.php');" && php tmp/composer-setup.php --install-dir=tmp && php -r "unlink('tmp/composer-setup.php');" \
+	&& tmp/composer.phar update --no-cache
+ENTRYPOINT ["php", "docker/cli.php"]
+CMD ["phpunit.xml.dist"]
