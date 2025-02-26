@@ -1,0 +1,1140 @@
+/**
+ * FancyNav - Mobile Navigation with CSS3 Transitions
+ * http://kratzik.com/fancynav
+ * Copyright (c) 2017 Johann Kratzik
+ * Version 1.1.0
+*/
+
+@charset "UTF-8";
+
+/* Load the icon fonts
+   ========================================================================== */
+
+@font-face {
+	font-family: "fancynav-font";
+	src: url("../icons/fancynav-icons.eot");
+	src: url("../icons/fancynav-icons.eot?#iefix") format("embedded-opentype"),
+	url("../icons/fancynav-icons.woff") format("woff"),
+	url("../icons/fancynav-icons.ttf") format("truetype"),
+	url("../icons/fancynav-icons.svg#fancynav-font") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+.fancynav-close::before,
+.fancynav-next::before,
+.fancynav-back::before {
+	font-family: "fancynav-font";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	font-size: 18px;
+	text-transform: none;
+	text-rendering: auto;
+	color: #fff;
+	display: inline-block;
+	vertical-align: sub;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Define the global transition duration
+   ========================================================================== */
+
+.fancynav-inner,
+.fancynav-mainnav,
+.fancynav-subnav,
+.fancynav-overlay,
+.fancynav-sub-slide-down .fancynav-next::before {
+	transition: all 0.5s;
+}
+
+
+/* Settings for the containers
+   ========================================================================== */
+
+/*
+ * Remove margins from <body>
+ */
+body {
+	margin: 0;
+}
+
+/*
+ * The outer coontainer that wraps all content inside the <body>
+ */
+.fancynav-outer {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+	background: rgba(68, 68, 68, 0.3);
+}
+
+/*
+ * The inner container is animated along with the navigation
+ */
+.fancynav-inner {
+	background: #fff;
+	min-height: 100vh;
+	position: relative;
+	z-index: 999;
+}
+
+/*
+ * The main navigation container
+ */
+.fancynav-mainnav {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 300px;
+	z-index: 1001;
+	visibility: hidden;
+	background: #444;
+	overflow: hidden;
+}
+.fancynav-open-right .fancynav-mainnav {
+	left: auto;
+	right: 0;
+}
+
+
+/* The header is the container for both the title and the close button
+   ========================================================================== */
+
+.fancynav-header {
+	font-size: 18px;
+	color: #fff;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.2);
+}
+.fancynav-header::before,
+.fancynav-header::after {
+	display: table;
+	content: " ";
+}
+.fancynav-header::after {
+	clear: both;
+}
+
+/*
+ * Navigation title at the top
+ */
+.fancynav-title {
+	float: left;
+	padding: 15px;
+}
+
+/*
+ * Close button
+ */
+.fancynav-close {
+	float: right;
+	width: 50px;
+	text-align: center;
+	padding: 15px 0;
+	line-height: 1;
+	cursor: pointer;
+}
+.fancynav-close::before {
+	content: "\63";
+}
+
+
+/* Navigation lists and list items
+   Next buttons and Back links
+   ========================================================================== */
+
+/*
+ * Global styling for lists and list items
+ */
+.fancynav-mainnav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+.fancynav-mainnav > ul {
+	position: relative;
+	z-index: 1;
+}
+.fancynav-sub-slide-down li > ul {
+	padding-left: 30px;
+}
+.fancynav-mainnav ul > li {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.fancynav-sub-slide-down li ul > li:last-child {
+	border: none;
+}
+.fancynav-mainnav ul > li > a {
+	display: block;
+	padding: 15px 60px 15px 15px;
+	position: relative;
+	color: #fff;
+	font-size: 16px;
+	line-height: 1.2;
+	text-decoration: none;
+}
+.fancynav-sub-slide-down li ul > li > a {
+	padding-left: 0;
+}
+
+/*
+ * The sliding sub navigations
+ */
+.fancynav-subnav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100vh;
+	background: #444;
+	visibility: hidden;
+	transform: translate(-100%, 0);
+}
+.fancynav-subnav-active {
+	visibility: visible;
+	transform: translate(0, 0);
+}
+.fancynav-sub-slide-down li > ul {
+	display: none;
+}
+
+/*
+ * Next buttons that trigger sliding to submenus
+ */
+.fancynav-next {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 100%;
+	cursor: pointer;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.1);
+}
+.fancynav-next::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -9px 0 0 -9px;
+	content: "\61";
+}
+.fancynav-sub-slide-down .fancynav-next::before {
+	transform: rotate(90deg) translateY(3px);
+}
+.fancynav-sub-slide-down .fancynav-subnav-opened::before {
+	transform: rotate(-90deg);
+}
+
+/*
+ * Back button that triggers sliding back from submenus
+ */
+.fancynav-back {
+	box-sizing: border-box;
+	position: relative;
+	font-size: 13px;
+	line-height: 1;
+	font-weight: bold;
+	padding: 10px 15px;
+	display: block;
+	text-transform: uppercase;
+	color: #fff;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.1);
+}
+.fancynav-back::before {
+	content: "\61";
+	margin-right: 10px;
+	transform: rotate(180deg) translate(4px, 3px);
+}
+
+
+/* Transparent gray overlay
+   ========================================================================== */
+
+.fancynav-overlay {
+	visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10000;
+	background: rgba(68, 68, 68, 0.3);
+	cursor: pointer;
+}
+.fancynav .fancynav-overlay {
+	visibility: visible;
+}
+
+
+/* Menu effects are applied as classes to the <body>
+   and animate those elements:
+
+   1) The nav container .fancynav-mainnav
+   2) The inner (pushed) container .fancynav-inner
+   3) In few cases the outer container .fancynav-outer
+   ========================================================================== */
+
+/*
+ * The default "slide-top" effect
+ */
+.fancynav-animation-slide-top .fancynav-mainnav {
+	transform: translate(-100%, 0);
+}
+.fancynav-animation-slide-top.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	transform: translate(0, 0);
+}
+
+/*
+ * "slide-along" effect
+ */
+.fancynav-animation-slide-along .fancynav-mainnav {
+	transform: translate(-50%, 0);
+}
+.fancynav-animation-slide-along.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	z-index: 999;
+	transform: translate(0, 0);
+}
+.fancynav-animation-slide-along .fancynav-inner {
+	z-index: 1001;
+}
+.fancynav-animation-slide-along.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+/*
+ * "slide-reverse" effect
+ */
+.fancynav-animation-slide-reverse .fancynav-mainnav {
+	transform: translate(100%, 0);
+}
+.fancynav-animation-slide-reverse.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	transform: translate(0, 0);
+}
+.fancynav-animation-slide-reverse .fancynav-inner {
+	z-index: 1001;
+}
+.fancynav-animation-slide-reverse.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+/*
+ * "reveal" effect
+ */
+.fancynav-animation-reveal.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+}
+.fancynav-animation-reveal .fancynav-inner {
+	z-index: 1001;
+}
+.fancynav-animation-reveal.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+/*
+ * "push" effect
+ */
+.fancynav-animation-push .fancynav-mainnav {
+	transform: translate(-100%, 0);
+}
+.fancynav-animation-push.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	transform: translate(0, 0);
+}
+.fancynav-animation-push .fancynav-inner {
+	z-index: 1001;
+}
+.fancynav-animation-push.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+/*
+ * "rotate-delayed" effect
+ */
+.fancynav-animation-rotate-delayed .fancynav-mainnav {
+	transform: translate3d(-100%, 0, 0) rotateY(90deg);
+	transform-origin: 0 50%;
+}
+.fancynav-animation-rotate-delayed.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	transition-delay: 0.1s;
+	transform: translate3d(0, 0, 0) rotateY(0deg);
+}
+.fancynav-animation-rotate-delayed .fancynav-outer {
+	perspective: 1500px;
+	perspective-origin: 0 50%;
+}
+.fancynav-animation-rotate-delayed .fancynav-inner {
+	z-index: 1001;
+}
+.fancynav-animation-rotate-delayed.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+/*
+ * "scale-up" effect
+ */
+.fancynav-animation-scale-up .fancynav-mainnav {
+	transform: translate3d(0, 0, -300px);
+	perspective: 1000px;
+}
+.fancynav-animation-scale-up.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	transform: translate3d(0, 0, 0);
+}
+.fancynav-animation-scale-up .fancynav-outer {
+	perspective: 1500px;
+	perspective-origin: 0 50%;
+}
+.fancynav-animation-scale-up .fancynav-inner {
+	perspective: 1000px;
+	z-index: 1001;
+}
+.fancynav-animation-scale-up.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+/*
+ * "fall-down" effect
+ */
+.fancynav-animation-fall-down .fancynav-mainnav {
+	transform: translate(0, -100%);
+}
+.fancynav-animation-fall-down.fancynav-opened .fancynav-mainnav {
+	visibility: visible;
+	transform: translate(0, 0);
+}
+.fancynav-animation-fall-down .fancynav-inner {
+	z-index: 1001;
+}
+.fancynav-animation-fall-down.fancynav-opened .fancynav-inner {
+	transform: translate(300px, 0);
+}
+
+
+/* Overriding transitions to open from right
+   ========================================================================== */
+
+.fancynav-animation-slide-top.fancynav-open-right .fancynav-mainnav,
+.fancynav-animation-push.fancynav-open-right .fancynav-mainnav {
+	transform: translate(100%, 0);
+}
+.fancynav-animation-slide-along.fancynav-open-right .fancynav-mainnav {
+	transform: translate(50%, 0);
+}
+.fancynav-animation-slide-reverse.fancynav-open-right .fancynav-mainnav {
+	transform: translate(-100%, 0);
+}
+.fancynav-animation-rotate-in.fancynav-open-right .fancynav-mainnav {
+	transform: translate(100%, 0) rotateY(-90deg);
+}
+.fancynav-animation-rotate-out.fancynav-open-right .fancynav-mainnav,
+.fancynav-animation-rotate-delayed.fancynav-open-right .fancynav-mainnav {
+	transform: rotateY(90deg);
+}
+.fancynav-opened.fancynav-open-right .fancynav-mainnav {
+	transform: translate(0, 0) rotateY(0);
+}
+.fancynav-animation-slide-along.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-slide-reverse.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-reveal.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-push.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-rotate-in.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-rotate-out.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-rotate-delayed.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-scale-up.fancynav-open-right.fancynav-opened .fancynav-inner,
+.fancynav-animation-fall-down.fancynav-open-right.fancynav-opened .fancynav-inner {
+	transform: translate(-300px, 0);
+}
+
+
+/* Hamburger Menu Icons
+ * @uses: Tasty CSS-animated Hamburgers
+ *        by Jonathan Suh @jonsuh
+ *        https://github.com/jonsuh/hamburgers
+ *        license: MIT
+   ========================================================================== */
+
+.fancynav-hamburger {
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: 0.15s;
+	transition-timing-function: linear;
+}
+.fancynav-hamburger .hamburger-box {
+	width: 40px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
+.fancynav-hamburger .hamburger-inner {
+	display: block;
+	top: 50%;
+	margin-top: -2px;
+}
+.fancynav-hamburger .hamburger-inner,
+.fancynav-hamburger .hamburger-inner::before,
+.fancynav-hamburger .hamburger-inner::after {
+	width: 40px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 4px;
+	position: absolute;
+	transition-property: transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease;
+}
+.fancynav-hamburger .hamburger-inner::before,
+.fancynav-hamburger .hamburger-inner::after {
+	content: '';
+	display: block;
+}
+.fancynav-hamburger .hamburger-inner::before {
+	top: -10px;
+}
+.fancynav-hamburger .hamburger-inner::after {
+	bottom: -10px;
+}
+
+/*
+ * Turn
+ */
+.fancynav-hamburger.hamburger--3dxy .hamburger-box {
+	perspective: 80px;
+}
+.fancynav-hamburger.hamburger--3dxy .hamburger-inner {
+	transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--3dxy .hamburger-inner::before, .hamburger--3dxy .hamburger-inner::after {
+	transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--3dxy.is-active .hamburger-inner {
+	background-color: transparent !important;
+	transform: rotateX(180deg) rotateY(180deg);
+}
+.fancynav-hamburger.hamburger--3dxy.is-active .hamburger-inner::before {
+	transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.fancynav-hamburger.hamburger--3dxy.is-active .hamburger-inner::after {
+	transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * Turn Reverse
+ */
+.fancynav-hamburger.hamburger--3dxy-r .hamburger-box {
+	perspective: 80px;
+}
+.fancynav-hamburger.hamburger--3dxy-r .hamburger-inner {
+	transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--3dxy-r .hamburger-inner::before, .hamburger--3dxy-r .hamburger-inner::after {
+	transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--3dxy-r.is-active .hamburger-inner {
+	background-color: transparent !important;
+	transform: rotateX(180deg) rotateY(180deg) rotateZ(-180deg);
+}
+.fancynav-hamburger.hamburger--3dxy-r.is-active .hamburger-inner::before {
+	transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.fancynav-hamburger.hamburger--3dxy-r.is-active .hamburger-inner::after {
+	transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * Arrow
+ */
+.fancynav-hamburger.hamburger--arrow.is-active .hamburger-inner::before {
+	transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+.fancynav-hamburger.hamburger--arrow.is-active .hamburger-inner::after {
+	transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+
+/*
+ * Arrow Right
+ */
+.fancynav-hamburger.hamburger--arrow-r.is-active .hamburger-inner::before {
+	transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+.fancynav-hamburger.hamburger--arrow-r.is-active .hamburger-inner::after {
+	transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+
+/*
+ * Arrow Turn
+ */
+.fancynav-hamburger.hamburger--arrowturn.is-active .hamburger-inner {
+	transform: rotate(-180deg);
+}
+.fancynav-hamburger.hamburger--arrowturn.is-active .hamburger-inner::before {
+	transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+.fancynav-hamburger.hamburger--arrowturn.is-active .hamburger-inner::after {
+	transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+
+/*
+ * Arrow Turn Right
+ */
+.fancynav-hamburger.hamburger--arrowturn-r.is-active .hamburger-inner {
+	transform: rotate(-180deg);
+}
+.fancynav-hamburger.hamburger--arrowturn-r.is-active .hamburger-inner::before {
+	transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+.fancynav-hamburger.hamburger--arrowturn-r.is-active .hamburger-inner::after {
+	transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+
+/*
+ * Collapse
+ */
+.fancynav-hamburger.hamburger--collapse .hamburger-inner {
+	top: auto;
+	bottom: 0;
+	transition-duration: 0.13s;
+	transition-delay: 0.13s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--collapse .hamburger-inner::after {
+	top: -20px;
+	transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+}
+.fancynav-hamburger.hamburger--collapse .hamburger-inner::before {
+	transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--collapse.is-active .hamburger-inner {
+	transform: translate3d(0, -10px, 0) rotate(-45deg);
+	transition-delay: 0.22s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--collapse.is-active .hamburger-inner::after {
+	top: 0;
+	opacity: 0;
+	transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear;
+}
+.fancynav-hamburger.hamburger--collapse.is-active .hamburger-inner::before {
+	top: 0;
+	transform: rotate(-90deg);
+	transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Collapse Reverse
+ */
+.fancynav-hamburger.hamburger--collapse-r .hamburger-inner {
+	top: auto;
+	bottom: 0;
+	transition-duration: 0.13s;
+	transition-delay: 0.13s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--collapse-r .hamburger-inner::after {
+	top: -20px;
+	transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+}
+.fancynav-hamburger.hamburger--collapse-r .hamburger-inner::before {
+	transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--collapse-r.is-active .hamburger-inner {
+	transform: translate3d(0, -10px, 0) rotate(45deg);
+	transition-delay: 0.22s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--collapse-r.is-active .hamburger-inner::after {
+	top: 0;
+	opacity: 0;
+	transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear;
+}
+.fancynav-hamburger.hamburger--collapse-r.is-active .hamburger-inner::before {
+	top: 0;
+	transform: rotate(90deg);
+	transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Elastic
+ */
+.fancynav-hamburger.hamburger--elastic .hamburger-inner {
+	top: 2px;
+	transition-duration: 0.275s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fancynav-hamburger.hamburger--elastic .hamburger-inner::before {
+	top: 10px;
+	transition: opacity 0.125s 0.275s ease;
+}
+.fancynav-hamburger.hamburger--elastic .hamburger-inner::after {
+	top: 20px;
+	transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fancynav-hamburger.hamburger--elastic.is-active .hamburger-inner {
+	transform: translate3d(0, 10px, 0) rotate(135deg);
+	transition-delay: 0.075s;
+}
+.fancynav-hamburger.hamburger--elastic.is-active .hamburger-inner::before {
+	transition-delay: 0s;
+	opacity: 0;
+}
+.fancynav-hamburger.hamburger--elastic.is-active .hamburger-inner::after {
+	transform: translate3d(0, -20px, 0) rotate(-270deg);
+	transition-delay: 0.075s;
+}
+
+/*
+ * Elastic Reverse
+ */
+.fancynav-hamburger.hamburger--elastic-r .hamburger-inner {
+	top: 2px;
+	transition-duration: 0.275s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fancynav-hamburger.hamburger--elastic-r .hamburger-inner::before {
+	top: 10px;
+	transition: opacity 0.125s 0.275s ease;
+}
+.fancynav-hamburger.hamburger--elastic-r .hamburger-inner::after {
+	top: 20px;
+	transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fancynav-hamburger.hamburger--elastic-r.is-active .hamburger-inner {
+	transform: translate3d(0, 10px, 0) rotate(-135deg);
+	transition-delay: 0.075s;
+}
+.fancynav-hamburger.hamburger--elastic-r.is-active .hamburger-inner::before {
+	transition-delay: 0s;
+	opacity: 0;
+}
+.fancynav-hamburger.hamburger--elastic-r.is-active .hamburger-inner::after {
+	transform: translate3d(0, -20px, 0) rotate(270deg);
+	transition-delay: 0.075s;
+}
+
+/*
+ * Emphatic
+ */
+.fancynav-hamburger.hamburger--emphatic {
+	overflow: hidden;
+}
+.fancynav-hamburger.hamburger--emphatic .hamburger-inner {
+	transition: background-color 0.125s 0.175s ease-in;
+}
+.fancynav-hamburger.hamburger--emphatic .hamburger-inner::before {
+	left: 0;
+	transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in;
+}
+.fancynav-hamburger.hamburger--emphatic .hamburger-inner::after {
+	top: 10px;
+	right: 0;
+	transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in;
+}
+.fancynav-hamburger.hamburger--emphatic.is-active .hamburger-inner {
+	transition-delay: 0s;
+	transition-timing-function: ease-out;
+	background-color: transparent !important;
+}
+.fancynav-hamburger.hamburger--emphatic.is-active .hamburger-inner::before {
+	left: -80px;
+	top: -80px;
+	transform: translate3d(80px, 80px, 0) rotate(45deg);
+	transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.fancynav-hamburger.hamburger--emphatic.is-active .hamburger-inner::after {
+	right: -80px;
+	top: -80px;
+	transform: translate3d(-80px, 80px, 0) rotate(-45deg);
+	transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*
+ * Emphatic Reverse
+ */
+.fancynav-hamburger.hamburger--emphatic-r {
+	overflow: hidden;
+}
+.fancynav-hamburger.hamburger--emphatic-r .hamburger-inner {
+	transition: background-color 0.125s 0.175s ease-in;
+}
+.fancynav-hamburger.hamburger--emphatic-r .hamburger-inner::before {
+	left: 0;
+	transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in;
+}
+.fancynav-hamburger.hamburger--emphatic-r .hamburger-inner::after {
+	top: 10px;
+	right: 0;
+	transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in;
+}
+.fancynav-hamburger.hamburger--emphatic-r.is-active .hamburger-inner {
+	transition-delay: 0s;
+	transition-timing-function: ease-out;
+	background-color: transparent !important;
+}
+.fancynav-hamburger.hamburger--emphatic-r.is-active .hamburger-inner::before {
+	left: -80px;
+	top: 80px;
+	transform: translate3d(80px, -80px, 0) rotate(-45deg);
+	transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.fancynav-hamburger.hamburger--emphatic-r.is-active .hamburger-inner::after {
+	right: -80px;
+	top: 80px;
+	transform: translate3d(-80px, -80px, 0) rotate(45deg);
+	transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*
+ * Minus
+ */
+.fancynav-hamburger.hamburger--minus .hamburger-inner::before, .hamburger--minus .hamburger-inner::after {
+	transition: bottom 0.08s 0s ease-out, top 0.08s 0s ease-out, opacity 0s linear;
+}
+.fancynav-hamburger.hamburger--minus.is-active .hamburger-inner::before, .hamburger--minus.is-active .hamburger-inner::after {
+	opacity: 0;
+	transition: bottom 0.08s ease-out, top 0.08s ease-out, opacity 0s 0.08s linear;
+}
+.fancynav-hamburger.hamburger--minus.is-active .hamburger-inner::before {
+	top: 0;
+}
+.fancynav-hamburger.hamburger--minus.is-active .hamburger-inner::after {
+	bottom: 0;
+}
+
+/*
+ * Slider
+ */
+.fancynav-hamburger.hamburger--slider .hamburger-inner {
+	top: 2px;
+}
+.fancynav-hamburger.hamburger--slider .hamburger-inner::before {
+	top: 10px;
+	transition-property: transform, opacity;
+	transition-timing-function: ease;
+	transition-duration: 0.15s;
+}
+.fancynav-hamburger.hamburger--slider .hamburger-inner::after {
+	top: 20px;
+}
+.fancynav-hamburger.hamburger--slider.is-active .hamburger-inner {
+	transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.fancynav-hamburger.hamburger--slider.is-active .hamburger-inner::before {
+	transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+	opacity: 0;
+}
+.fancynav-hamburger.hamburger--slider.is-active .hamburger-inner::after {
+	transform: translate3d(0, -20px, 0) rotate(-90deg);
+}
+
+/*
+ * Slider Reverse
+ */
+.fancynav-hamburger.hamburger--slider-r .hamburger-inner {
+	top: 2px;
+}
+.fancynav-hamburger.hamburger--slider-r .hamburger-inner::before {
+	top: 10px;
+	transition-property: transform, opacity;
+	transition-timing-function: ease;
+	transition-duration: 0.15s;
+}
+.fancynav-hamburger.hamburger--slider-r .hamburger-inner::after {
+	top: 20px;
+}
+.fancynav-hamburger.hamburger--slider-r.is-active .hamburger-inner {
+	transform: translate3d(0, 10px, 0) rotate(-45deg);
+}
+.fancynav-hamburger.hamburger--slider-r.is-active .hamburger-inner::before {
+	transform: rotate(45deg) translate3d(5.71429px, -6px, 0);
+	opacity: 0;
+}
+.fancynav-hamburger.hamburger--slider-r.is-active .hamburger-inner::after {
+	transform: translate3d(0, -20px, 0) rotate(90deg);
+}
+
+/*
+ * Spin
+ */
+.fancynav-hamburger.hamburger--spin .hamburger-inner {
+	transition-duration: 0.22s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spin .hamburger-inner::before {
+	transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+.fancynav-hamburger.hamburger--spin .hamburger-inner::after {
+	transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spin.is-active .hamburger-inner {
+	transform: rotate(225deg);
+	transition-delay: 0.12s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--spin.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+	transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+.fancynav-hamburger.hamburger--spin.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(-90deg);
+	transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Spin Reverse
+ */
+.fancynav-hamburger.hamburger--spin-r .hamburger-inner {
+	transition-duration: 0.22s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spin-r .hamburger-inner::before {
+	transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+.fancynav-hamburger.hamburger--spin-r .hamburger-inner::after {
+	transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spin-r.is-active .hamburger-inner {
+	transform: rotate(-225deg);
+	transition-delay: 0.12s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--spin-r.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+	transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+.fancynav-hamburger.hamburger--spin-r.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(90deg);
+	transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Spring
+ */
+.fancynav-hamburger.hamburger--spring .hamburger-inner {
+	top: 2px;
+	transition: background-color 0s 0.13s linear;
+}
+.fancynav-hamburger.hamburger--spring .hamburger-inner::before {
+	top: 10px;
+	transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spring .hamburger-inner::after {
+	top: 20px;
+	transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spring.is-active .hamburger-inner {
+	transition-delay: 0.22s;
+	background-color: transparent !important;
+}
+.fancynav-hamburger.hamburger--spring.is-active .hamburger-inner::before {
+	top: 0;
+	transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.fancynav-hamburger.hamburger--spring.is-active .hamburger-inner::after {
+	top: 0;
+	transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transform: translate3d(0, 10px, 0) rotate(-45deg);
+}
+
+/*
+ * Spring Reverse
+ */
+.fancynav-hamburger.hamburger--spring-r .hamburger-inner {
+	top: auto;
+	bottom: 0;
+	transition-duration: 0.13s;
+	transition-delay: 0s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spring-r .hamburger-inner::after {
+	top: -20px;
+	transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0s linear;
+}
+.fancynav-hamburger.hamburger--spring-r .hamburger-inner::before {
+	transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--spring-r.is-active .hamburger-inner {
+	transform: translate3d(0, -10px, 0) rotate(-45deg);
+	transition-delay: 0.22s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--spring-r.is-active .hamburger-inner::after {
+	top: 0;
+	opacity: 0;
+	transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0s 0.22s linear;
+}
+.fancynav-hamburger.hamburger--spring-r.is-active .hamburger-inner::before {
+	top: 0;
+	transform: rotate(90deg);
+	transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Stand
+ */
+.fancynav-hamburger.hamburger--stand .hamburger-inner {
+	transition: transform 0.075s 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), background-color 0s 0.075s linear;
+}
+.fancynav-hamburger.hamburger--stand .hamburger-inner::before {
+	transition: top 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--stand .hamburger-inner::after {
+	transition: bottom 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--stand.is-active .hamburger-inner {
+	transform: rotate(90deg);
+	background-color: transparent !important;
+	transition: transform 0.075s 0s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0s 0.15s linear;
+}
+.fancynav-hamburger.hamburger--stand.is-active .hamburger-inner::before {
+	top: 0;
+	transform: rotate(-45deg);
+	transition: top 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--stand.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(45deg);
+	transition: bottom 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Stand Reverse
+ */
+.fancynav-hamburger.hamburger--stand-r .hamburger-inner {
+	transition: transform 0.075s 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), background-color 0s 0.075s linear;
+}
+.fancynav-hamburger.hamburger--stand-r .hamburger-inner::before {
+	transition: top 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--stand-r .hamburger-inner::after {
+	transition: bottom 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--stand-r.is-active .hamburger-inner {
+	transform: rotate(-90deg);
+	background-color: transparent !important;
+	transition: transform 0.075s 0s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0s 0.15s linear;
+}
+.fancynav-hamburger.hamburger--stand-r.is-active .hamburger-inner::before {
+	top: 0;
+	transform: rotate(-45deg);
+	transition: top 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--stand-r.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(45deg);
+	transition: bottom 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Squeeze
+ */
+.fancynav-hamburger.hamburger--squeeze .hamburger-inner {
+	transition-duration: 0.075s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--squeeze .hamburger-inner::before {
+	transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+.fancynav-hamburger.hamburger--squeeze .hamburger-inner::after {
+	transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.fancynav-hamburger.hamburger--squeeze.is-active .hamburger-inner {
+	transform: rotate(45deg);
+	transition-delay: 0.12s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.fancynav-hamburger.hamburger--squeeze.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+	transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+}
+.fancynav-hamburger.hamburger--squeeze.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(-90deg);
+	transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Vortex
+ */
+.fancynav-hamburger.hamburger--vortex .hamburger-inner {
+	transition-duration: 0.2s;
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.fancynav-hamburger.hamburger--vortex .hamburger-inner::before, .hamburger--vortex .hamburger-inner::after {
+	transition-duration: 0s;
+	transition-delay: 0.1s;
+	transition-timing-function: linear;
+}
+.fancynav-hamburger.hamburger--vortex .hamburger-inner::before {
+	transition-property: top, opacity;
+}
+.fancynav-hamburger.hamburger--vortex .hamburger-inner::after {
+	transition-property: bottom, transform;
+}
+.fancynav-hamburger.hamburger--vortex.is-active .hamburger-inner {
+	transform: rotate(765deg);
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.fancynav-hamburger.hamburger--vortex.is-active .hamburger-inner::before, .hamburger--vortex.is-active .hamburger-inner::after {
+	transition-delay: 0s;
+}
+.fancynav-hamburger.hamburger--vortex.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+}
+.fancynav-hamburger.hamburger--vortex.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(90deg);
+}
+
+/*
+ * Vortex Reverse
+ */
+.fancynav-hamburger.hamburger--vortex-r .hamburger-inner {
+	transition-duration: 0.2s;
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.fancynav-hamburger.hamburger--vortex-r .hamburger-inner::before, .hamburger--vortex-r .hamburger-inner::after {
+	transition-duration: 0s;
+	transition-delay: 0.1s;
+	transition-timing-function: linear;
+}
+.fancynav-hamburger.hamburger--vortex-r .hamburger-inner::before {
+	transition-property: top, opacity;
+}
+.fancynav-hamburger.hamburger--vortex-r .hamburger-inner::after {
+	transition-property: bottom, transform;
+}
+.fancynav-hamburger.hamburger--vortex-r.is-active .hamburger-inner {
+	transform: rotate(-765deg);
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.fancynav-hamburger.hamburger--vortex-r.is-active .hamburger-inner::before, .hamburger--vortex-r.is-active .hamburger-inner::after {
+	transition-delay: 0s;
+}
+.fancynav-hamburger.hamburger--vortex-r.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+}
+.fancynav-hamburger.hamburger--vortex-r.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(-90deg);
+}
