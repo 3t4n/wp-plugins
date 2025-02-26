@@ -1,0 +1,30 @@
+<?php
+/* ======================================================
+ # Easy Custom Code (LESS/CSS/JS) - Live editing for WordPress - v1.1.2 (free version)
+ # -------------------------------------------------------
+ # Author: Web357
+ # Copyright © 2014-2025 Web357. All rights reserved.
+ # License: GNU/GPLv3, http://www.gnu.org/licenses/gpl-3.0.html
+ # Website: https://www.web357.com/easy-custom-code-wordpress-plugin
+ # Demo: https://demo-wordpress.web357.com/
+ # Support: https://www.web357.com/support
+ # Last modified: Friday 31 January 2025, 12:48:01 AM
+ ========================================================= */
+/**
+ * Fired when the plugin is uninstalled.
+ */
+
+// If uninstall not called from WordPress, then exit.
+if (
+	!defined( 'WP_UNINSTALL_PLUGIN' )
+	||
+	!WP_UNINSTALL_PLUGIN
+	||
+	dirname( WP_UNINSTALL_PLUGIN ) != dirname( plugin_basename( __FILE__ ) )
+) {
+	status_header( 404 );
+	exit;
+}
+
+// Delete the options from database
+// delete_option('easy_custom_code_options');
