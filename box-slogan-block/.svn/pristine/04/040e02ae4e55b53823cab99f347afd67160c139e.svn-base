@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wtrb/boxslogans",
+  "version": "0.1.0",
+  "title": "Box Slogan Block",
+  "category": "wtrb-boxslogans",
+  "description": "Responsive Box Slogan Block for Gutenberg editor.",
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "wtrb/boxsloganmember",
+        "attributes": {
+          "config": "imagetop"
+        }
+      },
+      {
+        "name": "wtrb/boxsloganmember",
+        "attributes": {
+          "config": "imagebottom"
+        }
+      },
+      {
+        "name": "wtrb/boxsloganmember",
+        "attributes": {
+          "config": "imagetop"
+        }
+      }
+    ]
+  },
+  "supports": {
+    "html": false
+  },
+  "providesContext": {
+    "wtrb/uniqueID": "uniqueID",
+    "wtrb/titleTag": "titleTag",
+    "wtrb/descriptionTag": "descriptionTag",
+    "wtrb/gapDBetweenBlocks": "gapDBetweenBlocks",
+    "wtrb/gapTBetweenBlocks": "gapTBetweenBlocks",
+    "wtrb/gapMBetweenBlocks": "gapMBetweenBlocks",
+    "wtrb/blockBorderRadius": "blockBorderRadius",
+    "wtrb/deskCols": "deskCols",
+    "wtrb/tabCols": "tabCols",
+    "wtrb/mobCols": "mobCols",
+    "wtrb/contentBoxHeight": "contentBoxHeight",
+    "wtrb/sloganTextAlignment": "sloganTextAlignment",
+    "wtrb/contentBoxPadding": "contentBoxPadding",
+    "wtrb/titleColor": "titleColor",
+    "wtrb/descriptionColor": "descriptionColor",
+    "wtrb/imageObjectFit": "imageObjectFit",
+    "wtrb/imageAspectRatio": "imageAspectRatio"
+  },
+  "textdomain": "wtrb-boxslogan-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
