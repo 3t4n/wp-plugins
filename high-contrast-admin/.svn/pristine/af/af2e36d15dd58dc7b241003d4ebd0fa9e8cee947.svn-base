@@ -1,0 +1,356 @@
+/**
+ * High Contrast White Admin Color Scheme by Robert Chapin
+ *
+ * Tested and working on 4.4, 4.7, and 4.8.  Should be compatible with 4.2.
+ * Modifies the styles found in:
+ *  wp-admin/css/admin-menu.css
+ *  wp-admin/css/common.css
+ *  wp-admin/css/edit.css
+ *  wp-admin/css/forms.css
+ *  wp-admin/css/list-tables.css
+ *  wp-admin/css/themes.css
+ *  wp-includes/css/admin-bar.css
+ */
+
+/* Background Color */
+html,
+body {
+	background: #FFF;
+}
+#wp-content-editor-tools,
+#post-status-info {
+	background-color: #FFF;
+}
+
+/* Input Border Color */
+input[type="checkbox"],
+input[type="radio"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+select,
+textarea,
+.widget-top {
+    border-color: #000 !important;
+}
+
+/* Table Border Color */
+.wp-editor-container {
+    border: #000 1px solid !important;
+}
+.has-dfw .wp-editor-container {
+    border-top-width: 2px !important;
+}
+table.widefat {
+	border: 1px solid #000;
+}
+.widefat th,
+.widefat td,
+.plugins .inactive td,
+.plugins .inactive th,
+.plugins .active td,
+.plugins .active th,
+.plugin-install #the-list td,
+.upgrade .plugins td,
+.upgrade .plugins th,
+#the-comment-list th,
+#the-comment-list td {
+	-webkit-box-shadow: inset 0 -1px 0 #000;
+	box-shadow: inset 0 -1px 0 #000;
+}
+.widefat tfoot th,
+.widefat tfoot td {
+	border-top: 1px solid #000;
+	border-bottom: none;
+	-webkit-box-shadow: none;
+	box-shadow: inset none;
+}
+
+/* Alternating Row Color */
+.striped > tbody > :nth-child(odd),
+.alternate,
+.community-events ul {
+    background-color: #FFF;
+}
+.plugins .active td,
+.plugins .active th,
+tr.active + tr.plugin-update-tr .plugin-update {
+    background-color: #FFF;
+}
+.plugins .inactive td,
+.plugins .inactive th,
+.plugins .inactive p {
+	color: #FFF;
+    background-color: #000;
+}
+.plugins .inactive a {
+	color: #01afff
+}
+
+/* Highlighted Row Color */
+.plugins .active.update td,
+.plugins .active.update th,
+tr.active.update + tr.plugin-update-tr .plugin-update,
+#activity-widget #the-comment-list .unapproved,
+#the-comment-list .unapproved th,
+#the-comment-list .unapproved td,
+.theme-overlay .theme-update-message {
+    background-color: #fbe7e1;
+}
+
+/* Tabbed Pages */
+.nav-tab-active,
+.contextual-help-tabs .active,
+.contextual-help-tabs .active a,
+.contextual-help-tabs .active a:hover,
+.theme-overlay .parent-theme,
+#plugin-information-tabs a.current {
+	color: #FFF;
+    background-color: #000;
+}
+
+kbd,
+code,
+#plugin-information pre,
+#plugin-information code {
+    background-color: #000;
+	color: #FFF;
+}
+
+
+
+/* Admin Menu */
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu {
+  background: #f0f0f0;
+}
+
+#adminmenu a {
+  color: #000;
+}
+
+
+div.wp-menu-image:before {
+  color: #000;
+}
+
+#adminmenu div.wp-menu-image:before {
+  color: #000;
+}
+
+#adminmenu li.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu .wp-has-current-submenu div.wp-menu-image:before,
+#adminmenu .current div.wp-menu-image:before,
+#adminmenu a.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu a.current:hover div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before {
+	color: #000;
+}
+
+#adminmenu li:hover div.wp-menu-image:before,
+#adminmenu li a:focus div.wp-menu-image:before,
+#adminmenu li.opensub div.wp-menu-image:before {
+  color: #04a4cc;
+}
+
+/* IE8 doesn't redraw the pseudo elements unless you make a change to the content, this restore the initial color after hover */
+.ie8 #adminmenu li.opensub div.wp-menu-image:before {
+	color: #000;
+}
+
+
+#adminmenu a:hover,
+#adminmenu li.menu-top:hover,
+#adminmenu li.opensub > a.menu-top,
+#adminmenu li > a.menu-top:focus {
+  background-color: #FFF;
+}
+
+
+/* Admin Menu: submenu */
+#adminmenu .wp-submenu,
+#adminmenu .wp-has-current-submenu .wp-submenu,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu {
+  background: #DDD;
+}
+
+#adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+  border-right-color: #DDD;
+}
+
+#adminmenu .wp-submenu a,
+#adminmenu .wp-has-current-submenu .wp-submenu a,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu a,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu a,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu a {
+  color: #333;
+}
+
+#adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover,
+#adminmenu .wp-has-current-submenu .wp-submenu a:focus,
+#adminmenu .wp-has-current-submenu .wp-submenu a:hover,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu a:focus,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu a:hover,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu a:focus,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu a:hover,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu a:focus,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu a:hover {
+  color: #04a4cc;
+}
+
+/* Admin Menu: current */
+#adminmenu .wp-submenu li.current a,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a {
+  color: #000;
+}
+
+#adminmenu .wp-submenu li.current a:hover, #adminmenu .wp-submenu li.current a:focus,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a:hover,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a:focus,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a:hover,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a:focus {
+  color: #04a4cc;
+}
+
+#adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
+.folded #adminmenu li.current.menu-top {
+  color: #000;
+  background: #04a4cc;
+}
+
+
+/* Admin Menu: collapse button */
+#collapse-button {
+  color: #000;
+}
+
+#collapse-button:hover,
+#collapse-button:focus {
+  color: #04a4cc;
+}
+
+/* Admin Bar */
+
+#wpadminbar {
+	color: #000;
+	background: #f0f0f0;
+}
+
+#wpadminbar .menupop .ab-sub-wrapper,
+#wpadminbar .shortlink-input {
+	background: #DDD;
+}
+
+#wpadminbar .ab-empty-item,
+#wpadminbar a.ab-item,
+#wpadminbar > #wp-toolbar span.ab-label,
+#wpadminbar > #wp-toolbar span.noticon {
+	color: #000;
+}
+
+#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+#wpadminbar .ab-top-menu > li.hover > .ab-item {
+	background: #fff;
+	color: #04a4cc;
+}
+
+#wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
+#wpadminbar > #wp-toolbar li.hover span.ab-label,
+#wpadminbar:not(.mobile) > #wp-toolbar a:focus span.ab-label {
+	color: #04a4cc;
+}
+
+#wpadminbar .ab-icon:before,
+#wpadminbar .ab-item:before,
+#wpadminbar #adminbarsearch:before {
+	color: #000;
+}
+
+#wpadminbar .ab-submenu .ab-item {
+	color: #000;
+}
+
+#wpadminbar .quicklinks .menupop ul li a,
+#wpadminbar .quicklinks .menupop ul li a strong,
+#wpadminbar .quicklinks .menupop.hover ul li a,
+#wpadminbar.nojs .quicklinks .menupop:hover ul li a {
+	color: #000;
+}
+
+#wpadminbar .quicklinks .menupop ul li a:hover,
+#wpadminbar .quicklinks .menupop ul li a:focus,
+#wpadminbar .quicklinks .menupop ul li a:hover strong,
+#wpadminbar .quicklinks .menupop ul li a:focus strong,
+#wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover > a,
+#wpadminbar .quicklinks .menupop.hover ul li a:hover,
+#wpadminbar .quicklinks .menupop.hover ul li a:focus,
+#wpadminbar .quicklinks .menupop.hover ul li div[tabindex]:hover,
+#wpadminbar .quicklinks .menupop.hover ul li div[tabindex]:focus,
+#wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover,
+#wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus,
+#wpadminbar li:hover .ab-icon:before,
+#wpadminbar li:hover .ab-item:before,
+#wpadminbar li a:focus .ab-icon:before,
+#wpadminbar li .ab-item:focus:before,
+#wpadminbar li .ab-item:focus .ab-icon:before,
+#wpadminbar li.hover .ab-icon:before,
+#wpadminbar li.hover .ab-item:before,
+#wpadminbar li:hover #adminbarsearch:before,
+#wpadminbar li #adminbarsearch.adminbar-focused:before {
+	color: #04a4cc;
+}
+
+#wpadminbar.mobile .quicklinks .ab-icon:before,
+#wpadminbar.mobile .quicklinks .ab-item:before {
+	color: #000;
+}
+
+#wpadminbar.mobile .quicklinks .hover .ab-icon:before,
+#wpadminbar.mobile .quicklinks .hover .ab-item:before {
+	color: #04a4cc;
+}
+
+#wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
+#wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
+	background: #BBB;
+}
+
+#wpadminbar .quicklinks .menupop .ab-sub-secondary > li > a:hover,
+#wpadminbar .quicklinks .menupop .ab-sub-secondary > li .ab-item:focus a {
+	color: #04a4cc;
+}
+
+#wpadminbar #wp-admin-bar-user-info .display-name {
+	color: inherit;
+}
+
+
+/* Themes */
+.theme-browser .theme.active .theme-name,
+.theme-browser .theme.add-new-theme a:hover:after,
+.theme-browser .theme.add-new-theme a:focus:after {
+  background: #DDD;
+  color: #000;
+}
+
+.theme-browser .theme.add-new-theme a:hover span:after,
+.theme-browser .theme.add-new-theme a:focus span:after {
+  color: #04a4cc;
+}
+
+.theme-browser .theme.active .theme-actions {
+  background: #DDD;
+}
