@@ -1,0 +1,276 @@
+/* Example CSS to indent submenu items */
+.momo-dashboard-metrics {
+    display: flex;
+    justify-content: space-between; /* Ensures equal spacing between cards */
+    gap: 20px;
+}
+.momo-dashboard-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Add space between items */
+    gap: 1rem; /* Space between each card */
+    margin-bottom: 2rem;
+}
+
+.momo-dashboard-card {
+    flex: 1 1 30%; /* Each card takes up 30% of the row with equal spacing */
+    min-width: 250px; /* Set a minimum width to avoid squishing on small screens */
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.momo-dashboard-card i {
+    font-size: 3rem!important;
+    color: #0073e6;
+    margin-bottom: 0.5rem;
+}
+.momo-dashboard-card .ai-insight {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
+@media (max-width: 768px) {
+    .momo-dashboard-card {
+        flex: 1 1 100%; /* Stack cards on smaller screens */
+    }
+}
+/* .momo-dashboard-card {
+    flex: 1;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+} */
+
+.revenue-amount, .order-count, .average-order-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+@media (max-width: 768px) {
+    .momo-dashboard-metrics {
+        flex-direction: column;
+    }
+}
+
+
+.momo-dashboard-card h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.momo-dashboard-card .revenue-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #009688;
+}
+.momo-dashboard-card .order-count {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5;
+}
+.momo-dashboard-card .average-order {
+    font-size: 24px;
+    font-weight: bold;
+    color: #da8619;
+}
+.momo-dashboard-card .average-order-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff9800;
+}
+.momo-product-card {
+    /* flex: 1;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center; */
+}
+
+.product-list li {
+    margin: 0.5rem 0;
+}
+.momo-customer-card {
+    /* flex: 1;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center; */
+}
+
+.customer-list li {
+    margin: 0.5rem 0;
+}
+.momo-dashboard-emails .momo-dashboard-card {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin: 1%;
+}
+
+.momo-email-activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.momo-email-activity-table th, .momo-email-activity-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.momo-email-activity-table th {
+    background-color: #f4f4f4;
+}
+.momo-insights-footer{
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recent-sales-table,
+.top-products-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-sales-table th,
+.recent-sales-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    color: #555;
+}
+
+.recent-sales-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+}
+
+.top-products-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-products-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.top-products-list li i {
+    font-size: 2rem!important;
+    margin-bottom: 0!important;
+    color: #28a745; /* Icon color for list items */
+}
+
+#sales-trends {
+    padding-top: 15px;
+    text-align: center;
+}
+.highlight-count{
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.highlight-count.minus{
+    background-color: darkred;
+}
+.highlight-count.ratings{
+    background-color: #ff9800;
+}
+.momo-report-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.momo-report-block {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+}
+
+.momo-report-block h2 {
+    font-size: 1.5rem;
+    color: #495057;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.momo-report-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.momo-report-item {
+    padding: 15px;
+    border-left: 5px solid #007bff;
+    background: #e9ecef;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.momo-report-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.momo-report-item p {
+    margin: 0;
+    color: #495057;
+}
+
+.momo-report-item:hover {
+    background: #d1e7fd;
+    border-left-color: #0056b3;
+}
+.momo-insights-pro-notice{
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+}
+.momo-insights-pro-notice p{
+    margin-bottom: 30px;
+    display: block;
+    font-weight: 600;
+}
