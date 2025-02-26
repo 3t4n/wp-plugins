@@ -1,0 +1,42 @@
+swiper-slider-plugin__section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slider-plugin-flex-card {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 auto; /* Needed for Avada. */
+}
+
+.swiper-slider-plugin-flex-card__text, .swiper-slider-plugin-flex-card__image {
+  width: 95%;
+}
+
+.swiper-slider-plugin-flex-card__text {
+  text-align: left;
+  padding: 1%;
+}
+
+.swiper-slider-plugin-flex-card__image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-slider-plugin-flex-card {
+    flex-wrap: nowrap;
+  }
+  .swiper-slider-plugin-flex-card__text {
+    width: 66%;
+  } 
+  .swiper-slider-plugin-flex-card__image {
+    width: 33%;
+  }
+}
