@@ -1,0 +1,265 @@
+.veda-container {
+  width: calc(100% - 60px);
+}
+
+.veda-container h1 {
+  line-height: 35px;
+}
+
+.veta-logo-left {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 780px;
+}
+
+.veta-logo-left img {
+  width: 120px;
+}
+
+.veta-button {
+  background: #5F27CB;
+  border-radius: 3px;
+  font-weight: 600;
+  padding: 8px 10px;
+  font-size: 14px;
+  line-height: 15px;
+  color: #FFFFFF;
+  width: 124px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+}
+
+.veta-content-box {
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  width: 100%;
+  max-width: 760px;
+  margin-bottom: 50px;
+}
+
+.veta-content-box input[disabled] {
+  background: #DDDCDC;
+  border: 1px solid #4D4D4D;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.veta-flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.veta-flex-box p {
+  padding: 0;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.veta-content-box input[disabled].veta-display-shortcode {
+  background: #CAF5FF;
+  border: 1px solid #4D4D4D;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 90%;
+}
+.set-veta-account {
+  position: relative;
+}
+.quick-links a {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.veta-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.veta-table td {
+  padding: 5px 10px;
+}
+
+.veta-table td input.value-input {
+  width: auto;
+  min-width: 70px;
+  max-width: 100%;
+}
+
+.veta-button.active .button-text,
+.veta-button .loading {
+  display: none;
+}
+
+.veta-button.active {
+  background: #9C7BDD;
+}
+
+.veta-button.active .loading {
+  display: block;
+}
+
+.veta-button.active .loading .dashicons {
+  animation: rotation 1s linear infinite;
+}
+
+.veta-list-of-options {
+  display: none;
+}
+.error-message {
+  position: absolute;
+  top: -28px;
+left: 0px;
+  color: #FF4848;
+}
+
+.snackbar-message {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  border: 30px;
+  width: 200px;
+  height: auto;
+  background-color: #323232;
+  bottom: 30px;
+  left: calc(50% - 100px);
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  padding: 14px 24px;
+  overflow: hidden;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .auto-fold #wpcontent {
+    padding-right: 10px;
+  }
+
+  .box-container {
+    width: auto;
+  }
+
+  .veta-content-box {
+    width: auto;
+  }
+
+  .veda-container {
+    width: 100%;
+  }
+
+  .veda-container h1 {
+    text-align: center;
+  }
+
+  .veta-logo-left {
+    justify-content: center;
+  }
+
+  .veta-table {
+    display: none;
+  }
+
+  .veta-list-of-options {
+    display: block
+  }
+
+  .veta-flex-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .veta-flex-box div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+
+/* Animations */
+.fade-in-snackbar {
+  display: block;
+  animation: fadeIn 4s;
+  -webkit-animation: fadeIn 4s;
+  -moz-animation: fadeIn 4s;
+  -o-animation: fadeIn 4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
