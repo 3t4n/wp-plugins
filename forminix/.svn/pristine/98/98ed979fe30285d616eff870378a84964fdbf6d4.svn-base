@@ -1,0 +1,1078 @@
+/* ======== Builder ========== */
+#forminix_builder{
+    display: none;
+}
+
+.forminix_builder_body{
+    position: relative;
+    height: calc(100vh - 102px);
+}
+
+
+
+/* Loader */
+.forminix_builder_loader_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+.forminix_builder_loading_bar,
+.forminix_builder_loading_bar:before,
+.forminix_builder_loading_bar:after {
+    width: 1rem;
+    height: 3rem;
+    background-color: #6A6A75;
+    animation: forminix_builder_loader_animation 1s ease-in-out infinite;
+}
+.forminix_builder_loading_bar {
+    animation-delay: -.16s;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.forminix_builder_loading_bar:before {
+    position: absolute;
+    right: 2rem;
+    content: '';
+}
+.forminix_builder_loading_bar:after {
+    position: absolute;
+    animation-delay: -.32s;
+    content: '';
+    left: 2rem;
+}
+@keyframes forminix_builder_loader_animation {
+    0% {
+        height: 3rem;
+    }
+    50% {
+        height: 6rem
+    }
+    100% {
+        height: 3rem
+    }
+}
+
+
+
+/* Header */
+.forminix_builder_header{
+    position: relative;
+    background: #ffffff;
+    padding: 0 35px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    z-index: 555;
+    box-shadow: 0 4px 2px -2px #bfbdbd;
+}
+
+.forminix_builder_header .forminix_close_icon img{
+    width: 15px;
+    cursor: pointer;
+}
+
+.forminix_builder_header .forminix_details{
+    margin: 0 0 0 35px;
+}
+
+.forminix_builder_header .forminix_details h2{
+    margin: 0;
+    font-size: 18px;
+    color: #252F3C;
+    font-weight: bold;
+}
+.forminix_builder_header .forminix_details p{
+    margin: 3px 0 0 0;
+    font-size: 13px;
+    color: #6F727C;
+    font-weight: 500;
+}
+.forminix_builder_header .forminix_builder_form_header_action{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
+.forminix_builder_header button.forminix_builder_copy_shortcode{
+    display: none;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #F1F3F4 url("../img/forminix_shortcode_copy_icon.svg") no-repeat;
+    background-size: 15px;
+    background-position-x: 10px;
+    background-position-y: center;
+    color: #787B83;
+    border: 1px solid #EEEDF0;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    padding: 8px 14px 8px 35px;
+    font-size: 14px;
+}
+
+.forminix_builder_header button.forminix_builder_save_form_btn{
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+/* Sidebar */
+.forminix_builder_sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #ffffff;
+    padding: 25px;
+    width: 300px;
+    z-index: 5;
+    overflow-y: scroll;
+}
+
+
+.forminix_builder_sidebar::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    background-color: #545454;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+}
+.forminix_builder_sidebar:hover::-webkit-scrollbar-thumb {
+    visibility: hidden;
+}
+
+.forminix_builder_sidebar::-webkit-scrollbar {
+    width: 0px;
+}
+
+.forminix_builder_sidebar .forminix_builder_sidebar_nav{
+    border: 2px solid #E0E2E6;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+.forminix_builder_sidebar .forminix_builder_sidebar_nav .forminix_builder_sidebar_nav_item:nth-child(1){
+    border-right: 2px solid #E0E2E6;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.forminix_builder_sidebar .forminix_builder_sidebar_nav .forminix_builder_sidebar_nav_item:nth-child(2){
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.forminix_builder_sidebar .forminix_builder_sidebar_nav .forminix_builder_sidebar_nav_item{
+    background: #ffffff;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    border-radius: 5px;
+    padding: 9px;
+    color: #8D8C93;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.forminix_builder_sidebar .forminix_builder_sidebar_nav .forminix_builder_sidebar_nav_item.active{
+    color: #3D3F45;
+    background: #F1F3F4;
+}
+.forminix_builder_sidebar .forminix_builder_sidebar_nav_body{
+    display: none;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+
+
+
+
+
+.forminix_builder_sidebar .forminix_builder_sidebar_slider{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.forminix_builder_sidebar .forminix_builder_sidebar_slider .forminix_builder_sidebar_slider_item{
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    padding: 0 0 5px 0;
+    color: #89888F;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #F1F1F3;
+}
+
+.forminix_builder_sidebar .forminix_builder_sidebar_slider .forminix_builder_sidebar_slider_item.active{
+    color: #474749;
+    border-bottom: 2px solid #82A6EE;
+}
+.forminix_builder_sidebar .forminix_builder_sidebar_slider_body{
+    display: none;
+}
+
+
+
+
+
+.forminix_builder_sidebar .forminix_nav_fields_search{
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    border: 2px solid #EEEDF0;
+    border-radius: 7px;
+    background: #F1F3F4;
+}
+.forminix_builder_sidebar .forminix_nav_fields_search input{
+    position: absolute;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.forminix_builder_sidebar .forminix_nav_fields_search img{
+    position: absolute;
+    width: 15px;
+    right: 10px;
+}
+
+
+
+
+
+/* Builder Sidebar Fields */
+.forminix_builder_sidebar .forminix_builder_sidebar_fields_container{
+    margin-top: 20px;
+    height: 100%;
+}
+
+.forminix_builder_sidebar_field{
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.forminix_builder_sidebar_field.drag_started{
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #F1F1F3;
+    z-index: 555;
+    box-shadow: 0 4px 2px -2px #bfbdbd;
+}
+.forminix_builder_sidebar_field img.drag_icon{
+    width: 8px;
+}
+.forminix_builder_sidebar_field img.field_icon{
+    margin-left: 12px;
+    width: 40px;
+}
+
+.forminix_builder_sidebar_field .forminix_builder_sidebar_field_details{
+    margin-left: 12px;
+}
+
+.forminix_builder_sidebar_field .forminix_builder_sidebar_field_details h3{
+    margin: 0;
+    font-size: 16px;
+    color: #36383C;
+    font-weight: 500;
+}
+.forminix_builder_sidebar_field .forminix_builder_sidebar_field_details p{
+    margin: 1px 0 0 0;
+    font-size: 12px;
+    color: #9C9BA0;
+    font-weight: 400;
+}
+
+
+
+/* Builder Sidebar Fields Customizer */
+
+.forminix_builder_single_field_customizer{
+    margin: 18px 0;
+}
+
+.forminix_builder_single_field_customizer label{
+    display: block;
+    color: #2B2A2D;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+.forminix_builder_single_field_customizer p{
+    display: block;
+    color: #8a8a8a;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 2px 0 0 0;
+}
+.forminix_builder_single_field_customizer input[type="text"],
+.forminix_builder_single_field_customizer input[type="number"],
+.forminix_builder_single_field_customizer input[type="time"],
+.forminix_builder_single_field_customizer input[type="date"],
+.forminix_builder_single_field_customizer input[type="datetime-local"],
+.forminix_builder_single_field_customizer textarea,
+.forminix_builder_single_field_customizer select{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 4px 12px;
+    font-size: 14px;
+    color: #43454b;
+    background: #f6f8fa;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px;
+    outline: none;
+    box-shadow: none;
+}
+.forminix_builder_single_field_customizer input[type="text"]:focus,
+.forminix_builder_single_field_customizer select:focus{
+    color: #43454b;
+    border: 1px solid #d9d9db;
+    outline: none;
+    box-shadow: none;
+}
+.forminix_builder_single_field_customizer select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #f6f8fa url("../img/builder/forminix_field_select_arrow.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
+}
+
+
+.forminix_builder_single_field_customizer .radio_area,
+.forminix_builder_single_field_customizer .checkbox_area{
+    display: block;
+    width: 100%;
+    margin: 3px 0;
+    font-size: 14px;
+}
+.forminix_builder_single_field_customizer .radio_area.horizontal,
+.forminix_builder_single_field_customizer .checkbox_area.horizontal{
+    display: inline-block;
+    width: auto;
+    margin: 0 15px 0 0;
+}
+.forminix_builder_single_field_customizer .radio_area input[type="radio"],
+.forminix_builder_single_field_customizer .checkbox_area input[type="checkbox"]{
+    margin: 0 7px 0 0;
+    background: #f6f8fa;
+    border: 1px solid #E4E4E6;
+    outline: none;
+    box-shadow: none;
+}
+
+
+.forminix_builder_single_field_customizer .color_picker_area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 36px;
+    background: #f6f8fa;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px;
+}
+.forminix_builder_single_field_customizer .color_picker_area label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B2A2D;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.forminix_builder_single_field_customizer .color_picker_area input[type="color"] {
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    padding: 0;
+    height: 36px;
+    width: 108px;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    border: 1px;
+}
+.forminix_builder_single_field_customizer .color_picker_area input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+.forminix_builder_single_field_customizer .color_picker_area input[type="color"]::-webkit-color-swatch {
+    border-color: transparent;
+    border-radius: 3px;
+}
+
+.forminix_builder_field_customizer_empty{
+    margin: auto 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B2A2D;
+}
+
+.forminix_builder_field_customizer_actions{
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+.forminix_builder_field_customizer_actions .forminix_builder_field_delete_btn{
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 12px 7px;
+    width: 100%;
+}
+.forminix_builder_field_customizer_actions .forminix_builder_field_delete_btn:hover{
+    background: #090808;
+}
+
+
+
+/* Builder Editor */
+.forminix_builder_editor_container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 350px;
+    overflow-y: scroll;
+}
+
+.forminix_builder_editor{
+    margin: 15px;
+    background: #ffffff;
+    border: 1px solid #E3E3E3;
+    border-radius: 6px;
+    padding: 0 50px;
+}
+
+.forminix_builder_form{
+    display: none;
+    max-width: 800px;
+    margin: 100px auto;
+}
+.forminix_builder_form h2.forminix_builder_form_name{
+    display: inline-block;
+    cursor: pointer;
+    color: #17161F;
+    font-size: 27px;
+    line-height: 27px;
+    margin: 0;
+    border: 0;
+    outline: 0px solid transparent;
+    background: url("../img/builder/forminix_form_name_editor.svg") no-repeat;
+    background-size: 25px;
+    background-position-y: top;
+    padding-left: 35px;
+}
+.forminix_builder_form h2.forminix_builder_form_name:focus{
+    cursor: text;
+}
+
+
+
+
+
+
+.forminix_builder_form .forminix_builder_form_elements_empty{
+    margin: 35px 0;
+    background-image: url("../img/builder/forminix_drop_element.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 250px;
+}
+.forminix_builder_form .forminix_builder_form_elements_empty.drop_hover{
+    background-image: url("../img/builder/forminix_drop_element_drop_hover.svg");
+}
+
+
+
+
+.forminix_builder_form .forminix_builder_form_elements{
+    margin-top: 20px;
+    border-top: 2px solid #ECECF0;
+    padding: 20px 0 20px 0;
+}
+
+
+.forminix_builder_form .forminix_builder_form_elements .elements_placeholder {
+    border: 1px dashed #787B83;
+    background-image: url("../img/builder/forminix_elements_sortable_placeholder.svg");
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 80px;
+}
+
+
+.forminix_builder_single_form_element_column_container{
+    display: flex;
+    border: 1px dashed #ffb900;
+    background: rgba(255, 185, 0, 0.08);
+    margin: 18px 0;
+}
+.forminix_builder_single_form_element_column_container.forminix_builder_element_selected{
+    border: 1px dashed #0ea6ec;
+    background: rgba(22, 160, 233, 0.08);
+}
+
+.forminix_builder_single_form_element_column_container .forminix_builder_single_form_element_column{
+    flex: 1;
+    padding: 5px;
+    min-height: 80px;
+}
+.forminix_builder_single_form_element_column_container .forminix_builder_single_form_element_column:not(:nth-child(1)){
+    border-left: 1px dashed #ffb900;
+}
+
+.forminix_builder_single_form_element_column_container.forminix_builder_element_selected .forminix_builder_single_form_element_column:not(:nth-child(1)){
+    border-left: 1px dashed #0ea6ec;
+}
+
+
+
+
+
+
+
+.forminix_builder_single_form_element{
+    margin: 18px 0;
+    word-break: normal;
+}
+
+.forminix_builder_single_form_element.forminix_builder_element_selected{
+    padding: 7px 9px;
+    border-radius: 4px;
+    border: 1px dashed #0ea6ec;
+    background: rgba(22, 160, 233, 0.08);
+}
+
+.forminix_builder_single_form_element *{
+    pointer-events: none;
+}
+.forminix_builder_single_form_element label{
+    display: block;
+    color: #2B2A2D;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+
+
+
+.forminix_builder_single_form_element.label_top_left,
+.forminix_builder_single_form_element.label_top_center,
+.forminix_builder_single_form_element.label_top_right{
+    display: block;
+}
+.forminix_builder_single_form_element.label_left_left,
+.forminix_builder_single_form_element.label_left_center,
+.forminix_builder_single_form_element.label_left_right{
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+}
+.forminix_builder_single_form_element.label_right_left,
+.forminix_builder_single_form_element.label_right_center,
+.forminix_builder_single_form_element.label_right_right{
+    display: flex;
+    align-items: center;
+    flex-flow: row-reverse;
+}
+.forminix_builder_single_form_element.label_bottom_left,
+.forminix_builder_single_form_element.label_bottom_center,
+.forminix_builder_single_form_element.label_bottom_right{
+    display: flex;
+    align-items: unset;
+    flex-flow: column-reverse;
+}
+.forminix_builder_single_form_element.label_left_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_right label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_right label.forminix_builder_element_label{
+    margin: 0 0 0 0;
+}
+.forminix_builder_single_form_element.label_bottom_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_bottom_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_bottom_right label.forminix_builder_element_label{
+    margin: 4px 0 0 0;
+}
+.forminix_builder_single_form_element.label_top_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_bottom_left label.forminix_builder_element_label{
+    text-align: left;
+}
+.forminix_builder_single_form_element.label_top_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_bottom_center label.forminix_builder_element_label{
+    text-align: center;
+}
+.forminix_builder_single_form_element.label_top_right label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_right label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_right label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_bottom_right label.forminix_builder_element_label{
+    text-align: right;
+}
+.forminix_builder_single_form_element.label_left_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_left_right label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_left label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_center label.forminix_builder_element_label,
+.forminix_builder_single_form_element.label_right_right label.forminix_builder_element_label{
+    width: 230px;
+}
+
+
+.forminix_builder_single_form_element .forminix_builder_element_field_main{
+    flex: 1;
+}
+
+
+.forminix_builder_single_form_element input[type="text"],
+.forminix_builder_single_form_element input[type="tel"],
+.forminix_builder_single_form_element input[type="email"],
+.forminix_builder_single_form_element input[type="url"],
+.forminix_builder_single_form_element input[type="password"],
+.forminix_builder_single_form_element input[type="number"],
+.forminix_builder_single_form_element input[type="time"],
+.forminix_builder_single_form_element input[type="date"],
+.forminix_builder_single_form_element input[type="datetime-local"],
+.forminix_builder_single_form_element textarea,
+.forminix_builder_single_form_element select{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #43454b;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px;
+    outline: none;
+    box-shadow: none;
+}
+.forminix_builder_single_form_element input[type="text"]:focus,
+.forminix_builder_single_form_element select:focus{
+    color: #43454b;
+    border: 1px solid #d9d9db;
+    outline: none;
+    box-shadow: none;
+}
+.forminix_builder_single_form_element select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #f6f8fa url("../img/builder/forminix_field_select_arrow.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
+}
+
+
+
+.forminix_builder_single_form_element .checkbox_container ,
+.forminix_builder_single_form_element .radio_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 8px;
+    column-gap: 0;
+    justify-content: left;
+}
+.forminix_builder_single_form_element .checkbox_container.left ,
+.forminix_builder_single_form_element .radio_container.left {
+    justify-content: left;
+    align-items: start;
+}
+.forminix_builder_single_form_element .checkbox_container.center ,
+.forminix_builder_single_form_element .radio_container.center {
+    justify-content: center;
+    align-items: center;
+}
+.forminix_builder_single_form_element .checkbox_container.right ,
+.forminix_builder_single_form_element .radio_container.right {
+    justify-content: right;
+    align-items: end;
+}
+.forminix_builder_single_form_element .checkbox_container.horizontal ,
+.forminix_builder_single_form_element .radio_container.horizontal {
+    flex-direction: row;
+    column-gap: 20px;
+    row-gap: 4px;
+}
+
+.forminix_builder_single_form_element .checkbox_item ,
+.forminix_builder_single_form_element .radio_item {
+    display: inline-block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.forminix_builder_single_form_element .checkbox_item input[type="checkbox"] ,
+.forminix_builder_single_form_element .radio_item input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.forminix_builder_single_form_element .checkbox_item .checkmark ,
+.forminix_builder_single_form_element .radio_item .checkmark {
+    position: absolute;
+    top: calc(50% - 16px / 2);
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background: #f6f8fa;
+    border: 1px solid #E4E4E6;
+    border-radius: 0;
+}
+
+.forminix_builder_single_form_element .radio_item .checkmark {
+    border-radius: 50%;
+}
+
+.forminix_builder_single_form_element .checkbox_item input[type="checkbox"]:checked ~ .checkmark ,
+.forminix_builder_single_form_element .radio_item input[type="radio"]:checked ~ .checkmark {
+    background: #787B83;
+    border: 1px solid #5a5b5d;
+}
+
+.forminix_builder_single_form_element .checkbox_item input[type="checkbox"]:checked ~ .checkmark{
+    background: #787B83 url("../img/builder/forminix_field_checkbox_tick_icon.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: center;
+    background-position-y: center;
+}
+.forminix_builder_single_form_element .radio_item input[type="radio"]:checked ~ .checkmark{
+    background: #787B83 url("../img/builder/forminix_field_radio_tick_icon.svg") no-repeat;
+    background-size: 6px;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+
+
+
+
+
+
+
+.forminix_builder_single_form_element .forminix_star_rating_container {
+    display: flex;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container.left {
+    justify-content: left;
+    align-items: start;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container.center {
+    justify-content: center;
+    align-items: center;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container.right {
+    justify-content: right;
+    align-items: end;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container input {
+    border: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container label:not(:last-child) {
+    margin-left: 5px;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container label {
+    cursor: pointer;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background-color: #c8c8c8;
+    -webkit-mask: url(../img/builder/forminix_field_star_rating_icon.svg) no-repeat;
+    mask: url(../img/builder/forminix_field_star_rating_icon.svg) no-repeat;
+}
+.forminix_builder_single_form_element .forminix_star_rating_container input[type="radio"]:checked ~ label {
+    background-color: #ffc107;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.forminix_builder_single_form_element .custom_btn_container{
+    display: flex;
+}
+.forminix_builder_single_form_element .custom_btn_container.left{
+    justify-content: left;
+}
+.forminix_builder_single_form_element .custom_btn_container.center{
+    justify-content: center;
+}
+.forminix_builder_single_form_element .custom_btn_container.right{
+    justify-content: right;
+}
+
+.forminix_builder_single_form_element .custom_btn_container button.custom_btn{
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forminix_builder_single_form_element .custom_btn_container button.custom_btn.small{
+    padding: 4px 8px;
+    font-size: 13px;
+}
+.forminix_builder_single_form_element .custom_btn_container button.custom_btn.medium{
+    padding: 8px 14px;
+    font-size: 15px;
+}
+.forminix_builder_single_form_element .custom_btn_container button.custom_btn.large{
+    padding: 10px 17px;
+    font-size: 18px;
+}
+
+
+
+
+
+
+.forminix_builder_single_form_element .forminix_file_picker{
+    display: flex;
+    position:relative;
+}
+.forminix_builder_single_form_element .forminix_file_picker input[type=file]{
+    position: absolute;
+    z-index: 2;
+    border: 0;
+    margin: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+.forminix_builder_single_form_element .forminix_file_picker label{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #43454b;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+    box-shadow: none;
+    white-space: nowrap;
+}
+.forminix_builder_single_form_element .forminix_file_picker span{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 0 0 -1px;
+    padding: 6px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #43454b;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    border-radius: 0 3px 3px 0;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+.forminix_builder_single_form_element .forminix_builder_grecaptcha_container {
+    display: flex;
+    justify-content: left;
+}
+.forminix_builder_single_form_element .forminix_builder_grecaptcha_container.left {
+    justify-content: left;
+}
+.forminix_builder_single_form_element .forminix_builder_grecaptcha_container.center {
+    justify-content: center;
+}
+.forminix_builder_single_form_element .forminix_builder_grecaptcha_container.right {
+    justify-content: right;
+}
+.forminix_builder_single_form_element .forminix_builder_grecaptcha_container.light .forminix_builder_grecaptcha{
+    background: url("../img/builder/forminix_grecaptcha_light.svg") no-repeat;
+}
+.forminix_builder_single_form_element .forminix_builder_grecaptcha_container.dark .forminix_builder_grecaptcha{
+    background: url("../img/builder/forminix_grecaptcha_dark.svg") no-repeat;
+}
+.forminix_builder_single_form_element .forminix_builder_grecaptcha{
+    width: 306px;
+    height: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.forminix_builder_single_form_element .color_picker_area {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px;
+}
+.forminix_builder_single_form_element .color_picker_area label {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 14px;
+    color: #43454b;
+    padding: 6px 12px;
+    margin: 0 0 0 10px;
+    width: 100%;
+    height: auto;
+    line-height: 1.7;
+    cursor: pointer;
+}
+.forminix_builder_single_form_element .color_picker_area label:after {
+    content: '\00a0';
+}
+.forminix_builder_single_form_element .color_picker_area input[type="color"] {
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    padding: 0;
+    background: transparent;
+    height: auto;
+    width: 108px;
+    margin: 0;
+    outline: none;
+    border: 1px;
+    cursor: pointer;
+}
+.forminix_builder_single_form_element .color_picker_area input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+.forminix_builder_single_form_element .color_picker_area input[type="color"]::-webkit-color-swatch {
+    border-color: transparent;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+.forminix_builder_single_form_element .forminix_builder_range_slider_tmp{
+    height: 36px;
+    padding: 0;
+}
+.forminix_builder_single_form_element .forminix_builder_range_slider_tmp .range_slider_tmp_container{
+    position: relative;
+    top: 50%;
+}
+.forminix_builder_single_form_element .forminix_builder_range_slider_tmp .range_slider_tmp_container .slider_track{
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background: linear-gradient(to right, #dadae5 0% , #3264fe 0% , #3264fe 50%, #dadae5 50%);
+}
+.forminix_builder_single_form_element .forminix_builder_range_slider_tmp .range_slider_tmp_container .slider_track.dual{
+    background: linear-gradient(to right, #dadae5 50% , #3264fe 50% , #3264fe 75%, #dadae5 75%);
+}
+.forminix_builder_single_form_element .forminix_builder_range_slider_tmp .range_slider_tmp_container .slider_thumb_start{
+    height: 22px;
+    width: 22px;
+    background-color: #3264fe;
+    position: absolute;
+    top: -11px;
+    left: calc(50% - 11px);
+    z-index: 2;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+.forminix_builder_single_form_element .forminix_builder_range_slider_tmp .range_slider_tmp_container .slider_thumb_end{
+    height: 22px;
+    width: 22px;
+    background-color: #3264fe;
+    position: absolute;
+    top: -11px;
+    left: calc(75% - 11px);
+    z-index: 2;
+    pointer-events: auto;
+    border-radius: 50%;
+}

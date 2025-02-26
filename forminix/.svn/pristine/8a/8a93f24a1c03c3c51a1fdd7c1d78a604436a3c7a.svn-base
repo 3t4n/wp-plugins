@@ -1,0 +1,419 @@
+/*------------------------------------------------------------------
+Forms (List of Forms Page)
+-------------------------------------------------------------------*/
+#forminix_forms{
+    display: none;
+}
+
+
+
+/* Header */
+.forminix_forms_header{
+    position: relative;
+    background: #ffffff;
+    padding: 0 35px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    z-index: 555;
+    box-shadow: 0 4px 2px -2px #bfbdbd;
+}
+
+.forminix_forms_header .forminix_icon img{
+    width: 180px;
+    cursor: pointer;
+}
+
+
+
+
+
+.forminix_forms_body{
+    position: relative;
+    height: calc(100vh - 102px);
+    padding: 0 50px;
+}
+
+.forminix_forms_body .forminix_forms_body_container{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 500px;
+}
+
+
+
+
+
+
+/* Loader */
+.forminix_forms_loader_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.forminix_forms_loading_bar,
+.forminix_forms_loading_bar:before,
+.forminix_forms_loading_bar:after {
+    width: 1rem;
+    height: 3rem;
+    background-color: #6A6A75;
+    animation: forminix_forms_loader_animation 1s ease-in-out infinite;
+}
+.forminix_forms_loading_bar {
+    animation-delay: -.16s;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.forminix_forms_loading_bar:before {
+    position: absolute;
+    right: 2rem;
+    content: '';
+}
+.forminix_forms_loading_bar:after {
+    position: absolute;
+    animation-delay: -.32s;
+    content: '';
+    left: 2rem;
+}
+@keyframes forminix_forms_loader_animation {
+    0% {
+        height: 3rem;
+    }
+    50% {
+        height: 6rem
+    }
+    100% {
+        height: 3rem
+    }
+}
+
+
+
+
+/* Empty View */
+.forminix_forms_body .forminix_forms_empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.forminix_forms_body .forminix_forms_empty img{
+    width: 240px;
+}
+.forminix_forms_body .forminix_forms_empty h2{
+    margin: 40px 0 0 0;
+    font-size: 25px;
+    color: #252F3C;
+}
+.forminix_forms_body .forminix_forms_empty p{
+    margin: 12px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+
+.forminix_forms_body .forminix_forms_empty button{
+    margin: 35px 0 0 0;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 12px 7px;
+    width: 250px;
+}
+.forminix_forms_body .forminix_forms_empty button:hover{
+    background: #090808;
+}
+
+
+
+
+
+/* Form Main Area */
+.forminix_forms_body .forminix_forms_main_area{
+    padding-top: 40px;
+}
+
+.forminix_forms_main_area_header{
+    display: flex;
+    align-items: center;
+}
+.forminix_forms_main_area_header .forminix_forms_main_area_header_details h2{
+    margin: 0;
+    font-size: 24px;
+    color: #252F3C;
+}
+.forminix_forms_main_area_header .forminix_forms_main_area_header_details p{
+    margin: 7px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+
+.forminix_forms_main_area_header button{
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 12px 7px;
+    width: 200px;
+}
+.forminix_forms_main_area_header button:hover{
+    background: #090808;
+}
+
+
+
+
+/* Form Card */
+
+.forminix_forms_body .forminix_forms_card_container{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 7px;
+    row-gap: 7px;
+    justify-content: left;
+}
+
+.forminix_forms_body .forminix_forms_card{
+    background: #FFFFFF;
+    border: 2px solid #E3E3E3;
+    border-radius: 3px;
+    padding: 40px 20px;
+    text-align: center;
+    width: 357px;
+}
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_icon{
+    width: 55px;
+}
+.forminix_forms_body .forminix_forms_card h3{
+    margin: 10px 0 0 0;
+    font-size: 22px;
+    color: #252F3C;
+}
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_details{
+    margin: 17px 0 0 0;
+}
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_details p{
+    margin: 0;
+    font-size: 14px;
+    color: #737577;
+}
+
+
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_action{
+    border: 2px solid #E0E2E6;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    margin: 25px 20px 0 20px;
+}
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_action .forminix_forms_card_action_item:nth-child(1),
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_action .forminix_forms_card_action_item:nth-child(2){
+    border-right: 2px solid #E0E2E6;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_action .forminix_forms_card_action_item:nth-child(3){
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.forminix_forms_body .forminix_forms_card .forminix_forms_card_action .forminix_forms_card_action_item{
+    background: #ffffff;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    border-radius: 5px;
+    padding: 7px;
+    color: #3D3F45;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Create Form Popup Design */
+.forminix_forms_create_popup_container {
+    position: fixed;
+    z-index: 10500;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.forminix_forms_create_popup_container .forminix_forms_create_popup_dark_bg {
+    background: #252F3C;
+    opacity: 0.5;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.forminix_forms_create_popup_container .forminix_forms_create_popup {
+    width: 870px;
+    position: relative;
+    padding: 34px;
+    background: #ffffff;
+    border-radius: 10px;
+    -webkit-box-shadow: 1px 1px 3px 0 #666;
+    -moz-box-shadow: 1px 1px 3px 0 #666;
+    box-shadow: 1px 1px 3px 0 #666;
+}
+
+.forminix_forms_create_popup .forminix_forms_create_popup_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forminix_forms_create_popup .forminix_forms_create_popup_header h3{
+    margin: 0;
+    font-size: 18px;
+    color: #252F3C;
+    font-weight: bold;
+}
+.forminix_forms_create_popup .forminix_forms_create_popup_header span.close_icon{
+    width: 25px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    background: url(../img/forms/forminix_forms_create_popup_close.svg) no-repeat;
+    background-size: 25px;
+    background-position: center;
+}
+
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body{
+    margin: 25px 0 0 0;
+    padding: 10px;
+    background: #f6f6fd;
+    border: 1px solid #f6f6fd;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: start;
+    max-height: 420px;
+    overflow-y: scroll;
+}
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body::-webkit-scrollbar {
+    width: 10px;
+}
+.forminix_forms_create_popup .forminix_forms_create_popup_body::-webkit-scrollbar-thumb {
+    background: #364655;
+    border-radius: 8px;
+}
+.forminix_forms_create_popup .forminix_forms_create_popup_body::-webkit-scrollbar-thumb:hover {
+    background: #364655;
+}
+
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_blank {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 153px;
+    height: 179px;
+    margin: 6px;
+    cursor: pointer;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 0.5px 1px 3px 0 #d4d2d4;
+    -moz-box-shadow: .5px 1px 3px 0 #d4d2d4;
+    box-shadow: 0.5px 1px 3px 0 #d4d2d4;
+}
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_blank img {
+    width: 60px;
+    height: 60px;
+}
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_blank span {
+    display: block;
+    letter-spacing: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #364655;
+    margin: 10px 5px 0;
+}
+
+.forminix_forms_import_file_input{
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_import {
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 193px;
+    height: 219px;
+    margin: 6px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 0.5px 1px 3px 0 #d4d2d4;
+    -moz-box-shadow: .5px 1px 3px 0 #d4d2d4;
+    box-shadow: 0.5px 1px 3px 0 #d4d2d4;
+}
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_import span {
+    display: block;
+    background: #364655;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 15px;
+    letter-spacing: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #ffffff;
+}
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_import img {
+    width: auto;
+}
+
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_import .pro_template{
+    position: absolute;
+    top: 37px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #364655;
+    opacity: 0.8;
+    border-radius: 0 0 8px 8px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forminix_forms_create_popup .forminix_forms_create_popup_body .forminix_forms_create_popup_form_block_import .pro_template img{
+    width: 40px;
+}

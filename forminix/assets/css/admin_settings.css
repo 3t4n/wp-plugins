@@ -1,0 +1,907 @@
+/*------------------------------------------------------------------
+Forms (List of Forms Page)
+-------------------------------------------------------------------*/
+#forminix_settings{
+    display: none;
+}
+
+
+
+/* Header */
+.forminix_settings_header{
+    position: relative;
+    background: #ffffff;
+    padding: 0 35px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    z-index: 555;
+    box-shadow: 0 4px 2px -2px #bfbdbd;
+}
+
+.forminix_settings_header .forminix_close_icon img{
+    width: 15px;
+    cursor: pointer;
+}
+
+.forminix_settings_header .forminix_details{
+    margin: 0 0 0 35px;
+}
+
+.forminix_settings_header .forminix_details h2{
+    margin: 0;
+    font-size: 18px;
+    color: #252F3C;
+    font-weight: bold;
+}
+.forminix_settings_header .forminix_details p{
+    margin: 3px 0 0 0;
+    font-size: 13px;
+    color: #6F727C;
+    font-weight: 500;
+}
+
+.forminix_settings_header .forminix_settings_header_action{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
+.forminix_settings_header button.forminix_settings_copy_shortcode{
+    margin: 0 10px 0 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #F1F3F4 url("../img/forminix_shortcode_copy_icon.svg") no-repeat;
+    background-size: 15px;
+    background-position-x: 10px;
+    background-position-y: center;
+    color: #787B83;
+    border: 1px solid #EEEDF0;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    padding: 8px 14px 8px 35px;
+    font-size: 14px;
+}
+
+.forminix_settings_header button.forminix_settings_save_btn{
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+
+
+
+
+.forminix_settings_body{
+    position: relative;
+    height: calc(100vh - 102px);
+    padding: 0 50px;
+}
+
+.forminix_settings_body .forminix_settings_body_container{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 500px;
+}
+
+
+
+
+
+
+/* Loader */
+.forminix_settings_loader_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.forminix_settings_loading_bar,
+.forminix_settings_loading_bar:before,
+.forminix_settings_loading_bar:after {
+    width: 1rem;
+    height: 3rem;
+    background-color: #6A6A75;
+    animation: forminix_settings_loader_animation 1s ease-in-out infinite;
+}
+.forminix_settings_loading_bar {
+    animation-delay: -.16s;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.forminix_settings_loading_bar:before {
+    position: absolute;
+    right: 2rem;
+    content: '';
+}
+.forminix_settings_loading_bar:after {
+    position: absolute;
+    animation-delay: -.32s;
+    content: '';
+    left: 2rem;
+}
+@keyframes forminix_settings_loader_animation {
+    0% {
+        height: 3rem;
+    }
+    50% {
+        height: 6rem
+    }
+    100% {
+        height: 3rem
+    }
+}
+
+
+
+
+
+/* Form Main Area */
+.forminix_settings_body .forminix_settings_main_area{
+    padding-top: 40px;
+}
+
+
+.forminix_settings_main_area_header{
+    display: flex;
+    align-items: center;
+}
+.forminix_settings_main_area_header .forminix_settings_main_area_header_details h2{
+    margin: 0;
+    font-size: 24px;
+    color: #252F3C;
+}
+.forminix_settings_main_area_header .forminix_settings_main_area_header_details p{
+    margin: 7px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+
+
+.forminix_settings_main_area_header button.forminix_settings_change_to_default{
+    margin: 0 10px 0 auto;
+    cursor: pointer;
+    background: transparent;
+    color: #252F3C;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #252F3C;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.forminix_settings_main_area_header button.forminix_settings_change_to_default img{
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+
+
+
+
+.forminix_settings_main_area_header button.forminix_settings_delete_form{
+    margin: 0;
+    cursor: pointer;
+    background: #b51818;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #b51818;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.forminix_settings_main_area_header button.forminix_settings_delete_form img{
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+.forminix_settings_tab{
+    margin: 25px 0 0 0;
+    padding-bottom: 25px;
+}
+
+.forminix_settings_tab .forminix_settings_tab_menu{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    column-gap: 5px;
+}
+.forminix_settings_tab .forminix_settings_tab_menu .forminix_settings_tab_menu_item{
+    cursor: pointer;
+    background: #4d4d4f;
+    color: #FFFFFF;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 110px;
+    text-align: center;
+}
+.forminix_settings_tab .forminix_settings_tab_menu .forminix_settings_tab_menu_item:hover{
+    background: #2c2c2d;
+}
+
+.forminix_settings_tab .forminix_settings_tab_menu .forminix_settings_tab_menu_item.active{
+    background: #FFFFFF;
+    color: #4d4d4f;
+}
+.forminix_settings_tab .forminix_settings_tab_menu .forminix_settings_tab_menu_item.active:hover{
+    background: #FFFFFF;
+    color: #4d4d4f;
+}
+
+
+
+
+
+.forminix_settings_tab .forminix_settings_tab_body{
+    padding: 50px 10px;
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 3px 0 #d4d2d4;
+    -moz-box-shadow: 1px 1px 3px 0 #d4d2d4;
+    box-shadow: 1px 1px 3px 0 #d4d2d4;
+}
+.forminix_settings_tab .forminix_settings_tab_body .forminix_settings_tab_body_container{
+    display: block;
+    max-width: 765px;
+    margin: 0 auto;
+}
+
+.forminix_settings_tab .forminix_settings_tab_body .forminix_settings_tab_body_container h3{
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.forminix_settings_tab .forminix_settings_tab_body .forminix_settings_tab_body_container h3:not(:first-child){
+    margin: 60px 0 0 0;
+}
+
+
+.forminix_settings_single_form_element_column_container{
+    display: flex;
+    column-gap: 100px;
+}
+.forminix_settings_single_form_element_column_container .forminix_settings_single_form_element_column{
+    flex: 1;
+}
+
+
+.forminix_settings_single_form_element_sub_section_container{
+    background: #e7f1fd1c;
+    margin: 15px 0 0 0;
+    padding: 20px;
+    border: 1px solid #bed4ed;
+    border-radius: 10px;
+}
+.forminix_settings_single_form_element_sub_section_container span.section_title{
+    display: block;
+    color: #17161F;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 0 25px 0;
+}
+
+
+.forminix_settings_single_form_element{
+    padding-top: 26px;
+}
+
+
+.forminix_settings_single_form_element label{
+    display: block;
+    color: #2B2A2D;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.forminix_settings_single_form_element .forminix_settings_single_form_element_label_action_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+.forminix_settings_single_form_element .forminix_settings_single_form_element_label_action_container label{
+    display: block;
+    color: #2B2A2D;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.forminix_settings_single_form_element p{
+    display: block;
+    color: #8a8a8a;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 2px 0 0 0;
+}
+.forminix_settings_single_form_element input[type="text"],
+.forminix_settings_single_form_element input[type="email"],
+.forminix_settings_single_form_element input[type="url"],
+.forminix_settings_single_form_element input[type="password"],
+.forminix_settings_single_form_element input[type="number"],
+.forminix_settings_single_form_element input[type="time"],
+.forminix_settings_single_form_element input[type="date"],
+.forminix_settings_single_form_element input[type="datetime-local"],
+.forminix_settings_single_form_element textarea,
+.forminix_settings_single_form_element select{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #43454b;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    outline: none;
+    box-shadow: none;
+}
+
+.forminix_settings_single_form_element input[type="text"]:focus,
+.forminix_settings_single_form_element input[type="email"]:focus,
+.forminix_settings_single_form_element input[type="url"]:focus,
+.forminix_settings_single_form_element input[type="password"]:focus,
+.forminix_settings_single_form_element input[type="number"]:focus,
+.forminix_settings_single_form_element input[type="time"]:focus,
+.forminix_settings_single_form_element input[type="date"]:focus,
+.forminix_settings_single_form_element input[type="datetime-local"]:focus,
+.forminix_settings_single_form_element textarea:focus,
+.forminix_settings_single_form_element select:focus{
+    color: #43454b;
+    border: 1px solid #d9d9db;
+    background: #FFFFFF;
+    outline: none;
+    box-shadow: none;
+}
+
+.forminix_settings_single_form_element select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #f6f8fa url("../img/settings/forminix_field_select_arrow.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
+}
+.forminix_settings_single_form_element select:focus{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #FFFFFF url("../img/settings/forminix_field_select_arrow.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
+}
+
+.forminix_settings_single_form_element .checkbox_container ,
+.forminix_settings_single_form_element .radio_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 8px;
+    column-gap: 0;
+    justify-content: left;
+}
+.forminix_settings_single_form_element .checkbox_container.left ,
+.forminix_settings_single_form_element .radio_container.left {
+    justify-content: left;
+    align-items: start;
+}
+.forminix_settings_single_form_element .checkbox_container.center ,
+.forminix_settings_single_form_element .radio_container.center {
+    justify-content: center;
+    align-items: center;
+}
+.forminix_settings_single_form_element .checkbox_container.right ,
+.forminix_settings_single_form_element .radio_container.right {
+    justify-content: right;
+    align-items: end;
+}
+.forminix_settings_single_form_element .checkbox_container.horizontal ,
+.forminix_settings_single_form_element .radio_container.horizontal {
+    flex-direction: row;
+    column-gap: 20px;
+    row-gap: 0;
+}
+
+.forminix_settings_single_form_element .checkbox_item ,
+.forminix_settings_single_form_element .radio_item {
+    display: inline-block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #43454b;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.forminix_settings_single_form_element .checkbox_item input[type="checkbox"] ,
+.forminix_settings_single_form_element .radio_item input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.forminix_settings_single_form_element .checkbox_item .checkmark ,
+.forminix_settings_single_form_element .radio_item .checkmark {
+    position: absolute;
+    top: calc(50% - 16px / 2);
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    border-radius: 0;
+}
+
+.forminix_settings_single_form_element .radio_item .checkmark {
+    border-radius: 50%;
+}
+
+.forminix_settings_single_form_element .checkbox_item input[type="checkbox"]:checked ~ .checkmark ,
+.forminix_settings_single_form_element .radio_item input[type="radio"]:checked ~ .checkmark {
+    background: #787B83;
+    border: 1px solid #787B83;
+}
+
+
+.forminix_settings_single_form_element .checkbox_item input[type="checkbox"]:checked ~ .checkmark{
+    background: #787B83 url("../img/settings/forminix_field_checkbox_tick_icon.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: center;
+    background-position-y: center;
+}
+.forminix_settings_single_form_element .radio_item input[type="radio"]:checked ~ .checkmark{
+    background: #787B83 url("../img/settings/forminix_field_radio_tick_icon.svg") no-repeat;
+    background-size: 6px;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+
+
+
+
+
+
+
+.forminix_settings_single_form_element .forminix_settings_export_btn{
+    cursor: pointer;
+    color: #43454b;
+    background: #F6F8FA;
+    border: 1px solid #E4E4E6;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 7px;
+    min-width: 167px;
+}
+.forminix_settings_single_form_element .forminix_settings_export_btn:hover{
+    border: 1px solid #d0d0d0;
+}
+
+
+
+
+
+
+
+.forminix_settings_single_form_element .mce-toolbar-grp {
+    background: #F6F8FA !important;
+}
+.forminix_settings_single_form_element .mce-btn.mce-active i {
+    color: #000000 !important;
+}
+
+
+
+
+.forminix_settings_single_form_element .color_picker_area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 36px;
+    background: #f6f8fa;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px;
+}
+.forminix_settings_single_form_element .color_picker_area label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B2A2D;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.forminix_settings_single_form_element .color_picker_area input[type="color"] {
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    padding: 0;
+    height: 36px;
+    width: 108px;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    border: 1px;
+}
+.forminix_settings_single_form_element .color_picker_area input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+.forminix_settings_single_form_element .color_picker_area input[type="color"]::-webkit-color-swatch {
+    border-color: transparent;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+.forminix_settings_single_form_element .size_picker_area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 36px;
+    background: #f6f8fa;
+    border: 1px solid #E4E4E6;
+    border-radius: 3px;
+}
+.forminix_settings_single_form_element .size_picker_area label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B2A2D;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.forminix_settings_single_form_element .size_picker_area input[type="number"] {
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    height: 36px;
+    width: 81px;
+    margin: 0;
+    outline: none;
+    border: 1px;
+    background: #FFFFFF;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+/* ===================
+  Conditional Logic
+=================== */
+
+/* Empty View */
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+}
+
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_empty img{
+    width: 180px;
+}
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_empty h2{
+    margin: 23px 0 0 0;
+    font-size: 20px;
+    color: #252F3C;
+}
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_empty p{
+    margin: 12px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_empty button{
+    margin: 13px 0 0 0;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 9px 6px;
+    width: 208px;
+}
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_empty button:hover{
+    background: #090808;
+}
+
+
+
+/* Main Area */
+.forminix_settings_tab_body_container .forminix_settings_conditional_logic_main_area{
+    padding-top: 40px;
+}
+.forminix_settings_conditional_logic_main_area_header{
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+.forminix_settings_conditional_logic_main_area_header .forminix_settings_conditional_logic_main_area_header_details h2{
+    margin: 0;
+    font-size: 20px;
+    color: #252F3C;
+}
+.forminix_settings_conditional_logic_main_area_header .forminix_settings_conditional_logic_main_area_header_details p{
+    margin: 7px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+.forminix_settings_conditional_logic_main_area_header button{
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 9px 6px;
+    width: 140px;
+}
+.forminix_settings_conditional_logic_main_area_header button:hover{
+    background: #090808;
+}
+
+
+
+.forminix_settings_conditional_logic_item{
+    display: flex;
+    column-gap: 10px;
+}
+.forminix_settings_conditional_logic_item .forminix_settings_conditional_logic_item_part_1,
+.forminix_settings_conditional_logic_item .forminix_settings_conditional_logic_item_part_2{
+    flex: 1;
+}
+
+.forminix_settings_conditional_logic_item .forminix_settings_conditional_logic_item_part_1{
+    margin: 0 60px 0 0;
+}
+
+.forminix_settings_conditional_logic_item .forminix_settings_conditional_logic_item_part_2{
+    max-width: 220px;
+    margin: 0 0 0 auto;
+    height: fit-content;
+    display: flex;
+    column-gap: 10px;
+    align-items: end;
+}
+
+.forminix_settings_conditional_logic_item .forminix_settings_conditional_logic_item_part_2 .forminix_settings_single_form_element{
+    flex: 1;
+}
+
+
+
+
+.forminix_settings_conditional_logic_item_part_1 .forminix_settings_conditional_logic_item_part_1_rule{
+    display: flex;
+    column-gap: 10px;
+    align-items: end;
+}
+
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_0,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_1,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_1_mini,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_2,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_3,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_4,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_5{
+    flex: 1;
+}
+
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_0{
+    max-width: 80px;
+}
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_2{
+    max-width: 135px;
+}
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_3{
+    max-width: 150px;
+}
+
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_4,
+.forminix_settings_conditional_logic_item_part_1_rule .forminix_settings_conditional_logic_item_part_1_rule_part_5{
+    max-width: fit-content;
+}
+
+.forminix_settings_conditional_logic_item button.add_rule{
+    box-sizing: border-box;
+    display: block;
+    width: 40px;
+    height: 37px;
+    border: 1px solid #E4E4E6;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #f6f8fa url(../img/settings/forminix_settings_add_icon.svg) no-repeat;
+    background-size: 13px;
+    background-position-x: center;
+    background-position-y: center;
+}
+.forminix_settings_conditional_logic_item button.remove_rule{
+    box-sizing: border-box;
+    display: block;
+    width: 40px;
+    height: 37px;
+    border: 1px solid #E4E4E6;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #f6f8fa url(../img/settings/forminix_settings_delete_red_icon.svg) no-repeat;
+    background-size: 13px;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+
+
+/* Shortcode Popup Design */
+button.forminix_settings_open_shortcode_popup_btn{
+    margin: 0;
+    cursor: pointer;
+    background: transparent;
+    color: #252F3C;
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #252F3C;
+    padding: 6px 10px;
+}
+
+.forminix_settings_shortcode_popup_container {
+    position: fixed;
+    z-index: 10500;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.forminix_settings_shortcode_popup_container .forminix_settings_shortcode_popup_dark_bg {
+    background: #252F3C;
+    opacity: 0.5;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+.forminix_settings_shortcode_popup_container .forminix_settings_shortcode_popup {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 457px;
+    position: relative;
+}
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_header h3{
+    margin: 0;
+    font-size: 18px;
+    color: #252F3C;
+    font-weight: bold;
+}
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_header span.close_icon{
+    width: 25px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    background: url(../img/settings/forminix_settings_email_shortcode_popup_close.svg) no-repeat;
+    background-size: 25px;
+    background-position: center;
+}
+
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_items{
+    margin-top: 15px;
+    max-height: 500px;
+    overflow-y: scroll;
+    background: #f6f6fd;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    -moz-box-shadow:    inset 0 0 5px #e0e0e0;
+    -webkit-box-shadow: inset 0 0 5px #e0e0e0;
+    box-shadow: inset 0 0 5px #e0e0e0;
+}
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_items::-webkit-scrollbar {
+    width: 10px;
+}
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_items::-webkit-scrollbar-thumb {
+    background: #7a7d80;
+    border-radius: 8px;
+}
+.forminix_settings_shortcode_popup .forminix_settings_shortcode_popup_items::-webkit-scrollbar-thumb:hover {
+    background: #7a7d80;
+}
+.forminix_settings_shortcode_popup_items .forminix_settings_shortcode_popup_item{
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: #ffffff;
+    margin: 10px;
+    border-radius: 4px;
+}
+.forminix_settings_shortcode_popup_items .forminix_settings_shortcode_popup_item:hover{
+    -moz-box-shadow:    0 0 5px #e0e0e0;
+    -webkit-box-shadow: 0 0 5px #e0e0e0;
+    box-shadow: 0 0 5px #e0e0e0;
+}
+.forminix_settings_shortcode_popup_items .forminix_settings_shortcode_popup_item span.field_name{
+    display: inline-block;
+    margin: 0;
+    font-size: 13px;
+    color: #252F3C;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+.forminix_settings_shortcode_popup_items .forminix_settings_shortcode_popup_item span.field_id{
+    display: inline-block;
+    margin: 0 0 0 10px;
+    font-size: 11px;
+    color: #5e6267;
+    font-weight: 400;
+}

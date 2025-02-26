@@ -1,0 +1,476 @@
+/*------------------------------------------------------------------
+Forms (List of Forms Page)
+-------------------------------------------------------------------*/
+#forminix_entries{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+/* Header */
+.forminix_entries_header{
+    position: relative;
+    background: #ffffff;
+    padding: 0 35px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    z-index: 555;
+    box-shadow: 0 4px 2px -2px #bfbdbd;
+}
+
+
+.forminix_entries_header .forminix_close_icon img{
+    width: 15px;
+    cursor: pointer;
+}
+
+
+.forminix_entries_header .forminix_details{
+    margin: 0 0 0 35px;
+}
+
+.forminix_entries_header .forminix_details h2{
+    margin: 0;
+    font-size: 18px;
+    color: #252F3C;
+    font-weight: bold;
+}
+.forminix_entries_header .forminix_details p{
+    margin: 3px 0 0 0;
+    font-size: 13px;
+    color: #6F727C;
+    font-weight: 500;
+}
+.forminix_entries_header .forminix_entries_header_action{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
+.forminix_entries_header button.forminix_entries_copy_shortcode{
+    margin: 0 10px 0 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #F1F3F4 url("../img/forminix_shortcode_copy_icon.svg") no-repeat;
+    background-size: 15px;
+    background-position-x: 10px;
+    background-position-y: center;
+    color: #787B83;
+    border: 1px solid #EEEDF0;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    padding: 8px 14px 8px 35px;
+    font-size: 14px;
+}
+
+
+.forminix_entries_header button.forminix_entries_refresh{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #FFFFFF url("../img/entries/forminix_entries_refresh.svg") no-repeat;
+    background-size: 15px;
+    background-position-x: 10px;
+    background-position-y: center;
+    color: #787B83;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    padding: 8px 14px 8px 35px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+.forminix_entries_body{
+    position: relative;
+    height: calc(100vh - 102px);
+    padding: 0 50px;
+}
+
+.forminix_entries_body .forminix_entries_body_container{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 500px;
+}
+
+
+
+
+
+
+/* Loader */
+.forminix_entries_loader_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.forminix_entries_loading_bar,
+.forminix_entries_loading_bar:before,
+.forminix_entries_loading_bar:after {
+    width: 1rem;
+    height: 3rem;
+    background-color: #6A6A75;
+    animation: forminix_entries_loader_animation 1s ease-in-out infinite;
+}
+.forminix_entries_loading_bar {
+    animation-delay: -.16s;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.forminix_entries_loading_bar:before {
+    position: absolute;
+    right: 2rem;
+    content: '';
+}
+.forminix_entries_loading_bar:after {
+    position: absolute;
+    animation-delay: -.32s;
+    content: '';
+    left: 2rem;
+}
+@keyframes forminix_entries_loader_animation {
+    0% {
+        height: 3rem;
+    }
+    50% {
+        height: 6rem
+    }
+    100% {
+        height: 3rem
+    }
+}
+
+
+
+
+/* Empty View */
+.forminix_entries_body .forminix_entries_empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.forminix_entries_body .forminix_entries_empty img{
+    width: 240px;
+}
+.forminix_entries_body .forminix_entries_empty h2{
+    margin: 40px 0 0 0;
+    font-size: 25px;
+    color: #252F3C;
+}
+.forminix_entries_body .forminix_entries_empty p{
+    margin: 12px 0 0 0;
+    font-size: 15px;
+    color: #737577;
+}
+
+
+
+
+
+/* Form Main Area */
+.forminix_entries_body .forminix_entries_main_area{
+    padding-top: 40px;
+}
+
+
+
+
+.forminix_entries_main_area .forminix_entries_datatable_action_area{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.forminix_entries_main_area .dataTables_filter{
+    display: none;
+}
+
+
+
+
+.forminix_entries_main_area .forminix_entries_bulk_action{
+    display: none;
+    align-items: center;
+}
+.forminix_entries_main_area .forminix_entries_bulk_action select{
+    box-sizing: border-box;
+    display: block;
+    width: 200px;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    border: 2px solid #EEEDF0;
+    border-radius: 7px;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #FFFFFF url("../img/entries/forminix_datatable_select_arrow.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
+}
+
+.forminix_entries_main_area .forminix_entries_bulk_action button{
+    margin: 0 0 0 10px;
+    cursor: pointer;
+    background: #252F3C;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    padding: 10px 7px;
+    width: 114px;
+}
+.forminix_entries_main_area .forminix_entries_bulk_action button:hover{
+    background: #090808;
+}
+
+
+
+
+
+
+
+.forminix_entries_main_area .forminix_entries_search{
+    margin: 0 0 0 auto;
+    width: 250px;
+    position: relative;
+    display: flex;
+    height: 37px;
+    align-items: center;
+    border: 2px solid #EEEDF0;
+    border-radius: 7px;
+    background: #FFFFFF;
+}
+.forminix_entries_main_area .forminix_entries_search input{
+    position: absolute;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    padding: 0 30px 0 20px;
+}
+
+.forminix_entries_main_area .forminix_entries_search img{
+    position: absolute;
+    width: 15px;
+    right: 10px;
+}
+
+
+
+.forminix_entries_main_area button.forminix_entries_export_btn{
+    margin: 0 0 0 10px;
+    cursor: pointer;
+    background: #252F3C;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #252F3C;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.forminix_entries_main_area button.forminix_entries_export_btn img{
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* DataTable Customization */
+
+.forminix_entries_datatable{
+    width: 100%;
+    border: 1px solid #E3E3E3 !important;
+    border-radius: 3px 3px 0 0;
+    margin-bottom: 20px !important;
+}
+.forminix_entries_datatable thead{
+    background: #FFFFFF !important;
+}
+
+.forminix_entries_datatable thead th{
+    color: #6F727C !important;
+    font-size: 14px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #E3E3E3 !important;
+}
+.forminix_entries_datatable thead th:first-child{
+    border-radius: 3px 0 0 0 !important;
+}
+.forminix_entries_datatable thead th:last-child{
+    border-radius: 0 3px 0 0 !important;
+}
+
+.forminix_entries_datatable th.action_container,
+.forminix_entries_datatable td.action_container{
+    min-width: 300px;
+    text-align: center !important;
+}
+
+
+.forminix_entries_datatable tbody td {
+    padding: 24px 18px !important;
+}
+
+
+
+
+
+
+
+.forminix_entries_datatable .forminix_entries_datatable_checkbox{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 14px;
+    height: 14px;
+}
+.forminix_entries_datatable .forminix_entries_datatable_checkbox input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.forminix_entries_datatable .forminix_entries_datatable_checkbox .checkmark{
+    position: absolute;
+    top: calc(50% - 16px / 2);
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #f6f8fa;
+    border: 1px solid #a9a9ab;
+    border-radius: 0;
+}
+.forminix_entries_datatable .forminix_entries_datatable_checkbox input[type="checkbox"]:checked ~ .checkmark{
+    background: #787B83;
+    border: 1px solid #5a5b5d;
+}
+.forminix_entries_datatable .forminix_entries_datatable_checkbox input[type="checkbox"]:checked ~ .checkmark{
+    background: #787B83 url("../img/entries/forminix_field_checkbox_tick_icon.svg") no-repeat;
+    background-size: 10px;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+
+
+
+.forminix_entries_datatable tr span.forminix_entries_data_username{
+    display: block;
+    color: #252F3C;
+    font-size: 13px;
+    font-weight: 500;
+}
+.forminix_entries_datatable tr span.forminix_entries_data_ip{
+    display: block;
+    color: #252F3C;
+    font-size: 13px;
+    font-weight: 500;
+}
+.forminix_entries_datatable tr span.forminix_entries_data_date{
+    display: block;
+    color: #252F3C;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: italic;
+}
+.forminix_entries_datatable tr span.forminix_entries_data_browser{
+    display: block;
+    color: #252F3C;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+
+.forminix_entries_datatable tr.unread span.forminix_entries_data_username{
+    font-size: 14px;
+    font-weight: 600;
+}
+.forminix_entries_datatable tr.unread span.forminix_entries_data_ip{
+    font-size: 14px;
+    font-weight: 600;
+}
+.forminix_entries_datatable tr.unread span.forminix_entries_data_date{
+    font-size: 14px;
+    font-weight: 600;
+}
+.forminix_entries_datatable tr.unread span.forminix_entries_data_browser{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+
+
+
+.forminix_entries_datatable .forminix_entries_card_action{
+    width: 200px;
+    border: 2px solid #E0E2E6;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+.forminix_entries_datatable .forminix_entries_card_action .forminix_entries_card_action_item:nth-child(1){
+    border-right: 2px solid #E0E2E6;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.forminix_entries_datatable .forminix_entries_card_action .forminix_entries_card_action_item:nth-child(2){
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.forminix_entries_datatable .forminix_entries_card_action .forminix_entries_card_action_item{
+    background: #ffffff;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    border-radius: 5px;
+    padding: 7px;
+    color: #3D3F45;
+    font-weight: 600;
+    font-size: 12px;
+}
