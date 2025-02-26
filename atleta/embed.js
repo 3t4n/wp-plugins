@@ -1,0 +1,1 @@
+!function(){var e=document.getElementsByTagName("script")[0],t=document.createElement("script");t.async=!0,t.src="https://cdn.atleta.cc/embed/widget.js";var n=document.querySelector("[nonce]");n&&t.setAttribute("nonce",n.nonce||n.getAttribute("nonce")),e.parentNode.insertBefore(t,e)}();
