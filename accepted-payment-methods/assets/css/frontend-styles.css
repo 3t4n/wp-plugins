@@ -1,0 +1,51 @@
+:root {
+  --colorwhite: #fff;
+  --colorbrand: #1d8bdd;
+  --colorblack: #000;
+  --colorred: #dc3545;
+  --coloroffblack: #393738;
+  --bordercolor: #c3c4c7;
+  --offwhite: rgba(82, 76, 255, 0.04);
+  --dwk-notice-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+.dwk-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dwk-tooltip .dwk-tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  padding: 3px 20px;
+  font-size: 12px;
+  background-color: var(--coloroffblack);
+  color: var(--colorwhite);
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.dwk-tooltip:hover .dwk-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.dwk-tooltip .dwk-tooltiptext {
+  bottom: 110%;
+  left:-20px;
+  background: var(--coloroffblack);
+  color: var(--colorwhite);
+}
+
+.dwk-tooltip .dwk-tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--coloroffblack) transparent transparent transparent;
+}
