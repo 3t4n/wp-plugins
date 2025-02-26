@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aicg/ai-content-forge",
+  "version": "0.1.0",
+  "title": "Ai Content Forge",
+  "category": "widgets",
+  "icon": "edit-page",
+  "description": "AI Content Forge is a Gutenberg block that allows users to generate content using OpenAI's API. This block can be added to posts or pages to automatically generate content based on a prompt.",
+  "example": {},
+  "supports": {
+    "html": true
+  },
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "div"
+    },
+    "prompt": {
+      "type": "string",
+      "default": "Write a blog post about WordPress"
+    }
+  },
+  "textdomain": "ai-content-generator",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
