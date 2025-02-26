@@ -1,0 +1,184 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+/*
+global aio_music_player,
+ */
+var __ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
+
+var el = wp.element.createElement;
+var ServerSideRender = wp.components.ServerSideRender;
+
+var _ref = wp.blockEditor || wp.editor,
+    InspectorControls = _ref.InspectorControls;
+
+var _wp$components = wp.components,
+    SelectControl = _wp$components.SelectControl,
+    PanelBody = _wp$components.PanelBody,
+    Placeholder = _wp$components.Placeholder;
+
+
+registerBlockType('all-in-one-music-player/music-player-selector', {
+    title: __('All in One Music Player', 'all-in-one-music-player'),
+    description: __('The player will automatically fetch all of your media files from the media library. For best results, please view and play the music player in the frontend of your site.', 'all-in-one-music-player'),
+    icon: 'format-audio',
+    category: 'widgets',
+    keywords: ['player', 'music', 'mp3', 'audio'],
+    attributes: {
+        theme: {
+            type: 'string'
+        }
+    },
+    example: {
+        attributes: {
+            preview: true
+        }
+    },
+    edit: function edit(props) {
+        var _props$attributes$the = props.attributes.theme,
+            theme = _props$attributes$the === undefined ? '' : _props$attributes$the,
+            setAttributes = props.setAttributes;
+
+
+        var jsx = void 0;
+
+        function selectTheme(value) {
+            setAttributes({ theme: value });
+        }
+
+        var event = new Event('musicPlayerInitialize');
+        document.dispatchEvent(event);
+
+        jsx = [wp.element.createElement(
+            InspectorControls,
+            { key: 'all-in-one-music-player-theme-selector-inspector-controls' },
+            wp.element.createElement(
+                PanelBody,
+                { title: __('All in One Music Player Settings', 'all-in-one-music-player') },
+                wp.element.createElement(SelectControl, {
+                    label: __('Select Theme', 'all-in-one-music-player'),
+                    value: theme,
+                    placeholder: __('Select A Music Player', 'all-in-one-music-player'),
+                    options: [{ value: '', label: __('-- Select A Music Player --', 'all-in-one-music-player') }, { value: 'a-player', label: 'APlayer (recommended)' }, { value: 'circular-spikes', label: 'Circular Spikes' }, { value: 'flat-black', label: 'Flat Black' }, { value: 'blue-playlist', label: 'Blue Playlist' }],
+                    onChange: selectTheme
+                })
+            )
+        )];
+
+        if (theme) {
+            jsx.push(wp.element.createElement(ServerSideRender, {
+                key: 'all-in-one-music-player-server-side-renderer',
+                block: 'all-in-one-music-player/music-player-selector',
+                attributes: props.attributes
+            }));
+        } else {
+            jsx.push(wp.element.createElement(
+                Placeholder,
+                {
+                    key: 'all-in-one-music-player-selector-wrap',
+                    className: 'all-in-one-music-player-selector-wrap' },
+                wp.element.createElement('img', { src: aio_music_player.icon_url }),
+                wp.element.createElement(
+                    'h3',
+                    null,
+                    ' ',
+                    'All in One Music Player'
+                ),
+                wp.element.createElement(
+                    'i',
+                    null,
+                    __('For best experience, please view the music player in the frontend.', 'all-in-one-music-player'),
+                    ' '
+                ),
+                wp.element.createElement('br', null),
+                wp.element.createElement('br', null),
+                wp.element.createElement(SelectControl, {
+                    key: 'all-in-one-music-player-selector-select-control',
+                    value: theme,
+                    placeholder: __('Select A Music Player', 'all-in-one-music-player'),
+                    options: [{ value: '', label: __('-- Select A Music Player --', 'all-in-one-music-player') }, { value: 'a-player', label: 'APlayer  (recommended)' }, { value: 'circular-spikes', label: 'Circular Spikes' }, { value: 'flat-black', label: 'Flat Black' }, { value: 'blue-playlist', label: 'Blue Playlist' }],
+                    onChange: selectTheme
+                })
+            ));
+        }
+
+        return jsx;
+    },
+    save: function save(_ref2) {
+        var attributes = _ref2.attributes,
+            className = _ref2.className;
+
+        // Gutenberg will save attributes we can use in server-side callback
+        return null;
+    }
+});
+
+/***/ })
+/******/ ]);
