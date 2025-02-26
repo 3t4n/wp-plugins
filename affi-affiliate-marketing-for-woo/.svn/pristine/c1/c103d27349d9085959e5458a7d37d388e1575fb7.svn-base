@@ -1,0 +1,205 @@
+jQuery(document).ready(function ($) {
+    'use strict';
+    
+    let aff_edit_modal = $('.vi-ui.modal'), initialStatus = '';
+    /*Dropdown*/
+
+    $('.affi-set-user-rank, .affi-set-user-status').viDropdown();
+
+    $(document).on('click', '.affi-affiliates-action', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        show_modal_aff_edit('add_new', '');
+    });
+
+    $(document).on('click', '.affi-aff-user-edit-btn', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        show_modal_aff_edit('edit', $(e.target).closest('.affi-row-actions'));
+    });
+
+    /*Clear all value input when modal hidden*/
+    aff_edit_modal.modal({
+        onHide: function () {
+            aff_edit_modal.find('#happy_ticket_category_name').val('');
+            aff_edit_modal.find('#happy_ticket_category_assign').viDropdown('clear');
+            aff_edit_modal.find('#happy_ticket_category_id').val('');
+            aff_edit_modal.find('#happy_ticket_category_order_number').val('1');
+        }
+    });
+
+    /*Function show modal*/
+    function show_modal_aff_edit(type, selector = '') {
+        $('.affi-actions-button').removeClass('affi-hidden');
+        if (type === 'add_new') {
+            aff_edit_modal.modal('show');
+            $('.affi-affiliates-popup-title-new').removeClass('affi-hidden');
+            $('.affi-affiliates-popup-title-edit').addClass('affi-hidden');
+            $('.affi-aff-user-select').removeClass('affi-hidden');
+            $('.affi-aff-user-edit').addClass('affi-hidden');
+            $('.affi-aff-user-status').addClass('affi-hidden');
+
+            $('.affi-create-aff-user').removeClass('affi-hidden');
+            $('.affi-save-aff-user').addClass('affi-hidden');
+        } else if (type === 'edit') {
+            let aff_name = selector.closest('td').find('.affi-aff-user-table').html(),
+                aff_id = selector.data('id'),
+                new_rank = selector.data('rank'),
+                new_status = selector.data('status');
+            initialStatus = new_status;
+
+            // $('.affi-loading').addClass('active');
+            $('.affi-affiliates-popup-title-new').addClass('affi-hidden');
+            $('.affi-affiliates-popup-title-edit').removeClass('affi-hidden');
+            $('.affi-aff-user-select').addClass('affi-hidden');
+            $('.affi-aff-user-edit').removeClass('affi-hidden');
+            $('.affi-aff-user-status').removeClass('affi-hidden');
+            $('.affi-create-aff-user').addClass('affi-hidden');
+            $('.affi-save-aff-user').removeClass('affi-hidden');
+
+            $('#affi_get_user_input').data('id', aff_id).val(aff_name);
+            $('#affi_set_user_rank').viDropdown('set selected', new_rank);
+            $('#affi_set_user_status').viDropdown('set selected', new_status);
+
+            aff_edit_modal.modal('show');
+        }
+    }
+
+    $(".affi-set-user-select2").select2({
+        closeOnSelect: true,
+        placeholder: "Search for user",
+        ajax: {
+            url: "admin-ajax.php?action=affi_search_user",
+            dataType: 'json',
+            type: "GET",
+            quietMillis: 50,
+            delay: 250,
+            data: function (params) {
+                return {
+                    nonce: affiParams.nonce,
+                    keyword: params.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) {
+            return markup;
+        },
+        minimumInputLength: 1
+    });
+    // .on('select2:open', function (e) {
+    //     bopobb_active_select = e.currentTarget;
+    // }).on("select2:selecting", function (e) {
+    //     bopobb_active_select = e.currentTarget;
+    // }).on("select2:unselecting", function (e) {
+    //     bopobb_active_select = e.currentTarget;
+    // });
+
+    /*Action click button delete*/
+    $(document).on('click', '.affi-aff-user-delete-btn', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (confirm("You definitely want to take this action. Affiliate deletion cannot be undone!")) {
+
+            let aff_id = $(this).closest('.affi-row-actions').data('id');
+            $.ajax({
+                url: affiParams.ajaxUrl,
+                type: 'POST',
+                data: {
+                    nonce: affiParams.nonce,
+                    action: 'affi_delete_affiliate_user',
+                    aff_id: aff_id,
+                },
+                success(responsive) {
+                    if (responsive.success) {
+                        window.location.reload();
+                    } else {
+                        if (responsive.message) {
+                            alert(responsive.message);
+                        }
+                    }
+
+                }
+            });
+        }
+    });
+
+    /*Save edit ticket category*/
+    $(document).on('click', '.affi-save-aff-user', function (e) {
+        let selector = $(e.target),
+            aff_id = $('#affi_get_user_input').data('id'),
+            new_rank = $('#affi_set_user_rank').val(),
+            new_status = $('#affi_set_user_status').val();
+        // $('.affi-loading').addClass('active');
+
+        $(this).addClass('loading');
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_edit_affiliate_user',
+                aff_id: aff_id,
+                rank: new_rank,
+                status: new_status,
+                old_status: initialStatus,
+            },
+            success(responsive) {
+                if (responsive || responsive === 0) {
+                    window.location.reload();
+                } else {
+                    $(selector).removeClass('loading');
+                    if (responsive.message) {
+                        alert(responsive.message);
+                    } else {
+                        alert('Oops! Something went error, please try again');
+                    }
+                }
+            }
+        });
+        return false;
+    });
+
+    /*Create ticket category*/
+    $(document).on('click', '.affi-create-aff-user', function (e) {
+        let type = $(e.currentTarget).data('actions'),
+            selector = $(e.target),
+            $container = selector.closest('.vi-ui.modal');
+
+        let user_id = $container.find('#affi_set_user_input').val();
+        let user_rank = $container.find('#affi_set_user_rank').val();
+        selector.addClass('loading');
+        if (user_id === '' || user_rank === '') {
+            alert('Please input all require field!');
+        } else {
+            $.ajax({
+                url: affiParams.ajaxUrl,
+                type: 'POST',
+                data:{
+                    nonce: affiParams.nonce,
+                    action: 'affi_create_affiliate_user',
+                    user_id: user_id,
+                    user_rank: user_rank,
+                },
+                success(responsive) {
+                    if (responsive) {
+                        window.location.reload();
+                    } else {
+                        if (responsive.message) {
+                            alert(responsive.message);
+                        } else {
+                            alert('Oops! Something went error, please try again');
+                        }
+                    }
+                    selector.removeClass('loading');
+                }
+            });
+        }
+        return false;
+    });
+});

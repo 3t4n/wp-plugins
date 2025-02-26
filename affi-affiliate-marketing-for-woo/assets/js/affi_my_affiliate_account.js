@@ -1,0 +1,588 @@
+jQuery(document).ready(function ($) {
+    "use strict";
+    //after loaded
+    var now = new Date();
+    const oneDay = 86400000;
+    let today = getDateRange(now);
+    let myAccountChart = null;
+
+    $('.affi-date-from').val(today);
+    $('.affi-date-to').val(today);
+
+    if ($('.affi-my-account-chart-container').length) {
+        ajax_func({time_option: '7days'}, 'ac_total');
+    }
+
+    $('.affi-rank-badge-wrap').on('mouseover', function (e) {
+        $('.affi-rank-info-wrap').removeClass('affi-hidden');
+    }).on('mouseleave', function (e) {
+        $('.affi-rank-info-wrap').addClass('affi-hidden');
+    });
+
+    $('.affi-title-tab-payout .affi-title-text-wrap').on('click', function (e) {
+        $('.affi-title-tab-payout .affi-title-text-wrap').addClass('affi-inactive');
+        $(this).removeClass('affi-inactive');
+
+        if ($(this).hasClass('affi-title-payout')) {
+            $('.affi-table.affi-MyAccount-payouts').removeClass('affi-hidden');
+            $('.affi-table.affi-payment-info-wrap').addClass('affi-hidden');
+            $('.affi-table.affi-request-payout-wrap').addClass('affi-hidden');
+        }
+        if ($(this).hasClass('affi-title-payment')) {
+            $('.affi-table.affi-MyAccount-payouts').addClass('affi-hidden');
+            $('.affi-table.affi-payment-info-wrap').removeClass('affi-hidden');
+            $('.affi-table.affi-request-payout-wrap').addClass('affi-hidden');
+        }
+        if ($(this).hasClass('affi-title-request')) {
+            $('.affi-table.affi-MyAccount-payouts').addClass('affi-hidden');
+            $('.affi-table.affi-payment-info-wrap').addClass('affi-hidden');
+            $('.affi-table.affi-request-payout-wrap').removeClass('affi-hidden');
+        }
+    });
+
+    $('.affi-payment-info-btn-wrap').on('click', function (e) {
+        let container = $(this);
+
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_account_user_update_payment',
+                payment_info: $('.affi-payment-data-wrap .affi-payment-data').val(),
+                user_id: $(container).data('user'),
+            },
+            success: function (result) {
+                $(container).find('.affi-icon').removeClass('loading').addClass('affi-hidden');
+                $(container).find('.affi-payment-info-btn').removeClass('affi-hidden');
+            },
+            error: function (result) {
+                $(container).find('.affi-icon').removeClass('loading').addClass('affi-hidden');
+                $(container).find('.affi-payment-info-btn').removeClass('affi-hidden');
+            },
+            beforeSend: function () {
+                $(container).find('.affi-icon').addClass('loading affi-hidden').removeClass('affi-hidden');
+                $(container).find('.affi-payment-info-btn').addClass('affi-hidden');
+            },
+            complete: function () {
+                $(container).find('.affi-icon').removeClass('loading').addClass('affi-hidden');
+                $(container).find('.affi-payment-info-btn').removeClass('affi-hidden');
+            }
+        });
+    });
+
+    $('.affi-request-payout-btn-wrap:not(.affi-disable)').on('click', function (e) {
+        let container = $(this);
+
+        if (validateRequest($(container).closest('.affi-table.affi-request-payout-wrap')) !== 1) {
+            return;
+        }
+
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_user_request_payout',
+                payout_price: $('.affi-request-balance-data').val(),
+                user_id: $(container).data('user'),
+            },
+            success: function (result) {
+                $(container).find('.affi-icon').removeClass('loading').addClass('affi-hidden');
+                $(container).find('.affi-request-payout-btn').removeClass('affi-hidden');
+                location.reload();
+            },
+            error: function (result) {
+                $(container).find('.affi-icon').removeClass('loading').addClass('affi-hidden');
+                $(container).find('.affi-request-payout-btn').removeClass('affi-hidden');
+            },
+            beforeSend: function () {
+                $(container).find('.affi-icon').addClass('loading affi-hidden').removeClass('affi-hidden');
+                $(container).find('.affi-request-payout-btn').addClass('affi-hidden');
+            },
+            complete: function () {
+                $(container).find('.affi-icon').removeClass('loading').addClass('affi-hidden');
+                $(container).find('.affi-request-payout-btn').removeClass('affi-hidden');
+            }
+        });
+    });
+
+    $(document).on('click touch', '.affi-account-pages:not(.affi-account-page-active)', function () {
+        window.location.href = $(this).data('link');
+    });
+
+    $(document).on('click touch', '.affi-dashboard-link-copy', function () {
+        $(this).select();
+        document.execCommand("copy");
+    });
+
+    $(document).on('click touch', '.affi-product-promote-wrap', function () {
+        let btn_wrap = $(this).find('.affi-product-promote-text'),
+            copied_text = $(btn_wrap).data('copy'),
+            label_text = $(btn_wrap).html(),
+            tempTextarea = $('<textarea>');
+        $('body').append(tempTextarea);
+        tempTextarea.val($(this).data('link')).select();
+        document.execCommand('copy');
+        tempTextarea.remove();
+
+        $(btn_wrap).html(copied_text);
+        setTimeout(function () {
+            $(btn_wrap).html(label_text);
+        }, 1000);
+    });
+
+    $(document).on('click touch', '.affi-table-notify-view', function () {
+        let container = $('.affi-notify-detail-wrap'), thisBlock = $(this), notifyID = $(thisBlock).data('id'),
+            currentID = $(container).data('id');
+        $(container).removeClass('affi-hidden');
+
+        if (currentID === notifyID) {
+
+            return;
+        }
+
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_user_get_notification_detail',
+                id: notifyID,
+            },
+            success: function (result) {
+                $(container).find('.affi-icon').removeClass('loading');
+                $(container).find('.affi-notify-loading-wrap').addClass('affi-hidden');
+                let sDate = parseInt(result.date_created),
+                    fDate = new Date(sDate * 1000);
+
+                $(container).data('id', notifyID);
+                $(container).find('.affi-notify-detail-subject-wrap .affi-notify-line-data-wrap').html(result.subject);
+                $(container).find('.affi-notify-detail-content-wrap .affi-notify-line-data-wrap').html(result.email_body);
+                $(container).find('.affi-notify-detail-date-wrap .affi-notify-line-data-wrap').html(fDate.toLocaleString());
+            },
+            error: function (result) {
+                $(container).find('.affi-icon').removeClass('loading');
+                $(container).find('.affi-notify-loading-wrap').addClass('affi-hidden');
+
+                $(container).find('.affi-notify-detail-subject-wrap .affi-notify-line-data-wrap').html('');
+                $(container).find('.affi-notify-detail-content-wrap .affi-notify-line-data-wrap').html('');
+                $(container).find('.affi-notify-detail-date-wrap .affi-notify-line-data-wrap').html('');
+            },
+            beforeSend: function () {
+                $(container).find('.affi-icon').addClass('loading');
+                $(container).find('.affi-notify-loading-wrap').removeClass('affi-hidden');
+                $(container).find('.affi-request-payout-btn').addClass('affi-hidden');
+            },
+        });
+    });
+
+    $(document).on('click touch', '.affi-notify-detail-overlay', function () {
+        $('.affi-notify-detail-wrap').addClass('affi-hidden');
+    });
+
+    $('.affi-select-time-report').on('change', function () {
+
+        let thisVal = $(this).val(),
+            from_date = $('.affi-date-from'),
+            to_date = $('.affi-date-to');
+
+        if (thisVal !== 'custom') {
+            $('.affi-custom-time-range').hide();
+
+            switch ($(this).val()) {
+
+                case '7days':
+                    let _7days = new Date(Date.now() - 7 * oneDay);
+                    _7days = getDateRange(_7days);
+                    from_date.val(_7days);
+                    to_date.val(today);
+                    break;
+                case '30days':
+                    let _30days = new Date(Date.now() - 30 * oneDay);
+                    _30days = getDateRange(_30days);
+                    from_date.val(_30days);
+                    to_date.val(today);
+                    break;
+                case '90days':
+                    let _90days = new Date(Date.now() - 90 * oneDay);
+                    _90days = getDateRange(_90days);
+                    from_date.val(_90days);
+                    to_date.val(today);
+                    break;
+                case '365days':
+                    let _365days = new Date(Date.now() - 365 * oneDay);
+                    _365days = getDateRange(_365days);
+                    from_date.val(_365days);
+                    to_date.val(today);
+                    break;
+            }
+
+            ajax_func({time_option: $(this).val()}, 'ac_total');
+
+
+        } else {
+            $('.affi-custom-time-range').show();
+        }
+    });
+
+    $('.affi-products-catergory-input').on('change', function () {
+        let thisVal = $(this).val(),
+            key = $('.affi-products-search-input').val(),
+            page = $('.affi-product-pages.affi-product-page-active').data('page');
+        filterProduct(key, thisVal, page);
+    });
+
+    $('.affi-products-search-input').on('change', function () {
+        let thisVal = $(this).val(),
+            cate = $('.affi-products-catergory-input').val(),
+            page = $('.affi-product-pages.affi-product-page-active').data('page');
+        filterProduct(thisVal, cate, page);
+    });
+
+    $(document).on('click touch', '.affi-product-pages:not(.affi-product-page-active)', function () {
+        let thisVal = $(this).data('page'),
+            cate = $('.affi-products-catergory-input').val(),
+            key = $('.affi-products-search-input').val();
+        filterProduct(key, cate, thisVal);
+    });
+
+    /*Show demo*/
+    let responsive = {
+        report: {
+            visit: {
+                label: 'Visit',
+                value: [10, 20, 30, 40, 50, 20, 10]
+            },
+            'order_count': {
+                label: 'Orders count',
+                value: [1, 2, 3, 4, 1, 2, 3]
+            },
+            'order_total': {
+                label: 'Orders total',
+                value: [101, 20, 301, 40, 20, 301, 40]
+            },
+            'outstanding_balance': {
+                label: 'Outstanding balance',
+                value: [11, 2, 31, 4, 2, 31, 4]
+            },
+            'balance': {
+                label: 'Balance',
+                value: [110, 20, 310, 40, 20, 310, 40]
+            },
+        },
+        label: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    };
+
+    // drawChart(responsive);
+    if ($('.affi-products-results-wrap').length) {
+        filterProduct('', '');
+    }
+
+    function filterProduct(keyword, category, page = 1) {
+        let aff_con = $('.affi-card-body .affi-products-wrap'),
+            data = {
+                action: 'affi_filter_products',
+                user: $(aff_con).data('id'),
+                affiliate: $(aff_con).data('aff'),
+                key: keyword,
+                category: category,
+                page: page,
+                nonce: affiParams.nonce,
+            };
+        $('.affi-products-result-loading-wrap').removeClass('affi-hidden');
+        $('.affi-products-result-loading-wrap .affi-icon').addClass('loading');
+        $('.affi-products-results-wrap .affi-products-results').html('');
+        $('.affi-products-content-wrap .affi-products-paging').html('');
+        $.post(affiParams.ajaxUrl, data, function (response) {
+            $('.affi-products-results-wrap .affi-products-results').html(response['products']);
+            $('.affi-products-content-wrap .affi-products-paging').html(response['paging']);
+            setTimeout(function () {
+                $('.affi-products-result-loading-wrap').addClass('affi-hidden');
+                $('.affi-products-result-loading-wrap .affi-icon').removeClass('loading');
+            }, 100)
+        });
+    }
+
+    function ajax_func(data, type) {
+
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_get_reports',
+                report_type: type,
+                data: data
+            },
+            success: function (result) {
+                drawChart(result, type);
+                setCardData(result.group);
+
+                // $('.affi-my-account-count-chart').removeClass('affi-loading');
+                $('.affi-my-account-total-chart').removeClass('affi-loading');
+                // switch (type) {
+                //     case 'ac_count':
+                //         break;
+                //     default:
+                // }
+            },
+            error: function (result) {
+            },
+            beforeSend: function () {
+                // $('.affi-my-account-count-chart').addClass('affi-loading');
+                $('.affi-my-account-total-chart').addClass('affi-loading');
+                // switch (type) {
+                //     case 'ac_count':
+                //         break;
+                //     default:
+                // }
+            },
+            complete: function () {
+            }
+        });
+    }
+
+    function validateRequest(container) {
+        let rValue = parseFloat( $(container).find('.affi-request-balance-data').val() ),
+            cMin = parseFloat( $(container).find('.affi-request-balance-data').attr('min') ),
+            cMax = parseFloat( $(container).find('.affi-request-balance-data').attr('max') );
+        if (rValue === 0 || rValue === '') {
+            alert('Please input value to request');
+            return 0;
+        }
+        if (rValue < cMin) {
+            alert('Please input value higher than minimum');
+            return 0;
+        }
+        if (rValue > cMax) {
+            alert('Please input value lower than maximum');
+            return 0;
+        }
+
+        return 1;
+    }
+
+    function drawChart(responsive, cType) {
+        let canvas_wrap = '', ctx_total_wrap = '', ctx_total = '',
+            canvas_vs_wrap = '', ctx_vs_wrap = '', ctx_vs = '',
+            canvas_count_wrap = '', ctx_count_wrap = '', ctx_count = '',
+            report_data = responsive.total, report_datasets = [], report_label = [], indexColor = 0,
+            report_vs_data = responsive.count, report_vs_datasets = [], report_vs_label = [], vs_indexColor = 0,
+            report_c_data = responsive.count, report_c_datasets = [], report_c_label = [], c_indexColor = 0;
+        if (myAccountChart !== null) {
+            myAccountChart.destroy();
+        }
+
+        // canvas_count_wrap = $('.affi-my-account-count-chart');
+        // canvas_count_wrap.html('<canvas id="affi_my_account_count_chart_canvas"></canvas>');
+        // ctx_count_wrap = document.getElementById('affi_my_account_count_chart_canvas');
+        // ctx_count = document.getElementById('affi_my_account_count_chart_canvas').getContext('2d');
+        //
+        // $.each(report_c_data, function (key, val) {
+        //     let line_c_color = get_color(c_indexColor);
+        //     report_c_label = responsive.label;
+        //     report_c_datasets.push({
+        //         label: val.label,
+        //         borderColor: 'rgb(' + line_c_color[0] + ', ' + line_c_color[1] + ', ' + line_c_color[2] + ')',
+        //         backgroundColor: 'rgba(' + line_c_color[0] + ', ' + line_c_color[1] + ', ' + line_c_color[2] + ', 0.05)',
+        //         data: val.value,
+        //         borderWidth: 1,
+        //         pointBackgroundColor: 'rgb(' + line_c_color[0] + ', ' + line_c_color[1] + ', ' + line_c_color[2] + ')',
+        //         pointBorderColor: 'rgba(0, 0, 0, 0)'
+        //     });
+        //     c_indexColor++;
+        // });
+        //
+        // new Chart(ctx_count, {
+        //     type: 'line',
+        //
+        //     data: {
+        //         labels: report_c_label,
+        //         datasets: report_c_datasets
+        //     },
+        //
+        //     options: {
+        //         responsive: true,
+        //         maintainAspectRatio: true,
+        //         aspectRatio: 4,
+        //         scales: {
+        //             x: {
+        //                 gridLines: {
+        //                     display: false,
+        //                 }
+        //             },
+        //             y: {
+        //                 gridLines: {
+        //                     display: true,
+        //                 },
+        //                 ticks: {
+        //                     beginAtZero: true,
+        //                 },
+        //                 title: {
+        //                     display: true,
+        //                     text: affiParams.total_text + ' (' + affiParams.currency + ')',
+        //                     fontSize: 16
+        //                 }
+        //             }
+        //         },
+        //
+        //     },
+        // });
+
+        canvas_wrap = $('.affi-my-account-total-chart');
+        canvas_wrap.html('<canvas id="affi_my_account_total_chart_canvas"></canvas>');
+        ctx_total_wrap = document.getElementById('affi_my_account_total_chart_canvas');
+        ctx_total = document.getElementById('affi_my_account_total_chart_canvas').getContext('2d');
+
+        $.each(report_data, function (key, val) {
+            let line_color = get_color(indexColor), lineYAxis = "y";
+            if (key === 'visit' || key === 'count') {
+                lineYAxis = 'y2';
+            }
+            report_label = val.label;
+            report_datasets.push({
+                label: affiParams[key],
+                borderColor: 'rgb(' + line_color[0] + ', ' + line_color[1] + ', ' + line_color[2] + ')',
+                backgroundColor: 'rgba(' + line_color[0] + ', ' + line_color[1] + ', ' + line_color[2] + ', 0.05)',
+                data: val.value,
+                borderWidth: 1,
+                pointBackgroundColor: 'rgb(' + line_color[0] + ', ' + line_color[1] + ', ' + line_color[2] + ')',
+                pointBorderColor: 'rgba(0, 0, 0, 0)',
+                yAxisID: lineYAxis,
+                // hidden: false
+            });
+            indexColor++;
+        });
+
+        const myDBChart = new Chart(ctx_total, {
+            type: 'line',
+
+            data: {
+                labels: report_label,
+                datasets: report_datasets
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                aspectRatio: 4,
+                scales: {
+                    x: {
+                        gridLines: {
+                            display: false,
+                        }
+                    },
+                    y: {
+                        gridLines: {
+                            display: true,
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Value',
+                            fontSize: 16
+                        },
+                        position: 'left'
+                    },
+                    y2: {
+                        gridLines: {
+                            display: true,
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Count',
+                            fontSize: 16
+                        },
+                        position: 'right'
+                    }
+                },
+
+            },
+        });
+        $('.affi-my-account-chart-container .affi-data-card').off('click').click(function () {
+            if ($(this).hasClass('affi-data-visit')) {
+                myDBChart.show(0);
+                myDBChart.hide(1);
+                myDBChart.hide(2);
+                myDBChart.hide(3);
+                myDBChart.hide(4);
+                myDBChart.update();
+            }
+            if ($(this).hasClass('affi-data-order_count')) {
+                myDBChart.hide(0);
+                myDBChart.show(1);
+                myDBChart.hide(2);
+                myDBChart.hide(3);
+                myDBChart.hide(4);
+                myDBChart.update();
+            }
+            if ($(this).hasClass('affi-data-order-total')) {
+                myDBChart.hide(0);
+                myDBChart.hide(1);
+                myDBChart.show(2);
+                myDBChart.hide(3);
+                myDBChart.hide(4);
+                myDBChart.update();
+            }
+            if ($(this).hasClass('affi-data-outstanding_balance')) {
+                myDBChart.hide(0);
+                myDBChart.hide(1);
+                myDBChart.hide(2);
+                myDBChart.show(3);
+                myDBChart.hide(4);
+                myDBChart.update();
+            }
+            if ($(this).hasClass('affi-data-balance')) {
+                myDBChart.hide(0);
+                myDBChart.hide(1);
+                myDBChart.hide(2);
+                myDBChart.hide(3);
+                myDBChart.show(4);
+                myDBChart.update();
+            }
+        });
+    }
+
+    function setCardData(data) {
+        $('.affi-data-card.affi-data-visit .affi-data-card-value').html(data.visit);
+        $('.affi-data-card.affi-data-order_count .affi-data-card-value').html(data.count);
+        $('.affi-data-card.affi-data-order-total .affi-data-card-value').html(data.total);
+        $('.affi-data-card.affi-data-outstanding_balance .affi-data-card-value').html(data.o_balance);
+        $('.affi-data-card.affi-data-balance .affi-data-card-value').html(data.balance);
+    }
+
+    function getDateRange(obj) {
+        return obj.getFullYear() + "-" + ("0" + (obj.getMonth() + 1)).slice(-2) + "-" + ("0" + obj.getDate()).slice(-2);
+    }
+
+    function get_color(index) {
+        let pattern = [
+            [2, 107, 255],
+            [255, 145, 0],
+            [0, 230, 118],
+            [255, 234, 0],
+            [255, 23, 68],
+            [255, 255, 0],
+            [0, 255, 255],
+            [0, 255, 255],
+            [255, 0, 255],
+            [100, 100, 100],
+            [200, 200, 200]
+        ];
+        if (pattern[index]) {
+            return pattern[index];
+        } else {
+            let $red = Math.floor(Math.random() * 255),
+                $green = Math.floor(Math.random() * 255),
+                $blue = Math.floor(Math.random() * 255);
+            return [$red, $green, $blue];
+        }
+    }
+});

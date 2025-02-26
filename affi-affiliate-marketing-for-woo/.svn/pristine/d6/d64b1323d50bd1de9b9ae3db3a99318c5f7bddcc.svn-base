@@ -1,0 +1,100 @@
+.affi-register-affiliate-container {
+  display: none;
+}
+.affi-register-affiliate-container .affi-register-affiliate-layout {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 978;
+  background-color: rgba(29, 29, 29, 0.8);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.affi-register-affiliate-container.affi-open {
+  display: initial;
+}
+.affi-register-affiliate-container.affi-open .affi-register-affiliate-layout {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap {
+  display: grid;
+  opacity: 1;
+  visibility: visible;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 500px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 5px;
+  max-height: 90%;
+  z-index: 979;
+  background-color: #FFFFFF;
+  backface-visibility: hidden;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-header {
+  text-align: center;
+  padding: 5px 0;
+  font-size: large;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-input-label {
+  text-align: center;
+  padding: 5px 0;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-info-wrap {
+  text-align: center;
+  padding: 5px 0;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-info-wrap .affi-policy-info-area {
+  width: 100%;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-button-wrap {
+  display: flex;
+  justify-content: space-around;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-button-wrap .affi-policy-button {
+  cursor: pointer;
+  padding: 5px 25px;
+  color: black;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-button-wrap .affi-policy-button-reject {
+  background-color: #bebebe;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-button-wrap .affi-policy-button-accept {
+  background-color: #0ab12f;
+}
+.affi-register-affiliate-container .affi-register-affiliate-content-wrap .affi-policy-button-wrap .affi-policy-button-accept.affi-upgrade-button.loading {
+  cursor: default;
+  opacity: 0.72;
+  background: #828282;
+}
+
+.affi-upgrade-policy-button-wrap .affi-upgrade-policy-button {
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.8;
+  display: inline-block;
+  font-size: inherit;
+  padding: 8px 15px;
+  margin: 8px 0;
+  border: 2px solid transparent;
+  text-align: center;
+  background: #282828;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  will-change: transform;
+}
+
+/*# sourceMappingURL=policy.css.map */

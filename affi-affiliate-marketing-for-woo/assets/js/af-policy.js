@@ -1,0 +1,72 @@
+jQuery(document).ready(function ($) {
+    'use strict';
+    let rgButton, rgPopup = $('.affi-register-affiliate-container');
+
+    $('.woocommerce-form.woocommerce-form-register .woocommerce-Button').on('mousedown', function (e) {
+        if ($(this).hasClass('disabled')) {
+            return;
+        }
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        rgButton = $(this);
+
+        rgPopup.addClass('affi-open')
+        // _this.popup.fadeIn(300);
+    });
+
+    $('.woocommerce-EditAccountForm .affi-upgrade-policy-button').on('click', function (e) {
+        if ($(this).hasClass('disabled')) {
+            return;
+        }
+
+        rgPopup.addClass('affi-open')
+    });
+
+    $('.affi-policy-button').on('click', function (e) {
+        if ($(this).hasClass('loading')) {
+            return;
+        }
+        if ($(this).hasClass('affi-policy-button-accept')) {
+            if ( !$('.affi-policy-input').is(":checked") ){
+                alert('Please accept policy!');
+                return;
+            }
+        }
+        if ($(this).hasClass('affi-upgrade-button')) {
+            let selector = $(e.target),
+                user_id = $('.affi-upgrade-policy-button-wrap .affi-upgrade-policy-button').data('id'),
+                policy_data = $('.affi-policy-info-area').val();
+            $(selector).addClass('loading');
+
+            $.ajax({
+                url: affiParams.ajaxUrl,
+                type: 'POST',
+                data: {
+                    nonce: affiParams.nonce,
+                    action: 'affi_upgrade_user_affiliate',
+                    policy_data: policy_data,
+                    user_id: user_id,
+                },
+                success(responsive) {
+                    if (responsive || responsive === 0) {
+                        window.location.reload();
+                    } else {
+                        $(selector).removeClass('loading');
+                        if (responsive.message) {
+                            alert(responsive.message);
+                        } else {
+                            alert('Oops! Something went error, please try again');
+                        }
+                    }
+                }
+            });
+
+            return;
+        }
+        rgPopup.removeClass('affi-open');
+
+        if (rgButton !== undefined) {
+            rgButton.trigger('click');
+        }
+    });
+});

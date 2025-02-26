@@ -1,0 +1,198 @@
+jQuery(document).ready(function ($) {
+    'use strict';
+    let aff_edit_modal = $('.vi-ui.modal');
+    /*Dropdown*/
+    $('.affi-dropdown').each(function () {
+        let placeholder = $(this).attr('placeholder');
+        $(this).viDropdown({placeholder});
+    });
+
+    $(document).on('click', '.affi-notifications-action', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        show_modal_aff_edit('add_new', '');
+    });
+
+    $(document).on('click', '.affi-notification-edit-btn', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        let t = $(this),
+            t_row = t.closest('.affi-row-actions'),
+            notification_id = t_row.attr('data-id');
+
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_get_notification',
+                notification_id: notification_id,
+            },
+            success(responsive) {
+                if (responsive) {
+                    let current_data = responsive[0] ?? [];
+                    $('#affi_notification_enable').prop('checked', parseInt(current_data.status));
+                    $('#affi_notification_subject_input').val(current_data.subject);
+                    $('#affi_notification_event').viDropdown('set selected', current_data.type);
+                    $('#affi_notification_content_input').val(current_data.email_body);
+                    $('.affi-save-notification').attr('data-id', current_data.id);
+                    show_modal_aff_edit('edit', $(e.target).closest('.affi-row-actions'));
+                }
+            }
+        });
+
+    });
+
+    /*Clear all value input when modal hidden*/
+    aff_edit_modal.modal({
+        onHide: function () {
+            aff_edit_modal.find('#affi_notification_enable').val('');
+            aff_edit_modal.find('#affi_notification_event').viDropdown('clear');
+            aff_edit_modal.find('#affi_notification_subject_input').val('');
+            aff_edit_modal.find('#affi_notification_content_input').val('');
+            aff_edit_modal.find('.affi-save-notification').attr('data-id', '');
+        }
+    });
+
+    /*Function show modal*/
+    function show_modal_aff_edit(type, selector = '') {
+        $('.affi-actions-button').removeClass('affi-hidden');
+        if (type === 'add_new') {
+            aff_edit_modal.modal('show');
+            $('.affi-notification-popup-title-new').removeClass('affi-hidden');
+            $('.affi-notification-popup-title-edit').addClass('affi-hidden');
+            $('.affi-notification-select').removeClass('affi-hidden');
+            $('.affi-notification-edit').addClass('affi-hidden');
+            $('.affi-notification-status').addClass('affi-hidden');
+
+            $('.affi-create-notification').removeClass('affi-hidden');
+            $('.affi-save-notification').addClass('affi-hidden');
+        } else if (type === 'edit') {
+
+            // $('.affi-loading').addClass('active');
+            $('.affi-notification-popup-title-new').addClass('affi-hidden');
+            $('.affi-notification-popup-title-edit').removeClass('affi-hidden');
+            $('.affi-notification-select').addClass('affi-hidden');
+            $('.affi-notification-edit').removeClass('affi-hidden');
+            $('.affi-notification-status').removeClass('affi-hidden');
+            $('.affi-create-notification').addClass('affi-hidden');
+            $('.affi-save-notification').removeClass('affi-hidden');
+
+            aff_edit_modal.modal('show');
+        }
+    }
+
+    /*Action click button delete*/
+    $(document).on('click', '.affi-notification-delete-btn', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (confirm("You definitely want to take this action. Affiliate deletion cannot be undone!")) {
+
+            let notification_id = $(this).closest('.affi-row-actions').data('id');
+            $.ajax({
+                url: affiParams.ajaxUrl,
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    nonce: affiParams.nonce,
+                    action: 'affi_delete_notification',
+                    notification_id: notification_id,
+                },
+                success(responsive) {
+                    if (responsive.status) {
+                        window.location.reload();
+                    } else {
+                        if (responsive.message) {
+                            alert(responsive.message);
+                        }
+                    }
+
+                }
+            });
+        }
+    });
+
+    /*Save edit notification*/
+    $(document).on('click', '.affi-save-notification', function (e) {
+        let selector = $(e.target),
+            notification_enable = $('#affi_notification_enable').prop('checked'),
+            notification_event = $('#affi_notification_event').val(),
+            notification_subject = $('#affi_notification_subject_input').val(),
+            notification_content = $('#affi_notification_content_input').val(),
+            notification_id = selector.data('id');
+        $('.affi-loading').addClass('active');
+
+        $(this).addClass('loading');
+        $.ajax({
+            url: affiParams.ajaxUrl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                nonce: affiParams.nonce,
+                action: 'affi_edit_notification',
+                notification_id: notification_id,
+                notification_subject: notification_subject,
+                notification_content: notification_content,
+                notification_enable: notification_enable,
+                notification_event: notification_event,
+            },
+            success(responsive) {
+                if (responsive) {
+                    window.location.reload();
+                } else {
+                    $(selector).removeClass('loading');
+                    if (responsive.message) {
+                        alert(responsive.message);
+                    } else {
+                        alert('Oops! Something went error, please try again');
+                    }
+                }
+                $('.affi-loading').removeClass('active');
+            }
+        });
+        return false;
+    });
+
+    /*Create ticket category*/
+    $(document).on('click', '.affi-create-notification', function (e) {
+        let type = $(e.currentTarget).data('actions'),
+            selector = $(e.target),
+            $container = selector.closest('.vi-ui.modal');
+
+        let notification_enable = $('#affi_notification_enable').prop('checked'),
+            notification_event = $('#affi_notification_event').val(),
+            notification_subject = $('#affi_notification_subject_input').val(),
+            notification_content = $('#affi_notification_content_input').val();
+        selector.addClass('loading');
+        if (notification_subject === '' || notification_content === '' || notification_event === '') {
+            alert('Please input all require field!');
+            selector.removeClass('loading');
+        } else {
+            $.ajax({
+                url: affiParams.ajaxUrl,
+                type: 'POST',
+                data: {
+                    nonce: affiParams.nonce,
+                    action: 'affi_create_notification',
+                    notification_subject: notification_subject,
+                    notification_content: notification_content,
+                    notification_enable: notification_enable,
+                    notification_event: notification_event,
+                },
+                success(responsive) {
+                    if (responsive) {
+                        window.location.reload();
+                    } else {
+                        if (responsive.message) {
+                            alert(responsive.message);
+                        } else {
+                            alert('Oops! Something went error, please try again');
+                        }
+                    }
+                    selector.removeClass('loading');
+                }
+            });
+        }
+        return false;
+    });
+});

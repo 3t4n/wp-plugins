@@ -1,0 +1,865 @@
+* {
+  box-sizing: border-box !important;
+}
+
+.affi-wrap-my-account {
+  width: 100% !important;
+  margin: 0;
+  max-width: 1000px !important;
+  display: flex;
+  justify-content: space-between;
+}
+.affi-wrap-my-account .affi-title {
+  display: flex;
+  justify-content: space-between;
+}
+.affi-wrap-my-account .affi-title.affi-title-tab-payout {
+  display: grid;
+}
+.affi-wrap-my-account .affi-title.affi-title-tab-payout.affi-title-grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.affi-wrap-my-account .affi-title.affi-title-tab-payout.affi-title-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.affi-wrap-my-account .affi-title.affi-title-tab-payout .affi-title-text-wrap {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(43, 50, 59, 0.18);
+}
+.affi-wrap-my-account .affi-title.affi-title-tab-payout .affi-title-text-wrap h2 {
+  margin: 5px 0;
+}
+.affi-wrap-my-account .affi-title.affi-title-tab-payout .affi-inactive {
+  background-color: #efefef;
+}
+.affi-wrap-my-account .affi-title h2 {
+  color: #000;
+  display: flex;
+  font-size: 24px;
+  justify-content: space-between;
+  line-height: 36px;
+  margin-bottom: 12px;
+}
+.affi-wrap-my-account .affi-title .affi-title-rank-wrap {
+  position: relative;
+}
+.affi-wrap-my-account .affi-title .affi-title-rank-wrap .affi-rank-badge-wrap {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+.affi-wrap-my-account .affi-title .affi-title-rank-wrap .affi-rank-info-wrap {
+  position: absolute;
+  right: 0;
+  width: 300px;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(43, 50, 59, 0.18);
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.affi-wrap-my-account .affi-title .affi-title-rank-wrap .affi-rank-info-wrap.affi-hidden {
+  display: none;
+}
+.affi-wrap-my-account .affi-title .affi-title-rank-wrap .affi-rank-info-wrap .affi-rank-achieve-wrap {
+  text-align: center;
+}
+.affi-wrap-my-account .affi-data-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 15px;
+  column-gap: 16px;
+  padding-bottom: 20px;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 4px;
+  flex-basis: 23%;
+  background: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(43, 50, 59, 0.18);
+  min-width: 100px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card.blueSty {
+  border-bottom: 4px solid #026bff;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card.graySty {
+  border-bottom: 4px solid #ff9100;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card.greenSty {
+  border-bottom: 4px solid #00e676;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card.yellowSty {
+  border-bottom: 4px solid #ffea00;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card.redSty {
+  border-bottom: 4px solid #ff1744;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card.defaultSty {
+  background-color: transparent;
+  border-bottom: 4px solid #fff;
+  box-shadow: none;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card .affi-data-card-label {
+  padding: 12px 16px 0;
+  color: #2b323b;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.affi-wrap-my-account .affi-data-cards .affi-data-card .affi-data-card-value {
+  font-size: 24px;
+  padding: 0 16px 16px;
+}
+.affi-wrap-my-account .affi-card {
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px 0 rgba(43, 50, 59, 0.18);
+  min-width: 100px;
+  overflow: hidden;
+}
+.affi-wrap-my-account .affi-card .affi-card-body {
+  padding: 12px 16px;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-hidden {
+  display: none;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-payment-info-wrap .affi-payment-label-wrap {
+  margin-bottom: 10px;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-payment-info-wrap .affi-payment-info-btn-wrap {
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.8;
+  display: inline-block;
+  font-size: inherit;
+  padding: 8px 15px;
+  margin: 10px 0 5px;
+  border: 2px solid transparent;
+  text-align: center;
+  background: #475f85;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  will-change: transform;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-request-payout-wrap .affi-payment-label-wrap {
+  background-color: #edf4ff;
+  border: 1px solid #3d8eff;
+  box-shadow: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-request-payout-wrap .affi-request-line {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 10px;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-request-payout-wrap .affi-request-line .affi-request-balance-label-wrap {
+  align-content: center;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-request-payout-wrap .affi-request-balance-data-wrap .affi-request-balance-data {
+  padding: 5px 10px;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-request-payout-wrap .affi-request-payout-btn-wrap {
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.8;
+  display: inline-block;
+  font-size: inherit;
+  padding: 8px 15px;
+  margin: 10px 0 5px;
+  border: 2px solid transparent;
+  text-align: center;
+  background: #82b735;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  will-change: transform;
+}
+.affi-wrap-my-account .affi-card .affi-card-body .affi-request-payout-wrap .affi-request-payout-btn-wrap.affi-disable {
+  background-color: #bebebe;
+  cursor: not-allowed;
+}
+.affi-wrap-my-account ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.affi-wrap-my-account a {
+  text-decoration: none;
+}
+.affi-wrap-my-account a.affi-active {
+  font-weight: 700;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-navigation {
+  width: 25%;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-navigation ul li {
+  list-style: none;
+  padding: 1rem 0;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-navigation ul li:first-child {
+  padding-top: 0;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-navigation ul li a {
+  transition: all 0.3s ease;
+  outline: none !important;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-navigation ul li a:hover {
+  font-weight: bold;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-content {
+  width: 74%;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-content .affi-dashboard-time-header-wrap {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-content .affi-dashboard-time-header-wrap .affi-dashboard-link-wrap {
+  text-align: right;
+}
+.affi-wrap-my-account .affi-column.affi-MyAccount-content .affi-dashboard-time-header-wrap .affi-dashboard-link-wrap .affi-dashboard-link-copy {
+  cursor: copy;
+  height: 32px;
+  width: fit-content;
+  max-width: 80%;
+}
+.affi-wrap-my-account .affi-card-products {
+  padding: 5px !important;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap {
+  position: relative;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-filter-wrap {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-filter-wrap .affi-products-catergory-wrap {
+  text-align: left;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-filter-wrap .affi-products-catergory-wrap .affi-products-catergory-input {
+  height: 36px;
+  width: 100%;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-filter-wrap .affi-products-search-wrap {
+  text-align: right;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-filter-wrap .affi-products-search-wrap .affi-products-search-input {
+  height: 36px;
+  width: 100%;
+  padding: 0 15px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap {
+  min-height: 500px;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-result-loading-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-result-loading-wrap .affi-icon {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-result-loading-wrap .affi-icon:before {
+  font-size: 30px;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-block .affi-product-earning-wrap {
+  display: flex;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-block .affi-product-earning-wrap .affi-product-earning-label {
+  padding-right: 5px;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-block .affi-product-promote-wrap {
+  background-color: #026bff;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-block p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-img-wrap {
+  width: 100%;
+  height: auto;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-img-wrap img {
+  width: 100%;
+  height: auto;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging {
+  margin: auto 0;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap {
+  text-align: -webkit-right;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap .affi-product-paging {
+  display: flex;
+  width: fit-content;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap .affi-product-pages {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap .affi-product-pages:not(.affi-product-page-active) {
+  cursor: pointer;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap .affi-product-pages:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap .affi-product-pages.affi-product-page-active {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-wrap-my-account .affi-card-products .affi-products-content-wrap .affi-products-paging-wrap .affi-products-paging .affi-product-paging-wrap .affi-product-pages-break {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-wrap-my-account.affi-is-wc-myaccount-page {
+  flex-direction: column;
+}
+.affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation {
+  width: 100%;
+}
+.affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation ul li {
+  padding: 0;
+}
+.affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-content {
+  width: 100%;
+}
+
+.affi-general-reports-dashboard {
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.affi-general-reports-dashboard .affi-dashboard-link-wrap {
+  margin-bottom: 20px;
+}
+.affi-general-reports-dashboard .affi-dashboard-link-wrap h2 {
+  margin: 0 0 20px 0;
+  font-size: 23px;
+}
+.affi-general-reports-dashboard .affi-dashboard-link-wrap div {
+  display: flex;
+  align-items: center;
+}
+.affi-general-reports-dashboard .affi-dashboard-link-wrap div input {
+  padding: 10px 0 10px 10px;
+  margin: 0;
+  height: 36px;
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none !important;
+  width: 100%;
+  cursor: pointer;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-select-time-group {
+  display: flex;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-select-time-group .affi-select-time-title {
+  margin: 5px 0;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-custom-time-range {
+  display: none;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-custom-time-range .affi-view-reports {
+  margin-left: 10px;
+  width: auto;
+  height: 32px;
+  border: solid 1px #a0a2ad;
+  border-radius: 4px;
+  outline: none !important;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: #333333;
+  cursor: pointer;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-custom-time-range .affi-view-reports:hover {
+  color: #ffffff;
+  background-color: #333333;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-select-time-1 {
+  width: 170px;
+  max-width: 100%;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-select-time-1 .affi-select-time-report {
+  width: 100%;
+  height: 32px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  outline: none !important;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-custom-time-range-flex-layer {
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-custom-time-range-flex-layer .affi-input {
+  margin-left: 10px;
+}
+.affi-general-reports-dashboard .affi-select-time-range .affi-custom-time-range-flex-layer .affi-input input {
+  width: 100%;
+  height: 32px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  outline: none !important;
+}
+.affi-general-reports-dashboard .affi-general-reports-group {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.affi-general-reports-dashboard .affi-general-reports-group table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 20px;
+}
+.affi-general-reports-dashboard .affi-general-reports-group .affi-report-cell {
+  text-align: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, white, #fafbfc);
+  padding: 10px;
+}
+.affi-general-reports-dashboard .affi-general-reports-group .affi-report-cell:not(:first-child) {
+  margin-left: 15px;
+}
+.affi-general-reports-dashboard .affi-general-reports-group h5 {
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.affi-general-reports-dashboard .affi-general-reports-group table td div {
+  margin: 0.5rem 0;
+}
+.affi-general-reports-dashboard .affi-my-account-chart-container {
+  margin: auto;
+  max-width: 100% !important;
+  padding: 10px 0;
+}
+.affi-general-reports-dashboard .affi-my-account-chart-container .affi-my-account-total-chart {
+  min-height: 200px;
+}
+
+.affi-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.affi-table .affi-table-tr {
+  display: flex;
+}
+.affi-table .affi-table-tr.affi-row-empty {
+  flex: 1 0 100%;
+  align-items: center;
+  justify-content: center;
+}
+.affi-table .affi-table-tr .affi-table-empty {
+  color: #a0a2ad;
+  padding: 20px 0;
+  text-align: center;
+}
+.affi-table .affi-table-tr .affi-table-th {
+  padding: 12px;
+  background: #f1f2f4;
+  border-bottom: 1px solid #e2e5e9;
+  color: #818a98;
+  font-weight: 500;
+  text-align: left;
+  flex: auto;
+}
+.affi-table .affi-table-tr .affi-table-th.affi-table-th-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.affi-table .affi-table-tr .affi-table-td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e5e9;
+  background: #fff;
+  color: #2b323b;
+  font-size: 0.875rem;
+}
+.affi-table .affi-table-tr .affi-table-td.affi-table-td-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.affi-table .affi-table-tr .affi-table-td.affi-table-td-center.affi-transaction-table__cell-products {
+  display: block;
+}
+.affi-table .affi-table-tr .affi-table-td.affi-table-td-center.affi-transaction-table__cell-products .affi-table-order-line-product {
+  padding-bottom: 5px;
+}
+.affi-table .affi-table-tr .affi-table-td.affi-table-td-center.affi-transaction-table__cell-products .affi-table-order-line-product:last-child {
+  padding-bottom: 0;
+}
+.affi-table .affi-table-tr .affi-notifications-table__header-title,
+.affi-table .affi-table-tr .affi-notifications-table__cell-title {
+  flex: 1 0 auto;
+}
+.affi-table .affi-table-tr .affi-notifications-table__header-title .affi-table-notify-view,
+.affi-table .affi-table-tr .affi-notifications-table__cell-title .affi-table-notify-view {
+  display: none;
+  cursor: pointer;
+  font-size: small;
+  padding: 0 10px;
+  color: #5974ff;
+}
+.affi-table .affi-table-tr .affi-notifications-table__header-title:hover .affi-table-notify-view,
+.affi-table .affi-table-tr .affi-notifications-table__cell-title:hover .affi-table-notify-view {
+  display: initial;
+}
+.affi-table .affi-table-tr .affi-notifications-table__header-date,
+.affi-table .affi-table-tr .affi-notifications-table__cell-date {
+  flex: 0 0 220px;
+}
+.affi-table .affi-table-tr .affi-notifications-table__header-actions,
+.affi-table .affi-table-tr .affi-notifications-table__cell-actions {
+  flex: 0 0 100px;
+}
+.affi-table .affi-account-paging-wrap {
+  padding: 0 35px;
+  align-self: center;
+}
+.affi-table .affi-account-paging-wrap .affi-account-paging {
+  display: flex;
+  width: fit-content;
+}
+.affi-table .affi-account-paging-wrap .affi-account-pages {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-table .affi-account-paging-wrap .affi-account-pages:not(.affi-account-page-active) {
+  cursor: pointer;
+}
+.affi-table .affi-account-paging-wrap .affi-account-pages:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-table .affi-account-paging-wrap .affi-account-pages.affi-account-page-active {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-table .affi-account-paging-wrap .affi-account-pages-break {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-table .affi-notify-detail-wrap.affi-hidden {
+  display: none;
+}
+.affi-table .affi-notify-detail-wrap .affi-notify-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 980;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.affi-table .affi-notify-detail-wrap .affi-notify-detail-container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 500px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 5px;
+  max-height: 90%;
+  overflow-y: auto;
+  z-index: 981;
+  background-color: #FFFFFF;
+  backface-visibility: hidden;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(43, 50, 59, 0.18);
+}
+.affi-table .affi-notify-detail-wrap .affi-notify-detail-container .affi-notify-loading-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.affi-table .affi-notify-detail-wrap .affi-notify-detail-container .affi-notify-loading-wrap .affi-icon {
+  color: cornflowerblue;
+  width: fit-content;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  scale: 2;
+  transform: translateX(-50%) translateY(-50%);
+}
+.affi-table .affi-notify-detail-wrap .affi-notify-detail-container .affi-notify-detail-header-wrap {
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+.affi-table .affi-notify-detail-wrap .affi-notify-detail-container .affi-notify-detail-body-wrap .affi-notify-detail-line {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 15px 5px;
+}
+.affi-table.affi-MyAccount-notifications .affi-hidden {
+  display: none;
+}
+.affi-table.affi-MyAccount-transaction .affi-table-tr {
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr 2fr;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap {
+  padding: 0 35px;
+  align-self: center;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap .affi-transaction-paging {
+  display: flex;
+  width: fit-content;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap .affi-transaction-pages {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap .affi-transaction-pages:not(.affi-transaction-page-active) {
+  cursor: pointer;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap .affi-transaction-pages:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap .affi-transaction-pages.affi-transaction-page-active {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-table.affi-MyAccount-transaction .affi-transaction-paging-wrap .affi-transaction-pages-break {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-table.affi-MyAccount-transaction .affi-table-empty {
+  text-align: center;
+  padding: 10px 0;
+}
+.affi-table.affi-MyAccount-payouts .affi-table-tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 2fr;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap {
+  padding: 0 35px;
+  align-self: center;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap .affi-payout-paging {
+  display: flex;
+  width: fit-content;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap .affi-payout-pages {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap .affi-payout-pages:not(.affi-payout-page-active) {
+  cursor: pointer;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap .affi-payout-pages:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap .affi-payout-pages.affi-payout-page-active {
+  color: #000000;
+  text-decoration: underline;
+}
+.affi-table.affi-MyAccount-payouts .affi-payout-paging-wrap .affi-payout-pages-break {
+  margin: auto;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ABABAB;
+}
+.affi-table.affi-MyAccount-payouts .affi-table-empty {
+  text-align: center;
+  padding: 10px 0;
+}
+.affi-table .affi-payment-data-wrap .affi-payment-data {
+  width: 100%;
+  min-height: 100px;
+}
+.affi-table .affi-table-thead {
+  display: flex;
+  flex-direction: column;
+}
+.affi-table .affi-table-tbody {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 640px) {
+  .affi-table .affi-table-thead {
+    display: none;
+  }
+  .affi-table .affi-table-tbody {
+    padding: 0 !important;
+  }
+  .affi-table .affi-table-tbody .affi-table-tr {
+    display: flex !important;
+    flex-direction: column;
+    background-color: #fff;
+  }
+  .affi-table .affi-table-tbody .affi-table-tr:nth-child(2n) {
+    background-color: #ccc;
+  }
+  .affi-table .affi-table-tbody .affi-table-tr .affi-table-td {
+    background: transparent;
+  }
+  .affi-table .affi-table-tbody .affi-table-tr .affi-table-td:before {
+    content: attr(data-title) ": ";
+    font-weight: 700;
+  }
+
+  .affi-wrap-my-account {
+    display: block;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation {
+    width: 100%;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation > ul li {
+    padding: 6px 0;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-navigation > ul li:first-child {
+    padding: 0 0 6px;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column.affi-MyAccount-content {
+    width: 100%;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column .affi-data-cards {
+    row-gap: 5px;
+    column-gap: 5px;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column .affi-my-account-total-chart {
+    min-height: 160px;
+  }
+  .affi-wrap-my-account.affi-is-wc-myaccount-page .affi-column .affi-data-cards .affi-data-card {
+    flex-basis: 49%;
+  }
+
+  .affi-general-reports-dashboard .affi-dashboard-time-header-wrap {
+    width: 100%;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .affi-general-reports-dashboard .affi-dashboard-time-header-wrap .affi-select-time-range .affi-select-time-group .affi-select-time-1 {
+    width: 100%;
+  }
+  .affi-general-reports-dashboard .affi-dashboard-time-header-wrap .affi-select-time-range .affi-select-time-group .affi-select-time-1 .affi-select-time-report {
+    padding: 0 5px 0 2px;
+  }
+  .affi-general-reports-dashboard .affi-dashboard-time-header-wrap .affi-dashboard-link-wrap .affi-dashboard-link-copy {
+    width: 100%;
+  }
+
+  .affi-card-body-payout {
+    overflow-x: auto;
+  }
+
+  .affi-card-body-notification {
+    overflow-x: auto;
+  }
+
+  .affi-card-body-transaction {
+    overflow-x: auto;
+    padding: 0 !important;
+  }
+
+  .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results {
+    display: block !important;
+  }
+  .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-img-wrap {
+    width: 100%;
+    height: auto;
+  }
+  .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+  .affi-card-products .affi-products-content-wrap .affi-products-results-wrap .affi-products-results .affi-product-block {
+    padding-bottom: 10px;
+  }
+}
+
+/*# sourceMappingURL=affi_my_affiliate_account.css.map */
