@@ -1,0 +1,183 @@
+.gbql-buttons-wrap {
+    position: fixed;
+    z-index: 10000;
+}
+.gbql-buttons-wrap .gbql-main-button > img,
+.gbql-buttons-wrap .gbql-button > img {
+    height: auto !important;
+    width: 100% !important;
+    position: relative;
+}
+.gbql-buttons-wrap img:visited,
+.gbql-buttons-wrap img:focus,
+.gbql-buttons-wrap a:focus,
+.gbql-buttons-wrap img:hover,
+.gbql-buttons-wrap img{
+    outline: none;
+}
+.gbql-buttons-wrap.BL {
+    bottom: 10px;
+    top: inherit;
+    left: 10px;
+    right: inherit;
+}
+.gbql-buttons-wrap.BR {
+    bottom: 10px;
+    top: inherit;
+    right: 10px;
+    left: inherit;
+}
+.gbql-buttons-wrap.TR {
+    top: 50px;
+    bottom: inherit;
+    right: 10px;
+    left: inherit;
+}
+.gbql-buttons-wrap.TL {
+    top: 50px;
+    bottom: inherit;
+    left: 10px;
+    right: inherit;
+}
+.gbql-buttons-wrap .gbql-wrap-all{
+    height: 50px;
+    position: relative;
+    display: inline-flex;
+}
+.gbql-buttons-wrap .gbql-main-button-con{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+.gbql-buttons-wrap .gbql-button{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+.gbql-buttons-wrap .gbql-button a{
+    display: block;
+}
+.gbql-buttons-wrap .gbql-button a img {
+    height: auto !important;
+    max-width: 100%;
+    position: relative;
+    vertical-align: middle;
+}
+
+.gbql-buttons-wrap ul.gbql-buttons-con{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    height: 55px;
+    position: relative;
+}
+.gbql-buttons-wrap.gbql-active ul.gbql-buttons-con{
+    display: inline-block;
+}
+.gbql-buttons-wrap ul.gbql-buttons-con::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.gbql-buttons-wrap ul.gbql-buttons-con > li{
+    margin: 0 5px;
+    position: absolute;
+}
+.gbql-buttons-wrap.TR ul.gbql-buttons-con > li,
+.gbql-buttons-wrap.BR ul.gbql-buttons-con > li{
+    left: 100%;
+}
+.gbql-buttons-wrap.TL ul.gbql-buttons-con > li,
+.gbql-buttons-wrap.BL ul.gbql-buttons-con > li{
+    right: 100%;
+}
+.gbql-buttons-wrap ul.gbql-buttons-con > li.code:not(.gbql-open) > .gbql-button > .gbql-code-con{
+    display: none;
+}
+.gbql-buttons-wrap ul.gbql-buttons-con > li.code > .gbql-button{
+    position: relative;
+}
+.gbql-buttons-wrap ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    position: absolute;
+    max-width: 320px;
+    max-height: 400px;
+    background-color: #2ec20c;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    padding: 10px;
+}
+.gbql-scroller-wrap{
+    width: 300px;
+    height: 380px;
+    overflow: hidden;
+}
+.gbql-scroller-wrap .gbql-scroller-inner{
+    width: 100%;
+    height: 100%;
+    padding: 0 15px 0 0;
+    overflow-y: scroll;
+    z-index: 100000;
+}
+body.rtl .gbql-scroller-wrap .gbql-scroller-inner{
+    padding: 0 0 0 15px;
+}
+.gbql-buttons-wrap.TR ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con,
+.gbql-buttons-wrap.BR ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    right: -10px;
+}
+.gbql-buttons-wrap.TL ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con,
+.gbql-buttons-wrap.BL ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    left: -10px;
+}
+.gbql-buttons-wrap.TR ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con,
+.gbql-buttons-wrap.TL ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    top: 110%;
+}
+.gbql-buttons-wrap.BL ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con,
+.gbql-buttons-wrap.BR ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    bottom: 110%;
+}
+.gbql-buttons-wrap.mob ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    left: -160px;
+    right: 0;
+    width: 275px;
+    margin: 0 auto;
+    z-index: 100000;
+}
+
+.gbql-buttons-wrap ul.gbql-buttons-con > li .gbql-scroller-wrap .gbql-scroller-inner{
+    margin: 0 0 0 17px;
+}
+body.rtl .gbql-buttons-wrap ul.gbql-buttons-con > li .gbql-scroller-wrap .gbql-scroller-inner{
+    margin: 0 17px 0 0;
+}
+
+.gbql-buttons-wrap.BR ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con,
+.gbql-buttons-wrap.TR ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    box-shadow: 2px 2px 5px rgba(0,0,0,.2);
+}
+.gbql-buttons-wrap.BL ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con,
+.gbql-buttons-wrap.TL ul.gbql-buttons-con > li.code.gbql-open > .gbql-button > .gbql-code-con{
+    box-shadow: -2px 2px 5px rgba(0,0,0,.2);
+}
+
+.gbql-code-con input[type="text"],
+.gbql-code-con input[type="email"],
+.gbql-code-con input[type="url"],
+.gbql-code-con input[type="password"],
+.gbql-code-con input[type="search"],
+.gbql-code-con input[type="number"],
+.gbql-code-con input[type="tel"],
+.gbql-code-con input[type="range"],
+.gbql-code-con input[type="date"],
+.gbql-code-con input[type="month"],
+.gbql-code-con input[type="week"],
+.gbql-code-con input[type="time"],
+.gbql-code-con input[type="datetime"],
+.gbql-code-con input[type="datetime-local"],
+.gbql-code-con input[type="color"],
+.gbql-code-con textarea{
+    max-width: 90%;
+}
