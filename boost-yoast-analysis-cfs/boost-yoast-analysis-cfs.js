@@ -1,0 +1,4 @@
+/*
+ * Text Domain:   boost-yoast-analysis-cfs
+ */
+!function(a){var b=function(){YoastSEO.app.registerPlugin("NPYoastAnalysisBooster",{status:"loading"}),this.getData()};b.prototype.getData=function(){var b=this,c=a('textarea[name^="cfs"]');b.custom_content=c.val(),YoastSEO.app.pluginReady("NPYoastAnalysisBooster"),YoastSEO.app.registerModification("content",a.proxy(b.getCustomContent,b),"NPYoastAnalysisBooster",5)},b.prototype.getCustomContent=function(b){var c=" ";return a("#post-body, #edittag").find('input[type="text"][name^="cfs"], textarea[name^="cfs"]').each(function(){c+=" "+a(this).val()}),b+=c,b.trim()},a(window).on("YoastSEO:ready",function(){new b})}(jQuery);
