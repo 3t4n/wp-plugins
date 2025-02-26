@@ -1,0 +1,295 @@
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/assets/css/style.css ***!
+  \******************************************************************************************************************************************************************************/
+:root {
+    --primary-color: #1d2327;
+    --secondary-color: #9ca2a7;
+    --hover-color: #2271b1;
+    --gap: 20px;
+}
+
+/* Background when the popup is open */
+.chkr-body-popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.chkr-hidden {
+    display: none;
+}
+
+.chkr-clicked {
+    background-color: #ccc;
+}
+
+.chkr-btn.chkr-btn-highlight {
+    background-color: #2271b1;
+}
+
+.chkr-selected,
+.chkr-btn-selected {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* main div */
+#chkr-checklist-manager {
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px var(--secondary-color);
+    padding: 15px;
+    width: 96%;
+    height: auto;
+    min-height: 85vh;
+    margin-top: var(--gap);
+    position: relative;
+}
+
+/* heading */
+.chkr-header {
+    color: var(--primary-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: var(--gap);
+}
+
+/* menu bar */
+#chkr-menu {
+    border: 1px solid var(--secondary-color);
+    padding: 10px;
+    border-radius: 5px;
+    width: 98%;
+    margin-bottom: var(--gap);
+}
+
+#chkr-toolbar {
+    float: right;
+}
+
+#chkr-checklist-manager i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+#chkr-checklist-manager i:hover {
+    color: var(--hover-color);
+}
+
+.chkr-btn {
+    text-decoration: none;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    max-width: 110px;
+    text-align: center;
+}
+
+.chkr-btn:hover,
+.chkr-btn:focus {
+    background-color: var(--hover-color);
+    color: white;
+}
+
+/* checker list div */
+#chkr-checker-list {
+    margin-bottom: 50px;
+}
+
+#chkr-checker-list table th,
+#chkr-checker-list table td {
+    padding: 5px 15px;
+}
+
+/* Progress bar */
+
+#chkr-progress-bar-wrapper {
+    position: absolute;
+    bottom: 10px;
+    width: 97%;
+}
+
+#chkr-progress-container {
+    width: 100%;
+    background-color: var(--secondary-color);
+    margin-top: 10px;
+}
+
+#chkr-progress-bar {
+    height: 20px;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+}
+
+/* Filter list */
+#chkr-menu #chkr-filter-list {
+    margin-top: 15px;
+}
+
+#chkr-menu .chkr-filter-item {
+    padding: 10px;
+}
+
+/* Styles for the popup container */
+.chkr-popup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 2;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chkr-pp-heading {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Style form labels */
+.chkr_add_task_popup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style text inputs */
+.chkr_add_task_popup input[type="text"],
+.chkr_add_task_popup input[type="date"],
+.chkr_add_task_popup textarea,
+.chkr_add_task_popup select {
+    height: 35px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 1em;
+}
+
+.chkr_add_task_popup textarea {
+    height: 60px;
+}
+
+/* Style submit button */
+.chkr_add_task_popup button {
+    background-color: #1d2327;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Style cancel button */
+.chkr_add_task_popup button:hover,
+.chkr_add_task_popup button:hover {
+    background-color: #1d2327;
+}
+
+/* Styles for priority list*/
+.chkr-changepriority-wrapper {
+    display: inline;
+}
+
+.chkr-priority-list {
+    margin-top: 15px;
+    box-shadow: 0px 0px 5px #aaa;
+    flex-direction: column;
+    background: white;
+}
+
+.chkr-priority-item {
+    padding: 5px;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.chkr-priority-item:hover {
+    background-color: var(--hover-color);
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.chkr-task-item .chkr-input-fields {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: center;
+    color: var(--primary-color);
+    pointer-events: none;
+}
+
+.chkr-desc {
+    border: none;
+    box-shadow: none;
+    background-color: white;
+    text-align: justify;
+    color: var(--secondary-color);
+    pointer-events: none;
+    padding: 10px;
+}
+
+/* CSS for FilterList */
+#chkr-filter-list {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 98%;
+    margin-bottom: 5px;
+}
+
+#chkr-status-filters,
+#chkr-priority-filters,
+#chkr-date-filters {
+    margin-bottom: 10px;
+    margin-right: 15vw;
+}
+
+.chkr-filter-item {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.chkr-filter-item input {
+    margin-right: 5px;
+}
+
+.chkr-filter-item:hover {
+    background-color: #ddd;
+}
+
+#chkr-date-filters label,
+#chkr-date-filters input {
+    display: block;
+    margin-top: 5px;
+}
+
+.chkr-header-title,
+.chkr-header-duedate {
+    cursor: default;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
