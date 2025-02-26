@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Base Icon Styles
+   ========================================================================== */
+   .anicons-whatsapp,
+   .anicons-scroll {
+         position: fixed;
+         z-index: 999999;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border-radius: 50%;
+         cursor: pointer;
+         transition: transform 0.3s ease, opacity 0.3s ease;
+     }
+  
+     /* ==========================================================================
+        WhatsApp Icon
+        ========================================================================== */
+   .anicons-whatsapp {
+         opacity: 1;
+     }
+  
+   .anicons-whatsapp-left {
+         left: 20px; /* Adjust as needed */
+     }
+  
+   .anicons-whatsapp-right {
+         right: 20px; /* Adjust as needed */
+     }
+  
+     /* ==========================================================================
+        Scroll to Top Icon
+        ========================================================================== */
+   .anicons-scroll {
+         opacity: 0;
+         pointer-events: none;
+     }
+  
+   .anicons-scroll.visible {
+         opacity: 1;
+         pointer-events: auto;
+     }
+  
+   .anicons-scroll-right {
+         right: 20px; /* Adjust as needed */
+     }
+  
+   .anicons-scroll-left {
+         left: 20px; /* Adjust as needed */
+     }
+  
+     /* ==========================================================================
+        Hover Effects
+        ========================================================================== */
+   .anicons-whatsapp:hover,
+   .anicons-scroll:hover {
+         transform: translateY(-5px);
+     }
+  
+     /* ==========================================================================
+        Icon Images
+        ========================================================================== */
+   .anicons-whatsapp img,
+   .anicons-scroll img {
+         width: 100%;
+         height: 100%;
+         object-fit: contain;
+     }
+  
+     /* ==========================================================================
+        Responsive Styles
+        ========================================================================== */
+     @media screen and (max-width: 768px) {
+       .anicons-whatsapp,
+       .anicons-scroll {
+             width: 40px;
+             height: 40px;
+         }
+
+         
+     }
