@@ -1,0 +1,103 @@
+<div style="padding-bottom: 10px"><b>Select the networks you want your visitors to see.</b></div>
+<div class="lacands_network_selector">
+	<div class="_all">
+		<div class="_header">
+			All Networks
+		</div>
+		<div class="_search">
+			<input type="text" name="search_network" placeholder="Search Network"/>
+		</div>
+		<div class="_list" data-type="all" <?php if($current_settings['style'] == 'original_buttons') echo 'style="display:none;"' ?>>
+			<?php 
+				$selected_networks_temp = $current_settings['networks'];
+				if (($current_settings['style'] == 'original_buttons') || !$selected_networks_temp) {
+					$selected_networks_temp = array('facebook', 'twitter');
+				}
+				foreach ($lacands_networks as $network => $value) {
+				?>
+				<div class="_item<?php if (in_array($network, $selected_networks_temp)) {?> _added<?php } ?>" data-id="<?php echo $network ?>">
+					<span class="_name"><?php _e($value) ?></span>
+					<span class="_action">
+						<span class="_data_all">
+							<i class="fa fa-plus-square-o">Add</i>
+						</span>
+						<span class="_data_selected">
+							<i class="fa fa-times">Delete</i>
+						</span>
+					</span>
+				</div>
+			<?php } ?>
+		</div>
+		<div class="_list" data-type="original" <?php if($current_settings['style'] == 'original_buttons') echo 'style="display:block;"' ?>>
+			<?php 
+				$selected_networks_temp = $current_settings['networks'];
+				if (($current_settings['style'] != 'original_buttons') || !$selected_networks_temp) {
+					$selected_networks_temp = array('facebookShare', 'twitter');
+				}
+				foreach ($lacands_networks_original as $network => $value) {
+				?>
+				<div class="_item<?php if (in_array($network, $selected_networks_temp)) {?> _added<?php } ?>" data-id="<?php echo $network ?>">
+					<span class="_name"><?php _e($value) ?></span>
+					<span class="_action">
+						<span class="_data_all">
+							<i class="fa fa-plus-square-o">Add</i>
+						</span>
+						<span class="_data_selected">
+							<i class="fa fa-times">Delete</i>
+						</span>
+					</span>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+	<div class="_seperator"></div>
+	<div class="_selected">
+		<div class="_header">
+			Selected Networks
+		</div>
+		<div class="_list" data-type="all" <?php if($current_settings['style'] == 'original_buttons') echo 'style="display:none;"' ?>>
+			<?php
+				if ($current_settings['style'] == 'original_buttons') {
+					$selected_networks_temp = array();
+				} else {
+					$selected_networks_temp = $current_settings['networks'];
+				}
+				if (!$selected_networks_temp) { $selected_networks_temp = array('facebook', 'twitter'); } 
+				foreach ($selected_networks_temp as $network => $value) { ?>
+					<div class="_item" data-id="<?php echo $value ?>">
+						<span class="_name"><?php _e($lacands_networks[$value]) ?></span>
+						<span class="_action">
+							<span class="_data_all">
+								<i class="fa fa-plus-square-o">Add</i>
+							</span>
+							<span class="_data_selected">
+								<i class="fa fa-times">Delete</i>
+							</span>
+						</span>
+					</div>
+			<?php } ?>
+		</div>
+		<div class="_list" data-type="original" <?php if($current_settings['style'] == 'original_buttons') echo 'style="display:block;"' ?>>
+			<?php
+				if ($current_settings['style'] != 'original_buttons') {
+					$selected_networks_temp = array();
+				} else {
+					$selected_networks_temp = $current_settings['networks'];
+				}
+				if (!$selected_networks_temp) { $selected_networks_temp = array('facebookShare', 'twitter'); } 
+				foreach ($selected_networks_temp as $network => $value) { ?>
+					<div class="_item" data-id="<?php echo $value ?>">
+						<span class="_name"><?php _e($lacands_networks_original[$value]) ?></span>
+						<span class="_action">
+							<span class="_data_all">
+								<i class="fa fa-plus-square-o">Add</i>
+							</span>
+							<span class="_data_selected">
+								<i class="fa fa-times">Delete</i>
+							</span>
+						</span>
+					</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>

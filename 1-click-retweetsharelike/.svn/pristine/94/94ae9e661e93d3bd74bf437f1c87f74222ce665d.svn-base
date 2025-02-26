@@ -1,0 +1,112 @@
+<div class="lacands_box lacands_setting_container">
+	<h2 class="_title"><?php echo LACANDS_AUTO_PUBLISH_ON_NETWORKS; ?></h2>
+	<div class="lacands_started">
+		<div style="padding:0px 0px 5px 0px;"><?php _e(LACANDSNW_NETWORKPUB." To configure:"); ?></div>
+		<div><b>1.</b>&nbsp;<?php _e("Connect to your Social Networks at"); ?>&nbsp;<a target="_blank" href="http://www.linksalpha.com/user/networks">LinksAlpha.com</a></div>
+		<div><b>2.</b>&nbsp;<?php _e("Get"); ?>&nbsp;<a target="_blank" href="http://www.linksalpha.com/user/your_api_key"><?php _e("your API Key"); ?></a>&nbsp;<?php _e("and enter it below."); ?></div>
+		<div style="padding:5px 0px 0px 0px;"><?php _e("Once setup, your Blog posts content appears on the social networks as soon as you hit the Publish button."); ?></div>
+		<div><?php _e("You can"); ?>&nbsp;<a href="http://help.linksalpha.com/wordpress-plugin-network-publisher" target="_blank"><?php _e("read more about this process at LinksAlpha.com."); ?></a></div>
+	</div>
+	<div style="margin: 10px;">
+		<div class="lacandsnw_content_box">
+			<div class="lacandsnw_content_box_header">
+				<img src="<?php echo lacands_get_plugin_dir(); ?>images/config.png" />&nbsp;<?php _e("Setup"); ?>
+			</div>
+			<div class="lacandsnw_content_box_data">
+				<form action="" method="post" id="networkpubadd" name="networkpubadd">
+					<fieldset class="rts_fieldset">
+						<legend><?php _e("API Key"); ?></legend>
+						<table style="width:100%;">
+							<tr>
+								<td>
+									<label for="<?php echo $field_name ?>">
+										Get your&nbsp;<a href="http://www.linksalpha.com/account/your_api_key" target="_blank"><?php _e("User API Key"); ?></a>&nbsp;<?php _e("or"); ?>&nbsp;<a href="http://www.linksalpha.com/networks" target="_blank"><?php _e("Network API Key "); ?></a>&nbsp;<?php _e("and enter below"); ?>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div style="padding-top:3px;">
+										<input style="width:400px;" class="widefat" id="<?php echo $field_name ?>" name="<?php echo $field_name ?>" type="text" />
+									</div>
+									<div style="padding-top:3px;padding-bottom:10px;color:gray;">
+                                    	<a href="http://help.linksalpha.com/networks/getting-started" tabindex="-1" target="_blank"><?php _e("Click here"); ?></a>&nbsp;<?php _e("to read getting started document."); ?>
+                                    </div>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+					<table class="lacands_add_key_submit">
+	                	<tr>
+	                    	<td class="lacands_add_key_submit_button">
+	                        	<input type="submit" name="AddAPIKey" class="button-primary" value="Add API Key" />
+							</td>
+	                        <td class="lacands_add_key_submit_social">
+	                        	&nbsp;
+	                        </td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<div class="lacandsnw_ajax_msg"></div>
+		<div class="lacandsnw_content_box">
+			<div class="lacandsnw_content_box_header">
+				<?php _e("Currently Publishing"); ?>
+			</div>
+			<div class="lacandsnw_content_box_data">
+				<div id="la-idAPIBox">
+				 	<?php echo lacandsnw_networkpub_load() ?>
+				</div>
+			</div>
+		</div>
+		<div class="lacandsnw_ajax_msg"></div>
+		<div class="lacandsnw_content_box">
+		    <div class="lacandsnw_content_box_header">
+		       <?php _e("Show/Hide Authorization Errors"); ?>
+		    </div>
+		    <div class="lacandsnw_content_box_data">
+		        <form action="" method="post">
+		            <div>
+		                <input type="checkbox" id="lacandsnw_auth_error_show" name="lacandsnw_auth_error_show" <?php echo $lacandsnw_auth_error_show; ?> />
+		                <label for="lacandsnw_auth_error_show">&nbsp;&nbsp;
+		                	<?php _e("Check this box to show error message in WordPress Admin Console in case there are Authorization Errors with any of your social network profiles."); ?>
+		                	<a target="_blank" href="http://help.linksalpha.com/networks/authorization-error"><?php _e("Click Here"); ?></a> <?php _e("to learn more."); ?>
+		                </label>
+		            </div>
+		            <div style="padding-top:5px;">
+		                <input type="hidden" name="lacandsnw_form_type" value="lacandsnw_auth_error_show" />
+		                <input type="hidden" name="action" value="lacandsnw_save_options" />
+		                <input type="button" name="submit" class="button-primary lacandsnw_options" value="<?php _e("Update"); ?>" />
+		            </div>
+		        </form>
+		    </div>
+		</div>
+		<div class="lacandsnw_ajax_msg"></div>
+		<div class="lacandsnw_content_box">
+		    <div class="lacandsnw_content_box_header">
+		        <?php _e("Show/Hide Mixed Mode Configuration Alert"); ?>
+		    </div>
+		    <div class="lacandsnw_content_box_data">
+		        <form action="" method="post">
+		            <div>
+		                <input type="checkbox" id="lacandsnw_mixed_mode_alert_show" name="lacandsnw_mixed_mode_alert_show" <?php echo $lacandsnw_mixed_mode_alert_show; ?> /><label for="lacandsnw_mixed_mode_alert_show">&nbsp;&nbsp;<?php _e("Check this box to show alert if Mixed Mode configuration is detected."); ?> <a target="_blank" href="http://help.linksalpha.com/wordpress-plugin-network-publisher/mixed-mode-alert"><?php _e("Click Here"); ?></a> <?php _e("to learn more."); ?></label>
+		            </div>
+		            <div style="padding-top:5px;">
+		                <input type="hidden" name="lacandsnw_form_type" value="lacandsnw_mixed_mode_alert_show" />
+		                <input type="hidden" name="action" value="lacandsnw_save_options" />
+		                <input type="button" name="submit" class="button-primary lacandsnw_options" value="<?php _e("Update"); ?>" />
+		            </div>
+		        </form>
+		    </div>
+		</div>
+		<div class="lacandsnw_content_box">
+		    <div class="lacandsnw_content_box_header">
+		        <?php _e("Note"); ?>
+		    </div>
+		    <div class="lacandsnw_content_box_data">
+		        <?php _e("If you decide to stop using this functionality permanently, please remove your blog from"); ?>&nbsp;<a href="https://www.linksalpha.com/websites" target="_blank"><?php _e("LinksAlpha Website Manager"); ?></a>. <?php _e("Otherwise, your blog posts may continue to get posted even after you do not use this plugin. For Support, open ticket at"); ?>&nbsp;<a target="_blank" href="http://support.linksalpha.com">LinksAlpha Help Desk</a>.
+		    </div>
+		</div>
+	</div>
+</div>

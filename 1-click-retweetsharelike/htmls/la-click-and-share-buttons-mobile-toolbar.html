@@ -1,0 +1,32 @@
+<?php $current_section_type = 'mobile_toolbar'; ?>
+<div class="lacandsnw_ajax_msg"></div>
+<div class="lacands_setting_container" data-id="mobile_toolbar">
+	<form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
+		<input type="hidden" name="settings_mobile_toolbar" id="settings_mobile_toolbar" value="true" />
+		<h2 class="_title">Mobile Toolbar</h2>
+		<?php require('_la-click-and-share-flip-button.html'); ?>
+		<div class="lacands_setting_content">
+			<div class="_illustration" title="LinksAlpha - Mobile Toolbar" style="<?php if($current_settings['enabled']) echo 'display: none;'; ?>background-image: url('<?php echo lacands_get_plugin_dir(); ?>images/LinksAlpha-Mobile-Toolbar.png')"></div>
+			<div class="_settings" style="<?php if(!$current_settings['enabled']) echo 'display: none;'; ?>">
+				<div class="_lacands_overlay"<?php if($current_settings['enabled']) echo 'style="display: none"'; ?>></div>
+				<div class="lacands_setting_tabs ">
+					<ul>
+						<li class="lacands_setting_tab _selected" data-id="style">Button Style</li>
+						<li class="lacands_setting_tab" data-id="options">Options</li>
+					</ul>
+				</div>
+				<div class="lacands_setting_tab_content">
+					<div class="" data-id="style">
+						<?php require("_la-click-and-share-buttons-style-position-vertical.html"); ?>
+					</div>
+					<div class="" data-id="options">
+						<?php require("_la-click-and-share-buttons-options.html"); ?>
+					</div>
+				</div>
+				<div class="lacands_setting_save_container">
+					<button class="button-primary" name="save_settings">Save</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

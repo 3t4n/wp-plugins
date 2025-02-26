@@ -1,0 +1,54 @@
+<?php 
+	if (!$current_settings['options']) {
+		$current_settings['options'] = array();
+	}
+?>
+<div style="padding-bottom: 10px"><b>Select the page templates you wish to show the share buttons.</b></div>
+<div>
+	<span>
+		<input type="checkbox" id="settings_<?php echo $current_section_type ?>_option_home_page" name="settings_<?php echo $current_section_type ?>_button_options" value="home_page" <?php if (in_array('home_page', $current_settings['options']))  echo 'checked="checked"'; ?>/>
+	</span>
+	<span>
+		<label for="settings_<?php echo $current_section_type ?>_option_home_page">Homepage</label>
+	</span>
+</div>
+<div>
+	<span>
+		<input type="checkbox" id="settings_<?php echo $current_section_type ?>_option_posts" name="settings_<?php echo $current_section_type ?>_button_options" value="posts" <?php if (in_array('posts', $current_settings['options']))  echo 'checked="checked"'; ?>/>
+	</span>
+	<span>
+		<label for="settings_<?php echo $current_section_type ?>_option_posts">Posts</label>
+	</span>
+</div>
+<div>
+	<span>
+		<input type="checkbox" id="settings_<?php echo $current_section_type ?>_option_pages" name="settings_<?php echo $current_section_type ?>_button_options" value="pages" <?php if (in_array('pages', $current_settings['options']))  echo 'checked="checked"'; ?>/>
+	</span>
+	<span>
+		<label for="settings_<?php echo $current_section_type ?>_option_pages">Pages</label>
+	</span>
+</div>
+<div>
+	<span>
+		<input type="checkbox" id="settings_<?php echo $current_section_type ?>_archives" name="settings_<?php echo $current_section_type ?>_button_options" value="archives" <?php if (in_array('archives', $current_settings['options']))  echo 'checked="checked"'; ?>/>
+	</span>
+	<span>
+		<label for="settings_<?php echo $current_section_type ?>_option_archives">Archives</label>
+	</span>
+</div>
+<div>
+	<span>
+		<input type="checkbox" id="settings_<?php echo $current_section_type ?>_categories" name="settings_<?php echo $current_section_type ?>_button_options" value="categories" <?php if (in_array('categories', $current_settings['options']))  echo 'checked="checked"'; ?>/>
+	</span>
+	<span>
+		<label for="settings_<?php echo $current_section_type ?>_option_categories">Categories</label>
+	</span>
+</div>
+<div>
+	<span>
+		<input type="checkbox" id="settings_<?php echo $current_section_type ?>_excerpts" name="settings_<?php echo $current_section_type ?>_button_options" value="excerpts" <?php if (in_array('excerpts', $current_settings['options']))  echo 'checked="checked"'; ?>/>
+	</span>
+	<span>
+		<label for="settings_<?php echo $current_section_type ?>_option_excerpts">Excerpts</label>
+	</span>
+</div>

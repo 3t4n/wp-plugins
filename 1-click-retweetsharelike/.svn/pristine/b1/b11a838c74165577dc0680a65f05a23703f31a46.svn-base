@@ -1,0 +1,15 @@
+<div>
+	<label for="settings_<?php echo $current_section_type ?>_position_bottom">
+		<h2>
+			<?php echo _c('Position') ?>
+		</h2>
+	</label>
+</div>
+<div class="_size">
+	<input type="radio" name="settings_<?php echo $current_section_type ?>_position" id="settings_<?php echo $current_section_type ?>_position_bottom" value="" <?php if(!$current_settings['position']) echo 'checked="checked"'; ?>/>
+	<label for="settings_<?php echo $current_section_type ?>_position_bottom"><?php echo _c('Bottom')?></label>
+</div>
+<div>
+	<input type="radio" name="settings_<?php echo $current_section_type ?>_position" id="settings_<?php echo $current_section_type ?>_position_top" value="top" <?php if($current_settings['position'] == 'top') echo 'checked="checked"'; ?>/>
+	<label for="settings_<?php echo $current_section_type ?>_position_top"><?php echo _c('Top')?></label>
+</div>

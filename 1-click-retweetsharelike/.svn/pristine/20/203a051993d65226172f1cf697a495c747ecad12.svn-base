@@ -1,0 +1,16 @@
+<div>
+	<label for="settings_<?php echo $current_section_type ?>_position_left">
+		<h2>
+			<?php echo _c('Position') ?>
+		</h2>
+	</label>
+</div>
+<div class="_size">
+	<input type="radio" name="settings_<?php echo $current_section_type ?>_position" id="settings_<?php echo $current_section_type ?>_position_left" value="" <?php if(!$current_settings['position']) echo 'checked="checked"'; ?>/>
+	<label for="settings_<?php echo $current_section_type ?>_position_left"><?php echo _c('Left')?></label>
+</div>
+<div>
+	<input type="radio" name="settings_<?php echo $current_section_type ?>_position" id="settings_<?php echo $current_section_type ?>_position_right" value="right" <?php if($current_settings['position'] == 'right') echo 'checked="checked"'; ?>/>
+	<label for="settings_<?php echo $current_section_type ?>_position_top"><?php echo _c('Right')?></label>
+</div>
+<?php require('_la-click-and-share-buttons-show-count.html'); ?>

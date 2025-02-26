@@ -1,0 +1,30 @@
+<div class="lacands_widget_title">
+	<img src="<?php echo lacands_get_plugin_dir(); ?>images/linksalpha_icon.png" />&nbsp;<?php echo LAECHONW_WIDGET_NAME; ?>
+</div>
+
+<?php
+	if ($lacands_version_number_db == '5.4') {
+		require("htmls/la-click-and-share-upgrade-notice.html");
+	} else {
+		$current_settings = $lacands_opt_array['above_content'];
+		require("htmls/la-click-and-share-buttons-above-content.html");
+		
+		$current_settings = $lacands_opt_array['below_content'];
+		require("htmls/la-click-and-share-buttons-below-content.html");
+		
+		$current_settings = $lacands_opt_array['sidebar'];
+		require("htmls/la-click-and-share-buttons-sidebar.html");
+	
+		$current_settings = $lacands_opt_array['mobile_sharing_toolbar'];
+		require("htmls/la-click-and-share-buttons-mobile-sharing-toolbar.html");
+	
+		$current_settings = $lacands_opt_array['mobile_toolbar'];
+		require("htmls/la-click-and-share-buttons-mobile-toolbar.html");
+	}
+?>
+
+<?php 
+	require("htmls/la-click-and-share-network-publisher-settings.html");
+?>
+
+<?php /* require("htmls/la-click-and-share-buttons-old-postfix-backup.html"); */?>
