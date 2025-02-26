@@ -1,0 +1,106 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "advanced-datatable/advanced-datatable-block",
+  "version": "1.0.0",
+  "title": "Advanced Datatable",
+  "category": "widgets",
+  "icon": "table",
+  "description": "Empower site administrators with a Gutenberg block that allows seamless CSV file uploads, enabling dynamic data integration by displaying it using datatables.",
+  "attributes": {
+    "TablePagination": {
+      "type": "number",
+      "default": 10
+    },
+    "DataSearch": {
+      "type": "boolean",
+      "default": true
+    },
+    "DataSorting": {
+      "type": "boolean",
+      "default": true
+    },
+    "FixedHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "TableResizableColomns": {
+      "type": "boolean",
+      "default": false
+    },
+    "TableWidth": {
+      "type": "string"
+    },
+    "tableHeight": {
+      "type": "string"
+    },
+    "attachmentId": {
+      "type": "number"
+    },
+    "fileUrl": {
+      "type": "string"
+    },
+    "headerTextAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "headerTextColor": {
+      "type": "string"
+    },
+    "headerBgColor": {
+      "type": "string"
+    },
+    "headerPadding": {
+      "type": "string",
+      "default": 15
+    },
+    "rowTextAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "rowTextColor": {
+      "type": "string"
+    },
+    "rowBgColor": {
+      "type": "string"
+    },
+    "rowPadding": {
+      "type": "string",
+      "default": 15
+    },
+    "borderStyle": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "string"
+    },
+    "AlternateColorToggler": {
+      "type": "boolean",
+      "default": false
+    },
+    "rowEvenColor": {
+      "type": "string"
+    },
+    "rowOddColor": {
+      "type": "string"
+    },
+    "hoverColor": {
+      "type": "string",
+      "default": "#f6f6f6"
+    },
+    "TexthoverColor": {
+      "type": "string",
+      "default": "#000"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "advanced-datatable",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js"
+}
