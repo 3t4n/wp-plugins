@@ -1,0 +1,564 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _typeof)
+/* harmony export */ });
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!************************************************!*\
+  !*** ./assets/js/nets-easy-for-woocommerce.js ***!
+  \************************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+
+/**
+ * @member wcDibsEasy
+ *
+ */
+jQuery(function ($) {
+  if (typeof wcDibsEasy === "undefined") {
+    return false;
+  }
+  /**
+   * The main object.
+   *
+   * @type {Object} dibsEasyForWoocommerce
+   */
+  var dibsEasyForWoocommerce = {
+    bodyEl: $("body"),
+    paymentMethodEl: $('input[name="payment_method"]'),
+    dibsCheckout: null,
+    blocked: false,
+    selectAnotherSelector: "#dibs-easy-select-other",
+    checkoutInitiated: wcDibsEasy.checkoutInitiated,
+    dibsOrderProcessing: false,
+    checkoutFormSelector: "form.checkout",
+    shippingSelector: ".woocommerce-checkout-review-order-table",
+    standardWooFields: wcDibsEasy.standard_woo_checkout_fields,
+    wooTerms: "form.checkout #terms",
+    /**
+     * Initialize the gateway
+     */
+    init: function init() {
+      $(document).ready(dibsEasyForWoocommerce.loadDibs);
+      dibsEasyForWoocommerce.bodyEl.on("click", dibsEasyForWoocommerce.selectAnotherSelector, dibsEasyForWoocommerce.changeFromDibsEasy);
+    },
+    /**
+     * Check if DIBS Easy is the selected gateway.
+     */
+    dibsIsSelected: function dibsIsSelected() {
+      if (dibsEasyForWoocommerce.paymentMethodEl.length > 0) {
+        dibsEasyForWoocommerce.paymentMethod = dibsEasyForWoocommerce.paymentMethodEl.filter(":checked").val();
+        if ("dibs_easy" === dibsEasyForWoocommerce.paymentMethod) {
+          return true;
+        }
+      }
+      return false;
+    },
+    /**
+     * Triggers on document ready.
+     */
+    loadDibs: function loadDibs() {
+      if (dibsEasyForWoocommerce.dibsIsSelected()) {
+        dibsEasyForWoocommerce.moveExtraCheckoutFields();
+        dibsEasyForWoocommerce.initDibsCheckout();
+        dibsEasyForWoocommerce.bodyEl.on("update_checkout", dibsEasyForWoocommerce.updateCheckout);
+        dibsEasyForWoocommerce.bodyEl.on("updated_checkout", dibsEasyForWoocommerce.updatedCheckout);
+      }
+    },
+    /**
+     * Triggers after a successful payment.
+     *
+     * @param {Object} response
+     */
+    paymentCompleted: function paymentCompleted(response) {
+      dibsEasyForWoocommerce.logToFile("Payment completed is triggered with payment id: ".concat(response.paymentId));
+      var redirectUrl = sessionStorage.getItem("redirectNets");
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      }
+    },
+    /**
+     *  Display login error
+     *
+     * @param {string} message
+     */
+    displayMustLoginError: function displayMustLoginError(message) {
+      var mustLoginClass = "woocommerce-NoticeGroupwoocommerce-NoticeGroup-updateOrderReview";
+      var mustLoginNotice = "<div class=\"".concat(mustLoginClass, "\">\n\t\t\t\t<ul class=\"woocommerce-error\" role=\"alert\">\n\t\t\t\t\t<li>").concat(message, "</li>\n\t\t\t\t</ul>\n\t\t\t</div>");
+      dibsEasyForWoocommerce.checkoutFormSelector.prepend(mustLoginNotice);
+    },
+    /**
+     * Update WC form if needed
+     *
+     * @param {Object} data
+     */
+    updateAddress: function updateAddress(data) {
+      if ("yes" === data.updateNeeded) {
+        $("#billing_country").val(data.country);
+        $("#shipping_country").val(data.country);
+        $("#billing_postcode").val(data.postCode);
+        $("#shipping_postcode").val(data.postCode);
+      }
+      if ("yes" === data.mustLogin) {
+        // Customer might need to log in. Inform customer and freeze DIBS checkout.
+        dibsEasyForWoocommerce.displayMustLoginError(data.mustLoginMessage);
+        dibsEasyForWoocommerce.dibsCheckout.freezeCheckout();
+        var etop = dibsEasyForWoocommerce.checkoutFormSelector.offset().top;
+        $("html, body").animate({
+          scrollTop: etop
+        }, 1000);
+      } else {
+        // All good release checkout and trigger update_checkout event
+        dibsEasyForWoocommerce.dibsCheckout.thawCheckout();
+        $(document.body).trigger("update_checkout");
+      }
+    },
+    updateCheckout: function updateCheckout() {
+      console.log("update_checkout");
+      if (window.Dibs !== undefined) {
+        // lock iframe
+        dibsEasyForWoocommerce.dibsCheckout.freezeCheckout();
+      }
+    },
+    updatedCheckout: function updatedCheckout() {
+      console.log("updated_checkout");
+      if (window.Dibs !== undefined) {
+        // unlock iframe
+        dibsEasyForWoocommerce.dibsCheckout.thawCheckout();
+        $("#dibs-order-review").unblock();
+      }
+    },
+    /**
+     * Triggers whenever customer updates address information
+     *
+     * @param {Object} address
+     */
+    addressChanged: function addressChanged(address) {
+      dibsEasyForWoocommerce.logToFile("Address changed is triggered.");
+      if (address) {
+        console.log("address-changed");
+        console.log(address);
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          async: true,
+          url: wcDibsEasy.customer_address_updated_url,
+          data: {
+            action: "customer_address_updated",
+            address: address,
+            nonce: wcDibsEasy.nets_checkout_nonce
+          },
+          success: function success(response) {},
+          error: function error(response) {},
+          complete: function complete(response) {
+            console.log("COMPLETED");
+            console.log("customer_address_updated ");
+            console.log(response.responseJSON.data);
+            dibsEasyForWoocommerce.updateAddress(response.responseJSON.data);
+            // Scroll to top if
+            if (wcDibsEasy.isMobile) {
+              $("html, body").animate({
+                scrollTop: $(wcDibsEasy.shippingSelector).offset().top - 10
+              }, 1000);
+            }
+          }
+        });
+      }
+    },
+    /**
+     * Triggers whenever customer updates address information from ApplePay window.
+     *
+     */
+    applePayAddressChanged: function applePayAddressChanged(address) {
+      console.log("applepay-contact-updated", address);
+      dibsEasyForWoocommerce.logToFile("ApplePay address changed is triggered.");
+      if (address) {
+        console.log("applepay-contact-updated");
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          async: true,
+          url: wcDibsEasy.customer_address_updated_url,
+          data: {
+            action: "customer_address_updated",
+            address: address,
+            nonce: wcDibsEasy.nets_checkout_nonce
+          },
+          success: function success(response) {},
+          error: function error(response) {},
+          complete: function complete(response) {
+            console.log("COMPLETED");
+            console.log("customer_address_updated ");
+            console.log(response.responseJSON.data);
+            dibsEasyForWoocommerce.updateAddress(response.responseJSON.data);
+            dibsEasyForWoocommerce.dibsCheckout.completeApplePayShippingContactUpdate(response.responseJSON.data.cart_total);
+          }
+        });
+      }
+    },
+    /**
+     * Init Dibs Easy Checkout
+     */
+    initDibsCheckout: function initDibsCheckout() {
+      // Constructs a new Checkout object.
+      dibsEasyForWoocommerce.dibsCheckout = new Dibs.Checkout({
+        checkoutKey: wcDibsEasy.privateKey,
+        paymentId: wcDibsEasy.dibs_payment_id,
+        containerId: "dibs-complete-checkout",
+        language: wcDibsEasy.locale
+      });
+      dibsEasyForWoocommerce.dibsCheckout.on("pay-initialized", dibsEasyForWoocommerce.getDibsEasyOrder);
+      dibsEasyForWoocommerce.dibsCheckout.on("payment-completed", dibsEasyForWoocommerce.paymentCompleted);
+      dibsEasyForWoocommerce.dibsCheckout.on("address-changed", dibsEasyForWoocommerce.addressChanged);
+      dibsEasyForWoocommerce.dibsCheckout.on("applepay-contact-updated", dibsEasyForWoocommerce.applePayAddressChanged);
+    },
+    /**
+     * Triggers when customer clicks the pay button.
+     * Gets the Nets Easy order and starts the order submission
+     *
+     * @param {string} paymentId
+     */
+    getDibsEasyOrder: function getDibsEasyOrder(paymentId) {
+      dibsEasyForWoocommerce.dibsOrderProcessing = true;
+      dibsEasyForWoocommerce.logToFile("Pay initialized is triggered with payment id: ".concat(paymentId));
+      $(document.body).trigger("dibs_pay_initialized");
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: true,
+        url: wcDibsEasy.get_order_data_url,
+        data: {
+          action: "payment_success",
+          paymentId: paymentId,
+          nonce: wcDibsEasy.nets_checkout_nonce
+        },
+        success: function success(data) {
+          console.log(data);
+          if (false === data.success) {
+            console.log("PaymentID already exist in order");
+            console.log(data);
+            dibsEasyForWoocommerce.failOrder("ajax-error", '<div class="woocommerce-error">' + data.data + "</div>");
+            if (data.data.redirect) {
+              window.location.href = data.data.redirect;
+            }
+          } else {
+            dibsEasyForWoocommerce.setAddressData(data);
+          }
+        },
+        error: function error(data) {
+          console.log(data, "error_data");
+        },
+        complete: function complete(data) {}
+      });
+    },
+    /**
+     * Sets the customer data.
+     *
+     * @param {Object} data
+     */
+    setAddressData: function setAddressData(data) {
+      dibsEasyForWoocommerce.logToFile('Received "customer data" from Nets Easy');
+      var consumer = data.data.payment.consumer;
+      var billingAddress = consumer.billingAddress,
+        shippingAddress = consumer.shippingAddress;
+
+      // billingAddress have country with 3 letters.
+
+      // check do we have data
+      var hasBillingData = (0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(billingAddress) === "object" && !Array.isArray(billingAddress);
+      // Use shipping data if billing data do not exist.
+      $("#billing_address_1").val(hasBillingData ? billingAddress.addressLine1 : shippingAddress.addressLine1);
+      $("#billing_postcode").val(hasBillingData ? billingAddress.postalCode : shippingAddress.postalCode);
+      $("#billing_city").val(hasBillingData ? billingAddress.city : shippingAddress.city);
+      $("#billing_country").val(shippingAddress.country);
+      $("#shipping_address_1").val(shippingAddress.addressLine1);
+      $("#shipping_postcode").val(shippingAddress.postalCode);
+      $("#shipping_city").val(shippingAddress.city);
+      $("#shipping_country").val(shippingAddress.country);
+      if (consumer.company.hasOwnProperty("name")) {
+        // B2B purchase
+        var company = consumer.company;
+        var _company$contactDetai = company.contactDetails,
+          firstName = _company$contactDetai.firstName,
+          lastName = _company$contactDetai.lastName,
+          email = _company$contactDetai.email,
+          phoneNumber = _company$contactDetai.phoneNumber;
+        var prefix = phoneNumber.prefix,
+          number = phoneNumber.number;
+        $("#billing_company").val(company.name);
+        $("#shipping_company").val(company.name);
+        $("#billing_first_name").val(firstName);
+        $("#billing_last_name").val(lastName);
+        $("#shipping_first_name").val(firstName);
+        $("#shipping_last_name").val(lastName);
+        $("#billing_email").val(email);
+        $("#billing_phone").val("".concat(prefix).concat(number));
+        // trigger events for 3rd part plugins.
+        $("#billing_country").change();
+        $("#billing_email").change();
+        $("#billing_email").blur();
+      } else {
+        // B2C purchase
+        var _consumer$privatePers = consumer.privatePerson,
+          _firstName = _consumer$privatePers.firstName,
+          _lastName = _consumer$privatePers.lastName,
+          _email = _consumer$privatePers.email,
+          _phoneNumber = _consumer$privatePers.phoneNumber;
+        var _prefix = _phoneNumber.prefix,
+          _number = _phoneNumber.number;
+        $("#billing_company").val("");
+        $("#shipping_company").val("");
+        $("#billing_first_name").val(_firstName);
+        $("#billing_last_name").val(_lastName);
+        $("#shipping_first_name").val(_firstName);
+        $("#shipping_last_name").val(_lastName);
+        $("#billing_email").val(_email);
+        // trigger events for 3rd part plugins.
+        $("#billing_email").change();
+        $("#billing_email").blur();
+        $("#billing_phone").val("".concat(_prefix).concat(_number));
+      }
+
+      // eslint-disable-next-line eqeqeq
+      if (shippingAddress.addressLine2 != null) {
+        $("#billing_address_2").val(shippingAddress.addressLine2);
+        $("#shipping_address_2").val(shippingAddress.addressLine2);
+      }
+
+      // Check Terms checkbox, if it exists
+      if ($(dibsEasyForWoocommerce.wooTerms).length > 0) {
+        $(dibsEasyForWoocommerce.wooTerms).prop("checked", true);
+      }
+      $("input#ship-to-different-address-checkbox").prop("checked", true);
+      dibsEasyForWoocommerce.submitOrder();
+    },
+    /**
+     * Submit the order using the WooCommerce AJAX function.
+     */
+    submitOrder: function submitOrder() {
+      $(".woocommerce-checkout-review-order-table").block({
+        message: null,
+        overlayCSS: {
+          background: "#fff",
+          opacity: 0.6
+        }
+      });
+      $.ajax({
+        type: "POST",
+        url: wcDibsEasy.submitOrder,
+        data: $("form.checkout").serialize(),
+        dataType: "json",
+        success: function success(data) {
+          try {
+            if ("success" === data.result) {
+              dibsEasyForWoocommerce.logToFile("Successfully placed order.");
+              window.sessionStorage.setItem("redirectNets", data.redirect);
+              dibsEasyForWoocommerce.dibsCheckout.send("payment-order-finalized", true);
+            } else {
+              throw "Result failed";
+            }
+          } catch (err) {
+            if (data.messages) {
+              dibsEasyForWoocommerce.logToFile("Checkout error | " + data.messages);
+              dibsEasyForWoocommerce.failOrder("submission", data.messages);
+            } else {
+              dibsEasyForWoocommerce.logToFile("Checkout error | No message");
+              dibsEasyForWoocommerce.failOrder("submission", '<div class="woocommerce-error">' + "Checkout error" + "</div>");
+            }
+          }
+        },
+        error: function error(data) {
+          try {
+            dibsEasyForWoocommerce.logToFile("AJAX error | " + JSON.stringify(data));
+          } catch (e) {
+            dibsEasyForWoocommerce.logToFile("AJAX error | Failed to parse error message.");
+          }
+          dibsEasyForWoocommerce.failOrder("ajax-error", '<div class="woocommerce-error">Internal Server Error</div>');
+        }
+      });
+    },
+    /**
+     * When the customer changes from Dibs Easy to other payment methods.
+     *
+     * @param {Event} e
+     */
+    changeFromDibsEasy: function changeFromDibsEasy(e) {
+      e.preventDefault();
+      $(dibsEasyForWoocommerce.checkoutFormSelector).block({
+        message: null,
+        overlayCSS: {
+          background: "#fff",
+          opacity: 0.6
+        }
+      });
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: true,
+        url: wcDibsEasy.change_payment_method_url,
+        data: {
+          action: "dibs_change_payment_method",
+          dibs_easy: false,
+          nonce: wcDibsEasy.nets_checkout_nonce
+        },
+        success: function success(data) {},
+        error: function error(data) {},
+        complete: function complete(data) {
+          console.log("Change payment method success");
+          console.log(data.responseJSON.data.redirect);
+          dibsEasyForWoocommerce.bodyEl.removeClass("dibs-selected");
+          window.location.href = data.responseJSON.data.redirect;
+        }
+      });
+    },
+    /**
+     * Moves all non-standard fields to the extra checkout fields.
+     */
+    moveExtraCheckoutFields: function moveExtraCheckoutFields() {
+      // Move order comments.
+      $(".woocommerce-additional-fields").appendTo("#dibs-extra-checkout-fields");
+      var form = $('form[name="checkout"] input, form[name="checkout"] select, textarea');
+      for (var i = 0; i < form.length; i++) {
+        var name = form[i].name;
+        var fields = dibsEasyForWoocommerce.standardWooFields;
+        // Check if this is a standard field.
+        if ($.inArray(name, fields) === -1) {
+          // This is not a standard Woo field, move to our div.
+          $("p#" + name + "_field").appendTo("#dibs-extra-checkout-fields");
+        }
+      }
+    },
+    /**
+     * Logs the message to the Dibs Easy log in WooCommerce.
+     *
+     * @param {string} message
+     */
+    logToFile: function logToFile(message) {
+      $.ajax({
+        url: wcDibsEasy.log_to_file_url,
+        type: "POST",
+        dataType: "json",
+        data: {
+          message: message,
+          nonce: wcDibsEasy.log_to_file_nonce
+        }
+      });
+    },
+    /**
+     * Fails the order with Dibs Easy on a checkout error and timeout.
+     *
+     * @param {string} event
+     * @param {string} errorMessage
+     */
+    failOrder: function failOrder(event, errorMessage) {
+      var errorClasses = "woocommerce-NoticeGroup woocommerce-NoticeGroup-checkout";
+      var errorWrapper = "<div class=\"".concat(errorClasses, "\">").concat(errorMessage, "</div>");
+
+      // Send false and cancel
+      dibsEasyForWoocommerce.dibsCheckout.send("payment-order-finalized", false);
+      // Reenable the form.
+      dibsEasyForWoocommerce.bodyEl.trigger("updated_checkout");
+      $(dibsEasyForWoocommerce.checkoutFormSelector).removeClass("processing");
+      // $( dibsEasyForWoocommerce.checkoutFormSelector ).unblock();
+      // $( '.woocommerce-checkout-review-order-table' ).unblock();
+
+      // Print error messages, and trigger checkout_error, and scroll to notices.
+      $(".woocommerce-NoticeGroup-checkout," + ".woocommerce-error," + ".woocommerce-message").remove();
+      $(dibsEasyForWoocommerce.checkoutFormSelector).prepend(errorWrapper);
+      // $( dibsEasyForWoocommerce.checkoutFormSelector )
+      // 	.removeClass( 'processing' )
+      // 	.unblock();
+      $(dibsEasyForWoocommerce.checkoutFormSelector).find(".input-text, select, input:checkbox").trigger("validate").blur();
+      $(document.body).trigger("checkout_error", [errorMessage]);
+      $("html, body").animate({
+        scrollTop: $(dibsEasyForWoocommerce.checkoutFormSelector).offset().top - 100
+      }, 1000);
+    }
+  };
+  dibsEasyForWoocommerce.init();
+});
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=nets-easy-for-woocommerce.min.js.map
