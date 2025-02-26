@@ -1,0 +1,166 @@
+=== Live Editor File Manager ===
+Contributors: liveeditor
+Tags: images, files, photos, video, audio, media, admin, image, photo, upload, digital asset management, documents
+Requires at least: 3.5
+Tested up to: 3.9
+Stable tag: 0.5.7
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Better media management for WordPress. Upload, embed, and link to your files hosted on Live Editor directly in your WordPress site.
+
+== Description ==
+
+Upload, embed, and link to your files hosted on Live Editor directly in your WordPress site.
+
+*  **HTML5 video and audio media encoding built in.** Your uploaded files are automatically encoded into the formats required for playback on all computers and mobile devices.
+*  **Reliable cloud hosting.** All uploaded files are stored on and served from Amazon S3.
+*  **Better organization and retrieval.** Organize your files into collections. Add basic metadata. Use our powerful built-in search engine to find what you're looking for.
+*  **Automatically track your usage of files** when you add them to a post or page in WordPress. Then you'll know the full impact of uploading a new version or deleting the file later.
+*  **Track sources and derivatives** for each file.
+*  **Link up YouTube and Vimeo videos** to their source video files for easier retrieval and editing later.
+*  **Seamless integration with WordPress.** We've taken great care to build this WordPress plugin with the same visual style and functionality that you'd expect from WordPress. You'll forget that you're using an external service while you're authoring your content.
+
+**Note:** This plugin requires paid subscription to the [Live Editor File Manager](http://www.liveeditorcms.com/file-manager?utm_source=WordPress%2BPlugin%2BDirectory&utm_medium=readme&utm_content=v0.5.7&utm_campaign=WordPress%2BPlugin) service.
+
+== Installation ==
+
+First, install the Live Editor File Manager WordPress plugin:
+
+1. Install the Live Editor plugin either via the WordPress.org plugin directory or by uploading the files to your server.
+2. Activate the plugin in your WordPress dashboard.
+
+= Configuration =
+
+After installing the plugin, you need to do 4 more configurations, listed in the sections that follow.
+
+**1. Live Editor account**
+
+If you haven't already, you can sign up for an account at LiveEditorCMS.com.
+
+**2. Account URL**
+
+Each Live Editor account has an account URL that looks something like this:
+https://**example**.liveeditorcms.com/
+
+It's the URL that you use to sign in to your Live Editor account. You'll need to enter that into your WordPress settings.
+
+Browse to your Live Editor File Manager settings in WordPress at Settings > File Manager. Then enter the subdomain for your Live Editor account into the Account Subdomain field.
+
+**3. Account API key**
+
+Each Live Editor account has an API key. If you are an account administrator for your Live Editor account, you can log in to Live Editor and generate a new API key from the Settings section.
+
+1. Copy the API key from Live Editor.
+2. Browse to your File Manager settings in WordPress at Settings > File Manager.
+3. Paste the API key into the Account API Key field.
+
+If you already have entered an API key, double-check that it matches the API key listed in your Live Editor account.
+
+If you do not have access to your Live Editor and/or WordPress account settings, be sure to contact your account administrator for assistance.
+
+**4. User API key**
+
+Each user in Live Editor has an API key. Accordingly, each user in WordPress should have their own Live Editor user API key, and they will need to enter it into their WordPress profile settings.
+
+You can log in to Live Editor and generate your own API key in your user profile section.
+
+1. In the navigation bar, click your name and go to API Key.
+2. Copy the API key.
+3. Browse to your WordPress user profile settings by hovering over your name and clicking Edit My Profile.
+4. Paste your user API key into the User API Key field at the bottom of the screen.
+
+== Frequently Asked Questions ==
+
+= What are the system requirements? =
+
+We've designed and tested the Live Editor WordPress plugin for use with WordPress version 3.5 or newer.
+
+PHP 5+ with the [cURL extension](http://www.php.net/manual/en/curl.installation.php) is required.
+
+For browser support, see our [system requirements](http://www.liveeditorcms.com/help/system-requirements?utm_source=WordPress%2BPlugin%2BDirectory&utm_medium=readme&utm_content=v0.5.7&utm_campaign=WordPress%2BPlugin).
+
+You also need an active Live Editor account.
+
+= Can I use the Live Editor WordPress Plugin without a Live Editor account? =
+
+No. You must have an active Live Editor account to use this WordPress plugin.
+
+= Why should I trust Live Editor with my assets' URLs on my website? =
+
+Here are the key reasons:
+
+*  You can export your data and files at any time. We believe that you should own and control your data. The export file generated by Live Editor contains a folder structure that is easy to deploy on your own web server if you ever wish to self-host your files.
+*  If you use a custom domain or subdomain with Live Editor, then you have full control over your asset URLs too. With this in place, you can export your files and host them on your own web server if you wish, same URLs intact.
+*  Live Editor is hosted on durable, secure, and reliable servers provided by Amazon Web Services. Specifically, all files uploaded to Live Editor are stored on Amazon Simple Storage Service (Amazon S3).
+
+= How stable is the Live Editor service? =
+
+We are still in beta, but so far we have had few issues with uptime. We are still collecting data about the reliability of Live Editor and will share them as soon as we can.
+
+Live Editor is hosted on durable, secure, and reliable servers provided by Amazon Web Services. Specifically, all files uploaded to Live Editor are stored on Amazon Simple Storage Service (Amazon S3).
+
+= Will the Live Editor product still be around tomorrow? =
+
+Here are the facts that we can share with you honestly:
+
+*  You can export all of your data and files at any time that you wish. We believe that you should own and have full control over all of your data. You're not needlessly locked in to our platform.
+*  We're a small company trying to make a big difference for your content management needs.
+*  We are bootstrapping our company without accepting any outside investments, and we've aimed to stay debt-free from day one.
+*  We're not interested in selling out to larger technology companies. We've seen acquired companies burn their customers in the past.
+*  We will provide you with 6-months' notice if Live Editor's services would need to end for whatever reason. We'd hope for the same in return from our own service providers!
+
+We're honored to be asked about Live Editor's longevity because we know that it means that you care.
+
+== Screenshots ==
+
+1. The file browser features folder-like collections and powerful metadata search
+2. Upload your images, video, audio, and documents into Live Editor directly from your WordPress system
+3. Automatically track usages in the Live Editor application when you add them to your WordPress posts and pages
+
+== Changelog ==
+
+= 0.1 =
+*  Initial release.
+
+= 0.2 =
+*  Removed need to have an account API key. Only a user API key is required now.
+*  Better detection of whether or not the plugin is configured correctly.
+
+= 0.3 =
+*  Support for any import URL, not just YouTube and Vimeo.
+
+= 0.3.1 =
+*  Fix styling of titles so super long words do not bleed past the bounding box.
+*  Now removes associated usages in Live Editor when WordPress post/page is trashed.
+
+= 0.4 =
+*  Added "Hide WordPress Add Media Buttons" option and separated it from the "Hide WordPress Media Section from Menu" option.
+
+= 0.5 (July 12, 2013) =
+*  Fixes issue where file usage deletions were not processing on WordPress 3.5.2.
+*  Change to work with new breaking Live Editor API changes.
+
+= 0.5.1 (August 14, 2013) =
+*  Tested WordPress 3.6 compatibility.
+
+= 0.5.2 (August 15, 2013) =
+*  Significant performance improvements when calling Live Editor API.
+
+= 0.5.3 (August 26, 2013) =
+*  Remove default file thumbnail URLs to accommodate new server-side asset hosting on Live Editor servers.
+
+= 0.5.4 (November 19, 2013) =
+*  Improve performance: remove unnecessary API call on index screen.
+*  Rebranded: we're now Minimal Orange, LLC.
+*  Add query param for upcoming Live Editor feature.
+
+= 0.5.5 (December 5, 2013) =
+*  Fix PHP Fatal error: Call-time pass-by-reference has been removed.
+
+= 0.5.6 (December 9, 2013) =
+*  Revert bug introduced by version 0.5.4.
+
+= 0.5.7 (April 17, 2014)
+*  WordPress 3.8 and 3.9 compatibility.
+*  Modal window now relies fully on WordPress classes and styles instead of running on a rigged Colorbox.
