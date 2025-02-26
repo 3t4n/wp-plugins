@@ -1,0 +1,4 @@
+<?php
+$contrix_csp_settings_defaults = array (
+  'contrix_csp_settings' => 'a:12:{s:8:"last_tab";s:1:"0";s:6:"status";s:1:"0";s:4:"logo";a:5:{s:3:"url";s:0:"";s:2:"id";s:0:"";s:6:"height";s:0:"";s:5:"width";s:0:"";s:9:"thumbnail";s:0:"";}s:8:"headline";s:11:"Coming Soon";s:11:"description";s:0:"";s:5:"theme";s:111:"http://localhost/wordpress/wp-content/plugins/contrix-3d-coming-soon//themes/default/images/thumbnail/Park2.png";s:12:"social_check";a:3:{s:7:"twitter";s:1:"1";s:8:"facebook";s:1:"1";s:6:"google";s:1:"1";}s:9:"social_on";s:1:"1";s:12:"countdown_on";s:1:"1";s:7:"enddate";s:0:"";s:7:"endhour";s:2:"00";s:9:"endminute";s:2:"00";}'
+);
