@@ -1,0 +1,317 @@
+/* Global Focus Styles */
+*:focus { 
+  outline: 0 !important;
+  box-shadow:
+    0 0 0 0.2rem #fff,      /* Use site background color to create whitespace for faux focus ring */
+    0 0 0 0.35rem #069 !important; /* Faux focus ring color */
+}
+
+*:focus:not(:focus-visible) {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Global Form Control Styling (Merged duplicate rules) */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Anchor Tag Styling */
+a {
+  text-decoration: none;
+}
+
+a:focus,
+.focus a {
+  outline: none !important;
+}
+
+/* Admin Image Wrapper */
+.albatross-admin-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+  margin-left: 10px; /* Simplified margin */
+}
+
+.albatross-admin-img-wrapper img {
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* featured image notice */
+.owl-thumb-notice p {
+  background: #f6f7f7;
+  padding: 10px 15px;
+  position: relative;
+}
+
+/* Song Fields Container */
+.albatross-song-fields {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* jQuery UI Sortable Styling */
+.ui-sortable-helper {
+  border: 2px dashed #ccc;
+  background-color: #f1f1f1 !important;
+  border-radius: 6px;
+}
+
+.sortable-placeholder {
+  border: 2px dashed #ccc;
+  background-color: #f1f1f1;
+  height: auto;
+  min-height: 50px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+/* Song Field Group */
+.song-field-group {
+  margin-bottom: 1em;
+}
+
+/* Postbox Styling */
+.albatross-postbox .postbox-head {
+  border-bottom: solid 2px #ddd;
+}
+
+.albatross-postbox.closed .postbox-head {
+  border-bottom: 0; /* Simplified to remove border */
+}
+
+.albatross-hndle {
+  width: 98%;
+}
+
+.albatross-postbox h2 {
+  display: inline-block;
+  font-weight: 700 !important;
+  font-size: 1.2em !important;
+}
+
+/* Admin Column Value */
+.albatross-admin-col-value {
+  margin-left: 10px;
+}
+
+/* Postbox Container */
+.albatross-postbox {
+  margin: 0;
+  background: #f6f7f7;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+#albatross-song-fields {
+  width: 100%;
+}
+
+/* Inside Content */
+.albatross-inside {
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Wrapper for Layout */
+.albatross-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 15px 0;
+}
+
+/* Inside Wrap */
+.albatross-inside-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 0;
+  margin-top: -10px;
+}
+
+/* Song Buttons Container */
+.albatross-song-btns {
+  /* Additional styling can be added as needed */
+}
+
+/* Remove Song Button */
+.remove-song-btn {
+  float: right;
+}
+
+/* Button Icon Styling */
+button.button.albatross-btn span.dashicons {
+  margin: 6px 3px 0 0;
+  font-size: 15px;
+}
+
+button.button.albatross-btn.albatross-remove-thumb-button span.dashicons,
+button.button.albatross-btn.remove-song-btn span.dashicons {
+  margin: 1px 1px 0 0;
+  font-size: 22px; 
+}
+
+button.button.albatross-btn.albatross-upload-button span.dashicons {
+  margin: 8px 3px 0 0;
+  font-size: 14px;
+}
+
+/* Button Inside Container */
+.btn-inside {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Collapse/Expand Button Styling */
+button.button.button-secondary.albatross-collapse-single {
+  float: right;
+  border: none;
+  background: transparent;
+}
+
+button.button.button-secondary.albatross-collapse-single:hover {
+  background: transparent;
+}
+
+/* Image Column */
+.albatross-img-col {
+  flex: 1 1 150px;
+  max-width: 150px;
+  text-align: center;
+}
+
+/* Thumbnail Preview */
+.albatross-thumb-preview {
+  background: #fff;
+  margin-bottom: 5px;
+  border-radius: 6px;
+}
+
+.albatross-thumb-preview img {
+  width: 100%;
+  height: 125px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Form Column */
+.albatross-form-col {
+  flex: 1 1 60%;
+  min-width: 300px;
+}
+
+.albatross-form-col table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.form-table.albatross-form-col tbody tr {
+  padding: 0;
+  display: block;
+}
+
+/* Admin Table Headers and Data */
+.albatross-admin-th {
+  text-align: left;
+  padding: 5px 8px !important;
+  width: 100%;
+}
+
+.albatross-admin-td {
+  padding: 5px 8px !important;
+  width: 93%;
+}
+
+/* Audio File Field Styling */
+.albatross-audio-file.form-control {
+  display: inline-block !important;
+  width: 80%;
+}
+
+/* Button Styling */
+button.button {
+  margin-top: 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .albatross-wrap {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .albatross-img-col {
+    max-width: 100%;
+    height:  auto; 
+    max-height: 150px;
+  }
+
+  .albatross-thumb-preview {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+
+  .albatross-form-col {
+    width: 100%;
+  }
+
+  .albatross-form-col table {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .albatross-img-col {
+    width: 175px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .albatross-thumb-preview {
+    width: 175px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Corrected selectors for admin table elements */
+  .albatross-admin-th,
+  .albatross-admin-td {
+    display: block;
+    width: 100%;
+  }
+  
+  .albatross-admin-th {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .remove-song-btn {
+    float: left;
+  }
+}
