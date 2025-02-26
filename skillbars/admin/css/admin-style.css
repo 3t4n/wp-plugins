@@ -1,0 +1,164 @@
+.inside .skillbarsetings {
+    display: block;
+    overflow: hidden;
+}
+.skillbarsetings ul.tab-nav {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+.skillbarsetings ul.tab-nav li {
+  background: none repeat scroll 0 0 rgb(230, 230, 230);
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 15px 20px;
+}
+.skillbarsetings ul.tab-nav li.active {
+  background: #0073aa;
+  font-weight: bold;
+  color: #fff;
+}
+.skillbarsetings ul.box {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+.skillbarsetings ul.box li.tab-box {
+  background: rgb(255, 255, 255) none repeat scroll 0 0;
+  display: none;
+  margin: 0;
+  width: 100%;
+}
+
+/* General container styling */
+#tp-skillbar-container {
+    margin: 20px 0;
+}
+
+/* Individual skillbar item */
+.tp-skillbar-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Input field styles */
+.tp-skillbar-item p {
+    margin: 10px 0;
+}
+
+.tp-skillbar-item label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+.tp-skillbar-item input[type="color"]{
+  width: 100%;
+}
+
+.tp-skillbar-item input[type="text"],
+.tp-skillbar-item input[type="number"],
+.tp-skillbar-item input[type="range"]
+ {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Add button styling */
+#tp-add-skillbar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+}
+
+#tp-add-skillbar:hover {
+    background-color: #005177;
+}
+
+/* Remove button styling */
+.tp-skillbar-item .tp-remove-skillbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #dc3232;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.tp-skillbar-item .tp-remove-skillbar:hover {
+    background-color: #a81b1b;
+}
+
+.option-box .switch-field input[type="radio"] {
+    display: none; /* Hides the radio button */
+}
+
+.option-box .switch-field label {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.option-box .switch-field label img {
+    max-width: 100px; /* Adjust as needed */
+    height: auto;
+    display: block;
+}
+
+.option-box .switch-field input[type="radio"]:checked + label {
+    border-color: #0073aa; /* Highlight border color for selected image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for emphasis */
+}
+
+/* Overlay for Pro versions */
+.option-box .pro-overlay {
+    pointer-events: none; /* Disable selection for pro-only themes */
+    opacity: 0.7;
+    position: relative;
+}
+
+.option-box .pro-overlay .pro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+/* Disabled radio button styles */
+.option-box input[type="radio"]:disabled + label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
