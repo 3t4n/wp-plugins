@@ -1,0 +1,54 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.current-rates {
+	max-width: 600px;
+    margin: 0 auto;
+	background: #fff;
+	color: #000;
+	th {
+		background: #aaa;
+		color: #fff;
+		padding: .25em 1em;
+	}
+	td{
+		text-align: center;
+		padding: .25em 1em;
+		&:nth-of-type(1){
+			font-weight: bold;
+		}
+		span{
+			position: relative;
+			&:after{
+				content: "";
+				display: block;
+				height: 12px;
+				left: -20px;
+				position: absolute;
+				top: 7px;
+				width: 15px;
+				}
+			&.diff-arrow-up{
+				color: #0f6e0f;
+				&::after{
+					background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIj4NCjxwYXRoIGQ9Ik0yIDExLjVMNS44NzU5NCA3LjUyOTQ5TDguNTY4ODIgMTAuMDU0MkwxMy45NTQ2IDQuNU05LjUwMDAxIDQuNUgxNFY5IiBzdHJva2U9IiMwQkM0NjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPC9zdmc+");
+				}
+			}
+			&.diff-arrow-down{
+				color: #ff0000;
+				&::after{
+					left: -21px;
+					background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIj4NCjxwYXRoIGQ9Ik0yIDQuOTk5NTFMNS44NzU5NCA4Ljk3MDAyTDguNTY4ODIgNi40NDUzNUwxMy45NTQ2IDExLjk5OTVNOS41MDAwMSAxMS45OTk1SDE0VjcuNDk5NTEiIHN0cm9rZT0iI0Y3M0U0QSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+DQo8L3N2Zz4=");
+				}
+				
+			}
+		}
+	}
+	tr:nth-child(odd){
+		background: #eee;
+	}
+}
