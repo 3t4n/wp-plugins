@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.page-block-wrap {
+    margin: 20px 20px 0 2px;
+    text-align: center;
+}
+
+.page-inr-block {
+    display: inline-block;
+    width: 100%;
+    max-width: 660px;
+    margin: 0 auto;
+    border: 1px solid #e2e4e7;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.page-inr-block h1 {
+    padding: 20px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #23282d;
+    font-family: 'Roboto', sans-serif;
+}
+
+.page-form {
+    padding: 20px;
+    border-top: 1px solid #e2e4e7;
+    text-align: center;
+}
+
+.page-form tbody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.page-form .copy-alert {
+    background-color: rgba(255, 205, 58, 0.2);
+    padding: 4.5px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #886701;
+    border-radius: 3px;
+    display: block;
+    max-width: 200px;
+    width:100%;
+    margin: 0 auto 15px auto;
+    text-align: center;
+    box-shadow: 0 5px 6px 0 rgb(0 0 0 / 5%);
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.2px;
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+    transform: scale(0.8);
+    transition: all 0.6s ease 0s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-form .copy-alert.show-alert {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.page-form th {
+    padding: 0;
+    width: 100%;
+    display: block;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #23282d;
+    margin: 0 0 10px 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.form-table td {
+    margin-bottom: 0;
+    padding: 0;
+    display: grid;
+    position: relative;
+    align-items: start;
+}
+
+.input-div {
+    position: relative;
+}
+
+.form-table tr:last-child {
+    margin: 0 0 15px 0;
+    display: block;
+    grid-column: 1 / span 2;
+}
+
+.form-table td span.copy-icn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ced4da;
+    color: #495057;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    height: 30px;
+}
+
+.form-table td div.input-group-prepend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ced4da;
+    color: #495057;
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    height: 28px;
+    border: 1px solid #ced4da;
+}
+
+input.pl-30 {
+    padding: 0 8px 0 40px;
+}
+
+.form-table td div.input-group-prepend input[type=checkbox],
+.form-table td div.input-group-prepend input[type=radio] {
+    margin: 0;
+    box-shadow: none;
+    border: 1px solid #8c8f94;
+}
+
+.form-table td p.note-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #757575;
+    margin: 10px 0 0 0;
+    text-align: left;
+}
+.form-table td p.note-text.warning,
+.form-table td p.note-text.warning-char{
+    color: red;
+    display:none;
+}
+
+.form-table td span.copy-icn img {
+    width: 16px;
+}
+
+.form-table td input[type=date], 
+.form-table td input[type=datetime-local], 
+.form-table td input[type=datetime], 
+.form-table td input[type=email], 
+.form-table td input[type=month], 
+.form-table td input[type=number], 
+.form-table td input[type=password], 
+.form-table td input[type=search], 
+.form-table td input[type=tel], 
+.form-table td input[type=text], 
+.form-table td input[type=time], 
+.form-table td input[type=url], 
+.form-table td input[type=week],
+.form-table td select {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.form-table td select:focus {
+    border: none;
+}
+
+.form-table td input.readonly, 
+.form-table td input[readonly], 
+.form-table td textarea.readonly, 
+.form-table td textarea[readonly] {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    color: #495057;
+    box-shadow: none;
+    outline: none;
+}
+
+.page-form p.submit {
+    margin: 0;
+    padding: 0;
+}
+/* By Default Form CSS */
