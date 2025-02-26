@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weboptics/advance-post-grid",
+  "version": "0.1.0",
+  "title": "Advance Post Grid",
+  "category": "widgets",
+  "description": "Block to add post type with advance options",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": [
+      "full",
+      "wide"
+    ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "postGrid": {
+      "type": "integer",
+      "default": 3
+    },
+    "postType": {
+      "type": "string",
+      "default": "post"
+    },
+    "postPerPage": {
+      "type": "string",
+      "default": "12"
+    },
+    "PostOrder": {
+      "type": "string",
+      "default": "DESC"
+    },
+    "showHidePagi": {
+      "type": "boolean",
+      "default": true
+    },
+    "showHideLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "showHideCat": {
+      "type": "boolean",
+      "default": true
+    },
+    "showHideRT": {
+      "type": "boolean",
+      "default": true
+    },
+    "PostOrderBy": {
+      "type": "string",
+      "default": "title"
+    }
+  },
+  "textdomain": "advance-post-grid",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
