@@ -1,0 +1,88 @@
+=== attachmentAV - Antivirus for WordPress ===
+Contributors: andreaswittig,michaelwittig
+Tags: malware,virus,antivirus,malware scanner,security
+Requires at least: 6.0
+Tested up to: 6.7.1
+Stable tag: 1.2.1
+License: GPLv2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Protect your blog from malware. Scan attachments for viruses, worms, and trojans by sending them to the attachmentAV API powered by Sophos.
+
+== Description ==
+
+The plugin protects your blog from malware like viruses, worms, and trojans.
+
+1. The user uploads an attachment.
+2. The plugin sends the uploaded file to the attachmentAV API.
+3. The attachmentAV API scans the file for malware by using the Sophos engine.
+4. In the case of an infected file, the plugin blocks the upload.
+
+Also works with the popular file upload plugins [WPForms](https://wpforms.com/), [Formidable Forms](https://formidableforms.com/) and [WordPress File Upload](https://wordpress.org/plugins/wp-file-upload/).
+
+An API key and subscription for the 3rd party service [attachmentAV](https://attachmentav.com/solution/malware-protection-for-wordpress/) are required. To scan user uploads for malware, the plugin sends the files to the API endpoint `https://eu.developer.attachmentav.com/v1/scan/sync/binary` or `https://eu.developer.attachmentav.com/v1/scan/sync/download`.
+
+== Installation ==
+
+* Install attachmentAV either via the WordPress.org plugin repository or by uploading the files to your server. (See instructions on [how to install a WordPress plugin](https://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/))
+* Activate attachmentAV.
+* Open the attachmentAV plugin settings tab.
+* Create a subscription for the attachmentAV API and enter the API key.
+
+Go to [attachmentAV for WordPress Setup Guide](https://attachmentav.com/help/setup-guide/wordpress.html) for more detailed setup instructions.
+
+== Frequently Asked Questions ==
+
+= Which file types are supported? =
+
+attachmentAV scans all file types. The maximum file size is 10 MB.
+
+= Which upload methods are covered? =
+
+attachmentAV scans all files uploaded via:
+
+* The core [Media Library](https://wordpress.com/support/media/)
+* The plugin [WPForms](https://wpforms.com/)
+* The plugin [Formidable Forms](https://formidableforms.com/)
+* The plugin [WordPress File Upload](https://wordpress.org/plugins/wp-file-upload/)
+
+== Screenshots ==
+
+1. attachmentAV blocks uploads of infected files.
+2. attachmentAV scan status shown for each media file.
+
+== Changelog ==
+
+= 1.2.1 =
+* Minor fixes
+
+= 1.2.0 =
+* Support for plugin Formidable Forms added
+
+= 1.1.2 =
+* Small fixes
+
+= 1.1.1 =
+* Small fixes
+
+= 1.1.0 =
+* Support for plugin WPForms added
+* Support for plugin WordPress File Upload added
+
+= 1.0.5 =
+* Adding scan results to metadata
+
+= 1.0.4 =
+* Small fixes
+
+= 1.0.3 =
+* Small fixes
+
+= 1.0.2 =
+* Small fixes
+
+= 1.0.1 =
+* Small fixes
+
+= 1.0 =
+* Initial Release
