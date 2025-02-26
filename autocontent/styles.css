@@ -1,0 +1,167 @@
+/* styles.css */
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #0073e6; /* Blue background color */
+    color: #fff; /* White text color */
+    border: 1px solid #ccc;
+    margin-left: 1em;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.tab-content {
+    display: none;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Ensure it's on top of other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust width if necessary */
+    max-width: 600px; /* Ensure it doesn't get too wide */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Optional: add a shadow for better visibility */
+    position: relative;
+    z-index: 10000; /* Ensure content is above the background overlay */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.postbox {
+    padding: 10px;
+    margin-left: 1.5em;
+}
+
+
+/* Adjust the width of form text boxes */
+form.table-form-table input[type="text"],
+form.table-form-table input[type="email"],
+form.table-form-table textarea {
+    width: 100%;
+    max-width: 500px; /* Set your desired maximum width */
+}
+
+/* Settings saved notice style */
+.autocontent-banner .notice:not(.edds-admin-notice) {
+    position: absolute !important;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+/* Processing Gif position */
+#processingContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.info-bubble {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.info-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0073aa; /* Blue background */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.info-tooltip span {
+    font-weight: normal; /* Ensures text inside the span is not bold */
+}
+
+.info-icon:hover {
+    background-color: #005a8c; /* Darker blue on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.info-bubble .info-tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    top: 125%; /* Position below the bubble */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    font-size: 12px;
+    color: #333;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.info-bubble:hover .info-tooltip,
+.info-bubble:focus .info-tooltip {
+    display: block; /* Show tooltip on hover or focus */
+}
+
+.info-tooltip a {
+    color: #0073aa; /* Link color */
+    text-decoration: none;
+}
+
+.info-tooltip a:hover {
+    text-decoration: underline;
+}
+
+.button-secondary {
+    margin-left: 20px !important;
+}
+

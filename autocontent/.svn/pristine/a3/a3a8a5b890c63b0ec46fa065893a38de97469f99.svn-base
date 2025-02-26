@@ -1,0 +1,465 @@
+.wizard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.wizard-steps {
+    position: relative;
+    padding-left: 40px; /* Space for the line and circles */
+}
+
+.wizard-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.wizard-step-marker {
+    position: relative;
+    margin-right: 20px; /* Space between circle and form */
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 2px solid #ddd;
+}
+
+.active .circle {
+    background: #007cba; /* Highlight for active step */
+}
+
+.completed .circle {
+    background: #4caf50; /* Green for completed steps */
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    background: #ddd;
+    top: 20px; /* Space above the line */
+    left: 7px; /* Align with the circle's center */
+    height: 100%; /* Extend vertically */
+}
+
+.wizard-step:last-child .line {
+    display: none; /* Hide the line for the last step */
+}
+
+.wizard-step-content {
+    display: flex;
+    flex-direction: column; /* Ensures children stack vertically */
+}
+
+.wizard-step-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+.active .wizard-step-content h2 {
+    color: #000;
+}
+
+.disabled .wizard-step-content h2 {
+    color: #ccc;
+}
+
+.disabled .wizard-step-content form {
+    display: none; /* Hide forms for inactive steps */
+}
+
+.completed .wizard-step-content button {
+    display: none; /* Hide the button for completed steps */
+}
+
+/* Default input width (used by Step 1's activation key) */
+input[type="text"] {
+    width: 200px; /* Example base width for Step 1 */
+}
+
+/* Make the subject input field wider (1.5 times the default) */
+input.wide-input {
+    width: 300px; /* 1.5 times the base width */
+}
+
+.wizard-box {
+    background-color: white; /* White background for the box */
+    border: 1px solid #ddd; /* Subtle border for the box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for a professional look */
+    padding: 20px; /* Padding inside the box */
+    max-width: 800px; /* Optional: Limit the width of the wizard box */
+    margin: 20px auto; /* Center the box horizontally and add vertical spacing */
+}
+
+.completion-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*z-index: 9999;*/
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#closeModal {
+    margin-top: 10px;
+}
+
+.info-bubble {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.info-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0073aa; /* Blue background */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.info-tooltip span {
+    font-weight: normal; /* Ensures text inside the span is not bold */
+}
+
+.info-icon:hover {
+    background-color: #005a8c; /* Darker blue on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.info-bubble .info-tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    top: 125%; /* Position below the bubble */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    font-size: 12px;
+    color: #333;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.info-bubble:hover .info-tooltip,
+.info-bubble:focus .info-tooltip {
+    display: block; /* Show tooltip on hover or focus */
+}
+
+.info-tooltip a {
+    color: #0073aa; /* Link color */
+    text-decoration: none;
+}
+
+.info-tooltip a:hover {
+    text-decoration: underline;
+}
+
+
+#wizard-completion-buttons {
+    display: none; /* Hidden by default */
+}
+
+.completion-buttons-container {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Align one box to the left and one to the right */
+    align-items: center; /* Vertically center the items */
+}
+
+
+li {
+    font-weight: normal !important;
+}
+
+.completion-button {
+    font-size: 16px !important;
+}
+
+.button-primary {
+    font-weight: bold;
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.intro-container {
+    padding: 40px;
+    text-align: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+.intro-header {
+    font-size: 48px !important;
+    font-weight: bold !important;
+    color: #0073aa;
+    margin-bottom: 40px;
+}
+
+/* Progress Line */
+.progress-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.progress-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.progress-circle.completed {
+    background: #0073aa;
+    color: white;
+}
+
+.progress-circle.incomplete {
+    border: 2px solid black;
+    background: white;
+    position: relative;
+}
+
+.progress-inner-circle {
+    width: 20px;
+    height: 20px;
+    background: #0073aa;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Progress Bar */
+.progress-bar {
+    flex-grow: 1;
+    height: 2px;
+    background: #0073aa;
+    max-width: 75%;
+    margin: 0 20px;
+}
+
+/* Boxes */
+.intro-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.intro-box {
+    flex: 1;
+    padding: 30px; /* Padding for each box */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    justify-content: center;
+}
+
+/* Left Box */
+.left-box {
+    background: white;
+    /*padding: 0; */
+}
+
+.intro-gif {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Right Box */
+.right-box {
+    background: #0073aa;
+    color: white;
+    /*padding: 30px;*/
+}
+
+/* Text */
+.intro-text {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Button */
+.button-container {
+    margin-top: auto;
+}
+
+.intro-button {
+    width: 70%;
+    background: white;
+    color: #0073aa;
+    border: none;
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.intro-button:hover {
+    background: #005b87;
+    color: white;
+}
+
+.intro-gif {
+    width: 70%;               /* Makes the GIF 70% of the parent box */
+    max-width: 100%;          /* Prevents the GIF from exceeding its original size */
+    height: auto;             /* Maintains the aspect ratio */
+}
+
+ .tab-content {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-top: -1px;
+        }
+
+/* Animation Styles */
+.animation-container {
+    position: relative;
+    width: 404px; /* 25% smaller than original 539px */
+    height: 501px; /* 25% smaller than original 668px */
+}
+
+.base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 404px;
+    height: 250px;
+    background-image: url('/wp-content/plugins/autocontent/images/base.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.robot {
+    position: absolute;
+    bottom: 200px;
+    left: 53%;
+    transform: translateX(-50%);
+    width: 170px;
+    height: 251px;
+    background-image: url('/wp-content/plugins/autocontent/images/robot.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        justify-content: flex-start; /* Move further up */
+        align-items: center;
+    }
+
+    .animation-container {
+        width: 300px;
+        height: 375px;
+        margin-top: 20px; /* Add spacing from top */
+    }
+
+    .base {
+        width: 300px;
+        height: 187px;
+    }
+
+    .robot {
+        width: 120px;
+        height: 180px;
+        bottom: 180px; /* Tightened gap */
+        left: 53%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .animation-container {
+        width: 250px;
+        height: 312px;
+        margin-top: 20px; /* Add spacing from top */
+    }
+
+    .base {
+        width: 250px;
+        height: 156px;
+    }
+
+    .robot {
+        width: 100px;
+        height: 150px;
+        bottom: 150px; /* Tightened gap */
+        left: 53%;
+    }
+}
+
+
+
+
