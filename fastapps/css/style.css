@@ -1,0 +1,189 @@
+/*----------------------------
+		GLOBAL DEF
+------------------------------*/
+#fastapps-page {
+    margin: 10px;
+    background: #fff;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#fastapps-page section:after,
+#fastapps-page section:before {clear: both; margin: 0; padding: 0;}
+#fastapps-page label{font-size: 20px; font-weight: 300;}
+
+#fastapps-page section {overflow: hidden; position: relative;}
+
+#fastapps-page h2 {font-size: 50px; text-align: center;}
+#fastapps-page h3 {font-size: 25px; text-align: center;}
+
+#form .error{font-weight: 300; color: red; opacity: 0;}
+
+#fastapps-page h2{padding: 0 20px 60px;}
+#fastapps-page section{padding: 0px 0 0px;}
+#fastapps-page p{padding: 0 20px;font-size: 18px;}
+
+
+#fastapps-page section {display: block; z-index: 10;}
+#fastapps-page .clear {clear: both;}
+#fastapps-page .displayNone{display: none !important;}
+#fastapps-page .last-li {margin-right:0 !important;}
+
+#fastapps-page .wrapper {
+	display: block;
+	width: 1024px;
+	position: relative;
+	margin: auto;
+}
+
+@media all and (min-width: 721px) and (max-width: 1023px) {
+	#fastapps-page .wrapper {width: 700px;}
+}
+@media all and (max-width: 720px) {
+	#fastapps-page .wrapper {width: 90%;}
+}
+
+#fastapps-page .button {
+	color: #383838;
+	font-weight: bold !important;
+	display: block !important;
+	width: 225px !important;
+	height: 50px;
+	border: 1px solid #043d5d !important;
+	margin: auto;    margin-bottom: 30px;
+	box-shadow: none;
+	font-size: 14px;
+}
+#fastapps-page .borderradius .button {border-radius: 5px !important; line-height: 0px;margin: auto}
+#fastapps-page .button:hover {
+	background-color: #043d5d !important;
+	color: #fff !important;
+}
+#fastapps-page .backgroundsize .arrow{background-size: 100%; background-repeat: no-repeat;}
+
+/*----------------------------
+		FORM
+------------------------------*/
+#fastapps-page form {width: 90%;margin: auto;}
+
+#fastapps-page label,
+#fastapps-page input,
+#fastapps-page textarea,
+#fastapps-page select {
+	display: block;
+	width: 100%;
+	padding: 3px 1px;
+}
+#fastapps-page label{ text-align: left;}
+#fastapps-page input,
+#fastapps-page textarea,
+#fastapps-page select {
+	margin-bottom: 15px;
+/*	border-bottom: 1px solid #383838;
+	border-top: none;
+	border-left: none;
+	border-right: none;*/
+	background: transparent;
+	color: #043d5d;
+	padding: 10px;
+}
+::-webkit-input-placeholder {color: #9AB7C8;}
+:-moz-placeholder {color: #9AB7C8;}
+::-moz-placeholder {color: #9AB7C8;}
+:-ms-input-placeholder {color: #9AB7C8;}
+
+#fastapps-page input:focus,
+#fastapps-page textarea:focus {border: 1px solid #9AB7C8;}
+
+#fastapps-page textarea {resize: none;}
+#fastapps-page input.button {margin: 10px auto 0; cursor: pointer;margin: auto;}
+#fastapps-page select {background-color: #fff; color: #000;}
+#fastapps-page input[type=text]{ margin: auto}
+
+/*----------------------------
+		Presentation
+------------------------------*/
+
+#presentation .wrapper {margin-top: 0px;padding-left: 30px;}
+
+#presentation .wrapper ul {
+	float: left;
+	width: 490px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+#presentation .wrapper ul.right {
+	float: right;
+	width: 400px;
+	border-left: 1px solid #043d5d;
+}
+
+@media all and (min-width: 721px) and (max-width: 1023px) {
+	#presentation .wrapper ul {width: 350px; margin-top: 20px;}
+	#presentation .wrapper ul.right {width: 300px; margin-top: 20px;}
+}
+@media all and (max-width: 720px) {
+	#presentation .wrapper img,
+	#presentation .wrapper ul,
+	#presentation .wrapper ul.right{float: none; width: 90%; margin: 0 auto;}
+
+	#presentation .wrapper ul li h3:before{
+		width: 30px !important;
+		height: 30px !important;
+		left: 0 !important;
+		top: -4px !important;
+	}
+	#presentation .wrapper ul li h3 {padding: 0 0 0 40px;}
+}
+
+#presentation .wrapper ul li h3:before {
+	content: "";
+	display: block;
+	height: 40px;
+	width: 40px;
+	background-position: center center;
+	position: absolute;
+	left: -55px;
+	top: -9px;
+}
+.backgroundsize #presentation .wrapper ul li h3:before {background-size: 100%; background-repeat: no-repeat;}
+#presentation .wrapper ul li:nth-child(1) h3:before {background-image: url("../images/icn_submit.png");}
+#presentation .wrapper ul li:nth-child(3) h3:before {background-image: url("../images/icn_wait.png");}
+#presentation .wrapper ul li:nth-child(2) h3:before {background-image: url("../images/icn_download.png");}
+
+#presentation .wrapper ul li h3 {
+	color: #043d5d;
+	text-align: left;
+	vertical-align: middle;
+	position: relative;
+}
+
+#presentation .wrapper ul li p {
+	color: #383838;
+	padding: 20px 0 40px;
+	text-align: left;
+
+}
+#presentation .wrapper ul.right p {
+	padding: 20px 0 20px 15px;
+}
+#website .timeline-wrapper {
+	background-color: #D0D0D0;
+	height: 20px;
+	width: 100%;
+	margin: 30px 0;
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+.borderradius #website .timeline-wrapper {border-radius: 5px;}
+#website .timeline-inside {
+	height: 100%;
+	background-color: green;
+	position: relative;
+}
+#website .skip {
+	margin: 20px auto;
+	padding: 7px;
+	text-align: center;
+}
