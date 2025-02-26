@@ -1,0 +1,219 @@
+/*!  This file in this program is included in minified and unminified versions, both located in the same directory.
+Access unminified version by replacing the .min.css extension with .css  */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
+@import "admin/variables";
+@import "admin/mixins";
+
+/* Animation for rotating images */
+@keyframes wpz_ai_images_rotation {
+  0% {
+    transform : rotate(0deg);
+    }
+  100% {
+    transform : rotate(359deg);
+    }
+  }
+
+#adminmenu .toplevel_page_wpz-ai-images .wp-menu-image::before {
+  content             : "";
+  background-image    : url(../img/wp-zone-logo.png);
+  background-repeat   : no-repeat;
+  background-position : center;
+  background-size     : contain;
+  }
+
+#wpbody .wpz-ai-images-page-title-action {
+  vertical-align      : baseline;
+  position            : relative;
+  top                 : -3px;
+  min-height          : auto;
+  line-height         : 1;
+  display             : inline;
+  background-size     : 18px;
+  background-repeat   : no-repeat;
+  background-position : 5px center;
+  }
+
+/* Notice styling */
+.wpz-aiilg-notice {
+  align-items   : center;
+  background    : #fff;
+  box-shadow    : 0 0 20px #0000000d;
+  border-radius : 11px;
+  padding       : 20px;
+  column-gap    : 20px;
+  margin-bottom : 20px;
+
+  /* Loading and uploading notice styles */
+  .wpz-aiilg-notice-loading,
+  .wpz-aiilg-notice-uploading {
+    display        : none;
+    text-align     : left;
+    font           : normal normal 600 12px/15px Montserrat;
+    letter-spacing : 0;
+    color          : #3a3a3a;
+    }
+
+  /* Loading state styles */
+  &.wpz-aiilg-loading {
+    display : flex !important;
+
+    .wpz-aiilg-notice-loading {
+      display : block;
+      }
+    }
+
+  /* Uploading state styles */
+  &.wpz-aiilg-uploading {
+    display : flex !important;
+
+    .wpz-aiilg-notice-uploading {
+      display : block;
+      }
+    }
+
+  /* Notice logo animation */
+  .wpz-aiilg-notice-logo {
+    animation : wpz_ai_images_rotation 2s infinite ease;
+    width     : 36px;
+    height    : 36px;
+    }
+  }
+
+// Display watermark notice on image hover
+
+.wpz-ai-images-free.wp-block-wpz-aiil-image .wpz-aiilg-preview-image-wrapper:hover:after {
+  display          : block;
+  align-items      : center;
+  justify-content  : center;
+  flex-direction   : column;
+  position         : absolute;
+  left             : 50%;
+  bottom           : 30px;
+  background-color : #000000ba;
+  border-radius    : 5px;
+  padding          : 10px;
+  transform        : translateX(-50%);
+  text-align       : center;
+  color            : #fff;
+  content          : "Downloaded files will not contain visible watermarks";
+  z-index          : 999;
+  }
+
+.wpz-aiilg-preview-image-wrapper {
+  position : relative;
+  display: inline-block
+  }
+
+.wpz-aiilg-regenerate-warning {
+  margin-bottom: 15px;
+  }
+
+// Block More Information Sidebar Toggle
+
+.wp-block-wpz-aiil-image-mi {
+
+  .wp-block-wpz-aiil-image-mi-links {
+    line-height : 1.6em;
+
+    h4 {
+      padding-bottom : 10px;
+      border-bottom  : 1px solid #eaedef
+      }
+
+    ul a {
+      color           : #3a3a3a;
+      text-decoration : none;
+      }
+    }
+
+  .wp-block-wpz-aiil-image-mi-use-plugin {
+    line-height : 1.6em;
+
+    ul {
+      list-style: disc;
+
+      list-style-position: inside;
+      }
+    }
+
+  .wp-block-wpz-aiil-image-mi-wrapper {
+    margin-bottom : 20px;
+    padding       : 10px 20px;
+    border-radius : 11px;
+    box-shadow    : 0 0 20px #0000000d;
+    }
+
+  #aiil-banner-upgrade {
+    padding          : 35px 20px;
+    color            : #fff;
+    background-color : #6a39e4;
+    border-radius    : 11px;
+    margin-bottom    : 15px;
+    font-family      : "Montserrat";
+
+    h3 {
+      color       : #fff;
+      font-size   : 22px;
+      font-weight : 600;
+      }
+
+    p {
+      margin-bottom : 30px;
+      font-size     : 14px;
+      font-weight   : 400;
+      }
+
+    img {
+      max-width     : 260px;
+      display       : block;
+      margin-bottom : 25px;
+      width         : 100%;
+      }
+
+    ul {
+      list-style   : none;
+      padding-left : 25px !important;
+
+      li {
+        position      : relative;
+        font-size     : 14px;
+        font-weight   : 400;
+        margin-bottom : 15px;
+        text-indent   : 0;
+        line-height   : 1.6em;
+
+        strong {
+          color : #fd925cff
+          }
+        }
+
+      li:before {
+        content  : url("../img/check-orange.svg");
+        display  : inline-block;
+        position : absolute;
+        left     : -25px;
+        top      : 0;
+
+        }
+      }
+
+    .wpz-ai-image-lab-button-primary {
+      display : block;
+      width   : 100%;
+      }
+
+    a {
+      color : #fff;
+      }
+
+    .wpz-ai-image-lab-button-primary {
+      @include button;
+      @include sizeButtonMixin(medium);
+      @include colorButtonMixin(primary);
+      }
+    }
+
+  }

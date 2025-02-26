@@ -1,0 +1,1440 @@
+/*!  This file in this program is included in minified and unminified versions, both located in the same directory.
+Access unminified version by replacing the .min.css extension with .css  */
+
+$color_1             : #3a3a3a;
+$color_2             : #fff;
+$color_orange        : #fd925c;
+$font-family         : "Montserrat", sans-serif;
+$color_purple        : #6a39e4;
+$background-color_2  : #f9fafb;
+$background-color_3  : #e8edef;
+$background-color_5  : #dae0e3;
+$background-color_4  : transparent;
+
+$tablet-width        : 768px;
+$desktop-width       : 1024px;
+$large-desktop-width : 1400px;
+
+@import "media/notices";
+
+@mixin phone {
+  @media (max-width : #{$tablet-width - 1px}) {
+    @content;
+    }
+  }
+
+@mixin phonetablet {
+  @media (max-width : #{$desktop-width - 1px}) {
+    @content;
+    }
+  }
+
+@mixin tablet {
+  @media (min-width : #{$tablet-width}) and (max-width : #{$desktop-width - 1px}) {
+    @content;
+    }
+  }
+
+@mixin desktop {
+  @media (min-width : #{$desktop-width}) {
+    @content;
+    }
+  }
+
+@mixin desktoplarge {
+  @media (min-width : #{$large-desktop-width}) {
+    @content;
+    }
+  }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap"); /* wp-admin/css/forms.css */
+
+@keyframes wpz_ai_images_rotation {
+  0% {
+    transform : rotate(0deg);
+    }
+  100% {
+    transform : rotate(359deg);
+    }
+  }
+
+.wpz-ai-images-hidden {
+  display : none !important;
+  }
+
+// Show Image Button
+
+.wpz-ai-images-show.button-secondary, .wpz-ai-images-page-title-action.button-secondary {
+  padding          : 10px 30px;
+  border-radius    : 28px;
+  color            : $color_2 !important;
+  background-color : $color_orange !important;
+  font-family      : $font-family;
+  border           : none !important;
+
+  &:enabled {
+    &:hover {
+      color            : $color_2 !important;
+      background-color : $color_orange !important;
+      }
+    }
+
+  &:active:enabled {
+    background-color : $color_orange !important;
+    }
+
+  &:focus-visible {
+    outline : unset;
+    }
+
+  &:focus {
+    box-shadow : unset;
+    border     : 0;
+    }
+  }
+
+.wpz-ai-images-page-title-action.button-secondary {
+  margin : 0px 10px;
+  }
+
+// Form
+
+// Overwrites for media page
+
+.media-new-php {
+  .wpz-ai-images-upload-ui {
+    padding : 30px 0;
+    }
+  }
+
+// Overwrites for Divi modal etc
+.media-modal-content {
+
+  .wpz-ai-images-upload-ui {
+
+    @include desktop {
+      .wpz-ai-images-form {
+        width : 60%;
+        }
+
+      .wpz-ai-images-results-container {
+        width : 40%;
+        }
+      }
+
+    @include desktoplarge {
+      .wpz-ai-images-form {
+        width : 50%;
+        }
+
+      .wpz-ai-images-results-container {
+        width : 50%;
+        }
+      }
+
+    }
+
+  .wpz-ai-form-body {
+    max-height : calc(70vh - 200px);
+    }
+
+  }
+
+.wpz-ai-images-upload-ui {
+  z-index          : 1;
+  display          : flex;
+  font-family      : $font-family !important;
+  font-weight      : 500;
+  padding          : 30px 20px;
+  background-color : #eceef1;
+  margin-top       : 10px;
+
+  @include phonetablet {
+    flex-direction : column;
+
+    .wpz-ai-images-results {
+      grid-template-columns : minmax(auto, max-content) minmax(auto, max-content);
+      }
+
+    .wpz-ai-images-form {
+      width : 100%
+      }
+    }
+
+  @include desktop {
+    .wpz-ai-images-results {
+      grid-template-columns : minmax(auto, max-content);
+      }
+
+    .wpz-ai-images-form {
+      width : 50%;
+      }
+
+    .wpz-ai-images-results-container {
+      width : 50%;
+      }
+    }
+
+  @include desktoplarge {
+
+    .wpz-ai-images-results {
+      grid-template-columns : minmax(auto, max-content) minmax(auto, max-content);
+      }
+
+    .wpz-ai-images-form {
+      width : 40%;
+      }
+
+    .wpz-ai-images-results-container {
+      width : 60%;
+      }
+    }
+
+  h2 {
+    color : $color_1;
+    }
+
+  h3.wpz-ai-title {
+    line-height : 2em;
+    //border-bottom : 1px solid #eee;
+    margin      : 0;
+    color       : $color_1;
+    font-size   : 15px;
+    padding     : 10px 0;
+    font-weight : 800;
+    text-align  : left;
+    }
+
+  a:focus,
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="url"]:focus,
+  input[type="checkbox"]:focus,
+  input[type="radio"]:focus,
+  select:focus,
+  textarea:focus {
+    box-shadow : 0 0 20px rgba(0, 0, 0, 0.05) !important;
+    outline    : none !important;
+    }
+
+  select,
+  textarea,
+  input[type="number"] {
+    border-color : #dae0e3 !important;
+    font-size    : 12px !important;
+    font-weight  : 500 !important;
+    font-family  : $font-family;
+
+    &:focus, &:hover {
+      border : 1px solid #dae0e3 !important;
+      color  : $color_1 !important;
+      }
+    }
+
+  p {
+    color       : $color_1;
+    font-size   : 12px;
+    font-weight : 500;
+    }
+
+  .media-frame textarea {
+    font-family : $font-family;
+    }
+
+  // Buttons
+  .button-primary {
+    border-color     : $background-color_5;
+    padding          : 10px 30px;
+    border-radius    : 28px;
+    color            : $color_2 !important;
+    background-color : $color_orange !important;
+
+    &:enabled {
+      &:hover {
+        color            : $color_2 !important;
+        background-color : $color_orange !important;
+        border-color     : $background-color_5;
+        }
+      }
+
+    &:active:enabled {
+      border-color     : $background-color_5;
+      background-color : $color_orange !important;
+      }
+
+    &:focus-visible {
+      outline : unset;
+      }
+
+    &:focus {
+      box-shadow : unset;
+      border     : 0;
+      }
+    }
+
+  .button-secondary {
+    border-color     : $color_orange;
+    padding          : 10px 30px;
+    border-radius    : 28px;
+    color            : $color_orange !important;
+    background-color : transparent !important;
+
+    &:enabled {
+      &:hover {
+        color        : $color_orange !important;
+        border-color : $color_orange;
+        }
+      }
+
+    &:active, &:focus-visible, &:focus {
+      background-color : transparent !important;
+      border-color     : $color_orange !important;
+      box-shadow       : none;
+      outline          : none;
+      }
+
+    }
+
+  // Form: Images
+  .wpz-ai-images-toggle {
+
+    border-bottom : 1px solid #eee;
+
+    .wpz-ai-images-upload-ui {
+
+      background-color : $background-color_2;
+
+      select {
+        max-width : 100%;
+        width     : 100%;
+        display   : block;
+        font-size : 14px;
+        }
+      }
+
+    &:not(.wpz-ai-images-active) {
+      > div {
+        display : none;
+        }
+      }
+
+    h4 {
+      font-size   : 12px;
+      color       : $color_1;
+      font-weight : 600;
+      }
+
+    h3 {
+      white-space : nowrap;
+      line-height : 2em;
+      margin      : 0;
+
+      a {
+        position        : relative;
+        display         : block;
+        color           : $color_1;
+        text-decoration : none;
+        font-size       : 15px;
+        padding         : 10px 0;
+        font-weight     : 800;
+
+        &::after {
+          content             : "";
+          display             : block;
+          position            : absolute;
+          top                 : 0px;
+          right               : 0px;
+          width               : 13px;
+          height              : 100%;
+          background-image    : url("../img/toggle-down.svg");
+          background-size     : contain;
+          background-repeat   : no-repeat;
+          background-position : center;
+          }
+
+        &:focus {
+          box-shadow : none !important;
+          outline    : none !important;
+          }
+        }
+      }
+
+    label {
+      color       : $color_1;
+      font-weight : 600;
+      font-size   : 12px;
+      }
+    }
+
+  .wpz-ai-images-form {
+    margin-bottom : 40px;
+
+    > div {
+      text-align : left;
+      }
+
+    .wpz-ai-images-prompt-options {
+      label {
+        display      : block;
+        margin-top   : 10px;
+        margin-right : 5px;
+        }
+      }
+
+    input[type="text"] {
+      width : 100%;
+      }
+
+    .wpz-form-row {
+      display        : flex;
+      flex-direction : row;
+      flex-wrap      : wrap;
+      align-items    : center;
+
+      h4 {
+        margin         : 14px 0px;
+        padding-bottom : 0px;
+        font-size      : 12px;
+        color          : #3a3a3a;
+        font-weight    : 600;
+        }
+
+      select {
+        max-width : unset;
+        }
+
+      :nth-child(1) {
+        flex-basis    : calc(25% - 10px);
+        flex-grow     : 1;
+        padding-right : 5px;
+        }
+
+      :nth-child(2) {
+        flex-grow  : 6;
+        flex-basis : 75%;
+        }
+
+      }
+    }
+
+  .wpz-ai-images-upload-ui {
+    h3, p {
+      color : $color_1;
+      }
+    }
+
+  .wpz-ai-prompt-controls {
+    width         : 67%;
+    padding-right : 20px;
+    box-sizing    : border-box;
+    }
+
+  .wpz-ai-prompt-generator {
+    border-radius    : 20px;
+    margin-right     : 15px;
+    box-shadow       : 0px 0px 20px rgba(0, 0, 0, 0.05);
+    overflow         : hidden;
+    background-color : #f9fafb;
+
+    h2 {
+      color       : $color_2;
+      font-weight : bold;
+      font-size   : 15px;
+      }
+
+    .wpz-ai-header {
+      padding          : 26px 35px;
+      margin-bottom    : 0px;
+      display          : flex;
+      align-items      : center;
+      justify-content  : space-between;
+      background-color : $color_purple;
+
+      @include phonetablet {
+        padding : 26px 25px;
+        }
+
+      .wpz-ai-header-branding {
+
+        display        : flex;
+        flex-direction : row;
+        flex-wrap      : nowrap;
+
+        img {
+          margin-right : 10px;
+          }
+
+        h2 {
+          margin         : 15px 0;
+          padding-bottom : 0;
+          }
+        }
+
+      .wpz-ai-header-links {
+
+        text-align : right;
+
+        a {
+          color           : $color_2;
+          text-decoration : none;
+
+          &:not(:last-child) {
+            margin-right : 10px;
+            }
+          }
+        }
+      }
+
+    .wpz-ai-form-body {
+      background-color : $background-color_2;
+      padding          : 30px 25px 0 25px;
+      max-height       : calc(90vh - 200px);
+      overflow-y       : auto;
+
+      @include phonetablet {
+        padding : 30px 25px;
+        }
+
+      .wpz-ai-images-footer {
+        padding     : 25px 0;
+        line-height : 1.9em;
+
+        a {
+          color           : $color_orange;
+          text-decoration : none !important;
+          }
+
+        }
+
+      .wpz-ai-images-notice {
+        padding          : 10px 8px;
+        background-color : #e9edef;
+        border-radius    : 5px;
+        display          : flex;
+
+        img {
+          margin-right : 10px;
+          }
+
+        a {
+          color : $color_orange
+          }
+
+        }
+
+      }
+    }
+
+  .wpz-ai-prompt-modifier {
+
+    &:not(.wpz-form-row) {
+
+      margin-bottom : 30px;
+      }
+
+    ul {
+      display   : flex;
+      flex-wrap : wrap;
+      margin    : 5px 0;
+      }
+
+    li {
+      text-align : center;
+
+      a {
+        text-decoration : none;
+        color           : inherit;
+        }
+
+      div {
+        margin        : 5px;
+        position      : relative;
+        box-shadow    : 0 0 20px rgba(0, 0, 0, 5%);
+        border-radius : 10px;
+        transition    : transform 0.3s ease-in-out;
+
+        &:after {
+
+          border-radius : 10px;
+          bottom        : -2px;
+          content       : "";
+          left          : -2px;
+          position      : absolute;
+          right         : -2px;
+          top           : -2px;
+          transition    : box-shadow .2s ease-in-out;
+          box-shadow    : 0 0 0 2px transparent, inset 0 0 0 2px transparent;
+          }
+
+        }
+
+      &:hover {
+        div {
+          transform : scale(1.03);
+          }
+        }
+
+      &.wpz-ai-images-active div:after {
+        box-shadow : 0 0 0 2px $color_purple, inset 0 0 0 2px #f9fafb;
+        }
+
+      &.wpz-ai-images-active label {
+        color : $color_purple;
+        }
+
+      img {
+        width         : 100px;
+        height        : 100px;
+        line-height   : 100px;
+        margin-bottom : 10px;
+        display       : block;
+        border-radius : 10px;
+        box-shadow    : 0px 0px 20px rgba(0, 0, 0, 0.05);
+        }
+
+      label {
+        display : block;
+        }
+      }
+
+    li.wpz-ai-images-other {
+      span {
+        width      : 100%;
+        text-align : left;
+        }
+
+      width      : 100%;
+      text-align : left;
+
+      select {
+        width : 100%;
+        }
+      }
+
+    li.wpz-ai-images-other.wpz-ai-images-active {
+      span {
+        border-color : $color_purple;
+        }
+      }
+    }
+
+  .wpz-ai-images-toggle.wpz-ai-images-active {
+    padding-bottom : 20px;
+
+    h3 {
+      border-bottom-color : $background-color_4;
+
+      a {
+        &::after {
+          background-image : url("../img/toggle-up.svg");
+          }
+        }
+      }
+    }
+
+  .wpz-ai-images-prompt-text {
+    table {
+      width          : 100%;
+      border-spacing : 0 10px;
+
+      th {
+        font-weight : 600;
+        color       : $color_1;
+
+        &:nth-child(2) {
+          padding-left : 10px;
+          }
+        }
+
+      tr {
+        th {
+          &:first-child {
+            padding-right : 10px;
+            }
+          }
+
+        > * {
+          padding : 10px 0;
+          }
+        }
+
+      tbody {
+        tr {
+          &:not(:last-child) {
+            td {
+              &:first-child {
+                border        : 1px solid #dae0e3;
+                border-radius : 8px;
+                padding       : 15px;
+
+                p {
+                  margin : 0px;
+                  }
+                }
+
+              &:last-child {
+                padding : 0px;
+                }
+              }
+            }
+
+          &:last-child {
+            td {
+              &:nth-child(2) {
+                > * {
+                  display : none;
+                  }
+                }
+              }
+            }
+          }
+
+        td {
+          position : relative;
+          }
+        }
+
+      td {
+        &:nth-child(2) {
+          width : 125px;
+          }
+        }
+
+      textarea {
+        width   : 100%;
+        padding : 15px 15px;
+        border  : 1px solid #dae0e3;
+
+        &:focus {
+          border : 1px solid #dae0e3;
+          }
+        }
+
+      .wpz-ai-images-remove {
+        position            : absolute;
+        display             : block;
+        width               : 30px;
+        height              : 100%;
+        background-image    : url("../img/delete.svg");
+        background-size     : 11px;
+        background-repeat   : no-repeat;
+        background-position : center;
+        right               : 5px;
+        top                 : 50%;
+        transform           : translate(0, -50%);
+
+        span {
+          display : none;
+          }
+
+        &:hover {
+          background-image : url("../img/delete-red.svg");
+          }
+        }
+
+      tfoot {
+        td {
+          text-align : right;
+
+          button {
+            margin-left : 10px !important;
+            }
+          }
+        }
+      }
+
+    .wpz-ai-images-increase {
+      span {
+        display : none;
+        }
+
+      cursor              : pointer;
+      background-color    : $background-color_4;
+      border              : 0;
+      width               : 12px;
+      height              : 45px;
+      background-size     : contain;
+      background-repeat   : no-repeat;
+      background-position : center;
+      padding             : 0;
+      background-image    : url("../img/plus.svg");
+      margin-left         : 5px;
+
+      &:disabled {
+        opacity : 0.2
+        }
+
+      }
+
+    .wpz-ai-images-decrease {
+      span {
+        display : none;
+        }
+
+      cursor              : pointer;
+      background-color    : $background-color_4;
+      border              : 0;
+      width               : 12px;
+      height              : 45px;
+      background-size     : contain;
+      background-repeat   : no-repeat;
+      background-position : center;
+      padding             : 0;
+      background-image    : url("../img/minus.svg");
+      margin-right        : 5px;
+
+      &:disabled {
+        opacity : 0.2
+        }
+
+      }
+
+    .wpz-ai-images-weight-control {
+      display          : flex;
+      height           : 45px;
+      white-space      : nowrap;
+      background-color : $background-color_3;
+      padding          : 0 13px;
+      border-radius    : 24px;
+      margin-left      : 10px;
+      cursor           : pointer;
+
+      input {
+        &::-webkit-outer-spin-button {
+          -webkit-appearance : none;
+          margin             : 0;
+          }
+
+        &::-webkit-inner-spin-button {
+          -webkit-appearance : none;
+          margin             : 0;
+          }
+
+        flex-grow        : 2;
+        vertical-align   : top;
+        border           : 0;
+        line-height      : 45px;
+        background-color : $background-color_5;
+        width            : 50px;
+        text-align       : center;
+        border-radius    : 24px;
+        }
+
+      input[type=number] {
+        -moz-appearance : textfield;
+        }
+      }
+    }
+
+  .wpz-ai-images-sample-prompts-container {
+    border        : 1px solid #dae0e3;
+    border-radius : 8px;
+    padding       : 12px 15px;
+    margin        : 10px 0 35px;
+
+    h4 {
+      font-size      : 14px;
+      font-weight    : 600;
+      margin         : 0 0 0 10px;
+      padding-bottom : 0;
+      display        : inline-block;
+      color          : $color_1;
+      }
+    }
+
+  .wpz-ai-images-sample-prompts-header {
+    display        : flex;
+    align-items    : center;
+    flex-direction : row;
+    margin         : 10px 0 15px;
+    }
+
+  .wpz-ai-images-sample-prompts {
+    margin : 0;
+
+    li {
+      margin-bottom : 6px;
+
+      a {
+        display             : block;
+        padding             : 10px 15px;
+        background-color    : $background-color_3;
+        border-radius       : 8px;
+        text-decoration     : none;
+        background-image    : url("../img/plus.svg");
+        background-size     : 10px;
+        background-repeat   : no-repeat;
+        background-position : 98% center;
+        color               : $color_1;
+        }
+
+      &:hover a {
+        background-color : $background-color_5;
+        }
+      }
+    }
+
+  .wpz-ai-images-generate-button-container {
+    text-align       : center;
+    background-color : $background-color_2;
+    padding          : 30px 0;
+    border-radius    : 0 0 16px 16px;
+    border-top       : 1px solid $background-color_5;
+    }
+
+  .wpz-ai-prompt-output {
+    width : 33%;
+    float : right;
+
+    ol {
+      list-style : none;
+      font-size  : 2em;
+      margin     : 0;
+      }
+
+    li {
+      padding    : 0.5em 0;
+      transition : background-color 0.5s;
+
+      span {
+        margin-right : 1em;
+        line-height  : 1;
+        }
+      }
+    }
+
+  .uploader-inline {
+    .uploader-inline-content {
+      top : 0;
+      }
+    }
+  }
+
+// Results
+
+.wpz-ai-images-results-container {
+
+  position         : relative;
+  background-color : #f9fafb;
+  border-radius    : 16px;
+  padding          : 27px 20px;
+
+  h3 {
+    margin-bottom : 30px;
+    margin-left   : 10px;
+
+    @media (min-width : $desktop-width) {
+      padding-top : 36px;
+      }
+    }
+
+  .wpz-ai-images-title-wrapper {
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+    column-gap      : 30px;
+    flex-wrap       : wrap;
+
+    a {
+      color : #fd925c
+      }
+    }
+
+  @include phonetablet {
+    text-align : center;
+    }
+
+  }
+
+.wpz-ai-images-results {
+
+  display         : inline-grid;
+  width           : 100%;
+  grid-row-gap    : 16px;
+  grid-column-gap : 16px;
+  grid-auto-flow  : row;
+  justify-items   : center;
+
+  img {
+    width            : 100%;
+    height           : 100%;
+    box-shadow       : 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius    : 12px;
+    max-height       : 550px;
+    max-width        : 550px;
+    background-color : #f9fafb;
+    }
+
+  a {
+    display         : block;
+    width           : 100%;
+    height          : 100%;
+    background-size : cover;
+    margin          : 0px;
+    }
+
+  li {
+    width    : 100%;
+    position : relative;
+
+    .wpz-ai-images-result-buttons {
+      display  : none;
+      position : absolute;
+      right    : 5px;
+      top      : 5px;
+
+      .wpz-ai-images-result-button-save::before {
+        content : url(../img/save.svg);
+        }
+
+      .wpz-ai-images-result-button-edit::before {
+        content : url(../img/edit.svg);
+        }
+
+      .wpz-ai-images-result-button-view::before {
+        content : url(../img/fullscreen.svg);
+        }
+
+      button {
+        width            : 25px;
+        height           : 24px;
+        margin-right     : 5px;
+        margin-top       : 5px;
+        background-color : #fff;
+        border-radius    : 3px;
+        border           : none;
+        cursor           : pointer;
+
+        &::before {
+          height  : 14px;
+          display : block;
+          }
+
+        }
+      }
+
+    &:not(.wpz-ai-images-loading):hover .wpz-ai-images-result-buttons {
+      display : block;
+      }
+
+    }
+
+  li.wpz-ai-images-loading {
+    position : relative;
+    }
+
+  li.wpz-ai-images-loading:after {
+    content          : "";
+    background-color : white;
+    display          : block;
+    position         : absolute;
+    top              : 0;
+    left             : 0;
+    width            : 100%;
+    height           : 100%;
+    border-radius    : 12px;
+
+    }
+
+  li.wpz-ai-images-loading:before {
+    content          : "";
+    top              : 25%;
+    left             : 50%;
+    margin-left      : -24px;
+    background-image : url(../img/wp-zone-logo.png);
+    background-size  : cover;
+    display          : block;
+    position         : absolute;
+    animation        : wpz_ai_images_rotation 2s infinite ease;
+    z-index          : 3;
+
+    @include phone {
+      width  : 32px;
+      height : 32px;
+      }
+
+    @include tablet {
+      width  : 36px;
+      height : 36px;
+      }
+
+    @include desktop {
+      width  : 38px;
+      height : 38px;
+      }
+
+    @include desktoplarge {
+      width  : 48px;
+      height : 48px;
+      top    : 30%;
+      }
+
+    }
+
+  li.wpz-ai-images-loading a:before {
+    content    : "Loading...";
+    display    : block;
+    position   : absolute;
+    top        : 65%;
+    text-align : center;
+    color      : black;
+    width      : 100%;
+    z-index    : 3;
+
+    }
+
+  // Tooltip Uploading
+
+  span[class^="wpz-ai-tooltip-box-text"],
+  .wpz-ai-tooltip-box {
+    display : none;
+    }
+
+  li.wpz-ai-images-uploading:hover {
+    .wpz-ai-tooltip-box {
+      display          : flex;
+      align-items      : center;
+      justify-content  : center;
+      width            : 100%;
+      height           : 100%;
+      background-color : #e9edef;
+      text-align       : center;
+      z-index          : 3;
+      position         : absolute;
+      left             : 0;
+      top              : 0;
+      padding          : 10px;
+      color            : #3a3a3a;
+      border-radius    : 12px;
+      box-sizing       : border-box;
+      }
+
+    .wpz-ai-tooltip-box-text-uploading {
+
+      display : block;
+
+      &::before {
+        display       : block;
+        content       : url("../img/notifications/warning-circle.svg");
+        position      : relative;
+        margin-bottom : 15px;
+        }
+
+      }
+    }
+
+  // Uploading
+
+  li.wpz-ai-images-uploading {
+    position : relative;
+
+    &:after {
+      content          : "";
+      background-color : rgb(255 255 255 / 90%);
+      display          : block;
+      position         : absolute;
+      top              : 0;
+      left             : 0;
+      width            : 100%;
+      height           : 100%;
+      border-radius    : 12px;
+
+      }
+
+    &:before {
+      content          : "";
+      top              : 25%;
+      left             : 50%;
+      margin-left      : -24px;
+      background-image : url(../img/wp-zone-logo.png);
+      background-size  : cover;
+      display          : block;
+      position         : absolute;
+      animation        : wpz_ai_images_rotation 2s infinite ease;
+      z-index          : 3;
+
+      @include phone {
+        width  : 32px;
+        height : 32px;
+        }
+
+      @include tablet {
+        width  : 36px;
+        height : 36px;
+        }
+
+      @include desktop {
+        width  : 38px;
+        height : 38px;
+        }
+
+      @include desktoplarge {
+        width  : 48px;
+        height : 48px;
+        top    : 30%;
+        }
+
+      }
+
+    a:before {
+      content    : "Uploading...";
+      display    : block;
+      position   : absolute;
+      top        : calc(30% + 100px);
+      text-align : center;
+      color      : black;
+      width      : 100%;
+      z-index    : 3;
+
+      }
+    }
+
+  }
+
+// Tooltip Watermark
+
+
+.wpz-ai-images-preview-container .wpz-ai-tooltip-box, .wpz-ai-tooltip-box-text-watermark {
+  display : none;
+}
+
+// - Display when image not loading, when not placeholder, when data-url-preview attribute is set; display only for free users.
+.wpz-ai-images-preview-container.wpz-ai-images-free .wpz-ai-images-preview:hover,
+.wpz-ai-images-free .wpz-ai-images-results li[data-url-preview]:not([data-url-preview=""]):not(.wpz-ai-images-loading):hover {
+  .wpz-ai-tooltip-box {
+    display          : flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position         : absolute;
+    left             : 50%;
+    background-color : #000000ba;
+    border-radius    : 5px;
+    padding          : 10px;
+    transform        : translateX(-50%);
+    text-align       : center;
+    color            : #fff;
+    }
+
+    &:not(.wpz-ai-images-uploading) .wpz-ai-tooltip-box  .wpz-ai-tooltip-box-text-watermark {
+      display : block;
+    }
+  }
+
+.wpz-ai-images-preview-container.wpz-ai-images-free .wpz-ai-images-preview:hover .wpz-ai-tooltip-box {
+  bottom           : 40px;
+  }
+.wpz-ai-images-free .wpz-ai-images-results li[data-url-preview]:not([data-url-preview=""]):not(.wpz-ai-images-loading):hover .wpz-ai-tooltip-box {
+  bottom           : 20px;
+  }
+
+// Notice
+.wpz-ai-images-results-container .wpz-ai-images-notice {
+  text-align       : left;
+  padding          : 10px 20px;
+  margin           : 30px;
+  position         : absolute;
+  background-color : $background-color_5;
+  display          : none;
+  z-index          : 4;
+  line-height      : 2;
+  border-radius    : 12px;
+  box-shadow       : 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+
+.wpz-ai-images-results-container .wpz-ai-images-notice h4 {
+  text-align  : center;
+  font-size   : 16px;
+  color       : #fd925c;
+  font-weight : bold;
+
+  img {
+    width  : 32px;
+    height : 32px;
+    }
+  }
+
+.wpz-ai-images-results-container .wpz-ai-images-notice ul {
+  margin-left : 20px;
+  }
+
+// Feedback
+
+.wpz-ai-images-feedback {
+  display    : none;
+  text-align : left;
+  color      : $color_1;
+
+  h4 {
+    }
+
+  ol {
+    margin-left : 0 !important;
+    }
+
+  .wpz-ai-images-feedback-stars {
+    list-style    : none;
+    margin-bottom : 30px;
+
+    li {
+      display : inline;
+      }
+
+    button {
+      font-size  : 21px;
+      background : transparent;
+      border     : 0;
+      padding    : 0 2px 0 0;
+
+      &::after {
+        content : url(../img/stars/star-outline.svg);
+        color   : $color_orange;
+        }
+      }
+
+    .wpz-ai-images-active button::after {
+      content : url(../img/stars/star-filled.svg);
+      }
+    }
+
+  textarea {
+    width         : 100%;
+    min-height    : 120px;
+    border-radius : 8px;
+    margin-bottom : 10px;
+    padding       : 10px;
+    }
+
+  .wpz-ai-images-feedback-complete {
+    display : none;
+    }
+  }
+
+// Preview
+
+.wpz-ai-images-preview-container {
+  position    : fixed;
+  left        : 0;
+  top         : 0;
+  width       : 100vw;
+  height      : 100vh;
+  line-height : 100vh;
+  background  : rgba(0, 0, 0, 0.5);
+  z-index     : 999999999;
+  text-align  : center;
+  }
+
+.wpz-ai-images-preview {
+  display             : inline-block;
+  width               : 100%;
+  height              : 80%;
+  background-size     : contain;
+  background-position : center top;
+  background-repeat   : no-repeat;
+  vertical-align      : middle;
+  line-height         : 1;
+  position            : relative;
+
+  .wpz-ai-images-arrow-previous {
+    display             : block;
+    width               : 32px;
+    height              : 32px;
+    background-repeat   : no-repeat;
+    background-position : center;
+    background-size     : contain;
+    position            : absolute;
+    top                 : 10px;
+    background-image    : url(../img/left-white.svg);
+    left                : -40px;
+    }
+
+  .wpz-ai-images-arrow-next {
+    display             : block;
+    width               : 32px;
+    height              : 32px;
+    background-repeat   : no-repeat;
+    background-position : center;
+    background-size     : contain;
+    position            : absolute;
+    top                 : 10px;
+    background-image    : url(../img/right-white.svg);
+    right               : -40px;
+    }
+
+  .wpz-ai-images-buttons {
+    background : rgba(255, 255, 255, 0.75);
+    padding    : 0 5px;
+    display    : inline-block;
+    position   : relative;
+
+    button {
+      margin : 10px 5px;
+      }
+    }
+  }
+
+.wpz-ai-images-preview[data-index="0"] {
+  .wpz-ai-images-arrow-previous {
+    display : none;
+    }
+  }
+
+.wpz-ai-images-preview.wpz-ai-images-preview-last {
+  .wpz-ai-images-arrow-next {
+    display : none;
+    }
+  }
+
+.media-frame-content[aria-labelledby="menu-item-wpzai"] {
+  .uploader-inline-content {
+    top : 0;
+    }
+
+  .upload-ui, .upload-inline-status, .post-upload-ui > :not(.wpz-ai-images-upload-ui) {
+    display : none;
+    }
+
+  .wpz-ai-images-upload-ui.wpz-ai-images-hidden {
+    display : flex !important;
+    }
+  }
+
+.wpz-ai-image-editor {
+  position : relative;
+
+  img {
+    width   : 100%;
+    display : block;
+    }
+
+  .wpz-ai-images-mask-area {
+    position         : absolute;
+    background-color : rgba(0, 0, 0, 0.67);
+    border           : 1px #fff dotted;
+    }
+
+  .wpz-ai-images-mask-drag-area {
+    position : absolute;
+    top      : 0;
+    left     : 0;
+    z-index  : 999;
+    width    : 100%;
+    height   : 100%;
+    }
+
+  }
+
+.attachment-actions .wpz-ai-images-edit-image-button {
+  margin-left : 1em;
+  }
+
+.wpz-ai-images-edit-image textarea {
+  width  : 100%;
+  height : 5em;
+  }
+
+// Utility
+
+.wpz-ai-images-hidden {
+  display : none !important;
+  }

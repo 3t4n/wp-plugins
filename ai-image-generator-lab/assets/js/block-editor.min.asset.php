@@ -1,0 +1,1 @@
+<?php return ['version' => WpzAiImageLab::VERSION, 'dependencies' => ['wp-blocks', 'wp-element', 'jquery', 'wp-i18n']];

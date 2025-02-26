@@ -1,0 +1,244 @@
+#wpz-ai-image-lab-settings {
+  margin-bottom : 50px;
+  }
+
+#wpz-ai-image-lab-settings {
+  color                   : $fontColor;
+  font-family             : $fontGeneral;
+  font-weight             : $fontWeight;
+  line-height             : $lineHeight;
+  font-size               : $fontSize;
+  -webkit-font-smoothing  : antialiased;
+  -moz-osx-font-smoothing : grayscale;
+
+  h1, h2, h3, h4, h5, h6 {
+    @include heading;
+    }
+
+  h1 {
+    @include headingH1;
+    }
+
+  h2 {
+    @include headingH2;
+    }
+
+  h3 {
+    @include headingH3;
+    }
+
+  h4 {
+    @include headingH4;
+    }
+
+  h5 {
+    @include headingH5;
+    }
+
+  img {
+    max-width : 100%;
+    }
+
+  p {
+    margin-top     : 0;
+    margin-bottom  : 1em;
+    padding-bottom : 0;
+    font-weight    : $fontWeight;
+    font-size      : $fontSize;
+    line-height    : 2em;
+
+    &:last-of-type {
+      margin-bottom : 0;
+      }
+    }
+
+  a {
+    color           : $mainColor;
+    text-decoration : none;
+    box-shadow      : none;
+    outline         : none;
+
+    &:focus {
+      outline    : none;
+      box-shadow : none;
+      }
+
+    &:hover, &:focus {
+      color : $mainHoverColor;
+      }
+    }
+
+  hr.wpz-solid {
+    border-top : #e7ebee 1px solid;
+    margin     : 30px 0;
+    }
+
+  // Buttons
+  .dwpz-ai-image-lab-button, .wpz-ai-image-lab-button-primary, .wpz-ai-image-lab-button-secondary {
+    @include button;
+    @include sizeButtonMixin(medium);
+    }
+
+  .dwpz-ai-image-lab-button, .wpz-ai-image-lab-button-primary.wpz-ai-image-lab-button-large, .wpz-ai-image-lab-button-secondary.wpz-ai-image-lab-button-large {
+    @include sizeButtonMixin(large);
+    }
+
+  .wpz-ai-image-lab-button, .wpz-ai-image-lab-button-primary {
+    @include colorButtonMixin(primary);
+    }
+
+  .wpz-ai-image-lab-button-secondary {
+    @include colorButtonMixin(outline);
+    }
+
+  // Spacing
+  .ml-30 {
+    margin-left : 30px;
+    }
+
+  .mt-30 {
+    margin-top : 30px;
+    }
+
+  .mb-30 {
+    margin-bottom : 30px;
+    }
+
+  .ml-25 {
+    margin-left : 25px;
+    }
+
+  .mt-25 {
+    margin-top : 25px;
+    }
+
+  .mb-25 {
+    margin-bottom : 25px;
+    }
+
+  .mt-15 {
+    margin-top : 15px;
+    }
+
+  .mb-15 {
+    margin-bottom : 15px;
+    }
+
+  .mt-10 {
+    margin-top : 10px;
+    }
+
+  .mb-10 {
+    margin-bottom : 10px;
+    }
+
+  .mt-5 {
+    margin-top : 5px;
+    }
+
+  .mb-5 {
+    margin-bottom : 5px;
+    }
+
+  #wpz-ai-image-lab-settings-welcome {
+    text-align : left;
+    max-width  : 800px;
+
+    p {
+      font-size : $fontSize;
+      }
+    }
+
+  h3 {
+    font-size: 18px
+    }
+
+  a {
+    font-weight     : 600;
+    text-decoration : underline;
+    }
+
+  ul {
+    margin-top    : 0;
+    margin-bottom : 35px;
+    font-size     : $fontSize;
+    list-style    : disc inside;
+    margin-left   : 20px;
+
+    }
+
+  #wpz-ai-images-settings-footnote {
+      margin-top: 15px ;
+    }
+  }
+
+#wpz-ai-image-lab-settings-container {
+  width  : 98%;
+  margin : 20px auto;
+
+  @media (max-width : $breakSmall) {
+    width : 90%;
+    }
+  }
+
+#wpz-ai-images-settings-footnote {
+  margin-top : 1em;
+  text-align : center;
+
+  small {
+    font-size : 11px;
+    }
+  }
+
+
+#wpz-ai-images-video {
+  position      : relative;
+  margin-bottom : 30px;
+
+  img {
+    display : block;
+    }
+
+  small {
+    display    : block;
+    color      : #fff;
+    position   : absolute;
+    width      : 100%;
+    text-align : center;
+    left       : 0;
+    bottom     : 0;
+    font-size  : 11px;
+    }
+
+  #wpz-ai-images-video-overlay {
+    background-color : #000000aa;
+    position         : absolute;
+    left             : 0;
+    top              : 0;
+    width            : 100%;
+    height           : 100%;
+    display          : flex;
+    justify-content  : center;
+    align-items      : center;
+
+    a {
+      display       : block;
+      overflow      : hidden;
+      width         : 0;
+      height        : 0;
+      border-left   : 50px solid #fff;
+      border-top    : 25px solid #ffffff00;
+      border-bottom : 25px solid #ffffff00;
+      @media (min-width: 768px) {
+        border-left   : 100px solid #fff;
+        border-top    : 50px solid #ffffff00;
+        border-bottom : 50px solid #ffffff00;
+        }
+
+      &:hover {
+        border-left-color : #ffffff99;
+        }
+      }
+
+    }
+  }
