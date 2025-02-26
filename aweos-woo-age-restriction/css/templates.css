@@ -1,0 +1,288 @@
+/* --------------- */
+/* PICKER TEMPLATE */
+/* --------------- */
+
+.awar-btn {
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 17px;
+    text-decoration: none;
+    margin-top: 20px;
+    width: 100%;
+    color: white;
+    position: relative;
+    display: inline-block;
+    user-select: none;
+}
+
+.awar-btn::before {
+    content: none;
+}
+
+.awar-btn {
+    /* background-color: #4ea4e6; */
+    /* box-shadow: 0px 5px 0px 0px rgb(56, 139, 202); */
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 17px;
+    text-decoration: none;
+    margin-top: 20px;
+    width: 100%;
+    /* color: white; */
+    position: relative;
+    display: inline-block;
+}
+
+.awar-btn:hover {
+    cursor: pointer;
+}
+
+.awar-btn.enabled:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.awar-btn.disabled {
+    background-color: grey;
+    box-shadow: 0 5px 0 0 dimgrey;
+}
+
+.awar-picker {    
+    margin-top: 20px;
+    font-weight: 600;
+    width: 100%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+.awar-picker .selectize-control {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    width: calc((100% / 3) - 13px);
+}
+
+.awar-picker .selectize-control.month {
+    margin: 0 20px;
+}
+
+.awar-picker select {
+    display: none;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.awar-picker.not-valid .selectize-input {
+    border-color: #f22;
+    color: black;
+}
+
+.awar-confirm-cb {
+    margin-top: 20px;
+    display: block;
+    font-weight: 400;
+}
+
+.awar-confirm-wrap.not-valid label.awar-confirm-cb {
+    color: #f22;
+}
+
+.awar-confirm-wrap {
+    user-select: none;
+    margin-top: 15px;
+    color: #444444;
+}
+
+.awar-picker-submit.disabled:before {
+	box-shadow: none;
+	background: #ddd;
+}
+
+/* phones and smaller */
+@media screen and (max-width: 500px) {
+    .awar-picker {
+        width: 100% !important;
+        flex-wrap: wrap;
+    }
+
+    .awar-picker .selectize-control.month {
+        margin: 5px 0;
+    }
+
+    .awar-picker .selectize-control {
+        min-width: 200px;
+    }
+}
+
+/* -------------- */
+/* POPUP TEMPLATE */
+/* -------------- */
+
+.awar-overlay .popup {
+    background-color: #e7e7ef;
+    margin: 70px auto;
+    padding: 20px;
+    /* let it hide and show again */
+    border-radius: 5px;
+    max-height: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.awar-overlay .popup .awar-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.awar-overlay {
+    display: block;
+}
+
+/* @supports (display: flex) {
+    .awar-overlay {
+      display: flex;
+    }
+} */
+
+.awar-overlay {
+    /* center popup in background-container */
+    justify-content: center;
+    align-items: center;
+    /* let it hide and show again */
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0.5;
+    /* span full screen and stay on top of elements */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0,0,0,0.6);
+    z-index: 100000;
+}
+
+.awar-overlay.visible {
+    /* let it hide and show again */
+    visibility: visible;
+    opacity: 1.0;
+}
+
+.awar-overlay .awar-close {
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 200ms;
+}
+
+.awar-overlay .awar-close:hover {
+    color: #06D85F;
+}
+
+/* phones and smaller */
+@media screen and (max-width: 768px) {
+    .awar-overlay .popup {
+        min-width: 80%;
+        max-width: 80%;
+        border-radius: 20px;
+    }
+}
+
+/* small phones in landscape */
+@media screen and (max-height: 700px) {
+    .awar-overlay .popup {
+        overflow-y: auto;
+    }
+}
+
+
+/* phones and smaller */
+@media screen and (max-width: 500px) {
+    .awar-overlay .awar-close {
+        display: block;
+        margin-bottom: 12px;
+    }
+}
+
+/* ------------------- */
+/* - STYLED CHECKBOX - */
+/* ------------------- */
+
+.awar-switch span {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    background: white;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    justify-self: center;
+    flex-basis: 20px;
+    -ms-flex-preferred-size: 20px;
+    /* position the check-box and text site-by-site */
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 0px;
+}
+
+.awar-switch input:checked + span:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: white;
+    margin-left: 5px;
+    margin-top: 9px;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.awar-switch input:checked + span {
+    background: #297af3;
+}
+
+.awar-switch input {
+    display: none;
+}
+
+.awar-switch label {
+    /* position the check-box and text site-by-site */
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    align-items: flex-start;
+    /* justify-content: center; */
+    text-align: left;
+    color: #555;
+}
+
+.awar-switch p {
+    cursor: pointer;
+    user-select: none;
+    flex-basis: 100%;
+    align-self: stretch;
+    width: calc(100% - 35px);
+    margin-left: 35px;
+}
+
+.awar-switch {
+    margin: 15px;
+}
+
+.awar-switch.not-valid p {
+	color: #f22;
+}
+
+.awar-switch.not-valid span {
+	background: #f22;
+}

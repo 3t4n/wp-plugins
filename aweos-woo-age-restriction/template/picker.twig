@@ -1,0 +1,48 @@
+<div class="{{ prefix }}-popup nav">
+	<div class="{{ prefix }}-picker">
+		<select name="day" class="select-birth day">
+			<option disabled selected>{{ picker_day }}</option>
+			{% for i in 1..31 %}
+			<option value="{{ i }}">{{ i }}</option>
+			{% endfor %}
+		</select>
+
+		<select name="month" class="select-birth month">
+			<option disabled selected>{{ picker_month }}</option>
+			{% for i in 1..12 %}
+			<option value="{{ i }}">{{ i }}</option>
+			{% endfor %}
+		</select>
+
+		<select name="year" class="select-birth year">
+			<option disabled selected>{{ picker_year }}</option>
+			<option value="{{ from_year }}">{{ from_year }} {{ picker_early }}</option>
+			{% for i in from_year .. to_year %}
+			<option value="{{ i }}">{{ i }}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+	<div class="{{ prefix }}-switch">
+		<label>
+			<input type="checkbox">
+			<span></span>
+			<p>{{ picker_confirm_description }}</p>
+		</label>
+	</div>
+	
+	{# <style> #}
+	{# OLD #}
+	{# style="background-color: {{ picker_color_hex }}; box-shadow: 0px 5px 0px 0px {{ picker_color_hex_shadow }}; color: {{ picker_color_text }}" #}
+
+	{# .{{ prefix }}-picker-submit {
+		background-color: {{ picker_color_hex }};
+		box-shadow: 0px 5px 0px 0px {{ picker_color_hex_shadow }};
+		color: {{ picker_color_text }}
+	} #}
+	{# </style> #}
+
+	<button class="{{ prefix }}-btn blue {{ prefix }}-picker-submit disabled">
+	    {{ picker_button }}
+	</button>
+</div>

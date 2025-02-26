@@ -1,0 +1,18 @@
+{# add/remove class visible to show/hide the overlay #}
+<div class="{{ prefix }}-overlay visible">
+	<div class="popup">
+		{% if not required %}
+		<a class="{{ prefix }}-close" href="#">&times;</a>
+		{% endif %}
+		<p class="{{ prefix }}-title">{{ title|raw }}</p>
+		<div class="{{ prefix }}-content">
+			<p class='{{ prefix }}-subtitle'>
+				{{ popup_subtitle }}
+			<p>
+			<p class='{{ prefix }}-title'>
+				<strong>{{ picker_title }}</strong>
+			</p>
+			{{ content|raw }}
+		</div>
+	</div>
+</div>
