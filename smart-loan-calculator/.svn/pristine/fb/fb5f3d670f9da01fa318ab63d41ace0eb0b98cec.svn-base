@@ -1,0 +1,110 @@
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+font-family: var(--default-font);
+        font-size: 14px;
+  color: rgb(0, 0 ,0 , 0.9);
+  opacity: 0.9; /* Firefox */
+}
+
+
+input.khyzer[type=text],input.khyzer[type=email],input.khyzer[type=password], select, textarea{
+     width: 100%;
+    max-width: 250px;
+font-family: var(--default-font);
+    font-size: 18px;
+    /* font-weight: bold; */
+    height: auto;
+    padding: 6px;
+    border: none;
+    /* border-bottom: 1.5px solid #8e959f; */
+    color: black;
+    background-color: #f6f6f6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    resize: vertical;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+
+input[type=text]:focus {
+  /*border-bottom:2px solid #3f51b5;*/
+
+}
+
+
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+:focus:-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+:focus::-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+:focus:-ms-input-placeholder {  
+  opacity: 0;
+  -ms-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/*select {  }*/
+select{
+              /*color: white;*/
+    /*background: transparent;*/
+    /*border: 1px solid white;*/
+    /*border-bottom: 1px solid white;*/
+    text-align: center;
+    text-align-last: center;
+    border-radius: 0px;
+    /*margin-top: 12px;*/
+    max-width: 250px;
+    font-size: 14px;
+    cursor: pointer;
+
+
+}
+
+select option { padding: 4px;cursor: pointer; }
+/*select option:first-child{
+  color: white;
+}*/
+
+select:focus{
+  outline: none;
+  /*color:black;*/
+  /*font-weight: bold;*/
+}
+
+
+
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  input.khyzer[type=text],select,textarea {
+    width: 100%;
+  }
+
+
+::placeholder { 
+  font-size: 12px;
+}
+
+
+
+}
