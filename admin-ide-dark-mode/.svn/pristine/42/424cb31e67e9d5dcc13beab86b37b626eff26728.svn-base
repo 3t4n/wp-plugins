@@ -1,0 +1,59 @@
+.aidm-theme-list {
+	max-height: 300px;
+	height: 100%;
+	overflow-y: scroll;
+	width: 200px;
+	float: left;
+	border: 1px solid #aeaeae;
+	padding: 10px;
+	border-radius: 7px;
+	background: #343a40;
+	margin-top: 0;
+	box-sizing: border-box;
+	margin-right: 20px;
+}
+
+.aidm-theme-list-item {
+	color: #c6ccd7;
+	border: 1px solid;
+	border-color: #495057;
+	padding: 8px;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #495057;
+    transition: all 100ms ease;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.aidm-theme-list-item:hover {
+	cursor: pointer;
+    background-color: #e3e3e3;
+	color: #212529;
+}
+
+.aidm-theme-list-item.current {
+	border-color: #33393e;
+	background-color: #343a40;
+    color: #fff;
+}
+
+.aidm-theme-list-item .theme-radio {
+    display: none;
+}
+
+.aidm-theme-list-item.error-selection {
+	animation: 115ms linear 0s 4 alternate error-selection;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+@keyframes error-selection {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.33;
+	}
+}
