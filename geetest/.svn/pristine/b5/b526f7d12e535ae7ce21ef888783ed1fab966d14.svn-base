@@ -1,0 +1,1 @@
+jQuery('#embed-captcha').appendTo('.gform_body')
