@@ -1,0 +1,2 @@
+<?php
+// slicence is gold
