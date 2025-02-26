@@ -1,0 +1,11 @@
+<?php $whitelist = esc_attr( get_option( 'awesoft_ip_whitelist_list' ) ); ?>
+<label style="display: none" for="awesoft_ip_whitelist_list">IP Addresses</label>
+<textarea class="code"
+          id="awesoft_ip_whitelist_list"
+          name="awesoft_ip_whitelist_list"
+          style="min-width: 300px; width: 30%"
+          rows="4"><?php echo $whitelist; ?></textarea>
+<p class="description">
+  Enter one IP address per line.<br/>
+  CIDR notation is currently not supported.
+</p>
