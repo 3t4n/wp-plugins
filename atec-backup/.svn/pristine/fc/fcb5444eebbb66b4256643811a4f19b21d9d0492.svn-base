@@ -1,0 +1,31 @@
+<?php 
+// HTTP Headers for ZIP File Downloads
+// https://perishablepress.com/press/2010/11/17/http-headers-file-downloads/
+
+// @codingStandardsIgnoreStart
+// This is all happening outside of WP, in uploads folder, so no WP functions available here
+if (!isset($_REQUEST['filename']) || !isset($_REQUEST['random'])) { die(404); }
+$sanitizedFilename = preg_replace('/[^a-zA-Z0-9\-\._]/','', $_REQUEST['filename']);
+$sanitizedRandom = preg_replace('/[^a-zA-Z0-9\-\._]/','', $_REQUEST['random']);
+$fullpath=__DIR__.'/'.$sanitizedFilename;
+$randomFullpath=__DIR__.'/'.$sanitizedRandom.'.txt';
+if (!@file_exists($randomFullpath) || !@file_exists($fullpath)) { die(404); }
+ini_set("zlib.output_compression", "off");
+// This has no influence on WP scripts
+// @codingStandardsIgnoreEnd
+
+header('Pragma: public');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Cache-Control: public');
+header('Content-type: application/zip');
+//header('Content-Type: application/x-download');
+header('Content-Disposition: attachment; filename='.$sanitizedFilename);
+header('Content-Length: '.filesize($fullpath));
+header('Content-Transfer-Encoding: binary');
+
+// @codingStandardsIgnoreStart
+@readfile($fullpath);
+// @codingStandardsIgnoreEnd
+exit;
+?>

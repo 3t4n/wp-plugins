@@ -1,0 +1,9 @@
+<FilesMatch "atec-wpb-download.php">
+	Order Deny,Allow
+	Allow from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteRule ^backup.log$ - [L,F]
+</IfModule>
