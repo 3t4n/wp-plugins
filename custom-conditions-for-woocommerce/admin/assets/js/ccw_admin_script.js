@@ -1,0 +1,1 @@
+"use strict";const saveChangesBtn=document.querySelector("#ccw-save-changes-btn"),loader=document.querySelector(".ccw-loader");saveChangesBtn&&saveChangesBtn.addEventListener("click",()=>loader.style.display="block");
