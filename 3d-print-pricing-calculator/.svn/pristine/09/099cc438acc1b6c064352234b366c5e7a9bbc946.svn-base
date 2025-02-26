@@ -1,0 +1,281 @@
+h1 {
+    font-size: 32px;
+    color: #0D95B2;
+}
+
+.file-upload-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+#stl-upload-message {
+    margin-top: 40px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch label::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-switch input:checked+label {
+    background-color: #2271b1;
+}
+
+.toggle-switch input:checked+label::before {
+    transform: translateX(26px);
+}
+
+.admin-add-option-btn {
+    color: #0D95B2;
+    padding: 5px;
+    border: 0;
+    text-decoration: underline;
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    margin: 20px auto;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-table tr th {
+    text-align: end;
+}
+
+.spacer {
+    margin: 10px 0;
+}
+
+.option-row,
+.description-row {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    text-align: end;
+    margin-bottom: 27px;
+}
+
+.option-row label {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.description-row label {
+    margin-top: 10px;
+}
+
+.option-row label,
+.description-row label {
+    margin-bottom: 5px;
+    max-width: 164px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.option-row input,
+.description-row textarea,
+.option-row input[type="number"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    max-width: 300px;
+
+}
+
+.description-row textarea {
+    height: 100px;
+    max-width: 300px;
+    resize: vertical;
+}
+
+.remove-option {
+    color: #D00000;
+    padding: 5px;
+    border: 0;
+    text-decoration: underline;
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#printing_technology option {
+    display: block;
+    font-size: 15px;
+}
+
+#optionstable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#optionstable td.action-column .actions {
+    display: flex;
+    gap: 28px;
+}
+
+#optionstable td.action-column .actions .edit-option {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+#optionstable td,
+#customers th {
+    border-bottom: 1px solid #D9D9D9;
+    padding: 18px;
+}
+
+#optionstable .th-option-name {
+    max-width: 232px;
+}
+
+#optionstable .th-value {
+    max-width: 94px;
+}
+
+#optionstable .action-value {
+    max-width: 163px;
+}
+
+#optionstable tr:hover {
+    background-color: #ddd;
+}
+
+#optionstable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    text-align: left;
+    background-color: #DFE9EB;
+    color: #2B2B2B;
+}
+
+#optionstable th:not(:last-of-type) {
+    border-right: 3px solid white;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin-left: 30%;
+    margin-right: 5%;
+    margin-top: 10%;
+    padding: 20px;
+    border: 1px solid #0D95B2;
+    max-width: 752px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 40px 40px 70px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal .heading-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal .heading-container h2 {
+    color: #0D95B2;
+    font-size: 20px;
+}
+
+.modal .spacer button {
+    display: flex;
+    margin-inline: auto;
+    border-radius: 5px;
+    color: white;
+    background-color: #0D95B2;
+}
+
+@media (max-width:961px) {
+    .modal-content {
+        max-width: 650px;
+        margin-left: 10%;
+    }
+
+    .option-row label,
+    .description-row label {
+        max-width: 85px;
+    }
+
+}
+
+@media (max-width:782px) {
+    .modal-content {
+        margin-left: 5%;
+    }
+
+    .form-table tr th {
+        text-align: start;
+    }
+}
