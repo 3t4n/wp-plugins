@@ -1,0 +1,202 @@
+/* Lamlim Button Public CSS */
+
+/* DIV surrounding button */
+.lamlim-btn-wrapper,
+.lamlim-btn-wrapper-shortcode,
+.lamlim-btn-wrapper-widget {
+}
+
+.lamlim-btn-wrapper {
+    padding-bottom: 10px;
+}
+
+/* Latest "clear fix" method: http://css-tricks.com/snippets/css/clear-fix/ */
+.lmlm-clearfix:before,
+.lmlm-clearfix:after {
+    content:"";
+    display: table;
+}
+.lmlm-clearfix:after {
+    clear: both;
+}
+.lmlm-clearfix {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.lmlm-float-left {
+    float: left;
+}
+
+.lmlm-float-right {
+    float: right;
+}
+
+/* DIV surrounding Share Bar */
+.lmlm-sharebar {
+	padding: 10px 0 5px;
+	margin: 0;
+	width: 100% !important;
+}
+
+.lmlm-sharebar ul,
+.lmlm-sharebar li {
+    margin: 0 !important;
+    padding: 0 !important;
+	list-style: none;
+	border: none;
+	background: none;
+    text-indent: 0;    
+}
+
+.lmlm-sharebar li {
+	float: left;
+	margin: 0 5px 5px 0 !important;
+	display: block;
+}
+
+.lmlm-sharebar li:before {
+  content: none !important;
+}
+
+.lmlm-sharebar li.lmlm-share-lamlim {
+    margin-right: 30px !important;
+}
+
+/*** BEGIN Count Bubble CSS ***/
+/* Need to override theme styles as much as possible */
+
+table.lmlm-count-table {
+	border: 0 !important;
+	border-collapse: collapse !important;
+	border-spacing: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	vertical-align: top !important;
+	width: auto !important;
+}
+
+table.lmlm-count-table td {
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	vertical-align: top !important;
+}
+
+table.lmlm-count-table-horizontal td {
+	text-align: left !important;
+}
+
+table.lmlm-count-table-vertical td {
+	text-align: center !important;
+}
+
+a.lamlim-button-no-iframe,
+a.lamlim-button-no-iframe:hover {
+    background: none !important;
+    border: 0 !important;
+    text-decoration: none !important;
+    width: auto !important;    
+}
+
+img.lmlm-count-img {
+	border: 0 !important;
+	margin: 0 !important;
+	max-width: none !important;
+	padding: 0 !important;
+    width: auto !important;
+}
+
+.lmlm-count-cell {
+	display: none; /* Initially hidden */
+	position: relative !important;
+}
+
+table.lmlm-count-table-horizontal td.lmlm-count-cell {
+	padding-left: 4px !important;
+}
+
+table.lmlm-count-table-vertical td.lmlm-count-cell {
+	padding-bottom: 4px !important;
+}
+
+.lmlm-count-bubble {
+	background-color: #FCF9F9 !important;
+	border: 1px solid #C9C5C5 !important;
+	border-radius: 1px !important;
+	color: #777 !important;
+	display: inline-block !important;
+	position: relative !important;
+	vertical-align: top !important;
+}
+
+table.lmlm-count-table-horizontal .lmlm-count-bubble {
+	height: 10px !important;
+	font: 10px/10px Arial, Helvetica, sans-serif !important;
+	margin: 0 !important;
+	padding: 3px 5px 4px 5px !important;
+	text-align: left !important;
+	width: auto !important;
+}
+
+table.lmlm-count-table-vertical .lmlm-count-bubble {
+	font: 12px/12px Arial, Helvetica, sans-serif !important;
+	height: 21px !important;
+	margin: 0 !important;
+	padding: 9px 0 0 0 !important;
+	text-align: center !important;
+	width: 39px !important;
+}
+
+.lmlm-count-bubble:after,
+.lmlm-count-bubble:before {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+table.lmlm-count-table-horizontal .lmlm-count-bubble:after,
+table.lmlm-count-table-horizontal .lmlm-count-bubble:before {
+	right: 100%;
+}
+
+table.lmlm-count-table-vertical .lmlm-count-bubble:after,
+table.lmlm-count-table-vertical .lmlm-count-bubble:before {
+	top: 100%;
+}
+
+.lmlm-count-bubble:after {
+	border-width: 3px;
+}
+
+table.lmlm-count-table-horizontal .lmlm-count-bubble:after {
+	border-right-color: #FCF9F9;
+	top: 50%;
+	margin-top: -3px;
+}
+
+table.lmlm-count-table-vertical .lmlm-count-bubble:after {
+	border-top-color: #FCF9F9;
+	left: 50%;
+	margin-left: -3px;
+}
+
+.lmlm-count-bubble:before {
+	border-width: 4px;
+}
+
+table.lmlm-count-table-horizontal .lmlm-count-bubble:before {
+	border-right-color: #C9C5C5;
+	top: 50%;
+	margin-top: -4px;
+}
+
+table.lmlm-count-table-vertical .lmlm-count-bubble:before {
+	border-top-color: #C9C5C5;
+	left: 50%;
+	margin-left: -4px;
+}
+
+/*** END Count Bubble CSS ***/
