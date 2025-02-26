@@ -1,0 +1,187 @@
+.aerppk-reactions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.aerppk-reaction-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px !important;
+    border: none;
+    border-radius: 16px;
+    background-color: var(--aerppk-background-color, #f0f2f5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    font-size: 24px !important;
+    line-height: 1.5 !important;
+}
+
+.aerppk-reaction-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+.aerppk-reaction-button.active {
+    background-color: #e3f2fd;
+    position: relative;
+}
+
+.aerppk-reaction-button.active::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 2px solid #2196f3;
+    border-radius: 18px;
+    opacity: 0.5;
+}
+
+.aerppk-emoji {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin-right: 6px;
+    line-height: 1;
+}
+
+.aerppk-count {
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    min-width: 12px;
+    text-align: center;
+}
+
+.aerppk-reaction-button:active {
+    transform: scale(0.95);
+}
+
+/* Animation when adding/removing reaction */
+@keyframes aerppk-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.aerppk-reaction-button.animating {
+    animation: aerppk-pulse 0.3s ease;
+}
+
+/* Responsiveness for mobile devices */
+@media (max-width: 480px) {
+    .aerppk-reactions-container {
+        gap: 6px;
+    }
+
+    .aerppk-reaction-button {
+        padding: 4px 10px;
+    }
+
+    .aerppk-emoji {
+        font-size: 18px;
+    }
+
+    .aerppk-count {
+        font-size: 12px;
+    }
+}
+
+/* Tooltip styles */
+.aerppk-reaction-button {
+    position: relative;
+}
+
+.aerppk-reaction-button::before {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: 6px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.aerppk-reaction-button:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* Loading state styles */
+.aerppk-reaction-button.loading {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.aerppk-reaction-button.loading::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: 2px solid #666;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: aerppk-spin 0.8s linear infinite;
+    margin-left: 6px;
+}
+
+/* Custom emoji styles */
+.aerppk-custom-emoji {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.aerppk-reaction-emoji {
+    font-size: 24px !important;
+}
+
+.aerppk-error-message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #dc3232;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.aerppk-error-content {
+    color: #dc3232;
+    font-size: 14px;
+}
+
+.aerppk-error-highlight {
+    animation: errorPulse 0.5s ease;
+}
+
+@keyframes errorPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes message-blink {
+    0% { opacity: 0; transform: translateY(-10px); }
+    50% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(0); }
+}
+
+.aerppk-message {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 13px;
+    line-height: 1.4;
+} 
