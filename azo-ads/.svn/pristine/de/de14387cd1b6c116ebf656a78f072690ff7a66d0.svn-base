@@ -1,0 +1,378 @@
+div.azoads img {
+    margin: 0;
+    padding: 0;
+}
+div.azoads a {
+    display: inline-block;
+    line-height: 1;
+}
+
+.azoads-sticky-ads {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+    margin: 0;
+    padding: 5px 0;
+    background: rgb(255 255 255 / 80%);
+    z-index: 9999 !important;
+}
+.azoads-sticky-ads .azoads-sticky-ads-inner {
+    position: relative;
+}
+a.azoads-sticky-ads.close-btn {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content!important;
+    max-width: unset!important;
+    height: fit-content;
+    top: 5px;
+    right: 5px;
+    left: unset;
+    font-size: 11px;
+    background: unset;
+    text-align: right;
+    z-index: 99;
+}
+.azo-ads-parallax, .azo-ads-parallax-fullscreen {
+    display: block;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Ad Type: Popup */
+.azoads-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.azoads-popup .azoads-popup-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.azoads-popup .azoads-popup-inner > div {
+    position: relative;
+    max-width: 640px;
+    background: #FFF;
+}
+.azoads-popup .azoads-popup-inner a {
+    display: block;
+    line-height: 0;
+}
+.azoads-popup-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border-radius: 50%;
+    padding: 2px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.azoads-popup-close svg {
+    display: block;
+    width: 17px;
+    height: 17px;
+}
+
+/* Ad Type: Random */
+.azoads-random .azoads {
+    display: none;
+}
+
+/* Ad Type: Floating */
+.azoads-floating {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.azoads-floating .azoads-floating-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+}
+.azoads-floating .azoads-floating-inner > div {
+    position: relative;
+    max-width: 640px;
+    background: #FFF;
+}
+.azoads-floating .azoads-floating-inner a {
+    display: block;
+    line-height: 0;
+}
+.azoads-floating .azoads-floating-inner img {
+    margin: 0;
+    padding: 0;
+}
+.azoads-floating-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: #FFF;
+    border-radius: 50%;
+    padding: 2px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.azoads-floating-close svg {
+    display: block;
+    width: 17px;
+    height: 17px;
+}
+
+/* Ad Position Classes within Flex */
+.azoads .top-left {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.azoads .top-center {
+    justify-content: center;
+    align-items: flex-start;
+}
+.azoads .top-right {
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.azoads .middle-left {
+    justify-content: flex-start;
+    align-items: center;
+}
+.azoads .middle-center {
+    justify-content: center;
+    align-items: center;
+}
+.azoads .middle-right {
+    justify-content: flex-end;
+    align-items: center;
+}
+.azoads .bottom-left {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.azoads .bottom-center {
+    justify-content: center;
+    align-items: flex-end;
+}
+.azoads .bottom-right {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+/* Ad Type: Group Insertion */
+.azoads-group-insertion .azoads {
+    display: none;
+}
+
+/* Ad Type: Carousel */
+.azoads-slider {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.azoads-slider ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    list-style: none;
+}
+.azoads-slider ul li {
+    position: relative;
+    display: flex;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 500px;
+    height: 300px;
+    background: #ccc;
+    text-align: center;
+}
+.azoads-slider ul li img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+a.nav-prev, a.nav-next {
+    position: absolute;
+    top: 50%;
+    z-index: 999;
+    display: none;
+    padding: 3% 2%;
+    margin-top: calc(-3% - 13.5px);
+    width: auto;
+    height: auto;
+    background: #222;
+    color: #fff!important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    opacity: 0.5;
+    cursor: pointer;
+    user-select: none;
+}
+a.nav-prev:hover, a.nav-next:hover {
+    opacity: 1;
+    -webkit-transition: all 0.2s ease;
+}
+a.nav-prev {
+    border-radius: 0 2px 2px 0;
+}
+a.nav-next {
+    right: 0;
+    border-radius: 2px 0 0 2px;
+}
+a.nav-prev:active, a.nav-prev:focus, a.nav-next:active, a.nav-next:focus {
+    outline: none; 
+}
+.carousel-text-html-javascript-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Ad Type: Rotator */
+.azoads-rotator .azoads {
+    display: none;
+}
+
+/* Ad Type: Half Screen */
+.azoads-half-screen-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0 0 0 / 90%);
+    z-index: 99;
+}
+.azoads-half-screen-nav {
+    position: absolute;
+    top: 25%;
+    right: -36px;
+    height: 31px;
+    padding: 3px 8px 3px 3px;
+    background: rgb(0 0 0 / 90%);
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+}
+.azoads-half-screen-nav svg {
+    display: none;
+    width: 25px;
+    height: 25px;
+    fill: #FFF;
+}
+.azoads-half-screen-nav svg.active {
+    display: block;
+}
+.azoads-half-screen-inner.mobile {
+    width: 100%;
+    top: unset;
+    bottom: 0;
+}
+.azoads-half-screen-inner.mobile .azoads-half-screen-nav {
+    top: -29px;
+    right: 10%;
+    height: 29px;
+    border-radius: 30px 30px 0 0;
+    padding: 6px 3px 3px 3px;
+}
+.azoads-half-screen-inner.mobile .azoads-half-screen-nav svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(90deg);
+}
+
+/* Ad Type: Skip Ad */
+.azoads-skip-inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transition: opacity .5s,visibility 0s .5s;
+    z-index: 9999;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+}
+.azoads-skip-inner.active {
+    opacity: 1;
+    overflow-y: scroll!important;
+    visibility: visible;
+    transition: opacity .5s;
+}
+.azoads-skip-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgb(255 255 255 / 90%);
+    padding: 5px 15px;
+    border-radius: 30px;
+    color: #000;
+}
+.azoads-skip-nav.open {
+    cursor: pointer;
+}
+.azoads-skip-nav svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Ad Type: Mobile Parallax Fullscreen */
+.azoads-parallax-fullscreen-container {
+    display: none;
+    background: transparent;
+}
+
+/* APPEARANCE */
+.azoads-appearance-label {
+    font-size: 12px;
+    color: #111;
+    text-align: center;
+}
+.azoads-skip .azoads-appearance-label, .azoads-half-screen .azoads-appearance-label {
+    color: #FFF;
+}
+
+
+/* REPONSIVE */
+@media only screen and (max-width: 767px) {
+    .azoads-popup .azoads-popup-inner > div {
+        max-width: calc(100% - 30px);
+    }
+}
