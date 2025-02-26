@@ -1,0 +1,120 @@
+/* Modern CSS reset | https://hankchizljaw.com/wrote/a-modern-css-reset/
+---------------------------------------------------------------------------- */
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+  
+/* Remove default padding, default margin and list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+  
+/* Compiled by Sridhar Katakam | https://wpdevdesign.com
+---------------------------------------------------------------------------- */
+
+/* Make all images responsive */
+img {
+  vertical-align: top;
+  height: auto;
+  max-width: 100%;
+}
+
+/* WP Image alignment classes */
+img.alignright { float: right; margin: 0 0 2em 2em; }
+img.alignleft { float: left; margin: 0 2em 2em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+@media only screen and (max-width: 480px) {
+  img.alignleft {
+    float: none;
+    margin-right: 0;
+    display: block;
+  }
+  
+  img.alignright {
+    float: none;
+    margin-left: 0;
+    display: block;
+  }
+}
+
+/* Make the admin bar menu items visible on top to accomodate the fixed header */
+@media (min-width: 993px) {
+    #wpadminbar {
+        z-index: 2147483640;
+    }
+}
+
+/* Seriously, Oxygen? */
+label {
+  display: block;
+}
+
+
+/* Screen Readers (taken from Genesis Sample 3.1.0) */
+.screen-reader-text {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background: #fff;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+    clip: auto !important;
+    color: #333;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    height: auto;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Search Form */
+.oxy-header .oxy-search-form {
+  width: auto;
+}
+
+.search-form {
+  display: flex;
+}
