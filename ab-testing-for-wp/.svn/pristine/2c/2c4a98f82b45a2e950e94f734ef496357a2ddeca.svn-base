@@ -1,0 +1,78 @@
+#wp-admin-bar-ab-testing-for-wp:hover > .ab-sub-wrapper,
+#wp-admin-bar-ab-testing-for-wp .menupop:hover > .ab-sub-wrapper {
+  display: block;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp > .ab-item::before {
+  content: "";
+  background-image: url('../assets/ab-testing-for-wp-logo-icon.svg') !important;
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  background-position: 50% 50%;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__test > .ab-item {
+  display: flex;
+  align-items: center;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__test > .ab-item span {
+  order: 2;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__test > .ab-item::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #d4d4d4;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 0;
+  margin: 0 8px 0 0;
+  order: 1;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__test.ab-testing-for-wp__enabled > .ab-item::after {
+  background: #46B450;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__variant.ab-testing-for-wp__selected > .ab-item::after {
+  content: "•";
+  margin-left: 5px;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__variant > .ab-item {
+  cursor: pointer;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__variant button {
+  text-align: left;
+  background: none;
+}
+
+#wpadminbar #wp-admin-bar-ab-testing-for-wp .ab-testing-for-wp__test .ab-item:hover {
+  color: #00b9eb;
+}
+
+.ab-testing-for-wp__highlight {
+  animation-name: pulse_animation;
+  animation-duration: 700ms;
+  transform-origin: 70% 70%;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  box-shadow: 0 0 20px rgba(38, 142, 199, 0);
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: 90000;
+}
+
+@keyframes pulse_animation {
+  0% { box-shadow: 0 0 20px rgba(38, 142, 199, 0.4); }
+  30% { box-shadow: 0 0 20px rgba(38, 142, 199, 1); }
+  60% { box-shadow: 0 0 20px rgba(38, 142, 199, 1); }
+  100% { box-shadow: 0 0 20px rgba(38, 142, 199, 0.4); }
+}

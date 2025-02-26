@@ -1,0 +1,42 @@
+.TestResults {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.TestResultName {
+  border-right: 1px solid #e2e4e7;
+}
+
+.TestResults td {
+  vertical-align: top;
+}
+
+.TestResults td.TestResultWinner {
+  color: #46B450;
+}
+
+.TestResults td.TestResultLoser {
+  color: #dc3232;
+}
+
+.TestResults .TestResultVariationName.TestResultControl:after {
+  content: "*";
+}
+
+.TestResults .TestResultDifference {
+  font-size: 0.7em;
+  display: block;
+  text-align: center;
+}
+
+.TestResults td.TestResultValue {
+  text-align: center;
+  line-height: 1.8em;
+  padding-left: 14px;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.TestResults + .Significance {
+  margin: 1.5em 0;
+}
