@@ -1,0 +1,158 @@
+$wp-border-color: #c3c4c7;
+$gutter-width: 1.5rem;
+$gutter-width-half: $gutter-width / 2;
+$speed: 250ms;
+$ease: ease-in-out;
+
+$wp-red: #d63638;
+$wp-yellow: #dba617;
+$wp-blue: #2271b1;
+$wp-blue-hover: #135e96;
+
+$primary: #2d5a5d;
+$secondary: #190933;
+$secondary-dark: darken(#190933, 5%);
+$success: #172d2f; // green darker
+$info: #fdce69;
+$warning: #f4743b;
+$danger: #a4303f;
+
+.woadmin-form-inner {
+	input[type="file"] {
+		border: 1px solid $wp-border-color;
+		border-radius: 3px;
+		font-size: 13px;
+		padding: 3px;
+		line-height: 2;
+		overflow: hidden;
+
+		&::file-selector-button {
+			display: inline-block;
+			text-decoration: none;
+			font-size: 13px;
+			line-height: 2;
+			min-height: 34px;
+			margin: 0;
+			padding: 0 10px;
+			margin: -4px 6px -4px -4px;
+			cursor: pointer;
+			border-width: 1px;
+			border-style: solid;
+			appearance: none;
+			border-radius: 3px;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			white-space: nowrap;
+			box-sizing: border-box;
+			color: $wp-blue;
+			border: 1px solid $wp-border-color;
+			background: #f6f7f7;
+			vertical-align: top;
+
+			&:hover {
+				color: $wp-blue-hover;
+				background: #f0f0f1;
+			}
+
+			&:focus {
+				background: #f6f7f7;
+				color: #0a4b78;
+				box-shadow: 0 0 0 1px #8c8f94;
+				outline: 2px solid transparent;
+				outline-offset: 0;
+			}
+
+			&:active {
+				background: #f6f7f7;
+				border-color: #8c8f94;
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+.nav-tab-wrapper ~ .notice + .woadmin-form-inner {
+	border-top: 1px solid $wp-border-color;
+}
+
+.adcmdrdt-sub {
+	margin-top: $gutter-width;
+	gap: $gutter-width-half;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&.adcmdrdt-sub--divide {
+		border-top: 1px solid lighten($wp-border-color, 10%);
+		padding-top: $gutter-width;
+	}
+
+	&.adcmdrdt-sub--col {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+.adcmdrdt-export-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+
+	li {
+		margin: 0 0 $gutter-width-half;
+		padding: 0 0 $gutter-width-half;
+		list-style: none;
+		border-bottom: 1px solid lighten($wp-border-color, 10%);
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		gap: $gutter-width-half;
+		width: 100%;
+
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	a {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: 4px;
+
+		text-decoration: none;
+
+		&:hover {
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.dashicons {
+		font-size: 1rem;
+		width: 1rem;
+		height: 1rem;
+	}
+
+	.adcmdrdt-del {
+		cursor: pointer;
+		outline: none;
+		border: none;
+		box-shadow: none;
+		padding: 0;
+		background: none;
+		vertical-align: middle;
+		color: $wp-red;
+	}
+}
