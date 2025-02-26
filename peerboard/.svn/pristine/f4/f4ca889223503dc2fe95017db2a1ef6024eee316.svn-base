@@ -1,0 +1,1 @@
+<div id='peerboard-forum' pb_v="<?= PEERBOARD_PLUGIN_VERSION ?>"></div>
