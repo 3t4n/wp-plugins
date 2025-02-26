@@ -1,0 +1,2 @@
+/*! License information can be found in onload.js.LICENSE.txt */
+!function(){var n=jQuery;n(document).ready((function(){n("#nlmg_assign_to").autocomplete({minLength:1,source:NLMG.endpoint,focus:function(){return!1},select:function(n,e){return jQuery(this).val(e.item.ID),!1}}).autocomplete("instance")._renderItem=function(n,e){return jQuery("<li>").append("<div class='nlmg-inc-search'>"+e.avatar+'<span class="nlmg-inc-name">'+e.display_name+"<small>("+e.user_login+')</small></span><div style="clear:left"></div></div>').appendTo(n)}}))}();
