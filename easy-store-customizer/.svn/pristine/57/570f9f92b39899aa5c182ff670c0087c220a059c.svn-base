@@ -1,0 +1,191 @@
+/**
+ * Admin styles for the WooCommerce Helper plugin
+ *
+ * @package    Easy_Store_Customizer
+ * @subpackage Easy_Store_Customizer/admin/css
+ */
+
+/* Settings Container */
+.esc-settings-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.esc-settings-main {
+    flex: 1;
+    max-width: 800px;
+}
+
+.esc-settings-sidebar {
+    width: 300px;
+}
+
+/* Cards */
+.esc-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+}
+
+.esc-card h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Feature Controls */
+.esc-feature-control {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.esc-feature-control:last-child {
+    border-bottom: none;
+}
+
+.esc-feature-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.esc-feature-header h3 {
+    margin: 0;
+}
+
+.esc-feature-description {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Toggle Switch */
+.esc-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.esc-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.esc-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.esc-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+.esc-switch input:checked+.esc-slider {
+    background-color: #2271b1;
+}
+
+.esc-switch input:focus+.esc-slider {
+    box-shadow: 0 0 1px #2271b1;
+}
+
+.esc-switch input:checked+.esc-slider:before {
+    transform: translateX(26px);
+}
+
+.esc-slider.round {
+    border-radius: 24px;
+}
+
+.esc-slider.round:before {
+    border-radius: 50%;
+}
+
+/* Feature Settings */
+.esc-feature-settings {
+    display: none;
+    background: #f9f9f9;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.esc-feature-settings.active {
+    display: block;
+}
+
+.esc-field-group {
+    margin-bottom: 15px;
+}
+
+.esc-field-group:last-child {
+    margin-bottom: 0;
+}
+
+.esc-field-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.esc-field-group input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+.esc-field-group .description {
+    margin-top: 5px;
+    color: #666;
+}
+
+/* Sidebar */
+.esc-settings-sidebar .esc-card {
+    background: #f8f9fa;
+}
+
+.esc-settings-sidebar h3 {
+    margin-top: 0;
+}
+
+.esc-settings-sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.esc-settings-sidebar ul li {
+    margin-bottom: 8px;
+}
+
+.esc-settings-sidebar ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .esc-settings-container {
+        flex-direction: column;
+    }
+
+    .esc-settings-sidebar {
+        width: 100%;
+    }
+}
