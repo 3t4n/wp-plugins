@@ -1,0 +1,1072 @@
+/*========= Settings panel ===========*/
+body.toplevel_page_ainsys-connector,
+body.toplevel_page_ainsys-connector .nav-tab-active {
+	background: #fff;
+}
+
+body.toplevel_page_ainsys-connector pre{
+	background: #fff;
+	border: none;
+	display: block;
+	padding: 0;
+	margin: 0;
+	line-height: 1.22857143;
+	color: #333;
+	word-break: break-all;
+	word-wrap: break-word;
+	border-radius: 0;
+	white-space: pre-wrap;
+	overflow: auto;
+}
+
+.ainsys-logo {
+	opacity: 0;
+	transition: .5s all linear;
+}
+
+.ainsys-settings-wrap {
+	padding: 1rem 0.25rem;
+}
+
+.wrap.ainsys-settings-wrap h1 {
+	margin: 0 0 4.375rem;
+	padding: 0;
+	text-align: center;
+}
+
+.wrap.ainsys-settings-wrap h2 {
+	margin: 0 0 1.25rem;
+	padding: 0;
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.45;
+	color: #101828;
+}
+
+.wrap.ainsys-settings-wrap h3 {
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.25;
+	text-align: left;
+	color: #101828;
+}
+
+.toplevel_page_ainsys-connector div {
+	box-sizing: border-box;
+}
+
+.toplevel_page_ainsys-connector .btn {
+	display: inline-block;
+	min-width: 12rem;
+	margin: 0 2rem 0 0;
+	padding: 0.625rem 2rem;
+	border: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	transition: all 0.3s ease-out;
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	text-align: center;
+	line-height: 1.4;
+	color: #fff;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.toplevel_page_ainsys-connector .btn.ainsys-check {
+	min-width: inherit;
+	margin: 0;
+}
+
+.toplevel_page_ainsys-connector .btn:hover,
+.toplevel_page_ainsys-connector .btn:active,
+.toplevel_page_ainsys-connector .btn:focus {
+	outline: none;
+	box-shadow: none;
+	text-decoration: none;
+}
+
+.toplevel_page_ainsys-connector .btn-primary {
+	background: #37b34a;
+}
+
+.toplevel_page_ainsys-connector .btn-secondary {
+	background: #d5031e;
+}
+
+.toplevel_page_ainsys-connector .btn-tertiary {
+	background: #fff;
+	border: 1px solid #37b34a;
+	color: #37b34a;
+}
+
+.toplevel_page_ainsys-connector .btn-primary.disabled {
+	padding: 0.625rem 1rem;
+	background: #e2e2e2;
+	color: #666;
+	cursor: default;
+}
+
+/* Tabs */
+.ainsys-tabs-nav-wrapper {
+	margin: 0;
+	padding: 0 1.875rem;
+	border-bottom: 2px solid #e2e2e2;
+	display: flex;
+}
+
+.ainsys-tabs-nav-wrapper .nav-tab {
+	margin: 0 0.625rem -1px;
+	padding: 0.625rem 2.25rem;
+	background-color: #e2e2e2;
+	border-radius: 0.5rem 0.5rem 0 0;
+	border: none;
+}
+
+.ainsys-tabs-nav-wrapper .nav-tab:focus {
+	box-shadow: none;
+}
+
+.ainsys-tabs-nav-wrapper .nav-tab.nav-tab-active {
+	background-color: #ab47bc;
+	color: #fff;
+}
+
+.ainsys-settings-wrap .tab-target {
+	display: none;
+	position: relative;
+	overflow: hidden;
+	padding: 3.75rem 2.25rem 0.5rem;
+}
+
+.ainsys-settings-wrap .tab-target.tab-target-active {
+	display: flex;
+}
+
+@media only screen and (max-width: 791px) {
+	.ainsys-settings-wrap .tab-target.tab-target-active {
+		display: block;
+	}
+}
+
+.ainsys-settings-blocks {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	width: calc(100% + 4rem);
+	margin-left: -2rem;
+	margin-right: -2rem;
+}
+
+.ainsys-settings-blocks form {
+	flex: 0 0 calc(60% - 2rem);
+	width: calc(60% - 2rem);
+}
+
+.ainsys-settings-block {
+	margin: 0 1.25rem 2.25rem;
+	padding: 1.25rem;
+	background: #F4F4F4;
+	border-radius: 1rem;
+	box-sizing: border-box;
+}
+
+.ainsys-settings-block--connection {
+
+
+}
+
+.ainsys-settings-block--disconnection .btn {
+	margin-bottom: 0.5rem;
+}
+
+.ainsys-settings-block--sidebar {
+	flex: 0 0 calc(40% - 2rem);
+	width: calc(40% - 2rem);
+}
+
+
+.ainsys-form-group {
+	margin: 0 0 1rem;
+}
+
+.ainsys-form-group-checkbox {
+	display: flex;
+	align-items: center;
+}
+
+.ainsys-form-label {
+	display: block;
+	margin: 0 0 0.5rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+.ainsys-form-group-checkbox .ainsys-form-label {
+	margin: 0;
+}
+
+.ainsys-form-label-note {
+	display: block;
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #666;
+}
+
+.ainsys-form-label a,
+.ainsys-form-label a:hover {
+	color: #ab47bc;
+}
+
+.ainsys-form-input input[type='text'] {
+	width: 100%;
+	padding: 0.625rem 1rem;
+	background: #e2e2e2;
+	border: none;
+	border-radius: 0.5rem;
+	line-height: 1;
+}
+
+.ainsys-form-input input[type='checkbox'] {
+	margin-right: 1rem;
+	background: #e2e2e2;
+	border: none;
+}
+
+.ainsys-form-input input[type=checkbox]:checked::before {
+	content: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.83%204.89l1.34.94-5.81%208.38H9.02L5.78%209.67l1.34-1.25%202.57%202.4z%27%20fill%3D%27%23ab47bc%27%2F%3E%3C%2Fsvg%3E);
+	margin: -0.1875rem 0 0 -0.25rem;
+	height: 1.3125rem;
+	width: 1.3125rem;
+}
+
+.ainsys-form-input input:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.ainsys-email {
+	display: none;
+}
+
+.ainsys-email.ainsys-email-show,
+.ainsys-email.ainsys-email-main {
+	display: block;
+}
+
+.ainsys-email .ainsys-form-input {
+	display: flex;
+	align-items: center;
+}
+
+.ainsys-email .ainsys-form-input input {
+	flex: 0 0 calc(100% - 25.5rem);
+	width: calc(100% - 25.5rem);
+}
+
+.ainsys-email-btn {
+	flex: 0 0 1.75rem;
+	width: 1.75rem;
+	height: 1.75rem;
+	margin-left: 1rem;
+	border-radius: 50%;
+	background: #f4f4f4;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.6rem;
+	/* line-height: 1.75rem; */
+	text-align: center;
+	color: #ab47bc;
+	cursor: pointer;
+	border: 2px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ainsys-email-btn-disabled {
+	opacity: 50%;
+}
+
+.ainsys-email-btn.ainsys-minus {
+	padding-bottom: 3px;
+}
+
+.ainsys-status-items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ainsys-status-items li {
+	display: grid;
+	justify-content: space-between;
+	margin: 0.875rem 0;
+	padding: 0;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	grid-template-columns: minmax(50%, 70%) minmax(50%, 50%);
+
+}
+
+.ainsys-status-items .ainsys-status--check-integration {
+	margin: 0;
+	padding: 0;
+}
+
+.ainsys-status-items .ainsys-li-underline {
+	margin-bottom: 0;
+	padding-bottom: 1.375rem;
+	border-bottom: 2px solid #D0D5DD;
+}
+
+.ainsys-underline {
+	margin-bottom: 0;
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid #D0D5DD;
+}
+
+.ainsys-overline {
+	margin-top: 0;
+	padding-top: 1.25rem;
+	border-top: 1px solid #D0D5DD;
+}
+
+.ainsys-status--state {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	white-space: nowrap;
+}
+
+.ainsys-status--state svg {
+	width: 1.25rem;
+}
+
+.ainsys-status--state.ainsys-status--ok {
+	color: #37b34a;
+}
+
+.ainsys-status--title {
+	font-weight: 500;
+}
+
+.ainsys-status--error {
+	color: #d5031e;
+}
+
+.ainsys-check-integration {
+	display: flex;
+	justify-content: center;
+	padding: 1.25rem 0;
+}
+
+.ainsys-check-integration .btn {
+	margin: 0 auto;
+}
+
+
+.ainsys-settings-block--connect-status--last-operation {
+	display: flex;
+	justify-content: center;
+	padding-top: 1.25rem;
+	font-size: 1rem;
+}
+
+/* Ainsys Tabs - subtabs*/
+.ainsys-nav-tab {
+	display: inline-block;
+	margin: 0 1rem 0.5rem 0;
+	padding: 0.625rem 1rem;
+	border: 1px solid #e2e2e2;
+	border-radius: 0.5rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.3;
+	text-decoration: none;
+	color: #667085;
+}
+
+.ainsys-nav-tab:hover,
+.ainsys-nav-tab:active,
+.ainsys-nav-tab:focus {
+	border-color: #e2e2e2;
+	color: #667085;
+	outline: none;
+	box-shadow: none;
+}
+
+.ainsys-nav-tab-active,
+.ainsys-nav-tab-active:hover,
+.ainsys-nav-tab-active:focus,
+.ainsys-nav-tab-active:active {
+	border-color: #ab47bc;
+	color: #ab47bc;
+}
+
+.ainsys-tab-target {
+	display: none;
+}
+
+.ainsys-tab-target-active {
+	display: block;
+}
+
+/* Logs */
+.ainsys-log-block {
+	width: 100%;
+}
+
+.dataTables_wrapper .dataTables_length select {
+	min-width: 60px;
+}
+
+.ainsys-log-controls {
+	display: flex;
+	margin-bottom: 2.3rem;
+}
+
+.ainsys-settings-wrap .ainsys-log-controls .btn {
+	min-width: 0;
+}
+
+.ainsys-log-controls select {
+	margin: 0 2rem 0 0;
+}
+
+.wp-core-ui .ainsys-log-controls select {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #666;
+	border-color: #e2e2e2;
+	box-shadow: none;
+	border-radius: 0.5rem;
+	background-color: #f0f0f1;
+}
+
+.wp-core-ui .ainsys-log-controls select:active,
+.wp-core-ui .ainsys-log-controls select:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+.ainsys-log-time {
+	display: none;
+}
+
+.ainsys-log-status {
+	margin: 0 0 1.3rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+.ainsys-log-status.ainsys-loading {
+	opacity: 0.5;
+}
+
+.ainsys-status-loading {
+	display: none;
+}
+
+.ainsys-log-status.ainsys-loading .ainsys-status-loading {
+	display: inline;
+}
+
+.ainsys-log-status.ainsys-loading .ainsys-log-status-ok,
+.ainsys-log-status.ainsys-loading .ainsys-log-status-no {
+	display: none !important;
+}
+
+.ainsys-log-status i {
+	font-size: 1.2rem;
+}
+
+.ainsys-log-status-title {
+	color: #666;
+}
+
+.ainsys-log-status-ok {
+	color: #37b34a;
+}
+
+.ainsys-log-status-no {
+	color: #d5031e;
+}
+
+.ainsys-settings-wrap .ainsys-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.ainsys-settings-wrap .ainsys-table tr {
+	border-bottom: solid 2px #e2e2e2;
+}
+
+.ainsys-settings-wrap .ainsys-table thead th {
+	white-space: nowrap;
+}
+
+
+.ainsys-table--controlling-entities thead,
+.ainsys-table--checking-entities thead {
+	text-transform: uppercase;
+}
+
+.ainsys-table--controlling-entities thead th,
+.ainsys-table--checking-entities thead th {
+	padding: 1.25rem 0;
+}
+
+.ainsys-table-table__cell {
+	padding: 1rem 1rem;
+	text-align: center;
+}
+
+.ainsys-settings-wrap .ainsys-table.ainsys-table--controlling-entities tr,
+.ainsys-settings-wrap .ainsys-table.ainsys-table--checking-entities tr {
+	border-bottom: none;
+}
+
+.ainsys-table--controlling-entities th,
+.ainsys-table--controlling-entities td,
+.ainsys-table--checking-entities td,
+.ainsys-table--checking-entities th {
+	border-right: solid 2px #e2e2e2;
+}
+
+.ainsys-table--controlling-entities td:last-child,
+.ainsys-table--controlling-entities th:last-child,
+.ainsys-table--checking-entities td:last-child,
+.ainsys-table--checking-entities th:last-child {
+	border-right: none;
+}
+
+.ainsys-table--controlling-entities tbody tr:nth-child(even),
+.ainsys-table--checking-entities tbody tr:nth-child(even) {
+	background: #fff;
+}
+
+.ainsys-table--controlling-entities tbody tr:nth-child(odd),
+.ainsys-table--checking-entities tbody tr:nth-child(odd) {
+	background: #F7F7F7;
+}
+
+.ainsys-settings-wrap .ainsys-response-short {
+	cursor: pointer;
+}
+
+.ainsys-settings-wrap .ainsys-response-full {
+
+	display: none;
+}
+
+.ainsys-settings-wrap .ainsys-table .ainsys_td_btn {
+	width: 7rem;
+	padding-right: 0;
+	text-align: right;
+}
+
+.toplevel_page_ainsys-connector .ainsys_td_btn .btn {
+	min-width: 0;
+	margin: 0;
+}
+
+.toplevel_page_ainsys-connector .btn.ainsys-loading {
+	position: relative;
+	padding-right: 3rem;
+}
+
+.toplevel_page_ainsys-connector .btn.ainsys-loading:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	margin: -1rem 0 0;
+	background: url(../img/spinner.svg) no-repeat center;
+	background-size: contain;
+}
+
+#setting-section-log .request_data_container {
+	height: 39px;
+	overflow: hidden;
+}
+
+#setting-section-log .request_data_container.expand_tab {
+	height: auto;
+}
+
+#setting-section-log .expand_data_container {
+	position: relative;
+	float: right;
+	width: 70px;
+	text-align: center;
+	top: 5px;
+	margin-right: 0;
+	color: #575757;
+	border-color: #575757;
+	font-size: 12px;
+}
+
+.ainsys-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10000;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.ainsys-popup {
+	width: 80%;
+	max-width: 53.25rem;
+	max-height: 80%;
+	padding: 2rem;
+	background: #f4f4f4;
+	border-radius: 1rem;
+}
+
+.ainsys-popup-body {
+	padding: 1.25rem;
+	background: #fff;
+	border-radius: 0.5rem;
+}
+
+.ainsys-popup-btns {
+	padding: 1.25rem 0 0;
+	text-align: center;
+}
+
+.ainsys-popup-btns .btn {
+	min-width: 0;
+	margin: 0 0.625rem;
+}
+
+.ainsys-popup-response {
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: calc(100% - 8.75rem);
+	font-size: 1rem;
+}
+
+.ainsys-json-outer {
+	padding-left: 2rem;
+}
+
+.ainsys-json-inner {
+	padding-left: 1rem;
+	font-size: 0.874rem;
+}
+
+/* Test */
+.ainsys-test-block {
+	width: 100%;
+}
+
+
+.ainsys-success,
+.ainsys-failure {
+	display: none;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.ainsys-success {
+	background-image: url(../img/icon-success.svg);
+}
+
+.ainsys-failure {
+	background-image: url(../img/icon-failure.svg);
+}
+
+.ainsys-success.ainsys-test-finished,
+.ainsys-failure.ainsys-test-finished {
+	display: inline-block;
+}
+
+.ainsys-test-block .ainsys-table-table__cell-check {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ainsys-test-block .btn.ainsys-check {
+
+}
+
+
+.ainsys-table-table__cell--entity--inside {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	justify-content: flex-start;
+	text-align: left;
+}
+
+.ainsys-table-table__cell--status--inside {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.ainsys-table-table__cell--entity--inside a {
+	display: flex;
+	align-items: center;
+}
+
+.ainsys-table-table__cell--entity--inside svg {
+	width: 1rem;
+}
+
+/* Entities Settings */
+#setting-section-entities .empty_tab {
+	width: 100%;
+	text-align: center;
+}
+
+
+
+.ainsys-table--controlling-entities .ainsys-form-group {
+	margin: 0;
+}
+
+.ainsys-table--controlling-entities .toggle {
+	cursor: pointer;
+	display: inline-block;
+}
+
+.ainsys-table--controlling-entities .toggle-switch {
+	display: inline-block;
+	background: #667085;
+	border-radius: 16px;
+	width: 44px;
+	height: 25px;
+	position: relative;
+	vertical-align: middle;
+	transition: background 0.25s;
+}
+
+.toggle-switch--disabled {
+	background: #667085;
+}
+
+.ainsys-table--controlling-entities .toggle-switch:before, .toggle-switch:after {
+	content: "";
+}
+
+.ainsys-table--controlling-entities .toggle-switch:before {
+	display: block;
+	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+	border-radius: 50%;
+	width: 19px;
+	height: 19px;
+	position: absolute;
+	top: 3px;
+	left: 4px;
+	transition: left 0.25s;
+}
+
+.ainsys-table--controlling-entities .toggle:hover .toggle-switch:before {
+	background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+}
+
+.ainsys-table--controlling-entities .toggle-checkbox:checked + .toggle-switch {
+	background: #AB47BC;
+}
+
+.ainsys-table--controlling-entities .toggle-checkbox:disabled + .toggle-switch {
+	background: #ccc;
+}
+
+.ainsys-table--controlling-entities .toggle-checkbox:checked + .toggle-switch:before {
+	left: 22px;
+}
+
+.ainsys-table--controlling-entities .toggle-checkbox {
+	position: absolute;
+	visibility: hidden;
+}
+
+.ainsys-table--controlling-entities .toggle-label {
+	text-indent: -9999px;
+	margin-left: 5px;
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	
+}
+
+.ainsys-table--controlling-entities .ainsys-loading {
+	opacity: 0.5;
+}
+
+
+.ainsys-table--controlling-entities .toggle-label {
+	text-indent: -9999px;
+	margin-left: 5px;
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	
+}
+
+.ainsys-table-table__cell--arrow--inside button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	outline: none;
+	border: none;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.ainsys-table-table__cell--arrow--inside svg {
+	width: 1.5rem;
+}
+
+
+.ainsys-settings-wrap #setting-section-entities {
+	flex-direction: column;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entitys_table {
+	display: flex;
+	flex-direction: column;
+}
+
+.entities_block .properties_field i {
+	color: grey;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.active {
+	background: #67A1D0;
+	color: white;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field {
+	width: auto;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.multiple_filds .fa {
+	font-size: 1.8em;
+	margin-top: -10px;
+	margin-right: 10px;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.multiple_filds_children .fa {
+	font-size: 1.2em;
+	margin-top: -10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#setting-section-entities .entities_field.multiple_filds {
+	background: #c2c0c0;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entity_data.active .entities_field div.entity_settings_value.constant {
+	display: block;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field .editor_mode.entity_settings_value {
+	display: none;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.active .entity_settings_value {
+	display: none;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.active .editor_mode.entity_settings_value {
+	display: block;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field i.fa.fa-floppy-o {
+	color: #D7D7DB;
+	font-size: 2em;
+	margin: 0 1px 0 2px;
+	display: block;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.loading i.fa {
+	display: none;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field i.fa.active {
+	color: #575757;
+	cursor: pointer;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field.loading .loader_dual_ring {
+	display: inline-block;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field .loader_dual_ring {
+	display: none;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field .loader_dual_ring::after {
+	content: " ";
+	display: block;
+	width: 20px;
+	height: 19px;
+	margin: 8px auto;
+	border-radius: 50%;
+	border: 3px solid #575757;
+	border-color: #575757 transparent #575757 transparent;
+	animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.ainsys-settings-wrap #setting-section-entities .entity_title {
+	margin-left: 14px;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entity_title,
+.ainsys-settings-wrap #setting-section-entities .entities_field_header {
+	width: 10%;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_field {
+	padding: 0 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ainsys-settings-wrap #setting-section-entities .properties_field {
+	display: flex;
+	justify-content: space-between;
+	height: 3.2em;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+.ainsys-settings-wrap #setting-section-entities .properties_data #save_entity_properties {
+	margin-top: 1.8em;
+}
+
+.ainsys-settings-wrap #setting-section-entities .properties_field,
+.ainsys-settings-wrap #setting-section-entities .properties_field_title {
+	flex: 1 7%;
+}
+
+.ainsys-settings-wrap #setting-section-entities .properties_field.small_property,
+.ainsys-settings-wrap #setting-section-entities .properties_field_title.small_property {
+	flex: 1 2%;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entity_block_header {
+	background: grey;
+	color: white;
+	font-size: 1em;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 8px;
+}
+
+.ainsys-settings-wrap #setting-section-entities .properties_field input {
+	height: 1em;
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_block .entity_data {
+	overflow: hidden;
+	height: 38px;
+	margin-bottom: 1em
+}
+
+.ainsys-settings-wrap #setting-section-entities .entities_block .entity_data.active {
+	overflow: hidden;
+	height: auto;
+}
+
+.ainsys-settings-wrap #setting-section-entities .properties_data {
+	text-align: center;
+}
+
+#setting-section-entities .entities_field:nth-child(2n) {
+	background-color: white;
+}
+
+#setting-section-entities .expand_entity_container.button {
+	height: 30px;
+}
+
+#setting-section-entities .expand_entity_container {
+	position: relative;
+	float: right;
+	width: 85px;
+	text-align: center;
+	top: -4px;
+	margin-right: 10px;
+	color: #575757;
+	border-color: #575757;
+}
+
+.entities_block .active .entity_settings_value {
+	height: 30px;
+}
+
+.entities_block .active .entity_settings_value.wordpress:after {
+	background: url('./wp_icon.gif');
+	content: '';
+	background-size: cover;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+}
+
+.entities_block .active .entity_settings_value.woocommerce:after {
+	background: url('./woo_icon.gif');
+	content: '';
+	background-size: cover;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+}
+
+.entities_block .active .entity_settings_value.ACF:after {
+	background: url('./acf_icon.gif');
+	content: '';
+	background-size: cover;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+}
+
+.entities_block .active .entity_settings_value.mixed:after {
+	background: url('./mixed_icon.gif');
+	content: '';
+	background-size: cover;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+}
+
+/*===================*/
