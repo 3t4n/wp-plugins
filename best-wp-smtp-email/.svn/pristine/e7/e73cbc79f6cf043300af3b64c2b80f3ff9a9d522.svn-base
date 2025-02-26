@@ -1,0 +1,45 @@
+/**
+ *
+ * Custom CSS code for plugin admin panel
+ *
+ */
+
+/* Space above the page */
+.tp_wrap {
+    margin-top: 20px;
+}
+
+/* Space above SMTP details form */
+.tp_wrap form h1 {
+    margin-bottom: 25px;
+}
+
+/* Adjusting banner heading font size */
+.tp_wrap .jumbotron h1 {  
+    font-size: 3.8rem;
+}
+
+/* Desktop viewport only */
+@media only screen and (min-width: 992px) {
+    /* Limiting form input widths */
+    .tp_wrap form input[type="text"], .tp_wrap form input[type="password"], .tp_wrap form input[type="email"], .tp_wrap form input[type="number"] {
+    	width: 540px;
+    }
+
+    /* Mailman Mascots */
+    form.postman {
+        background-image: url(/wp-content/plugins/best-wp-smtp-email/assets/images/smtp_postman_tasks.png);
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: 240px;
+        min-height: 440px;
+    }
+
+    .jumbotron {
+        background-image: url(/wp-content/plugins/best-wp-smtp-email/assets/images/smtp_postman_head.png);
+        background-repeat: no-repeat;
+        background-position: right 20px bottom;
+        background-size: contain;
+    }
+}
+
