@@ -1,0 +1,253 @@
+
+/*========== Common Css ==========*/
+
+.section-title {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+
+.section-title h3 {
+    color: #FF8AAC;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+
+
+/*slider*/
+.client-img-slider {
+    margin-left: -30px
+}
+
+.client-img-slider .slick-list {
+    padding: 0 65px!important
+}
+
+.single-testi-item {
+    box-shadow: 0 0 30px rgba(115, 117, 165, .08);
+    margin: 25px 60px 25px 20px;
+    border-radius: 10px;
+    padding: 36px 46px;
+    display: block;
+    transition: 1s;
+    cursor: pointer;
+    opacity: .75;
+    position: relative;
+    z-index: 8;
+    border: 0!important;
+    opacity: 0
+}
+
+.single-testi-item.slick-active {
+    opacity: .8
+}
+
+.single-testi-item.slick-active.slick-center {
+    transform: scale(1.2);
+    pointer-events: none;
+    transition: 1s;
+    box-shadow: 0 10px 30px rgba(115, 117, 165, .18);
+    opacity: 1;
+    z-index: 9
+}
+
+.single-testi-item:after {
+    position: absolute;
+    left: 85%;
+    top: 50%;
+    transition: 1s;
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #6d6cf6
+}
+
+.single-testi-item .client-img {
+    float: left;
+    width: 74px;
+    margin-right: 22px;
+    transition: 1s
+}
+
+.single-testi-item .client-img img {
+    transition: 1s;
+    border-radius: 10px
+}
+.single-testi-item .author-testi-details {
+    float: left;
+}
+.single-testi-item .author-testi-details h4 {
+    font-size: 17px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.single-testi-item .author-testi-details h5 {
+    font-size: 16px;
+    color: #9494af;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.single-testi-item .author-testi-details span {
+    font-size: 14px;
+    color: #9494af
+}
+
+.single-testi-item .author-testi-details span i {
+    color: #6c6bf4;
+    margin-right: 5px;
+}
+
+.single-testi-item.slick-active.slick-center:after {
+    width: 135px;
+    transition: 2s
+}
+
+.single-testi-item.slick-active.slick-center .client-img img {
+    transform: scale(1.1)
+}
+
+.client-img-slider .slick-arrow {
+    position: absolute;
+    bottom: -50px;
+    left: 45%;
+    z-index: 1;
+    color: #c8c8f9;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: 0 0;
+    transform: scale(1);
+    transition: .6s
+
+}
+
+
+.client-img-slider .slick-arrow:hover {
+    color: #6d6cf6;
+    transform: scale(1.5, 1.2)
+}
+.client-img-slider button.slick-arrow {
+    border: 0;
+}
+.client-img-slider .testi-next {
+    left: 55%
+}
+
+.testi-content-wrap {
+    position: relative
+}
+
+.testi-content-wrap::before {
+    content: '\201D';
+    color: #f8f8ff;
+    position: absolute;
+    top: 50px;
+    transform: rotateY(180deg);
+    left: 0;
+    font-weight: 700;
+    font-size: 200px;
+    font-family: georgia
+}
+
+/*.testi-content-wrap::after {
+    content: '\201D';
+    color: #f8f8ff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: 700;
+    font-size: 130px;
+    font-family: georgia;
+    z-index: 1
+}*/
+.testi-content-wrap::after {
+    content: '\201D';
+    color: #f8f8ff;
+    position: absolute;
+    right: -7px;
+    bottom: -50px;
+    font-weight: 700;
+    font-size: 130px;
+    font-family: georgia;
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+}
+
+.testi-content-wrap .section-title {
+    margin-bottom: 0
+}
+
+.testi-content-wrap .section-title h3 {
+    text-transform: none
+}
+
+.testi-content-wrap .section-title h2 {
+    margin-bottom: 20px
+}
+
+.single-testi-content {
+    margin-bottom: 50px
+}
+
+.single-testi-content p {
+    padding: 0 60px 0 0
+}
+
+.testi-content-slider .slick-arrow {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    z-index: 1;
+    color: #c8c8f9;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: 0 0;
+    transform: scale(1);
+    transition: .6s;
+    border: 0;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+}
+
+
+.testi-content-slider .slick-arrow:hover {
+    color: #6d6cf6;
+    transform: scale(1.5, 1.2);
+    text-decoration: none;
+}
+
+.client-img-slider button.slick-arrow:focus,
+.testi-content-slider button.slick-arrow:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.testi-content-slider .testi-next {
+    left: 87px
+}
+
+
+
+.pt-115 {
+    padding-top: 115px
+}
+.pb-100 {
+    padding-bottom: 100px
+}
+
+
+@media only screen and (max-width:991px) {
+    .rpt-50 {
+        padding-top: 50px
+    }
+    .rpb-60 {
+        padding-bottom: 60px
+    }
+}
