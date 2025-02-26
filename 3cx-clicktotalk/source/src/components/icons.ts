@@ -1,0 +1,9 @@
+export {default as GlyphiconChevron} from '../images/glyphicons-basic-221-chevron-down.svg';
+export {default as GlyphiconCall} from '../images/glyphicons-basic-465-call.svg';
+export {default as GlyphiconVideo}  from '../images/glyphicons-basic-181-video.svg';
+export {default as GlyphiconTimes}  from '../images/glyphicons-basic-373-times.svg';
+export {default as GlyphiconHourglass}  from '../images/glyphicons-basic-520-hourglass.svg';
+export {default as GlyphiconThumbnails}  from '../images/glyphicons-basic-158-thumbnails-small.svg';
+export {default as GlyphiconFullscreen}  from '../images/glyphicons-basic-216-fullscreen.svg';
+export {default as GlyphiconMic}  from '../images/glyphicons-basic-341-mic.svg';
+export {default as GlyphiconMicoff}  from '../images/glyphicons-basic-342-mic-off.svg';

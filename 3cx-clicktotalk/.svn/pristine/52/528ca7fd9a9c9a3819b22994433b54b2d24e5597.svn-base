@@ -1,0 +1,40 @@
+@import "../variables";
+
+.chat-message {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    margin: 8px 0;
+
+    h5 {
+        font-size: $font-size-small;
+        line-height: 1.5em;
+        margin: 0;
+    }
+
+}
+
+.avatar {
+    border: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin-right: 4px;
+}
+
+.chat-message-content {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    p {
+        margin: 0;
+        // word-break: break-all;
+    }
+}
+
+.chat-time {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: $font-size-small;
+}

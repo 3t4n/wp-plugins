@@ -1,0 +1,48 @@
+@import "../variables";
+
+.button {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 50%;
+    border: 0;
+
+    svg {
+        width: 80%;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active:enabled {
+        transform: $button-bounce;
+        transition: none;
+    }
+
+    .overlay {
+        border: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 50%;
+        background-color: #000;
+        opacity: 0;
+    }
+
+    &:hover:enabled > .overlay {
+        transition: opacity 0.1s ease-in-out;
+        opacity: 0.2;
+    }
+
+    &:disabled > .overlay {
+        transition: opacity 0.1s ease-in-out;
+        opacity: 0.3;
+    }
+
+}

@@ -1,0 +1,72 @@
+@import "../variables";
+@import "../toolbar";
+
+.panel {
+    color: black;
+    background-color: white;
+    border-radius: $form-border-radius + 1;
+    border: 1px solid $border-color;
+    width: $form-width;
+    flex-direction: column;
+    display: flex;
+
+    // Header
+    h4 {
+        font-size: $font-size-small;
+        line-height: 1.5em;
+        margin: 0;
+    }
+
+    &.collapsed {
+        .minimize-image {
+            transform: rotate(180deg);
+        }
+        .content {
+            height: 0;
+        }
+    }
+}
+
+.button-minimize {
+    background: transparent;
+    fill: $header-text-color;
+}
+
+// Minimize button
+.minimize-image {
+    transition: transform 0.2s ease-in-out;
+}
+
+.header {
+    border-radius: $form-border-radius;
+    background: $form-header-background;
+    color: $header-text-color;
+}
+
+.line1 {
+    padding-left: $padding;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    @include toolbar(32px);
+
+    button {
+        margin: 0;
+    }
+}
+
+.logo-icon {
+    width: 10%;
+    margin-right: $padding;
+}
+
+.content {
+    border-radius: 0 0 $form-border-radius $form-border-radius;
+    transition: height 0.2s ease-in-out;
+    --fullHeight: auto;
+    height: var(--fullHeight);
+    overflow: hidden;
+    background-color: white;
+    color: black;
+}
