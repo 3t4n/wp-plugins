@@ -1,0 +1,96 @@
+.useful-plugins-container {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.plugins-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.plugin-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.plugin-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.plugin-item img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+.plugin-item h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.plugin-item .short-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.plugin-item .description {
+    display: none;
+    font-size: 13px;
+    color: #555;
+    background: #f4f4f4;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.plugin-item:hover .description {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .plugin-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .plugin-item {
+        width: 100%;
+    }
+}
+
+/* Style for the submenu item */
+#toplevel_page_wamate_settings .wp-submenu li a[href="admin.php?page=useful-plugins"] {
+    background-color: #28a745 !important; /* Green background */
+    color: #ffffff !important; /* White text */
+}
+
+#toplevel_page_wamate_settings .wp-submenu li a[href="admin.php?page=useful-plugins"]:hover {
+    background-color: #218838 !important; /* Darker green on hover */
+    color: #ffffff !important; /* Keep text white on hover */
+}
