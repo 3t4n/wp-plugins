@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+	<link href="map.css" rel="stylesheet" type="text/css"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Снять квартиру в Санкт-Петербурге</title>
+	<script> 
+		function ge(e){if(typeof e=='string')e=document.getElementById(e);return e};
+		function collect(a,f){var n=[];for(var i=0;i<a.length;i++){var v=f(a[i]);if(v!=null)n.push(v)}return n};
+		ajax={};
+		ajax.x=function(){try{return new ActiveXObject('Msxml2.XMLHTTP')}catch(e){try{return new ActiveXObject('Microsoft.XMLHTTP')}catch(e){return new XMLHttpRequest()}}};
+		ajax.serialize=function(f){var g=function(n){return f.getElementsByTagName(n)};var nv=function(e){if(e.name)return encodeURIComponent(e.name)+'='+encodeURIComponent(e.value);else return ''};var i=collect(g('input'),function(i){if((i.type!='radio'&&i.type!='checkbox')||i.checked)return nv(i)});var s=collect(g('select'),nv);var t=collect(g('textarea'),nv);return i.concat(s).concat(t).join('&');};
+		ajax.send=function(u,f,m,a){var x=ajax.x();x.open(m,u,true);x.onreadystatechange=function(){if(x.readyState==4)f(x.responseText)};if(m=='POST')x.setRequestHeader('Content-type','application/x-www-form-urlencoded');x.send(a)};
+		ajax.get=function(url,func){ajax.send(url,func,'GET')};
+		ajax.gets=function(url){var x=ajax.x();x.open('GET',url,false);x.send(null);return x.responseText};
+		ajax.post=function(url,func,args){ajax.send(url,func,'POST',args)};
+		ajax.update=function(url,elm){var e=ge(elm);var f=function(r){e.innerHTML=r};ajax.get(url,f)};
+		ajax.submit=function(url,elm,frm){var e=ge(elm);var f=function(r){e.innerHTML=r};ajax.post(url,f,ajax.serialize(frm))};
+		ajax.smt=function(elm,frm){ge('ba_ajax_label').style.display='inline'; var e=ge(elm);frm=ge(frm);var f=function(r){e.innerHTML=r;ge('ba_ajax_label').style.display='none';};ajax.post(frm.getAttribute('action'),f,ajax.serialize(frm))};
+		 
+		var m_sel = {
+		 metro_selected : [],
+		 render: function(){
+			var text = '';
+			for (var key in this.metro_selected) {
+			    text = text + '<span ><br>м.' +this.metro_selected[key]+ '<input type="hidden" name="metro[]" value="'+ key.substr(1) +'">'+ ' <a href="#" onclick="this.parentNode.innerHTML=\'\';go();return false;" >[x]</a></span>';
+			}
+			if(text != ''){
+				text = text + '<br>[<a href="#" onclick="m_sel.reset();go(); return false;">очистить список</a>]';
+			}
+			ge('metro_selected').innerHTML = text;
+			ge('metro_selected').style.display = 'inline';
+		 },
+		 add_data: function(li,name,id){
+			ge(li.className).className = 'sel';
+			this.metro_selected[id] = name;
+			//this.metro_selected = assocSort(this.metro_selected); //this.metro_selected.sort(sIncrease);
+		 },
+		 checkel: function(li,name,id){
+			id = 'm'+id;
+			if(this.metro_selected[id]){
+				ge(li.className).className = 'nsel';
+				delete this.metro_selected[id]; 
+			}else{
+				this.add_data(li,name,id);
+			}
+		 
+			//this.render();
+		 
+		 },
+		 reset: function(){
+			this.metro_selected =[];
+			//this.render();
+		 }
+		}
+		 
+		function go(){
+			var location = '/search.php?a=1';
+			for (var key in m_sel.metro_selected) {
+				location = location + '&metro[]=' + key.substr(1);
+			}
+			var f = ge('form1');
+			location = location + '&' +ajax.serialize(f);
+			window.location = location;
+		 
+		}
+		 
+		function m(li,name,id){
+		m_sel.checkel(li,name,id);
+		 
+		 
+		return false;
+		}
+	</script> 
+ 
+ 
+</head> 	
+    </head>
+    <body>
+    	<div id="main">
+    		
+        <div>
+        	<div id="menu">
+        		<h1>Аренда жилья в Санкт-Петербурге</h1>
+				<div id="menu_but">
+					<a href="#" >О проекте</a>
+					<a href="#" >Инструкция</a>
+				</div>
+        	</div>	
+			
+			
+			<div id="stat">
+				<div id="stat_title">Городская база недвижимости</div>
+				<p>Предложений в базе: <span>считаю...</span></p>
+				<p>За сегодня: <span>считаю...</span></p>
+			</div>
+        </div>
+		<img src="images/pol1.jpg" width="934" height="4" alt="">
+		<form action="/search.php" id="form1">
+		<div id="line2">
+			
+			<div id="find_form">
+				<h2>Быстрый поиск</h2>
+				<div>
+					<img src="images/123.jpg" width="28" height="119" style="float:left" alt="">
+					<div style="float:left;;width:300px">
+						<div style="width: 100%; height: 28px; padding: 2px 10px 15px;text-align:right;">
+							Я ищу: <select style="float:right;width:150px;margin-left:20px;" name="type">
+								  <option>Выберите</option>
+								  <option value="0">Квартиру</option>
+								  <option value="1">Комнату</option>
+								</select>
+						</div>	
+						<div style="width: 100%; height: 28px; padding: 2px 10px 15px;text-align:right;">
+							Стоимостью до: 
+								<select style="float:right;width:150px;margin-left:20px;" name="price_max">
+								  <option>Выберите</option>
+								  <option value="7000">7 000 руб</option>
+								  <option value="8000">8 000 руб</option>
+								  <option value="9000">9 000 руб</option>
+								  <option value="10000">10 000 руб</option>
+								  <option value="11000">11 000 руб</option>
+								  <option value="12000">12 000 руб</option>
+								  <option value="13000">13 000 руб</option>
+								  <option value="14000">14 000 руб</option>
+								  <option value="15000">15 000 руб</option>
+								  <option value="16000">16 000 руб</option>
+								  <option value="17000">17 000 руб</option>
+								  <option value="18000">18 000 руб</option>
+								  <option value="19000">19 000 руб</option>
+								  <option value="20000">20 000 руб</option>
+								  <option value="22000">22 000 руб</option>
+								  <option value="25000">25 000 руб</option>
+								  <option value="27000">27 000 руб</option>
+								  <option value="30000">30 000 руб</option>
+								  <option value="35000">35 000 руб</option>
+								  <option value="40000">40 000 руб</option>
+								  <option>50т.руб и более</option>
+								</select>
+						</div>
+						<div style="width: 100%; height: 28px; padding: 2px 10px 15px;text-align:right;">
+							<input type="submit" value="Поиск"  onclick="go();return false;"  style="height:100%;width:280px;">
+						</div>
+					</div>
+				</div>
+				<div style="clear:left;color:#1580B6;float:left;font-style:italic;width:100%;"> - Объекты в базе не старше 4х дней</div>
+				<div style="border-bottom:4px solid #63D34D;clear:left;color:#2A2A2A;float:left;padding-top:43px;width:100%;">Отметьте нужные станции метро</div>
+			</div>
+			<div id="agent_info">
+				<div id="agent_foto">
+					<h3>Ваш агент</h3>
+					<img id="agent_img" src="images/demo_face.jpg">
+				</div>
+				
+				<div id="agent_text">
+					<p><span>Имя:</span> Юлия</p>
+					<p><span>Фамилия:</span> Иванова</p>
+					<p><span>Отчество:</span> Михайловна</p>
+					<P><span>Телефон:</span> 8 (911) 918-70-05</p>
+				</div>
+
+			</div>
+			
+		</div>
+
+		<div style="float:left;clear:left;width:100%;padding:20px 0;">
+			<div style="display: block;float: left;position: relative;">
+			<ul id="mapspb"> 
+		<li class="nsel" id="Komendantskiiypr"><a class="Komendantskiiypr" href="#" onclick="return m(this,'Комендантск.пр.',16)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Staraiaderevnia"><a class="Staraiaderevnia" href="#" onclick="return m(this,'Старая Деревня',57)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Krestovskiiyostrov"><a class="Krestovskiiyostrov" href="#" onclick="return m(this,'Крестовск.остров',17)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Chkalovskaia"><a class="Chkalovskaia" href="#" onclick="return m(this,'Чкаловская',65)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Sportivnaia"><a class="Sportivnaia" href="#" onclick="return m(this,'Спортивная',56)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Spasskaia"><a class="Spasskaia" href="#" onclick="return m(this,'Спасская',230)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Zvenigorodskaia"><a class="Zvenigorodskaia" href="#" onclick="return m(this,'Звенигородская',27)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Volkovskaia"><a class="Volkovskaia" href="#" onclick="return m(this,'Волковская',21)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Parnas"><a class="Parnas" href="#" onclick="return m(this,'Парнас',35)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="PrProsvesheniia"><a class="PrProsvesheniia" href="#" onclick="return m(this,'Пр.Просвещения',49)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Ozerki"><a class="Ozerki" href="#" onclick="return m(this,'Озерки',33)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Udelnaia"><a class="Udelnaia" href="#" onclick="return m(this,'Удельная',60)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Pionerskaia"><a class="Pionerskaia" href="#" onclick="return m(this,'Пионерская',37)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Chernaiarechka"><a class="Chernaiarechka" href="#" onclick="return m(this,'Черная речка',63)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Petrogradskaia"><a class="Petrogradskaia" href="#" onclick="return m(this,'Петроградская',36)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Gorkovskaia"><a class="Gorkovskaia" href="#" onclick="return m(this,'Горьковская',8)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Nevskiiypr"><a class="Nevskiiypr" href="#" onclick="return m(this,'Невский пр.',29)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Sennaya"><a class="Sennaya" href="#" onclick="return m(this,'Сенная пл.',55)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Texnologicheskiiyinstitut"><a class="Texnologicheskiiyinstitut" href="#" onclick="return m(this,'Технологич.ин.',58)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Frunzenskaia"><a class="Frunzenskaia" href="#" onclick="return m(this,'Фрунзенская',62)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Moskovskievorota"><a class="Moskovskievorota" href="#" onclick="return m(this,'Московск.ворота',25)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Elektrosila"><a class="Elektrosila" href="#" onclick="return m(this,'Электросила',66)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="ParkPobedi"><a class="ParkPobedi" href="#" onclick="return m(this,'Парк Победы',34)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Moskovskaia"><a class="Moskovskaia" href="#" onclick="return m(this,'Московская',26)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Zvezdnaia"><a class="Zvezdnaia" href="#" onclick="return m(this,'Звездная',14)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Kupchino"><a class="Kupchino" href="#" onclick="return m(this,'Купчино',18)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Primorskaia"><a class="Primorskaia" href="#" onclick="return m(this,'Приморская',50)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Vasileostrovskaia"><a class="Vasileostrovskaia" href="#" onclick="return m(this,'Василеостровская',5)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Gostinniiydvor"><a class="Gostinniiydvor" href="#" onclick="return m(this,'Гостиный Двор',9)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="plVosstaniia"><a class="plVosstaniia" href="#" onclick="return m(this,'Пл.Восстания',40)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="PlAlNevskogo"><a class="PlAlNevskogo" href="#" onclick="return m(this,'Пл.Ал.Невск.',38)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Elizarovskaia"><a class="Elizarovskaia" href="#" onclick="return m(this,'Елизаровская',13)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Lomonosovskaia"><a class="Lomonosovskaia" href="#" onclick="return m(this,'Ломоносовская',24)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Proletarskaya"><a class="Proletarskaya" href="#" onclick="return m(this,'Пролетарская',51)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Obuxovo"><a class="Obuxovo" href="#" onclick="return m(this,'Обухово',32)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Ribackoe"><a class="Ribackoe" href="#" onclick="return m(this,'Рыбацкое',53)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Deviatkino"><a class="Deviatkino" href="#" onclick="return m(this,'Девяткино',11)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Grazhdanskiiypr"><a class="Grazhdanskiiypr" href="#" onclick="return m(this,'Гражданский пр.',10)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Akademicheskaia"><a class="Akademicheskaia" href="#" onclick="return m(this,'Академическая',3)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Politexnicheskaia"><a class="Politexnicheskaia" href="#" onclick="return m(this,'Политехническая',45)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="PlMuzhestva"><a class="PlMuzhestva" href="#" onclick="return m(this,'Пл.Мужества',44)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Lesnaia"><a class="Lesnaia" href="#" onclick="return m(this,'Лесная',22)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Viborgskaia"><a class="Viborgskaia" href="#" onclick="return m(this,'Выборгская',7)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="PlLenina"><a class="PlLenina" href="#" onclick="return m(this,'Пл.Ленина',42)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Chernishevskaia"><a class="Chernishevskaia" href="#" onclick="return m(this,'Чернышевская',64)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Maiakovskaia"><a class="Maiakovskaia" href="#" onclick="return m(this,'Маяковская',229)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Vladimirskaia"><a class="Vladimirskaia" href="#" onclick="return m(this,'Владимирская',6)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Pushkinskaia"><a class="Pushkinskaia" href="#" onclick="return m(this,'Пушкинская',52)"><span>&nbsp;</span></a></li>
+					<li class="nsel" id="Baltiiyskaia"><a class="Baltiiyskaia" href="#" onclick="return m(this,'Балтийская',4)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Narvskaia"><a class="Narvskaia" href="#" onclick="return m(this,'Нарвская',28)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Kirovskiiyzavod"><a class="Kirovskiiyzavod" href="#" onclick="return m(this,'Кировский з-д',15)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Avtovo"><a class="Avtovo" href="#" onclick="return m(this,'Автово',2)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Leninskiiypr"><a class="Leninskiiypr" href="#" onclick="return m(this,'Ленинский пр.',20)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="prVeteranov"><a class="prVeteranov" href="#" onclick="return m(this,'Пр.Ветеранов',47)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Sadovaya"><a class="Sadovaya" href="#" onclick="return m(this,'Садовая',55)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Dostoevskaia"><a class="Dostoevskaia" href="#" onclick="return m(this,'Достоевская',12)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Ligovskiiypr"><a class="Ligovskiiypr" href="#" onclick="return m(this,'Лиговский пр.',23)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Novocherkasskaia"><a class="Novocherkasskaia" href="#" onclick="return m(this,'Новочеркасская',31)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="Ladozhskaia"><a class="Ladozhskaia" href="#" onclick="return m(this,'Ладожская',19)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="prBolshevikov"><a class="prBolshevikov" href="#" onclick="return m(this,'Пр.Большевиков',46)"><span>&nbsp;</span></a></li> 
+					<li class="nsel" id="ulDibenko"><a class="ulDibenko" href="#" onclick="return m(this,'Ул.Дыбенко',61)"><span>&nbsp;</span></a></li> 
+				</ul>
+				<div style="float: left; width: 100%;"><input type="submit" value="Поиск" onclick="go();return false;" style="height:35px;width:280px;float:right;"> </div>
+			</div>
+			<div style="float:right;width:210px;text-align:center;padding-top:35px;">
+				<div>
+					<img src="images/metro.jpg" alt="" style="float:left;margin:4px;"><div style="float:left;line-height:1.2;margin-left:10px;text-align:left;width:150px;">Поиск по станциям метрополитена</div>
+				</div>
+				<div>
+					<img src="images/statoin.jpg" alt="" style="padding:20px 0">
+				</div>
+				<div style="text-align:left;font-style:italic;color:#484848;">
+					- Просто укажите<br>подходящие Вам станции
+				</div>
+			</div>
+		</div>
+		</form>
+		<div id="footer">
+			<div id="footer_head"> </div>
+			<div style="float:left;width:770px">
+				<p>Оплата только после подписания договора, проверки документов и получения ключей.</p>
+				<p>Вам персонально предоставляется агент, который проводит сделку.</p>
+			</div>
+			<div style="float:right;padding:15px 0 0;text-align:center;width:150px;">
+				 Создание сайта:<br> <img src="images/ba_logo_mini.png"><br><a href="http://bazaagentov.ru">БазаАгентов</a>
+			</div>
+		</div>
+		
+		</div>
+    </body>
+</html>
