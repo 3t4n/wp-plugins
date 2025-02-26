@@ -1,0 +1,82 @@
+/*
+* Style Works for both Editor and Frontend
+*/
+
+.wp-block-afpb-props-cons {
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	.afpb__props_box,
+	.afpb__cons_box {
+		width: 48%;
+		position: relative;
+	}
+	.afpb__icon {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 36px;
+		height: 36px;
+		text-align: center;
+		line-height: 36px;
+		margin-left: -18px;
+		margin-top: -18px;
+		background: #fff;
+		border-radius: 50%;
+	}
+
+	.afpb__icon i {
+		font-size: 18px;
+	}
+
+	.afpb__props_list ul,
+	.afpb__cons_list ul {
+		margin: 0;
+		padding: 0;
+		list-style: none !important;
+		li {
+			line-height: 1.6;
+			position: relative;
+			&::before {
+				position: absolute;
+				top: 0;
+				left: -25px;
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+			}
+		}
+	}
+
+	.afpb__props_list li {
+		&::before {
+			content: "\f058";
+		}
+	}
+	.afpb__cons_list li {
+		&::before {
+			content: "\f057";
+		}
+	}
+
+	.afpb__props_list,
+	.afpb__cons_list {
+		padding: 30px 15px 15px 40px;
+	}
+}
+
+/*
+* Mobile View
+*/
+@media only screen and (max-width: 767px) {
+	.wp-block-afpb-props-cons {
+		flex-direction: column;
+		.afpb__props_box,
+		.afpb__cons_box {
+			width: 100%;
+		}
+		.afpb__props_box {
+			margin-bottom: 30px;
+		}
+	}
+}

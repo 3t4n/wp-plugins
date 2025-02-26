@@ -1,0 +1,158 @@
+/*
+* Style Works for both Editor and Frontend
+*/
+.rate-select-layer span {
+	color: #ebae00;
+}
+.rate-base-layer span {
+	color: #7c7c7c;
+}
+
+.wp-block-afpb-product-showcase {
+	position: relative;
+	p:empty {
+		display: none;
+	}
+	.afpb__badge {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 5px 10px;
+		box-sizing: border-box;
+		font-size: 14px;
+		margin-top: -16px;
+		border-radius: 0 20px 20px 0;
+	}
+	.afpb__product_info {
+		padding: 30px 20px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		&.afpb__product_info--reverse {
+			flex-direction: row-reverse;
+		}
+	}
+
+	.product_photo,
+	.product_content {
+		width: 48%;
+	}
+	.product_photo {
+		text-align: center;
+		img {
+			max-width: 90%;
+		}
+	}
+	.title_tag {
+		margin: 0 0 15px !important;
+	}
+
+	.product_rating {
+		display: flex;
+	}
+
+	span.rating_value {
+		display: inline-block;
+		margin-right: 5px;
+		color: #ebae00;
+	}
+	.product_description {
+		margin-top: 5px;
+		p {
+			margin-top: 0;
+		}
+	}
+
+	.afpb__props_list ul,
+	.afpb__cons_list ul {
+		margin: 0;
+		padding: 0;
+		list-style: none !important;
+		li {
+			line-height: 1.4;
+			margin-bottom: 7px;
+			position: relative;
+			&::before {
+				position: absolute;
+				top: 0;
+				left: -25px;
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+			}
+		}
+	}
+
+	.afpb__props_list li {
+		&::before {
+			content: "\f058";
+		}
+	}
+	.afpb__cons_list li {
+		&::before {
+			content: "\f057";
+		}
+	}
+	a.afpb__btn {
+		text-decoration: none;
+		padding: 10px 20px;
+		line-height: 1;
+		text-align: center;
+		transition: 0.3s;
+		display: block;
+		margin-top: 10px;
+	}
+	.afpb__props_list,
+	.afpb__cons_list {
+		padding-left: 25px;
+	}
+
+	.afpb__props_cons_title {
+		margin-bottom: 5px;
+		font-weight: 500;
+	}
+}
+
+/*
+* Mobile View
+*/
+@media only screen and (max-width: 767px) {
+	.wp-block-afpb-product-showcase {
+		.afpb__product_info {
+			flex-direction: column;
+			&.afpb__product_info--reverse {
+				flex-direction: column;
+			}
+		}
+
+		.product_photo,
+		.product_content {
+			width: 100%;
+		}
+		.product_photo {
+			img {
+				max-width: 60%;
+			}
+		}
+		.afpb__props_cons {
+			flex-direction: column;
+		}
+
+		.afpb__props_box,
+		.afpb__cons_box {
+			width: 100%;
+		}
+
+		.afpb__props_box {
+			padding: 0;
+		}
+
+		.afpb__cons_box {
+			width: 100%;
+			padding: 0;
+		}
+		a.afpb__btn {
+			margin-bottom: 10px;
+		}
+	}
+}

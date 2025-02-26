@@ -1,0 +1,137 @@
+/*
+* Style Works for both Editor and Frontend
+*/
+.rate-select-layer span {
+	color: #ebae00;
+}
+.rate-base-layer span {
+	color: #7c7c7c;
+}
+
+.wp-block-afpb-review-list {
+	margin: 15px auto;
+	position: relative;
+	p:empty {
+		display: none;
+	}
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 20px;
+	.afpb__badge {
+		position: absolute;
+		top: 0;
+		left: -1px;
+		padding: 5px 10px;
+		box-sizing: border-box;
+		font-size: 14px;
+		margin-top: -16px;
+		border-radius: 0 20px 20px 0;
+	}
+
+	.product_photo img {
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+	.product_photo {
+		width: 20%;
+		text-align: center;
+	}
+
+	.product_content {
+		width: 50%;
+	}
+
+	.product__action_area {
+		width: 25%;
+		text-align: center;
+		.product_rating {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 5px;
+		}
+
+		span.rating_value {
+			margin-right: 5px;
+		}
+	}
+
+	.afpb__props_list {
+		margin-left: 25px;
+	}
+
+	.title_tag {
+		margin: 0 0 15px !important;
+	}
+
+	.afpb__props_list ul {
+		margin: 0;
+		padding: 0;
+		list-style: none !important;
+		li {
+			line-height: 1.4;
+			margin-bottom: 7px;
+			position: relative;
+			&::before {
+				position: absolute;
+				top: 0;
+				left: -25px;
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+			}
+		}
+	}
+
+	.afpb__props_list li {
+		&::before {
+			content: "\f058";
+		}
+	}
+	.afpb__icon {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 34px;
+		height: 34px;
+		text-align: center;
+		line-height: 34px;
+		margin-top: -17px;
+		margin-left: -17px;
+		background: #fff;
+		border-radius: 50%;
+		font-size: 17px;
+	}
+	a.afpb__btn {
+		text-decoration: none;
+		padding: 8px 10px;
+		line-height: 1.2;
+		text-align: center;
+		transition: 0.3s;
+		display: inline-block;
+	}
+}
+
+/*
+* Mobile View
+*/
+@media only screen and (max-width: 767px) {
+	.wp-block-afpb-review-list {
+		flex-direction: column;
+
+		.product_photo,
+		.product_content,
+		.product__action_area {
+			width: 100%;
+		}
+		.product_photo img {
+			width: 50%;
+			margin-bottom: 15px;
+		}
+		.product__action_area {
+			margin-top: 20px;
+		}
+	}
+}

@@ -1,0 +1,174 @@
+/*
+* Style Works for both Editor and Frontend
+*/
+.rate-select-layer span {
+	color: #ebae00;
+}
+.rate-base-layer span {
+	color: #7c7c7c;
+}
+
+.wp-block-afpb-review-style-one {
+	position: relative;
+	p:empty {
+		display: none;
+	}
+	.afpb__badge {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 5px 10px;
+		box-sizing: border-box;
+		font-size: 14px;
+		margin-top: -16px;
+		border-radius: 0 20px 20px 0;
+	}
+	.afpb__product_info {
+		padding: 30px 20px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		&.afpb__product_info--reverse {
+			flex-direction: row-reverse;
+		}
+	}
+
+	.product_photo,
+	.product_content {
+		width: 48%;
+	}
+
+	.product_photo img {
+		max-width: 90%;
+		margin: 0 auto;
+	}
+
+	.title_tag {
+		margin: 0 0 15px !important;
+	}
+
+	.product_rating {
+		display: flex;
+	}
+
+	span.rating_value {
+		display: inline-block;
+		margin-right: 5px;
+		color: #ebae00;
+	}
+	.product_description {
+		margin-top: 5px;
+		p {
+			margin-top: 0;
+		}
+	}
+	.afpb__props_cons {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		justify-content: space-between;
+		margin: 30px 0 20px;
+	}
+
+	.afpb__props_box,
+	.afpb__cons_box {
+		position: relative;
+		width: 48%;
+		padding: 30px 15px 15px 40px;
+		box-sizing: border-box;
+	}
+
+	.afpb__props_list ul,
+	.afpb__cons_list ul {
+		margin: 0;
+		padding: 0;
+		list-style: none !important;
+		li {
+			line-height: 1.4;
+			margin-bottom: 7px;
+			position: relative;
+			&::before {
+				position: absolute;
+				top: 0;
+				left: -25px;
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+			}
+		}
+	}
+
+	.afpb__props_list li {
+		&::before {
+			content: "\f058";
+		}
+	}
+	.afpb__cons_list li {
+		&::before {
+			content: "\f057";
+		}
+	}
+
+	.afpb__icon {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 34px;
+		height: 34px;
+		text-align: center;
+		line-height: 34px;
+		margin-top: -17px;
+		margin-left: -17px;
+		background: #fff;
+		border-radius: 50%;
+		font-size: 17px;
+	}
+	a.afpb__btn {
+		text-decoration: none;
+		padding: 10px 20px;
+		line-height: 1;
+		text-align: center;
+		transition: 0.3s;
+		display: block;
+	}
+}
+
+/*
+* Mobile View
+*/
+@media only screen and (max-width: 767px) {
+	.wp-block-afpb-review-style-one {
+		.afpb__product_info {
+			flex-direction: column;
+			&.afpb__product_info--reverse {
+				flex-direction: column;
+			}
+		}
+
+		.product_photo,
+		.product_content {
+			width: 100%;
+		}
+
+		.afpb__props_cons {
+			flex-direction: column;
+		}
+
+		.afpb__props_box,
+		.afpb__cons_box {
+			width: 100%;
+		}
+
+		.afpb__props_box {
+			padding: 15px 15px 15px 40px;
+		}
+
+		.afpb__cons_box {
+			width: 100%;
+			padding: 0 15px 15px 40px;
+		}
+		.afpb__icon {
+			display: none;
+		}
+	}
+}
