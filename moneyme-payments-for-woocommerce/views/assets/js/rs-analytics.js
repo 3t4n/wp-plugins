@@ -1,0 +1,3 @@
+const rsKey = '1wmlOGixsW6u7hJqCrfdqgaAA3k';
+const rsWriteUrl = 'https://moneymeshqenx.dataplane.rudderstack.com';
+rudderanalytics = window.rudderanalytics = []; for (var methods = ["load", "page", "track", "identify", "alias", "group", "ready", "reset", "getAnonymousId", "setAnonymousId"], i = 0; i < methods.length; i++) { var method = methods[i]; rudderanalytics[method] = function (a) { return function () { rudderanalytics.push([a].concat(Array.prototype.slice.call(arguments))) } }(method) } rudderanalytics.load(rsKey, rsWriteUrl);
