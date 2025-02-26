@@ -1,0 +1,161 @@
+body.adminimal .adminimal-toolbar,
+body.adminimal #adminimal,
+body.adminimal.adminimal-toolbar a {
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+.admin-bar .site-navigation-fixed.navigation-top {
+  top: 0;
+}
+
+.adminimal-toolbar {
+  z-index: 99;
+  position: fixed !important;
+  bottom: 1rem;
+  right: 1rem;
+  color: #fefefe;
+  height: 2rem;
+}
+
+.adminimal-toolbar #adminimal-toggle,
+.adminimal-toolbar #adminimal {
+  display: inline-block;
+  display: inline-flex;
+}
+
+.adminimal-toolbar a, .adminimal-toolbar a:hover, .adminimal-toolbar .button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: normal !important;
+  font-size: 0.75rem !important;
+  color: #fefefe !important;
+}
+
+.adminimal-toolbar .button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: normal;
+  color: #fefefe;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.adminimal-toolbar .button:hover {
+  color: #fefefe;
+}
+
+.adminimal-toolbar .button.primary {
+  background: #0093C3;
+}
+
+.adminimal-toolbar .button.primary:hover {
+  background-color: #00769c;
+}
+
+.adminimal-toolbar .button.secondary {
+  background: #496B77;
+}
+
+.adminimal-toolbar .button.secondary:hover {
+  background-color: #3a565f;
+}
+
+.adminimal-toolbar .button.tertiary {
+  background: #CF541A;
+}
+
+.adminimal-toolbar .button.tertiary:hover {
+  background-color: #a64315;
+}
+
+.adminimal-toolbar .adminimal-toolbar-open::before {
+  content: "\02771";
+}
+
+.adminimal-toolbar .adminimal-toolbar-close::before {
+  content: "\02770";
+}
+
+.adminimal-toolbar .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.adminimal-toolbar .dropdown-submenu {
+  text-align: left;
+  display: none;
+  background-color: #0093C3;
+  width: 100%;
+  position: absolute !important;
+  bottom: 2rem;
+}
+
+.adminimal-toolbar .dropdown-submenu .button {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.adminimal-toolbar .dropdown-submenu .button:hover {
+  background-color: #00769c;
+  transition: all 0.3s ease;
+}
+
+.adminimal-toolbar .dropdown-submenu a {
+  color: #fefefe;
+  text-transform: capitalize;
+}
+
+.adminimal-toolbar .dropdown-submenu a:hover {
+  color: #fefefe;
+}
+
+.adminimal-toolbar .dropdown-submenu a {
+  color: white;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.adminimal-toolbar #adminimal-icon {
+  outline: none;
+}
+
+.adminimal-toolbar .hide {
+  display: none;
+  visibility: hidden;
+}
+
+.adminimal-toolbar .closed {
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+.adminimal-toolbar .closed::before {
+  content: "\02770";
+}
+
+.adminimal-toolbar .closed:hover {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.adminimal-toolbar .mainmenubtn:hover,
+.adminimal-toolbar #adminimal-toggle:hover {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.adminimal-toolbar.dropdown .mainmenubtn:hover + .dropdown-submenu,
+.adminimal-toolbar .dropdown-submenu:hover {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .adminimal-toolbar.hide-mobile {
+    display: none;
+    visibility: hidden;
+  }
+}
