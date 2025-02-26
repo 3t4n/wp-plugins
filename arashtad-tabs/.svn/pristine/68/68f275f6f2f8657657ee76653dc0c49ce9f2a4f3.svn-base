@@ -1,0 +1,846 @@
+/**
+ * Plugin Name: 	Arashtad Tabs
+ * Plugin URI:  	https://arashtad.com/
+ * Description: 	Responsive tabs widget for WordPress, created by Arashtad Ltd.
+ * Version:     	1.1
+ * Author			Amin Shahrokhi
+ * Author URL		https://arashtad.com
+ * Author Email		support@arashtad.com
+ * Creation Date	January 9, 2016
+ * Copyright		Copyright (c) 2011 - 2016 Arashtad Ltd. All Rights Reserved.
+ * license			GNU General Public License version 3 or later; see LICENSE.txt
+**/
+
+/* General style for all tabs */
+.artabs {
+	max-width: 98% !important;
+}
+.artabs article {
+	clear: both !important;
+}
+.header-text {
+	margin-bottom: 15px;
+}
+.footer-text {
+	margin-top: 15px;
+}
+.artabs section.tab-contents article.tab-content {
+	display: none;
+}
+
+/* Begin style 1 (Default) */
+.artabs-style-1 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-1 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-1 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	border-bottom: none;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-1 .artabs ul.tab-buttons li.tab-button:hover {
+	border-color: #cccccc;
+}
+.artabs-style-1 .artabs ul.tab-buttons li.active-tab-button {
+	background: #f6f6f6;
+}
+.artabs-style-1 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 0 4px 4px 4px;
+	-moz-border-radius: 0 4px 4px 4px;
+	border-radius: 0 4px 4px 4px;
+}
+.artabs-style-1 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-1 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 2 (Rounded) */
+.artabs-style-2 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-2 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-2 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-2 .artabs ul.tab-buttons li.tab-button:hover {
+	border-color: #cccccc;
+}
+.artabs-style-2 .artabs ul.tab-buttons li.active-tab-button {
+	background: #f6f6f6;
+}
+.artabs-style-2 .artabs section.tab-contents {
+	margin: 5px 0 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artabs-style-2 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-2 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 3 (Easy) */
+.artabs-style-3 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-3 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-3 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-3 .artabs ul.tab-buttons li.tab-button:hover {
+	border-color: #cccccc;
+}
+.artabs-style-3 .artabs ul.tab-buttons li.active-tab-button {
+	background: #f6f6f6;
+}
+.artabs-style-3 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px 5px;
+}
+.artabs-style-3 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-3 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 4 (Nude) */
+.artabs-style-4 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-4 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-4 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border-bottom: 2px solid #aaaaaa;
+	margin: 0;
+	padding: 8px 13px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-4 .artabs ul.tab-buttons li.tab-button:hover,
+.artabs-style-4 .artabs ul.tab-buttons li.active-tab-button {
+	color: #ff5900;
+	border-bottom: 2px solid #ff5900;
+}
+.artabs-style-4 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px 5px;
+}
+.artabs-style-4 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-4 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 5 (Colored) */
+.artabs-style-5 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-5 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-5 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	border-bottom: none;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-5 .artabs ul.tab-buttons li.tab-button:hover {
+	color: #ff5900;
+}
+.artabs-style-5 .artabs ul.tab-buttons li.active-tab-button {
+	color: white;
+	background: #ff5900;
+	border-color: #ff5900;
+}
+.artabs-style-5 .artabs ul.tab-buttons li.active-tab-button:hover {
+	color: white;
+}
+.artabs-style-5 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 0 4px 4px 4px;
+	-moz-border-radius: 0 4px 4px 4px;
+	border-radius: 0 4px 4px 4px;
+}
+.artabs-style-5 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-5 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 6 (Dark Inverse) */
+.artabs-style-6 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-6 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-6 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	border-bottom: none;
+	background: black;
+	color: white;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-6 .artabs ul.tab-buttons li.tab-button:hover {
+	color: #ff5900;
+}
+.artabs-style-6 .artabs ul.tab-buttons li.active-tab-button {
+	color: white;
+	background: #ff5900;
+	border-color: #ff5900;
+}
+.artabs-style-6 .artabs ul.tab-buttons li.active-tab-button:hover {
+	color: white;
+}
+.artabs-style-6 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	-webkit-border-radius: 0 4px 4px 4px;
+	-moz-border-radius: 0 4px 4px 4px;
+	border-radius: 0 4px 4px 4px;
+	background: black;
+	color: white;
+}
+.artabs-style-6 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-6 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 7 (Dark) */
+.artabs-style-7 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-7 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-7 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #ff5900;
+	border-bottom: none;
+	background: #ff5900;
+	color: white;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-7 .artabs ul.tab-buttons li.tab-button:hover {
+	color: black;
+}
+.artabs-style-7 .artabs ul.tab-buttons li.active-tab-button {
+	color: white;
+	background: black;
+	border-color: black;
+}
+.artabs-style-7 .artabs ul.tab-buttons li.active-tab-button:hover {
+	color: white;
+}
+.artabs-style-7 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	-webkit-border-radius: 0 4px 4px 4px;
+	-moz-border-radius: 0 4px 4px 4px;
+	border-radius: 0 4px 4px 4px;
+	background: black;
+	color: white;
+}
+.artabs-style-7 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-7 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 8 (Dip) */
+.artabs-style-8 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-8 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-8 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-8 .artabs ul.tab-buttons li.tab-button:hover {
+	color: #ff5900;
+}
+.artabs-style-8 .artabs ul.tab-buttons li.active-tab-button {
+	background: #f5f5f5;
+	border-color: white;
+	-webkit-box-shadow: inset 0 0 8px #bbbbbb;
+	-moz-box-shadow: inset 0 0 8px #bbbbbb;
+	box-shadow: inset 0 0 8px #bbbbbb;
+}
+.artabs-style-8 .artabs ul.tab-buttons li.active-tab-button:hover {
+
+}
+.artabs-style-8 .artabs section.tab-contents {
+	margin: 5px 0 0;
+	padding: 15px;
+	border: 1px solid white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background: #f9f9f9;
+	-webkit-box-shadow: inset 0 0 8px #bbbbbb;
+	-moz-box-shadow: inset 0 0 8px #bbbbbb;
+	box-shadow: inset 0 0 8px #bbbbbb;
+}
+.artabs-style-8 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-8 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 9 (BootStrap) */
+.artabs-style-9 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-9 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-9 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e0e0e0;
+	border-bottom: none;
+	margin: 0;
+	padding: 8px 13px;
+	color: #666666;
+	text-shadow: 1px 1px 1px white;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e8e8e8);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e8e8e8));
+	background-image: -webkit-linear-gradient(top,#fff,#e8e8e8);
+	background-image: -o-linear-gradient(top,#fff,#e8e8e8);
+	background-image: linear-gradient(to bottom,#fff,#e8e8e8);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5e5e5', GradientType=0);
+	*background-color: #e8e8e8;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.artabs-style-9 .artabs ul.tab-buttons li.tab-button:hover {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-9 .artabs ul.tab-buttons li.active-tab-button {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-9 .artabs ul.tab-buttons li.active-tab-button:hover {
+
+}
+.artabs-style-9 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 0 4px 4px 4px;
+	-moz-border-radius: 0 4px 4px 4px;
+	border-radius: 0 4px 4px 4px;
+}
+.artabs-style-9 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-9 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 10 (BootStrap Disjunct) */
+.artabs-style-10 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-10 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-10 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e0e0e0;
+	margin: 0;
+	padding: 8px 13px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-10 .artabs ul.tab-buttons li.tab-button:hover {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-10 .artabs ul.tab-buttons li.active-tab-button {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-10 .artabs ul.tab-buttons li.active-tab-button:hover {
+
+}
+.artabs-style-10 .artabs section.tab-contents {
+	margin: 5px 0 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artabs-style-10 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-10 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 11 (Square) */
+.artabs-style-11 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-11 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-11 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	border-bottom: none;
+	margin: 0;
+	padding: 8px 13px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-11 .artabs ul.tab-buttons li.tab-button:hover {
+	border-color: #cccccc;
+}
+.artabs-style-11 .artabs ul.tab-buttons li.active-tab-button {
+	background: #f6f6f6;
+}
+.artabs-style-11 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+}
+.artabs-style-11 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-11 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 12 (Square Disjunct) */
+.artabs-style-12 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-12 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-12 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	margin: 0;
+	padding: 8px 13px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-12 .artabs ul.tab-buttons li.tab-button:hover {
+	border-color: #cccccc;
+}
+.artabs-style-12 .artabs ul.tab-buttons li.active-tab-button {
+	background: #f6f6f6;
+}
+.artabs-style-12 .artabs section.tab-contents {
+	margin: 5px 0 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+}
+.artabs-style-12 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-12 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 13 (Square BootStrap) */
+.artabs-style-13 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-13 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-13 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e0e0e0;
+	border-bottom: none;
+	margin: 0;
+	padding: 8px 13px;
+	color: #666666;
+	text-shadow: 1px 1px 1px white;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e8e8e8);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e8e8e8));
+	background-image: -webkit-linear-gradient(top,#fff,#e8e8e8);
+	background-image: -o-linear-gradient(top,#fff,#e8e8e8);
+	background-image: linear-gradient(to bottom,#fff,#e8e8e8);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5e5e5', GradientType=0);
+	*background-color: #e8e8e8;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.artabs-style-13 .artabs ul.tab-buttons li.tab-button:hover {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-13 .artabs ul.tab-buttons li.active-tab-button {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-13 .artabs ul.tab-buttons li.active-tab-button:hover {
+
+}
+.artabs-style-13 .artabs section.tab-contents {
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+}
+.artabs-style-13 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-13 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin style 14 (Square BootStrap Disjunct) */
+.artabs-style-14 .artabs {
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-14 .artabs ul.tab-buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.artabs-style-14 .artabs ul.tab-buttons li.tab-button {
+	display: inline-block;
+	border: 1px solid #e0e0e0;
+	margin: 0;
+	padding: 8px 13px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artabs-style-14 .artabs ul.tab-buttons li.tab-button:hover {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-14 .artabs ul.tab-buttons li.active-tab-button {
+	background-color: #f3f3f3;
+	background-image: -moz-linear-gradient(top,#fff,#cccccc);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#cccccc));
+	background-image: -webkit-linear-gradient(top,#fff,#cccccc);
+	background-image: -o-linear-gradient(top,#fff,#cccccc);
+	background-image: linear-gradient(to bottom,#fff,#cccccc);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#cccccc', GradientType=0);
+	*background-color: #cccccc;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	color: black;
+	text-shadow: 1px 1px 1px white;
+}
+.artabs-style-14 .artabs ul.tab-buttons li.active-tab-button:hover {
+
+}
+.artabs-style-14 .artabs section.tab-contents {
+	margin: 5px 0 0;
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+}
+.artabs-style-14 .artabs section.tab-contents article.tab-content {
+	/* display: none; */
+}
+.artabs-style-14 .artabs section.tab-contents article.active-tab-content {
+
+}
+
+/* Begin your custom style. If you've selected the style "Custom" for a widget, it'll read it's style values from this block: */
+.artabs-style-15 .artabs {
+
+}
+.artabs-style-15 .artabs ul.tab-buttons {
+
+}
+.artabs-style-15 .artabs ul.tab-buttons li.tab-button {
+
+}
+.artabs-style-15 .artabs ul.tab-buttons li.tab-button:hover {
+
+}
+.artabs-style-15 .artabs ul.tab-buttons li.active-tab-button {
+
+}
+.artabs-style-15 .artabs section.tab-contents {
+
+}
+.artabs-style-15 .artabs section.tab-contents article.tab-content {
+
+}
+.artabs-style-15 .artabs section.tab-contents article.active-tab-content {
+
+}
+/* End your custom style */
+
+/* Tab contents are responsive by de itself. Now, @media making tab buttons responsive */
+@media only screen and (max-width: 765px) {
+	.artabs {
+		height: auto !important;
+	}
+	li.tab-button {
+		display: block !important;
+		width: 94% !important;
+		margin: 3px 0 !important;
+		padding: 3% !important;
+		text-align: center !important;
+	}
+}
+
+/* Assets */
+.clear {
+	clear: both;
+}
