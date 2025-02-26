@@ -1,0 +1,178 @@
+.banner_topFixed,
+.banner_topScroll {
+	padding-top: 84px;
+}
+.banner_topFixed.textBannner,
+.banner_topScroll.textBannner {
+	padding-top: 35px;
+}
+
+.banner_bottomFixed{
+	padding-bottom: 86px;
+}
+.banner_bottomFixed.textBannner{
+	padding-bottom: 35px;
+}
+
+.covid-banner {
+	display: block;
+	text-align: center;
+	padding: 10px;
+	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.banner_topScroll .covid-banner {
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 9999;
+	border-bottom: 1px solid;
+}
+
+.admin-bar.banner_topScroll .covid-banner{
+    top: 32px;
+}
+
+.banner_topFixed .covid-banner {
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 99999999;
+	-webkit-box-shadow: 0px 5px 7px 5px rgba(102,102,102,0.3);
+	-moz-box-shadow: 0px 5px 7px 5px rgba(102,102,102,0.3);
+	box-shadow: 0px 5px 7px 5px rgba(102,102,102,0.3);
+}
+
+.admin-bar.banner_topFixed .covid-banner,
+.admin-bar.banner_topScroll .covid-banner{
+    top: 32px;
+}
+
+.banner_bottomFixed .covid-banner {
+	position: fixed;
+	width: 100%;
+	bottom: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	left: 0px;
+	z-index: 99999999;
+	-webkit-box-shadow: 0px 5px 7px 5px rgba(102,102,102,0.3);
+	-moz-box-shadow: 0px 5px 7px 5px rgba(102,102,102,0.3);
+	box-shadow: 0px 5px 7px 5px rgba(102,102,102,0.3);
+}
+
+.covid-content {
+	display: flex;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+	flex-wrap: wrap;
+}
+
+p.covid-text {
+	font-size: 14px;
+	line-height: 16px;
+	width: 100%;
+	text-align: center;
+	margin: 0px;
+}
+
+.covid-number {
+	text-align: center;
+}
+
+a.covid-website-link {
+	display: block;
+}
+
+img.covid-website-link-img {
+	display: inline-block;
+	border: 0;
+	margin-right: 20px;
+	height: 60px;
+}
+
+a.covid-hotline-link,
+a.covid-whatsapp-link,
+a.covid-text-link{
+	display: inline-block;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+a.covid-hotline-link:visited,
+a.covid-whatsapp-link:visited,
+a.covid-text-link:visited,
+a.covid-hotline-link:hover,
+a.covid-whatsapp-link:hover,
+a.covid-text-link:hover {
+	text-decoration: underline;
+}
+
+a.covid-hotline-link,
+a.covid-text-link {
+	font-weight: bold;
+}
+
+a.covid-whatsapp-link{
+	margin-left: 10px;
+}
+
+@media screen and ( max-width: 900px ){
+
+	.covid-banner-content {
+		flex-wrap: wrap;
+		text-align: center;
+	}
+	.banner_topFixed .covid-banner,
+	.banner_bottomFixed .covid-banner{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 14px;
+	}
+
+	.covid-website-link {
+		width: 100%;
+		text-align: center;
+	}
+
+	img.covid-website-link-img{
+		margin: 0;
+	}
+
+	.coronaBanner__hotlineLink,
+	.coronaBanner__whatsappLink{
+		padding: 5px 0;
+	}
+}
+
+@media screen and ( max-width: 782px ){
+    .admin-bar.banner_topFixed .covid-banner,
+    .admin-bar.banner_topScroll .covid-banner{
+        top: 46px;
+    }
+}
+
+@media screen and ( max-width: 500px ){
+	.banner_topFixed .covid-banner,
+	.banner_bottomFixed .covid-banner{
+		font-size: 12px;
+	}
+
+	img.covid-website-link-img{
+		height: 40px;
+	}
+	.covid-number a.covid-hotline-link,
+	.covid-number a.covid-whatsapp-link {
+		width: 100%;
+		margin: 0px;
+		line-height: 14px;
+	}
+}
