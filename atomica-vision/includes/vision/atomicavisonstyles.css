@@ -1,0 +1,51 @@
+.atomica-vision-tryon-button{
+    cursor: pointer;
+    margin: 15px 0;
+  }
+  
+  .atomica-vision-popup-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 9999;
+  }
+  
+  
+  .atomica-vision-popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    height: 70%;
+    position: relative;
+  }
+  
+  .atomica-vision-popup .atomica-vision-popup-close {
+    width: calc(100% - 40px);
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .atomica-vision-popup .atomica-vision-popup-content {
+    overflow: auto;
+    position: relative;
+    z-index: 10000;
+    height: calc(100% - 65px);
+  }
+  
+  @media screen and (max-width: 700px){
+    .atomica-vision-popup{
+      width: 90%;
+    }
+  
+    .atomica-vision-popup .atomica-vision-popup-close {
+      width: calc(100% - 30px);
+    }
+  }
