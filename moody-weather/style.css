@@ -1,0 +1,52 @@
+/* Moody Weather Widget Styles */
+.moody-weather {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.weather-icon {
+    margin-bottom: 15px;
+}
+
+/* Optional: Adjust the appearance of Spectrum color pickers */
+input.spectrum-color {
+    max-width: 100%;
+    height: 30px;
+    padding: 0;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.weather-icon svg {
+    animation: bounce 2s infinite;
+}
+
+.moody-weather p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .moody-weather {
+        padding: 15px;
+    }
+
+    .weather-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .moody-weather p {
+        font-size: 14px;
+    }
+}
