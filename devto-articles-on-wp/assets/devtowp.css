@@ -1,0 +1,110 @@
+.devto-posts {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 35px;
+}
+.devto-posts.devto-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+@media (max-width: 767.98px) {
+    .devto-posts.devto-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .devto-post-meta {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}
+
+.devto-item {
+    position: relative;
+    padding: 15px;
+}
+.devto-grid .devto-item {
+    box-shadow: 1px 1px 5px 1px #cacaca;
+}
+.devto-posts:not(.devto-grid) .devto-item {
+    box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.26);
+    padding: 20px;
+}
+
+.devto-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.devto-badge img {
+    width: 30px;
+    height: 30px;
+}
+.devto-grid .devto-badge img {
+    width: 25px;
+    height: 25px;
+}
+
+.devto-post {
+    padding: 0 0 20px;
+}
+.devto-posts.devto-grid .devto-post a {
+    font-size: 18px;
+}
+.devto-post a {
+    font-size: 20px;
+    text-decoration: none;
+}
+.devto-post-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 6px;
+}
+.devto-posts.devto-grid .devto-post-meta {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+}
+.devto-date {
+    margin-right: 15px;
+}
+.devto-posts.devto-grid .devto-date {
+    margin-right: 0;
+}
+.devto-author,
+.devto-user-meta {
+    display: flex;
+}
+.devto-user-meta {
+    flex-direction: column;
+    margin-left: 12px;
+    text-align: left;
+}
+.devto-username,
+.devto-date,
+.devto-tag {
+    font-size: 14px;
+}
+.devto-user-meta a {
+    text-decoration: none;
+}
+.devto-user-meta a:hover {
+    color: #8e8e8e;
+}
+.devto-name {
+    font-size: 16px;
+    color: #222;
+}
+
+.devto-username,
+.devto-date,
+.devto-tag {
+    color: #777;
+}
+.devto-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.devto-posts.devto-grid .devto-author img {
+    width: 40px;
+    height: 40px;
+}
