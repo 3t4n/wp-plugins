@@ -1,0 +1,39 @@
+#progress-bar-wrapper {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.12); /* Light gray background */
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    height: 4px; /* Thin, Material Design style */
+    margin-top: 15px;
+}
+
+#progress-bar {
+    width: 0%; /* Start at 0, update this dynamically with JS */
+    height: 100%;
+    background-color: #4285f4; /* Google Blue color */
+    border-radius: 4px;
+    transition: width 0.4s ease-out; /* Smooth animation */
+    position: absolute;
+}
+
+#progress-bar::after {
+    content: '';
+    display: block;
+    width: 100px; /* Animation width */
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: -100px; /* Start from outside */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    animation: progress-glow 1.5s infinite ease-in-out; /* Glowing animation */
+}
+
+@keyframes progress-glow {
+    0% {
+        left: -100px;
+    }
+    100% {
+        left: 100%;
+    }
+}
