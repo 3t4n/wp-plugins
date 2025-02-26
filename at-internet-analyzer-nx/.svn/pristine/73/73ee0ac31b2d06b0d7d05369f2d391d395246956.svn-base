@@ -1,0 +1,54 @@
+=== AnalyzerNx ===
+Contributors: AT_Internet
+Tags: web analytics, AT Internet, Tag
+Requires at least: 2.7.0
+Tested up to: 3.1.1 
+Stable tag: trunk
+
+AnalyzerNx permet le marquage automatique des pages générées par le moteur de WordPress.
+
+== Description ==
+
+AT Internet utilise la technologie de marquage TAG. Le marqueur, code JavaScript de quelques lignes, est à insérer sur chacune des pages à auditer. 
+Ce marquage permet d’intégrer les marqueurs sur un serveur différent de celui qui héberge votre site.
+
+= Composition du marqueur généré par AnalyzerNx : =
+
+* une variable pour le niveau dans l'arborescence (xtnv = document; par défaut).
+* une variable pour le serveur de collecte (xtsd).
+* une variable pour le numéro de site (xtsite).
+* une variable pour le niveau 2 (xtn2 = ""; par défaut).   
+* une variable pour le nom de la page (xtpage).
+* une variable pour le degré d'implication (xtdi = ""; par défaut). 
+* optionnel: une ligne supplémentaire permettant l'activation de la fonctionnalité ClickZone® sur votre site. 
+
+= Nommage automatique des pages : =
+
+* Posts blogs.
+> Si un post blog appartient à une catégorie: *xtpage="posts_blogs::category-name::blog-post-name"*.
+>
+> Sinon: *xtpage="posts\_blogs::blog-post-name"*.
+
+* Pages statiques.
+> *xtpage="static\_page::page\_name"*.
+
+* Homepage.
+> *xtpage="homepage::homepage"*.
+
+
+== Installation ==
+
+1. Télécharger l'archive dans le dossier des plug-ins (./wp-content/plugins/).
+2. Activer le plug-in depuis le menu 'Extensions' dans WordPress.
+3. Configurer le plug-in depuis le sous-menu 'Analyzer NX' dans la rubrique 'Réglages'.
+
+
+== Frequently Asked Questions ==
+
+= Est-ce que je peux utiliser le plug-in AnalyzerNx si j'utilise la solution XiTi Free pour mon site web? =
+
+Non. Vous ne pouvez utiliser le plug-in AnalyzerNx que si vous possédez la solution Analyzer NX. Ce plug-in n'est pas disponible pour les utilisateurs de XiTi Free.
+
+= Est-ce que je peux utiliser la fonctionnalité ClickZone® avec le plug-in AnalyzerNx? =
+
+Oui. Activez ou désactivez l'analyse ClickZone® via les checkboxes (dans les différentes parties du blog : la homepage, les posts et les pages statiques) lors de la configuration du plug-in.
