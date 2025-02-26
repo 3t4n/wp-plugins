@@ -1,0 +1,67 @@
+.cuda-gravatar {
+	position: relative;
+	display: block;
+	overflow: visible;
+	float: left;
+}
+
+.cuda-gravatar span {
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	overflow: hidden;
+	padding: 4px 10px;
+	background: #000000;
+	background: rgba( 0, 0, 0, 0.7 );
+	border-radius: 2px;
+	color: #ffffff;
+	top: 88%;
+	left: -20px;
+	z-index: 9999;
+	opacity: 0;
+	border-right: none;
+	line-height: 1.4;
+	width: 104px;
+
+
+	-webkit-transition: opacity 0.3s ease, top 0.2s ease;
+	-moz-transition: opacity 0.3s ease, top 0.2s ease;
+	-ms-transition: opacity 0.3s ease, top 0.2s ease;
+	-o-transition: opacity 0.3s ease, top 0.2s ease;
+	transition: opacity 0.3s ease, top 0.2s ease;
+
+}
+
+/*.cuda-gravatar span:after {
+	display: block;
+	content: " ";
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 10%;
+	right: -24px;
+	border: solid 12px transparent;
+	border-left-color: #000;
+	border-left-color: rgba( 0, 0, 0, 0.7 );
+
+}*/
+
+.cuda-gravatar span.show {
+	opacity: 1;
+	top: 100%;
+
+}
+
+.cuda-gravatar img {
+	float: left;
+	opacity: 1;
+	width: auto;
+	transition: .4s opacity;
+	-webkit-transition: .4s opacity;
+	-moz-transition: .4s opacity;
+	}
+.cuda-gravatar img:hover{
+	opacity: .8;
+	}
