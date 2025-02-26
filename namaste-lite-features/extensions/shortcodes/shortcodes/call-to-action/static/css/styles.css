@@ -1,0 +1,282 @@
+.namaste-action-call {
+    background: #ccc;
+    color: #000;
+    font-weight: inherit;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 37px;
+    border-top: 3px double #000;
+    border-bottom: 3px double #000;
+	display: flex;
+	margin-left: -37%;
+    padding-left: 37%;
+    margin-right: -37%;
+    padding-right: 37%;
+}
+
+.action-call-container {
+	position: relative;
+	width: 1170px !important;
+	padding: 0;
+}
+	
+.action-call-container:before {
+    content: "";
+    height: 150px;
+    width: 37.2%;
+    background: #000 url("../img/bg-body-pattern.png") center top;
+    position: relative;
+    z-index: 0;
+    right: 37%;
+    top: 150px;
+    margin-top: -150px;
+}
+
+.namaste-action-call .title {
+    color: #ccc;
+    text-shadow: 1px 1px #cc682c;
+    background: #000 url("../img/bg-body-pattern.png") center top;
+    font-weight: inherit;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 24px;
+    height: 150px;
+    width: 300px;
+	margin-left: -16px;
+    float: left;
+}
+
+.namaste-action-call .main-title {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.namaste-action-call .info-content {
+    opacity: 0;
+}
+
+.action-call-item.square.action-call-effect.top_to_bottom a:hover .info-content {
+    opacity: 1;
+}
+
+.action-call-item.square {
+    position: relative;
+    width: 270px;
+    height: 150px;
+    float: left;
+}
+
+.action-call-item.square .info {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.action-call-item.square.action-call-effect {
+    -webkit-perspective: 1500px;
+    -moz-perspective: 1500px;
+    perspective: 1500px;
+}
+
+.action-call-item.square.action-call-effect.colored .info .info-back {
+    background-size: cover;
+    background-position: center center;
+    background-color: #000;
+}
+
+.action-call-item.square.action-call-effect.colored .info h3 {
+    background: rgba(34, 34, 34, 0.7);
+    color: #ccc;
+    text-shadow: 1px 1px #555;
+}
+
+.action-call-item.square.action-call-effect .text {
+    position: relative;
+    height: 150px;
+    z-index: 11;
+}
+
+.action-call-item.square.action-call-effect .info {
+    z-index: 0;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.action-call-item.square.action-call-effect .info .info-back {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    background: #000;
+}
+
+.action-call-item.square.action-call-effect .info h3 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    padding: 10px;
+    background: #111111;
+    margin: 0;
+}
+
+.action-call-item.square.action-call-effect .info p {
+	font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    color: #fff;
+    padding: 8px 15px 0px;
+    text-align: center;
+    text-shadow: 2px 2px 1px #000;
+}
+
+.action-call-item.square.action-call-effect.top_to_bottom .text {
+    webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    font-size: 36px;
+    border: 12px solid #ccc;
+    color: #000;
+}
+
+.action-call-item.square.action-call-effect.top_to_bottom a:hover .text {
+    -webkit-transform: rotate3d(1, 0, 0, -120deg);
+    -moz-transform: rotate3d(1, 0, 0, -120deg);
+    -ms-transform: rotate3d(1, 0, 0, -120deg);
+    -o-transform: rotate3d(1, 0, 0, -120deg);
+    transform: rotate3d(1, 0, 0, -120deg);
+    color: #000;
+}
+
+.namaste-action-call a [class^="fa-"],
+.namaste-action-call a [class*=" fa-"] {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.call-ribbon {
+    border: 3px double #ccc;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+}
+
+.call-ribbon-2 {
+    background: #ccc url("../img/bg-body-pattern.png") center top;
+    border-radius: 10px;
+    height: 120px;
+    padding-top: 16px;
+    opacity: 0.8;
+}
+
+@media (max-width: 1170px) {
+	.namaste-action-call {
+		padding-left: 33%;
+		padding-right: 33%;
+	}
+
+    .action-call-container {
+        padding: 0 !important;
+		width: 100% !important;
+    }
+
+    .namaste-action-call .title {
+        padding: 0;
+        width: 100%;
+        height: 100px;
+		text-align:center;
+		margin-left:0;
+    }
+
+    .namaste-action-call .main-title {
+        margin: auto;
+    }
+
+    .action-call-container:before {
+        display: none !important;
+    }
+
+    .action-call-items {
+		position: relative;
+    	margin: auto;
+		width: 810px;
+    }
+}
+
+@media (max-width: 830px) {
+
+    .action-call-item.square {
+        width: 200px;
+        height: 120px;
+    }
+
+    .action-call-item.square.action-call-effect .text {
+        height: 120px;
+    }
+
+    .call-ribbon-2 {
+        height: 90px;
+    }
+
+    .action-call-item.square.action-call-effect.top_to_bottom .text {
+        font-size: 25px;
+    }
+
+    .action-call-item.square.action-call-effect .info h3 {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .action-call-item.square.action-call-effect .info p {
+        font-size: 10px;
+        padding: 8px 10px 0px;
+    }
+
+    .namaste-action-call .title {
+        font-size: 20px;
+        height: 120px !important;
+    }
+	
+	.action-call-items {
+		width: 600px;
+    }
+}
+
+@media (max-width: 767px) {
+    .namaste-action-call {
+		margin-left: -55%;
+		padding-left: 0%;
+		margin-right: -55%;
+		padding-right: 0%;
+	}
+	
+	.action-call-container {
+        max-width: none !important;
+    };
+}
+
+@media (max-width: 620px) {
+    .action-call-items {
+        width: 55%;
+    }
+
+    .action-call-item.square {
+        width: 100%;
+    };
+}

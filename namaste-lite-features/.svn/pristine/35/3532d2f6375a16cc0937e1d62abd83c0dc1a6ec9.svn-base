@@ -1,0 +1,55 @@
+.separator-normal,
+.separator-small {
+    display: block;
+    width: 100%;
+    color: #ccc;
+    margin: 10px 0;
+	text-align: center;
+}
+
+.separator-normal .separator-icon {
+    font-size: 55px;
+    line-height: 55px;
+}
+
+.separator-small .separator-icon {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.separator-icon-holder {
+	display: inline-block;
+	position: relative;  
+}
+
+.separator-icon-holder:before,
+.separator-icon-holder:after {
+	content: "";
+    position: absolute;
+    border-bottom: 3px double;
+    top: 28px;
+    width: 100%;
+}
+
+.separator-icon-holder:before {
+	right: 100%;
+	margin-right: 15px;
+}
+
+.separator-icon-holder:after {
+	left: 100%;
+	margin-left: 15px;
+}
+
+.separator-small .separator-icon-holder:before,
+.separator-small .separator-icon-holder:after {
+	top: 16px;
+}
+
+.separator-small .separator-icon-holder:before {
+	margin-right: 8px;
+}
+
+.separator-small .separator-icon-holder:after {
+	margin-left: 8px;
+}
