@@ -1,0 +1,1 @@
+<div id="pane-specifications" class="product-pane"></div>
