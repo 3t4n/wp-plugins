@@ -1,0 +1,287 @@
+ 
+.user_id_youbica {
+    display: none !important;
+}
+ 
+ 
+ 
+ /* 1. Ensure this sits above everything when visible */
+ .modal_youbica {
+     position: absolute;
+     z-index: 10000; /* 1 */
+     top: 0;
+     left: 0;
+     visibility: hidden;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .modal_youbica.is-visible {
+     visibility: visible;
+ }
+ 
+ .modal-overlay {
+   position: fixed;
+   z-index: 10;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: hsla(0, 0%, 0%, 0.5);
+   visibility: hidden;
+   opacity: 0;
+   transition: visibility 0s linear 0.3s, opacity 0.3s;
+ }
+ 
+ .modal_youbica.is-visible .modal-overlay {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0s;
+ }
+ .modal-toggle {
+  background: #ffd000; 
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+ }
+ .modal-wrapper {
+   position: absolute;
+   z-index: 9999;
+   top: 6em;
+   left: 50%;
+   width: 32em;
+   margin-left: -16em;
+   background-color: #fff;
+   box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+ }
+ 
+ .modal-transition {
+   transition: all 0.3s 0.12s;
+   transform: translateY(-10%);
+   opacity: 0;
+ }
+ 
+.modal_youbica.is-visible .modal-transition {
+   transform: translateY(0);
+   opacity: 1;
+ }
+ .modal-content {
+   width: 100%;
+   max-width: 400px;
+   margin: 20px auto;
+ }
+ .modal-content .login input[type="email"],
+ .modal-content .login input[type="password"] {
+   border-bottom: 2px solid rgb(170, 170, 170);
+   border-left: 0;
+   border-right: 0;
+   border-top: 0;
+   background-color: #fff !important;
+   margin-bottom: 30px;
+   width: 100%;
+
+ }
+ .modal-content .login .submit input[type="submit"] {
+    background: #ffd000;
+    width: 100%;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+ }
+ .modal-content .login .submit input[type="submit"]:hover {
+   text-decoration: none;
+ }
+ .modal-content .login .submit a.btn-youbica {
+  background: #ff9300;
+  width: 100%;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  padding-left:0;
+  padding-right:0;
+  display:block;
+  text-align:center;
+  padding: 15px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 17px;
+  font-weight: bold;
+ }
+ .modal-content .login .alert {
+    width: 100%;
+    padding: 10px 0px;
+    color: red;
+    font-size: 15px;
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  }
+ .modal-content .login .submit a.btn-youbica:hover {
+  text-decoration: none;
+ }
+ .modal-content .login .submit a {
+   color: #777;
+   font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+   text-align: center;
+   text-decoration: none;
+   font-size: 15px;
+   margin-top: 10px;
+   display: block;
+ }
+ .modal-content .login .submit a:hover {
+   text-decoration: underline;
+ }
+ .modal-header {
+   padding: .5em;
+ }
+ .modal-content {
+   padding: 1em;
+ }
+ .modal-content .logo {
+   max-width: 200px;
+   width: 100%;
+   margin: 20px auto;
+ }
+ 
+ .modal-header {
+   position: relative;
+   background-color: #fff; 
+ }
+ 
+ .modal-close {
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 1em;
+   color: #aaa;
+   background: none;
+   border: 0;
+ }
+ 
+ .modal-close:hover {
+   color: #777;
+ }
+ 
+ .modal_youbica .modal-heading {
+   font-size: 1.125em;
+   margin: 0;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ .modal_youbica .modal-content > *:first-child {
+   margin-top: 0;
+ }
+ 
+ .modal_youbica .modal-content > *:last-child {
+   margin-bottom: 0;
+ }
+ 
+ .modal_youbica .modal-content .content h3 {
+  color: #b5b5b5;
+  font-size: 18px;
+  margin: 10px auto;
+  text-align: center;
+ }
+ .modal_youbica .modal-content .content .avatar img {
+  height: 45px;
+  margin: 0 auto;
+  text-align: center;
+ }
+ .modal_youbica .modal-content .content p {
+  color: #777;
+  font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 10px;
+ }
+ .modal_youbica .modal-content .content .loading {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px; 
+}
+.modal_youbica .modal-content .content .buscador {
+  text-align: center;
+}
+
+.modal_youbica .modal-content .content #loading1.isloading {
+  background-image: url("../img/loading.gif");
+}
+.ui-widget.ui-widget-content {
+  z-index: 99999 !important;
+}
+.modal_youbica .modal-content .content .buscador  .btn-youbica-confirm {
+  margin: 15px 0;
+  text-decoration: none;
+}
+.confirm-youbica  {
+  display: none ;
+}
+.confirm_regalo {
+  font-size: 18px;
+  padding: 10px;
+  color: #363636;
+  background: #fff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 15px 25px;
+  margin: 20px 0px;
+  font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 18px;
+  border: 3px solid #ffd000;
+}
+.confirm_regalo .logo {
+  width: 200px;
+  margin: 10px auto;
+}
+.modal_youbica .modal-content .content .invitar{
+  margin-top: 20px
+}
+.modal_youbica .modal-content .content .invitar input {
+  width: 60%;
+  float: left;
+  background: #f9f4e8;
+  color: #fe9506;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+}
+.modal_youbica .modal-content .content .invitar button {
+  float: right;
+  padding: 15px 24px;
+  width: auto;
+  background: #ffd000; 
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px; 
+}
+.modal_youbica .modal-content .content .invitar button:hover {
+  text-decoration: none;
+}
+.modal_youbica .modal-content .content .invitar h3 {
+  font-size: 16px;
+    color: #727272;
+}
+.modal_youbica .modal-content .content .invitar h4 {
+  font-size: 14px;
+  color: #c3c3c3;
+  margin: 20px 0px;
+  padding: 0px; 
+  text-align: center;
+}
+.modal_youbica .modal-header button.btn-logout { 
+  padding: 10px 19px;
+  width: auto; 
+  font-size: 12px;  
+  background-color: #fff;
+  color: #363636;
+}
