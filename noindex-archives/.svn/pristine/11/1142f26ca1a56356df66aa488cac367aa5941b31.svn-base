@@ -1,0 +1,58 @@
+<div class="wrap">
+<div id="icon-options-general" class="icon32"><br /></div>
+<h2>Noindex/Nofollow links</h2>
+<p>
+Add attributes to each type of link by checking the appropriate checkbox.
+</p>
+<form method="post" action="options.php">
+<?php wp_nonce_field('update-options'); ?>
+<input type="hidden" name="action" value="update" />
+<input type="hidden" name="page_options" value="ninfa_archives_noindex,ninfa_archives_nofollow,ninfa_tags_noindex,ninfa_tags_nofollow,ninfa_categories_noindex,ninfa_categories_nofollow" />
+<style type="text/css">
+table#ninfa { width: auto; border-spacing: 0; }
+table#ninfa th, table#ninfa td { padding: 10px 7px; border-width: 0 1px 1px 0; border-style: solid; border-color: #E8E8E8; }
+table#ninfa tr.first th { font-style: italic; font-weight: normal; text-align: center; }
+table#ninfa tr.odd { background-color: white; }
+table#ninfa tr td { text-align: center;}
+table#ninfa tr th { font-weight: bold; text-align: right; background-color: #EEEEEE; }
+</style>
+<table id="ninfa">
+<tr class="first">
+<td>&nbsp;</td>
+<th>noindex</th>
+<th>nofollow</th>
+</tr>
+<tr class="odd">
+<th>Archive links</th>
+<td>
+<input name="ninfa_archives_noindex" type="checkbox" <?php echo get_option('ninfa_archives_noindex') == 'on' ? 'checked="checked"' : ''; ?> />
+</td>
+<td>
+<input name="ninfa_archives_nofollow" type="checkbox" <?php echo get_option('ninfa_archives_nofollow') == 'on' ? 'checked="checked"' : ''; ?> />
+</td>
+</tr>
+<tr>
+<th>Tag links</th>
+<td>
+<input name="ninfa_tags_noindex" type="checkbox" <?php echo get_option('ninfa_tags_noindex') == 'on' ? 'checked="checked"' : ''; ?> />
+</td>
+<td>
+<input name="ninfa_tags_nofollow" type="checkbox" <?php echo get_option('ninfa_tags_nofollow') == 'on' ? 'checked="checked"' : ''; ?> />
+</td>
+</tr>
+<tr class="odd">
+<th>Category links</th>
+<td>
+<input name="ninfa_categories_noindex" type="checkbox" <?php echo get_option('ninfa_categories_noindex') == 'on' ? 'checked="checked"' : ''; ?> />
+</td>
+<td>
+<input name="ninfa_categories_nofollow" type="checkbox" <?php echo get_option('ninfa_categories_nofollow') == 'on' ? 'checked="checked"' : ''; ?> />
+</td>
+</tr>
+</table>
+
+<p class="submit">
+	<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+</p>
+</form>
+</div>
