@@ -1,0 +1,28 @@
+{
+  "name": "u2code/bulk-price-editor",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "U2Code"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "BulkPriceEditor\\": "src"
+    }
+  },
+  "require-dev": {
+    "woocommerce/woocommerce-sniffs": ">0.0.1"
+  },
+  "scripts": {
+    "build": "php PluginBuilder.php",
+    "make-pot": "wp i18n make-pot ./ languages/bulk-price-editor.pot --exclude=\"freemius,vendor\" --skip-js --domain=\"bulk-price-editor\"",
+    "check": "/opt/homebrew/opt/php@7.4/bin/php ./vendor/bin/phpcs --standard=phpcs.xml -s --warning-severity=0 --ignore-annotations --extensions=php,html",
+    "fix": "/opt/homebrew/opt/php@7.4/bin/php ./vendor/bin/phpcbf --standard=phpcs.xml --warning-severity=0 --ignore-annotations --extensions=php,html"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
