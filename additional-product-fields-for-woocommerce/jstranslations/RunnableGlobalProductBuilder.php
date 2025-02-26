@@ -1,0 +1,21 @@
+<?php return array(
+"Global Options Designer"=>__("Global Options Designer","rednaowooextraproduct"),
+"Save"=>__("Save","rednaowooextraproduct"),
+"Settings"=>__("Settings","rednaowooextraproduct"),
+"Options"=>__("Options","rednaowooextraproduct"),
+"Name"=>__("Name","rednaowooextraproduct"),
+"When a product already have options configured"=>__("When a product already have options configured","rednaowooextraproduct"),
+"Don't add these options"=>__("Don't add these options","rednaowooextraproduct"),
+"Add these options bellow the product options"=>__("Add these options bellow the product options","rednaowooextraproduct"),
+"Add these options above the product options"=>__("Add these options above the product options","rednaowooextraproduct"),
+"Add these options to the products that met this condition"=>__("Add these options to the products that met this condition","rednaowooextraproduct"),
+"No condition has been added yet, this mean these options will not be added to any product"=>__("No condition has been added yet, this mean these options will not be added to any product","rednaowooextraproduct"),
+"Excluding the products that met this condition"=>__("Excluding the products that met this condition","rednaowooextraproduct"),
+"No excluding condition has been added yet, this mean that these options will be added to all the products that met the condition above without exceptions."=>__("No excluding condition has been added yet, this mean that these options will be added to all the products that met the condition above without exceptions.","rednaowooextraproduct"),
+"Global Options"=>__("Global Options","rednaowooextraproduct"),
+"Name is mandatory"=>__("Name is mandatory","rednaowooextraproduct"),
+"Global options saved"=>__("Global options saved","rednaowooextraproduct"),
+"Create Condition"=>__("Create Condition","rednaowooextraproduct"),
+"or"=>__("or","rednaowooextraproduct"),
+"Add new group"=>__("Add new group","rednaowooextraproduct")
+);

@@ -1,0 +1,137 @@
+.popupSelectorContainer{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+
+    justify-content: center;
+}
+
+.imagePlaceHolder{
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ccc;
+}
+
+.popupSelectorContainer{
+    display: flex;
+    width: 100%;
+}
+
+.labelValueSection
+{
+    flex-grow:1;
+    padding:0 20px
+}
+
+.changeButtonSection,.imageSection{
+    display: flex;
+    align-items: center;
+}
+
+.labelValueSection label{
+    font-weight: bold;
+}
+
+.popUpBackDrop{
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000000000;
+    display: none;
+}
+
+.popUpContainer{
+    z-index: 1000000001;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 30px;
+    background-color: white;
+    max-width: 620px;
+    width: 100%;
+    transform:translateX(100%);
+    transition:transform 200ms ease-in-out;
+    height: 100%;
+}
+
+.popUpBackDrop.open{
+    display: block;
+}
+
+.popUpContainer.open{
+    transform:translateX(0);
+}
+
+.titleSection{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.titleSection h3{
+    font-size: 25px;
+}
+
+.popUpCloseIcon{
+    font-size: 25px;
+    cursor: pointer;
+    color: #bbb;
+}
+
+.popUpCloseIcon:hover{
+    color:red;
+}
+
+.popUpItemContainer{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit,
+    minmax(min(130px, 100%), 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.popUpItem{
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    transition: border-color 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.popUpItem label{
+    font-weight: bold;
+}
+
+.popUpItem:hover{
+    border-color:red;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.lockedBody{
+    overflow: hidden;
+}
+
+.quantitySection{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.quantitySection label{
+    font-weight: bold;
+}
+
+.popUpItem label{
+    font-weight: bold;
+    word-wrap: break-word;
+}
