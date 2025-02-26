@@ -1,0 +1,158 @@
+#wpwrap {
+	background-color: #f3f8fc;
+}
+
+.docs2site-authkey-copy {
+	top: 0px;
+	cursor: pointer;
+}
+
+.docs2site-authkey-copy:before {
+	content: "";
+	display: none;
+	position: absolute;
+	z-index: 9998;
+	top: 100%;
+	left: 15px;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid rgba(0, 0, 0, 0.72);
+}
+
+.docs2site-authkey-copy:after {
+	content: "Copy to Clipboard";
+	display: none;
+	position: absolute;
+	top: calc(100% + 5px);
+	z-index: 9999;
+	left: -37px;
+	width: 114px;
+	height: 36px;
+	color: #fff;
+	font-size: 10px;
+	line-height: 36px;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.72);
+	border-radius: 3px;
+}
+
+.docs2site-authkey-copy:hover {
+	background-color: #eee;
+}
+
+.docs2site-authkey-copy:hover:before,
+.docs2site-authkey-copy:hover:after {
+	display: block;
+}
+
+.docs2site-authkey-copy:active,
+.docs2site-authkey-copy:focus {
+	outline: none;
+}
+
+.docs2site-authkey-copy:active::after,
+.docs2site-authkey-copy:focus::after {
+	content: "Copied!";
+}
+
+#wpbody-content h1::after table {
+	display: block;
+	padding: 45px 60px 75px 60px;
+}
+
+table tr {
+	display: block;
+}
+
+table tr td {
+	display: block;
+}
+
+table tr td label[for="docs2site-auth-token"] {
+	display: block;
+	font-family: "poppins", "sans-serif";
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1.85;
+	color: #000000;
+	opacity: 0.75;
+	margin-bottom: 10px;
+}
+
+table tr td .label-description {
+	display: block;
+	font-family: "poppins", "sans-serif";
+	font-size: 15px;
+	color: #000000;
+	opacity: 0.7;
+}
+
+table tr td #docs2site-auth-token {
+	padding: 20px 8px;
+	margin: 40px 0px 15px 0px;
+	height: 119px;
+	max-width: 500px;
+	width: 100%;
+	color: #000000;
+	opacity: 0.6;
+	font-size: 13px;
+	font-family: "poppins", "sans-serif";
+	resize: none;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 5px;
+	background-color: transparent;
+}
+table tr td .docs2site-authkey-copy {
+	display: block;
+	font-size: 15px;
+	font-family: "poppins", "sans-serif";
+	text-transform: uppercase;
+	border: 0;
+	background-color: #0085ba;
+	color: #fff;
+	padding: 12px 18px;
+	letter-spacing: 0.1px;
+	border: 1px solid #0085ba;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+}
+table tr td .docs2site-authkey-copy:hover {
+	background: transparent;
+	color: #000;
+}
+
+table tr td .docs2site-authkey-copy:hover svg path {
+	fill: #000000;
+}
+
+table tr td .docs2site-authkey-copy span {
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+.docs2site-importer-settings {
+	max-width: 1050px;
+	margin: 70px auto;
+	background-color: #fff;
+	padding: 47px 45px 69px 45px;
+	border-radius: 10px;
+	box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.03);
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.logo {
+	margin-bottom: 30px;
+}
+
+.docs2site-authkey-copy:after {
+	top: calc(74% + 5px);
+	left: 58px;
+}
+
+.docs2site-authkey-copy:before {
+	top: 74%;
+    left: 112px;
+}
