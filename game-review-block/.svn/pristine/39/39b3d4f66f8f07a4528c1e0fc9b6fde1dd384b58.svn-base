@@ -1,0 +1,233 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-game-review-box {
+
+	padding: 2px;
+
+	.shortscore-title {
+		color: #108d4f;
+		text-align: center;
+		margin-bottom: 1em;
+
+		a {
+			color: #108d4f;
+			border: none;
+			text-decoration: none;
+		}
+	}
+
+	.text {
+
+		padding: 0.5em 0.5em 0.6em;
+		margin-bottom: 1em;
+		color: #fff;
+		background-color: #337bb8;
+
+		a {
+			color: #fff;
+			border-bottom: none;
+			text-decoration: none;
+		}
+
+		a:hover,
+		a:active {
+			color: #fff;
+			text-decoration: underline;
+		}
+
+		.item {
+
+			.fn {
+				font-weight: 700;
+			}
+		}
+	}
+
+
+	.shortscore-hreview {
+
+		overflow: hidden;
+		padding: 0;
+		margin-bottom: 1em;
+
+		.link {
+			float: left;
+			padding: 1em;
+			padding-top: 0;
+
+			a {
+				text-decoration: none;
+			}
+		}
+
+		.rating {
+
+			font-size: 300%;
+			color: #fff;
+			line-height: 1.2;
+			padding: 0;
+
+			a {
+				display: block !important;
+				border-bottom: none !important;
+				color: #fff !important;
+				text-decoration: none !important;
+				box-shadow: none !important;
+				-webkit-box-shadow: none !important;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+
+		.outof {
+			display: none;
+		}
+
+		.dtreviewed {
+			display: none;
+		}
+
+		.best {
+			display: none;
+		}
+	}
+
+	.shortscore {
+		// Declarations moved above nested rules
+		background-repeat: no-repeat;
+		background-position: -400px -600px;
+		background-size: 600px;
+		background-image: url(assets/shortscore-600x800.png?v=1.0);
+		background-image: url(assets/shortscore.svg?v=1.0), linear-gradient(transparent, transparent);
+
+		text-align: center;
+		width: 200px;
+		height: 200px;
+		line-height: 200px;
+		font-size: 60px;
+		font-weight: 700;
+		margin: 0 auto;
+		margin-bottom: 0.4em;
+		position: relative;
+
+		* {
+			user-select: none;
+		}
+
+		.value {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			white-space: nowrap;
+		}
+
+		// Adjust background-position for specific scores
+		&-1 {
+			background-position: -200px 0;
+		}
+
+		&-2 {
+			background-position: -400px 0;
+		}
+
+		&-3 {
+			background-position: 0 -200px;
+		}
+
+		&-4 {
+			background-position: -200px -200px;
+		}
+
+		&-5 {
+			background-position: -400px -200px;
+		}
+
+		&-6 {
+			background-position: 0 -400px;
+		}
+
+		&-7 {
+			background-position: -200px -400px;
+		}
+
+		&-8 {
+			background-position: -400px -400px;
+		}
+
+		&-9 {
+			background-position: 0 -600px;
+		}
+
+		&-10 {
+			background-position: -200px -600px;
+		}
+
+		.score {
+			text-align: center;
+			margin-bottom: 2em;
+			color: #707070;
+		}
+	}
+}
+
+
+@media only screen and (min-resolution: 192dpi),
+	only screen and (min-resolution: 2dppx) {
+
+	html {
+
+		.wp-block-game-review-box {
+
+			.shortscore {
+				background-image: url(assets/shortscore-1200x1600.png);
+				background-image: url(assets/shortscore.svg), linear-gradient(transparent, transparent);
+			}
+		}
+	}
+}
+
+@keyframes press {
+
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(3px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes pressValue {
+
+	0% {
+		transform: translate(-50%, -50%) translateY(0);
+	}
+
+	50% {
+		transform: translate(-50%, -50%) translateY(4px);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) translateY(0);
+	}
+}
+
+.shortscore.pressed {
+	animation: press 0.3s ease-out;
+}
+
+.value.pressed {
+	animation: pressValue 0.3s ease-out;
+}
