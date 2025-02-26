@@ -1,0 +1,370 @@
+{
+  "apiVersion": 2,
+  "name": "atlb/timeline-block",
+  "version": "0.1.0",
+  "title": "Timeline",
+  "category": "atlb-block",
+  "description": "Build timeline easily in Gutenberg Editor",
+  "supports": {
+    "html": false,
+    "anchor": false,
+    "customClassName": false
+  },
+  "providesContext": {
+    "atlb/markerIcon": "markerIcon",
+    "atlb/enableContentBoxShadow": "enableContentBoxShadow",
+    "atlb/dateNameTag": "dateNameTag",
+    "atlb/enabledateNameBoxShadow": "enabledateNameBoxShadow"
+  },
+  "example": {
+    "attributes": {
+      "desk_center_layout": "desk_center_layout",
+      "tab_center_layout": "tab_center_layout",
+      "mob_center_layout": "mob_center_layout",
+      "dateNameTag": "p"
+    }
+  },
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "deskLayout": {
+      "type": "string",
+      "default": "desk_center_layout"
+    },
+    "tabLayout": {
+      "type": "string",
+      "default": "tab_center_layout"
+    },
+    "mobLayout": {
+      "type": "string",
+      "default": "mob_left_layout"
+    },
+    "deskVerticalSpacing": {
+      "type": "number",
+      "default": 30
+    },
+    "tabVerticalSpacing": {
+      "type": "number",
+      "default": 30
+    },
+    "mobVerticalSpacing": {
+      "type": "number",
+      "default": 15
+    },
+    "contentDtopPadding": {
+      "type": "string",
+      "default": "20"
+    },
+    "contentDbottomPadding": {
+      "type": "string",
+      "default": "20"
+    },
+    "contentDleftPadding": {
+      "type": "string",
+      "default": "20"
+    },
+    "contentDrightPadding": {
+      "type": "string",
+      "default": "20"
+    },
+    "enableContentDlinkedPadding": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentDlinkedPadding": {
+      "type": "string",
+      "default": "20"
+    },
+    "contentTtopPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "contentTbottomPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "contentTleftPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "contentTrightPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "enableContentTlinkedPadding": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentTlinkedPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "contentMtopPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "contentMbottomPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "contentMleftPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "contentMrightPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "enableContentMlinkedPadding": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentMlinkedPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateNameTag": {
+      "type": "string",
+      "default": "p"
+    },
+    "dateDtopPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateDbottomPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateDleftPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateDrightPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "enableDateDlinkedPadding": {
+      "type": "boolean",
+      "default": true
+    },
+    "dateDlinkedPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateTtopPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "dateTbottomPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "dateTleftPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "dateTrightPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "enableDateTlinkedPadding": {
+      "type": "boolean",
+      "default": true
+    },
+    "dateTlinkedPadding": {
+      "type": "string",
+      "default": "15"
+    },
+    "dateMtopPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateMbottomPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateMleftPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "dateMrightPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "enableDateMlinkedPadding": {
+      "type": "boolean",
+      "default": true
+    },
+    "dateMlinkedPadding": {
+      "type": "string",
+      "default": "10"
+    },
+    "deskMarkerSize": {
+      "type": "number",
+      "default": 15
+    },
+    "tabMarkerSize": {
+      "type": "number",
+      "default": 15
+    },
+    "mobMarkerSize": {
+      "type": "number",
+      "default": 15
+    },
+    "deskMarkerContainerSize": {
+      "type": "number",
+      "default": 25
+    },
+    "tabMarkerContainerSize": {
+      "type": "number",
+      "default": 25
+    },
+    "mobMarkerContainerSize": {
+      "type": "number",
+      "default": 25
+    },
+    "markerIcon": {
+      "type": "string",
+      "default": "far fa-arrow-alt-circle-down"
+    },
+    "connectorThickness": {
+      "type": "number",
+      "default": 2
+    },
+    "customColorsPallete": {
+      "type": "boolean",
+      "default": true
+    },
+    "connectorColor": {
+      "type": "string",
+      "default": "#406343"
+    },
+    "contentBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "contentBorderColor": {
+      "type": "string",
+      "default": "#406343"
+    },
+    "contentBorderTopWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "contentBorderBottomWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "contentBorderLeftWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "contentBorderRightWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "enableLinkedBorder": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentBorderLinkedWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "contentBorderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "enableContentBoxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "contentBg": {
+      "type": "string"
+    },
+    "markerBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "markerBorderWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "markerBorderColor": {
+      "type": "string",
+      "default": "#406343"
+    },
+    "markerBorderRadius": {
+      "type": "number",
+      "default": 50
+    },
+    "markerColor": {
+      "type": "string",
+      "default": "#406343"
+    },
+    "markerBg": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "dateNameBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "dateNameBorderColor": {
+      "type": "string",
+      "default": "#406343"
+    },
+    "dateNameBorderTopWidth": {
+      "type": "string",
+      "default": "1"
+    },
+    "dateNameBorderBottomWidth": {
+      "type": "string",
+      "default": "1"
+    },
+    "dateNameBorderLeftWidth": {
+      "type": "string",
+      "default": "1"
+    },
+    "dateNameBorderRightWidth": {
+      "type": "string",
+      "default": "1"
+    },
+    "enableDateNameLinkedBorder": {
+      "type": "boolean",
+      "default": true
+    },
+    "dateNameBorderLinkedWidth": {
+      "type": "string",
+      "default": "1"
+    },
+    "dateNameBorderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "enabledateNameBoxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "dateNameColor": {
+      "type": "string"
+    },
+    "dateNameBg": {
+      "type": "string"
+    },
+    "zindex": {
+      "type": "number"
+    },
+    "customClass": {
+      "type": "string"
+    },
+    "anchorId": {
+      "type": "string"
+    }
+  },
+  "textdomain": "advanced-timeline-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
