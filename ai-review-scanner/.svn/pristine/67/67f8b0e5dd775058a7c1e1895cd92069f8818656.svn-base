@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'wpbones/wpkirk',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '2bc2dc9ef0fcb8c2fc8a09654c1d5558f9255c1f',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'eftec/bladeone' => array(
+            'pretty_version' => '4.13',
+            'version' => '4.13.0.0',
+            'reference' => 'a24ce564a681fa3e37b2490952915c403ee9e56a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../eftec/bladeone',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'wpbones/wpbones' => array(
+            'pretty_version' => '1.4.6',
+            'version' => '1.4.6.0',
+            'reference' => '8c5a72ca5af153dc976e490f29e14f3c78304884',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../wpbones/wpbones',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'wpbones/wpkirk' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '2bc2dc9ef0fcb8c2fc8a09654c1d5558f9255c1f',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

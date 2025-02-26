@@ -1,0 +1,56 @@
+/**
+ * Dashboard style
+ *
+ * You can keep a bound between css class and plugin name/namespace.
+ * To do this, you have to use the right naming for the css id and class.
+ *
+ */
+
+.ai-review-scanner-dashboard
+{
+  color: #f00;
+}
+#notification-bar-success {
+  background-color: #4CAF50; /* Green background for success */
+  color: white; /* White text */
+  text-align: center; /* Center the text */
+  padding: 10px 20px; /* 10px top and bottom, 20px left and right padding */
+  margin: 10px 0; /* 10px margin above and below the bar */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow for 3D effect */
+  font-size: 16px; /* Slightly larger text */
+}
+
+#notification-bar-error {
+  background-color: #9e1313; /* Green background for success */
+  color: white; /* White text */
+  text-align: center; /* Center the text */
+  padding: 10px 20px; /* 10px top and bottom, 20px left and right padding */
+  margin: 10px 0; /* 10px margin above and below the bar */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow for 3D effect */
+  font-size: 16px; /* Slightly larger text */
+}
+
+/* Optional: animation to gently fade in the alert */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#notification-bar-success, #notification-bar-error {
+  animation: fadeIn 1s ease-in-out;
+}
