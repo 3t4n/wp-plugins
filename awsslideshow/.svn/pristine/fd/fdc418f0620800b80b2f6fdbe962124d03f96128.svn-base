@@ -1,0 +1,6 @@
+<div ng-repeat="slide in cslides" class="elements box-1 {{slide.attrClass}}" index="{{$index}}" kind="{{slide.kind}}" top="{{slide.top}}" left="{{slide.left}}" width="{{slide.width}}" height="{{slide.height}}" effect-in="{{slide.effectIn.name}}" effect-out="{{slide.effectOut.name}}" timing="{{slide.timing.name}}" speed="{{slide.speed}}" delay="{{slide.delay}}" zindex="{{slide.zindex}}" ng-class="[slide.effectIn.name]" elements>
+	
+	<elementimage ng-if="slide.kind == 'image'" index="{{$index}}" width="{{slide.width}}" height="{{slide.height}}" src="{{slide.src_img}}" ratio="{{slide.ratio}}"></elementimage>
+	<elementtext ng-if="slide.kind == 'text'" id="item_{{slide.index}}_{{slide.index}}" index="{{$index}}" kind="text" padding="{{slide.padTop}}px {{slide.padRight}}px {{slide.padBottom}}px {{slide.padLeft}}px" fontname="{{slide.fontName}}" fontsize="{{slide.fontSize}}" fontweight="{{slide.fontWeight}}" color="{{slide.color}}" bgcolor="{{slide.bgColor}}">{{slide.content}}</elementtext>
+	<elementvideo ng-if="slide.kind == 'video'" index="{{$index}}" ratio="{{slide.ratio}}"></elementvideo>
+</div>

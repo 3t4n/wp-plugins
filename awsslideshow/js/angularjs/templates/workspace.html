@@ -1,0 +1,59 @@
+<div id="workspace">
+	
+	<div class="place-1">
+		<contextbar id="contextbar" ng-controller="ContextbarController"></contextbar>
+		<div id="top_right_contextbar">
+			<a href="#" class="aws_button button_contextbar save" ng-click="save($event)"><span class="fa fa-floppy-o"></span> Update</a>
+			<a href="#" class="aws_button button_contextbar preview" ng-click="preview($event)"><span class="fa fa-play"></span> Preview</a>
+			<a href="#" class="aws_button button_contextbar settings" ng-click="showSettings($event)"><span class="fa fa-cog"></span> Settings</a>
+		</div>
+	</div>
+
+	<div class="place-2">
+				
+		<div class="panel-3" ng-controller="ContainerController">
+			<div id="wrapper_scroller">
+				<div class="scroller">
+					
+					<div class="container-elements" containerelements></div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div id="sidebar-left" ng-controller="ToolsController">
+			
+			<aws-accordion>
+			
+				<!-- Properties -->
+				<aws-accordion-group heading="Properties" class="properties">
+					<div class="aws-group">
+						<div toolbarpanel-info></div>
+					</div>
+				</aws-accordion-group>
+				
+				<!-- Manage Elements -->
+				<aws-accordion-group heading="New Elements" class="elements">
+					<div class="aws-group">
+						<div toolbarpanel-elements></div>
+					</div>
+				</aws-accordion-group>
+				
+				<!-- Manage Items -->
+				<aws-accordion-group heading="Elements" class="items">
+					<div class="aws-group">
+						<div toolbarpanel-items class="toolbarpanel-items"></div>
+					</div>
+				</aws-accordion-group>
+				
+				<!-- Manage Slides -->
+				<aws-accordion-group heading="Slides" class="slides in">
+					<div class="aws-group">
+						<div toolbarpanel-slides class="toolbarpanel-slides"></div>
+					</div>
+				</aws-accordion-group>
+			</aws-accordion>
+		</div>
+	</div>
+	
+</div>

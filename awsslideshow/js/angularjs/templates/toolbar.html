@@ -1,0 +1,13 @@
+
+<ul class="toollist" ng-init="isVisible=false">
+	<li ng-repeat="tool in tools">
+		<a href="#" ng-click="togglePanel(tool.name, $event)"><span class="{{tool.icon}}"></span></a>
+		
+		<div class="toolpanel" ng-show="panelIsShow" toolpanel name="{{tool.name}}" index="{{$index}}">
+			<div class="title">{{tool.title}}</div>
+			
+		</div>
+		
+	</li>
+</ul>
+

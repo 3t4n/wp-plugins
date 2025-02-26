@@ -1,0 +1,52 @@
+<div class="aws-c2-p0 aws-tabs">
+	<div class="tab" ng-click="selection = 'other'" ng-init="selection = 'other'" ng-class="{'active': selection === 'other'}">Properties</div>
+</div>
+
+<div class="animate-switch-container" ng-switch on="selection">
+    <div class="animate-switch aws-group" ng-switch-default>
+		
+		<div class="aws-c1"><div class="aws-input v"><label>Title</label><input type="text" class="x0" ng-model="slide.title" /></div></div>
+		
+		<div class="aws-c1"><div class="aws-input v"><label>Duration</label><input type="text" class="x0" ng-model="slide.duration" /></div></div>
+		
+		<div class="aws-c1">
+			<div class="aws-input h x1">
+				<label>Color</label>
+				<!-- <input type="text" class="x0 bgimage" ng-focus="loadBackgroundImage()" /> -->
+				<input colorbox value="{{slide.styles.bgColor}}" ng-model="slide.styles.bgColor" style="background:{{slide.styles.bgColor}}" class="colorbgpicker" ng-change="changeBgColor()" />
+			</div>
+		</div>
+		
+		<div class="aws-c1">
+			<div class="aws-input h x1">
+				<label>Image</label>
+				<!-- <input type="text" class="x0 bgimage" ng-focus="loadBackgroundImage()" /> -->
+				
+				<a href="#" class="aws-button" ng-click="loadBackgroundImage($event)">Change</a>
+			</div>
+		</div>
+		
+		<div class="aws-c1">
+			<div class="aws-input v">
+				<label>Effect</label>
+				<select class="x0" id="effectIn" ng-model="slide.effectIn" ng-options="effect.label group by effect.type for effect in effects.effectsBgIn | filter:{ type : getSettingDirection() } track by effect.name" ng-if="settings.direction == 'fade'"></select>
+				
+				<select class="x0" id="effectIn" ng-model="slide.h_effectIn" ng-options="effect.label group by effect.type for effect in effects.effectsBgIn | filter:{ type : getSettingDirection() } track by effect.name" ng-if="settings.direction == 'horizontal'"></select>
+				
+				<select class="x0" id="effectIn" ng-model="slide.v_effectIn" ng-options="effect.label group by effect.type for effect in effects.effectsBgIn | filter:{ type : getSettingDirection() } track by effect.name" ng-if="settings.direction == 'vertical'"></select>
+			</div>
+		</div>
+		
+		<!-- <div class="aws-c1">
+			<div class="aws-input v">
+				<label>Effect Out</label>
+				<select class="x0" id="effectOut" ng-model="slide.effectOut" ng-options="effect.label for effect in effects.effectsBgOut | filter:{ type : getSettingDirection() } track by effect.name" ng-if="settings.direction == 'fade'"></select>
+
+				<select class="x0" id="effectOut" ng-model="slide.h_effectOut" ng-options="effect.label for effect in effects.effectsBgOut | filter:{ type : getSettingDirection() } track by effect.name" ng-if="settings.direction == 'horizontal'"></select>
+
+				<select class="x0" id="effectOut" ng-model="slide.v_effectOut" ng-options="effect.label for effect in effects.effectsBgOut | filter:{ type : getSettingDirection() } track by effect.name" ng-if="settings.direction == 'vertical'"></select>
+			</div>
+		</div> -->
+			
+    </div>
+</div>

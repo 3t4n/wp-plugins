@@ -1,0 +1,318 @@
+@import url(../icons/ionicons/css/ionicons.min.css);
+@import url(prefix_effects.css);
+.svg-wrap {
+  display: none;
+}
+
+.aws_slideshow_wrap {
+  position: relative;
+  margin: 0 auto;
+}
+
+.aws_slideshow_wrap .loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  z-index: 999999999999999999;
+  border-radius: 100%;
+}
+
+.aws_slideshow_wrap .loading .num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 34px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.1;
+  display: none;
+}
+
+.aws_slideshow_wrap .box_inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  perspective: 500px;
+}
+
+.aws_slideshow_wrap .box_inner .box_items {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: 0;
+}
+
+.aws_slideshow_wrap .box_inner .box_items .box_item_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*  opacity: 0;*/
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center center;
+}
+
+.aws_slideshow_wrap .box_item_bg img, .aws_slideshow_wrap .box_item_bg iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.aws_slideshow_wrap .box_container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.aws_slideshow_wrap .box_item {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  line-height: 1;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+}
+
+.aws_slideshow_wrap .box_items .box_item, .aws_slideshow_wrap .box_items .box_item_bg {
+  opacity: 0;
+}
+
+.aws_slideshow_wrap .box_items.preactive {
+  z-index: 0;
+}
+
+.aws_slideshow_wrap .box_items.preactive .box_item_bg {
+  opacity: 1;
+  z-index: 0;
+}
+
+.aws_slideshow_wrap .box_inner .box_items .box_container .box_item img {
+  width: 100%;
+  height: 100%;
+}
+
+.aws_slideshow_wrap .box_inner .active {
+  visibility: visible;
+  z-index: 9;
+}
+
+.aws_slideshow_wrap .box_inner .active .box_item {
+  z-index: 999;
+}
+
+.aws_slideshow_wrap .progress {
+  margin: 0;
+  padding: 0;
+  z-index: 99999;
+}
+.aws_slideshow_wrap .progress.bars {
+  border-radius: 0;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #CFCFCF;
+}
+.aws_slideshow_wrap .progress.bars .percent {
+  width: 0px;
+  height: 100%;
+  background: red;
+}
+
+.aws_slideshow_wrap .next {
+  position: absolute;
+  top: 250px;
+  right: 20px;
+  width: 56px;
+  height: 90px;
+  border-radius: 100%;
+  z-index: 99999999;
+  text-decoration: none;
+  text-align: left;
+  text-indent: 100em;
+  display: block;
+  overflow: hidden;
+  -webkit-transition: right 0.5s;
+}
+
+.aws_slideshow_wrap .next:hover {
+  cursor: pointer;
+  right: 10px;
+}
+
+.aws_slideshow_wrap .prev {
+  position: absolute;
+  top: 250px;
+  left: 20px;
+  width: 56px;
+  height: 90px;
+  border-radius: 100%;
+  z-index: 99999999;
+  text-decoration: none;
+  text-align: left;
+  text-indent: -100em;
+  display: block;
+  overflow: hidden;
+  -webkit-transition: left 0.5s;
+}
+
+.aws_slideshow_wrap .prev:hover {
+  cursor: pointer;
+  left: 10px;
+}
+
+.box_item.btn-1 {
+  border: 1px solid #FFF;
+  text-align: center;
+  padding: 3px;
+}
+
+.aws_pagi {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 9999;
+}
+
+.aws_pagi a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: #000;
+  margin-right: 10px;
+}
+
+.aws_pagi.style1 a {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  text-decoration: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+  -webkit-transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  outline: none;
+  text-indent: -999em;
+  overflow: hidden;
+}
+
+.aws_pagi.style1 a.pagi_active {
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 0 0 2px #FFF;
+}
+
+.box_item_bg {
+  overflow: hidden;
+}
+.box_item_bg video {
+  width: 100%;
+}
+.box_item_bg .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.box_item_bg .mask > div {
+  overflow: hidden;
+  position: absolute;
+  display: block;
+  opacity: 1;
+}
+.box_item_bg .mask span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pagination.style-2 {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  z-index: 999;
+}
+.pagination.style-2 a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.7);
+  margin-right: 4px;
+  color: #939393;
+  border-radius: 100%;
+}
+.pagination.style-2 a:hover, .pagination.style-2 a.active {
+  background: white;
+  color: #000;
+}
+
+.direction .nextSlide, .direction .prevSlide {
+  position: absolute;
+  text-decoration: none;
+  display: block;
+  line-height: 1;
+  z-index: 999;
+}
+.direction .nextSlide span, .direction .prevSlide span {
+  display: none;
+}
+.direction.style-1 .nextSlide, .direction.style-1 .prevSlide {
+  top: 50%;
+  font-size: 80px;
+  margin-top: -40px;
+  background: rgba(121, 121, 121, 0.56);
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.direction.style-1 .nextSlide:hover, .direction.style-1 .prevSlide:hover {
+  color: white;
+}
+.direction.style-1 .nextSlide {
+  right: 10px;
+}
+.direction.style-1 .prevSlide {
+  left: 10px;
+}
+
+.aws_slideshow_wrap:hover .direction.style-1 .nextSlide, .aws_slideshow_wrap:hover .direction.style-1 .prevSlide {
+  opacity: 1;
+}
+.aws_slideshow_wrap:hover .pagination.style-2 {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=awsslideshow.css.map */

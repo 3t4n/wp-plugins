@@ -1,0 +1,52 @@
+
+<div class="preview">
+	
+	<div class="aws_slideshow_wrap" data-width="{{settings.width}}" data-height="{{settings.height}}" data-isauto="{{settings.isAuto}}" data-isresponsive="{{settings.isResponsive}}" data-direction="{{settings.direction}}" data-isfullwindow="0">
+		<div class="box_inner">
+			<div class="box_items" ng-repeat="slide in slides" data-duration="{{slide.duration}}">
+				
+				<div ng-if="settings.direction == 'horizontal'" class="box_item_bg box_item_bg_{{slide.styles.from}}" data-effectin="{{slide.h_effectIn.name}}" data-effectout="{{slide.h_effectOut.name}}" data-color="{{slide.styles.bgColor}}" data-src="{{slide.styles.bgSrc}}" data-from="{{slide.styles.from}}" data-delay="0" data-speed="500">
+				</div>
+				
+				<div ng-if="settings.direction == 'vertical'" class="box_item_bg box_item_bg_{{slide.styles.from}}" data-effectin="{{slide.v_effectIn.name}}" data-effectout="{{slide.v_effectOut.name}}" data-color="{{slide.styles.bgColor}}" data-src="{{slide.styles.bgSrc}}" data-from="{{slide.styles.from}}" data-delay="0" data-speed="500">
+				</div>
+				
+				<div ng-if="settings.direction == 'fade'" class="box_item_bg box_item_bg_{{slide.styles.from}}" data-effectin="{{slide.effectIn.name}}" data-effectout="{{slide.effectOut.name}}" data-color="{{slide.styles.bgColor}}" data-src="{{slide.styles.bgSrc}}" data-from="{{slide.styles.from}}" data-delay="0" data-speed="500">
+				</div>
+				
+				<div class="box_container">
+					
+					<div ng-repeat="item in slide.items" class="box_item box_item_{{item.kind}} box_item_{{item.index}}" 
+					data-kind={{item.kind}} 
+					data-effect="{{item.effectIn.name}}" 
+					data-effectout="{{item.effectOut.name}}" 
+					data-easing="{{item.timing.name}}" 
+					data-top="{{item.top}}" 
+					data-left="{{item.left}}" 
+					data-padding="{{item.padTop}} {{item.padRight}} {{item.padBottom}} {{item.padLeft}}"
+					data-duration="{{item.speed}}" 
+					data-delay="{{item.delay}}" 
+					data-width="{{item.width}}" 
+					data-height="{{item.height}}" 
+					data-zindex="{{item.zindex}}"
+					data-src="{{item.src_img}}"
+					data-fontname="{{item.fontName}}" 
+					data-fontweight="{{item.fontWeight}}"
+					data-fontsize="{{item.fontSize}}"
+					data-color="{{item.color}}" 
+					data-bgcolor="{{item.bgColor}}">
+						<div ng-if="item.kind == 'text' && item.link == undefined">{{item.content}}</div>
+						<a href="{{item.link}}" ng-if="item.kind == 'text' && item.link != undefined" style="color:{{item.color}};">{{item.content}}</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="previewAction">
+		<div class="closelightbox" ng-click="closeLightbox()"><i class="fa fa-times"></i></div>
+	</div>
+	
+</div>
+

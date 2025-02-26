@@ -1,0 +1,105 @@
+<h3 class="awslightbox-title">Settings</h3>
+<aws-tabs direction="horizontal">
+	<div class="tab-title">
+		<a href="#" class="general" data-id="general">General</a>
+		<a href="#" class="showhide" data-id="showhide">Show or Hide</a>
+		<a href="#" class="appearance" data-id="appearance">Fonts Manager</a>
+	</div>
+	
+	<div class="tab-content">
+		<div class="general">
+			<div class="aws-c1">
+				<div>
+					<div class="aws-input h x3">
+						<label>Width</label>
+						<input type="text" value="{{settings.width}}" class="x0" ng-model="settings.width" ng-change="updateSettings({width:settings.width})" />
+					</div>
+
+					<div class="aws-input h x3">
+						<label>Height</label>
+						<input type="text" value="{{settings.height}}" class="x0" ng-model="settings.height" ng-change="updateSettings({height:settings.height})" />
+					</div>
+
+					<div class="aws-input h x4">
+						<label>Direction</label>
+						<div class="input">
+							<label for="fade"><input type="radio" ng-model="settings.direction" value="fade" id="fade" /> Fade</label>
+							<label for="horizontal"><input type="radio" ng-model="settings.direction" value="horizontal" id="horizontal" /> Horizontal</label>
+							<label for="vertical"><input type="radio" ng-model="settings.direction" value="vertical" id="vertical" /> Vertical</label>
+						</div>
+					</div>
+					
+					<div class="aws-input h x4">
+						<label>Layout</label>
+						<div class="input">
+							<label for="yes_layout"><input type="radio" ng-model="settings.isResponsive" value="1" id="yes_layout" /> Responsive</label>
+							<label for="no_layout"><input type="radio" ng-model="settings.isResponsive" value="0" id="no_layout" /> Fixed</label>
+						</div>
+					</div>
+					
+					<div class="aws-input h x4">
+						<label>Full width</label>
+						<div class="input">
+							<label for="yes_isfullwidth"><input type="radio" ng-model="settings.isFullwidth" value="1" id="yes_isfullwidth"/> Yes</label>
+							<label for="no_isfullwidth"><input type="radio" ng-model="settings.isFullwidth" value="0" id="no_isfullwidth" /> No</label>
+						</div>
+					</div>
+					
+					<div class="aws-input h x4">
+						<label>Full window</label>
+						<div class="input">
+							<label for="yes_isfullwindow"><input type="radio" ng-model="settings.isFullwindow" value="1" id="yes_isfullwindow"/> Yes</label>
+							<label for="no_isfullwindow"><input type="radio" ng-model="settings.isFullwindow" value="0" id="no_isfullwindow" /> No</label>
+						</div>
+					</div>
+			
+					<div class="aws-input h x4">
+						<label>Auto slideshow</label>
+						<div class="input">
+							<label for="yes"><input type="radio" ng-model="settings.isAuto" value="1" id="yes"/> Yes</label>
+							<label for="no"><input type="radio" ng-model="settings.isAuto" value="0" id="no" /> No</label>
+						</div>
+					</div>
+			
+				</div>	
+			</div>
+		</div>
+		<div class="showhide">
+			<div class="aws-c1">
+				<div>
+					
+					<div class="aws-input h x4">
+						<label>Show navigation</label>
+						<div class="input">
+							<label for="yes_isNavigation"><input type="radio" ng-model="settings.isNavigation" value="1" id="yes_isNavigation" /> Yes</label>
+							<label for="no_isNavigation"><input type="radio" ng-model="settings.isNavigation" value="0" id="no_isNavigation" /> No</label>
+						</div>
+					</div>
+					
+					<div class="aws-input h x4">
+						<label>Show pagination</label>
+						<div class="input">
+							<label for="yes_isPagination"><input type="radio" ng-model="settings.isPagination" value="1" id="yes_isPagination" /> Yes</label>
+							<label for="no_isPagination"><input type="radio" ng-model="settings.isPagination" value="0" id="no_isPagination" /> No</label>
+						</div>
+					</div>
+					
+					<div class="aws-input h x4">
+						<label>Show progress</label>
+						<div class="input">
+							<label for="yes_isProgress"><input type="radio" ng-model="settings.isProgress" value="1" id="yes_isProgress" /> Yes</label>
+							<label for="no_isProgress"><input type="radio" ng-model="settings.isProgress" value="0" id="no_isProgress" /> No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="appearance">
+			
+			<div class="aws-input h x5 textarea">
+				<label>Google Fonts</label>
+				<textarea type="text" ng-model="settings.fontGoogle" ng-change="updateSettings({fontGoogle:settings.fontGoogle})" ng-model-options="{ updateOn: 'blur' }">{{settings.fontGoogle}}</textarea>
+			</div>
+		</div>
+	</div>
+</aws-tabs>

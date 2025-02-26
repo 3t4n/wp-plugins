@@ -1,0 +1,104 @@
+.awslightbox {
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  -moz-transition: -moz-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+}
+.awslightbox .content {
+  -webkit-transition: -webkit-transform 0.3s 0.5s, opacity 0.3s 0.5s, visibility 0.3s 0.5s;
+  -moz-transition: -moz-transform 0.3s 0.5s, opacity 0.3s 0.5s, visibility 0.3s 0.5s;
+  transition: transform 0.3s 0.5s, opacity 0.3s 0.5s, visibility 0.3s 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: #FFF;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-200px);
+  -moz-transform: translateY(-200px);
+  transform: translateY(-200px);
+}
+.awslightbox .content-body {
+  height: 100%;
+  padding-bottom: 40px;
+}
+.awslightbox .content-body > div {
+  height: 100%;
+  position: relative;
+  background: #FFF;
+}
+.awslightbox .actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  z-index: 9999;
+}
+.awslightbox .awsclose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  font-size: 19px;
+  text-align: center;
+  color: #FFF;
+  z-index: 999;
+  text-decoration: none;
+}
+.awslightbox .awsclose:hover, .awslightbox .awsclose:focus {
+  background: #000;
+  color: #FFF;
+  outline: none;
+  box-shadow: none;
+}
+.awslightbox.is-show-awslightbox {
+  opacity: 1;
+}
+.awslightbox.is-show-awslightbox .content {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+}
+.awslightbox.is-hide-awslightbox {
+  opacity: 0;
+}
+.awslightbox.is-hide-awslightbox .content {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.3s, visibility 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+.awslightbox.aws-media-lg .content {
+  width: 900px;
+  height: 400px;
+}
+.awslightbox.aws-media-md .content {
+  width: 700px;
+  height: 500px;
+}
+
+.awslightbox-title {
+  margin: 0;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  color: #FFF;
+  background: #282D32;
+  font-weight: normal;
+  font-size: 14px;
+}

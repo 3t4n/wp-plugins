@@ -1,0 +1,226 @@
+<div class="elementinfo">
+    <aws-accordion ng-if="data.effectIn != undefined">
+	  
+      <aws-accordion-group heading="General" class="properties">         
+	  	
+		<div class="aws-group">
+			<div class="aws-c1">
+				<div class="aws-input h x2">
+					<label>Name</label>
+					<input type="text" ng-model="data.name" ng-change="update({name:data.name})" />
+				</div>
+			</div>
+			
+			<div class="aws-c2">
+				<div class="aws-input h x1">
+					<label>Top</label>
+					<input type="text" ng-model="data.top" ng-change="update({top:data.top})" />
+				</div>
+				
+				<div class="aws-input h x1">
+					<label>Left</label>
+					<input type="text" value="{{data.left}}" ng-model="data.left" ng-change="update({left:data.left})" />
+				</div>
+			</div>
+			
+			<div class="aws-c2">
+				<div class="aws-input h x1">
+					<label>Width</label>
+					<input type="text" value="{{data.width}}" ng-model="data.width" ng-change="update({width:data.width})" />
+				</div>
+		
+				<div class="aws-input h x1">
+					<label>Height</label>
+					<input type="text" value="{{data.height}}" ng-model="data.height" ng-change="update({height:data.height})" />
+				</div>
+			</div>
+			
+		</div>
+      </aws-accordion-group>
+	  
+      <aws-accordion-group heading="Effects" is-open="" is-disabled="">
+		<div class="aws-group">
+		<div class="aws-c1">
+			<div class="aws-input h x2">
+				<label>Effect In</label>
+				<select id="effectIn" ng-model="data.effectIn" ng-options="effect.label group by effect.type for effect in effects.effectsIn track by effect.name" ng-change="update({effectIn:data.effectIn})"></select>
+			</div>
+		</div>
+		
+		<div class="aws-c1">
+			<div class="aws-input h x2">
+			<label>Effect Out</label>
+				<select id="effectOut" ng-model="data.effectOut" ng-options="effect.label group by effect.type for effect in effects.effectsOut track by effect.name" ng-change="update({effectOut:data.effectOut})"></select>
+			</div>
+		</div>
+		
+		<div class="aws-c1">
+			<div class="aws-input h x2">
+			<label>Timing</label>
+				<select id="timing" ng-model="data.timing" ng-options="timing.label group by timing.type for timing in effects.timing track by timing.name" ng-change="updateTiming(data.timing)"></select>
+			</div>
+		</div>
+		
+		<div class="aws-c2">
+			<div class="aws-input h x1">
+				<label>Delay</label>
+				<input type="text" value="{{data.delay}}" ng-model="data.delay" ng-change="update({delay:data.delay})" />
+			</div>
+
+			<div class="aws-input h x1">
+				<label>Speed</label>
+				<input type="text" value="{{data.speed}}" ng-model="data.speed" ng-change="update({speed:data.speed})" />
+			</div>
+		</div>
+		</div>
+      </aws-accordion-group>
+	  
+	  <aws-accordion-group heading="Image" is-open="false" is-disabled="" ng-if="data.kind == 'image'">
+	  	<div class="aws-group">
+			<div class="aws-c1">
+				<div class="aws-input h x2">
+					<label>Source</label>
+					<a href="#" class="aws-button" ng-click="loadImageLightbox($event)">Change</a>
+				</div>
+			</div>
+			<div class="aws-c1">
+				<div class="aws-input h x2">
+					<label>Alt</label>
+					<input type="text" value="{{data.src_alt}}" ng-model="data.src_alt" ng-change="update({src_alt:data.src_alt})"/>
+				</div>
+			</div>
+			
+		</div>
+  	  </aws-accordion-group>
+	  
+      <aws-accordion-group heading="Font - Color" is-open="false" is-disabled="" ng-if="data.kind == 'text'">
+		<div class="aws-group">
+			<div class="aws-c1">
+				<div class="aws-input h x2">
+					<label>Font</label>
+					<input type="text" value="{{data.fontName}}" ng-model="data.fontName" ng-change="update({fontName:data.fontName})" ng-model-options="{ updateOn: 'blur' }"/>
+				</div>
+			</div>
+			
+			<div class="aws-c2">
+				<div class="aws-input h x1">
+					<label>Size</label>
+					<input type="text" value="{{data.fontSize}}" ng-model="data.fontSize" ng-change="update({fontSize:data.fontSize})" ng-model-options="{ updateOn: 'blur' }"/>
+				</div>
+
+				<div class="aws-input h x1">
+					<label>Weight</label>
+					<input type="text" value="{{data.fontWeight}}" ng-model="data.fontWeight" ng-change="update({fontWeight:data.fontWeight})" ng-model-options="{ updateOn: 'blur' }"/>
+				</div>
+			</div>
+			
+			<div class="aws-c2">
+				<div class="aws-input h x1">
+					<label>Background</label>
+					<input colorbox value="{{data.bgColor}}" ng-model="data.bgColor" style="background:{{data.bgColor}}" class="colorbgpicker" ng-change="changeBgColor()" />
+					
+				</div>
+				
+				<div class="aws-input h x1">
+					<label>Color</label>
+					<input colorbox value="{{data.color}}" ng-model="data.color" style="background:{{data.color}}" class="colorpicker" ng-change="changeColor()" />
+				</div>
+			</div>
+			
+			
+		</div>
+      </aws-accordion-group>
+	  
+	  <aws-accordion-group heading="Padding" is-open="false" is-disabled="" ng-if="data.kind == 'text'">
+	  	<div class="aws-group">
+			<div class="aws-c2">
+				<div class="aws-input h x1">
+					<label>Top</label>
+					<input type="text" value="{{data.padTop}}" ng-model="data.padTop" ng-change="update({padTop:data.padTop})" />
+				</div>
+
+				<div class="aws-input h x1">
+					<label>Left</label>
+					<input type="text" value="{{data.padLeft}}" ng-model="data.padLeft" ng-change="update({padLeft:data.padLeft})" />
+				</div>
+			</div>
+			
+			<div class="aws-c2">
+				<div class="aws-input h x1">
+					<label>Bottom</label>
+					<input type="text" value="{{data.padBottom}}" ng-model="data.padBottom" ng-change="update({padBottom:data.padBottom})" />
+				</div>
+
+				<div class="aws-input h x1">
+					<label>Right</label>
+					<input type="text" value="{{data.padRight}}" ng-model="data.padRight" ng-change="update({padRight:data.padRight})" />
+				</div>
+			</div>
+		</div>
+  	  </aws-accordion-group>
+	  
+	  <aws-accordion-group heading="Content" is-open="false" is-disabled="" ng-if="data.kind == 'text'">
+	  	<div class="aws-group">
+			<div class="aws-c1">
+				<div class="aws-input v">
+					<!-- <label>Content</label> -->
+					<textarea class="x0" ng-model="data.content" ng-change="update({content:data.content})"></textarea>
+				</div>
+			</div>
+			<div class="aws-c1">
+				<div class="aws-input v">
+					<label>Link</label>
+					<input type="text" class="x0" ng-model="data.link" />
+				</div>
+			</div>
+		</div>
+	  </aws-accordion-group>
+	  
+      <aws-accordion-group heading="Video" is-open="false" is-disabled="" ng-if="data.kind == 'video'">
+		<div class="aws-group">
+			
+			<div class="aws-c1">
+				<div class="aws-input v">
+					<div class="group_select_video">
+						<label form="from_youtube" ng-class="{selected:(data.from == 'youtube')}">
+							<input type="radio" ng-model="data.from" value="youtube" id="from_youtube" placeholder="ID Video">
+							<span class="video_icon fa fa-youtube-play"></span>
+							<span class="video_icon_title">Youtube</span>
+						</label>
+						<label form="from_vimeo" ng-class="{selected:(data.from == 'vimeo')}">
+							<input type="radio" ng-model="data.from" value="vimeo" id="from_vimeo" placeholder="ID Video">
+							<span class="video_icon fa fa-vimeo-square"></span>
+							<span class="video_icon_title">Vimeo</span>
+						</label>
+						<!-- <label form="from_hosting" ng-class="{selected:(data.from == 'hosting')}">
+							<input type="radio" ng-model="data.from" value="hosting" id="from_hosting">
+							<span class="video_icon fa fa-camera-retro"></span>
+							<span class="video_icon_title">Your host</span>
+						</label> -->
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="aws-c1">
+				<div class="aws-input h x2">
+					<label>Video</label>
+					<input type="text" ng-model="data.src" placeholder="ID Video" />
+				</div>
+			</div>
+			
+			<div class="aws-c1">
+				<div class="aws-input h x2">
+					<label>Auto</label>
+					<select ng-model="data.isAuto" ng-change="update({isAuto:data.isAuto})">
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+					</select>
+				</div>
+			</div>
+			
+		</div>
+      </aws-accordion-group>
+	  
+    </aws-accordion>
+</div>
