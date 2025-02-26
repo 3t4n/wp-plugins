@@ -1,0 +1,3 @@
+<?php
+// Die silently
+?>
