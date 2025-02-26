@@ -1,0 +1,273 @@
+/* General Settings Styles */
+.jeti-settings-wrapper {
+    max-width: 1200px;
+    margin: 20px 0;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Dashboard Layout */
+.jeti-dashboard {
+    margin-top: 20px;
+}
+
+.jeti-dashboard-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.jeti-dashboard-header h2 {
+    font-size: 24px;
+    color: #23282d;
+    margin-bottom: 10px;
+}
+
+.jeti-dashboard-intro {
+    font-size: 16px;
+    color: #50575e;
+    line-height: 1.5;
+}
+
+.jeti-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.jeti-dashboard-card {
+    background: #fff;
+    border: 1px solid #e2e4e7;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jeti-dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jeti-dashboard-card h3 {
+    font-size: 18px;
+    color: #23282d;
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Steps List */
+.jeti-dashboard-steps {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.jeti-dashboard-steps li {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #50575e;
+    position: relative;
+    padding-left: 5px;
+}
+
+.jeti-dashboard-steps a {
+    color: #2271b1;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.jeti-dashboard-steps a:hover {
+    color: #135e96;
+    text-decoration: underline;
+}
+
+/* Features List */
+.jeti-dashboard-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jeti-dashboard-features li {
+    position: relative;
+    padding: 12px 0 12px 35px;
+    margin-bottom: 10px;
+    color: #50575e;
+    line-height: 1.4;
+}
+
+.jeti-dashboard-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: #2271b1;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* Quick Actions */
+.jeti-dashboard-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.jeti-dashboard-actions .button {
+    min-width: 150px;
+    text-align: center;
+    margin: 0;
+    padding: 8px 16px;
+    height: auto;
+    line-height: 1.4;
+}
+
+.jeti-dashboard-actions .button-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+.jeti-dashboard-actions .button-primary:hover {
+    background: #135e96;
+    border-color: #135e96;
+}
+
+/* Help Section */
+.jeti-dashboard-help {
+    color: #50575e;
+}
+
+.jeti-dashboard-help p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.jeti-dashboard-support-links {
+    display: flex;
+    gap: 10px;
+}
+
+.jeti-dashboard-support-links .button {
+    flex: 1;
+    text-align: center;
+    padding: 8px 16px;
+    height: auto;
+    line-height: 1.4;
+}
+
+/* Tabs Wrapper */
+.jeti-tabs-wrapper {
+    margin-bottom: 20px;
+}
+
+.jeti-tabs-wrapper .nav-tab-wrapper {
+    border-bottom: 1px solid #c3c4c7;
+    margin: 0;
+    padding-top: 9px;
+    padding-bottom: 0;
+    line-height: inherit;
+}
+
+.jeti-tabs-wrapper .nav-tab {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border: 1px solid #c3c4c7;
+    border-bottom: none;
+    margin-left: 0;
+    margin-right: 5px;
+    background: #f0f0f1;
+    color: #50575e;
+    text-decoration: none;
+}
+
+.jeti-tabs-wrapper .nav-tab:hover {
+    background: #fff;
+    color: #135e96;
+}
+
+.jeti-tabs-wrapper .nav-tab-active {
+    background: #fff;
+    color: #000;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+}
+
+/* Admin Notices */
+.jeti-admin-notice {
+    background: #fff;
+    border-left: 4px solid #2271b1;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin: 20px 0;
+    padding: 12px;
+}
+
+.jeti-admin-notice.success {
+    border-left-color: #46b450;
+}
+
+.jeti-admin-notice.error {
+    border-left-color: #dc3232;
+}
+
+.jeti-admin-notice.warning {
+    border-left-color: #ffb900;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 782px) {
+    .jeti-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jeti-dashboard-actions,
+    .jeti-dashboard-support-links {
+        flex-direction: column;
+    }
+
+    .jeti-dashboard-actions .button,
+    .jeti-dashboard-support-links .button {
+        width: 100%;
+    }
+
+    .jeti-tabs-wrapper .nav-tab {
+        margin-bottom: 5px;
+    }
+}
+
+/* Settings Form Styles */
+.jeti-settings-form {
+    max-width: 800px;
+}
+
+.jeti-settings-form .form-table th {
+    width: 200px;
+    padding: 20px 10px 20px 0;
+}
+
+.jeti-settings-form .form-table td {
+    padding: 15px 10px;
+}
+
+.jeti-settings-form input[type="text"],
+.jeti-settings-form select {
+    width: 350px;
+}
+
+.jeti-settings-form .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
