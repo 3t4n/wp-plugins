@@ -1,0 +1,401 @@
+/*
+ +=====================================================================+
+ |     ____            _     _                         _               |
+ |    |  _ \  __ _ ___| |__ | |__   ___   __ _ _ __ __| |              |
+ |    | | | |/ _` / __| '_ \| '_ \ / _ \ / _` | '__/ _` |              |
+ |    | |_| | (_| \__ \ | | | |_) | (_) | (_| | | | (_| |              |
+ |    |____/ \__,_|___/_| |_|_.__/ \___/ \__,_|_|  \__,_|              |
+ |      ____ _                                                         |
+ |     / ___| | ___  __ _ _ __   ___ _ __                              |
+ |    | |   | |/ _ \/ _` | '_ \ / _ \ '__|                             |
+ |    | |___| |  __/ (_| | | | |  __/ |                                |
+ |     \____|_|\___|\__,_|_| |_|\___|_|                                |
+ |                                                                     |
+ | (c) Jerome Bruandet ~ https://nintechnet.com/bruandet/              |
+ +=====================================================================+
+*/
+
+var myDHCLclick;
+
+// Hook mouse events:
+jQuery(document).ready( function( $ ) {
+
+	myDHCLclick = function (e) {
+
+		// The user clicked an element:
+
+		// Obviously, we don't want to delete DHCL's own menu and pages,
+		// and some important WP <div> elements:
+		if ( its_me == 1 || e.id == 'dhcl-span' || e.id == 'wpadminbar' || e.id == 'wpfooter'
+		|| e.id == 'adminmenuwrap' || e.id == 'wpbody-content' || e.id == 'wpcontent' ) {
+			myDHCLoutline.stop();
+			if ( its_me == 1 || e.id == 'dhcl-span' ) {
+				alert( i18n_itsme );
+			} else {
+				alert( i18n_disallowed );
+			}
+			return false;
+		}
+
+		// Fill the submission form:
+		dhcl_fill_form(e);
+
+		// Prepare and show the thickbox dialogbox:
+		resetWordpressHacks();
+		var h = jQuery(window).height();
+		if ( h > 520 ) { h = 520; }
+		tb_show("Dashboard Cleaner","#TB_inline?width=600&amp;height="+ (h - 20) +
+			"&amp;inlineId=dhcl_modal_content", null);
+		// Selected HTML source:
+		jQuery('#html-src-textarea').html(e.outerHTML.replace(/>/g, "&gt;").replace(/</g, "&lt;") );
+		// Close the textarea:
+		dhcl_toggle_source(1);
+
+		// Stop and unbind events:
+		myDHCLoutline.stop();
+	}
+
+	// Remove the "Undo last change" nonce from the query string:
+	window.history.pushState(
+		null, null, window.location.href.replace(/[?&]?dhcl_undo=1&dhcl_nonce=[a-f0-9]+/g, '')
+	);
+
+	var myDHCLoutline = DHCLoutline();
+
+	jQuery(document).on('click', '#dhcl-start', function(e){
+		// Start and bind events:
+		myDHCLoutline.start();
+		jQuery('#dhcl-main').html( i18n_running );
+		jQuery('#wp-admin-bar-dhcl-default').hide();
+	});
+
+}); // document.ready
+
+/* ================================================================== */
+
+function dhcl_fill_form( e ) {
+
+	jQuery('#dhcl-choice-tag').val( e.tagName );
+
+	if ( e.id ) {
+		jQuery('#dhcl-choice-id').val( e.id );
+	} else {
+		jQuery('#dhcl-choice-id').val("");
+	}
+	if ( e.className ) {
+		jQuery('#dhcl-choice-class').val( e.className );
+	} else {
+		jQuery('#dhcl-choice-class').val("");
+	}
+	if ( e.src ) {
+		jQuery('#dhcl-choice-src').val( jQuery(e).attr('src') );
+	} else {
+		jQuery('#dhcl-choice-src').val("");
+	}
+	if ( e.href ) {
+		jQuery('#dhcl-choice-href').val( jQuery(e).attr('href') );
+	} else {
+		jQuery('#dhcl-choice-href').val("");
+	}
+	if ( e.name ) {
+		jQuery('#dhcl-choice-name').val( e.name );
+	} else {
+		jQuery('#dhcl-choice-name').val("");
+	}
+	if ( e.style ) {
+		jQuery('#dhcl-choice-style').val( jQuery(e).attr('style') );
+	} else {
+		jQuery('#dhcl-choice-style').val("");
+	}
+
+	// Uncheck all radio buttons:
+	jQuery('input:radio[name=dhcl_choice]').each(function(){
+		jQuery(this).prop('checked', false);
+	});
+
+}
+
+/* ================================================================== */
+
+function dhcl_filterform_check() {
+
+	if (! filter_form.dhcl_choice_tag.value.match( /^\w+$/ ) ) {
+		alert( i18n_select_tag );
+		filter_form.dhcl_choice_tag.focus();
+		return false;
+	}
+
+	var dhcl_input = document.getElementsByTagName('input');
+
+	var radio_name;
+	for (var i = 0; i < dhcl_input.length; ++i) {
+		if (dhcl_input[i].name == 'dhcl_choice' && dhcl_input[i].checked) {
+			radio_name = dhcl_input[i].value;
+		 }
+	}
+
+	if ( radio_name != '' ) {
+
+		for (var i = 0; i < dhcl_input.length; ++i) {
+			if ( dhcl_input[i].name == radio_name && dhcl_input[i].value != '' ) {
+				return true;
+			}
+		}
+	}
+
+	alert( i18n_select_attr );
+	return false;
+}
+
+/* ================================================================== */
+// Restore the Thickbox height/width changed by WordPress
+// See: https://core.trac.wordpress.org/ticket/33365#comment:3
+
+var resetWordpressHacks = function(){
+
+	var classes = ['about-php','plugin-install-php','import-php',
+		'plugins-php','update-core-php','index-php'];
+	var removed = [];
+	jQuery.each(classes, function(k,v){
+		if(!jQuery('body').hasClass(v)) { return; }
+		removed.push(v);
+		jQuery('body').removeClass(v);
+	});
+	var tb_position_original = window.tb_position;
+	window.tb_position = function() {
+		var isIE6 = typeof document.body.style.maxHeight === "undefined";
+		jQuery("#TB_window").css({marginLeft: '-' + parseInt((TB_WIDTH / 2),10) +
+			'px', width: TB_WIDTH + 'px'});
+		if ( ! isIE6 ) { // take away IE6
+			jQuery("#TB_window").css({marginTop: '-' + parseInt((TB_HEIGHT / 2),10) + 'px'});
+		}
+	}
+	var tb_remove_original = window.tb_remove;
+	window.tb_remove = function() {
+		jQuery.each(removed, function(k,v){
+			jQuery('body').addClass(v);
+			window.tb_position = tb_position_original;
+		});
+		tb_remove_original();
+	}
+}
+
+/* ================================================================== */
+
+function dhcl_toggle_source( clear ) {
+
+	if ( clear == 1 ) { document.getElementById('dhcl-html-source').style.display = ''; }
+
+	if ( document.getElementById('dhcl-html-source').style.display == 'none' ) {
+		document.getElementById('dhcl-html-source').style.display = '';
+		document.getElementById('dhcl-html-source-btn').value = i18n_closeHTML;
+		document.getElementById('html-src-textarea').scrollIntoView();
+	} else {
+		document.getElementById('dhcl-html-source').style.display = 'none';
+		document.getElementById('dhcl-html-source-btn').value = i18n_viewHTML;
+	}
+}
+
+
+/*
+ +=====================================================================+
+ | The code below is based on "Firebug-Tools-like DOM outline          |
+ | implementation using jQuery" available at                           |
+ | https://github.com/andrewchilds/jQuery.DomOutline                   |
+ | MIT License.                                                        |
+ | Copyright (c) 2013 Andrew Childs                                    |
+ | Permission is hereby granted free of charge to any person obtaining |
+ | a copy of this software and associated documentation files (the     |
+ | 'Software'), to deal	in the Software without restriction, including |
+ | without limitation the rights to use, copy, modify, merge, publish, |
+ | distribute, sublicense, and/or sell copies of the Software, and to  |
+ | permit persons to whom the Software is furnished to do so, subject  |
+ | to the following conditions:                                        |
+ | The above copyright notice and this permission notice shall be      |
+ | included in all copies or substantial portions of the Software.     |
+ +=====================================================================+
+*/
+
+var DHCLoutline = function() {
+
+	var pub = {};
+	var self = {
+		active: false,
+		initialized: false,
+		elements: {}
+	};
+
+	// Write the style sheet:
+	function writeStylesheet(css) {
+		var element = document.createElement('style');
+		element.type = 'text/css';
+		document.getElementsByTagName('head')[0].appendChild(element);
+		if (element.styleSheet) {
+				element.styleSheet.cssText = css;
+		} else {
+			element.innerHTML = css;
+		}
+	}
+
+	// Initialize style (outline, label and cursor):
+	function initStylesheet() {
+		var css = '';
+		if (self.initialized !== true) {
+			css += '.dhcloutline {' +
+				'background: '+ dhcl_borderColor + ';' +
+				'position: absolute;' +
+				'z-index: 1000000;' +
+				'pointer-events: none;';
+			if (dhcl_transition) {
+				css += 'transition:all 250ms;';
+			}
+			css += '}';
+			if (dhcl_label) {
+				css += '.dhcloutline_label {' +
+					'background: '+ dhcl_borderColor + ';' +
+					'border-top-left-radius: 4px;' +
+					'border-top-right-radius: 4px;' +
+					'color: #fff;' +
+					'font: bold 12px/12px Helvetica, sans-serif;' +
+					'padding: 4px 6px;' +
+					'position: absolute;' +
+					'text-shadow: 0 1px 1px #666;' +
+					'z-index: 1000001;' +
+					'pointer-events: none;';
+				if (dhcl_transition) {
+					css += 'transition:all 250ms;';
+				}
+				css += '}';
+			}
+			if (dhcl_crosshair) {
+				css += '.dhcl_crosshair{cursor: crosshair !important;}';
+			}
+			writeStylesheet(css);
+			self.initialized = true;
+		}
+	}
+
+	// Apply our style:
+	function createOutlineElements() {
+		// Label enabled?
+		if (dhcl_label) {
+			self.elements.label = jQuery('<div>').addClass('dhcloutline_label').appendTo('body');
+		}
+		self.elements.top = jQuery('<div>').addClass('dhcloutline').appendTo('body');
+		self.elements.bottom = jQuery('<div>').addClass('dhcloutline').appendTo('body');
+		self.elements.left = jQuery('<div>').addClass('dhcloutline').appendTo('body');
+		self.elements.right = jQuery('<div>').addClass('dhcloutline').appendTo('body');
+	}
+
+	function removeOutlineElements() {
+		jQuery.each(self.elements, function (name, element) {
+			element.remove();
+		});
+	}
+
+	// Create a label with the element name and,
+	// if any, its attributes:
+	function compileLabelText(e) {
+
+		// Remove our crosshair cursor class name:
+		var class_name;
+		if ( e.className.indexOf("dhcl_crosshair") !== -1) {
+			class_name = e.className.replace('dhcl_crosshair', '' );
+		} else {
+			class_name = e.className;
+		}
+		var label = e.tagName;
+		var item = 0;
+		if (e.id) {	label += ' + id'; ++item; }
+		if (class_name) { label += ' + class'; ++item;	}
+		if (e.src) { label += ' + src'; ++item; }
+		if (e.href) { label += ' + href'; ++item; }
+		if (e.name) { label += ' + name'; ++item; }
+		if (e.style[0]) { label += ' + style'; ++item; }
+		if (item == 0) { label += ': ' + i18n_noattr; }
+		return label;
+	}
+
+	function getScrollTop() {
+		if (!self.elements.window) {
+			self.elements.window = jQuery(window);
+		}
+		return self.elements.window.scrollTop();
+	}
+
+	// Update outline:
+	function updateOutlinePosition(e) {
+
+		if (e.target.className.indexOf('dhcloutline') !== -1) {
+			return;
+		}
+		pub.element = e.target;
+		var b = dhcl_borderWidth;
+		var scroll_top = getScrollTop();
+		var pos = pub.element.getBoundingClientRect();
+		var top = pos.top + scroll_top;
+		var label_text = compileLabelText(pub.element);
+		var label_top = Math.max(0, top - 20 - b, scroll_top);
+		var label_left = Math.max(0, pos.left - b);
+		// Update label if any:
+		if (dhcl_label) {
+			self.elements.label.css({ top: label_top, left: label_left }).text(label_text);
+		}
+		self.elements.top.css({ top: Math.max(0, top - b), left: pos.left - b, width: pos.width + b, height: b });
+		self.elements.bottom.css({ top: top + pos.height, left: pos.left - b, width: pos.width + b, height: b });
+		self.elements.left.css({ top: top - b, left: Math.max(0, pos.left - b), width: b, height: pos.height + b });
+		self.elements.right.css({ top: top - b, left: pos.left + pos.width, width: b, height: pos.height + (b * 2) });
+	}
+
+	// ESC to quit:
+	function stopOnEscape(e) {
+		if (e.keyCode === 27) {
+			pub.stop();
+		}
+		return false;
+	}
+
+	// The user clicked an element:
+	function clickHandler(e) {
+		pub.stop();
+		myDHCLclick(pub.element);
+		return false;
+	}
+
+	// Bind our events:
+	pub.start = function () {
+		initStylesheet();
+		if (self.active !== true) {
+			self.active = true;
+			createOutlineElements();
+			jQuery('body').on('keyup.dhcloutline', stopOnEscape);
+			jQuery('body').on('mousedown.dhcloutline', clickHandler);
+			jQuery('body').on('mousemove.dhcloutline', updateOutlinePosition);
+
+			if (dhcl_crosshair) {
+				jQuery('*').addClass('dhcl_crosshair');
+			}
+		}
+	};
+
+	// Unbind our events:
+	pub.stop = function () {
+		self.active = false;
+		removeOutlineElements();
+		jQuery('body').off('keyup.dhcloutline mousedown.dhcloutline mousemove.dhcloutline');
+		// Restore cursor:
+		if (dhcl_crosshair) {
+			jQuery('*').removeClass('dhcl_crosshair');
+		}
+		// Restore admin bar menu:
+		jQuery('#dhcl-main').html(i18n_main);
+		jQuery('#wp-admin-bar-dhcl-default').show();
+
+	};
+
+	return pub;
+
+}; // DHCLoutline
+
+/* ================================================================== */
+// EOF
