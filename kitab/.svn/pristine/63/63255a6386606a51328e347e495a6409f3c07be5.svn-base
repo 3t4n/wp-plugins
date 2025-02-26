@@ -1,0 +1,403 @@
+/* Container Styles */
+.kitab-book {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Title Styles */
+.kitab-book-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 4px;
+}
+
+.kitab-book-author {
+  font-size: 16px;
+  color: #4a5568;
+  margin-bottom: 24px;
+}
+
+/* Shared Styles for Table and DL */
+.kitab-book-fields {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* DL Specific Styles */
+dl.kitab-book-fields > div {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s;
+}
+
+dl.kitab-book-fields > div:hover {
+  background-color: #f8fafc;
+}
+
+dl.kitab-book-fields > div:last-child {
+  border-bottom: none;
+}
+
+dl.kitab-book-fields dt {
+  width: 180px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+dl.kitab-book-fields dd {
+  margin: 0;
+  font-size: 14px;
+  color: #1a202c;
+  flex: 1;
+}
+
+/* Table Specific Styles */
+table.kitab-book-fields {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table.kitab-book-fields tr {
+  transition: background-color 0.2s;
+}
+
+table.kitab-book-fields tr:hover {
+  background-color: #f8fafc;
+}
+
+table.kitab-book-fields th,
+table.kitab-book-fields td {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  font-size: 14px;
+}
+
+table.kitab-book-fields tr:last-child th,
+table.kitab-book-fields tr:last-child td {
+  border-bottom: none;
+}
+
+table.kitab-book-fields th {
+  width: 180px;
+  font-weight: 500;
+  color: #4a5568;
+  /* display: flex;
+  align-items: center; */
+  gap: 8px;
+}
+
+table.kitab-book-fields td {
+  color: #1a202c;
+}
+
+/* Link Styles (Shared) */
+.kitab-book-fields a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kitab-book-fields a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .kitab-book {
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+  }
+
+  /* DL Mobile Styles */
+  dl.kitab-book-fields > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  dl.kitab-book-fields dt {
+    width: 100%;
+  }
+
+  dl.kitab-book-fields dd {
+    padding-left: 28px;
+  }
+
+  /* Table Mobile Styles */
+  table.kitab-book-fields,
+  table.kitab-book-fields tbody,
+  table.kitab-book-fields tr,
+  table.kitab-book-fields th,
+  table.kitab-book-fields td {
+    display: block;
+    width: 100%;
+  }
+
+  table.kitab-book-fields tr {
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  table.kitab-book-fields tr:last-child {
+    border-bottom: none;
+  }
+
+  table.kitab-book-fields th,
+  table.kitab-book-fields td {
+    padding: 8px 16px;
+    border: none;
+  }
+
+  table.kitab-book-fields th {
+    margin-bottom: 4px;
+  }
+
+  table.kitab-book-fields td {
+    padding-left: 40px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .kitab-book {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .kitab-book-fields a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* Print DL */
+  dl.kitab-book-fields > div {
+    padding: 12px;
+    page-break-inside: avoid;
+  }
+
+  /* Print Table */
+  table.kitab-book-fields th,
+  table.kitab-book-fields td {
+    padding: 12px;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .kitab-book {
+    border: 2px solid #000;
+    box-shadow: none;
+  }
+
+  /* High Contrast DL */
+  dl.kitab-book-fields > div {
+    border-bottom: 2px solid #000;
+  }
+
+  /* High Contrast Table */
+  table.kitab-book-fields th,
+  table.kitab-book-fields td {
+    border-bottom: 2px solid #000;
+  }
+
+  .kitab-book-fields a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+/* Enhanced Layout Styles */
+.kitab-book-enhanced {
+  padding: 0;
+  overflow: hidden;
+}
+
+.kitab-book-header {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.kitab-book-cover {
+  flex-shrink: 0;
+  width: 200px;
+  height: 302px;
+  /* width: 280px;
+  height: 400px; */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.kitab-book-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kitab-book-header-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.kitab-book-title {
+  font-size: 32px;
+  margin: 0 0 8px 0;
+  color: #1a202c;
+  line-height: 1.2;
+}
+
+.kitab-book-author {
+  font-size: 18px;
+  color: #4a5568;
+  margin: 0 0 32px 0;
+}
+
+.kitab-book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+/* Button Styles */
+.kitab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.kitab-btn-icon {
+  font-size: 20px;
+}
+
+.kitab-btn-primary {
+  background-color: #2563eb;
+  color: white !important;
+}
+
+.kitab-btn-primary:hover {
+  background-color: #1d4ed8;
+  color: white;
+  text-decoration: none;
+}
+
+.kitab-btn-secondary {
+  background-color: #475569;
+  color: white !important;
+}
+
+.kitab-btn-secondary:hover {
+  background-color: #334155;
+  color: white;
+  text-decoration: none;
+}
+
+.kitab-btn-outline {
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  background-color: transparent;
+}
+
+.kitab-btn-outline:hover {
+  background-color: #2563eb;
+  color: white !important;
+  text-decoration: none;
+}
+
+.kitab-book-details {
+  padding: 32px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .kitab-book-header {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .kitab-book-cover {
+    width: 200px;
+    height: 286px;
+    margin: 0 auto;
+  }
+
+  .kitab-book-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .kitab-book-author {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .kitab-book-actions {
+    flex-direction: column;
+  }
+
+  .kitab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .kitab-book-header {
+    background: none;
+  }
+
+  .kitab-book-actions {
+    display: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .kitab-book-header {
+    background: none;
+    border-bottom: 2px solid #000;
+  }
+
+  .kitab-btn {
+    border: 2px solid #000;
+  }
+}
