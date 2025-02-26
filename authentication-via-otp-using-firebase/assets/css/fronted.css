@@ -1,0 +1,272 @@
+.fa-otp-phone-button {
+    width          : 100%;
+    color          : #212121;
+    border-color   : #e6e6e6;
+    background     : #e6e6e6;
+    cursor         : pointer;
+    height         : 48px;
+    padding        : 15px 28px;
+    line-height    : 1;
+    font-size      : 16px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    border         : none;
+    margin-bottom  : 50px;
+}
+
+#fa-main-opt-login {
+    text-align: center;
+}
+
+.fa-otp-phone-button:focus {
+    outline   : none;
+    background: #E6E6ED;
+}
+
+#logreg-forms h2 {
+    font-size    : 20px;
+    margin-bottom: 10px;
+}
+
+.fa-modal-container .form-control {
+    width: 100%;
+}
+
+.country-list {
+    white-space: pre-line !important;
+}
+
+.flag-container {
+    width: 100% !important;
+}
+
+.fa-login-form {
+    padding: 20px;
+}
+
+.input-otp-div,
+#recaptcha-container {
+    display: none;
+}
+
+.intl-tel-input.allow-dropdown {
+    width: 100%;
+}
+
+
+/* =============================================================== */
+
+/* model */
+/* =============================================== */
+*,
+*::after,
+*::before {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+a,
+a:link {
+    text-decoration: none;
+}
+
+/* modal */
+/* =============================================== */
+.fa-modal-container {
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    z-index        : 10;
+    display        : none;
+    justify-content: center;
+    align-items    : center;
+    width          : 100%;
+    height         : 100%;
+    background     : hsla(0, 0%, 40%, .6);
+    max-width      : initial !important;
+    margin-top     : 0 !important;
+}
+
+/* using :target */
+.fa-modal-container:target {
+    display: flex;
+}
+
+.fa-modal-container .error {
+    color: var(--fa-popup-error);
+}
+
+.fa-modal-container .success {
+    color: var(--fa-popup-success);
+}
+
+.country-list {
+    bottom: auto !important;
+}
+
+.fa-modal {
+    min-width    : 30em;
+    max-width    : 90em;
+    padding      : 2rem 2rem;
+    border-radius: .8rem;
+    background   : var(--fa-popup-bg);
+    box-shadow   : .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3);
+    position     : relative;
+    color        : var(--fa-popup-text);
+}
+
+.fa-modal__details {
+    text-align    : center;
+    margin-bottom : 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom : 1px solid hsla(0, 0%, 100%, .4);
+}
+
+
+.modal__text {
+    padding      : 0 4rem;
+    margin-bottom: 4rem;
+    line-height  : 2;
+}
+
+.modal__text::before {
+    content: '';
+
+    position : absolute;
+    top      : 0%;
+    left     : 100%;
+    transform: translate(-50%, -50%);
+
+    width         : 18rem;
+    height        : 18rem;
+    border        : 1px solid hsla(0, 0%, 100%, .2);
+    border-radius : 100rem;
+    pointer-events: none;
+}
+
+.modal__btn {
+    padding         : 0.5rem 1.5rem;
+    border          : 1px solid var(--fa-pop-button-border);
+    background-color: var(--fa-pop-button) !important;
+    color           : var(--fa-pop-button-text) !important;
+    box-shadow      : 0 0 0.4rem 0.2rem var(--fa-pop-button-shadow) !important;
+    border-radius   : 100rem;
+    transition      : .3s;
+    cursor          : pointer;
+    margin          : auto;
+    display         : flex;
+    margin-top      : 10px;
+    outline         : none !important;
+    align-items: center;
+}
+
+.modal__btn:hover,
+.modal__btn:focus {
+    border-color    : #000000;
+    background-color: var(--fa-pop-button-hover) !important;
+    color           : var(--fa-pop-button-text-hover) !important;
+    box-shadow      : 0 0 0.4rem 0.2rem var(--fa-pop-button-shadow-hover) !important;
+}
+
+.back_resend_otp {
+    display: flex;
+    margin : auto;
+}
+
+#inputOtp,
+#inputPhone,
+#inputemail {
+    height       : 50px;
+    padding-left : 50px;
+    border-radius: 10px;
+    outline      : none;
+    margin-bottom: 10px !important;
+}
+
+.intl-tel-input.allow-dropdown .flag-container:hover .selected-flag {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* links */
+/* =============================================== */
+.fa-link-1 {
+    background   : var(--fa-button);
+    border-radius: 100rem;
+    padding      : 0.5rem 1.5em;
+    display      : inline-block;
+    transition   : .2s;
+    color        : var(--fa-button-text) !important;
+    border       : 1px solid;
+    border-color : var(--fa-button-border) !important;
+    box-shadow   : 0 0 0.4rem 0.2rem var(--fa-button-shadow) !important;
+}
+
+.fa-link-1:hover,
+.fa-link-1:focus {
+    box-shadow     : 0 0 0.4rem 0.2rem var(--fa-button-shadow-hover) !important;
+    background     : var(--fa-button-hover) !important;
+    text-decoration: none !important;
+    color          : var(--fa-button-text-hover) !important;
+    border-color   : var(--fa-button-border-hover) !important;
+}
+
+.fa-link-2 {
+    width          : 2rem;
+    height         : 2rem;
+    border         : 1px solid;
+    border-radius  : 100rem;
+    color          : inherit;
+    position       : absolute;
+    top            : 2rem;
+    right          : 2rem;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    transition     : .2s;
+}
+
+.fa-link-2::before {
+    content  : '×';
+    transform: translateY(-.1rem);
+}
+
+.fa-link-2:hover,
+.fa-link-2:focus {
+    transform: translateY(-.2rem);
+}
+
+.fa-loader {
+    border           : 3px solid var(--fa-popup-loader);
+    border-radius    : 50%;
+    border-top       : 3px solid var(--fa-popup-loader-border);
+    width            : 25px;
+    height           : 25px;
+    margin-left      : 10px;
+    margin-top       : 3px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation        : spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
