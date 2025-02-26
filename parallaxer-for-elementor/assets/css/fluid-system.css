@@ -1,0 +1,128 @@
+/* fluid typography and spacing mini-framwork system based on utopia.fyi */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.25,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8|10|12,3xs-xs|2xs-s|xs-m|s-l|m-xl|l-2xl|xl-3xl|2xl-4xl|3xl-5xl|4xl-6xl&g=s,l,xl,12 */
+
+/* TYPOGRAPHY */
+:root {
+  --step--2: clamp(0.64rem, 0.6171rem + 0.1143vw, 0.72rem);
+  --step--1: clamp(0.8rem, 0.7714rem + 0.1429vw, 0.9rem);
+  --step-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.2054rem + 0.2232vw, 1.4063rem);
+  --step-2: clamp(1.5625rem, 1.5067rem + 0.279vw, 1.7578rem);
+  --step-3: clamp(1.9531rem, 1.8834rem + 0.3488vw, 2.1973rem);
+  --step-4: clamp(2.4414rem, 2.3542rem + 0.436vw, 2.7466rem);
+  --step-5: clamp(3.0518rem, 2.9428rem + 0.545vw, 3.4332rem);
+}
+
+/* SPACING */
+:root {
+  --space-3xs: clamp(0.25rem, 0.2321rem + 0.0893vw, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.4821rem + 0.0893vw, 0.5625rem);
+  --space-xs: clamp(0.75rem, 0.7143rem + 0.1786vw, 0.875rem);
+  --space-s: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+  --space-m: clamp(1.5rem, 1.4464rem + 0.2679vw, 1.6875rem);
+  --space-l: clamp(2rem, 1.9286rem + 0.3571vw, 2.25rem);
+  --space-xl: clamp(3rem, 2.8929rem + 0.5357vw, 3.375rem);
+  --space-2xl: clamp(4rem, 3.8571rem + 0.7143vw, 4.5rem);
+  --space-3xl: clamp(6rem, 5.7857rem + 1.0714vw, 6.75rem);
+  --space-4xl: clamp(8rem, 7.7143rem + 1.4286vw, 9rem);
+  --space-5xl: clamp(10rem, 9.6429rem + 1.7857vw, 11.25rem);
+  --space-6xl: clamp(12rem, 11.5714rem + 2.1429vw, 13.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, 0.1607rem + 0.4464vw, 0.5625rem);
+  --space-2xs-xs: clamp(0.5rem, 0.3929rem + 0.5357vw, 0.875rem);
+  --space-xs-s: clamp(0.75rem, 0.6429rem + 0.5357vw, 1.125rem);
+  --space-s-m: clamp(1rem, 0.8036rem + 0.9821vw, 1.6875rem);
+  --space-m-l: clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem);
+  --space-l-xl: clamp(2rem, 1.6071rem + 1.9643vw, 3.375rem);
+  --space-xl-2xl: clamp(3rem, 2.5714rem + 2.1429vw, 4.5rem);
+  --space-2xl-3xl: clamp(4rem, 3.2143rem + 3.9286vw, 6.75rem);
+  --space-3xl-4xl: clamp(6rem, 5.1429rem + 4.2857vw, 9rem);
+  --space-4xl-5xl: clamp(8rem, 7.0714rem + 4.6429vw, 11.25rem);
+  --space-5xl-6xl: clamp(10rem, 9rem + 5vw, 13.5rem);
+
+  /* Custom pairs */
+  --space-3xs-xs: clamp(0.25rem, 0.0714rem + 0.8929vw, 0.875rem);
+  --space-2xs-s: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.125rem);
+  --space-xs-m: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.6875rem);
+  --space-s-l: clamp(1rem, 0.6429rem + 1.7857vw, 2.25rem);
+  --space-m-xl: clamp(1.5rem, 0.9643rem + 2.6786vw, 3.375rem);
+  --space-l-2xl: clamp(2rem, 1.2857rem + 3.5714vw, 4.5rem);
+  --space-xl-3xl: clamp(3rem, 1.9286rem + 5.3571vw, 6.75rem);
+  --space-2xl-4xl: clamp(4rem, 2.5714rem + 7.1429vw, 9rem);
+  --space-3xl-5xl: clamp(6rem, 4.5rem + 7.5vw, 11.25rem);
+  --space-4xl-6xl: clamp(8rem, 6.4286rem + 7.8571vw, 13.5rem);
+}
+/* utilise in Elementor via global CSS variables */
+
+/* LENIS - smooth scroll */
+html.lenis { scroll-behavior: auto; }
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Elementor special case horizontal nav .e--pointer-text.e--animation-none */
+nav.e--pointer-text.e--animation-none > ul > li:not(:last-child) {
+  padding-right: var(--space-xs);
+  margin-right: var(--space-xs);
+  position: relative;
+}
+nav.e--pointer-text.e--animation-none > ul > li:not(:last-child)::before {
+content: "";
+  position: absolute;
+  width: 1px; 
+  height: 62%;
+  top: 19%;
+  right: 0;
+  background-color: #1E1D1E26; /* override in custom CSS if needed */
+  transform: rotate(15deg);
+}
+
+nav.e--pointer-text.e--animation-none > ul > li a {
+  white-space: nowrap;
+  transition-duration: 0.25s !important;
+}
+
+/* Elementor fixes */
+.elementor-widget-icon { line-height: 0; }
+form.elementor-form .elementor-field-group .elementor-field-textual:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom-color: #323232;
+    border-left-width: 0;
+}
+[data-widget_type="text-editor.default"] p:last-child {
+  margin-bottom: 0;
+}
+[data-widget_type="text-editor.default"] ol, 
+[data-widget_type="text-editor.default"] ul {
+    padding-bottom: var(--space-l);
+}
+[data-widget_type="text-editor.default"] ol li, 
+[data-widget_type="text-editor.default"] ul li {
+    padding-bottom: var(--space-xs);
+}
+ul.elementor-nav-menu .elementor-nav-menu--dropdown a.elementor-sub-item {
+  text-transform: inherit !important;
+  padding-top: var(--space-2xs);
+  padding-left: var(--space-m) !important;
+  line-height: 1.2;
+}
+ul.elementor-nav-menu a {
+  transition: all 0.25s ease-in-out;
+}
+ul.elementor-nav-menu a:focus {
+  background: transparent !important;
+}
