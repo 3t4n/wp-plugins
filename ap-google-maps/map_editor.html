@@ -1,0 +1,573 @@
+<!--
+
+Params:
+- shortcode name : arrowgooglemaps
+
+-->
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="css/lib/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/admin/uber-google-maps-editor.css" type="text/css">
+    <link rel="stylesheet" href="css/client/uber-google-maps.css" type="text/css">
+</head>
+
+<body style="background: #f1f1f1;">
+
+    <div class="bootstrap-wrap">
+        <div id="map-editor-wrap">
+        <div id="img-folder-url" data-url="https://www.arrowplugins.com/wp-content/uploads/uber-google-maps/editor/img/"></div>
+
+        <!-- * -->
+
+            <div class="col-sm-12">
+                <h1 class="pull-left">Map Editor</h1>
+                <button class="btn btn-lg btn-default pull-left" id="button-back-to-main-options"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+                <button class="btn btn-lg btn-default pull-left" id="button-save-instance"><span class="glyphicon glyphicon-save"></span> Save</button>
+                <p class="bg-success pull-left" id="changes-saved-notification"><span class="glyphicon glyphicon-saved"></span> Changes saved.</p>
+                <!-- <button class="btn btn-lg btn-default pull-right" id="button-go-fullscreen"><span class="glyphicon glyphicon-fullscreen"></span> Go Fullscreen</button> -->
+                <div class="clear"></div>
+            </div>
+
+            <div class="col-sm-12">
+                <div id="map-container-wrap">
+                    <div class="marker-editor-mode-controls" id="marker-editor-mode-controls-add-markers">
+                        <p class="pull-left">
+                            Left-Click on the map to add a marker. Right-Click a marker to delete it. Drag a marker to move it around.
+                        </p>
+                        <button class="btn pull-right" id="button-finish-adding-markers">Done</button>
+                        <div class="clear">
+
+                        </div>
+                    </div>
+                    <div class="marker-editor-mode-controls" id="marker-editor-mode-controls-add-info-windows">
+                        <p class="pull-left">
+                            Left-Click a marker to attach an info window to it, or Right-Click to remove it.
+                        </p>
+                        <button class="btn pull-right" id="button-finish-adding-info-windows">Done</button>
+                        <div class="clear">
+
+                        </div>
+                    </div>
+                    <div id="map-container">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-horizontal" id="map-form">
+
+
+                <!-- ============================================================ -->
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="map-editor-form-group">
+                        <h2>1. Map Position</h2>
+
+                        <div class="form-group">
+                            <div class="btn-group btn-group-justified col-sm-12" data-toggle="buttons">
+                                <label class="btn btn-lg btn-default active">
+                                    <input type="radio" name="options" id="radio-map-position-manual" autocomplete="off" checked>Manual
+                                </label>
+                                <label class="btn btn-lg btn-default">
+                                    <input type="radio" name="options" id="radio-map-position-search" autocomplete="off">Search Query
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-zoom" class="col-sm-4 control-label">Zoom</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="input-zoom">
+                            </div>
+                        </div>
+
+                        <div id="settings-group-position-manual">
+                            <div class="form-group">
+                                <label for="input-lat" class="col-sm-4 control-label">Latitude</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="input-lat">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-lng" class="col-sm-4 control-label">Longtitude</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="input-lng">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-4">
+                                    <button class="btn btn-default form-control" id="button-sample-position"><span class="glyphicon glyphicon-pushpin"></span> Get Current Position</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="settings-group-position-search-query">
+                            <div class="form-group">
+                                <label for="input-search-query" class="col-sm-4 control-label">Search</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="input-search-query">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-4">
+                                    <button class="btn btn-default form-control" id="button-search"><span class="glyphicon glyphicon-search"></span> Search</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ============================================================ -->
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="map-editor-form-group">
+                        <h2>2. Markers</h2>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-lg btn-default btn-block" id="button-add-marker"><span class="glyphicon glyphicon-edit"></span> Edit Markers</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-animate-markers"> Animate markers on map load
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="items-list" id="marker-list-container">
+                            <!-- <div class="list-item">
+                                <div class="list-item-title pull-left">My Marker</div>
+                                <span class="glyphicon glyphicon-remove pull-right" id="button-list-item-delete"></span>
+                                <span class="glyphicon glyphicon-edit pull-right" id="button-list-item-edit"></span>
+                            </div> -->
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+
+                <!-- ============================================================ -->
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="map-editor-form-group">
+                        <h2>3. Info Windows</h2>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-lg btn-default btn-block" id="button-add-info-window"><span class="glyphicon glyphicon-edit"></span> Edit Info Windows</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                <label for="select-info-windows-open" class="control-label">Show windows on</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select id="select-info-windows-open" class="form-control">
+                                    <option value="mouseover">
+                                        Mouse Over
+                                    </option>
+                                    <option value="click">
+                                        Click
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="items-list" id="window-list-container">
+                            <!-- <div class="list-item">
+                                <div class="list-item-title pull-left">My Marker</div>
+                                <span class="glyphicon glyphicon-remove pull-right" id="button-list-item-delete"></span>
+                                <span class="glyphicon glyphicon-edit pull-right" id="button-list-item-edit"></span>
+                            </div> -->
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+
+                <div class="clear"></div>
+                <!-- ============================================================ -->
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="map-editor-form-group">
+                        <h2>4. Style</h2>
+
+                        <div class="form-group">
+                            <div class="btn-group btn-group-justified col-sm-12" data-toggle="buttons">
+                                <label class="btn btn-lg btn-default active">
+                                    <input type="radio" name="options" id="radio-style-default" checked autocomplete="off">Default
+                                </label>
+                                <label class="btn btn-lg btn-default">
+                                    <input type="radio" name="options" id="radio-style-preset" autocomplete="off">Preset
+                                </label>
+                                <label class="btn btn-lg btn-default">
+                                    <input type="radio" name="options" id="radio-style-custom" autocomplete="off">Custom
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="container-style-default">
+
+                        </div>
+                        <div id="container-style-preset">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div id="styles-container">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="container-style-custom">
+                            <div class="form-group">
+                                <label for="textarea-style-array" class="form-label col-sm-4">Style array</label>
+                                <div class="col-sm-8">
+                                    <textarea id="textarea-style-array" class="form-control" rows="10"></textarea>
+                                    <br />
+                                    <p class="bg-info">
+                                        Visit <a href="https://snazzymaps.com/editor">https://snazzymaps.com/editor</a> to create a custom style array.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ============================================================ -->
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="map-editor-form-group">
+                        <h2>5. Map Size</h2>
+
+                        <div class="form-group">
+                            <label for="input-width" class="control-label col-sm-4">Width</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="input-width">
+                                    <div class="input-group-addon">px</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-height" class="control-label col-sm-4">Height</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="input-height">
+                                    <div class="input-group-addon">px</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-responsive"> Responsive
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ============================================================ -->
+
+
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="map-editor-form-group">
+                        <h2>6. Settings</h2>
+
+                        <div class="form-group">
+                            <label for="input-instance-title" class="control-label col-sm-4">Title</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="input-instance-title">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-instance-shortcode" class="control-label col-sm-4">Shortcode</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="input-instance-shortcode">
+                                <p class="help-block" id="help-block-shortcode">Full shortcode: <br><code>[arrowgooglemaps name="shortcode"]</code></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-region" class="control-label col-sm-4">Language</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="select-language"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-fullscreen-enabled"> Allow fullscreen
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-auto-sign-in"> Auto sign-in
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-disable-scroll"> Disable Scroll
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-load-api"> Load Google Maps API
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Modals -->
+            <div class="modal fade" id="modal-confirm-delete">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Are you sure?</h4>
+                        </div>
+                        <!-- <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                        </div> -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="button-confirm-delete">Delete</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <div class="modal fade" id="modal-edit-marker">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Edit Marker</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="input-marker-title" class="control-label col-sm-2">Title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-marker-title">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-marker-icon-url" class="control-label col-sm-2">Icon</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-marker-icon-url" style="display: none">
+                                        <div class="btn-group btn-group-justified" data-toggle="buttons">
+                                            <label class="btn btn-default active">
+                                                <input type="radio" name="options" id="radio-marker-icon-default" autocomplete="off" checked>Default
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="radio-marker-icon-preset" autocomplete="off">Preset
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" id="radio-marker-icon-custom" autocomplete="off">Custom
+                                            </label>
+                                        </div>
+                                        <div id="marker-icons-preset">
+                                            <div id="preset-icons-container">
+
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div id="marker-icons-custom">
+                                            <div id="marker-custom-icon-container">
+                                                <img src="" id="marker-custom-icon">
+                                            </div>
+                                            <div class="clear">
+
+                                            </div>
+                                            <p class="bg-info pull-left">
+                                                <span class="glyphicon glyphicon-info-sign"></span> Click the image to change it
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="button-confirm-edit-marker">Done</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+            <div class="modal fade" id="modal-edit-window">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Edit Window</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="input-window-title" class="control-label col-sm-2">Title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-window-title">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-window-subtitle" class="control-label col-sm-2">Subtitle</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-window-subtitle">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-window-phone" class="control-label col-sm-2">Phone</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-window-phone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-window-address" class="control-label col-sm-2">Address</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-window-address">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-window-email" class="control-label col-sm-2">E-Mail</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-window-email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-window-web" class="control-label col-sm-2">Web</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="input-window-web">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="textarea-window-content" class="control-label col-sm-2">Content</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" id="textarea-window-content" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <p class="bg-info">
+                                            Leave a field empty to remove it from the window.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="checkbox-window-open-on-load"> Open window on map load
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="button-confirm-edit-window">Done</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+            <div class="modal fade" id="modal-image-url">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Enter image URL</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="input-modal-image-url" class="control-label col-sm-2">URL</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="input-modal-image-url" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="button-confirm-modal-image-url">Done</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+        <!-- * -->
+
+        </div>
+    </div> <!-- [end] bootstrap-wrap -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/admin/styles.js"></script>
+    <script src="js/admin/uber-google-maps-editor.js"></script>
+    <script src="js/client/uber-google-maps.js"></script>
+
+    <script>
+        ;(function ( $, window, document, undefined ) {
+            $(document).ready(function() {
+                $.uber_google_maps_init_editor();
+            });
+        })( jQuery, window, document );
+    </script>
+
+</body>
+</html>
