@@ -1,0 +1,36 @@
+{
+    "require": {
+        "php": "^7.4",
+        "composer/installers": "^2.3.0",
+        "htmlburger/carbon-fields": "3.6.5",
+        "htmlburger/carbon-field-number": "^3.0",
+        "jaybizzle/crawler-detect": "^1.2",
+        "matthiasmullie/minify": "^1.3",
+        "iamntz/carbon-fields-urlpicker": "^3.0",
+        "alledia/edd-sl-plugin-updater": "^1.6",
+        "monolog/monolog": "^2.0",
+        "psr/log": "^1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.33"
+        },
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "rm -f vendor/bin/minifyjs",
+            "rm -f vendor/bin/minifycss",
+            "rm -f vendor/matthiasmullie/minify/bin/minifyjs",
+            "rm -f vendor/matthiasmullie/minify/bin/minifycss"
+        ],
+        "post-update-cmd": [
+            "rm -f vendor/bin/minifyjs",
+            "rm -f vendor/bin/minifycss",
+            "rm -f vendor/matthiasmullie/minify/bin/minifyjs",
+            "rm -f vendor/matthiasmullie/minify/bin/minifycss"
+        ]
+    }
+}

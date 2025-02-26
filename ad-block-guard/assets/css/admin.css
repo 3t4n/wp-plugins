@@ -1,0 +1,418 @@
+:root {
+    --color-light-green: var(--wc-green, #f0f9f4); /* WordPress success color, fallback to light green */
+    --color-light-red: #fce0dd; /* WordPress error color, fallback to light red */
+    --color-background-red: var(--wp-admin-color-error, #fef7f6); /* Same as above */
+    --color-tooltip-bg: var(--wp-admin-color-error, rgba(140, 51, 51, 0.8)); /* Fallback to your tooltip background */
+    --color-white: #ffffff;
+    --color-gray: var(--wc-blue, #007cba); /* Secondary color, fallback to WordPress blue */
+}
+
+
+.notice .notice-dismiss {
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+    text-decoration: none;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.dashicons-no {
+	display:none;
+}
+
+
+/* Default (Fresh) */
+body.admin-color-fresh {
+    --color-wordpress-blue: #007cba; /* Primary color */
+    --color-wordpress-blue-hover: #006ba1; /* Hover color */
+    --color-gray: #82b3d6; /* Secondary color, lighter than primary */
+}
+
+/* Light */
+body.admin-color-light {
+    --color-wordpress-blue: #d64e07; /* Primary color */
+    --color-wordpress-blue-hover: #be3d01; /* Hover color */
+    --color-gray: #e0a07b; /* Secondary color, lighter than primary */
+}
+
+/* Modern */
+body.admin-color-modern {
+    --color-wordpress-blue: #1d2327; /* Primary color */
+    --color-wordpress-blue-hover: #32373c; /* Hover color */
+    --color-gray: #454d53; /* Secondary color, lighter than primary */
+}
+
+/* Blue */
+body.admin-color-blue {
+    --color-wordpress-blue: #52accc; /* Primary color */
+    --color-wordpress-blue-hover: #1e8cbe; /* Hover color */
+    --color-gray: #7ec6dc; /* Secondary color, lighter than primary */
+}
+
+/* Coffee */
+body.admin-color-coffee {
+    --color-wordpress-blue: #59524c; /* Primary color */
+    --color-wordpress-blue-hover: #46403c; /* Hover color */
+    --color-gray: #736f68; /* Secondary color, lighter than primary */
+}
+
+/* Ectoplasm */
+body.admin-color-ectoplasm {
+    --color-wordpress-blue: #523f6d; /* Primary color */
+    --color-wordpress-blue-hover: #352d4f; /* Hover color */
+    --color-gray: #725a91; /* Secondary color, lighter than primary */
+}
+
+/* Midnight */
+body.admin-color-midnight {
+    --color-wordpress-blue: #e14d43; /* Primary color */
+    --color-wordpress-blue-hover: #c44136; /* Hover color */
+    --color-gray: #e78a84; /* Secondary color, lighter than primary */
+}
+
+/* Ocean */
+body.admin-color-ocean {
+    --color-wordpress-blue: #738e96; /* Primary color */
+    --color-wordpress-blue-hover: #60767d; /* Hover color */
+    --color-gray: #97a7ad; /* Secondary color, lighter than primary */
+}
+
+/* Sunrise */
+body.admin-color-sunrise {
+    --color-wordpress-blue: #dd823b; /* Primary color */
+    --color-wordpress-blue-hover: #c76d24; /* Hover color */
+    --color-gray: #e3a97b; /* Secondary color, lighter than primary */
+}
+
+/* Ensure the iframe inside the TinyMCE editor has a white background */
+.ad-block-guard-rich-text {
+    transition: background-color 0.3s ease;
+    padding: 10px; /* Optional: Add padding to make the background more visible */
+}
+
+div.cf-container__fields {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.cf-field__body {
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+}
+
+.cf-field__help {
+	margin-top:0px !important;
+}
+
+/* Very light green background */
+.cf-complex__group.highlight-green {
+    background-color: var(--color-light-green); 
+}
+
+/* Very light red background */
+.cf-complex__group.highlight-red {
+    background-color: var(--color-light-red); 
+}
+
+/* Change background color on hover to light red */
+.cf-field.disabled:hover {
+    background-color: var(--color-light-red); 
+}
+
+.cf-field {
+    position: relative; /* Ensure positioning context for the tooltip */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+}
+
+.cf-field.disabled::after {
+    content: attr(data-pro-feature-message);
+    position: absolute;
+    left: 50%;
+    top: 30%; /* Position below the parent */
+    transform: translateX(-50%); /* Center horizontally */
+    padding: 12px; /* Increase padding */
+    background: var(--color-tooltip-bg); /* Dark background */
+    color: var(--color-white); /* White text */
+    border-radius: 5px; /* Rounded corners */
+    white-space: nowrap; /* Prevent text wrapping */
+    z-index: 1000; /* Ensure tooltip is above other elements */
+    display: none; /* Hidden by default */
+    font-size: 16px; /* Increase font size */
+    line-height: 1.4; /* Improve line height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.cf-field.disabled:hover::after {
+    display: block; /* Show tooltip on hover */
+}
+
+.pro-feature-label {
+    position: relative; /* Ensure positioning context for any additional styling */
+    display: inline-block; /* Ensure the span behaves inline but allows for block-level styling */
+    padding: 2px 4px; /* Padding around the text */
+    background: var(--color-tooltip-bg); /* Dark background */
+    color: var(--color-white); /* White text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Font size for the label text */
+    line-height: 1.4; /* Improve line height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+span.pro-feature-label a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+span.pro-feature-label a:hover {
+    text-decoration: underline;
+    color: var(--color-white);
+}
+
+/* Common Styles for Current Tabs */
+.cf-container__tabs-item--current,
+.cf-complex__tabs-item--current {
+    background-color: var(--color-wordpress-blue) !important; /* WordPress secondary color */
+    color: var(--color-white) !important; /* Ensure the text is white */
+    border-bottom-color: var(--color-wordpress-blue) !important; /* Match the bottom border to the background */
+    transition: background-color .1s linear, color .1s linear;
+}
+
+/* Specific Styles for Primary Tab Buttons */
+.cf-container__tabs-item--current button {
+    background-color: var(--color-wordpress-blue) !important; /* WordPress blue */
+    color: var(--color-white) !important; /* Ensure the button text is white */
+    border: none; /* Remove any borders on the button */
+    width: 100%; /* Ensure the button takes full width */
+    text-align: center; /* Center the text inside the button */
+}
+
+/* Remove Focus Outline for Buttons */
+.cf-container__tabs-item--current button:focus {
+    outline: none; /* Remove focus outline */
+}
+
+/* Inherit Colors for Text Inside Complex Tabs */
+.cf-complex__tabs-title span,
+.cf-complex__group-title span {
+    color: inherit; /* Inherit the color for text inside the span */
+}
+
+.cf-checkbox__label {
+    font-weight: 600;
+}
+
+div.cf-field__body .cf-number__input {
+    width: 125px !important;
+}
+
+.tab-icon {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+input[name^="carbon_fields_compact_input[_wuadblockguard_usergroup_settings]["][name$="][_overlay_title]"] {
+    /* Your styles here */
+    max-width: 450px !important;
+}
+
+/* coloring for tabs that aren't accessible */
+.read-only-tab {
+    background-color: rgba(255, 0, 0, 0.1) !important;
+    cursor: not-allowed;
+}
+
+.read-only-tab .cf-complex__tabs-title {
+    color: #ff0000 !important;
+}
+
+.read-only-tab:hover .pro-feature-label {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background: var(--color-tooltip-bg);
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.pro-feature-text,
+.pro-feature-message {
+    font-size: 80%;
+}
+
+div.wu-ad-block-guard-scrollable-box {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+div.wu-ad-block-guard-scrollable-content {
+    border: 1px solid #ddd;
+    width: 100%;
+    max-height: 100px; /* Adjust height relative to viewport height */
+    overflow-x: auto; /* Horizontal scrolling if needed */
+    overflow-y: auto; /* Vertical scrolling if needed */
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    word-wrap: break-word; /* Break long words to fit the container */
+    word-break: break-all; /* Break long unbreakable text */
+    line-height: 1.2; /* Adjust line-height to control spacing */
+}
+
+/* Style for the tabs with pro features */
+.cf-complex__tabs-item.pro-feature {
+    background-color: var(--color-background-red); /* Set the background to red */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.cf-complex__tabs-item.pro-feature .cf-complex__tabs-title {
+    color: var(--color-white); /* Ensure text is readable on red background */
+}
+
+/* Style for the tooltip */
+.tooltip {
+    position: absolute;
+    background-color: var(--color-tooltip-bg);
+    color: var(--color-white);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+    font-size: 14px;
+}
+
+.cf-complex__tabs-item.pro-feature:hover {
+    background-color: var(--color-background-red); /* Keep background red on hover */
+}
+
+.cf-complex__tabs-item.pro-feature:hover .tooltip {
+    display: block;
+}
+
+/* Override the active (current) tab styles specifically for pro-feature tabs */
+.cf-complex__tabs-item.pro-feature.cf-complex__tabs-item--current {
+    background-color: var(--color-tooltip-bg) !important; /* Ensure the background is set to tooltip color */
+}
+
+.cf-complex__tabs-item.pro-feature.cf-complex__tabs-item--current .cf-complex__tabs-title {
+    color: var(--color-white) !important; /* Ensure text is white when active */
+}
+
+/* Custom styles for Carbon Fields checkboxes */
+.cf-checkbox__label {
+    display: inline-block; /* Keeps the label inline with the checkbox */
+    padding-left: 8px; /* Adds space between the checkbox and the label */
+    max-width: calc(100% - 40px); /* Ensures the label wraps within its container */
+    word-wrap: break-word; /* Allows the label to break at word boundaries if necessary */
+}
+
+.checkbox-icon {
+    float: left;
+}
+
+.cf-multiselect {
+    margin: 0 0 0 50px;
+    padding: 0 25px 0 0;
+}
+
+.cf-multiselect .cf-field__head .cf-field__label {
+    font-weight: 300;
+}
+
+@media screen and (max-width: 782px) {
+    div.overlay-table-wrapper table td:nth-child(1),
+    div.overlay-table-wrapper table th:nth-child(1),
+    div.overlay-table-wrapper table td:nth-child(4),
+    div.overlay-table-wrapper table th:nth-child(4),
+    div.overlay-table-wrapper table td:nth-child(6),
+    div.overlay-table-wrapper table th:nth-child(6) {
+        display: none;
+    }
+}
+
+/* hide visual+text tab switcher 
+.wp-editor-tabs {
+	display:none;
+}
+*/
+
+/* move button copy+delete icons to left side to remove confusion with overlay delete */
+.cf-complex--tabbed-vertical .cf-complex__group-actions {
+	display: inline-flex;
+}
+
+.wu_page {padding:10px;}
+
+.table-width {max-width:920px;}
+
+/* Base class for license status */
+.license-status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin: 2px 0;
+    border: 2px solid transparent; /* Default transparent border */
+}
+
+.license-status.expired:before {
+    content: '\2716'; /* Cross mark icon */
+    margin-right: 8px;
+    font-size: 16px; /* Adjust size of the icon */
+}
+
+/* Inactive status */
+.license-status.inactive {
+    color: #FFA000; /* Slightly darker amber */
+    background-color: rgba(255, 160, 0, 0.1); /* Slightly darker amber background */
+    border-color: #FFA000; /* Matches the text color */
+}
+
+/* Active status */
+.license-status.active {
+    color: #4CAF50; /* Green color */
+    background-color: rgba(76, 175, 80, 0.1); /* Light green background */
+}
+
+.license-status.active:before {
+    content: '\2714'; /* Checkmark icon */
+    margin-right: 8px;
+    font-size: 16px; /* Adjust size of the icon */
+}
+
+/* Expired status */
+.license-status.expired {
+    color: #F44336; /* Red color */
+    background-color: rgba(244, 67, 54, 0.1); /* Light red background */
+}
+
+
+
+.license-status.inactive:before {
+    content: '\25CB'; /* Empty circle icon */
+    margin-right: 8px;
+    font-size: 16px; /* Adjust size of the icon */
+    color: #FFA000; /* Slightly darker amber for the icon */
+    text-shadow: 0 0 2px #CC8500; /* Subtle darker border effect */
+}
+
+
+/* Missing status */
+.license-status.nolicense {
+    color: #9E9E9E; /* Grey color */
+    background-color: rgba(158, 158, 158, 0.1); /* Light grey background */
+}
+
+.license-status.nolicense:before {
+    content: '\25CB'; /* Empty circle icon */
+    margin-right: 8px;
+    font-size: 16px; /* Adjust size of the icon */
+}
