@@ -1,0 +1,39 @@
+<div class="AtomicReach">
+<ul class="ARPostListV">
+        
+    <?php
+
+        foreach ($view['posts'] AS $post) {
+            ?>
+            <li>
+<?php
+                if ($post->image){
+                ?>
+                    <a href="<?php echo $post->url; ?>">
+                        <img src="http://images.weserv.nl/?h=150&w=190&t=square&url=<?php echo substr($post->image->original, 7); ?>"  width="190" height="150" alt="<?php echo $post->title; ?>" />
+                    </a>
+            <?php
+            }      
+            ?>
+
+                <h2><a href="<?php echo $post->url; ?>"><?php echo $post->title; ?></a></h2>
+                
+
+                <p><?php echo $post->teaser; ?></p>
+
+            </li>
+            
+     <?php
+            }     
+            ?>
+        
+</ul>
+
+
+    <?php
+    
+        if ($view['options']['loadmore']  == 'true'){
+            echo '   <a href="' . $view['loadmoreUrl'] . '" class="loadmore">Load More</a>';
+        }
+    ?>
+</div>
