@@ -1,0 +1,396 @@
+/* 
+ *  Created on : 27.01.2017, 10:44:08
+ *  @copyright : Samet Tarim
+ *  @author    : Samet Tarim
+ *  @link      : http://www.samet-tarim.de/
+ */
+
+.mb-author-admin-panel {
+
+    width: 99%;
+    margin: 1% auto 0;
+
+    /* NAVIGATION */
+    .mb-author-admin-panel--nav {
+
+        float: left;
+        width: 20%;
+        min-height: 690px;
+        margin: 0;
+        padding: 0;
+
+        border-right: 1px solid rgb(235,235,235);
+        background-color: rgb(247,247,247);
+
+        &-logo {
+
+            height: 145px;
+            border-bottom: 1px solid rgb(235,235,235);
+
+            a {
+
+                position: relative;
+                left: 50%;
+                top: 50%;
+                display: inline-block;
+                width: 88px;
+                height: 88px;
+                margin: -45px 0 0 -45px;
+                outline: 0;
+
+                border: 1px solid rgb(200,200,200);
+                border-radius: 50%;
+
+                background-color: rgb(214,214,214);
+
+                &:hover {
+                    &:before {
+
+                        .transform(rotate(360deg));
+                        .transition(all .2s linear);
+                    }
+                }
+
+                &:focus, &:active {
+
+                    outline: 0;
+                    border: 0;
+                }
+
+                &:before {
+
+                    position: absolute;
+                    top: 8px;
+                    left: 8px;
+                    display: inline-block;
+                    content: "A";
+                    width: 70px;
+                    height: 70px;
+
+                    font: 50px/70px helvetica,verdana,sans-serif;
+                    text-align: center;
+
+                    color: @mb;
+
+                    border-radius: 35px;
+                    border: 1px solid rgb(210,210,210);
+
+                    background: -webkit-linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
+                    background: -moz-linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
+                    background: -ms-linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
+                    background: linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
+                }
+            }
+        }
+
+        &-list {
+
+            padding: 0;
+            margin:0;
+
+            &-item {
+
+                position: relative;
+                margin: 0;
+                list-style-type: none;
+
+                &:before {
+
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+
+                    display: block;
+                    content: "";
+                    padding: 2px 5px;
+
+                    speak: none;
+
+                    font-family: 'icomoon';
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    color: @mb;
+
+                    .border-radius(50%);
+                    .text-smoth();
+                    .transition(all .2s linear);
+                }
+
+                &:hover {
+
+                    a {
+
+                        background-position: right bottom;
+                        color: @mb;
+
+                        .box-shadow(1px 0 0 rgba(255,255,255,1));
+                        .transition(all .2s linear);
+                    }
+
+                    &:before {
+
+                        background-color: @mb;
+                        color: rgba(255,255,255,1);
+
+                        .transition(all .2s linear);
+                    }
+                }
+
+                /* ICON */
+                &:nth-child(1):before {content: "\f226"; font-family: dashicons;}
+                &:nth-child(2):before {content: "\f111"; font-family: dashicons;}
+                &:nth-child(3):before {content: "\f177"; font-family: dashicons;}
+                &:nth-child(4):before {content: "\f105"; font-family: dashicons;}
+                &:nth-child(5):before {content: "\f237"; font-family: dashicons;}
+                &:nth-child(6):before {content: "\f136"; font-family: dashicons;}
+                &:nth-child(7):before {content: "\f110"; font-family: dashicons;}
+                &:nth-child(8):before {content: "\f475"; font-family: dashicons;}
+                &:nth-child(9):before {content: "\f348"; font-family: dashicons;}
+
+                a {
+
+                    display: block;
+
+                    border-bottom: 1px solid rgba(235,235,235,1);
+
+                    background: linear-gradient(to right, #F7F7F7 50%, #fff 50%);
+                    background-size: 200% 100%;
+                    background-position:left bottom;
+
+                    text-decoration: none;
+                    font: 16px/40px helvetica,verdana,sans-serif;
+                    text-indent: 20px;
+                    text-transform: capitalize;
+                    color: rgb(140,140,140);
+
+                    .box-shadow(inset 0 1px 0 rgba(255,255,255,1));
+                    .transition(all .2s linear);
+                    box-sizing:border-box;
+
+                    &.active {
+
+                        background-position: right bottom;
+                        color: @mb-dark;
+
+                        .box-shadow(~"1px 0 0 rgba(255,255,255,1),inset 5px 0 0 -1px" @mb-dark);
+                        .transition(all .2s linear);
+                    }
+                }
+            }
+        }
+    }
+
+    /* MAIN */
+    .mb-author-admin-panel--main {
+
+        position: relative;
+        float: left;
+        width: 79%;
+        height: 690px;
+        margin: 0;
+        padding: 0;
+
+        background-color: rgb(255,255,255);
+
+        font-family: helvetica,verdana,sans-serif;
+
+        /* MAIN TOPBAR */
+        &-topbar {
+
+            positsion: absolute;
+            top: 0;
+            margin: 0;
+            padding: 0;
+
+            .box-shadow(0 2px 2px 0 rgba(0,0,0,.1));
+
+            li {
+
+                float: right;
+                list-style: none;
+                margin: 0;
+
+                &:first-child {
+
+                    float: left;
+
+                    a {
+
+                        border: none;
+                        border-right: 1px solid rgb(235,235,235);
+                    }
+                }
+
+                a {
+
+                    display: inline-block;
+                    padding: 0 10px;
+
+                    line-height: 50px;
+                    text-align: center;
+                    text-decoration: none;
+                    color: rgb(102,102,102);
+
+                    border-left: 1px solid rgb(235,235,235);
+
+                    &:hover {
+
+                        background-color: rgb(247,247,247);
+                    }
+
+                    .dashicons {
+
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        /* MAIN CONTENT */
+        &-content {
+
+            overflow: auto;
+            height: 588px;
+
+            > div {
+
+                display: none;
+                visibility: hidden;
+
+                margin: 0 3em 3em 3em;
+
+                .opacity(0);
+                .transition(all .5s ease);
+                .box-sizing();
+
+                > h2 {
+
+                    position: relative;
+                    margin-top: 1em;
+                    margin-bottom: 0;
+                    padding: 2px 2em;
+
+                    color: @mb;
+                    font-size: 20px;
+                    text-transform: uppercase;
+
+                    &:before {
+
+                        position: absolute;
+                        left: 0;
+                        top: -3px;
+
+                        margin-right: 10px;
+
+                        font-size: 24px;
+                        font-weight: normal;
+                        font-variant: normal;
+                        text-transform: none;
+                        line-height: 1;
+
+                        .text-smoth();
+                    }
+                }
+            }
+
+            > div:nth-child(1) > h2:before {content: "\f164"; font-family: dashicons;}
+            > div:nth-child(2) > h2:before {content: "\f226"; font-family: dashicons;}
+            > div:nth-child(3) > h2:before {content: "\f111"; font-family: dashicons;}
+            > div:nth-child(4) > h2:before {content: "\f177"; font-family: dashicons;}
+            > div:nth-child(5) > h2:before {content: "\f105"; font-family: dashicons;}
+            > div:nth-child(6) > h2:before {content: "\f237"; font-family: dashicons;}
+            > div:nth-child(7) > h2:before {content: "\f136"; font-family: dashicons;}
+            > div:nth-child(8) > h2:before {content: "\f110"; font-family: dashicons;}
+            > div:nth-child(9) > h2:before {content: "\f475"; font-family: dashicons;}
+            > div:nth-child(10) > h2:before {content: "\f348"; font-family: dashicons;}
+
+            .mb-l-boardstart {
+
+                display: block;
+                visibility: visible;
+
+                .opacity(1);
+                .transition(all .5s ease);
+            }
+
+            h3 {
+
+                margin-top: .5rem;
+                margin-bottom: .5rem;
+            }
+
+            h4, h5, h6 {
+
+                margin-top: .4rem;
+                margin-bottom: 0;
+                padding: 0;
+            }
+
+            p {
+
+            }
+        }
+
+        /* MAIN FOOTBAR */
+        &-footbar {
+
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+
+            .box-shadow(0 -2px 2px 0 rgba(0,0,0,.1));
+
+            li {
+
+                list-style: none;
+                float: right;
+                margin: 0;
+                line-height: 50px;
+                padding: 11px 1em;
+
+                .button-primary {
+
+                    display: block;
+                }
+
+                &:first-child {
+
+                    float: left;
+                    padding: 0 10px;
+
+                    a {
+
+                        border: none;
+                        border-right: 1px solid rgb(235,235,235);
+                    }
+
+                    strong {
+
+                        color: #ff9933;
+                    }
+                }
+
+                a {
+
+                    display: block;
+                    padding: 0 10px;
+
+                    border-left: 1px solid rgb(235,235,235);
+
+                    color: rgb(102,102,102);
+                    text-decoration: none;
+                    text-align: center;
+
+                    &:hover {
+
+                        background-color: rgb(247,247,247);
+                    }
+                }
+            }
+        }
+    }
+}
