@@ -1,0 +1,468 @@
+@import "./helper-classes";
+// @import "./editor-patches";
+
+//@import "./make_room_editor";
+
+$fallbacks: "Open Sans", Ubuntu, Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+html {
+    scroll-behavior: smooth;
+}
+.editor-styles-wrapper {
+    font-family: $fallbacks !important;
+}
+.d-grid > .editor-inner-blocks:first-child,
+.d-lg-grid > .editor-inner-blocks:first-child,
+.d-grid > .editor-inner-blocks:first-child > .editor-block-list__layout:first-child,
+.d-lg-grid > .editor-inner-blocks:first-child > .editor-block-list__layout:first-child,
+.d-grid > .block-editor-inner-blocks:first-child,
+.d-lg-grid > .block-editor-inner-blocks:first-child,
+.d-grid > .block-editor-inner-blocks:first-child > .block-editor-block-list__layout:first-child,
+.d-lg-grid > .block-editor-inner-blocks:first-child > .block-editor-block-list__layout:first-child  {
+    grid-template-columns: inherit;
+    grid-template-rows: inherit;
+}
+.d-grid > .editor-inner-blocks:first-child > .editor-block-list__layout:first-child,
+.d-grid > .block-editor-inner-blocks:first-child > .block-editor-block-list__layout:first-child {
+    display:-ms-grid;
+    display:-moz-grid;
+    display:grid !important;
+}
+.d-lg-grid > .editor-inner-blocks:first-child > .editor-block-list__layout:first-child,
+.d-lg-grid > .block-editor-inner-blocks:first-child > .block-editor-block-list__layout:first-child {
+    @include media-breakpoint-up(lg) {
+        display:-ms-grid;
+        display:-moz-grid;
+        display:grid !important;
+    }
+}
+//generate font-weight classes
+$weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+@each $weight in $weights {
+    .font-weight-#{$weight} {
+        font-weight: #{$weight};
+    }
+}
+
+//generate font-size classes
+$orders: (-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,10);
+@each $order in $orders {
+    .order-#{$order}{
+        order: #{$order};
+    }
+}
+@include media-breakpoint-down(md){
+    @each $order in $orders {
+        .order-mobile-#{$order}{
+            order: #{$order};
+        }
+    }
+}
+@include media-breakpoint-up(lg){
+    @each $order in $orders {
+        .order-desktop-#{$order}{
+            order: #{$order};
+        }
+    }
+}
+
+#adminmenu div.wp-menu-image.dashicons-media-spreadsheet:before {
+    color:rgb(134, 189, 145);
+}
+#adminmenu div.wp-menu-image.dashicons-hammer:before {
+    color:rgb(110, 113, 159);
+}
+#adminmenu div.wp-menu-image.dashicons-admin-post:before {
+    color:rgb(184, 120, 180);
+}
+#adminmenu div.wp-menu-image.dashicons-screenoptions:before {
+    color:rgb(138, 157, 54);
+}
+#adminmenu div.wp-menu-image.dashicons-editor-quote:before {
+    color:rgb(154, 134, 83);
+}
+#adminmenu div.wp-menu-image.dashicons-businessman:before {
+    color:rgb(181, 108, 108);
+}
+#adminmenu div.wp-menu-image.dashicons-admin-media:before {
+    color:rgb(142, 119, 174);
+}
+
+.is-style-objectfitcover {
+    &, & img, & div {
+        height:100%;
+        object-fit: cover;
+    }
+}
+
+/* Before-pseudoelementti kuvaamaan blokin toimintoa */
+[data-type="acf/agenda-modular-posts-block"] .acf-block-preview:before {
+    content:"ACF Posts Block";
+    font-size:14px;
+    display:block;
+    width:calc(100% - 20px);
+    padding:10px 20px;
+    background-color:#eee;
+    color:#000;
+    margin: 0 10px 20px 10px;
+    border:1px solid #000;
+}
+
+/* ACF Posts block luettavammaksi */
+.wp-block-acf-agenda-modular-posts-block {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.wp-block-acf-agenda-modular-posts-block.row {
+    .acf-block-component.acf-block-body {
+        &, & > div, & > div > div {
+            display:flex;
+            flex:0 0 100%;
+            flex-wrap:wrap;
+            flex-direction: row;
+            width:100%;
+            max-width:100%;
+        }
+        .modular-posts-block.row {
+            .inner-wrapper {
+                display:flex;
+                flex: 0 0 100%;
+                width:100%;
+                max-width:100%;
+                flex-direction: row;
+                flex-wrap:wrap;
+            }
+        }
+    }
+}
+/* MAKE POST SELECTOR SELECTBOXES TALLER */
+.block-editor-page {
+    .select2-container--default .select2-results>.select2-results__options {
+        height:100%;
+        max-height:400px;
+        @media screen and (min-height:1200px) {
+            max-height:600px;
+        }
+    }
+}
+.acf-block-component.acf-block-body {
+    &, & > div, .acf-block-preview {
+          width:100%;
+          max-width:100%;
+    }
+}
+.modular-posts-block img {
+    height:100%;
+    width:auto;
+}
+.edit-post-sidebar {
+    .acf-label {
+        display:block;
+        width:100%;
+        max-width:100%;
+        flex:0 0 100%;
+    }
+    .acf-fields.-left>.acf-field>.acf-label {
+        float:none;
+        display:block;
+        width:100%;
+        max-width:100%;
+        flex:0 0 100%;
+    }
+    .acf-fields.-left>.acf-field>.acf-input {
+        float:none !important;
+        display:block;
+        width:100%;
+        max-width:100%;
+        flex:0 0 100%;
+    }
+    .edit-post-sidebar .acf-fields>.acf-field {
+        max-width:100%;
+        width:100%;
+        display:block;
+    }
+    .acf-field .acf-label label{
+        margin:10px 0 5px !important;
+        font-weight:400 !important;
+        font-size:12px !important;
+    }
+    .acf-fields.-left>.acf-field:before {
+        background:none;
+        border:0;
+    }
+    .acf-fields.-border {
+        border:0;
+    }
+    .acf-block-component .acf-block-fields .acf-tab-wrap .acf-tab-group {
+        padding:0;
+        border:1px solid #000;
+        display:block;
+        width:100%;
+        max-width:100%;
+        margin-bottom:40px;
+        li {
+            display:block;
+            width:100%;
+            max-width:100%;
+            border:0;
+            background-color:#fff;
+            a {font-weight:300;}
+            &.active {
+                background-color:#2d2d2d;
+                color:#fff;
+                border-bottom:1px solid #000;
+                a {font-weight:500;}
+            }
+            .acf-tab-button {
+                border:0;
+            }
+        }
+    }
+}
+
+
+body,
+#wpadminbar *,
+.editor-styles-wrapper input,
+.editor-styles-wrapper button,
+.editor-styles-wrapper select,
+.editor-styles-wrapper optgroup,
+.editor-styles-wrapper textarea,
+.editor-post-title__block .editor-post-title__input,
+.middleware-input-field .components-base-control__label {
+    font-family: $fallbacks;
+}
+.wrap .sucuriscan-alert.success, .wrap .sucuriscan-alert.updated, 
+.sucuriscan-inline-alert-success {
+    background:#fff;
+    border:0;
+}
+.wrap .sucuriscan-alert.updated,
+.wrap .sucuriscan-alert.updated p,
+.sucuriscan-inline-alert-success,
+.wrap .sucuriscan-alert.success p,
+.sucuriscan-inline-alert-success p {
+     color:#000;
+ }
+
+ .edit-post-layout__metaboxes:not(:empty) {
+     border-top:0;
+     .edit-post-meta-boxes-area {
+         margin:auto 0;
+     }
+ }
+
+ #postbox-container-2 .postbox {
+    margin-bottom:30px;
+ }
+
+
+@media (min-width: 782px) {
+    .edit-post-layout__content{
+        min-height:0;
+    }
+    .edit-post-layout__content .edit-post-visual-editor {
+        flex:0 1 auto;
+    }
+}
+@media (min-width: 1200px) {
+    .editor-post-title {
+        padding-left:0;
+        padding-right:0;
+    }
+}
+
+.wp-block[data-type="acf/adsv2-row"] {
+    margin:15px 0;
+}
+
+ /* .edit-post-layout__metaboxes:not(:empty), */
+.postbox .hndle, .stuffbox .hndle,
+.edit-post-meta-boxes-area #poststuff .stuffbox>h3, 
+.edit-post-meta-boxes-area #poststuff h2.hndle, 
+.edit-post-meta-boxes-area #poststuff h3.hndle,
+.wp-block-acf-adsv2-row #poststuff .stuffbox>h3,
+.wp-block-acf-adsv2-row #poststuff h2.hndle, 
+.wp-block-acf-adsv2-row #poststuff h3.hndle {
+      border:0;
+      background:rgb(241, 241, 241);
+}
+.edit-post-meta-boxes-area #poststuff .stuffbox>h3,
+.edit-post-meta-boxes-area #poststuff h2.hndle, 
+.edit-post-meta-boxes-area #poststuff h3.hndle,
+.wp-block-acf-adsv2-row #poststuff .stuffbox>h3,
+.wp-block-acf-adsv2-row #poststuff h2.hndle, 
+.wp-block-acf-adsv2-row #poststuff h3.hndle{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.editor-post-title__block .editor-post-title__input {
+    font-size: 2.2rem;
+    font-weight: 100;
+    line-height: 1.2;
+}
+[data-type="core/image"] .block-editor-block-list__block-edit figure.is-resized {
+    max-width:100%;
+    display:block;
+    .components-resizable-box__container {
+          max-width:100% !important;
+          width:100% !important;
+    }
+}
+#poststuff {
+    .toggle-indicator {
+        border:1px solid #2d2d2d;
+        border-radius: 100%;
+        width:25px;
+        height:25px;
+        text-align:center;
+        display:block;
+        background:#d6d6d6;
+        transition: all 0.3s linear;
+        &:before {
+            width:23px !important;
+            height:23px;
+            line-height:23px;
+            display:inline-block;
+            margin:0;
+            padding:0;
+            text-align:center;
+            vertical-align: middle;
+        }
+    }
+}
+
+/* Make block selector higher */
+@media (min-width: 782px) {
+    .editor-inserter__popover:not(.is-mobile)>.components-popover__content,
+    .editor-inserter__results {
+        height: 800px;
+    }
+}
+
+/* TOGGLE FIX */
+.components-form-toggle.selected {
+    .components-form-toggle__thumb {
+        background-color: #fff;
+        border-width: 0;
+        transform: translateX(18px);
+    }
+    .components-form-toggle__track {
+        background-color: #11a0d2;
+        border: 9px solid transparent;
+    }
+}
+
+.components-form-toggle__off {
+    transition:opacity 0.3s linear;
+}
+
+/* Ugly border removal */
+.components-modal__content input[type=checkbox]:focus, 
+.components-modal__content input[type=radio]:focus, 
+.components-popover input[type=checkbox]:focus, 
+.components-popover input[type=radio]:focus, .edit-post-sidebar input[type=checkbox]:focus, 
+.edit-post-sidebar input[type=radio]:focus, 
+.editor-block-list__block input[type=checkbox]:focus, 
+.editor-block-list__block input[type=radio]:focus, 
+.editor-post-permalink input[type=checkbox]:focus, 
+.editor-post-permalink input[type=radio]:focus, .editor-post-publish-panel 
+input[type=checkbox]:focus, .editor-post-publish-panel input[type=radio]:focus {
+    border:0;
+    box-shadow:none;
+}
+#editor .edit-post-layout__metaboxes .postbox {
+    border: 1px solid #000;
+}
+.editor-default-block-appender__content.block-editor-default-block-appender__content {
+    border: 1px dashed #494949 !important;
+}
+.block-editor-default-block-appender .block-editor-inserter{
+    left:-30px;
+}
+.block-list-appender{
+    .block-editor-default-block-appender .block-editor-inserter{
+        left:0px;
+    }
+}
+
+.block-editor-page .block-editor-block-list__block>.block-editor-block-list__block-edit>.block-editor-block-mover {
+    left: -33px;
+}
+
+
+
+
+
+
+
+.editor-block-list__block-edit.block-editor-block-list__block-edit::before {
+    //editor block outline
+    left: 0 !important;
+    right: 0 !important;
+    top: 1px !important;
+    bottom: 1px !important;
+}
+
+//list
+.editor-styles-wrapper .block-library-list ul {
+    // list-style: disc;
+    list-style: none !important; /* Remove default bullets */
+    list-style-type: none !important;
+    li::before {
+        content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        color: #000; /* Change the color */
+        font-weight: bold; /* If you want it to be bold */
+        display: inline-block; /* Needed to add space between the bullet and the text */
+        width: 1em; /* Also needed for space (tweak if needed) */
+        margin-left: -1em; /* Also needed for space (tweak if needed) */
+    }
+
+    ul {
+        list-style: none !important;
+        list-style-type: none !important;
+    }
+}
+
+.components-panel {
+    border: 0;
+    .components-panel__row {
+        display: flex;
+        margin: 0;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        flex: 0 0 100%;
+        .components-base-control,
+        .components-base-control__field {
+            display: flex;
+            margin: 0;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+            flex: 0 0 100%;
+            margin: 0 0 0.4em;
+            .components-base-control__label {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+            .components-range-control__slider {
+                width: 40%;
+                flex: 1 1 40%;
+            }
+            .components-range-control__number {
+                flex: 0 0 60px;
+                width: 60px;
+            }
+        }
+    }
+    .components-base-control__label {
+        font-weight: 700;
+    }
+    .components-base-control__help {
+        font-size: 11px;
+    }
+}
