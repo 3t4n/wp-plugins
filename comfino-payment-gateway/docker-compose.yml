@@ -1,0 +1,10 @@
+services:
+    comfino-woocommerce-php:
+        build:
+            context: ./
+            dockerfile: docker/Dockerfile
+        working_dir: /comfino-woocommerce
+        tty: true
+        volumes:
+            - ./:/comfino-woocommerce
+            - ~/.composer:/home/comfino/.composer
