@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/asktabfaq",
+  "version": "0.1.0",
+  "title": "Ask Tab",
+  "category": "ask-faq",
+  "icon": "testimonial",
+  "description": "Tab for ask faq",
+  "textdomain": "ask-faq",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "keywords": [
+    "ask",
+    "faq",
+    "tab"
+  ],
+  "supports": {
+    "html": false
+  },
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "other",
+      "label": "Other"
+    }
+  ],
+  "attributes": {
+    "themeDark": {
+      "type": "boolean",
+      "default": false
+    },
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "div"
+    },
+    "tabs": {
+      "type": "array",
+      "selector": "div"
+    },
+    "style": {
+      "type": "string",
+      "default": "none"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/tabquestion",
+  "version": "0.1.0",
+  "title": "Tab",
+  "category": "ask-faq",
+  "icon": "layout",
+  "description": "Tab for ask faq",
+  "supports": {
+    "html": false
+  },
+  "parent": [
+    "create-block/asktabfaq"
+  ],
+  "textdomain": "ask-faq",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "keywords": [
+    "ask",
+    "faq",
+    "tab"
+  ],
+  "attributes": {
+    "tabAnswerText": {
+      "type": "string",
+      "default": ""
+    },
+    "tabAnswerVideo": {
+      "type": "string",
+      "default": ""
+    },
+    "tabAnswerAudio": {
+      "type": "string",
+      "default": ""
+    },
+    "tabAnswerType": {
+      "type": "string",
+      "default": "text"
+    },
+    "verticalAlignment": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
+    },
+    "allowedBlocks": {
+      "type": "array"
+    },
+    "templateLock": {
+      "type": [
+        "string",
+        "boolean"
+      ],
+      "enum": [
+        "all",
+        "insert",
+        false
+      ]
+    },
+    "style": {
+      "type": "string"
+    },
+    "tabId": {
+      "type": "string"
+    },
+    "tabScreenIndex": {
+      "type": "number"
+    }
+  }
+}
