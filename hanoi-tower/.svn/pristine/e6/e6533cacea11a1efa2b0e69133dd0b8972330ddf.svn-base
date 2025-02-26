@@ -1,0 +1,98 @@
+#hanoi-tower{
+    margin: 3em auto 2em;
+    width: 50%;
+    max-width: 767px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 300px;
+    border-bottom: 20px solid #ccc;
+    .peg{
+        display: flex;
+        flex-direction: column;
+        width: 33.33%;
+        padding: 0 1em;
+        position: relative;
+        align-items: center;
+        justify-content: flex-end;
+        border-right: 1px dashed #ccc;
+        &:first-of-type{
+            border-left: 1px dashed #ccc;
+        }
+        &:before{
+            content: "";
+            display: block;
+            width: 20px;
+            position: absolute;
+            top: 0;
+            left: calc(50% - 10px);
+            height: 100%;
+            background: #ccc;
+        }
+        .disc{
+            height: 35px;
+            border: 1px solid #888;
+            background: #eee;
+            border-radius: 2em;
+            z-index: 1;
+            &.disc-1{
+                width: 30%;
+            }
+            &.disc-2{
+                width: 40%;
+            }
+            &.disc-3{
+                width: 50%;
+            }
+            &.disc-4{
+                width: 60%;
+            }
+            &.disc-5{
+                width: 70%;
+            }
+            &.disc-6{
+                width: 80%;
+            }
+            &.disc-7{
+                width: 90%;
+            }
+            &:first-of-type{
+                cursor: move;
+            }
+        }
+    }
+}
+
+#turn{
+    margin: 1em auto;
+    max-width: 767px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #000;
+    &.warn{
+        color: #f00;
+    }
+    &.success{
+        color: #0f0;
+    }
+}
+
+#new-game{
+    margin: 0 auto 1em;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1em;
+    padding: .5em 1em;
+    cursor: pointer;
+    color: #338833;
+    border: 1px solid #338833;
+}
+
+#total-moves{
+    margin: 0 auto;
+    text-align: center;
+}
