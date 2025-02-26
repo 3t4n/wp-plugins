@@ -1,0 +1,118 @@
+/* Clink countdown page style */
+
+p{
+	margin: 10px 0;
+}
+p:first-child{
+	margin-top: 0;
+}
+p:last-child{
+	margin-bottom: 0;
+}
+a{
+	color: #0399ce;
+	text-decoration: none;
+}
+body {
+    background-color: #ddd !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none;
+    color: #555 !important;
+    font-family: Georgia,"Bitstream Vera Serif","Times New Roman",serif !important;
+    font-size: 100% !important;
+    margin: 0;
+    padding: 0;
+    text-align: center !important;
+}
+
+.clink-page{
+	text-align: center;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	height: 100%;
+	max-height: 100%;
+    width: 100%;
+	max-width: 100%;
+}
+.container{
+	margin: 0 auto;
+	width: 80%;
+	position: relative;
+	top: 50%;
+	margin-top: -15px;
+}
+#countdown {
+    margin: 40px auto 30px;
+    position: relative;
+}
+#countdown:before {
+    border: 2px solid #dadada;
+    border-radius: 999999em;
+    content: "";
+    display: block;
+    height: 199px;
+    margin-right: -101px;
+    position: absolute;
+    right: 50%;
+    top: 1px;
+    width: 199px;
+    z-index: -1;
+}
+.clink-box{
+	color: #acacac;
+}
+.aryan-themes {
+	background-color: #ddd;
+    border-top: 1px solid #d9d9d9;
+    bottom: 0;
+    font-family: Comic Sans MS;
+    left: 0;
+    margin: 40px 0 0;
+    padding: 10px 2px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+.aryan-themes p {
+    opacity: 0.24;
+	transition: all 0.4s ease 0s;
+}
+.aryan-themes:hover p{
+    opacity: 0.80;
+}
+
+@media only screen and (max-height:480px){
+	#countdown {
+		margin: 40px auto 30px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	p{
+		margin: 5px 0;
+	}
+	p:first-child{
+		margin-top: 0;
+	}
+	p:last-child{
+		margin-bottom: 0;
+	}
+}
+@media only screen and (max-height:440px){
+	.aryan-themes{
+		display: none;
+	}
+}
+
+/* Clink RTL countdown page style */
+
+body.rtl,
+html[dir="rtl"] body,
+body[dir="rtl"]{
+	direction: rtl;
+	text-align: right;
+	font-family: tahoma !important;
+}
