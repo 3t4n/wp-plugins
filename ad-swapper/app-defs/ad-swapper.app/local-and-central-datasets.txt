@@ -1,0 +1,96 @@
+
+===================
+Ad Swapper Datasets
+Ad Swapper Datasets
+Ad Swapper Datasets
+===================
+
+---PLUGIN SETTINGS
+---SITE PROFILE
+---WIDGET SETTINGS
+
+OUTGOING ADS (Created/Maintained Locally)
+    ----------------------------------------------------------------------------
+    question_disabled
+        So that the local site can disable selected ads.
+    ----------------------------------------------------------------------------
+
+AD SLOTS (Created/Maintained Locally)
+    ----------------------------------------------------------------------------
+    question_disabled
+        So that the local site can disable selected ad slots.
+    ----------------------------------------------------------------------------
+
+SELECTED SITES (Copied from Ad Swapper Central)
+    ----------------------------------------------------------------------------
+    o   paid_upto_datetime_utc
+            After this date/time, this site's ads shouldn't be displayed.
+    o   question_ignore
+            So that the local site can disable other sites they don't want to
+            advertise.
+    --- MISSING/VIRTUAL FIELDS -------------------------------------------------
+    o   question_disabled_by_ad_swapper_central (= FALSE)
+            Not present, because only sites for which this field is FALSE
+            are downloaded to the local sites.
+    ----------------------------------------------------------------------------
+
+SELECTED OUTGOING ADS (Copy of the Ad Swapper Central dataset (which is itself
+a copy of the local datasets))
+    ----------------------------------------------------------------------------
+    o   question_ignore
+            So that the local site can disable ads they don't want to display.
+    --- MISSING/VIRTUAL FIELDS -------------------------------------------------
+    o   question_disabled (= FALSE)
+            Not present, because only ads for which this field is FALSE are
+            uploaded to the central site (and then downloaded to other local
+            sites).
+    o   question_disabled_by_ad_swapper_central (= FALSE)
+            Not present, because only ads for which this field is FALSE
+            are downloaded to the local sites.
+    ----------------------------------------------------------------------------
+
+IMPRESSIONS
+
+
+===========================
+Ad Swapper Central Datasets
+Ad Swapper Central Datasets
+Ad Swapper Central Datasets
+===========================
+
+---USERS
+---PLUGIN REGISTRATIONS
+---CATEGORIES
+
+SITES (Created/maintained at Ad Swapper Central)
+    ----------------------------------------------------------------------------
+    o   question_disabled_by_ad_swapper_central
+            So that Ad Swapper Central can disable selected sites
+    o   paid_upto_datetime_utc
+            After this date/time, this site's ads shouldn't be displayed.
+    ----------------------------------------------------------------------------
+
+OUTGOING ADS (Copy of the local datasets)
+    ----------------------------------------------------------------------------
+    o   question_disabled_by_ad_swapper_central
+            So that Ad Swapper Central can disable selected ads
+    --- MISSING/VIRTUAL FIELDS -------------------------------------------------
+    o   question_disabled (= FALSE)
+            Not present, because only ads for which this field is FALSE are
+            uploaded to the central site.
+    ----------------------------------------------------------------------------
+    Copy of the local dataset(s):-
+        a)  for Ad Swapper Central info. purposes, and;
+        b)  for other local sites to download.
+    ----------------------------------------------------------------------------
+
+AD SLOTS (Copy of the local datasets)
+    --- MISSING/VIRTUAL FIELDS -------------------------------------------------
+    o   question_disabled (= FALSE)
+            Not present, because only ad slots for which this field is FALSE
+            are uploaded to the central site.
+    ----------------------------------------------------------------------------
+    Copy of the local dataset(s):-
+        a)  for Ad Swapper Central info. purposes only.
+    ----------------------------------------------------------------------------
+
