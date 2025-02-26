@@ -1,0 +1,385 @@
+/*** The new CSS reset - version 1.5.1 (last updated 1.3.2022) ***/
+.atcf7-form-table *, .atcf7-form-table--confirmed *,
+.atcf7-form-table *::before,
+.atcf7-form-table--confirmed *::before,
+.atcf7-form-table *::after,
+.atcf7-form-table--confirmed *::after {
+  box-sizing: border-box;
+}
+.atcf7-form-table a, .atcf7-form-table--confirmed a,
+.atcf7-form-table button,
+.atcf7-form-table--confirmed button {
+  cursor: revert;
+}
+.atcf7-form-table ol, .atcf7-form-table--confirmed ol,
+.atcf7-form-table ul,
+.atcf7-form-table--confirmed ul,
+.atcf7-form-table menu,
+.atcf7-form-table--confirmed menu {
+  list-style: none;
+}
+.atcf7-form-table img, .atcf7-form-table--confirmed img {
+  max-width: 100%;
+}
+.atcf7-form-table table, .atcf7-form-table--confirmed table {
+  border-collapse: collapse;
+}
+.atcf7-form-table textarea, .atcf7-form-table--confirmed textarea {
+  white-space: revert;
+}
+.atcf7-form-table meter, .atcf7-form-table--confirmed meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+.atcf7-form-table ::placeholder, .atcf7-form-table--confirmed ::placeholder {
+  color: unset;
+}
+.atcf7-form-table :where([hidden]), .atcf7-form-table--confirmed :where([hidden]) {
+  display: none;
+}
+.atcf7-form-table :where([contenteditable]), .atcf7-form-table--confirmed :where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+.atcf7-form-table :where([draggable=true]), .atcf7-form-table--confirmed :where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* =====================
+  configuration setting
+===================== */
+.atcf7-form-table, .atcf7-form-table--confirmed {
+  display: block;
+  line-height: 1.3;
+  border: none;
+  border-top: 1px solid #e6e6e6;
+}
+.atcf7-form-table tbody, .atcf7-form-table--confirmed tbody {
+  display: block;
+}
+.atcf7-form-table--confirmed {
+  font-size: 85%;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-table--confirmed .atcf7-form-table__head {
+    width: 120px;
+  }
+}
+.atcf7-form-table__req {
+  display: inline-block;
+  padding: 2px 3px;
+  line-height: 1.1;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 60%;
+  background-color: #f00;
+}
+.atcf7-form-table__row {
+  display: block;
+  background: none;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 0;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-table__row {
+    display: flex;
+    align-items: center;
+  }
+}
+.atcf7-form-table__head, .atcf7-form-table__content {
+  display: block;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-table__head, .atcf7-form-table__content {
+    padding: 8px 0;
+  }
+}
+.atcf7-form-table__head {
+  position: relative;
+  text-align: left;
+  font-weight: 600;
+  padding-top: 10px;
+  margin-bottom: 5px;
+  font-size: 90%;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-table__head {
+    margin-bottom: 0;
+    width: 210px;
+  }
+}
+.atcf7-form-table__head label {
+  font-weight: 600;
+}
+.atcf7-form-table__head .atcf7-form-table__req {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: 7px;
+  transform: translate(0, -50%);
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-table__head .atcf7-form-table__req {
+    margin-top: 0;
+  }
+}
+.atcf7-form-table__content {
+  padding-bottom: 10px;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-table__content {
+    flex: 1;
+    padding-left: 30px;
+  }
+}
+.atcf7-form-adornments {
+  display: flex;
+  align-items: center;
+}
+.atcf7-form-adornments__before {
+  opacity: 0.6;
+  font-size: 85%;
+  margin-right: 0.5em;
+}
+.atcf7-form-adornments__after {
+  opacity: 0.6;
+  font-size: 85%;
+  margin-left: 0.5em;
+}
+.atcf7-form-control, .atcf7-form-control--white, .atcf7-form-control--inline {
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  box-shadow: none;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+  font-size: 16px;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-control, .atcf7-form-control--white, .atcf7-form-control--inline {
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+}
+.atcf7-form-control--inline {
+  width: auto;
+  max-width: 100%;
+  display: inline-block;
+}
+.atcf7-form-control--white {
+  background-color: #fff;
+}
+.atcf7 input:disabled {
+  background-color: #ddd;
+  opacity: 0.3;
+}
+.atcf7-form-select, .atcf7-form-select--white {
+  background-color: #f3f3f3;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  appearance: none;
+  margin: 0;
+  line-height: 1.5;
+  min-width: 60px;
+  font-size: 16px;
+  padding: 0.5em 2.5em 0.5em 0.5em;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px), calc(100% - 2em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-select, .atcf7-form-select--white {
+    min-width: 140px;
+    padding: 0.5em 3em 0.5em 0.5em;
+    font-size: 15px;
+  }
+}
+@media print, screen and (min-width: 992px) {
+  .atcf7-form-select, .atcf7-form-select--white {
+    min-width: 150px;
+  }
+}
+.atcf7-form-select--white {
+  background-color: #fff;
+}
+.atcf7-form-select:-moz-focusring, .atcf7-form-select--white:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.atcf7-form-select::-ms-expand, .atcf7-form-select--white::-ms-expand {
+  display: none;
+}
+.atcf7 textarea.atcf7-form-control, .atcf7 textarea.atcf7-form-control--inline, .atcf7 textarea.atcf7-form-control--white {
+  line-height: 1.5;
+  height: auto;
+}
+.atcf7-form-label {
+  font-size: 85%;
+  opacity: 0.65;
+  margin-bottom: 3px;
+  display: block;
+}
+.atcf7-form-radio-label .wpcf7-list-item {
+  display: inline-flex;
+  font-size: 95%;
+  margin: 8px 0;
+  margin-right: 24px;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-radio-label .wpcf7-list-item {
+    margin-right: 40px;
+  }
+}
+.atcf7-form-radio-label .wpcf7-list-item:last-child {
+  margin-right: 0;
+}
+.atcf7-form-radio-label .wpcf7-list-item > label {
+  display: inline-flex;
+  align-items: center;
+  min-width: 80px;
+  font-weight: normal;
+}
+.atcf7-form-radio-label .wpcf7-list-item__input,
+.atcf7-form-radio-label .wpcf7-list-item input {
+  margin-right: 0.5em;
+}
+.atcf7-form-radio-label--block {
+  display: flex;
+  font-size: 95%;
+  margin-top: 16px;
+}
+.atcf7-form-radio-label--block:first-child {
+  margin-top: 8px;
+}
+.atcf7-form-radio-label--block > label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+.atcf7-form-radio-label .wpcf7-list-item-label {
+  flex: 1;
+}
+.atcf7-privacy {
+  margin-top: 16px;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-privacy {
+    margin-top: 24px;
+  }
+}
+.atcf7-privacy__title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 90%;
+}
+.atcf7-privacy__box, .atcf7-privacy__box--visibled {
+  font-size: 80%;
+  margin-top: 5px;
+  background-color: #f6f6f6;
+  padding: 15px 10px;
+  max-height: 240px;
+  overflow: auto;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-privacy__box, .atcf7-privacy__box--visibled {
+    margin-top: 10px;
+    padding: 20px;
+    max-height: 320px;
+  }
+}
+.atcf7-privacy__box--visibled {
+  max-height: none;
+}
+.atcf7-privacy__list {
+  margin: 0;
+}
+.atcf7-privacy__list li {
+  margin-top: 0.5em;
+}
+.atcf7-privacy__list li:first-child {
+  margin-top: 0;
+}
+.atcf7-privacy__list li > ol {
+  margin-top: 0.5em;
+}
+.atcf7-privacy__list li > ol li ol {
+  margin-top: 0.3em;
+}
+.atcf7-privacy__h1 {
+  font-size: 110%;
+  font-weight: 600;
+}
+.atcf7-privacy__h2 {
+  font-weight: 600;
+}
+.atcf7-privacy a {
+  color: #030303;
+  text-decoration: underline;
+}
+.atcf7-privacy__check {
+  text-align: center;
+  margin-top: 5px;
+}
+.atcf7-form-btn {
+  position: relative;
+  text-align: center;
+  margin-top: 16px;
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-form-btn {
+    margin-top: 24px;
+  }
+}
+.atcf7-form-btn .wpcf7-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.atcf7-btn-submit {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 50px;
+  padding: 5px 0.75em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  color: #030303;
+  border: none;
+  text-decoration: none !important;
+  letter-spacing: 0.05em;
+  background-color: #030303;
+  color: #fff;
+}
+@media (hover: hover) and (pointer: fine) {
+  .atcf7-btn-submit {
+    transition: all 0.2s linear;
+  }
+  .atcf7-btn-submit:hover {
+    color: #fff;
+    background-color: #666;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .atcf7-btn-submit {
+    width: 320px;
+    height: 60px;
+  }
+}
+.atcf7-btn-submit:disabled, .atcf7-btn-submit.disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
