@@ -1,0 +1,175 @@
+{
+    "packages": [
+        {
+            "name": "automattic/jetpack-autoloader",
+            "version": "v3.1.0",
+            "version_normalized": "3.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Automattic/jetpack-autoloader.git",
+                "reference": "0e36d60ad64e35b5dab7fa4757fadb2235d58f73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/0e36d60ad64e35b5dab7fa4757fadb2235d58f73",
+                "reference": "0e36d60ad64e35b5dab7fa4757fadb2235d58f73",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "automattic/jetpack-changelogger": "^4.2.6",
+                "composer/composer": "^1.1 || ^2.0",
+                "yoast/phpunit-polyfills": "^1.1.1"
+            },
+            "time": "2024-09-06T15:32:10+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "autotagger": true,
+                "class": "Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin",
+                "mirror-repo": "Automattic/jetpack-autoloader",
+                "changelogger": {
+                    "link-template": "https://github.com/Automattic/jetpack-autoloader/compare/v${old}...v${new}"
+                },
+                "version-constants": {
+                    "::VERSION": "src/AutoloadGenerator.php"
+                },
+                "branch-alias": {
+                    "dev-trunk": "3.1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Automattic\\Jetpack\\Autoloader\\": "src"
+                },
+                "classmap": [
+                    "src/AutoloadGenerator.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Creates a custom autoloader for a plugin or theme.",
+            "keywords": [
+                "autoload",
+                "autoloader",
+                "composer",
+                "jetpack",
+                "plugin",
+                "wordpress"
+            ],
+            "support": {
+                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v3.1.0"
+            },
+            "install-path": "../automattic/jetpack-autoloader"
+        },
+        {
+            "name": "pronamic/pronamic-mollie-user-agent",
+            "version": "v1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/pronamic-mollie-user-agent.git",
+                "reference": "8c1387b72a06748993c25c4b4eb8d0ad671bc723"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/pronamic-mollie-user-agent/zipball/8c1387b72a06748993c25c4b4eb8d0ad671bc723",
+                "reference": "8c1387b72a06748993c25c4b4eb8d0ad671bc723",
+                "shasum": ""
+            },
+            "require": {
+                "automattic/jetpack-autoloader": "^3.0",
+                "php": ">=8.0",
+                "pronamic/pronamic-wp-updater": "^1.0"
+            },
+            "require-dev": {
+                "pronamic/pronamic-cli": "^1.1",
+                "pronamic/wp-coding-standards": "^2.2"
+            },
+            "time": "2024-05-15T12:25:38+00:00",
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\MollieUserAgent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "https://www.pronamic.eu/"
+                }
+            ],
+            "description": "This WordPress plugin sets a specific user agent string for all HTTP API requests to Mollie for the partnership with Pronamic.",
+            "homepage": "https://wp.pronamic.directory/plugins/pronamic-mollie-user-agent/",
+            "keywords": [
+                "mollie",
+                "pronamic",
+                "wordpress",
+                "wordpress-plugin"
+            ],
+            "support": {
+                "email": "support@pronamic.eu",
+                "issues": "https://github.com/pronamic/pronamic-mollie-user-agent/issues",
+                "source": "https://github.com/pronamic/pronamic-mollie-user-agent/tree/v1.0.1"
+            },
+            "install-path": "../pronamic/pronamic-mollie-user-agent"
+        },
+        {
+            "name": "pronamic/pronamic-wp-updater",
+            "version": "v1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/pronamic-wp-updater.git",
+                "reference": "5dfbd527d7ffaac427ce9ed691cd0795609d4bf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/pronamic-wp-updater/zipball/5dfbd527d7ffaac427ce9ed691cd0795609d4bf1",
+                "reference": "5dfbd527d7ffaac427ce9ed691cd0795609d4bf1",
+                "shasum": ""
+            },
+            "require": {
+                "automattic/jetpack-autoloader": "^3.0"
+            },
+            "require-dev": {
+                "pronamic/pronamic-cli": "^1.1",
+                "pronamic/wp-coding-standards": "^2.2"
+            },
+            "time": "2024-05-15T10:40:44+00:00",
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Updater\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu"
+                }
+            ],
+            "description": "This WordPress plugin extends the WordPress update system with updates from Pronamic.",
+            "support": {
+                "issues": "https://github.com/pronamic/pronamic-wp-updater/issues",
+                "source": "https://github.com/pronamic/pronamic-wp-updater/tree/v1.0.2"
+            },
+            "install-path": "../pronamic/pronamic-wp-updater"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}
