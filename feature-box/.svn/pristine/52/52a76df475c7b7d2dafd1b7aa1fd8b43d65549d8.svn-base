@@ -1,0 +1,87 @@
+/**
+ * The following styles get applied both on the front of your site and in the editor.
+ */
+
+.fb-featured-box.fb-featured-box-default {
+	position: relative;
+}
+
+.fb-position-relative {
+	position: relative !important;
+}
+
+.fb-featured-box .fb-feature-image img {
+	border-radius: 10px 10px 10px 10px;
+	transition-duration: 0.3s;
+	width: 100%;
+}
+
+.fb-featured-box .fb-feature-content {
+	border-radius: 10px 10px 10px 10px;
+	transition: all .3s ease;
+	box-shadow: 0 10px 30px -10px rgb(151 163 184 / 50%);
+	position: absolute !important;
+
+	&.fb-position-center-left {
+		left: 0;
+	}
+	&.fb-position-center-right {
+		right: 0;
+	}
+	&.fb-position-top-center {
+		top: 0;
+	}
+	&.fb-position-bottom-center {
+		bottom: 0;
+	}
+
+	&.fb-position-center-left, &.fb-position-center-right {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	&.fb-position-top-center, &.fb-position-bottom-center {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.fb-position-top, .fb-position-bottom, .fb-position-left, .fb-position-right, .fb-position-center {
+		position: absolute !important;
+		max-width: 100%;
+	}
+
+	.fb-feature-title {
+		font-size: 27px;
+		padding-bottom: 15px;
+		font-weight: 500;
+		color: #000;
+	}
+
+	.fb-feature-description{
+		font-size: 16px;
+		color: #4e4a67;
+		transition: all .3s ease;
+	}
+
+	.fb-feature-button {
+		display: inline-block;
+		padding-top: 25px;
+
+		a {
+			font-size: 14px;
+			padding: 8px 16px;
+			font-weight: 600;
+			color: #fff;
+			background: #8a8da0;
+			border-radius: 3px;
+			transition: all .3s ease;
+			box-shadow: none;
+			text-decoration: none;
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.fb-featured-box.fb-featured-box-default .fb-feature-content {
+		padding: 40px;
+	}
+}
