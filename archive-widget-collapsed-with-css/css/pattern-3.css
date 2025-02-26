@@ -1,0 +1,84 @@
+.awcwc_wrap ul li a,.awcwc_wrap ul li,.awcwc_wrap ul{
+	all:unset;
+}
+.awcwc_wrap ul li:before,.awcwc_wrap ul li:after,.awcwc_wrap ul li a:before,.awcwc_wrap ul li a:after{
+	display:none;
+}
+.awcwc_wrap{
+	position:relative;
+	text-align:left;
+}
+.awcwc_wrap input{
+	cursor: pointer;
+	margin:0;
+	opacity:0;
+	position:absolute;
+	z-index:2;
+	width:100%;
+	height:3.2em;
+}
+.awcwc_wrap input ~ ul{
+	height:0;
+	list-style-type: none;
+	overflow:hidden;
+	visibility:hidden;
+	transition:.3s;
+	opacity:0;
+	display:block
+}
+.awcwc_wrap input:checked ~ ul{
+	height:auto;
+	padding:5px 0;
+	visibility:visible;
+	opacity:1
+}
+.awcwc_3 .awcwc_year{
+	cursor: pointer;
+	display:block;
+	position:relative;
+	padding:.5em 1em .5em 2.5em;
+	margin:10px 0 0;
+	font-size:1.05em;
+	background:rgba(0,0,0,.04);
+}
+.awcwc_3 .awcwc_year:before {
+	content: "+";
+	font-size:1.3em;
+	display: block;
+	position: absolute;
+	top:50%;
+	left:.8em;
+	transform:translateY(-50%) rotate(0deg);
+	transition: .5s;
+	opacity:.5;
+}
+.awcwc_3 input:checked + .awcwc_year:before {
+	transform:translateY(-50%) rotate(315deg);
+}
+.awcwc_3 ul li a{
+	cursor: pointer;
+	display:block;
+	margin:0 0 5px;
+	position:relative;
+	padding:.5em 1em .5em 2em;
+	border-bottom:1px dashed rgba(0,0,0,.2);
+}
+.awcwc_3 .awcwc_list_icon:before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:1em;
+	width:.3em;
+	height:.3em;
+	background:#aaa;
+	border-radius:50px;
+	transform:translateY(-50%)
+}
+.awcwc_3 .awcwc_num{
+	line-height:1em;
+	font-size:.9em;
+	background:rgba(0,0,0,.04);
+	padding:0em .5em;
+	margin:0 0 0 .5em;
+}
