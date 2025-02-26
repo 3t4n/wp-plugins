@@ -1,0 +1,228 @@
+#adminmenu a.toplevel_page_ays-chatgpt-assistant div.wp-menu-image img {
+    width: 28px;
+    padding: 3px 0 0;
+    transition: .3s ease-in-out;
+}
+
+/* ChatBox styles start  */
+
+.ays-assistant-chatbox {
+    width: 100%;
+}
+
+.ays-assistant-chatbox-closed-view {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.ays-assistant-closed-icon-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.ays-assistant-chatbox-closed-view:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.ays-assistant-chatbox-main-container {
+    width: 30%;
+    height: 45%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 10px;
+}
+
+@media (min-width: 1500px) {
+    .ays-assistant-chatbox-main-container {
+        width: 25%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+    .ays-assistant-chatbox-main-container {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .ays-assistant-chatbox-main-container {
+        width: 95%;
+        margin-left: 10px;
+    }
+}
+
+.ays-assistant-chatbox-logo {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+}
+
+.ays-assistant-chatbox-main-chat-box {
+    width: 90%;
+    background-color: #d3d3d3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 11px 11px 0 0;
+    overflow: hidden;
+}
+
+.ays-assistant-chatbox-header-row {
+    padding: 13px;
+    background-color: #4ac7a5;
+}
+
+p.ays-assistant-chatbox-header-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #363636;
+}
+
+.ays-assistant-chatbox-messages-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.ays-assistant-chatbox-input-box {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+input#ays-assistant-chatbox-prompt {
+    width: 100%;
+    border: none !important;
+    padding: 5px 0 5px 10px;
+}
+
+input#ays-assistant-chatbox-prompt:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+button.ays-assistant-chatbox-send-button {
+    cursor: pointer;
+    border: none;
+    background-color: #4ac7a5;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 0;
+    border-radius: 50%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+button.ays-assistant-chatbox-send-button:disabled {
+    cursor: context-menu;
+    background-color: #9cc3b9;
+}
+
+.ays-assistant-chatbox-error-message-box {
+    color: #af0000;
+}
+
+.ays-assistant-chatbox-user-message-box {
+    width: fit-content;
+    max-width: 80%; 
+    margin-left: auto;
+    margin-bottom: 7px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 20px 20px 0 20px;
+    word-break: break-word;
+}
+
+.ays-assistant-chatbox-ai-message-box {
+    width: fit-content;
+    max-width: 80%;
+    margin-right: auto;
+    margin-bottom: 7px;
+    background-color: #30ae8d;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 20px 20px 20px 0;
+    word-break: break-word;
+}
+
+.ays-assistant-chatbox-loading-box {
+    width: 35px;
+    height: 15px;
+    background-color: #30ae8d;
+    padding: 5px 0;
+    border-radius: 20px 20px 20px 0;
+    line-height: 0;
+    position: absolute;
+    bottom: 10;
+    left: 10;
+}
+
+/* Loader animation start */
+
+.ays-assistant-chatbox-loader-ball-2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ays-assistant-chatbox-loader-ball-2 > div {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background-color: #dbdbdb;
+}
+
+.ays-assistant-chatbox-loader-ball-2 > div:nth-child(1) {
+    animation: anm-bl-2-bounce 1s ease-in-out infinite;
+}
+
+.ays-assistant-chatbox-loader-ball-2 > div:nth-child(2) {
+    animation: anm-bl-2-bounce 1s ease-in-out 0.33s infinite;
+}
+
+.ays-assistant-chatbox-loader-ball-2 > div:nth-child(3) {
+    animation: anm-bl-2-bounce 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes anm-bl-2-bounce {
+    0%, 75%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Loader animation end */
+
+/* ChatBox styles end  */
