@@ -1,0 +1,42 @@
+*DOWNLOAD:  http://www.mpdf1.com/mpdf/index.php?page=Download
+
+
+*EXAMPLES: see "examples" folder in library
+	- also: http://www.mpdf1.com/mpdf/index.php?page=Examples
+		*EXPLANATIONS: http://mpdf1.com/manual/index.php?tid=184
+		
+		
+		
+		
+		
+		
+		
+		
+<?php
+function book_PDFFFF_createe($filenameee,$contnttttttttt)
+	{
+	$foldd_loc= dirname(__file__).'/bord';		if (!file_exists($foldd_loc)) {  mkdir($foldd_loc, 0755, true); }
+	$filenamee = $foldd_loc . '/'. $filenameee .'.pdf';
+	$contnt=str_replace("\n",'<br/>',$contnttttttttt);
+	
+	//-------------------------OUTPUTTTTTTTTT-------------
+	include_once(dirname(__file__).'/../mpdf.php');
+	$mpdf=new mPDF( '',  						 // mode (default '')
+					'A4',  0, '', 				// format ('A4', '' or...), font size(default 0), font family
+					15,	15,	16,	16,		9,	9, 	//(margins) left, right, top, bottom, HEADER, FOOTER
+					'L');
+	
+	$texttt= '<html><head><style>
+				body {background:url("./bord/background3.png") ;line-height:1.3em;	background-color: #F2F0EE;	font-family: "my_custom_font", "___my_custom_fonttt is added in config_fonts.php___" ;  	}
+				.contntt {	}
+				</style></head><body>
+				<div class="contntt">'	. $contnt  .'</div></body></html>';
+	$mpdf->WriteHTML($texttt);
+	$mpdf->Output($filenamee,'F');
+	}
+
+	
+
+book_PDFFFF_createe(
+	'a_MY_PDF_FILE',
+	'  Images for free border shapesReport images        Image result for free border shapes        Image result for free border shapor Photoshop Set 1    graphicssoft.about.com › ... › Free Photoshop Downloads    Download free custom shapes for Photoshop and Photoshop Elements by Shelby Kate Schmitz. This collection includes 126 frame and border custom shape ...    14 Border Vector Shapes | Download free PSD - Freepik    www.freepik.com/free-psd/14-border-vector-shapes_686481.htm    Jun 5, 2013 - 14 Borde ');	

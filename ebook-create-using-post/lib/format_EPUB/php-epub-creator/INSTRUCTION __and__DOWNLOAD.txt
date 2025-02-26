@@ -1,0 +1,48 @@
+*DOWNLOAD:  https://github.com/luizomf/php-epub-creator
+
+
+*EXAMPLES: 
+
+<?php 
+// my customs 
+$path_to_output			= dirname(__file__).'/epub_outs/';
+$path_to_temp_folder	= $path_to_output.'temp_folder/'; 
+$path_to_epub_file		= $path_to_output.'epubs/';
+$epub_filename			= 'epub_name.epub';
+		if(!file_exists($path_to_output))  		{mkdir($path_to_output			,0755,true);}
+		if(!file_exists($path_to_temp_folder))  {mkdir($path_to_temp_folder		,0755,true);}
+		if(!file_exists($path_to_epub_file))	{mkdir($path_to_epub_file		,0755,true);}
+
+$path_to_class			= dirname(__file__).'/_text_to/format_EPUB/php-epub-creator/files/';	
+
+	// ========================================== START CLASS ======================================
+	require($path_to_class.'classes/TPEpubCreator.php');
+	header('Content-Type: text/html; charset=utf-8');  // This is only to make sure the charset is UTF-8
+	$epub = new TPEpubCreator();
+	// Temp folder and epub file name (path)
+		$epub->temp_folder=$path_to_temp_folder;
+		$epub->epub_file=$path_to_epub_file . $epub_filename; 
+	// E-book configs
+		$epub->title='Epub title';      $epub->creator='Luiz Otávio Miranda';     $epub->language='pt';     $epub->rights='Public Domain';     $epub->publisher='http://www.tutsup.com/';  // $epub->uuid = '';  // You can specify your own uuid
+	// You can specity your own CSS
+		$epub->css = file_get_contents($path_to_class.'base.css');
+	// add to <body> content... You must not use doctype, head and body tags (only XHTML body content) 
+			// [[[ DESCRIPTION:   AddPage( XHTML, file, title, download images ); ]]]
+		$epub->AddPage( false, $path_to_class.'file.txt', 'Título (check accent)' );		// Add page from file  ....   remove doctype, head and body tags
+		$epub->AddPage( '<b>Test</b>', false, 'Title 2' );					// Add page content directly...  
+		$epub->AddPage( '<img src="images/2.jpg" />', false, 'Title 3' );
+	//	$epub->AddPage( '<img src="http://lorempixel.com/400/200" />', false, 'Title 4', true );		// Here the last param tells the class to download de image
+		$epub->AddPage( '<img src="images/4.jpg" />', false, 'Title 5' );
+
+	// Make sure only one image is set to cover !!! otherwsie bad file will be created.. (last argument = true). 
+			// [[[ DESCRIPTION: AddImage( image path, mimetype, cover ) ]]]
+		$epub->AddImage( $path_to_class.'images/1.jpg', false, true );
+		$epub->AddImage( $path_to_class.'images/2.jpg', 'image/jpeg', false );		// Add another images (last arg is set to false - not cover - remember that) ....   If you don't send the mimetype, the class will try to get it from the file
+
+	// Create the EPUB  ( If yet no error happened..)
+	if ( $epub->error ) {  echo $epub->error; }  else { 
+		$epub->CreateEPUB();
+		if ($epub->error ) { echo $epub->error; }  else { 
+			echo 'Success: Download your book <a href="' . $epub->epub_file . '">here</a>.';
+		}
+	}
