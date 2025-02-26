@@ -1,0 +1,264 @@
+.bh-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: -20px;
+    padding: 13px 15px;
+    border-bottom: 1px solid #b5bfc9;
+    background: #fff;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: 40px;
+}
+
+    .bh-header .bh-logo {
+        position: relative;
+        margin-right: 15px;
+        padding-right: 15px;
+        top: -3px;
+    }
+
+        .bh-header .bh-logo::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 69px;
+            margin: -12px 0;
+            content: '';
+            background: #b5bfc9;
+        }
+
+    .bh-header .bh-logo-text {
+        /*font-size: 22px;*/
+        font-weight: 500;
+        margin: 11px auto 0 0;
+    }
+
+.overall-review {
+    padding-top: 30px;
+}
+
+.overall-grade-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.overall-progress {
+    width: auto;
+    margin-right: 15px;
+}
+
+.overall-notes {
+    width: 70%;
+}
+
+.overall-footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-top: 1px solid #ebeced;
+    margin-top: 10px;
+    padding-bottom: 30px;
+}
+
+    .overall-footer .overall-notification {
+        width: 100%;
+        padding: 10px 15px;
+        background: #fbe977;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+#sybm-start-btn {
+    background-color: #1C82BC;
+    border-radius: 32px;
+    padding: 8px 22px;
+    color: white;
+    font-size: 13px;
+    top: 6px;
+    position: relative;
+    border: none;
+    cursor: pointer;
+}
+
+.report-container {
+    margin-top: 30px;
+    padding-right: 20px;
+}
+
+.report-block {
+    margin-top: 30px;
+    background: white;
+    border: 1px solid #c3c4c7;
+}
+
+.report-row {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ebeced;
+    padding: 2px 15px;
+}
+
+    .report-row .name {
+        width: 30%;
+    }
+
+    .report-row .value {
+        width: 20%;
+    }
+
+    .report-row .comments {
+        width: 40%;
+    }
+
+.report-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.report-grade {
+    width: auto;
+    padding: 0 15px;
+}
+
+a.btn.green.pill.small {
+    height: 36px;
+    color: #fff;
+    background-color: #a4cf65;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding: 10px 34px;
+    line-height: 1;
+}
+
+.info-box {
+    background-color: #fbe977;
+    border-radius: 5px;
+    padding: 10px 15px;
+    padding-bottom: 10px;
+    padding-bottom: 10px;
+    padding-bottom: 20px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #606060;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+    .info-box:empty {
+        background-color: transparent;
+    }
+
+.box-section .info-box {
+    margin-bottom: 10px;
+}
+
+.box-section .stat > img {
+    margin: 20px 0;
+}
+
+
+.info-box .arrow-top.center {
+    width: 8px;
+    height: 8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fbe977;
+    text-align: center;
+    margin: 0 auto;
+    top: -16px;
+    position: relative;
+}
+
+.analizing-loader-wrapper {
+    background-color: #EEEEEE;
+    height: 30px;
+    border-radius: 4px;
+    width: 100%;
+    overflow: hidden;
+}
+
+@keyframes example {
+    from {
+        left: -33%;
+    }
+
+    to {
+        left: 106%;
+    }
+}
+
+.analizing-loader {
+    background-color: #A4CF65;
+    height: 30px;
+    border-radius: 6px;
+    width: 33%;
+    position: relative;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.analizing-loader-gh {
+    background-color: #4462AA;
+    height: 30px;
+    border-radius: 6px;
+    width: 33%;
+    position: relative;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.knob {
+    padding: 15px 10px;
+}
+
+    .knob:not(.small) {
+        padding: 20px 10px 10px 23px;
+    }
+
+    .knob.small {
+        transform: scale(0.8);
+    }
+
+#sybm-start-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    padding-left: 35px;
+}
+
+input.dial, input.dial:focus {
+    pointer-events: none;
+    outline: none;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#bh-loader svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+.loadingbox {
+    width: 30px;
+    height: 30px;
+    display: none;
+    position: absolute;
+    left: 3px;
+    top: 2px;
+}
+
+.disabled #bh-loader {
+    display: inline-block;
+}
