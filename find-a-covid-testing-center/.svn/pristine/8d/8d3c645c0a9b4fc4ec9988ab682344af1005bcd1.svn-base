@@ -1,0 +1,362 @@
+/**
+ * search wrapper
+ */
+#search-wrapper {
+    position: relative
+	margin-bottom:10px;
+}
+
+#search-wrapper * {
+    box-sizing: border-box;
+	margin-bottom:5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+#search-wrapper.rs-collapse #result-list {
+    position: absolute;
+    left: 0;
+    right: 0
+}
+
+.error-results-wrap{
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+.search-results-wrap {
+    position: absolute;
+	padding-bottom:10px;
+    margin-bottom: -30px;
+    -webkit-transition: margin-bottom 0.2s ease, opacity 0.2s ease;
+    -o-transition: margin-bottom 0.2s ease, opacity 0.2s ease;
+    transition: margin-bottom 0.2s ease, opacity 0.2s ease
+}
+
+.search-results-wrap.rs-show {
+    position: static;
+}
+
+#input-wrapper {
+    position: relative
+}
+
+/**
+ * search input
+ */
+#search-input {
+    height: 40px;
+    border-radius: 3px;
+    padding: 5px;
+    background: #F8F8F8;
+    border: 1px solid #d8d8d8;
+    color: inherit;
+	font-size:20px;
+}
+
+#search-input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgba(91, 192, 222, 0.4)
+}
+
+/**
+ * results
+ */
+#result-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+#result-list li {
+    padding: 0;
+    margin: 0
+	
+}
+#result-list li:hover{
+	background-color: transparent;
+}
+
+#result-list a {
+    line-height: 1;
+    display: block;
+    text-decoration: none;
+    border: 2px;
+    padding: 10px 0;
+    text-shadow: none;
+    box-shadow:none;
+	background-color:aliceblue;
+	padding-left:10px;
+	padding-right:10px;	
+	color:black;
+	border-color:red;
+	
+}
+
+.rs-link {
+    *zoom: 1;
+    -webkit-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+    transition: background 0.2s ease
+}
+
+.rs-link:before,
+.rs-link:after {
+    content: " ";
+    display: table
+}
+
+.rs-link:after {
+    clear: both
+}
+
+.rs-item-image,
+.rs-item-title-wrap {
+    overflow: hidden;
+    _overflow: visible;
+    zoom: 1
+}
+
+.rs-item-image {
+    float: left;
+    max-width: 30px;
+    margin-right: 10px
+}
+
+#result-list a:hover .rs-item-title{
+	color: inherit;
+	background-color: inherit;
+}
+
+.rs-item-title {
+   color: inherit;
+   line-height: 1.5;
+}
+
+.rs-item-image+.rs-item-title-wrap+.rs-item-excerpt {
+    margin-top: 7px
+}
+
+.rs-item-excerpt {
+    font-family: inherit;
+    line-height: 18px;
+    color: inherit;
+}
+
+.rs-item-excerpt p {
+    margin: 0
+}
+
+
+#rs-clear-search {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    color: #d8d8d8;
+    z-index: 1
+}
+
+@media (max-width: 768px) {
+    #search-wrapper #rs-clear-search,
+    #search-wrapper .search-loading {
+        right: -15px;
+        top: -25px;
+    }
+}
+
+#rs-clear-search:hover {
+    color: inherit;
+    cursor: pointer
+}
+
+#search-wrapper.rs-style-compact .rs-item-title {
+    line-height: 16px
+}
+
+#search-wrapper.rs-style-compact .rs-item-image {
+    max-width: 25px;
+    margin-right: 7px
+}
+
+#search-wrapper.rs-style-compact #result-list a {
+    padding: 2px 0;
+}
+
+#search-wrapper.rs-style-compact #search-input {
+    height: 30px;
+    padding: 4px 7px;
+    line-height: 18px;
+    border-radius: 2px
+}
+
+#search-wrapper.rs-style-compact #rs-clear-search {
+    top: 6px;
+    right: 6px
+}
+
+#search-wrapper.rs-style-compact .search-loading {
+    top: -4px;
+    right: 6px
+}
+
+.rs-hide {
+    height: 0;
+    opacity: 0
+}
+
+.rs-show {
+    height: auto;
+    opacity: 1 !important;
+}
+
+.search-results-style-inside .search-results-wrap {
+    position: absolute;
+    z-index: -1;
+    right: 40px;
+    top: 6px;
+    padding: 3px 8px;
+    background: #d8d8d8;
+    color: inherit;
+    border-radius: 2px;
+    font-family: inherit;
+}
+
+.search-results-style-inside .search-results-wrap.rs-show {
+    z-index: 1
+}
+
+.search-results-style-inside.rs-no-results .search-results-wrap {
+    right: 6px
+}
+
+.search-results-style-inside.rs-style-compact .search-results-wrap {
+    top: 4px;
+    padding: 1px 6px;
+    right: 33px
+}
+
+.search-results-style-inside.rs-style-compact.rs-no-results .search-results-wrap {
+    right: 6px
+}
+
+
+.search-wrapper.wrapper{
+    padding: 2rem;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+    background: #fff;
+}
+.search-wrapper.wrapper label {
+    text-align: left;
+    display: block;
+    margin: 0.5em 0 1em;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.search-wrapper.wrapper #search-input{
+    padding: .95rem;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    line-height: 1.3;
+    height: auto;
+    width: 100%;
+}
+.search-results-wrap,
+#rs-helper {
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: inherit;
+}
+span#search-results {
+    font-weight: bold;
+}
+
+
+/**
+ * search loader
+ */
+.search-loading {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    opacity: 0
+}
+
+.search-loader {
+    height: 20px;
+    width: 20px;
+    margin: 3px auto;
+    position: relative;
+    -webkit-animation: rotation .6s infinite linear;
+    -moz-animation: rotation .6s infinite linear;
+    -o-animation: rotation .6s infinite linear;
+    animation: rotation .6s infinite linear;
+    border-left: 3px solid rgba(216, 216, 216, 0.5);
+    border-right: 3px solid rgba(216, 216, 216, 0.5);
+    border-bottom: 3px solid rgba(216, 216, 216, 0.5);
+    border-top: 3px solid #5bc0de;
+    border-radius: 100%
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(359deg)
+    }
+}
+
+@-moz-keyframes rotation {
+    from {
+        -moz-transform: rotate(0deg)
+    }
+    to {
+        -moz-transform: rotate(359deg)
+    }
+}
+
+@-o-keyframes rotation {
+    from {
+        -o-transform: rotate(0deg)
+    }
+    to {
+        -o-transform: rotate(359deg)
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(359deg)
+    }
+}
+
+/**
+ * after results wrapper
+ */
+.after-wrapper{
+    display: none;
+    margin: 10px 0;
+}
+.after-wrapper button{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.ctc_top_link{
+	text-align:right!important;
+	float:right;
+	color:black;
+}
