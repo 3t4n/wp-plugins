@@ -1,0 +1,213 @@
+  .zlfms-image-gallery .zlfms_gallery {
+    display: grid;
+    gap: 15px;
+  }
+
+  .zlfms-image-gallery .gallery-columns-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .zlfms-image-gallery .gallery-columns-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .zlfms-image-gallery .gallery-columns-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .zlfms-image-gallery .gallery-columns-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .zlfms-image-gallery .gallery-columns-6 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .zlfms-gallery-item:hover {
+    color: var(--e-global-color-primary);
+  }
+
+  .zlfms-gallery-item i.fad {
+    width: initial;
+  }
+
+  .zlfms-gallery-img {
+    background: no-repeat 50%;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+  }
+
+  .zlfms_video .zlfms_video_player img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover !important;
+  }
+
+  .zlfms_video .zlfms_video_player {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .zlfms-custom-embed-play i {
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 1px 0 6px rgba(0, 0, 0, .3);
+  }
+
+  .zlfms-carousel .zlfms-gallery-item {
+    cursor: grab;
+    overflow: hidden;
+  }
+
+  .zlfms-image-gallery .zlfms-gallery-item,
+  .zlfms-gallery-item a {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+
+  .zlfms-custom-embed-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .zlfms-gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .zlfms-gallery-item:not(:hover) .zlfms-overlay-animation-fade {
+    opacity: 0;
+  }
+
+  .zlfms-gallery-item:not(:hover) .zlfms-overlay-animation-slide-up {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .zlfms-gallery-item:not(:hover) .zlfms-overlay-animation-slide-down {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .zlfms-gallery-item:not(:hover) .zlfms-overlay-animation-slide-right {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .zlfms-gallery-item:not(:hover) .zlfms-overlay-animation-slide-left {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .zlfms-gallery-item:not(:hover) .zlfms-overlay-animation-zoom-in {
+    transform: scale(.5);
+    opacity: 0;
+  }
+
+  .zlfms-carousel-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: var(--e-carousel-image-overlay-color, #fff);
+    background-color: rgba(105, 114, 125, .8);
+    transition: transform .5s, opacity .5s;
+  }
+
+  .zlfms_gallery {
+    aspect-ratio: 2;
+    width: 100% !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    display: none;
+  }
+
+  .zlfms-carousel,
+  .zlfms-slideshow {
+    overflow: hidden;
+  }
+
+  .swiper-container {
+    position: relative;
+  }
+
+  .gallery-thumbs .swiper-slide {
+    opacity: 0.4;
+  }
+
+  .gallery-thumbs .swiper-slide-active {
+    opacity: 1;
+  }
+
+  .zlfms-slideshow .gallery-top .zlfms-gallery-item {
+    margin-right: 0px;
+    overflow: hidden;
+  }
+
+  .gallery-top,
+  .gallery-thumbs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+  }
+
+  @media (max-width:991px) {
+
+    .zlfms-image-gallery .gallery-columns-4,
+    .zlfms-image-gallery .gallery-columns-5,
+    .zlfms-image-gallery .gallery-columns-6,
+    .zlfms-image-gallery .gallery-columns-7,
+    .zlfms-image-gallery .gallery-columns-8,
+    .zlfms-image-gallery .gallery-columns-9,
+    .zlfms-image-gallery .gallery-columns-10 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    .zlfms-image-gallery .gallery-columns-3,
+    .zlfms-image-gallery .gallery-columns-4,
+    .zlfms-image-gallery .gallery-columns-5,
+    .zlfms-image-gallery .gallery-columns-6,
+    .zlfms-image-gallery .gallery-columns-7,
+    .zlfms-image-gallery .gallery-columns-8,
+    .zlfms-image-gallery .gallery-columns-9,
+    .zlfms-image-gallery .gallery-columns-10 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 479px) {
+
+    .zlfms-image-gallery .gallery-columns-2,
+    .zlfms-image-gallery .gallery-columns-3,
+    .zlfms-image-gallery .gallery-columns-4,
+    .zlfms-image-gallery .gallery-columns-5,
+    .zlfms-image-gallery .gallery-columns-6,
+    .zlfms-image-gallery .gallery-columns-7,
+    .zlfms-image-gallery .gallery-columns-8,
+    .zlfms-image-gallery .gallery-columns-9,
+    .zlfms-image-gallery .gallery-columns-10 {
+      grid-template-columns: 1fr;
+      aspect-ratio: 0.3 !important;
+    }
+  }
