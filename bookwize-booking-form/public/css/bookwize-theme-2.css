@@ -1,0 +1,460 @@
+.reservation #ui-datepicker-div {
+    background: white;
+    color: black;
+    font-family: Arial, Calibri, Helvetica, sans-serif;
+    z-index: 9999 !important;
+    box-shadow: 0 1px 6px 1px rgba(102,102,102,.15);
+    padding: 0;
+    min-width:300px;
+}
+.reservation .fields__wrapper{
+    display: table;
+    margin: auto;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 10px;
+    color: white;
+    background: #bda67a;
+}
+.reservation #ui-datepicker-div table {
+    min-width: 300px;
+}
+.reservation .ui-datepicker-header{
+    background: #bda67a;
+}
+.reservation .ui-datepicker-calendar td{
+    padding: 10px;
+}
+.reservation #ui-datepicker-div a {
+    font-family: Arial, Calibri, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    color: #2E2E2E;
+    text-align: center;
+}
+
+.reservation .ui-state-disabled {
+    color: rgba(68, 68, 68, 0.48);
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    color: #cfcfcf;
+}
+
+
+.reservation .list span {
+    padding: 0 5px;
+    text-align: center;
+}
+.reservation .ui-icon, .ui-widget-content .ui-icon, .ui-widget-header .ui-icon {
+    background-image: url("../img/ui-icons_444444_256x240.png");
+}
+
+.reservation .ui-icon-circle-triangle-e {
+    float: right;
+    background-position: -48px -192px;
+    margin-right: 10px;
+}
+
+.reservation .ui-icon-circle-triangle-w {
+    background-position: -80px -192px;
+    float: left;
+    margin-left: 10px;
+}
+
+.reservation .ui-icon {
+    color: transparent;
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin-top: 10px;
+}
+
+.reservation .ui-datepicker-title {
+    text-align: center;
+    font-family: Arial, Calibri, Helvetica, sans-serif;
+    color: black;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 8px;
+    margin: 0 0 0 5px;
+    text-transform: capitalize;
+}
+.reservation  .ui-datepicker-calendar thead {
+    background: rgba(189, 166, 122, 0.28);
+}
+.reservation  .ui-datepicker-calendar thead th{
+    padding: 10px;
+}
+.reservation .field__item {
+    display: none;
+    position: relative;
+
+}
+@media screen and (max-width: 800px) {
+    .reservation #ui-datepicker-div {
+        font-size: 13px;
+        min-width: 250px;
+    }
+    .reservation .ui-datepicker-calendar thead th {
+        padding: 5px;
+    }
+    .reservation .ui-datepicker-calendar td {
+        padding: 5px;
+    }
+    .reservation #ui-datepicker-div table {
+        min-width: 250px;
+    }
+}
+.reservation .field__item input {
+    display: none;
+
+}
+
+.reservation .form__field {
+    position: relative;
+
+}
+
+.reservation .form__field--date .field__item-label:before{
+    content:'';
+    display: inline-block;
+    background: url('../img/icon-calendar.png');
+    background-size: contain;
+    width:15px;
+    height:15px;
+    vertical-align: middle;
+    margin-right: 5px;
+    cursor:pointer;
+
+}
+.reservation-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.reservation-form .form__input {
+    width: 50%;
+    background: transparent;
+    border:none;
+    font-weight: 300;
+    font-family: Arial, Calibri, Helvetica, sans-serif;
+    text-align: center;
+    cursor:pointer;
+    color:white;
+}
+
+.reservation .form__submit {
+    padding: 15px 20px;
+    background: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: solid 1px;
+    width: 100%;
+    line-height: 16px;
+    transition: 0.5s;
+    font-weight: bold;
+    color: #bda67a;
+}
+.reservation .form__submit:hover {
+    background: #bda67a;
+    transition: 0.5s;
+    color: white;
+    border: solid 1px ;
+}
+@media screen and (max-width: 1024px) {
+    .reservation {
+        float: none;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+}
+.reservation .fields__item {
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor:pointer;
+    max-width: 160px;
+    min-width: 140px;
+    position: relative;
+
+}
+@media screen and (max-width: 800px) {
+    .reservation .fields__item {
+        width: 100% !important;
+        margin-bottom: 10px;
+        float: none;
+        text-align: left;
+    }
+
+    .reservation .opened .fields__item {
+        text-align: center;
+    }
+}
+.reservation .fields__item:focus {
+    box-shadow: 0 0 5px #C6C6C6;
+    border: 1px solid #C6C6C6;
+}
+.reservation .form__input__container {
+    width:100% !important;
+    margin-left: 0px;
+}
+@media screen and (max-width: 800px) {
+    .reservation .form__input__container {
+        width:100% !important;
+        margin-left: 0px;
+    }
+}
+#adults, #children, #infants, #children2 {
+    display: none;
+}
+
+.reservation .list {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.reservation .list .field__item-button {
+    transition: 0.5s;
+}
+
+.reservation .list .field__item-button .material-icons {
+    font-size: 15px;
+    line-height: 15px;
+    border: solid 1px black;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.reservation .list .field__item-button:hover {
+
+    transition: 0.5s;
+}
+
+.reservation .list .field__item-button:hover .material-icons {
+    color: #E18061;
+    border: 1px solid #e18061;
+    transition: 0.5s;
+}
+
+.reservation .field__item {
+    box-sizing: border-box;
+    background: transparent;
+    font-weight: 300;
+    font-family: Arial, Calibri, Helvetica, sans-serif;
+
+}
+.reservation a{
+    user-select: none;
+    cursor:pointer;
+}
+.reservation .field__item-label {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+@media screen and (max-width: 1024px) {
+    .reservation .field__item-label {
+        padding-left: 0px;
+    }
+}
+.reservation  .field__item-side-label {
+    font-size: 75%;
+}
+.reservation  .field__item-button--plus{
+    width: 25px;
+    background-repeat: no-repeat;
+    height: 25px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    background: transparent;
+}
+.reservation  .field__item-button--plus:after{
+    content: '\21E7';
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    vertical-align: middle;
+    line-height: 26px;
+    margin-left:-1px;
+}
+.reservation  .field__item-button--plus:hover{
+    color: rgba(140,139,139,0.5);
+}
+.reservation  .field__item-button--minus{
+    width: 25px;
+    background-repeat: no-repeat;
+    height: 25px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    background: transparent;
+}
+.reservation  .field__item-button--minus:after{
+    content: '\21E9';
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 26px;
+}
+.reservation  .field__item-button--minus:hover{
+    color: rgba(140,139,139,0.5);
+}
+.reservation #couponCode input{
+    display: block;
+    border: none;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    padding: 5px;
+    background: transparent;
+    color:white;
+
+}
+.reservation .board{
+    width: 100%;
+    padding: 5px 0px;
+    border: none;
+    background: transparent;
+    color:white;
+    cursor:pointer;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.reservation .board option{
+    color:black;
+    font-size:16px;
+}
+.reservation #board:after {
+    content: '\21E9';
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    vertical-align: baseline;
+    line-height: 26px;
+    margin-left: 5px;
+    position: absolute;
+    right:5px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.reservation #board {
+    display: none;
+    position: relative;
+}
+.reservation .guests__wrapper {
+    max-height: 0;
+    float: left;
+    opacity: 0;
+    cursor:pointer;
+    display: none;
+}
+.reservation .guests__wrapper.opened {
+    max-height: 100%;
+    display: table;
+    float: left;
+    opacity: 1;
+    cursor:pointer;
+    transition: 0.5s;
+    background: #bda67a;
+    z-index: 2;
+    position: absolute;
+    top: 45px;
+    left: 0;
+}
+.reservation .guests__wrapper.opened .field__item-label{
+    width:100%;
+}
+.reservation .guests__value {
+    display: inline-block;
+}
+.reservation .guests__value:after{
+    content: '\21E9';
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    vertical-align: baseline;
+    line-height: 26px;
+    margin-left: 5px;
+    position: absolute;
+    right:5px;
+}
+.reservation .guests__value.opened:after{
+    content: '\21E7';
+
+}
+.reservation .guests__wrapper .fields__item{
+    width:100%;
+}
+.reservation #board .field__item-label {
+    display: none;
+}
+.reservation #couponCode .field__item-label {
+    display: none;
+}
+.reservation ::-webkit-input-placeholder { /* WebKit browsers */
+    color: white;
+}
+.reservation :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+}
+.reservation ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+}
+.reservation :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: white;
+}
+.reservation :focus {outline:0;}
+.reservation :focus::-webkit-input-placeholder {
+    color: transparent;
+}
+.reservation :focus:-moz-placeholder{
+    color: transparent;
+}
+.reservation :focus::-moz-placeholder{
+    color: transparent;
+}
+.reservation :focus:-ms-input-placeholder{
+    color: transparent;
+}
+.reservation .form__field.form__field--date .field__item-label{
+    font-size: 0;
+    width:20px;
+    position: absolute;
+    top:-1px;
+    left:0;
+}
+.reservation .form__field.form__field--date .form__input {
+    width: 100%;
+}
+.reservation .fields__item:before {
+    content: '';
+    width: 1px;
+    height: 23px;
+    background: white;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+}
+@media screen and (max-width: 800px) {
+    .reservation .fields__item:before {
+        content: none;
+    }
+}
+.reservation .fields__item:first-child:before {
+    content: none;
+}
+.reservation .opened .fields__item:before {
+    content:none;
+}
+.reservation #guests .field__item-label{
+    cursor: pointer;
+}
