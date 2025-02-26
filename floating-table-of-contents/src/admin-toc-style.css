@@ -1,0 +1,123 @@
+
+:root {
+    --titlecolor: white;
+    --titlefcolor: black;
+    --titleweight: bold;
+    --borderstyle: solid;
+    --backgroundcolor: #ffffff00;
+    --chapterbackgroundcolor: #ccd7f5;
+    --chaptertextcolor: #6077b0;
+    --buttoniconcolor: #fff;
+    --gradientcolor1: #8769a9;
+    --gradientcolor2: #507cb3;
+    --bordercolor: black;
+}
+
+
+.floatingButtonWrap {
+    position:relative;
+    top: 40%;
+    left: 5%;
+  
+}
+
+
+.floatingButtonInner {
+    position: relative;
+
+}
+
+.floatingButton {
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background: -webkit-linear-gradient(45deg, var(--gradientcolor1), var(--gradientcolor2));
+    background: -o-linear-gradient(45deg, var(--gradientcolor1), var(--gradientcolor2));
+    background: linear-gradient(45deg, var(--gradientcolor1), var(--gradientcolor2));
+    color: var(--buttoniconcolor);
+    line-height: 65px;
+    border-radius: 50% 50%;
+    bottom: 5px;
+    right: 0px;
+    border: 5px solid #b2bedc;
+    /* opacity: 0.3; */
+    opacity: 1;
+    transition: all 0.4s;
+}
+
+    .floatingButton .fas {
+        font-size: 15px !important;
+    }
+
+    .floatingButton.open,
+    .floatingButton:hover,
+    .floatingButton:focus,
+    .floatingButton:active {
+        opacity: 1;
+        color: var(--buttoniconcolor);
+        background: -webkit-linear-gradient(45deg, var(--gradientcolor1), var(--gradientcolor2)) !important;
+        background: -o-linear-gradient(45deg, var(--gradientcolor1), var(--gradientcolor2)) !important;
+        background: linear-gradient(45deg, var(--gradientcolor1), var(--gradientcolor2)) !important;
+    }
+
+
+    .floatingButton .fas {
+        transform: rotate(0deg);
+        transition: all 0.4s;
+    }
+
+    .floatingButton.open .fas {
+        transform: rotate(270deg);
+    }
+
+
+.table-of-contents li {
+    width: 100%;
+    float: right;
+    list-style: none;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+    .table-of-contents li a {
+        padding: 8px 15px;
+        display: inline-block;
+        background: var(--chapterbackgroundcolor);
+        color: var(--chaptertextcolor);
+        border-radius: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: all 0.4s;
+        /* -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22); */
+        -webkit-box-shadow: 1px 3px 5px rgba(211, 224, 255, 0.5);
+        box-shadow: 1px 3px 5px rgba(211, 224, 255, 0.5);
+    }
+
+        .table-of-contents li a:hover {
+            margin-left: -10px;
+            text-decoration: none;
+        }
+
+
+
+
+.table-of-contents {
+    border-style: var(--borderstyle);
+    border-color: var(--bordercolor);
+    padding: 5px;
+    position: absolute;
+    bottom: 100px;
+    left: 0px;
+    width: auto;
+    display: block;
+    background-color: var(--backgroundcolor);
+}
+
+.toc-headline {
+    font-size: 125%;
+    font-weight: var(--titleweight);
+    background-color: var(--titlecolor);
+    color: var(--titlefcolor);
+}
