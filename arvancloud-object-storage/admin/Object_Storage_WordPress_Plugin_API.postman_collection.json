@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "e0da7f16-f3e1-471e-a3bb-ac15c3598c1e",
+		"name": "Object Storage WordPress Plugin API",
+		"description": "# 📄 Get started here\n\nThe documentation provided by [Khorshid](https://khorshidlab.com) will assist you in gaining a comprehensive understanding of how to use each endpoints. The guides offer a step-by-step breakdown of all the necessary information to set up and configure.\n\nFor more Information go to the [Documentation.](https://docs.arvancloud.ir/en/)\n\n---\n\nThe Object Storage WordPress Plugin provides some REST API endpoints that enable you to use with your themes and plugins.\n\n## **Getting started guide**\n\nTo start using the APIs, you need to:\n\n- You must use a valid \"Application Password\" from your profile page in WordPress Admin Panel to send requests to the API endpoints. You can get your API key from your profile page (/wp-admin/profile.php).\n    \n    Application passwords allow authentication via non-interactive systems, such as REST API, without providing your actual password. Application passwords can be easily revoked. They cannot be used for traditional logins to your website.\n    \n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n    \n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\nThe API uses Basic Auth for authentication.\n\nYou can generate an Application Password in your profile page (/wp-admin/profile.php). The user must have admin role.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n### **Need some help?**\n\nIn case you have questions, go through our tutorials. Or you can check out the [plugin support forum](https://wordpress.org/support/plugin/arvancloud-object-storage/), there’s a good chance our community has an answer for you. Visit our developer forum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40544611"
+	},
+	"item": [
+		{
+			"name": "Endpoints",
+			"item": [
+				{
+					"name": "ListBuckets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}/{{basePath}}/ac-storage/v1/ListBuckets",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"ac-storage",
+								"v1",
+								"ListBuckets"
+							]
+						},
+						"description": "List of active buckets"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateBucket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bucket_name",
+									"value": "",
+									"description": "The bucket name should be unique",
+									"type": "text"
+								},
+								{
+									"key": "bucket_acl",
+									"value": "true",
+									"description": "Public or Private",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/{{basePath}}/ac-storage/v1/CreateBucket",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"ac-storage",
+								"v1",
+								"CreateBucket"
+							]
+						},
+						"description": "Create new bucket.  \nThe name should be unique and the bucket can be public or private."
+					},
+					"response": []
+				},
+				{
+					"name": "DirectFetch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file_url",
+									"value": "https://123qwqewqeqwe1233.s3.ir-thr-at1.arvanstorage.ir/00d10c3169ff9d57b21096f5f305e5fc-1024x444.png",
+									"description": "Object Storage URL or any other URL",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/{{basePath}}/ac-storage/v1/DirectFetch",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"ac-storage",
+								"v1",
+								"DirectFetch"
+							]
+						},
+						"description": "Fetch files directly from your bucket with the object URL to your WordPress Media."
+					},
+					"response": []
+				},
+				{
+					"name": "PutObject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bucket_name",
+									"value": "",
+									"description": "The bucket name",
+									"type": "text"
+								},
+								{
+									"key": "files[example_name.png]",
+									"value": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=",
+									"description": "File name and file content",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/{{basePath}}/ac-storage/v1/PutObject",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"ac-storage",
+								"v1",
+								"PutObject"
+							]
+						},
+						"description": "Upload files to the WordPress and Object Storage"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteObject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attach_id",
+									"value": "",
+									"description": "WordPress Media attachment ID",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/{{basePath}}/ac-storage/v1/DeleteObject",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"ac-storage",
+								"v1",
+								"DeleteObject"
+							]
+						},
+						"description": "Delete attachment from WordPress Media Library using the media attachment ID."
+					},
+					"response": []
+				},
+				{
+					"name": "ListObjects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bucket_name",
+									"value": "",
+									"description": "The bucket name",
+									"type": "text"
+								},
+								{
+									"key": "dir",
+									"value": "",
+									"description": "Directory Path",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}/{{basePath}}/ac-storage/v1/ListObjects",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"ac-storage",
+								"v1",
+								"ListObjects"
+							]
+						},
+						"description": "List of objects in a bucket."
+					},
+					"response": []
+				}
+			],
+			"description": "- **ListBuckets**\n    \n- **CreateBucket**\n    \n- **DirectFetch**\n    \n- **PutObject**\n    \n- **DeleteObject**\n    \n- **ListObject**"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{applicationPassword}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "protocol",
+			"value": "https",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "domain.tld",
+			"type": "string"
+		},
+		{
+			"key": "basePath",
+			"value": "wp-json",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "WordPress Username",
+			"type": "default"
+		},
+		{
+			"key": "applicationPassword",
+			"value": "xxxx xxxx xxxx xxxx xxxx xxxx",
+			"type": "string"
+		}
+	]
+}
