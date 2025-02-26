@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+.text-center{
+    text-align: center;
+}
+.service {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.service .service_slide{
+    width: 95%;
+    margin: 0 auto
+}
+
+.service_box .service_box_icon{
+    padding: 20px;
+    padding-top: 35px;
+    overflow: hidden;
+    border-radius: 7px;
+    width: 95%;
+    position: relative;
+    z-index: 1;
+}
+
+.service_box .service_box_icon [class^="flaticon-"]:before,
+.service_box .service_box_icon [class*=" flaticon-"]:before,
+.service_box .service_box_icon [class^="flaticon-"]:after,
+.service_box .service_box_icon [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: 35px;
+    font-style: normal;
+    margin: 0 auto;
+    background: #0513b1;
+    color: #fff;
+    border-radius: 50%;
+    padding: 7%;
+    box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
+    -webkit-transition: .3s ease-in;
+    -moz-transition: .3s ease-in;
+    -ms-transition: .3s ease-in;
+    -o-transition: .3s ease-in;
+    transition: .3s ease-in;
+}
+
+.service_box .service_box_icon h4 {
+    margin: 30px 0 13px;
+    font-weight: bold;
+    color: #000;
+    font-size: 22px;
+    font-family: sans-serif;
+    -webkit-transition: .3s ease-in;
+    -moz-transition: .3s ease-in;
+    -ms-transition: .3s ease-in;
+    -o-transition: .3s ease-in;
+    transition: .3s ease-in;
+}
+
+.service_box:hover .service_box_icon h4 {
+    color: orange !important;
+}
+.service_box .service_box_icon p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+}
+.service_box span{
+    position: absolute;
+    display: block;
+    color: rgba(216, 216, 216, 0.6705882352941176);
+    font-size: 100px;
+    top: 40%;
+    left: 40%;
+    z-index: -1;
+    font-family: 'Lobster', cursivet;
+}
+.service ul.slick-dots{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.service .slick-dots li{
+    display: inline-block;
+    margin: 20px 5px 0;
+    background: transparent;
+    border: 2px solid #0513b1;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+}
+.service .slick-dots li button{
+    display: block;
+    cursor: pointer;
+    color: transparent;
+    border-radius: 50%;
+    /* width: 12px; */
+    /* height: 12px; */
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.service li.slick-active{
+    border-radius: 50%;
+    background: #0513b1;
+}
+
+
+
+
+/* Small devices (landscape phones, 576px and up). */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .service_box .service_box_icon{
+        padding: 30px 20px
+    }
+    
+
+    
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media only screen and (max-width: 575.98px) {
+   
+    .service_box .service_box_icon{
+        width: 100%
+    }
+}
