@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "simplequizblock/simplequizblock",
+  "version": "0.1.0",
+  "title": "Simple Quiz Block",
+  "category": "widgets",
+  "keywords": [
+    "quiz",
+    "entertainment",
+    "french",
+    "fun"
+  ],
+  "icon": "games",
+  "description": "Ajoutez un quiz à vos pages.",
+  "attributes": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "tv_cinema",
+        "art_litterature",
+        "musique",
+        "actu_politique",
+        "culture_generale",
+        "sport",
+        "jeux_videos",
+        "all"
+      ],
+      "default": "all"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "facile",
+        "normal",
+        "difficile",
+        "all"
+      ],
+      "default": "all"
+    },
+    "elevation": {
+      "type": "boolean",
+      "default": false
+    },
+    "fill": {
+      "type": "boolean",
+      "default": false
+    },
+    "showLink": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "className": false,
+    "color": {
+      "gradients": true,
+      "link": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true
+      }
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "__experimentalLayout": true
+  },
+  "textdomain": "simplequizblock",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
