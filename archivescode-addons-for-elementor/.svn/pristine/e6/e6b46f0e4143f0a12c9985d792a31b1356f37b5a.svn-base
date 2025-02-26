@@ -1,0 +1,346 @@
+
+/* afe flipbox css */
+.afe-flipbox-container .afe-flipbox {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition-property: none;
+  transition-property: none;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-front .afe-flipbox-front-overlay,
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-back-overlay{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.afe-flipbox-container, .afe-flipbox-front, .afe-flipbox-back {
+  position: relative;
+  display: block;
+  height: 400px;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-front .afe-flipbox-front-content,
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-content-back{  
+  height: auto;
+  width: auto;
+}
+
+.afe-flipbox-front, .afe-flipbox-back {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.afe-flipbox-front, .afe-flipbox-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-front{
+  background-color: #833ca3;
+  width: 100%;
+  -webkit-transition: all .8s ease; /* Safari */
+  transition: all .8s ease;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back{
+  background-color: #4054b2;
+  width: 100%;
+  -webkit-transition: all .8s ease; /* Safari */
+  transition: all .8s ease;
+  backface-visibility: hidden;
+}
+.afe-flipbox-back-image-back,
+.afe-flipbox-image-front{
+  width: 50%;
+  display: inline-grid;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-front .afe-flipbox-icon-front i,
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-back-icon-back i{
+  border: solid;
+  font-size: 100px;
+  padding: 20px;
+  border-radius: 0%;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button{
+  border: 2px solid #ffffff;
+  border-radius: 0%;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #ffffff;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button.afe-button-xs{
+  padding: 10px 20px;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button.afe-button-sm{
+  padding: 12px 24px;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button.afe-button-md{
+  padding: 15px 30px;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button.afe-button-lg{
+  padding: 20px 40px;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button.afe-button-xl{
+  padding: 25px 50px;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-button:hover{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.afe-flipbox-container .afe-flipbox .afe-flipbox-front .afe-flipbox-icon-front i:before,
+.afe-flipbox-container .afe-flipbox .afe-flipbox-back .afe-flipbox-back-icon-back i:before{
+  display: inline-block;
+  -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+/*afe effect flip*/
+
+.afe-flipbox-effect-flip .afe-flipbox-container .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  z-index: 1;
+}
+.afe-flipbox-effect-flip .afe-flipbox-container .afe-flipbox .afe-flipbox-back {
+  z-index: -1;
+}
+.afe-flipbox-effect-flip .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  z-index: -1;
+}
+.afe-flipbox-effect-flip .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-back {
+  z-index: 1;
+  -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+/* afe flipbox flip up*/
+.afe-flipbox-effect-flip.afe-flipbox-direction-up  .afe-flipbox-back {
+  -webkit-transform: rotateX(-180deg);
+    -moz-transform: rotateX(-180deg);
+      -o-transform: rotateX(-180deg);
+        -ms-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+.afe-flipbox-effect-flip.afe-flipbox-direction-up  .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+      -o-transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+/* afe flipbox flip bottom*/
+.afe-flipbox-effect-flip.afe-flipbox-direction-down  .afe-flipbox-back {
+  -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+      -o-transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+
+}
+.afe-flipbox-effect-flip.afe-flipbox-direction-down  .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: rotateX(-180deg);
+    -moz-transform: rotateX(-180deg);
+      -o-transform: rotateX(-180deg);
+        -ms-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+/* afe flipbox flip right*/
+.afe-flipbox-effect-flip.afe-flipbox-direction-right  .afe-flipbox-back {
+  -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+      -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.afe-flipbox-effect-flip.afe-flipbox-direction-right  .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+/* afe flipbox flip left*/
+.afe-flipbox-effect-flip.afe-flipbox-direction-left  .afe-flipbox-back {
+  -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.afe-flipbox-effect-flip.afe-flipbox-direction-left  .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+      -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+/*afe effect slide*/
+.afe-flipbox-effect-slide .afe-flipbox-container{
+  overflow: hidden;
+}
+.afe-flipbox-effect-slide .afe-flipbox-container .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+          -o-transform: translate(0);
+            -ms-transform: translate(0);
+              transform: translate(0);
+}
+.afe-flipbox-effect-slide .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-back {
+  -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+          -o-transform: translate(0);
+            -ms-transform: translate(0);
+              transform: translate(0);
+}
+/* afe flipbox slide left*/
+.afe-flipbox-effect-slide.afe-flipbox-direction-left .afe-flipbox-back {
+  -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+          -o-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+              transform: translateX(100%);
+}
+.afe-flipbox-effect-slide.afe-flipbox-direction-right .afe-flipbox-back {
+  -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+          -o-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+              transform: translateX(-100%);
+}
+.afe-flipbox-effect-slide.afe-flipbox-direction-up .afe-flipbox-back {
+  -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+          -o-transform: translateY(100%);
+            -ms-transform: translateY(100%);
+              transform: translateY(100%);
+}
+.afe-flipbox-effect-slide.afe-flipbox-direction-down .afe-flipbox-back {
+  -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+          -o-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+              transform: translateY(-100%);
+}
+/*afe effect push*/
+.afe-flipbox-effect-push .afe-flipbox-container{
+  overflow: hidden;
+}
+.afe-flipbox-effect-push .afe-flipbox-container .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+          -o-transform: translate(0);
+            -ms-transform: translate(0);
+              transform: translate(0);
+  z-index: 1;
+}
+.afe-flipbox-effect-push .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-back {
+  -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+          -o-transform: translate(0);
+            -ms-transform: translate(0);
+              transform: translate(0);
+}
+/* afe flipbox push left*/
+.afe-flipbox-effect-push.afe-flipbox-direction-right .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+          -o-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+              transform: translateX(100%);
+}
+.afe-flipbox-effect-push.afe-flipbox-direction-left .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+          -o-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+              transform: translateX(-100%);
+}
+.afe-flipbox-effect-push.afe-flipbox-direction-down .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+          -o-transform: translateY(100%);
+            -ms-transform: translateY(100%);
+              transform: translateY(100%);
+}
+.afe-flipbox-effect-push.afe-flipbox-direction-up .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front {
+  -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+          -o-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+              transform: translateY(-100%);
+}
+/* afe-flipbox effect zoom in */
+.afe-flipbox-effect-zoom-in .afe-flipbox-container .afe-flipbox .afe-flipbox-back{
+  -webkit-transition: opacity 0.3s 0.2s, -webkit-transform 0.8s;
+    transition: opacity 0.3s 0.2s, -webkit-transform 0.8;
+    -o-transition: transform 0.8s, opacity 0.3s 0.2s;
+    transition: transform 0.8s, opacity 0.3s 0.2s;
+    transition: transform 0.8s, opacity 0.3s 0.2s, -webkit-transform 0.8s;
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+        -ms-transform: scale(0.3);
+            transform: scale(0.3);
+}
+.afe-flipbox-effect-zoom-in .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-back{
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.8s;
+    transition: opacity 0.3s, -webkit-transform 0.8s;
+    -o-transition: transform 0.8s, opacity 0.3s;
+    transition: transform 0.8s, opacity 0.3s;
+    transition: transform 0.8s, opacity 0.3s, -webkit-transform 0.8s;
+    opacity: 1;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+/*afe-flipbox effect zoom out*/
+.afe-flipbox-effect-zoom-out .afe-flipbox-container .afe-flipbox .afe-flipbox-front{
+  -webkit-transition: opacity 0.3s, width 0.1ms, -webkit-transform 0.8s;
+    transition: opacity 0.3s, width 0.1ms, -webkit-transform 0.8s;
+    -o-transition: transform 0.8s, opacity 0.3s, width 0.1ms;
+    transition: transform 0.8s, opacity 0.3s, width 0.1ms;
+    transition: transform 0.8s, opacity 0.3s, width 0.1ms, -webkit-transform 0.8s;
+    opacity: 1;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    z-index: 1;
+    width: 100%;
+}
+.afe-flipbox-effect-zoom-out .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-front{
+  width: 0;
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+        -ms-transform: scale(0.3);
+            transform: scale(0.3);
+    -webkit-transition: opacity 0.8s 0.1s, width 0.1ms 0.8s, -webkit-transform 0.8s;
+    transition: opacity 0.8s 0.1s, width 0.1ms 0.8s, -webkit-transform 0.8s;
+    -o-transition: transform 0.8s, opacity 0.8s 0.1s, width 0.1ms 0.8s;
+    transition: transform 0.8s, opacity 0.8s 0.1s, width 0.1ms 0.8s;
+    transition: transform 0.8s, opacity 0.8s 0.1s, width 0.1ms 0.8s, -webkit-transform 0.8s;
+}
+/*afe-flipbox effect fade*/
+.afe-flipbox-effect-fade .afe-flipbox-container .afe-flipbox .afe-flipbox-back{
+  opacity: 0;
+  transition: all 1s ease;
+}
+.afe-flipbox-effect-fade .afe-flipbox-container .afe-flipbox .afe-flipbox-front{
+  transition: all 1s ease;
+}
+.afe-flipbox-effect-fade .afe-flipbox-container:hover .afe-flipbox .afe-flipbox-back{
+  opacity: 1;
+}
+/*afe-flipbox effect cube */
