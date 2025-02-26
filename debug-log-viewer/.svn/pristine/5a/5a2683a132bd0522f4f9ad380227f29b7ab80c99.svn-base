@@ -1,0 +1,162 @@
+.sidebar {
+  display: none;
+  position: relative;
+  max-width: 285px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px #929ea9;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+.sidebar .section {
+  display: none;
+}
+.sidebar .section.visible {
+  display: block;
+}
+.sidebar.opened {
+  display: flex;
+}
+.sidebar .close-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9;
+}
+.sidebar .settings,
+.sidebar .debug-constants,
+.sidebar .notifications {
+  font-family: Helvetica;
+  background-color: #fff;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+.sidebar .settings .bootstrap-switch,
+.sidebar .debug-constants .bootstrap-switch,
+.sidebar .notifications .bootstrap-switch {
+  transform: scale(0.8);
+}
+.sidebar .settings .log-info-block,
+.sidebar .debug-constants .log-info-block,
+.sidebar .notifications .log-info-block {
+  font-size: 14px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar .settings h5,
+.sidebar .debug-constants h5,
+.sidebar .notifications h5 {
+  color: #040047;
+  margin-bottom: 0;
+}
+.sidebar .settings h5 .rotate-icon,
+.sidebar .debug-constants h5 .rotate-icon,
+.sidebar .notifications h5 .rotate-icon {
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar .settings h5 .rotate-icon.expanded,
+.sidebar .debug-constants h5 .rotate-icon.expanded,
+.sidebar .notifications h5 .rotate-icon.expanded {
+  transform: rotate(90deg);
+}
+.sidebar .settings h5 a,
+.sidebar .debug-constants h5 a,
+.sidebar .notifications h5 a {
+  color: #040047;
+}
+.sidebar .settings h5 a:active,
+.sidebar .settings h5 a:focus,
+.sidebar .debug-constants h5 a:active,
+.sidebar .debug-constants h5 a:focus,
+.sidebar .notifications h5 a:active,
+.sidebar .notifications h5 a:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.sidebar .settings select,
+.sidebar .debug-constants select,
+.sidebar .notifications select {
+  max-width: inherit;
+}
+.sidebar .settings input[type=email],
+.sidebar .settings input[type=url],
+.sidebar .settings select,
+.sidebar .debug-constants input[type=email],
+.sidebar .debug-constants input[type=url],
+.sidebar .debug-constants select,
+.sidebar .notifications input[type=email],
+.sidebar .notifications input[type=url],
+.sidebar .notifications select {
+  margin-top: 5px;
+  margin-bottom: 24px;
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #cecece;
+}
+.sidebar .settings input[type=email][disabled],
+.sidebar .settings input[type=url][disabled],
+.sidebar .settings select[disabled],
+.sidebar .debug-constants input[type=email][disabled],
+.sidebar .debug-constants input[type=url][disabled],
+.sidebar .debug-constants select[disabled],
+.sidebar .notifications input[type=email][disabled],
+.sidebar .notifications input[type=url][disabled],
+.sidebar .notifications select[disabled] {
+  background-color: #f6f7f7;
+}
+.sidebar .settings .form-check,
+.sidebar .debug-constants .form-check,
+.sidebar .notifications .form-check {
+  margin-top: 5px;
+  margin-bottom: 24px;
+}
+.sidebar .settings input[type=submit],
+.sidebar .debug-constants input[type=submit],
+.sidebar .notifications input[type=submit] {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.sidebar .settings input[type=submit].enable,
+.sidebar .debug-constants input[type=submit].enable,
+.sidebar .notifications input[type=submit].enable {
+  background-color: #4f6df5;
+}
+.sidebar .settings input[type=submit].disable,
+.sidebar .debug-constants input[type=submit].disable,
+.sidebar .notifications input[type=submit].disable {
+  background-color: #f84042;
+}
+.sidebar .sidebar-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+  cursor: pointer;
+  background-color: #4f6df5;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px #929ea9;
+}
+.sidebar .sidebar-toggle-btn:hover {
+  background-color: rgb(30.7419354839, 68.9677419355, 242.2580645161);
+}
+.sidebar .settings .settings-group legend {
+  font-size: 15px;
+}
+.sidebar .settings .settings-group .form-check {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.sidebar .settings .settings-group .form-check label {
+  padding-left: 10px;
+}
+
+/*# sourceMappingURL=sidebar.css.map */

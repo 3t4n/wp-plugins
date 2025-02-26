@@ -1,0 +1,191 @@
+@import "../constants.scss";
+@import "../base/base-table-view.scss";
+
+.dbg_lv-log-viewer {
+	@extend .base-table-viewer-structure;
+
+
+	.main-content {
+		display: grid;
+		grid-template-columns: 9fr 3fr;
+		align-items: start;
+		gap: 25px;
+
+		&.expanded {
+			grid-template-columns: 1fr;
+		}
+
+		.content-wrapper {
+			transition: all 0.3s ease;
+		}
+	}
+
+	.manual-debugging-instructions_or {
+		margin-top: 30px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.manual-debugging-instructions {
+		text-align: center;
+		display: block;
+		margin: 10px auto;
+		color: $main-theme-color;
+	}
+
+	.top-section {
+		background-color: #fff;
+		border-radius: 5px;
+		box-shadow: $box-shadow;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px 25px;
+
+		.log-filepath {
+			width: 100%;
+			background-color: $body-color;
+			padding: 7px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			padding-left: 15px;
+		}
+
+		.buttons {
+			padding-left: 15px;
+			min-width: 255px;
+
+			.clear-log,
+			.refresh-log,
+			.download-log,
+			.notification,
+			.debug-constants,
+			.settings {
+				margin: 0;
+				width: 35px;
+				height: 35px;
+				padding: 0;
+				font-size: 16px;
+			}
+
+			.notification {
+				font-size: 17px;
+				margin-left: 10px; //spacer
+			}
+
+			@keyframes pulseAnimation {
+				0% {
+					transform: scale(1);
+				}
+
+				50% {
+					transform: scale(1.04);
+				}
+
+				100% {
+					transform: scale(1);
+				}
+			}
+
+			.refresh-log,
+			.download-log,
+			.notification,
+			.debug-constants,
+			.settings {
+				background-color: $main-theme-color;
+
+				&:active {
+					background-color: lighten($main-theme-color, 5%);
+				}
+			}
+
+			.clear-log {
+				background-color: $danger-color;
+			}
+
+			.rotate-animation {
+				// anumation one time
+				animation: rotate 1s linear 1;
+			}
+			
+			@keyframes rotate {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+		}
+	}
+
+	pre {
+		overflow-x: scroll;
+		margin-bottom: 0;
+	}
+
+	.table-wrapper {
+		background: #fff;
+		margin-top: 25px;
+		padding: 15px 25px;
+		border-radius: 5px;
+		box-shadow: $box-shadow;
+
+		#dbg_lv_log-table {
+			width: 100% !important;
+
+			tbody {
+				tr {
+					td {
+						word-break: break-all;
+					}
+				}
+			}
+
+			.badge {
+				min-width: 65px;
+				border-radius: 4px;
+			}
+		}
+	}
+
+	.bootstrap-switch {
+		margin-right: 0;
+	}
+
+	.bootstrap-switch-on {
+		background: $main-theme-color;
+	}
+
+	.log-not-found {
+		background: $white;
+		padding: 25px;
+		border-radius: 5px;
+		box-shadow: $box-shadow;
+
+		code {
+			color: $main-theme-color;
+		}
+
+		h5 {
+			text-align: center;
+			padding: 20px;
+
+			span {
+				font-weight: 300;
+			}
+		}
+
+		button {
+			margin: 0 auto;
+			display: block;
+			background-color: $main-theme-color;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+
+		.card {
+			max-width: 100%;
+		}
+	}
+}
