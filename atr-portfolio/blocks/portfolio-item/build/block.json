@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "atr-blocks/atr-portfolio-item",
+  "version": "1.0.0",
+  "title": "Atr Portfolio item",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Portfolio item block. Child element for the portfolio.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "atr-portfolio-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "itemWrapStyle": {
+      "type": "string",
+      "enum": [
+        "image-on-side",
+        "image-on-top"
+      ],
+      "default": "image-on-side"
+    },
+    "itemImageUrl": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src"
+    },
+    "itemImageAlt": {
+      "attribute": "alt",
+      "selector": ".atr-portfolio-item-image"
+    },
+    "itemTitleContent": {
+      "type": "string"
+    },
+    "ItemTitleLevel": {
+      "type": "string",
+      "default": "h3"
+    },
+    "itemTitleColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "itemContentColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "itemTitleBgColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "useBottomSlidingStrip": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "bottomSlidingStripColor": {
+      "type": "string",
+      "default": "#ffb838"
+    },
+    "bottomSlidingStripHeight": {
+      "type": "string",
+      "default": "6"
+    },
+    "animatePortfolioLoading": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "itemDescription": {
+      "type": "string"
+    },
+    "itemLinkUrl": {
+      "type": "object"
+    },
+    "useImage": {
+      "type": "boolean",
+      "default": "true"
+    }
+  }
+}

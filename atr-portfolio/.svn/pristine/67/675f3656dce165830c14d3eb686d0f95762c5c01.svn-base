@@ -1,0 +1,164 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "atr-blocks/atr-portfolio",
+  "version": "1.0.0",
+  "title": "Atr Portfolio",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Portfolio block. Showcase your projects and portfolio work.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "atr-portfolio",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "portfolioBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "itemBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "itemBackgroundImage": {
+      "type": "string"
+    },
+    "itemBackgroundImageSize": {
+      "type": "string",
+      "enum": [
+        "cover",
+        "contain",
+        "none"
+      ],
+      "default": "cover"
+    },
+    "itemOverlayBgColor": {
+      "type": "string",
+      "default": "rgba(52, 50, 46, 0.9)"
+    },
+    "itemOverlayBoxShadow": {
+      "type": "string"
+    },
+    "itemTitleColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "itemContentColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "animateItemsImage": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "useBottomSlidingStrip": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "bottomSlidingStripColor": {
+      "type": "string",
+      "default": "#ffb838"
+    },
+    "bottomSlidingStripHeight": {
+      "type": "string",
+      "default": "6"
+    },
+    "ItemTitleLevel": {
+      "type": "string",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p"
+      ],
+      "default": "h3"
+    },
+    "animatePortfolioLoading": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "itemTitleBgColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": true
+    },
+    "mediaExtraSmall": {
+      "type": "string",
+      "default": "1"
+    },
+    "mediaSmall": {
+      "type": "string",
+      "default": "2"
+    },
+    "mediaMedium": {
+      "type": "string",
+      "default": "3"
+    },
+    "mediaLarge": {
+      "type": "string",
+      "default": "4"
+    },
+    "mediaExtraLarge": {
+      "type": "string",
+      "default": "5"
+    },
+    "mediaExtraLargeLarge": {
+      "type": "string",
+      "default": "6"
+    },
+    "mediaQueriesLegebd": {
+      "type": "string",
+      "mediaExtraSmall": "<576px",
+      "mediaSmall": "≥576px",
+      "mediaMedium": "≥768px",
+      "mediaLarge": "≥992px",
+      "mediaExtraLarge": "≥1200px",
+      "mediaExtraLargeLarge": "≥1400px"
+    },
+    "gutters": {
+      "type": "string",
+      "default": "0"
+    },
+    "itemBorderStyle": {
+      "type": "string",
+      "enum": [
+        "none",
+        "hidden",
+        "dotted",
+        "dashed",
+        "solid",
+        "double",
+        "groove",
+        "ridge",
+        "inset",
+        "outset"
+      ],
+      "default": "none"
+    },
+    "itemBorderWidth": {
+      "type": "string",
+      "default": 0
+    },
+    "itemBorderColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "itemAspectRatio": {
+      "type": "string",
+      "default": ""
+    },
+    "itemPadding": {
+      "type": "string",
+      "default": "0"
+    }
+  }
+}
