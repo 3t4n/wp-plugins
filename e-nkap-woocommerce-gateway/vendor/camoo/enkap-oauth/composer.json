@@ -1,0 +1,58 @@
+{
+  "name": "camoo/enkap-oauth",
+  "description": "E-commerce Plugins for SmobilPay. OAuth Library",
+  "homepage": "https://camoo.cm",
+  "type": "camoo-plugin",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Camoo S.A.R.L",
+      "email": "e-commerce@camoo.sarl",
+      "role": "Developer"
+    }
+  ],
+  "keywords": [
+    "CAMOO",
+    "Mobile money Gateway Cameroon",
+    "Plugin camoo Pay",
+    "MTN Cameroon Mobile Money",
+    "ORANGE Cameroon Mobile Money",
+    "Express Union Cameroon Mobile Money",
+    "Smobil Cash pay",
+    "enkap"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Enkap\\OAuth\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^7.3",
+    "vlucas/phpdotenv": "^5.3",
+    "vlucas/valitron": "^1.4",
+    "camoo/cache": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Enkap\\Oauth\\Test\\": "tests"
+    }
+  },
+  "suggest": {
+    "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
+  },
+  "scripts": {
+    "test": "phpunit --colors=always"
+  },
+  "support": {
+    "issues": "https://github.com/camoo/enkap-oauth/issues",
+    "source": "https://github.com/camoo/enkap-oauth",
+    "wiki": "https://github.com/camoo/enkap-oauth/wiki"
+  }
+}
