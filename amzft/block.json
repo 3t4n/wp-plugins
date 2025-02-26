@@ -1,0 +1,96 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/fragment-amzn",
+	"version": "1.0.3",
+	"title": "Fragment's Product Advertising for Amazon",
+	"category": "widgets",
+	"icon": "",
+	"description": "Amazonの商品を検索して追加します。",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "fragment-amzn",
+	"editorScript": "file:build/index.js",
+	"editorStyle": "file:build/index.css",
+	"style": "file:build/style-index.css",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "text",
+			"selector": "input",
+	        "attribute": "value"
+		},
+		"page": {
+			"type": "integer",
+			"source": "attribute",
+			"selector": "button.wp-block-create-block-fragment-amzn-next",
+			"attribute": "value",
+			"default": 1
+		},
+		"totalCount": {
+			"type": "integer",
+			"source": "attribute",
+			"default": 0
+		},
+		"items": {
+			"type": "array",
+			"source": "query",
+			"default": [],
+			"selector": ".wp-block-create-block-fragment-amzn-items li",
+			"query": {
+				"title": {
+					"type": "string",
+					"source": "text",
+					"selector": "p"
+				},
+				"url": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "href"
+				},
+				"image_url": {
+					"type": "string",
+					"source": "attribute",
+					"selector": "img",
+					"attribute": "src"
+				},
+				"maker": {
+					"type": "string",
+					"source": "text",
+					"selector": "p"
+				}
+			}
+		},
+		"title": {
+			"type": "string",
+			"source": "text",
+			"default": "右のブロックから商品を検索してください",
+			"selector": ".wp-block-create-block-fragment-amzn-info-title a"
+		},
+		"maker": {
+			"type": "string",
+			"source": "text",
+			"selector": "p.wp-block-create-block-fragment-amzn-info-maker"
+		},
+		"image_url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".wp-block-create-block-fragment-amzn-img-box img",
+			"attribute": "src"
+		},
+		"amazon_url": {
+			"type": "string",
+			"source": "attribute",
+			"default": "",
+			"selector": "a.wp-block-create-block-fragment-amzn-info-amazon",
+	        "attribute": "href"
+		},
+		"rakuten_url": {
+			"type": "string",
+			"source": "attribute",
+			"default": "",
+			"selector": "a.wp-block-create-block-fragment-amzn-info-rakuten",
+	        "attribute": "href"
+		}
+	}
+}
