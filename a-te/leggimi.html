@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>cform II</title>
+	<style type="text/css" media="screen">
+		/* Default Style */
+		BODY {
+			font-family: Verdana, Arial;
+			font-size: 12px;
+			color: #000000;
+			background: #F8F8EC;
+		}
+		P {
+			padding-left: 10px;
+		}
+		LI {
+			margin-top: 20px;
+		}
+		UL LI UL LI {
+			margin-top: 10px;
+		}
+		A, A:active, A:link, A:visited {
+			color: #7F9A42;
+			text-decoration: none;
+		}
+		A:hover {
+			color: #424242;
+			text-decoration: none;
+		}
+		/* Place Holder Style */
+		#Container {
+			width: 780px;
+			margin-left: auto;
+			margin-right: auto; 
+		}
+		#Content {
+			background-color: #fafafa;
+			border: 1px solid #a2b6cb;
+			padding: 10px;
+			margin-top: -13px;
+		}
+		/* Title Style */
+		#Title {
+			font-family: Verdana, Arial;
+			font-size: 22px;
+			font-weight: bold;
+			color: #389aff;
+			border-bottom: 1px solid #389aff;
+			margin-bottom: 10px;
+		}
+		.SubTitle {
+			font-family: Verdana, Arial;
+			font-size: 18px;
+			font-weight: bold;
+			color: #5b87b4;
+		}
+		.SubSubTitle {
+			font-family: Verdana, Arial;
+			font-size: 14px;
+			font-weight: bold;
+			color: #73a4d6;
+		}
+		/* Tabs */
+		UL#Tabs {
+			font-family: Verdana, Arial;
+			font-size: 12px;
+			font-weight: bold;
+			list-style-type: none;
+			padding-bottom: 28px;
+			border-bottom: 1px solid #a2b6cb;
+			margin-bottom: 12px;
+			z-index: 1;
+		}
+		#Tabs LI.Tab {
+			float: right;
+			height: 25px;
+			background-color: #FFFAA3;
+			margin: 2px 0px 0px 5px;
+			border: 1px solid #a2b6cb;
+		}
+		#Tabs LI.Tab A {
+			float: left;
+			display: block;
+			color: #666666;
+			text-decoration: none;
+			padding: 5px;
+		}
+		#Tabs LI.Tab A:hover {
+			background-color: #E8FFFF;
+			border-bottom: 1px solid #bfe0fe;
+		}
+		/* Selected Tab */
+		#Tabs LI.SelectedTab {
+			float: right;
+			height: 25px;
+			background-color: #fafafa;
+			margin: 2px 0px 0px 5px;
+			border-top: 1px solid #a2b6cb;
+			border-right: 1px solid #a2b6cb;
+			border-bottom: 1px solid #fafafa;
+			border-left: 1px solid #a2b6cb;
+		}
+		#Tabs LI.SelectedTab A {
+			float: left;
+			display: block;
+			color: #666666;
+			text-decoration: none;
+			padding: 5px;
+			cursor: default;
+		}
+		/* Copyright */
+		#Copyright {
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+	/* <![CDATA[*/
+		// Info Page
+		function info() {
+			// Tab
+			document.getElementById('InfoTab').className = 'SelectedTab';
+			document.getElementById('InstallazioneTab').className = 'Tab';
+			// Page
+			document.getElementById('Info').style.display= 'block';
+			document.getElementById('Installazione').style.display = 'none';
+		}
+		// Installazione Page
+		function installazione() {
+			// Tab
+			document.getElementById('InfoTab').className = 'Tab';
+			document.getElementById('InstallazioneTab').className = 'SelectedTab';
+			// Page
+			document.getElementById('Info').style.display = 'none';
+			document.getElementById('Installazione').style.display = 'block';
+		}
+		
+	/* ]]> */
+	</script>
+</head>
+<body>
+<div id="Container">
+	<!-- Title -->
+	<div id="Title">A Te&nbsp;&nbsp;&nbsp;<span style="color: #aaaaaa;">Plugin per WordPress</span></div>
+
+	<!-- Tabs -->
+	<ul id="Tabs">
+		<li id="InstallazioneTab" class="Tab"><a href="#Installazione" onclick="installazione(); return false;" title="installazione plugin">installazione</a></li>
+		<li id="InfoTab" class="SelectedTab"><a href="#Info" onclick="info(); return false;" title="informazioni">info</a></li>
+	</ul>
+
+	<!-- Content -->
+	<div id="Content">
+		<!-- Info -->
+		<div id="Info">
+			<div class="SubTitle">Estratti (random) del testo della canzone 'A Te'</div>
+			<div class="SubSubTitle">Informazioni sul plugin</div>
+                        <p>
+				<strong>Descrizione</strong><br />
+				WordPress Plugin che permette di inserire nel lato in alto a destra delle pagine di admin gli estratti (random) del testo della canzone ''A Te di Lorenzo Cherubini (aka Jovanotti)<br/>
+			</p>
+                        <p>
+				<strong>Versione</strong><br />
+				1.0 (WordPress 2.5 ready)
+			</p>
+			<p>
+				<strong>Autore del plugin</strong><br />
+				<a href="http://gidibao.net/" title="gidibao's Cafe">Gianni Diurno</a>
+			</p>
+                        <p>
+				<strong>email:</strong><br />
+				<script type="text/javascript">
+					/* <![CDATA[*/
+					document.write(' <a                                         href="mailto:infocafe@gidibao.net?Subject=A Te WP-Plugin">infocafe@gidibao.net</a>');
+					/* ]]> */
+				</script>
+			</p>
+                        <p>
+				<strong>Autore del testo</strong><br />
+				<a href="http://www.soleluna.com/" title="sito ufficiale | Home Page">Lorenzo Cherubini</a>
+			</p>
+                  <p>
+				<strong>Contenuto della cartella </strong> <code>a-te</code><strong> (zipped, tiny 112kb):</strong><br />
+			</p>
+                        <ul>
+				<li>
+					<ul>
+				<li>a te.php</li>
+                                <li>leggimi.html</li>
+                                <li>readme.txt</li>  
+					</ul>
+                        <p>
+				<strong>/screenshots</strong><br />
+			</p>
+                        <ul>
+                            <li>a te WP2-3.png</li>
+                                <li>a te WP2-5.png</li> 
+					</ul>
+				</li> 
+					</ul>
+				</li>
+					</ul>
+				</li>
+			</ul> 
+			
+		</div>
+
+		<!-- Installazione -->
+		<div id="Installazione" style="display: none;">
+			<div class="SubTitle">Installazione</div>
+					<ul>
+				<li>
+					<strong>A Te</strong>
+					<ol>
+				<li><a href="http://gidibao.net/index.php/2008/04/14/a-te-plugin-per-wordpress/" title="A Te v1.0">Scaricare</a> ed estrarre l'archivio</li>
+                                <li>Caricare sul server il file 'a te.php' (via ftp) sotto <code>wp-content/plugins</code></li>
+                                <li>Attivare il plugin</li>
+                                </ol> 
+					</ul>
+				</li>
+			</ul>
+		</div>
+<p id="Copyright"><a href="http://gidibao.net/" title="Web 2.0, Blog Tools & Smooth Jazz">gidibao's Cafe</a><br />Copyright &copy; 2008 Gianni Diurno</p>
+</body>
+</html>
