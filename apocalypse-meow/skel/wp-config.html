@@ -1,0 +1,59 @@
+/**
+ * Apocalypse Meow
+ */
+
+// Login/Brute-Force.
+const MEOW_LOGIN_KEY = '{{ forms.settings.login.key | meowString }}';
+const MEOW_LOGIN_FAIL_LIMIT = {{ forms.settings.login.fail_limit | meowInt }};
+const MEOW_LOGIN_SUBNET_FAIL_LIMIT = {{ forms.settings.login.subnet_fail_limit | meowInt }};
+const MEOW_LOGIN_FAIL_WINDOW = {{ forms.settings.login.fail_window * 60 | meowInt }}; // Seconds.
+const MEOW_LOGIN_LOCKDOWN_LIMIT = {{ forms.settings.login.lockdown_limit | meowInt }}; // (Unique) failed IPs / minute. 0 to disable.
+const MEOW_LOGIN_RESET_ON_SUCCESS = {{ forms.settings.login.reset_on_success | meowBool }};
+const MEOW_LOGIN_NONCE = {{ forms.settings.login.nonce | meowBool }};
+const MEOW_LOGIN_ALERT_ON_NEW = {{ forms.settings.login.alert_on_new | meowBool }};
+const MEOW_LOGIN_ALERT_BY_SUBNET = {{ forms.settings.login.alert_by_subnet | meowBool }}; // Requires …ALERT_ON_NEW=true.
+
+// Registration.
+const MEOW_REGISTER_COOKIE = {{ forms.settings.register.cookie | meowBool }};
+const MEOW_REGISTER_HONEYPOT = {{ forms.settings.register.honeypot | meowBool }};
+const MEOW_REGISTER_JAIL = {{ forms.settings.register.jail | meowBool }};
+const MEOW_REGISTER_JAVASCRIPT = {{ forms.settings.register.javascript | meowBool }};
+const MEOW_REGISTER_NONCE = {{ forms.settings.register.nonce | meowBool }};
+const MEOW_REGISTER_SPEED = {{ forms.settings.register.speed | meowBool }};
+
+// Data Retention.
+const MEOW_PRUNE_ACTIVE = {{ forms.settings.prune.active | meowBool }};
+const MEOW_PRUNE_LIMIT = {{ forms.settings.prune.limit | meowInt }}; // Days. Requires …ACTIVE=true.
+
+// Password Requirements.
+const MEOW_PASSWORD_ALPHA = '{{ forms.settings.password.alpha | meowString }}';
+const MEOW_PASSWORD_NUMERIC = '{{ forms.settings.password.numeric | meowString }}';
+const MEOW_PASSWORD_SYMBOL = '{{ forms.settings.password.symbol | meowString }}';
+const MEOW_PASSWORD_LENGTH = {{ forms.settings.password.length | meowInt }};
+const MEOW_PASSWORD_EXEMPT_LENGTH = {{ forms.settings.password.exempt_length | meowInt }};
+const MEOW_PASSWORD_RETROACTIVE = {{ forms.settings.password.retroactive | meowBool }};
+
+// Bcrypt Hashing.
+const MEOW_PASSWORD_BCRYPT = {{ forms.settings.password.bcrypt | meowBool }};
+
+// User Enumeration.
+const MEOW_CORE_ENUMERATION = {{ forms.settings.core.enumeration | meowBool }};
+const MEOW_CORE_ENUMERATION_DIE = {{ forms.settings.core.enumeration_die | meowBool }}; // Requires …ENUMERATION=true.
+const MEOW_CORE_ENUMERATION_FAIL = {{ forms.settings.core.enumeration_fail | meowBool }}; // Requires …ENUMERATION=true.
+
+// Core/Template.
+const MEOW_CORE_ANONYMIZE_USER_AGENT = {{ forms.settings.core.anonymize_user_agent | meowBool }};
+const MEOW_CORE_BROWSE_HAPPY = {{ forms.settings.core.browse_happy | meowBool }};
+const MEOW_CORE_DASHBOARD_NEWS = {{ forms.settings.core.dashboard_news | meowBool }};
+const MEOW_CORE_FILE_EDIT = {{ forms.settings.core.file_edit | meowBool }};
+const MEOW_CORE_XMLRPC = {{ forms.settings.core.xmlrpc | meowBool }};
+
+const MEOW_TEMPLATE_ADJACENT_POSTS = {{ forms.settings.template.adjacent_posts | meowBool }};
+const MEOW_TEMPLATE_GENERATOR_TAG = {{ forms.settings.template.generator_tag | meowBool }};
+const MEOW_TEMPLATE_NOOPENER = {{ forms.settings.template.noopener | meowBool }};
+const MEOW_TEMPLATE_README = {{ forms.settings.template.readme | meowBool }};
+
+// Response Headers.
+const MEOW_TEMPLATE_REFERRER_POLICY = '{{ forms.settings.template.referrer_policy | meowString }}';
+const MEOW_TEMPLATE_X_CONTENT_TYPE = {{ forms.settings.template.x_content_type | meowBool }};
+const MEOW_TEMPLATE_X_FRAME = {{ forms.settings.template.x_frame | meowBool }};
