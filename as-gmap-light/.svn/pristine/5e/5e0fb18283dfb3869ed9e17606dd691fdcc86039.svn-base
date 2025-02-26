@@ -1,0 +1,2 @@
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $instance['latitude']; ?>,<?php echo $instance['longitude']; ?>&zoom=<?php echo $instance['zoom']; ?>&size=<?php echo $instance['width']; ?>x<?php echo $instance['height']; ?>&maptype=roadmap
+&markers=color:0x1000FF%7Clabel:A%7C<?php echo $instance['latitude']; ?>,<?php echo $instance['longitude']; ?>" alt="<?php echo $instance['title']; ?>">
