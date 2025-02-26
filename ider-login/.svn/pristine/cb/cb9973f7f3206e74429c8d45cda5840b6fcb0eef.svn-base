@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'ider/wp-ider-login-client',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'bf4c8ef431ca828518887822c464fdfb835eb3c6',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'ider/wp-ider-login-client' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'bf4c8ef431ca828518887822c464fdfb835eb3c6',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'jlmsrl/ider-openid-client-php' => array(
+            'pretty_version' => '1.1.4',
+            'version' => '1.1.4.0',
+            'reference' => 'a7c1603c1084b83f87cc0d94f5194621e4950f53',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jlmsrl/ider-openid-client-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'phpseclib/phpseclib' => array(
+            'pretty_version' => '2.0.47',
+            'version' => '2.0.47.0',
+            'reference' => 'b7d7d90ee7df7f33a664b4aea32d50a305d35adb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpseclib/phpseclib',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
