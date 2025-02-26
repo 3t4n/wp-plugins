@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "imc/infinite-moving-cards",
+  "version": "0.1.0",
+  "title": "Infinite Moving Cards",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Infinite moving cards.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": true,
+    "alignWide": true,
+    "anchor": true,
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "className": false,
+    "shadow": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "animationSpeed": {
+      "type": "number",
+      "default": 40
+    },
+    "animationDirection": {
+      "type": "string",
+      "enum": [
+        "forwards",
+        "reverse"
+      ],
+      "default": "forwards"
+    },
+    "cardWidth": {
+      "type": "number",
+      "default": 350
+    },
+    "cardWidthMd": {
+      "type": "number",
+      "default": 450
+    },
+    "pauseOnHover": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "infinite-moving-cards",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
