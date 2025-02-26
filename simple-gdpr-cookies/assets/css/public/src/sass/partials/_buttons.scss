@@ -1,0 +1,38 @@
+#simple-gdpr-cookies-buttons {
+	width: 30%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+
+	button {
+		padding: .5em 1.8rem;
+		font-size: .8rem;
+		transition: background-color .2s ease-in-out, color .2s ease-in-out;
+	}
+
+	@media (max-width: 900px) {
+		flex-direction: column;
+		width: 100%;
+
+		button {
+			width: 100%;
+		}
+	}
+}
+
+#simple-gdpr-cookies-accept {
+	@media (max-width: 900px) {
+		margin: .5rem 0;
+	}
+}
+
+#simple-gdpr-cookies-close {
+	position: absolute;
+	top: 0;
+	right: 1rem;
+
+	a:focus {
+		text-decoration: none;
+	}
+}
