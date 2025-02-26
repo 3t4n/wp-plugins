@@ -1,0 +1,42 @@
+
+/* BEGIN HYPERCARDIFY */
+
+// change all images, backgrounds, textures, etc. to be B+W + high contrast
+* {
+  -webkit-filter: grayscale(1) contrast(300%) !important;
+  filter: grayscale(1) contrast(300%) !important;
+}
+
+img {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+/* Disable grayscale on hover */
+/*img:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
+}*/
+
+@font-face {
+    font-family: 'Chikarego';
+    src: url('chikarego2-webfont.woff2') format('woff2'),
+         url('chikarego2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+	font-family: Chikarego, Helvetica, sans-serif !important;
+}
+
+
+#wp-admin-bar-root-default .ab-icon {
+	font-family: dashicons !important;
+}
+
+
+
+/* END HYPERCARDIFY */
