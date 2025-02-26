@@ -1,0 +1,429 @@
+/* CENTERING */
+
+.clock-container {position: relative; text-align: center; overflow: hidden;}
+.clock-position {position: absolute; top: 40px; left: 0; right: 0;}
+
+.clock-container small {font-size: 11px; position: absolute; bottom: 7px; left: 0; right: 0;}
+
+.clock-container small a:link, .clock-container small a:visited {font-size: 11px; color: #767676 !important; text-decoration: none !important;}
+.clock-container small a:hover, .clock-container small a:active {color: #626262 !important;}
+/* Image cropping */
+.image-container {
+    display: inline-block;
+    position: relative;
+    right: -50%;
+    min-width: 100%;
+}
+.countdown-image {
+    position: relative;
+    left: -50%;
+    max-width: none !important;
+}
+.fit-to-width {
+    width:100%;
+}
+/* COUNTDOWN - Inspiration http://fff.cmiscm.com/#!/section/flipclock */
+/* ----------------------------------------------------------------------------------------- */
+.countdown {
+    display: table-cell;
+    font-weight: normal;
+}
+.countdown .item {
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+    font-family: 'Open Sans', cursive;
+    font-weight: 700;
+    font-size: 160px;
+    line-height: 180px;
+    text-align: center;
+    color: #B7B7B7;
+    border-radius: 10px;
+    margin: 50px 10px 50px 0;
+    padding: 0 10px;
+    overflow: hidden;
+    background: #484848; /* Old browsers */
+background: -moz-linear-gradient(top,  #484848 0%, #202020 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#484848), color-stop(100%,#202020)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #484848 0%,#202020 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #484848 0%,#202020 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #484848 0%,#202020 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #484848 0%,#202020 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#484848', endColorstr='#202020',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+.countdown .item-ss {
+    font-size: 50px;
+    line-height: 70px;
+}
+.countdown .item:after {
+    content: '';
+    display: block;
+    height: 1px;
+    border-top: 3px solid #111;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+.countdown .label {
+    text-transform: uppercase;
+    display: block;
+    position: absolute;
+    font-family: 'Open Sans', cursive;
+    font-weight: 700;
+    line-height: normal;
+    right: 6px;
+    bottom: 4px;
+    font-size: 14px;
+    color: #B9B9B9;
+    text-shadow: 1px 1px 1px rgba(100, 100, 100, 1);
+}
+
+/* Alt-0 Dark XSmall */
+
+.xsmall.countdown {display: inline;}
+.xsmall.countdown .item {
+    font-size: 20px;
+    line-height: 30px;
+    color: #e6e6e6;
+    border-radius: 3px;
+    margin: auto;
+    padding: 2px 5px;
+    overflow: visible;
+}
+
+.xsmall.countdown .item:after {border-top: 1px solid #111;}
+
+.xsmall.countdown .label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+    font-size: 11px;
+    color: #fff;
+}
+
+/* Alt-0 Dark Small */
+
+.small.countdown {display: inline;}
+.small.countdown .item {
+    font-size: 28px;
+    line-height: 38px;
+    color: #e6e6e6;
+    border-radius: 4px;
+    margin: auto;
+    padding: 4px 9px;
+    overflow: visible;
+}
+
+.small.countdown .item:after {border-top: 2px solid #111;}
+
+.small.countdown .label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+    font-size: 11px;
+    color: #fff;
+}
+
+
+.light.countdown .item {
+color: #252525;
+
+background: #ededed; /* Old browsers */
+background: -moz-linear-gradient(top,  #ededed 0%, #c1c1c1 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#c1c1c1)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ededed 0%,#c1c1c1 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ededed 0%,#c1c1c1 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ededed 0%,#c1c1c1 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ededed 0%,#c1c1c1 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#c1c1c1',GradientType=0 ); /* IE6-9 */
+}
+
+.light.countdown .item:after {border-top: 1px solid #555;}
+
+
+/* Alt-0 Dark Medium */
+
+.medium.countdown {display: inline;}
+.medium.countdown .item {
+    font-size: 40px;
+    line-height: 50px;
+    color: #e6e6e6;
+    border-radius: 5px;
+    margin: auto;
+    padding: 4px 10px;
+    overflow: visible;
+}
+
+.medium.countdown .item:after {border-top: 2px solid #111;}
+
+.medium.countdown .label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Alt-0 Dark Large */
+
+.large.countdown {display: inline;}
+.large.countdown .item {
+    font-size: 58px;
+    line-height: 58px;
+    color: #e6e6e6;
+    border-radius: 6px;
+    margin: auto;
+    padding: 4px 10px;
+    overflow: visible;
+}
+
+.large.countdown .item:after {border-top: 3px solid #111;}
+
+.large.countdown .label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -24px;
+    font-size: 16px;
+    color: #fff;
+}
+
+
+/* COUNTDOWN-ALT-1 */
+/* ----------------------------------------------------------------------------------------- */
+.countdown-alt-1 {
+    display: block;
+    font-size: 0;  /* Hack for inline and inline-block extra markup generated spaces */
+    margin: 0;
+    color: #000;
+}
+.countdown-alt-1 .item {
+    position: relative;
+}
+.countdown-alt-1 .dd,
+.countdown-alt-1 .hh-1,
+.countdown-alt-1 .hh-2,
+.countdown-alt-1 .mm-1,
+.countdown-alt-1 .mm-2,
+.countdown-alt-1 .ss-1,
+.countdown-alt-1 .ss-2 {
+    font-family: 'Righteous', cursive;
+    background: #F6F6F6;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 60px;
+    margin: 1px 2px;
+    min-width: 18px;
+    text-align: center;
+    padding: 5px 16px;
+}
+.countdown-alt-1 .hh-1,
+.countdown-alt-1 .hh-2,
+.countdown-alt-1 .mm-1,
+.countdown-alt-1 .mm-2,
+.countdown-alt-1 .ss-1,
+.countdown-alt-1 .ss-2 {
+    width: 40px;
+    max-width: 40px;
+}
+
+
+
+.countdown-alt-1 .label {
+    font-style: italic;
+    text-transform: uppercase;
+    background: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 1px 2px;
+    padding: 2px 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -44px;
+}
+.countdown-alt-1 .separator-dd,
+.countdown-alt-1 .separator {
+    color: #FFF;
+    font-size: 40px;
+    position: relative;
+}
+
+
+/* Alt-1 Light Large */
+
+.large.countdown-alt-1 .dd, .large.countdown-alt-1 .hh-1, .large.countdown-alt-1 .hh-2, .large.countdown-alt-1 .mm-1, .large.countdown-alt-1 .mm-2, .large.countdown-alt-1 .ss-1, .large.countdown-alt-1 .ss-2 {
+     font-size: 40px; border-radius: 7px; padding: 5px 7px; min-width: 40px;}
+
+.large.countdown-alt-1 .dd {
+    width: 60px; max-width: 80px; }
+
+.large.countdown-alt-1 .hh-1, .large.countdown-alt-1 .hh-2, .large.countdown-alt-1 .mm-1, .large.countdown-alt-1 .mm-2, .large.countdown-alt-1 .ss-1, .large.countdown-alt-1 .ss-2 {
+    width: 40px; max-width: 40px; }
+
+.large.countdown-alt-1 .label { bottom: -46px; font-size: 17px;}
+
+.large.countdown-alt-1 .separator-dd, .large.countdown-alt-1 .separator { font-size: 40px; }
+
+/* Alt-1 Light Medium */
+
+.medium.countdown-alt-1 .dd, .medium.countdown-alt-1 .hh-1, .medium.countdown-alt-1 .hh-2, .medium.countdown-alt-1 .mm-1, .medium.countdown-alt-1 .mm-2, .medium.countdown-alt-1 .ss-1, .medium.countdown-alt-1 .ss-2 {
+     font-size: 30px; border-radius: 6px; padding: 5px 6px; min-width: 30px;}
+
+.medium.countdown-alt-1 .dd {
+    width: 50px; max-width: 70px; }
+
+.medium.countdown-alt-1 .hh-1, .medium.countdown-alt-1 .hh-2, .medium.countdown-alt-1 .mm-1, .medium.countdown-alt-1 .mm-2, .medium.countdown-alt-1 .ss-1, .medium.countdown-alt-1 .ss-2 {
+    width: 30px; max-width: 30px; }
+
+.medium.countdown-alt-1 .label { bottom: -36px;}
+
+
+/* Alt-1 Light Small */
+
+.small.countdown-alt-1 .dd, .small.countdown-alt-1 .hh-1, .small.countdown-alt-1 .hh-2, .small.countdown-alt-1 .mm-1, .small.countdown-alt-1 .mm-2, .small.countdown-alt-1 .ss-1, .small.countdown-alt-1 .ss-2 {
+     font-size: 20px; border-radius: 4px; padding: 5px 6px; min-width: 20px;}
+
+.small.countdown-alt-1 .dd {
+    width: 40px; max-width: 40px; }
+
+.small.countdown-alt-1 .hh-1, .small.countdown-alt-1 .hh-2, .small.countdown-alt-1 .mm-1, .small.countdown-alt-1 .mm-2, .small.countdown-alt-1 .ss-1, .small.countdown-alt-1 .ss-2 {
+    width: 20px; max-width: 20px; }
+
+.small.countdown-alt-1 .label { bottom: -32px;}
+
+.small.countdown-alt-1 .separator-dd, .small.countdown-alt-1 .separator { font-size: 26px; }
+
+
+.dark.countdown-alt-1 .dd,
+.dark.countdown-alt-1 .hh-1,
+.dark.countdown-alt-1 .hh-2,
+.dark.countdown-alt-1 .mm-1,
+.dark.countdown-alt-1 .mm-2,
+.dark.countdown-alt-1 .ss-1,
+.dark.countdown-alt-1 .ss-2{background: #222; color: #fff;}
+
+
+/* Alt-1 Light XSmall */
+
+.xsmall.countdown-alt-1 .dd, .xsmall.countdown-alt-1 .hh-1, .xsmall.countdown-alt-1 .hh-2, .xsmall.countdown-alt-1 .mm-1, .xsmall.countdown-alt-1 .mm-2, .xsmall.countdown-alt-1 .ss-1, .xsmall.countdown-alt-1 .ss-2 {
+     font-size: 16px; border-radius: 3px; padding: 4px 4px; min-width: 16px;}
+
+.xsmall.countdown-alt-1 .dd {
+    width: 22px; max-width: 28px; }
+
+.xsmall.countdown-alt-1 .hh-1, .xsmall.countdown-alt-1 .hh-2, .xsmall.countdown-alt-1 .mm-1, .xsmall.countdown-alt-1 .mm-2, .xsmall.countdown-alt-1 .ss-1, .xsmall.countdown-alt-1 .ss-2 {
+    width: 14px; max-width: 28px; }
+
+.xsmall.countdown-alt-1 .label { bottom: -28px; font-size: 10px; padding: 0;}
+
+
+.xsmall.countdown-alt-1 .separator-dd, .xsmall.countdown-alt-1 .separator { font-size: 10px; }
+
+
+/* STRANGE STYLE OVERWRITE */
+/* COUNTDOWN-ALT-2 - Inspiration http://goo.gl/hRfsc */
+/* ----------------------------------------------------------------------------------------- */
+.countdown-alt-2 {
+    font-size: 0;  /* Hack for inline and inline-block extra markup generated spaces */
+    overflow: auto;
+    padding: 0px 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    color: #fff;
+}
+.countdown-alt-2 .item {
+    display: block;
+    float: left;
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 36px 20px 10px 20px;
+    margin: 0 10px 0 0;
+    min-width: 100px;
+    max-width: 100px;
+    text-align: center;
+
+    border-width: 1px; border-style: solid; border-color: #222222;
+
+   border-radius: 3px;
+
+    -webkit-box-shadow: inset 0 1px #4d4b46;
+    -moz-box-shadow: inset 0 1px #4d4b46;
+    box-shadow: inset 0 1px #4d4b46;
+
+    box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.2);
+
+
+
+    background: #232323; /* Old browsers */
+    background: -moz-linear-gradient(top, #232323 0%, #000000 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#232323), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #232323 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #232323 0%,#000000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #232323 0%,#000000 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #232323 0%,#000000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232323', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+.countdown-alt-2.light .item {
+    background: #eee;
+    border-color: #eee;
+    color: #333;
+
+    /*-webkit-box-shadow: inset 0 1px #aaa;
+    -moz-box-shadow: inset 0 1px #aaa;
+
+    box-shadow: inset 0 1px #aaa;*/
+    box-shadow: none;
+}
+
+/* ALt-2 Calendar Small */
+
+.clock-position-cal-sm {
+    position: absolute;
+    width: 159px;
+    margin-left: -77px;
+    left: 50%;
+}
+
+.small.countdown-alt-2 .item {
+    font: italic;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: bold;
+    padding: 1px 0;
+    margin: 0 3px 0 0;
+    min-width: 45px;
+    max-width: 45px;
+}
+
+
+.small.countdown-alt-2 .item.item-dd{
+    min-width: 54px;
+    max-width: 54px;
+
+}
+
+.small.countdown-alt-2 .label {
+    color: #fff;
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(100, 100, 100, 1);
+}
