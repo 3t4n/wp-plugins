@@ -1,0 +1,137 @@
+/* styles for ACF  */
+.acf-fields.-left > .acf-field > .acf-input {
+    display: flex;
+    flex-direction: column;
+}
+
+/* styles for this plugin below */
+/* styles for icon & tooltip */
+.acf-hint-tooltip {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+.acf-hint-tooltip::after {
+    display: none;
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 26px;
+    border: 13px solid transparent;
+    border-top: 15px solid #d3eef7;
+    margin-left: -15px;
+    transform: rotateZ(90deg);
+}
+.acf-hint-tooltip.hover::after {
+    display: block;
+}
+
+.hint-icon {
+    cursor: pointer;
+    display: inline-block;
+    color: #61a9d0;
+    vertical-align: bottom;
+}
+
+.acf-hint-description {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #000000;
+    border-radius: 5px;
+    background: #d3eef7;
+    width: 200px;
+    z-index: 10;
+    word-wrap: break-word;
+}
+
+.acf-hint-tooltip.hover .acf-hint-description {
+    display: inline-block;
+    top: -8px;
+    left: 33px;
+}
+
+.dashicons-editor-help:before {
+    font-size: 23px;
+}
+
+/* styles for button & hint text */
+.hint-text {
+    border-radius: 3px;
+    padding: 4px 8px;
+    background: #d3eef7;
+    margin: 20px 0 10px;
+    word-wrap: break-word;
+}
+
+.btn-area {
+    display: inline-flex;
+    float: right;
+}
+
+.btn-area.show .btn-text {
+    color: #61a9d0;
+}
+
+.hint-btn {
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    width: 35px;
+    background: #fff;
+    display: inline-block;
+    margin-left: 3px;
+    box-sizing: border-box;
+    height: 18px;
+    border: 1px solid #aaaaaa;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-area.show .hint-btn {
+    border-color: #61a9d0;
+    background: #61a9d0;
+}
+
+.hint-btn .switch-circle {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background: #aaaaaa;
+    top: 3px;
+    left: 3px;
+    border-radius: 26px;
+    transition: .5s;
+}
+
+.btn-area.show .hint-btn .switch-circle {
+    transform: translateX(17px);
+    background: #fff;
+}
+
+/* control repeater field */
+.acf-row:not(:first-of-type) .btn-area {
+    display: none;
+}
+
+.acf-repeater.-table .btn-area,
+.acf-repeater.-table .acf-hint-tooltip {
+    float: none;
+    margin-bottom: 10px;
+}
+
+.acf-repeater.-row .btn-area {
+    float: none;
+}
+
+/* style for ACF group setting page */
+.row-border-none {
+    border-top: none!important;
+}
