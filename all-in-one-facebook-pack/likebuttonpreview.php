@@ -1,0 +1,3 @@
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/<?php echo get_option('wpc_aiofp_language'); ?>/all.js#appId=<?php echo get_option('wpc_aiofp_appid'); ?>&amp;xfbml=1"></script>
+<fb:like href="http://www.facebook.com/wpcode.net" send="<?php echo get_option('wpc_aiofp_send_button'); ?>" layout="<?php echo get_option('wpc_aiofp_layout_button'); ?>" width="<?php echo get_option('wpc_aiofp_width_button'); ?>" show_faces="<?php echo get_option('wpc_aiofp_face_button'); ?>" font="<?php echo get_option('wpc_aiofp_font'); ?>"></fb:like>
