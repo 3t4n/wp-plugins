@@ -1,0 +1,24 @@
+<!--
+setModalEditFileForm.html.
+my_extensions_views['setModalEditFileForm'].tpl
+-->
+<div style="width:200px; padding: 5px 5px; float:left; border-right:1px solid #aaa; margin: 0 10px;">
+    <ul>
+        <li><img src="[[thumbimg]]" width="150"/></li>
+        <li><label>File name:</label> [[post_name]] </li>
+        <li><label>File url:</label> [[guid]] </li>
+        <li><label>File type:</label> [[post_mime_type]] </li>
+        <li><label>File size:</label> [[size]] </li>
+        <li><label>Uploaded on:</label> [[post_date]] </li>
+    </ul>
+</div>
+<div>
+    <form class='apm_edit_form_modal'>
+        <input   type='hidden' value="[[ID]]" class='inpid'/>
+        <ul>
+            <li><input  placeholder="Title" type='text' value="[[post_title]]"  class='inptitle'/></li>
+            <li><textarea  placeholder="Caption" class='area_medium'>[[post_excerpt]]</textarea></li>
+            <li><textarea placeholder="Description" class='area_medbig'>[[post_content]]</textarea></li>
+        </ul>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+<!-- setSelectMailTpl.html
+-->
+<div class="controls">
+    <div class="row-fluid">
+        <div  class="span6">
+            <label class="control-label  lbl_float lbl_f " >Select Email template:</label>
+            <select  id="[[field]]_select" name="[[field]][[meta_marker]]" class="span4 combobox"
+                     category="[[category]]" field="[[field]]" selected_value="[[value]]">
+                <option>Loading...</option>
+            </select>
+            <button class="hasTooltip btn btn-mini btn-adjust-pos select_tplMail" rel="tooltip"  type="button" title="Apply this template in the Email Content">Apply</button>
+            <button class="hasTooltip btn btn-mini btn-adjust-pos manager_tplMail" rel="tooltip" type="button" title="Open the Mail Templates management"><i class="icon-list"></i> Manage</button>
+
+        </div >
+        <div  class="span6">
+            <div class="row-fluid">
+                <div >
+                    <label class="control-label   lbl_float lbl_f" for="mail_compose_usetpl">Auto set email template?:</label>
+                </div>
+                <div >
+                    <span class="apm-radiocont">
+                        <input class="apm-radio" name="mail_compose_usetpl" value="0" [[checked]] type="radio">
+                        <span class="apm-radiovalue">Yes </span>
+                    </span>
+                    <span class="apm-radiocont">
+                        <input class="apm-radio" name="mail_compose_usetpl" value="1" [[checked]] type="radio">
+                        <span class="apm-radiovalue">No, use free content</span>
+                    </span>
+                    <a data-placement="left" data-original-title="Note: if you set this to Yes, each time you want to compose a new email, the last selected template will be added by default in the Email Content" rel="tooltip" class="hasTooltip btn btn-mini " href="javascript:void(0);"><i class="icon-info-sign ico-adjust-pos"></i></a>
+                </div>
+            </div>
+        </div >
+    </div>
+</div>

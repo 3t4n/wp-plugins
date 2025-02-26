@@ -1,0 +1,66 @@
+<!-- setModuleGridHeader.html
+-->
+<div class="navbar">
+    <div class="navbar-inner navbar-innermaingrid">
+        <form class="navbar-form pull-left">
+            <!--
+             (<span class="nb">0</span> files)</span></span> divider-vertical-->
+            <!--<a data-placement="left" data-original-title="Clear search" href="javascript:void(0);" class="hidden files_grid_actions hasTooltip  btn btn-mini apm_childtable_dosearch_clear" rel="tooltip"><i class=" icon-remove-sign"></i> </a>
+            <a data-placement="left" data-original-title="Search on Title" href="javascript:void(0);" class="files_grid_actions hasTooltip  btn btn-mini apm_childtable_dosearch" rel="tooltip"><i class="icon-search"></i> </a>
+            <input data-placement="left" class="hidden files_grid_actions apm_input_in_nav search-query" placeholder="Search on Title" type="text">              -->
+
+            <a data-original-title="{{selall}}" data-placement="left" rel="tooltip" class="blockonload disabled  btn btn-mini btn-info  hasTooltip do_selectrow_newgrid   margin-right-10">
+                <i class="icon-check icon-white"></i> </a>
+            <a href="{{addRecord}}" data-placement="right" rel="tooltip" title="ADD A NEW {{modkeysingCap}}" class="  btn btn-success btn-mini   hasTooltip">
+                <i class="icon-plus icon-white"></i></a>
+            {{quickadd}}
+            <a data-placement="right" rel="tooltip" title="EDIT THE FIRST SELECTED {{modkeysingCap}}" class="blockonload  btn btn-info btn-mini   hasTooltip  margin-right-10 do_editrow_newgrid">
+                <i class="icon-pencil icon-white"></i></a>
+            <!--a data-original-title="PUBLISH: Set the selected {{modkeyCap}} to PUBLISH" data-placement="left" rel="tooltip" class="blockonload disabled  btn btn-mini btn-success do_pubrow_newgrid hasTooltip">
+                <i class="icon-ok icon-white"></i></a>
+            <a data-original-title="UNPUBLISH: Set the selected  {{modkeyCap}} to PENDING status" data-placement="left" rel="tooltip" class="blockonload disabled  btn btn-mini btn-info do_unpubrow_newgrid hasTooltip ">
+                <i class="icon-pause icon-white"></i></a>
+            <a data-original-title="DRAFT: Set the selected {{modkeyCap}} to DRAFT status" data-placement="left" rel="tooltip" class="blockonload disabled  btn btn-mini  do_draftrow_newgrid hasTooltip ">
+                <i class="icon-stop "></i></a>
+            <a data-original-title="TRASH: Set the selected {{modkeyCap}} to TRASH status (not definitive)" data-placement="left" rel="tooltip" class="blockonload disabled  btn btn-mini do_trashrow_newgrid  hasTooltip   margin-right-10">
+                <i class="icon-trash "></i></a-->
+
+
+            <div class="btn-group ">
+                <a class="btn dropdown-toggle btn-mini" data-toggle="dropdown" href="#">
+                    Status
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu  pull-right ">
+                    <li class=""><a href="javascript:void(0);"> Set selected {{modkeyCap}} Status:</a></li>
+                    <li class="do_pubrow_newgrid"><a href="javascript:void(0);"><i class='icon-ok '></i> PUBLISH</a></li>
+                    <li class="do_unpubrow_newgrid"><a href="javascript:void(0);"><i class='icon-pause '></i> UNPUBLISH (pending)</a></li>
+                    <li class="do_draftrow_newgrid"><a href="javascript:void(0);"><i class='icon-stop '></i> DRAFT</a></li>
+                    <li class="do_trashrow_newgrid"><a href="javascript:void(0);"><i class='icon-trash '></i> TRASH (not definitive delete)</a></li>
+
+                </ul>
+            </div>
+
+            <a data-original-title="DELETE SELECTED {{modkeyCap}} (definitive)" data-placement="left" rel="tooltip" class="blockonload disabled  btn btn-mini btn-warning  hasTooltip do_deleterow_newgridmod">
+                <i class="icon-remove icon-white"></i></a>
+        </form>
+        <form class="navbar-form pull-right">
+            <a data-original-title="Reload grid data" data-placement="left" rel="tooltip" class="disabled  btn btn-mini show-pointer hasTooltip do_refresh_newgrid">
+                <i class="icon-refresh"></i></a>
+
+        </form>
+        <form class="navbar-form pull-right">
+
+            <label>Sort by</label>
+            <select name='so' class="blockonload ori_selSortBy "  >
+                {{sortoptions}}
+            </select>
+            <span class="btn btn-mini hasTooltip  ori_sortasc" title="Sort By Ascending order" data-placement="left">ASC</span>
+            <span class="btn btn-mini hasTooltip ori_sortdesc margin-right-5" title="Sort By Descending order" data-placement="left">DESC</span>
+
+            <a data-original-title="Export all data in a Csv file" data-placement="left" rel="tooltip" class="  btn btn-mini  hasTooltip margin-right-5 do_ori_exportcsv">
+                <i class="icon-share-alt"></i> .csv</a>
+
+        </form>
+    </div>
+</div>

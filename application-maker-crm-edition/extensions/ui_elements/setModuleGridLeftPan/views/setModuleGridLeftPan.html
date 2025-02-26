@@ -1,0 +1,90 @@
+<!-- setModuleGridLeftPan.html
+-->
+<h5 class='title'>
+    FILTERS
+    <span class="btn btn-mini btnredupad pull-right hasTooltip modgrid_do_expcoll_leftpan" data-placement='right'  title='Expand/Collapse this panel'>
+        <i class='icon-resize-horizontal '></i>
+    </span>
+</h5>
+<form class="apm-grid-leftsearch form-search">
+    <div class="input-append control-group  ">
+        <input type="text" class="span3 search-query "  placeholder="FREE SEARCH on title">
+        <span class=""> <a  class="btn btn-mini hasTooltip  apm_do_gridfreesearch" title='Do Free Search'><i class="icon-search"></i></a></span>
+        <span class="hidden"><a  class="btn btn-mini hasTooltip apm_cancel_gridfreesearch" title='Cancel Free Search'><i class="icon-remove"></i></a></span>
+    </div>
+    <div class="alert-container"></div>
+
+    <div class="text-right hasTooltip apm_openadvancedsearch"  title='Open ADVANCED SEARCH Panel'>
+        <a href="javascript:void(0);">
+            <i class="icon-search"></i> ADVANCED SEARCH
+        </a>
+    </div>
+    <div class="text-right hasTooltip apm_closeadvancedsearch hidden"  title='BACK to FILTERS Panel'>
+        <a href="javascript:void(0);">
+            <i class="icon-chevron-left"></i> BACK to FILTERS
+        </a>
+    </div>
+
+</form>
+<div id='leftpan_filtered' class='well wellmedpadd'>
+    FILTERED BY: <span class="btn btn-mini pull-right hasTooltip removfilters  ori_doremovefilters hiddenbtn" data-placement='right'  title='Remove all filters'><i class="icon-remove "></i></span>
+    <ul>
+        <li><em>None</em></li>
+    </ul>
+</div>
+<div id='leftpan_sub'>
+    <div id='leftpan_sub_inner'>
+        <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle apm-acc-top hasTooltip"   title='Open FILTER BY FIRST LETTER panel' data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                        <i class="icon-font"></i> A-Z
+                    </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner clearfix">
+                        <ul class="apm_filter_float">{{filterletters}} </ul> <span class="clearfix"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle apm-acc-top hasTooltip"   title='Open FILTER BY STATUS panel' data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                        <i class="icon-ok-circle"></i> BY STATUS
+                    </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner clearfix">
+                        <span class=" ">PUBLICATION STATUS: </span>
+                        <ul class="apm_filter_float filtstatus">
+                            <li class="btn btn-mini  " data-stat="publish"><i  class='icon-ok '></i> Published</li>
+                            <li class="btn btn-mini   " data-stat="pending"><i  class='icon-pause '></i> Unpublished (pending)</li>
+                            <li class="btn btn-mini    " data-stat="draft"><i  class='icon-stop '></i> Draft</li>
+                            <li class="btn btn-mini  " data-stat="trash"><i  class='icon-trash '></i> Trash</li>
+                        </ul> <span class="clearfix"></span>
+                        <!--h6 class="">STATE: </h6>
+                        <ul class="apm_filter_float">
+                            <li class="btn btn-mini"><i  class='icon-ok-sign '></i> Completed</li>
+                            <li class="btn btn-mini"><i  class='icon-tasks '></i> Uncompleted</li>
+                            <li class="btn btn-mini"><i  class='icon-calendar '></i> Overdue</li>
+                        </ul>
+                        <span class="clearfix"></span-->
+                    </div>
+                </div>
+            </div>
+            {{ProFilters}}
+        </div>
+        <div id="apm_advancedSearch">
+            <div class="apm-acc-top "   >
+                <i class="icon-search"></i> ADVANCED SEARCH
+            </div>
+            <div class="well well-small adv_sear_inner"   >
+                
+            </div>
+        </div>
+        <span class="clearfix"></span>
+    </div>
+    {{FreeAds}}
+</div>
+

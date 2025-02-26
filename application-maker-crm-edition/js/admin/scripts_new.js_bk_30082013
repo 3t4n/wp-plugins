@@ -1,0 +1,207 @@
+/* JS
+ * scripts_new.js
+ */
+
+
+jQuery(document).ready(function(){
+    flg_apm.baseVals.win=$(window);
+    flg_apm.baseVals.winHw=flg_apm.baseVals.win.height();
+    flg_apm.baseVals.winw=flg_apm.baseVals.win.width();
+    flg_apm.appHome.initClicks();
+    flg_apm.appTopBar.init();
+    flg_apm.initMainRollover();
+    f=$('#do_sending_test');
+    $('#adminmenuwrap').css('height',$('body').height());
+//$(f).val('');
+});
+
+if(flg_apm==undefined){
+    flg_apm={};
+}
+
+flg_apm.initMainRollover=function(){
+
+    $('.hasTooltip').off('mouseover').on('mouseover',function(){
+        $(this).tooltip();
+        $(this).tooltip('show');
+    });
+    $('.hasPopover').off('mouseover').on('mouseover',function(){
+        arg={
+            placement:'right'
+        }
+        $(this).popover(arg);
+        $(this).popover('show')
+    });
+    $('.hasPopover').off('mouseout').on('mouseout',function(){
+        $(this).popover('hide')
+    });
+}
+flg_apm.appHome=function(){
+    }
+flg_apm.appTopBar=function(){
+    }
+
+flg_apm.appHome.saveNeverSeeAnymore=function(id){
+    $.ajax({
+        url: ajaxurl ,
+        type: "POST",
+        data: "action=apm_ajax_savesettings&do_ajax=save_never_see_anymore&id="+id,
+        error: function(data){
+            flg_apm.setAlertPanel.addAlert('An error occured','An error occured,  please try again...','error',3000);
+        },
+        success: function(data){
+        }
+    });
+}
+
+// flg_apm.appHome.saveDoSendPollPro('no');
+
+flg_apm.appHome.saveHidePollPro=function(){
+    $.ajax({
+        url: ajaxurl ,
+        type: "POST",
+        data: "action=apm_ajax_savesettings&do_ajax=save_hidepollpro",
+        error: function(data){
+        },
+        success: function(data){
+        }
+    });
+}
+
+flg_apm.appHome.saveDoSendPollPro=function(choice){
+    $.ajax({
+        // type: 'GET',
+        url: 'http://apmcrm2013.weproduceweb.com/get_poll/',
+        dataType: 'jsonp',
+        data: {
+            choice:choice
+        },
+        crossDomain: true,
+        success: function(data){
+        },
+        error: function(data){
+        // alert('error');
+        }
+    });
+}
+
+flg_apm.appHome.saveHideAskStat=function(){
+    $.ajax({
+        url: ajaxurl ,
+        type: "POST",
+        data: "action=apm_ajax_savesettings&do_ajax=save_hideaskstat",
+        error: function(data){
+        },
+        success: function(data){
+        }
+    });
+}
+flg_apm.appHome.saveDoSendStat=function(){
+    $.ajax({
+        // type: 'GET',
+        url: 'http://apmcrm2013.weproduceweb.com/get_stats/',
+        dataType: 'jsonp',
+        data: {
+            version:flg_apm.version
+        },
+        crossDomain: true,
+        success: function(data){
+        },
+        error: function(data){
+        // alert('error');
+        }
+    });
+}
+flg_apm.appHome.initClicks=function(){
+
+    $('.do_clear_cache').off('click').on('click',function(){
+        h=document.location.href;
+        document.location.href=h+'&do_clearcache=true';
+       /* $.get(ajaxurl+'?action=apm_extensions&subaction=get_extensions_files&type=js&clearcache=false');
+        $.get(ajaxurl+'?action=apm_extensions&subaction=get_extensions_files&type=css&clearcache=false');
+        $.get(ajaxurl+'?action=apm_extensions&subaction=get_extensions_files&type=views&clearcache=false');*/
+    });
+    $('#apm_moduleslist span.btn a').off('mouseover').on('mouseover',function(){
+        i=$(this).find('i');
+        $(i).addClass('icon-white');
+        p=$(this).parents('span.btn');
+        $(p).addClass('btn-info');
+    });
+    $('#apm_moduleslist span.btn a').off('mouseout').on('mouseout',function(){
+        i=$(this).find('i');
+        $(i).removeClass('icon-white');
+        p=$(this).parents('span.btn');
+        $(p).removeClass('btn-info');
+    });
+    $('.do_submit_settings').off('click').on('click',function(){
+        p=$(this).parents('.settingform');
+        $(p).submit();
+    });
+    $('.topintrotext_close').off('click').on('click',function(){
+        p=$(this).parents('.well');
+        $(p).fadeOut(500);
+    });
+    $('.topintrotext_closealways').off('click').on('click',function(){
+        p=$(this).parents('.well');
+        flg_apm.appHome.saveNeverSeeAnymore($(p).attr('id'));
+        $(p).fadeOut(500);
+    });
+    $('.do_send_stat').off('click').on('click',function(){
+        alert('Thanks, we will  send info to our server and then you will not see this request anymore.');
+        p=$(this).parents('.ask_send_stat');
+        flg_apm.appHome.saveDoSendStat();
+        flg_apm.appHome.saveHideAskStat();
+        $(p).fadeOut(500);
+    });
+    $('.dont_send_stat').off('click').on('click',function(){
+        alert('Ok, we will not send any info to our server and you will not see this request anymore.');
+        p=$(this).parents('.ask_send_stat');
+        flg_apm.appHome.saveHideAskStat();
+        $(p).fadeOut(500);
+    });
+
+    $('.do_pollpro_yes').off('click').on('click',function(){
+        alert('Thanks, we will send your answer to our server, and then you will not see this request anymore.');
+        p=$(this).parents('.ask_send_pollpro');
+        flg_apm.appHome.saveDoSendPollPro('yes');
+        flg_apm.appHome.saveHidePollPro();
+        $(p).fadeOut(500);
+    });
+    $('.do_pollpro_no').off('click').on('click',function(){
+        alert('Thanks, we will send your answer to our server, and then you will not see this request anymore.');
+        p=$(this).parents('.ask_send_pollpro');
+        flg_apm.appHome.saveDoSendPollPro('no');
+        flg_apm.appHome.saveHidePollPro();
+        $(p).fadeOut(500);
+    });
+    $('.hide_pollpro').off('click').on('click',function(){
+        alert('Ok, we will not send any info to our server and you will not see this request anymore.');
+        p=$(this).parents('.ask_send_pollpro');
+        flg_apm.appHome.saveHidePollPro();
+        $(p).fadeOut(500);
+    });
+
+    $('.apm_topnav_openmodgrid').off('click').on('click',function(){
+        p=$(this).parent();
+        mod=$(p).attr('data-module');
+        app=$(p).attr('data-app');
+        document.location.href='admin.php?page='+app+'-'+mod;
+
+    });
+    $('.apm_topnav_addmodrec').off('click').on('click',function(){
+        p=$(this).parent();
+        mod=$(p).attr('data-module');
+        document.location.href='post-new.php?post_type='+mod;
+
+    });
+}
+
+flg_apm.appTopBar.init=function(){
+    if( flg_apm.baseVals.winw<=1042){
+        o=$('.hideIfWidthMax');
+        $(o).hide();
+    }
+
+//  class=""
+}
+

@@ -1,0 +1,47 @@
+<!-- setTeamField.html -->
+<br clear='all' />
+<div >
+    <div class='team_block well  well-small'>
+        <span class='hidden team_subtitle'>[[info]]</span>
+        <span class='hidden'><input type='checkbox' class="apm_team_cascade_par" name='[[field]][[meta_marker]]_cascade' [[casca_check]]/><label> Cascade from parent item's team</label></span></br>
+        <span class='hidden'><input type='checkbox' name='[[field]][[meta_marker]]_forcechild' [[force_check]] /><label> Force this team for childs items</label></span>
+        <div class='team_detail well  well-small '>
+            <p class='team_subtitle'>Team members (<span class='count_team_users'>0</span>): <i class="hasTooltip icon-question-sign" rel="tooltip" title="The members assigned to a team will receive notifications following the settings below."></i></p>
+            <p><span class='team_col2'><input type='checkbox'  name='[[field]][[meta_marker]]_me' class='apm_team_me' [[me_check]]/><label> Me</label>
+                </span> <input type='checkbox' name='[[field]][[meta_marker]]_assignee'  class='apm_team_assignee' [[assi_check]]/><label> Assignee</label></p>
+            <p>Add other team members:</p>
+            <div class="apm_autocomplete_container">
+                <input type='text' value='' data-entity="[[field_type]]" data-nbchar='2' data-nblimax='6'  class='team_inp2  apm_autocomplete_field' placeholder="Type to find a user" /> <a class="hasTooltip btn btn-mini apm_add_user_team" rel="tooltip" title="Add user to the team"><i class="icon-plus"></i> </a>
+            </div>
+            <br clear='all'><div class="apm_team_user_list hidden" >
+            </div>
+            <input type='hidden' value='[[team]]' valuename='[[valuename]]' name='[[field]][[meta_marker]]_team' class="apm_team_inp"/>
+        </div>
+        <span class='hidden'><input type='checkbox' name='[[field]][[meta_marker]]_restrictteam' [[restrict_check]] /><label> Private <i class="hasTooltip icon-question-sign" rel="tooltip" title="Only team members & Admin can access"></i> </label></span>
+        <p>Notifications settings: </p>
+        <span class=''>
+            <label>  Me
+                <i class="hasTooltip icon-question-sign" rel="tooltip" title="Send Notification to me "></i>
+            </label>
+            <input type='checkbox' name='[[field]][[meta_marker]] apm_teamnotifme' [[notifme_check]] />
+        </span>
+        <span class=''>
+            <label>- Assignee
+                <i class="hasTooltip icon-question-sign" rel="tooltip" title="Send Notification to the Assignee "></i>
+            </label>
+            <input type='checkbox' name='[[field]][[meta_marker]] apm_teamnotifassignee' [[notifassignee_check]] />
+        </span>
+        <span class=''>
+            <label>- All
+                <i class="hasTooltip icon-question-sign" rel="tooltip" title="Send Notification to all the team "></i>
+            </label>
+            <input type='checkbox' name='[[field]][[meta_marker]] apm_teamnotifall' [[notifall_check]] />
+        </span>
+        <br/><span class=''>
+            <label> Notify on comments
+                <i class="hasTooltip icon-question-sign" rel="tooltip" title="Send also Notification for each comment"></i>
+            </label>
+            <input type='checkbox' name='[[field]][[meta_marker]] apm_teamnotifcommentall' [[notifallcomment_check]] />
+        </span>
+    </div>
+</div>
