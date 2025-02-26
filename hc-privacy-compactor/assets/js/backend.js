@@ -1,0 +1,1 @@
+!function(c){c.panel("hc-privacy-compactor",function(e){e.expanded.bind(function(e){e&&c.previewer.previewUrl.set(hc_privacy_compactor.privacy_url)})})}(wp.customize);
