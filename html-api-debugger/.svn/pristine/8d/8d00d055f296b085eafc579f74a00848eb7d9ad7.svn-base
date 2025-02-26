@@ -1,0 +1,293 @@
+.html-api-debugger--grid {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	row-gap: 0.2em;
+	column-gap: 0.4em;
+}
+
+.html-api-debugger-container {
+	--monospace-font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo,
+		Consolas, Liberation Mono, monospace;
+
+	width: 100%;
+	padding: 20px 20px 0 0;
+
+	&,
+	* {
+		box-sizing: border-box;
+	}
+
+	input[type="number"] {
+		appearance: textfield;
+	}
+
+	::-webkit-inner-spin-button {
+		display: none;
+	}
+
+	.iframe-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.full-width {
+		grid-column: 1 / -1;
+	}
+
+	.matches-selector {
+		outline: 1px dotted hotpink;
+	}
+
+	code,
+	pre {
+		font-family: var(--monospace-font-family);
+	}
+
+	pre {
+		background-color: #fff;
+		border: inset 1px;
+		padding: 0.2em 0.4em;
+	}
+
+	/* needs a reset */
+	code {
+		padding: 0;
+		margin: 0;
+		background: none;
+		font-size: inherit;
+	}
+
+	#input-html {
+		width: 100%;
+		min-height: 200px;
+		font-family: var(--monospace-font-family);
+	}
+
+	.context-html {
+		width: 100%;
+		font-family: var(--monospace-font-family);
+
+		&:placeholder-shown {
+			font-style: italic;
+		}
+	}
+
+	.error-holder {
+		padding: 1em;
+		background: pink;
+		white-space: pre-wrap;
+	}
+
+	.hasNodeValue {
+		&::after {
+			content: ": ";
+			color: initial;
+		}
+	}
+
+	.nodeValue {
+		border: none;
+		padding: 0;
+		display: inline-block;
+		background-color: #ddd;
+		margin: 0;
+		outline: 1px dotted #111;
+		vertical-align: top;
+		text-wrap: auto;
+		text-wrap: pretty;
+		overflow-wrap: break-word;
+	}
+
+	.mutated {
+		position: relative;
+
+		&::after {
+			position: absolute;
+			top: 0;
+			right: 1px;
+			padding: 0.1em 0.2em;
+
+			content: "DOM MODIFIED";
+			background: red;
+			color: white;
+		}
+	}
+
+	.html-text {
+		text-wrap: auto;
+		text-wrap: pretty;
+		box-shadow: 0 0 0 0 hotpink;
+		transition: ease box-shadow 120ms;
+	}
+
+	.has-highlighted-span {
+		box-shadow: 0 0 4px 2px hotpink;
+	}
+
+	.highlight-span {
+		outline: 2px solid #0000ff77;
+	}
+
+	.heading-and-button {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		button {
+			height: 100%;
+		}
+	}
+}
+
+#rendered_iframe {
+	background: #fff;
+	border: 1px solid black;
+	width: 100%;
+	min-height: 200px;
+
+	flex-grow: 1;
+}
+
+#html_api_result_holder,
+#dom_tree {
+	border: inset 1px;
+	padding: 0.5em 0.5em 0.5em 1em;
+	color: black;
+	font-family: var(--monospace-font-family);
+	background: white;
+	margin: 0;
+
+	ul {
+		padding: 0 0 0 1em;
+		margin: 0;
+	}
+
+	li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		position: relative;
+	}
+
+	.t1 code {
+		color: purple;
+		font-weight: bold;
+	}
+
+	.t2 {
+		font-style: normal;
+		font-family: var(--monospace-font-family);
+	}
+
+	.t2 .name {
+		color: black;
+		font-weight: bold;
+
+		text-wrap: auto;
+		text-wrap: pretty;
+		overflow-wrap: break-word;
+	}
+
+	.t2 .value {
+		color: blue;
+		font-weight: normal;
+
+		text-wrap: auto;
+		text-wrap: pretty;
+		overflow-wrap: break-word;
+	}
+
+	.t3 code,
+	.t4 code,
+	.t5 code {
+		color: gray;
+	}
+
+	.t7 code,
+	.t8 code {
+		color: green;
+	}
+
+	span {
+		font-style: italic;
+		font-family: serif;
+	}
+
+	.t10 code {
+		color: teal;
+	}
+
+	.misparented,
+	.misparented code {
+		color: red;
+		font-weight: bold;
+	}
+
+	.unnamed {
+		color: red;
+		font-style: italic;
+	}
+
+	.template {
+		padding: 0 0 0 1.5em;
+		background: #eeeeee;
+		color: black;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.template::after {
+		position: absolute;
+		top: 1em;
+		right: -2.6em;
+		content: "TEMPLATE";
+		width: 10em;
+		text-align: center;
+		transform: rotate(30deg);
+		background: black;
+		color: white;
+	}
+
+	.hidden {
+		visibility: hidden;
+		margin: 0.5em 0;
+		padding: 0;
+		height: 0;
+		min-height: 0;
+	}
+
+	li {
+		&.is-real > code:first-child::before {
+			content: "\211d\00a0" !important;
+			color: blue;
+		}
+
+		&.is-virtual > code:first-child:before {
+			content: "\1D456\00a0" !important;
+			color: red;
+		}
+	}
+
+	li:first-child::before {
+		position: absolute;
+		top: 0;
+		height: 0.7em;
+		left: -0.75em;
+		width: 0.5em;
+		border-style: none none solid solid;
+		content: "";
+		border-width: 0.1em;
+	}
+
+	li:not(:last-child)::after {
+		position: absolute;
+		top: 0;
+		bottom: -0.7em;
+		left: -0.75em;
+		width: 0.5em;
+		border-style: none none solid solid;
+		content: "";
+		border-width: 0.1em;
+	}
+}
