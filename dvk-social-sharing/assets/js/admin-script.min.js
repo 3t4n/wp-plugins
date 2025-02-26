@@ -1,0 +1,1 @@
+!function(){var e=document.getElementById("dvkss_settings");function n(){var n=e.elements.namedItem("dvk_social_sharing[load_icon_css]").value;e.querySelector(".row-icon-size").style.display="1"===n?"":"none"}e.addEventListener("change",n),n()}();
