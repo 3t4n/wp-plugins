@@ -1,0 +1,442 @@
+/*
+ CSS for the main interaction
+*/
+
+.aims_tab_wrap > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.aims_tab_wrap .aims_tab_panel {
+  display: none;
+}
+
+.aims_tab_wrap > input:first-child:checked ~ .aims_tab_panels > .aims_tab_panel:first-child,
+.aims_tab_wrap > input:nth-child(3):checked ~ .aims_tab_panels > .aims_tab_panel:nth-child(2),
+.aims_tab_wrap > input:nth-child(5):checked ~ .aims_tab_panels > .aims_tab_panel:nth-child(3),
+.aims_tab_wrap > input:nth-child(7):checked ~ .aims_tab_panels > .aims_tab_panel:nth-child(4),
+.aims_tab_wrap > input:nth-child(9):checked ~ .aims_tab_panels > .aims_tab_panel:nth-child(5),
+.aims_tab_wrap > input:nth-child(11):checked ~ .aims_tab_panels > .aims_tab_panel:nth-child(6) {
+  display: block;
+}
+
+
+.aims_tab_wrap > label {
+  position: relative;
+  display: inline-block;
+  padding: 0px 0px 0px 0px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+
+.aims_tab_wrap input:focus-visible + label {
+  outline: 2px solid rgba(0, 102, 204, 1);
+  border-radius: 3px;
+}
+
+.aims_tab_wrap > label:hover,
+.aims_tab_wrap > input:focus + label,
+.aims_tab_wrap > input:checked + label {
+  color: #06c;
+}
+
+.aims_tab_wrap > input:checked + label {
+    border-bottom: 5px solid #06c;
+    margin-bottom: -2px;
+}
+
+.aims_tab_panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+.aims_tab_wrap label.aims_tab_label {
+    width: 30%;
+    text-align: center;
+}
+
+.aims_tab_wrap {
+  max-width: 100%;
+  padding: 30px;
+}
+
+
+div.aims-accordion-list {
+  position: relative;
+  display: block;
+  width: 98%;
+  height: auto;
+  padding: 0px 0px;
+  margin: 0;
+  list-style: none;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+div.aims-accordion-list .aims-accordion-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 auto 15px auto;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+div.aims-accordion-list .aims-accordion-box.aims-accordion-active h3:after {
+  transform: rotate(90deg);
+}
+div.aims-accordion-list .aims-accordion-box h3 {
+  font-weight: 700;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0 0 0 0;
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  line-height: 40px;
+}
+div.aims-accordion-list .aims-accordion-box h3:after {
+  content: "\f054";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fcc110;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+}
+div.aims-accordion-list .aims-accordion-box div.aims-accordion-answer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+div.aims-accordion-list .aims-accordion-box div.aims-accordion-answer p {
+  position: relative;
+  display: block;
+  font-weight: 300;
+  padding: 10px 0 0 0;
+  cursor: pointer;
+  line-height: 150%;
+  margin: 0 0 15px 0;
+  font-size: 14px;
+}
+
+
+
+.aims-container {
+  margin: 0px 0px 0px 0px;
+  width:96%;
+  padding: 2%;
+}
+
+.aims-checkbox-switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 56px;
+  height: 20px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 18px;
+  box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(top, #eeeeee, white 25px);
+  background-image: -moz-linear-gradient(top, #eeeeee, white 25px);
+  background-image: -o-linear-gradient(top, #eeeeee, white 25px);
+  background-image: linear-gradient(to bottom, #eeeeee, white 25px);
+}
+
+.aims-checkbox-switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.aims-checkbox-switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12),
+    inset 0 0 2px rgba(0, 0, 0, 0.15);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+  -webkit-transition-property: opacity background;
+  -moz-transition-property: opacity background;
+  -o-transition-property: opacity background;
+  transition-property: opacity background;
+}
+.aims-checkbox-switch-label:before,
+.aims-checkbox-switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+.aims-checkbox-switch-label:before {
+  content: attr(data-off);
+  right: 11px;
+  color: #aaa;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.aims-checkbox-switch-label:after {
+  content: attr(data-on);
+  left: 11px;
+  color: white;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}
+.aims-checkbox-switch-input:checked ~ .aims-checkbox-switch-label {
+  background: #47a8d8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.aims-checkbox-switch-input:checked ~ .aims-checkbox-switch-label:before {
+  opacity: 0;
+}
+.aims-checkbox-switch-input:checked ~ .aims-checkbox-switch-label:after {
+  opacity: 1;
+}
+
+.aims-checkbox-switch-handle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  background-image: -webkit-linear-gradient(top, white 40%, #f0f0f0);
+  background-image: -moz-linear-gradient(top, white 40%, #f0f0f0);
+  background-image: -o-linear-gradient(top, white 40%, #f0f0f0);
+  background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+}
+.aims-checkbox-switch-handle:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+  background-image: -webkit-linear-gradient(top, #eeeeee, white);
+  background-image: -moz-linear-gradient(top, #eeeeee, white);
+  background-image: -o-linear-gradient(top, #eeeeee, white);
+  background-image: linear-gradient(to bottom, #eeeeee, white);
+}
+.aims-checkbox-switch-input:checked ~ .aims-checkbox-switch-handle {
+  left: 40px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.aims-checkbox-switch-green > .aims-checkbox-switch-input:checked ~ .aims-checkbox-switch-label {
+  background: #4fb845;
+}
+
+.aims-checkbox-content{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+ /* justify-content: space-between;*/
+  justify-content: flex-start;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.aims-checkbox-content p{
+  display: inline-block;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+  font-size: 16px;
+  width: 40%;
+}
+
+@media only screen and (max-width: 991px) {
+  .aims-checkbox-content p{
+	  width: 80%;
+	}
+}
+
+.aims-field-content{
+  text-align: left;
+}
+
+/* Basic styles */
+.aims-field-content input[type="checkbox"],
+.aims-field-content input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.aims-field-content label {
+  position: relative;
+  display: inline-block;
+  line-height: 1.5em;
+  padding: 0 0 0 35px;
+  cursor: pointer;
+}
+.aims-field-content label::before,
+.aims-field-content label::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.aims-field-content label::before {
+  content: " ";
+  border: 2px solid #bdc3c7;
+  border-radius: 20%;
+}
+/* Checkbox */
+.aims-field-content input[type="checkbox"] + label::after {
+  content: "\2714";
+  color: #2c3e50;
+  line-height: 1.5;
+  text-align: center;
+}
+/* Radio */
+.aims-field-content input[type="radio"] + label::before {
+  border-radius: 50%;
+  
+}
+.aims-field-content input[type="radio"] + label::after {
+	content: " ";
+	top: 5px;
+	left: 5px;
+	width: 6px;
+	height: 6px;
+	background: #fff;
+	border: 4px solid #47a8d8;
+	border-radius: 50%;
+}
+/* :checked */
+.aims-field-content input[type="checkbox"]:checked + label::before,
+.aims-field-content input[type="radio"]:checked + label::before {
+  background: #fff;
+  border-color: #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.aims-field-content input[type="checkbox"] + label::after,
+.aims-field-content input[type="radio"] + label::after {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.aims-field-content input[type="checkbox"]:checked + label::after,
+.aims-field-content input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+/* Transition */
+.aims-field-content label::before,
+.aims-field-content label::after {
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+
+.aims-chart-datatable{
+  width:100%;
+    }
+.aims-data-wrap{
+  position:relative;
+  width:600px;
+  
+}
+.aims-data-wrap .aims-data-content-left{
+  width:90%;
+  float:left;
+  
+}
+.aims-data-wrap .aims-data-content-right{
+  width:10%;
+  float:left;
+  
+}
+button.add_more_columns {
+  margin-left:5px;
+}
+button.add_more_rows {
+  margin-top:5px;
+}
+.aims-chart-datatable input{
+  width:100%;
+}
+.aims-chart-datatable thead input{
+  width:80%;
+}
+.aims-chart-datatable thead i{
+  padding-left:3px;
+  color:indianred;
+}
+.aims-chart-datatable a i{
+  color:indianred;
+}
+
+.aims-chart-datatable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.aims-chart-datatable thead {
+  background: #f0f0f0;
+}
+
+.aims-chart-datatable th, 
+.aims-chart-datatable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.aims-chart-datatable tr:nth-child(even) {
+  background: #efefef;
+}
+
+.aims-chart-datatable tr:hover {
+  background: #f0f0f0;
+}
+
+.aims_cf7_settings_show_popup_timeout{
+  width:60px;
+}
