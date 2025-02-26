@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * Enqueue scripts and styles, call requested select box field
+ */
+if ( ! function_exists( 'nn_select2_enqueue' ) ) {
+	function nn_select2_enqueue() {
+		wp_enqueue_script( 'nn-select2-field-js', NN_QUICK_VIEW_URI . 'includes/framework/select2/js/select2/select2.min.js', array( 'jquery-ui-sortable' ), '3.5.1' );
+		wp_enqueue_script( 'nn-select2-field-init', NN_QUICK_VIEW_URI . 'includes/framework/select2/js/select2-init.js', array( 'nn-select2-field-js' ), '' );
+		wp_enqueue_style( 'nn-select2-field-css', NN_QUICK_VIEW_URI . 'includes/framework/select2/js/select2/select2.css', array(), '3.5.1' );
+		wp_enqueue_style( 'nn-select2-field-mods', NN_QUICK_VIEW_URI . 'includes/framework/select2/css/select2.css', array(), '' );
+	}
+}
+
+/**
+ * Render select box field
+ */
+if ( ! function_exists( 'nn_select2_render' ) ) {
+	function nn_select2_render( $field, $value, $object_id, $object_type, $field_type_object ) {
+		nn_select2_enqueue();
+
+		echo $field_type_object->select( array(
+			'class'   			=> 'cmb2_select select2',
+			'options' 			=> '<option></option>' . $field_type_object->concat_items(),
+			'desc'    			=> $field->args( 'desc' ) && ! empty( $value ) ? $field_type_object->_desc( true ) : '',
+			'data-placeholder' 	=> $field->args( 'desc' ),
+		) );
+	}
+	add_filter( 'cmb2_render_nn_select', 'nn_select2_render', 10, 5 );
+}
+
+/**
+ * Render multi-value select input field
+ */
+if ( ! function_exists( 'nn_multiselect_render' ) ) {
+	function nn_multiselect_render( $field, $value, $object_id, $object_type, $field_type_object ) {
+		nn_select2_enqueue();
+
+		$options = array();
+
+		foreach ( (array) $field->options() as $opt_value => $opt_label ) {
+			$options[] = array(
+				'id' 	=> $opt_value,
+				'text' 	=> $opt_label
+			);
+		}
+
+		wp_localize_script( 'nn-select2-field-init', $field_type_object->_id() . '_data', $options );
+
+		echo $field_type_object->input( array(
+			'type'  			=> 'hidden',
+			'class' 			=> 'select2',
+			'desc'  			=> $field->args( 'desc' ) && ! empty( $value ) ? $field_type_object->_desc( true ) : '',
+			'data-placeholder' 	=> esc_attr( $field->args( 'description' ) ),
+		) );
+
+	}
+	add_filter( 'cmb2_render_nn_multiselect', 'nn_multiselect_render', 10, 5 );
+}
+
+
+if ( ! function_exists( 'nn_multiselect_escape' ) ) {
+	function nn_multiselect_escape( $check, $meta_value ) {
+		return ! empty( $meta_value ) ? implode( ',', $meta_value ) : $check;
+	}
+	add_filter( 'cmb2_types_esc_nn_multiselect', 'nn_multiselect_escape', 10, 2 );
+}
+
+if ( ! function_exists( 'nn_multiselect_sanitize' ) ) {
+	function nn_multiselect_sanitize( $check, $meta_value ) {
+
+		if ( ! empty( $meta_value ) ) {
+			return explode( ',', $meta_value );
+		}
+
+		return $check;
+	}
+	add_filter( 'cmb2_sanitize_nn_multiselect', 'nn_multiselect_sanitize', 10, 2 );
+}
