@@ -1,0 +1,1753 @@
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/proximanova-semibold.eot);
+    src: local("☺"),url(../fonts/proximanova-semibold.eot?#iefix) format("embedded-opentype"),url(../fonts/proximanova-semibold.svg#ProximaNova-Semibold) format("svg"),url(../fonts/proximanova-semibold.woff) format("woff"),url(../fonts/proximanova-semibold.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/proximanova-bold.eot);
+    src: local("☺"),url(../fonts/proximanova-bold.eot?#iefix) format("embedded-opentype"),url(../fonts/proximanova-bold.svg#ProximaNova-bold) format("svg"),url(../fonts/proximanova-bold.woff) format("woff"),url(../fonts/proximanova-bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/proximanova-regular.eot);
+    src: local("☺"),url(../fonts/proximanova-regular.woff) format("woff"),url(../fonts/proximanova-regular.ttf) format("truetype"),url(../fonts/proximanova-regular.svg) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+/* COMMON */
+#wpfooter {
+    display: none;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.wrap--adoric-dashboard {
+    margin-left: -20px;
+    position: relative;
+}
+.wrap--adoric-dashboard A,
+.wrap--adoric-dashboard A:hover,
+.wrap--adoric-dashboard A:focus,
+.wrap--adoric-dashboard A:active {
+    text-decoration: none;
+    color: #006CE7;
+}
+.wrap--adoric-dashboard INPUT,
+.wrap--adoric-dashboard INPUT:hover,
+.wrap--adoric-dashboard INPUT:focus,
+.wrap--adoric-dashboard INPUT:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    outline: none;
+}
+
+/* CONTAINERS */
+
+.wrap--adoric-dashboard .activate-form-wrapper {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 0;
+    padding-left: 120px;
+    padding-top: 237px;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: 120px 40px;
+    display: none;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper {
+        padding-left: 6.2%;
+        padding-top: 229px;
+        background-position: 13% 40px;
+    }
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper.active {
+    display: block;
+}
+
+
+
+.wrap--adoric-dashboard .loader-wrapper {   
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+.wrap--adoric-dashboard .loader-wrapper.active {
+    display: block;
+}
+
+
+.wrap--adoric-dashboard .welcome-wrapper {
+    width: 100%;
+    height: 100%;
+    
+    display: none;
+}
+.wrap--adoric-dashboard .welcome-wrapper.active {
+    display: block;
+}
+
+/* FORM SCREEN */
+.wrap--adoric-dashboard .activate-form-wrapper H1 {
+    margin-bottom: 6px;
+    display: block;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    margin-top: 0;
+    border: 0;
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper P {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    max-width: 660px;
+    color: #57626C;
+}
+.wrap--adoric-dashboard .activate-form-wrapper STRONG {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 3px;
+    color: #222;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.wrap--adoric-dashboard .activate-form-wrapper:before,
+.wrap--adoric-dashboard .activate-form-wrapper::before {
+    content: '';
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #EAF0F6;
+    z-index: -1;
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper:after,
+.wrap--adoric-dashboard .activate-form-wrapper::after {
+    content: '';
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.75;
+    background-image: url('https://static.adoric.com/wp-plugin-images/campaigns.png');
+    background-size: 939px 890px;
+    background-repeat: no-repeat;
+    background-position: top right;
+    z-index: -1;
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+    .wrap--adoric-dashboard .activate-form-wrapper:after,
+    .wrap--adoric-dashboard .activate-form-wrapper::after {
+        background-image: url('https://static.adoric.com/wp-plugin-images/campaigns@2x.png');
+    }
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper:after,
+    .wrap--adoric-dashboard .activate-form-wrapper::after {
+        background-size: 66vw auto;
+        background-repeat: no-repeat;
+        background-position: 45.7vw -51px;
+    }    
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper FORM  {
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper FORM INPUT[type="password"] {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    height: 52px;
+    width: 260px;
+    padding: 15px 16px;
+    border-radius: 4px;
+    border: 2px solid #DBE3EB;
+    margin-right: 11px;
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper FORM LABEL {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: #60656A;
+    margin-bottom: 9px;
+    display: block;
+}
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon {
+    display: inline-block;
+    margin-left: 3px;
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14 7C14 10.866 10.866 14 7 14C3.13401 14 0 10.866 0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7ZM7 5C7.55228 5 8 4.55228 8 4C8 3.44772 7.55228 3 7 3C6.44772 3 6 3.44772 6 4C6 4.55228 6.44772 5 7 5ZM7 6C6.44772 6 6 6.44772 6 7V10C6 10.5523 6.44772 11 7 11C7.55228 11 8 10.5523 8 10V7C8 6.44772 7.55228 6 7 6Z' fill='%23C9D2DC'/%3E%3C/svg%3E%0A");
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    position: relative;
+    vertical-align: top;
+    margin-top: 5px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint {
+    display: none;
+    
+    min-width: 238px;
+    position: absolute;
+    color: #D1D7DE;
+    background-color: #3A3F45;
+    border-radius: 3px;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    top: -55px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+         -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint A,
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint A:hover,
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint A:focus,
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint A:active {
+    color: #D1D7DE;
+    font-weight: 600;
+}
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon:hover .hint {
+    display: block;
+}
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint:after,
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 0;
+    bottom: -6px;
+    margin-left: -5px;
+    left: 50%;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #3A3F45 transparent transparent transparent;
+}
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint:before,
+.wrap--adoric-dashboard .activate-form-wrapper I.hint-icon .hint::before {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    height: 30px;
+    background: transparent;
+    width: 100%;
+    left: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper FORM INPUT[type="submit"] {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1;
+    vertical-align: top;
+    color: #fff;
+    background-color: #006ce7;
+    width: 187px;
+    height: 52px;
+    border-radius: 4px;    
+    cursor: pointer;
+    border: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .createAccountHelp {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #778594;
+    line-height: 22px;
+    font-weight: normal;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .createAccountHelp A {
+    color: #006ce7;
+    font-weight: 600;
+    padding-right: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6H15M15 6L10 1M15 6L10 11' stroke='%23006CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .error-info {
+    padding: 10px 0;
+    color: #c00000;
+    font-size: 14px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .videoLink {
+    position: absolute;
+    top: 329px;
+    right: 153px;
+    border: 0;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.16);
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.16);
+    border-radius: 125px;
+    padding: 35px 24px 35px 96px;
+    background-image: url(../img/play-video.svg);
+    background-repeat: no-repeat;
+    background-position: 20px 20px;
+    background-size: 60px 60px;
+    color: #006ce7;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    cursor: pointer;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper .videoLink {
+        right: 6%;
+        padding: 35px 25px 35px 94px;
+        font-size: 23px;
+        line-height: 31px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing {
+    background-color: #fff;
+    margin-top: 188px;
+    position: absolute;
+    left: 0;
+    font-family: ProximaNova, sans-serif;
+    right: 0;
+    width: 100%;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper .landing {
+        margin-top: 195px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing SECTION {
+    text-align: center;
+    padding: 120px 120px;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper .landing SECTION {
+        padding: 120px 5.5vw
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing H2 {
+    font-weight: 700;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-size: 50px;
+    line-height: 61px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing P {
+    font-weight: normal;
+    font-family: ProximaNova, sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing STRONG {
+    margin-bottom: 16px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted,
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted:hover,
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted:focus,
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted:active {
+    width: 272px;
+    height: 56px;
+    border-radius: 4px;
+    display: block;
+    margin: 48px auto 0;
+    padding: 16px 32px;
+    color: #fff;
+    background-color: #006ce7;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6H15M15 6L10 1M15 6L10 11' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right 32px center;
+    font-family: ProximaNova, sans-serif;
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore,
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:hover,
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:focus,
+.wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:active {
+    height: 22px;
+    display: block;
+    max-width: 117px;
+    margin: 16px auto 40px 0;
+    padding: 0px 24px 0 0;
+    color: #006ce7;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6H15M15 6L10 1M15 6L10 11' stroke='%23006CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right center;
+    font-family: ProximaNova, sans-serif;
+    text-align: left;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore,
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:hover,
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:focus,
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:active {
+        margin: 16px auto 31px 0;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers {
+    -webkit-box-shadow: 0px 2px 0px #EEEEEE;
+            box-shadow: 0px 2px 0px #EEEEEE;
+    padding: 14px 120px;
+    padding-left: calc((100% - 1280px) / 2);
+    padding-right: calc((100% - 1280px) / 2);
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers {
+        padding-left: calc((100% - 1120px) / 2);
+        padding-right: calc((100% - 1120px) / 2);
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers SPAN {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 80px;
+    font-size: 16px;
+    color: #444;
+    flex-grow: 1;
+    text-align: left;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL {
+    margin: 0 0;
+    text-align: left;
+    font-size: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI {
+    list-style: none;
+    display: inline-block;
+    margin-right: 9px;
+    margin-bottom: 0;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(1) {
+    width: 122px;
+    background-image: url('../img/logo-1.svg');
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(2) {
+    width: 167px;
+    background-image: url('../img/logo-2.svg');
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(3) {
+    width: 86px;
+    background-image: url('../img/logo-3.svg');
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(4) {
+    width: 163px;
+    background-image: url('../img/logo-4.svg');
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(5) {
+    width: 158px;
+    background-image: url('../img/logo-5.svg');
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(6) {
+    width: 145px;
+    background-image: url('../img/logo-6.svg');
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(7) {
+    width: 113px;
+    background-image: url('../img/logo-7.svg');
+}
+
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI {
+        height: 60px;
+        margin-right: 20px;
+        background-size: contain;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:last-child {
+        margin-right: 0;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(1) {
+        width: 92px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(2) {
+        width: 127px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(3) {
+        width: 64px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(4) {
+        width: 123px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(5) {
+        width: 118px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(6) {
+        width: 109px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI:nth-child(7) {
+        width: 85px;
+    }
+}
+@media (max-width: 1350px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers {
+        flex-wrap: wrap
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers SPAN {
+        display: block;
+        -webkit-flex-basis: 100%;
+        text-align: center;
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL {
+        margin: 0 auto;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-align-content: center;
+            -ms-flex-line-pack: center;
+                align-content: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps {
+    margin-bottom: 44px;    
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+    font-size: 0;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps {
+        margin-bottom: 15px
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE {
+    border-radius: 4px;
+    background-color: #EAF0F6;
+    display: inline-block;
+    max-width: 386px;
+    width: 30%;
+    margin: 0 2.5% 31px 2.5%;
+    height: 280px;
+    position: relative;
+    vertical-align: top;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE {
+        height: 245px
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE:first-child {
+    margin-left: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE:last-child {
+    margin-right: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE IMG {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    height: auto;
+    margin-top: 17px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE:nth-child(2) IMG {
+    margin-top: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE FIGCAPTION {
+    position: absolute;
+    bottom: -46px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__design {
+    background-color: #EAF0F6;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__design IMG {
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top;
+       object-position: top;
+    margin-top: 56px;
+    width: 100%;
+    max-width: 1280px;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__design IMG {
+        margin-top: 62px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    max-width: 1280px;
+    margin: -60px auto 0 auto;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper .landing__design__features {
+        margin: -26px auto 0 auto;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI {
+    display: inline-block;
+    max-width: 386px;
+    width: 30%;
+    padding-top: 58px;
+    margin-bottom: 0;
+    text-align: center;
+    font-family: ProximaNova, sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(-n+3) {
+    margin-bottom: 78px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI B {
+    display: block;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(1) {
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='34' viewBox='0 0 32 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.72727 15.6087C3.72727 9.08765 8.92682 3.78261 15.3182 3.78261C21.0114 3.78261 25.7459 7.99409 26.7168 13.5217H29.4727C28.4745 6.45391 22.5168 1 15.3182 1C7.42409 1 1 7.55304 1 15.6087C1 22.4637 5.65818 28.2153 11.9091 29.7819V26.9117C7.17591 25.423 3.72727 20.9193 3.72727 15.6087Z' fill='%23006CE7'/%3E%3Cpath d='M3.72727 15.6087C3.72727 9.08765 8.92682 3.78261 15.3182 3.78261C21.0114 3.78261 25.7459 7.99409 26.7168 13.5217H29.4727C28.4745 6.45391 22.5168 1 15.3182 1C7.42409 1 1 7.55304 1 15.6087C1 22.4637 5.65818 28.2153 11.9091 29.7819V26.9117C7.17591 25.423 3.72727 20.9193 3.72727 15.6087' stroke='white' stroke-width='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.3637 30.2173V19.0869H28.2728L28.2755 30.2173H17.3637ZM28.2728 16.3047H17.3637C15.8582 16.3047 14.6364 17.5527 14.6364 19.0873V30.2177C14.6364 31.7523 15.8582 33.0003 17.3637 33.0003H28.2728C29.7769 33.0003 31 31.7523 31 30.2177V19.0873C31 17.5527 29.7769 16.3047 28.2728 16.3047Z' fill='%23006CE7'/%3E%3Cpath d='M17.3637 30.2173H17.1137V30.4673H17.3637V30.2173ZM17.3637 19.0869V18.8369H17.1137V19.0869H17.3637ZM28.2728 19.0869L28.5228 19.0869L28.5228 18.8369H28.2728V19.0869ZM28.2755 30.2173V30.4673H28.5256L28.5255 30.2173L28.2755 30.2173ZM17.6137 30.2173V19.0869H17.1137V30.2173H17.6137ZM17.3637 19.3369H28.2728V18.8369H17.3637V19.3369ZM28.0228 19.087L28.0255 30.2174L28.5255 30.2173L28.5228 19.0869L28.0228 19.087ZM28.2755 29.9673H17.3637V30.4673H28.2755V29.9673ZM28.2728 16.0547H17.3637V16.5547H28.2728V16.0547ZM17.3637 16.0547C15.7154 16.0547 14.3864 17.4195 14.3864 19.0873H14.8864C14.8864 17.6859 16.0011 16.5547 17.3637 16.5547V16.0547ZM14.3864 19.0873V30.2177H14.8864V19.0873H14.3864ZM14.3864 30.2177C14.3864 31.8856 15.7154 33.2503 17.3637 33.2503V32.7503C16.0011 32.7503 14.8864 31.6191 14.8864 30.2177H14.3864ZM17.3637 33.2503H28.2728V32.7503H17.3637V33.2503ZM28.2728 33.2503C29.9196 33.2503 31.25 31.8857 31.25 30.2177H30.75C30.75 31.619 29.6341 32.7503 28.2728 32.7503V33.2503ZM31.25 30.2177V19.0873H30.75V30.2177H31.25ZM31.25 19.0873C31.25 17.4194 29.9196 16.0547 28.2728 16.0547V16.5547C29.6341 16.5547 30.75 17.686 30.75 19.0873H31.25Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(2) {
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='24' viewBox='0 0 32 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='30' height='22' rx='1' stroke='%23006CE7' stroke-width='2'/%3E%3Crect x='8.72729' y='12.938' width='14.5455' height='2.0625' rx='1' fill='%23006CE7'/%3E%3Crect x='10.1819' y='16.6873' width='11.6364' height='2.0625' rx='1' fill='%23006CE7'/%3E%3Cpath d='M15.5197 10.3531C16.9113 10.3531 18.0394 9.18975 18.0394 7.75468C18.0394 6.3196 16.9113 5.15625 15.5197 5.15625C14.1281 5.15625 13 6.3196 13 7.75468C13 9.18975 14.1281 10.3531 15.5197 10.3531Z' fill='%23006CE7'/%3E%3C/svg%3E%0A");
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(3) {
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='22' viewBox='0 0 32 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.002 0C19.7345 0 24.403 0.044 26.2973 0.168C28.0455 0.00657827 29.7253 0.88788 30.5858 2.418C31.5639 4.04 32 6.658 32 10.996C32 15.334 31.5599 17.986 30.5778 19.586C29.7093 21.105 28.0392 21.9832 26.2953 21.838C24.371 21.946 19.6645 22 16.002 22C12.3395 22 7.62695 21.946 5.70871 21.838C3.95406 21.982 2.27455 21.0979 1.40017 19.57C0.436054 17.962 0 15.328 0 11.012C0 6.696 0.436055 4.048 1.41018 2.414C2.27735 0.88501 3.96024 0.00610773 5.71071 0.168C7.60095 0.044 12.2695 0 16.002 0ZM26.1773 19.848C27.8755 19.734 28.3035 19.53 28.8616 18.568L28.8636 18.562C29.847 16.1741 30.2382 13.5838 30.0037 11.012C30.2321 8.43483 29.8398 5.84046 28.8596 3.446V3.43C28.3015 2.47 27.8515 2.258 26.1753 2.164C24.309 2.042 19.5324 2 16.002 2C12.4716 2 7.68896 2.042 5.83473 2.168C4.14652 2.262 3.69446 2.476 3.13239 3.436C2.1603 5.83185 1.77224 8.42457 2.00025 11C1.76838 13.5716 2.15377 16.1613 3.12439 18.554C3.69046 19.52 4.14452 19.736 5.83473 19.848C9.12514 20.032 22.8609 20.034 26.1773 19.848Z' fill='%23006CE7'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.5152 5.12536C12.8332 4.94913 13.2217 4.95933 13.53 5.152L21.53 10.152C21.8224 10.3347 22 10.6552 22 11C22 11.3448 21.8224 11.6653 21.53 11.848L13.53 16.848C13.2217 17.0407 12.8332 17.0509 12.5152 16.8746C12.1973 16.6984 12 16.3635 12 16V6C12 5.63648 12.1973 5.30158 12.5152 5.12536ZM19.114 11L14 7.8V14.2L19.114 11Z' fill='%23006CE7'/%3E%3C/svg%3E%0A");
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(4) {
+    background-image: url("data:image/svg+xml,%3Csvg width='22' height='28' viewBox='0 0 22 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2.40015H3.14214V25.601H0V2.40015Z' fill='%2304FF8E'/%3E%3Cpath d='M18.8579 8.80054H22.0001V25.6006H18.8579V8.80054Z' fill='%238E2EFF'/%3E%3Cpath d='M0 24.7993H21.9991V27.9997H0V24.7993Z' fill='%2300C5FF'/%3E%3Cpath d='M0 0H12.5713V3.20041H0V0Z' fill='%23FFF152'/%3E%3Cpath d='M18.8559 6.39941V3.20041H15.7124V0H12.5702V9.59982H21.998V6.39941' fill='%23FF5B5B'/%3E%3Cpath d='M18.8579 12.8V9.59961H22.0001' fill='%23551C99'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.5711 0V3.20041H9.42761' fill='%23999131'/%3E%3C/svg%3E%0A");
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(5) {
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.9621 16C27.7462 18.8383 26.6188 21.4219 24.872 23.4587L19.8904 18.477C20.4054 17.754 20.7641 16.9119 20.917 16H27.9621ZM27.9621 14C27.7462 11.1622 26.6192 8.57899 24.8729 6.5424L19.8912 11.5241C20.4058 12.2469 20.7641 13.0886 20.917 14H27.9621ZM18.4761 19.8911L23.4578 24.8728C21.4211 26.6192 18.8379 27.7462 16 27.9621V20.917C16.9115 20.7641 17.7532 20.4057 18.4761 19.8911ZM23.4588 5.1281C21.422 3.38123 18.8384 2.25381 16 2.03789V9.08296C16.9119 9.23595 17.7541 9.59466 18.4772 10.1097L23.4588 5.1281ZM6.5424 24.8729C8.57899 26.6192 11.1622 27.7462 14 27.9621V20.917C13.0886 20.7641 12.2469 20.4058 11.5241 19.8912L6.5424 24.8729ZM9.08296 16C9.23595 16.9119 9.59465 17.7541 10.1097 18.4772L5.1281 23.4588C3.38123 21.422 2.25381 18.8384 2.03789 16H9.08296ZM9.08296 14H2.03789C2.25377 11.1621 3.38084 8.57886 5.12719 6.54223L10.1089 11.5239C9.59428 12.2468 9.23587 13.0885 9.08296 14ZM6.54134 5.12796L11.523 10.1096C12.246 9.5946 13.0881 9.23594 14 9.08296V2.03789C11.1617 2.25381 8.5781 3.38117 6.54134 5.12796ZM30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM19 15C19 17.2091 17.2091 19 15 19C12.7909 19 11 17.2091 11 15C11 12.7909 12.7909 11 15 11C17.2091 11 19 12.7909 19 15Z' fill='%23006CE7'/%3E%3C/svg%3E%0A");
+}
+.wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI:nth-child(6) {
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14 29C21.1797 29 27 23.1797 27 16C27 8.8203 21.1797 3 14 3C6.8203 3 1 8.8203 1 16C1 23.1797 6.8203 29 14 29Z' stroke='%23006CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 7C9.02944 7 5 11.0294 5 16C5 20.9706 9.02944 25 14 25C18.9706 25 23 20.9706 23 16' stroke='%23006CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 1V9' stroke='%23006CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M29 16H21' stroke='%23006CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.8745 20.144C14.1705 20.144 13.5465 20.028 13.0025 19.796C12.4585 19.556 12.0305 19.244 11.7185 18.86L12.6065 17.72C12.8785 18 13.2145 18.224 13.6145 18.392C14.0145 18.552 14.4145 18.632 14.8145 18.632C15.2945 18.632 15.6665 18.54 15.9305 18.356C16.1945 18.164 16.3265 17.916 16.3265 17.612C16.3265 17.292 16.1985 17.06 15.9425 16.916C15.6865 16.764 15.2785 16.688 14.7185 16.688C14.2145 16.688 13.8825 16.696 13.7225 16.712V15.176C13.8185 15.184 14.1505 15.188 14.7185 15.188C15.7025 15.188 16.1945 14.904 16.1945 14.336C16.1945 14.032 16.0545 13.8 15.7745 13.64C15.5025 13.472 15.1465 13.388 14.7065 13.388C13.9305 13.388 13.2545 13.664 12.6785 14.216L11.8265 13.148C12.5785 12.3 13.5985 11.876 14.8865 11.876C15.8225 11.876 16.5585 12.072 17.0945 12.464C17.6385 12.856 17.9105 13.384 17.9105 14.048C17.9105 14.528 17.7385 14.932 17.3945 15.26C17.0505 15.58 16.6385 15.784 16.1585 15.872C16.6305 15.92 17.0585 16.116 17.4425 16.46C17.8345 16.796 18.0305 17.24 18.0305 17.792C18.0305 18.488 17.7425 19.056 17.1665 19.496C16.5905 19.928 15.8265 20.144 14.8745 20.144Z' fill='%23006CE7'/%3E%3C/svg%3E%0A");
+}
+
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] {
+    background-color: #EAF0F6;
+    padding: 80px 50px 377px 50px;
+    border-radius: 4px;
+    width: 48%;
+    width: -webkit-calc(50% - 30px);
+    width: -moz-calc(50% - 30px);
+    width: calc(50% - 30px);
+    float: left;
+    font-family: ProximaNova, sans-serif;
+    display: inline-block;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] {
+        padding: 82px 25px 347px 25px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] H3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 39px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] P {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    margin-left: 0;
+    margin-right: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging {
+    margin-right: 60px;
+    background-image: url(https://static.adoric.com/wp-plugin-images/increase-engagement.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 564px 378px;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging {
+        background-size: 100% auto;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce {
+    background-image: url(https://static.adoric.com/wp-plugin-images/e-commerce.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 564px 378px;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce {
+        background-size: 100% auto;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore:hover,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore:focus,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore:active,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore:hover,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore:focus,
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore:active {
+    margin-left: auto;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    width: 100% !important;
+    padding: 100px 662px 100px 120px !important;
+    text-align: left;
+    background-image: url(https://static.adoric.com/wp-plugin-images/grow-leads.png);
+    background-repeat: no-repeat;
+    background-size: 574px 458px;
+    background-position: right 62px;
+}
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads {
+        background-image: url(https://static.adoric.com/wp-plugin-images/grow-leads@2x.png);
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging {
+        background-image: url(https://static.adoric.com/wp-plugin-images/increase-engagement@2x.png);
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce {
+        background-image: url(https://static.adoric.com/wp-plugin-images/e-commerce@2x.png);
+    }
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads {
+        padding: 88px 55% 86px 81px !important;
+        background-size: 48.5% auto;
+        background-position: right 74px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrations {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid #D1DAE3;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrations {
+        margin-top: 0;
+        padding-top: 30px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons LI {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    font-size: 0;
+    background-image: url('../img/integration-logos.svg');
+    background-size: 45px auto;
+    margin-bottom: 0;
+    padding: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons::after, 
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons:after {
+    content: "and many more...";
+    display: inline-block;
+    width: auto;
+    height: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    color: #999;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--mailchimp {
+    height: 31px;
+    background-position: 0 -215px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--salesforce {
+    width: 34px;
+    height: 24px;
+    background-position: 0 -229px;
+    background-size: 42px auto;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--hubspot {
+    background-position: 0 -164px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--aweber {
+    background-position: 0 -57px;
+    background-size: 47px auto;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--getResponse {
+    width: 34px;
+    height: 22px;
+    background-size: 53px auto;
+    background-position: 0 -171px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--webhooks {
+    height: 28px;
+    background-position: 0 -328px;
+    background-size: 49px auto;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads A {
+    margin-left: 0;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] .tagBadge {
+    display: inline-block;
+    margin-right: 3px;
+    border-radius: 100px;
+    padding: 6px 16px;
+    background-color: #E0E7EE;
+    height: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #60656A;
+}
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] .tagBadge {
+        margin-right: 0px;
+        margin-top: 8px;    
+        font-size: 13px;
+    }
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__getStarted {
+    padding-top: 72px;
+    background-image: url(../img/blue_logo.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 43px 40px;    
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer {
+    padding: 35px 120px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-top: 1px solid #E4EBF1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .copyright {
+    display: inline-block;
+    font-family: ProximaNova, sans-serif;
+    padding-left: 42px;
+    background-image: url(../img/blue_logo.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 26px 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #999;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a {
+    width: 16px;
+    height: 16px;
+    display: block;
+    cursor: pointer;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    margin-left: 24px;
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a.twitter {
+    background-image: url(../img/twitter_dark.svg);
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a.facebook {
+    background-image: url(../img/facebook_dark.svg);
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a.instagram {
+    background-image: url(../img/instagram_dark.svg);
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a.pinterest {
+    background-image: url(../img/pinterest_dark.svg);
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a.dribble {
+    background-image: url(../img/dribble_dark.svg);
+}
+.wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials a.linkedin {
+    background-image: url(../img/linkedin_dark.svg);
+}
+/* LOADER SCREEN */
+.wrap--adoric-dashboard .loader-wrapper {
+    position: relative;
+}
+.wrap--adoric-dashboard .loader-wrapper:before,
+.wrap--adoric-dashboard .loader-wrapper::before {
+    content: '';
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #EAF0F6;
+    z-index: -1;
+}
+.wrap--adoric-dashboard .loader-wrapper .loader {
+    position: absolute;
+    top: 45vh;
+    left: 50%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+         -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #57626C;
+    padding-top: 134px;
+    background-image: url(../blue_logo.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 110px 102px;
+}
+/* WELCOME SCREEN */
+.wrap--adoric-dashboard .welcome-wrapper:before,
+.wrap--adoric-dashboard .welcome-wrapper::before {
+    content: '';
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: -1;
+}
+.wrap--adoric-dashboard .welcome-wrapper .adoric_header {
+    background-color: #F6F6F6;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: 168px center;
+    padding: 0 168px;
+    height: 72px;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_header A {
+    display: inline-block;
+    float: right;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 72px;
+    color: #006CE7;
+    padding-right: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.43182 4.5H4.5C3.67157 4.5 3 5.17157 3 6V13.5C3 14.3284 3.67157 15 4.5 15H12C12.8284 15 13.5 14.3284 13.5 13.5V10.5682' stroke='%23006CE7' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M8.25 9.75L15 3M15 3V6.75M15 3H11.25' stroke='%23006CE7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right 25px;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper H1 {
+    display: block;
+    width: auto;
+    padding: 0 168px;
+    margin: 80px 0 48px 0;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 58px;
+    color: #222;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper H1 A {
+    width: 147px;
+    height: 40px;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 2px;
+    text-align: center;
+    display: inline-block;
+    float: right;
+    margin-top: 9px;
+    color: #fff;
+    background-color: #006CE7;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates {
+    margin: 0 120px;
+    background: #FFFFFF;
+    border: 2px solid #EEEEEE;
+    padding: 40px 48px;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates H4 {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates P {
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0;
+    padding: 0;
+    color: #444;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL {
+    margin: 40px 0 0 0;
+    padding: 0;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+            align-items: center;
+    -ms-flex-pack: start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+       -moz-box-pack: start;
+            justify-content: flex-start;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+            align-items: center;
+    margin: 0 0 32px 0;
+    width: 31.1%;
+    height: 280px;
+    border-radius: 4.5px;
+    background-color: #F8F8F8;
+    overflow: hidden;
+    position: relative;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI.multistep::after,
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI.multistep::after {
+    content: attr(data-steps);
+    font-size: 11px;
+    font-weight: 500;
+    color: #006ce7;
+    padding: 5px 8px;
+    background-color: #cee5ff;
+    border-radius: 2px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI:nth-child(3n+1) {
+    margin-left: 0;
+    margin-right: 32px;
+}
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI:nth-child(3n) {
+    margin-right: 0;
+    margin-left: 32px;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI:before,
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    background-image: url('../img/template_placeholder.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+@media (max-width: 1440px) {
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI {
+        width: 48%;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI:nth-child(2n) {
+        margin-right: 0;
+        margin-left: 2%;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI:nth-child(2n+1) {
+        margin-left: 0;
+        margin-right: 2%;
+    }
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI A {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI:hover A {
+    opacity: 1;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI A:after,
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI A::after {
+    content: "Create popup";
+    position: absolute;
+    display: block;
+    background: #006CE7;
+    color: #fff;
+    font-family: ProximaNova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 2px;
+    width: 147px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -73px;
+}
+
+.wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI IMG {
+    width: auto;
+    height: auto;
+    position: relative;
+    max-width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+}
+
+
+.videoModal {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 20px;
+    left: 0;
+    background-color: rgba(34, 34, 34, 0.8);
+}
+.videoModal__close {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.4 0L19.3333 16.9333L16.9333 19.3333L0 2.4L2.4 0Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 16.9333L16.9333 0L19.3333 2.4L2.4 19.3333L0 16.9333Z' fill='white'/%3E%3C/svg%3E%0A");
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    cursor: pointer;
+}
+.videoModal.active {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+}
+
+@media (max-width: 960px) {
+     .wrap--adoric-dashboard .activate-form-wrapper {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 40px;
+        overflow: hidden;
+        max-width: 100vw;
+        text-align: center;
+        padding-top: 68px;
+        background-position: center 24px;
+        width: auto;
+        margin: 0 auto;
+        background-size: 92px 20px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper STRONG {
+        font-size: 10px;
+        line-height: 12px;
+        margin-bottom: 8px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper H1 {
+        font-size: 36px;
+        line-height: 44px;
+        max-width: 245px;
+        margin: 0 auto 6px auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper P {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 26px;
+        max-width: 285px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper FORM {
+        max-width: 327px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper FORM LABEL {
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 10px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper FORM INPUT[type="password"],
+    .wrap--adoric-dashboard .activate-form-wrapper FORM INPUT[type="submit"] {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        line-height: 19px;
+        height: 46px;
+        margin-bottom: 10px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .createAccountHelp {
+        margin-top: -6px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .videoLink {
+        position: static;
+        margin-top: 38px;
+        padding: 11px 16px 12px 42px;
+        font-size: 15px;
+        line-height: 21px;
+        background-size: 24px 24px;
+        background-position: 10px 10px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+        border-radius: 125px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing {
+        margin-top: 40px
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper:before, 
+    .wrap--adoric-dashboard .activate-form-wrapper::before {
+        max-width: 100vw;
+        opacity: 0.92;
+        background-color: #D5E4F3;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper:after, 
+    .wrap--adoric-dashboard .activate-form-wrapper::after {
+        background-size: auto 616px;
+        max-width: 100vw;
+        background-repeat: no-repeat;
+        background-position: 0px 46px;
+        z-index: -2;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing SECTION {
+        padding: 48px 30px
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers SPAN {
+        font-size: 14px;
+        line-height: 80px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL {
+        margin-top: -10px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__customers UL LI {
+        height: 66px;
+        margin-right: 0;
+        background-size: contain;
+        margin-left: 0;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing H2 {
+        font-size: 28px;
+        margin-bottom: 6px;
+        line-height: 34px;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing P {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 32px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing SECTION.landing__abc {
+        padding-bottom: 15px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps {
+        margin-top: 0px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE {
+        height: 63.2vw;
+        width: 100%;
+        margin: 0 0 65px 0;
+        vertical-align: top;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE IMG {
+        width: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+        height: 100%;
+        margin-top: 10px;
+        object-position: center;
+        vertical-align: top;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE FIGCAPTION {
+        position: static;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 2px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps FIGURE:nth-child(2) IMG {
+        margin-bottom: 10px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted, 
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted:hover, 
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted:focus, 
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkGetStarted:active {
+        width: 230px;
+        height: 46px;
+        font-size: 16px;
+        line-height: 16px;
+        margin-top: -10px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__design IMG {
+        margin-top: 34px;
+        max-width: 326px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__abc .landing__abc__steps {
+        margin-bottom: 0;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__design {
+        padding-bottom: 0px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing__design__features {
+        margin: 0 auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI {
+        width: 96%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 44px;
+        margin-bottom: 40px !important;
+        background-position: top center;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing__design__features LI B {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 8px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing SECTION.landing__solutions {
+        padding-bottom: 30px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads {
+        padding: 32px 32px 54vw 32px !important;
+        margin-top: 40px;
+        margin-bottom: 24px;
+        background-position: left -0.3vw bottom -13vw;
+        background-size: 83vw;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons {
+        margin-top: 10px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons LI {
+        background-size: 35px auto;
+        width: 23px;
+        margin-right: 16px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--mailchimp {
+        height: 24px;
+        background-position: 0 -167px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--salesforce {
+        width: 26px;
+        height: 19px;
+        background-position: 0px -180px;
+        background-size: 33px auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--hubspot {
+        background-position: 0 -128px;
+        height: 23px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--aweber {
+        background-position: 0 -44px;
+        background-size: 36px auto;
+        height: 23px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--getResponse {
+        width: 26px;
+        height: 18px;
+        background-size: 43px auto;
+        background-position: 0 -139px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons .icon--webhooks {
+        height: 21px;
+        background-position: 0 -262px;
+        background-size: 39px auto;
+        width: 25px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons::after, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrationsIcons:after {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #999;
+        margin-top: 12px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__leads .integrations {
+        font-size: 14px;
+        line-height: 17px;
+        padding-top: 24px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore, 
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:hover, 
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:focus, 
+    .wrap--adoric-dashboard .activate-form-wrapper .landing .linkLearnMore:active {
+        margin: 16px auto 24px 0;
+        font-size: 16px;
+        padding-right: 17px;
+        line-height: 24px;
+        max-width: 102px;
+        background-size: 14px auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] {
+        width: 100%;
+        padding: 31px 24px 57vw 33px;
+        text-align: left;
+        margin-bottom: 24px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging {
+        background-size: 95% auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce {
+        background-size: 100% auto;
+        background-position: center bottom -14px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] H3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        line-height: 27px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] P {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore:hover, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore:focus, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__engaging .linkLearnMore:active, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore:hover, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore:focus, 
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions .landing__solutions__ecommerce .linkLearnMore:active {
+        margin-left: 0;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__solutions > DIV[class*="landing__solutions"] .tagBadge {
+        font-size: 12px;
+        line-height: 14px;
+        padding: 6px 12px;
+        height: 26px;
+        margin-right: 5px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.landing__getStarted {
+        background-size: 32px auto;
+        padding: 54px 30px !important;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.footer {
+        width: 100%;
+        flex-wrap: wrap;
+        padding-top: 32px;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .copyright {
+        flex-basis: 100%;
+        color: #999;
+        width: 100%;
+        display: block;
+        flex-grow: 1;
+        padding-top: 32px;
+        font-size: 14px;
+        padding-left: 0;
+        background-position: center top;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials {
+        margin: 24px auto 0 auto;
+    }
+    .wrap--adoric-dashboard .activate-form-wrapper SECTION.footer .socials A:first-child {
+        margin-left: 0;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_header {
+        background-position: 24px center;
+        padding: 0 24px;
+        height: 56px;
+        background-size: auto 19px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_header A {
+        line-height: 56px;
+        font-size: 14px;
+        background-position: right 19px;
+        background-size: 16px auto;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper H1 {
+        padding: 0 24px;
+        margin: 43px 0 26px 0;
+        font-size: 24px;
+        line-height: 29px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper H1 A {
+        margin-top: 0;
+        font-size: 14px;
+        line-height: 34px;
+        width: 118px;
+        height: 34px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates {
+        margin: 0 24px;    
+        padding: 24px 24px 0px 24px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates H4 {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates P {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL {
+        margin-top: 24px;
+    }
+    .wrap--adoric-dashboard .welcome-wrapper .adoric_templates UL LI {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+}
