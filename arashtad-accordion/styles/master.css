@@ -1,0 +1,502 @@
+/**
+ * Arashtad Accordion
+ * Responsive accordion widget for WordPress
+ * Plugin URL       https://arashtad.com
+ * Version          1.0
+ * Author			Amin Shahrokhi
+ * Author URL		http://shahrokhi.me
+ * Author Email		support@arashtad.com
+ * Creation Date	January 9, 2016
+ * Copyright		Copyright (c) 2011 - 2016 Arashtad Ltd. All rights reserved.
+ * license			GNU General Public License version 3 or later; see LICENSE.txt
+**/
+
+/* Assets */
+.clear {
+	clear: both;
+}
+
+/* Preset Styles */
+.iccordion_style_1 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.iccordion_style_1 .iccordion {
+	margin: 10px auto;
+	padding: 3px;
+	background: #f9f9f9;
+	border: 1px solid #e4e4e4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_1 .iccordion section.iccordion_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	background: #f9f9f9;
+}
+.iccordion_style_1 .iccordion section.iccordion_tab div.iccordion_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	border-top: 1px solid white;
+	border-bottom: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 3px #cccccc;
+	-moz-box-shadow: 0 0 3px #cccccc;
+	box-shadow: 0 0 3px #cccccc;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.iccordion_style_1 .iccordion section.iccordion_tab div.iccordion_heading:hover {
+	-webkit-box-shadow: 0 0 8px #cccccc;
+	-moz-box-shadow: 0 0 8px #cccccc;
+	box-shadow: 0 0 8px #cccccc;
+}
+.iccordion_style_1 .iccordion section.iccordion_tab div.iccordion_heading h3:before {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	font-size: 20px;
+	line-height: 1em;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	line-height: .9em;
+}
+.iccordion_style_1 .iccordion section.iccordion_active div.iccordion_heading h3:before {
+	content: '-';
+	color: #BBBBBB;
+}
+.iccordion_style_1 .iccordion section.iccordion_tab article.iccordion_content {
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	display: none;
+}
+.iccordion_style_1 .iccordion section.iccordion_tab article.iccordion_content:hover {
+
+}
+.iccordion_style_1 .iccordion section:first-child article.iccordion_content {
+	display: block;
+}
+
+/* Begin Style 2 */
+.iccordion_style_2 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.iccordion_style_2 .iccordion {
+	margin: 10px auto;
+	padding: 3px;
+	background: #f9f9f9;
+	border: 1px solid #aaaaaa;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_2 .iccordion section.iccordion_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	background: white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_2 .iccordion section.iccordion_tab div.iccordion_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #aaaaaa;
+	background: #f9f9f9;
+	border: 1px solid #aaaaaa;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.iccordion_style_2 .iccordion section.iccordion_tab div.iccordion_heading:hover {
+	color: #f9f9f9;
+	background: #aaaaaa;
+}
+.iccordion_style_2 .iccordion section.iccordion_tab div.iccordion_heading h3:before {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	font-size: 20px;
+	line-height: 1em;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	line-height: .9em;
+}
+.iccordion_style_2 .iccordion section.iccordion_active div.iccordion_heading h3:before {
+	content: '-';
+	color: inherit;
+}
+.iccordion_style_2 .iccordion section div.iccordion_heading:hover h3:before {
+	color: #f9f9f9;
+}
+.iccordion_style_2 .iccordion section.iccordion_tab article.iccordion_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.iccordion_style_2 .iccordion section.iccordion_tab article.iccordion_content:hover {
+
+}
+.iccordion_style_2 .iccordion section:first-child article.iccordion_content {
+	display: block;
+}
+
+/* Begin Style 3 */
+.iccordion_style_3 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.iccordion_style_3 .iccordion {
+	margin: 10px auto;
+	padding: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_3 .iccordion section.iccordion_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_3 .iccordion section.iccordion_tab div.iccordion_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	border-bottom: 1px solid #cccccc;
+	cursor: pointer;
+}
+.iccordion_style_3 .iccordion section.iccordion_tab div.iccordion_heading:hover {
+
+}
+.iccordion_style_3 .iccordion section.iccordion_tab div.iccordion_heading h3:before {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	font-size: 20px;
+	line-height: 1em;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	line-height: .9em;
+}
+.iccordion_style_3 .iccordion section.iccordion_active div.iccordion_heading h3:before {
+	content: '-';
+	color: #BBBBBB;
+}
+.iccordion_style_3 .iccordion section.iccordion_tab article.iccordion_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.iccordion_style_3 .iccordion section.iccordion_tab article.iccordion_content:hover {
+
+}
+.iccordion_style_3 .iccordion section:first-child article.iccordion_content {
+	display: block;
+}
+
+
+/* Begin Style 4 */
+.iccordion_style_4 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.iccordion_style_4 .iccordion {
+	margin: 10px auto;
+	padding: 3px;
+	background: #f9f9f9;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_4 .iccordion section.iccordion_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	background: white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_4 .iccordion section.iccordion_tab div.iccordion_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	background: aqua;
+	vertical-align: middle;
+	color: #333;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+	background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5e5e5', GradientType=0);
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	*background-color: #e6e6e6;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	border: 1px solid #bbb;
+	*border: 0;
+	border-bottom-color: #a2a2a2;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.iccordion_style_4 .iccordion section.iccordion_tab div.iccordion_heading:hover {
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e0e0e0);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e0e0e0));
+	background-image: -webkit-linear-gradient(top,#fff,#e0e0e0);
+	background-image: -o-linear-gradient(top,#fff,#e0e0e0);
+	background-image: linear-gradient(to bottom,#fff,#e0e0e0);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5e5e5', GradientType=0);
+	border-color: #e0e0e0 #e0e0e0 #bfbfbf;
+	*background-color: #e0e0e0;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	border: 1px solid #bbb;
+}
+.iccordion_style_4 .iccordion section.iccordion_tab article.iccordion_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.iccordion_style_4 .iccordion section.iccordion_tab article.iccordion_content:hover {
+
+}
+.iccordion_style_4 .iccordion section.iccordion_tab div.iccordion_heading h3:before {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	font-size: 20px;
+	line-height: 1em;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: #CCCCCC;
+	border: 1px solid #CCCCCC;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	line-height: .9em;
+}
+.iccordion_style_4 .iccordion section.iccordion_active div.iccordion_heading h3:before {
+	content: '-';
+	color: #BBBBBB;
+}
+.iccordion_style_4 .iccordion section:first-child article.iccordion_content {
+	display: block;
+}
+
+/* Begin Style 5 */
+.iccordion_style_5 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.iccordion_style_5 .iccordion {
+	margin: 10px auto;
+	padding: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #999999;
+	background: white;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab div.iccordion_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #BBBBBB;
+	background: black;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab div.iccordion_heading h3 {
+	color: #BBBBBB;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab div.iccordion_heading:hover,
+.iccordion_style_5 .iccordion section.iccordion_active div.iccordion_heading {
+	background: #BBBBBB;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab div.iccordion_heading:hover h3 {
+	color: black !important;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab div.iccordion_heading h3:before {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	font-size: 20px;
+	line-height: 1em;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: inherit;
+	border: 1px solid #CCCCCC;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	line-height: .9em;
+}
+.iccordion_style_5 .iccordion section.iccordion_active div.iccordion_heading h3 {
+	color: #303030;
+}
+.iccordion_style_5 .iccordion section.iccordion_active div.iccordion_heading h3:before {
+	content: '-';
+}
+.iccordion_style_5 .iccordion section.iccordion_tab article.iccordion_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.iccordion_style_5 .iccordion section.iccordion_tab article.iccordion_content:hover {
+
+}
+.iccordion_style_5 .iccordion section:first-child article.iccordion_content {
+	display: block;
+}
+div.iccordion_heading h3 {
+    margin: 0;
+}
+
+/*
+** Preset Style 6 (Custom style)
+** The following selectors are used for styling the iCcordion module output,
+** when the "Custom" style is selected via iCcordion module manager.
+*/
+
+.iccordion_style_6 h3 {
+
+}
+.iccordion_style_6 .iccordion {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_tab {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_tab div.iccordion_heading {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_tab div.iccordion_heading:hover {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_tab div.iccordion_heading h3:before {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_active div.iccordion_heading h3:before {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_tab article.iccordion_content {
+
+}
+.iccordion_style_6 .iccordion section.iccordion_tab article.iccordion_content:hover {
+
+}
+.iccordion_style_6 .iccordion section:first-child article.iccordion_content {
+
+}
