@@ -1,0 +1,229 @@
+/* Main Widget Container */
+.admin-error-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 360px;
+    max-width: 90vw;
+    max-height: 80vh;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 99999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    border: 1px solid #e2e4e7;
+    resize: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Widget Header */
+.error-widget-header {
+    background: #fff;
+    border-bottom: 1px solid #e2e4e7;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
+    border-radius: 8px 8px 0 0;
+    user-select: none;
+}
+
+.error-widget-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.error-widget-title .dashicons {
+    color: #d63638;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Widget Actions */
+.error-widget-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.widget-action-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 4px;
+    color: #50575e;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.widget-action-btn:hover {
+    background: #f0f0f1;
+    color: #2271b1;
+    border-color: #e2e4e7;
+}
+
+.widget-action-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Widget Content */
+.error-widget-content {
+    max-height: calc(80vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #c3c4c7 #f0f0f1;
+}
+
+.error-widget-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.error-widget-content::-webkit-scrollbar-track {
+    background: #f0f0f1;
+}
+
+.error-widget-content::-webkit-scrollbar-thumb {
+    background-color: #c3c4c7;
+    border-radius: 3px;
+}
+
+/* Error Stats Section */
+.error-stats {
+    padding: 10px 15px;
+    background: #f0f6fc;
+    border-bottom: 1px solid #e2e4e7;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #50575e;
+}
+
+.error-count,
+.last-updated {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Error Container */
+.widget-error-container {
+    padding: 15px;
+}
+
+.debug-log-errors {
+    background: #f6f7f7;
+    border: 1px solid #e2e4e7;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #1d2327;
+}
+
+.loading-errors {
+    text-align: center;
+    padding: 20px;
+    color: #50575e;
+    font-style: italic;
+}
+
+/* Collapsed State */
+.admin-error-widget.collapsed {
+    height: 52px;
+    max-height: 52px;
+}
+
+.admin-error-widget.collapsed .error-widget-content {
+    display: none;
+}
+
+.admin-error-widget.collapsed .dashicons-arrow-up-alt2:before {
+    content: "\f347";
+}
+
+/* Error Badge */
+.error-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #d63638;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for refresh icon */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotate 1s linear infinite;
+}
+
+/* Error Message */
+.error-message {
+    padding: 10px;
+    background: #fcf0f1;
+    border: 1px solid #d63638;
+    border-radius: 4px;
+    color: #d63638;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 782px) {
+    .admin-error-widget {
+        width: calc(100% - 40px);
+        max-width: 360px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .error-widget-header {
+        padding: 10px 12px;
+    }
+
+    .widget-action-btn {
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .admin-error-widget {
+        width: calc(100% - 20px);
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .error-stats {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
