@@ -1,0 +1,158 @@
+#gdprsupNotifyBg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 9999998;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+#gdprsupNotifyShell,
+#gdprsupShowAgainShell {
+	display: none;
+	
+	z-index: 9999999;
+	text-align: center;
+	border: none;
+	padding: 10px;
+}
+#gdprsupShowAgainShell {
+	position: fixed;
+	cursor: pointer;
+}
+#gdprsupNotifyShell.gdprsupActive,
+#gdprsupShowAgainShell.gdprsupActive,
+#gdprsupNotifyBg.gdprsupActive {
+	display: block;
+}
+#gdprsupNotifyShell.gdprsup-bar {
+	position: fixed;
+	width: 100%;
+}
+#gdprsupNotifyShell.gdprsup-popup {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: auto;
+	height: auto;
+	transform: translate(-50%, -50%);
+	
+	max-height: 80%;
+    min-height: 170px;
+    min-width: 240px;
+    max-width: 640px;
+    overflow: auto;
+}
+#gdprsupNotifyShell.gdprsup-bar.gdprsup-top {
+	left: 0;
+	top: 0;
+}
+#gdprsupNotifyShell.gdprsup-bar.gdprsup-bottom {
+	left: 0;
+	bottom: 0;
+}
+#gdprsupShowAgainShell.gdprsup-top {
+	top: 0;
+}
+#gdprsupShowAgainShell.gdprsup-bottom {
+	bottom: 0;
+}
+#gdprsupShowAgainShell.gdprsup-right {
+	right: 100px;
+}
+#gdprsupShowAgainShell.gdprsup-left {
+	left: 100px;
+}
+#gdprsupNotifyShell .gdprsupNotifyBtn {
+	display: inline-block;
+	line-height: 26px;
+	height: 28px;
+    margin: 0 2px;
+	font-size: 13px;
+}
+#gdprsupNotifyShell .gdprsupNotifyBtn.gdprsupNotifyBtnStyled {
+    text-decoration: none;
+    padding: 0 10px 1px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.gdprsupAgrees .gdprsupAgree {
+	background-color: #c5c5c5;
+}
+.gdprsupAgreeLabel {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    margin-top: 0;
+    margin-right: 4px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.gdprsupAgreeDesc {
+    color: #000;
+    font-size: 12px;
+    line-height: 16px;
+}
+/*checkboxes*/
+.gdprsupSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.gdprsupSwitch input {display:none;}
+
+.gdprsupInputSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.gdprsupInputSlider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .gdprsupInputSlider {
+  background-color: #2196F3;
+}
+
+input:focus + .gdprsupInputSlider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .gdprsupInputSlider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.gdprsupInputSlider.gdprsupRound {
+  border-radius: 34px;
+}
+
+.gdprsupInputSlider.gdprsupRound:before {
+  border-radius: 50%;
+}
