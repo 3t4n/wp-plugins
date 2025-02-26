@@ -1,0 +1,153 @@
+:root {
+    --productImgWidth: 300px;
+    --dotWidth: 20px;
+    --dotHeight: 20px;
+}
+.nav-slider {
+    display: flex;
+    align-items: center;
+
+    #prev {
+        margin-right: 100%;
+    }
+    #next {
+        margin-left: 100%;
+    }
+    button {
+        font-weight: 600;
+        font-size: 2em;
+        background-color: transparent;
+        color: #e1e1e1;
+        border: none;
+        padding: 100px 10px;
+        z-index: 999;
+
+        &:hover {
+            background-color: #f7f7f7;
+            color: #555555;
+        }
+    }
+}
+  
+.dots {
+    .dot {
+        width: var(--dotWidth);
+        height: var(--dotHeight);
+        margin: 5px;
+        background-color: #e3e3e3;;
+        border-radius: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.activeDot {
+    background-color: #0598af !important;
+}
+
+.slider {
+    h2 {
+        font-size: 30px;
+        
+        a {
+            text-decoration: none!important;
+            color: #5a5a5a;
+
+            &:hover {
+                color: #007bffc7;
+            }
+        }
+    }
+
+    h2, .price, .details {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    }
+    .details {
+        padding-right: 50px;
+        font-size: 17px;
+    }
+
+    .price {
+        font-size: 25px;
+        font-weight: 600;
+        text-decoration: underline;
+        color: #000 !important;
+    }
+
+    .image img {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .slider {
+        .contents {
+            padding-top: 20px;
+            text-align: center;
+
+            .details {
+                padding-right: 0px;
+                font-size: 16px;
+            }
+            h2 {
+                font-size: 25px;
+            }
+        }
+
+        .image img {
+            height: auto;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+    }
+
+    .activeProSlider {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider {
+        .details {
+            padding-right: 0;
+        }
+        img {
+            max-height: 180px;
+            max-width: 150px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .slider {
+        .details {
+            padding-right: 0px;
+        }
+        img {
+            max-height: 220px;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.activeProSlider {
+    animation: proSlider 0.5s;
+}
+
+@keyframes proSlider {
+    from {
+        transform: matrix(0.1, 0, 0, 0.1, 0, 0);
+    }
+    to {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+}
+
+#test>div {
+    background-color: #f3f3f3;
+    height: 100px;
+}
