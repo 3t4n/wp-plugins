@@ -1,0 +1,314 @@
+/* --------------------------------------------------------
+AudioTyped Style Sheet for podcast interview transcripts 
+
+version: 1.0.21
+last modified: 04.08.2020 by Helmut Naber
+author: Helmut Naber
+website: https://audiotyped.de
+----------------------------------------------------------*/
+:root {
+  --tscrpttbcolor: #ffffff;
+  --tscrpthbcolor: #f6f6f6;
+  --tscrptgbcolor: #f6f6f6;
+  --tscrpthfcolor: #000000;
+  --tscrptgfcolor: #000000;
+  --tscrptaradius: 50%;
+  --tscrptbcorner: 8px;
+  --tscrptmfsize: 12px;
+  --tscrptdfsize: 18px;
+  --tscrptsradius: 6px;
+  --tscrptdcradius: 100px;
+  --tscrptdgapp: 10px;
+  --tscrptdgapn: -10px;
+  --tscrptdcsize: 45px;
+  --tscrptmasize: 50px;
+  --tscrptmatsize: -50px;
+  --tscrptmdsize: 50px;
+  --tscrptmbpvsize: 4px;
+  --tscrptmbphsize: 12px;
+  --tscrptdbpvsize: 10px;
+  --tscrptdbphsize: 16px;
+  --tscrptmgapp: 5px;
+  --tscrptmgapn: -5px;
+}
+.transcript {
+  margin: 20px auto;
+  padding: 10px;
+  background-color: var(--tscrpttbcolor) !important;
+  border-radius: 6px;
+  display: inline-block;
+}
+.transcriptInterview {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.transcriptInterview p {
+  font-size: var(--tscrptdfsize) !important;
+}
+.transcript ol {
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+}
+.transcriptInterview li {
+  padding: 0.5rem;
+  display: flex;
+  clear: both;
+}
+.transcriptInner ul {
+  list-style: disc !important;
+  font-size: 18px !important;
+  margin-bottom: 0px !important;
+}	
+
+.transcriptInner ul > li {
+	font-size: var(--tscrptdfsize) !important;
+	display: list-item !important;
+}
+
+.transcriptInner ol {
+	list-style: decimal !important;
+	font-size: var(--tscrptdfsize) !important;
+	margin-left: 20px !important;
+	margin-bottom: 0px !important;
+}	
+.transcriptInner ol > li {
+	font-size: var(--tscrptdfsize) !important;
+	list-style-type: decimal !important;
+	display: list-item !important;
+}
+.transcriptBetween {
+	margin: var(--tscrptdfsize);
+	font-size: 1em !important;
+}
+.transcriptBetween p {
+	font-size: var(--tscrptdfsize) !important;
+	margin: 0 0 10px !important;
+}
+.transcriptInterview .transcriptAvatar {
+  position: relative;
+	padding-top: 12px;
+	padding-left: 6px;
+	padding-right: 6px;
+  height: var(--tscrptdcsize);
+	min-width: var(--tscrptdcsize);
+  border-radius: var(--tscrptaradius);
+  background-size: cover;
+  background-position: center center;
+	top: 0px;
+}
+.transcriptInterview .transcriptAvatar img {
+  display: block;
+  border-radius: var(--tscrptaradius);
+  max-width: 45px;
+}
+.transcriptHost{
+	border-left: 0px solid #777777;  
+  float: left;
+}
+
+.transcriptHost .transcriptSpeaking {
+  order: 1;
+  border-bottom-right-radius: var(--tscrptbcorner);
+	background-color: var(--tscrpthbcolor) !important; 
+  box-shadow: 4px 4px var(--tscrptsradius) -6px rgba(0,0,0,0.25);
+  color: var(--tscrpthfcolor);
+  margin-left: var(--tscrptdgapp);
+}
+.transcriptHost .transcriptAvatar:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 0;
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent;
+	border-right: 9px solid var(--tscrpthbcolor);	
+  margin-top: 4px;		
+  margin-right: var(--tscrptdgapn);
+}
+.transcriptGuest {
+  justify-content: flex-start;
+  align-items: flex-start;
+	border-left: 0px dotted  #777777;
+  float: right;
+}
+.transcriptGuest .transcriptSpeaking {
+  order: 1;
+  border-bottom-right-radius: var(--tscrptbcorner);
+	background-color: var(--tscrptgbcolor) !important; 
+  box-shadow: -4px 4px var(--tscrptsradius) -6px rgba(0,0,0,0.25);
+  color: var(--tscrptgfcolor);
+  margin-right: var(--tscrptdgapp);
+}
+.transcriptGuest .transcriptAvatar {
+  order: 2;
+}
+.transcriptGuest .transcriptAvatar:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 9px solid var(--tscrptgbcolor);
+  margin-top: 4px;
+  margin-left: var(--tscrptdgapn);
+}
+.transcriptSpeaking {
+  background: #f6f6f6;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: var(--tscrptbcorner);
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,.10);
+	min-width: 180px;
+  padding: var(--tscrptdbpvsize) var(--tscrptdbphsize);
+}
+.transcriptSpeaking p {
+  font-size: var(--tscrptdfsize) !important;
+  margin: 12px 0 12px 0;
+}
+.transcriptSpeaking p:first-of-type {
+  margin-top: 0px !important;
+}
+.transcriptHost .transcriptSpeaking strong {
+    font-size: var(--tscrptdfsize) !important;
+}
+.transcriptGuest .transcriptSpeaking strong {
+    font-size: var(--tscrptdfsize) !important;
+}      
+.transcriptHost code {
+  background: none;
+  color: var(--tscrpthfcolor);
+  font-size: 0.825em;
+  opacity: 0.5;
+}
+.transcriptGuest code {
+  background: none;
+  color: var(--tscrptgfcolor);
+  font-size: 0.825em;
+  opacity: 0.5;
+}
+
+@media (max-width: 400px)
+	{ 
+.transcript {
+  margin: 20px auto;
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+}
+.transcriptInterview {
+  list-style: none;
+  margin: 24px 0 0 0 !important;
+  padding: 0 0 50px 0;
+}
+.transcript ol {
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+}
+.transcriptInterview li {
+  padding: var(--tscrptmdsize) 0px var(--tscrptmdsize) 0px;
+  display: flex;
+}
+.transcriptInterview .transcriptHost .transcriptAvatar {
+  max-width: 80px;
+  min-width: var(--tscrptmasize);
+  position: relative;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: var(--tscrptmasize);
+  width: var(--tscrptmasize);
+  border-radius: var(--tscrptaradius);
+  background-size: cover;
+  background-position: center center;
+  top: var(--tscrptmatsize);
+  left: 0;
+}
+.transcriptInterview .transcriptAvatar img {
+  display: block;
+  border-radius: var(--tscrptaradius);
+  max-width: 28px;
+}  
+.transcriptHost{
+	border-left: 0px solid #777777;
+}
+.transcriptHost .transcriptSpeaking {
+  order: 1;
+  border-bottom-right-radius: var(--tscrptbcorner);
+  color: var(--tscrpthfcolor);
+  box-shadow: 4px 4px var(--tscrptsradius) -6px rgba(0,0,0,0.25);
+  margin-left: var(--tscrptmatsize);
+}
+.transcriptHost .transcriptAvatar::after {
+    content: "";
+    position: absolute;
+    left: 28%;
+    bottom: 0px;
+    border-style: solid;
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent var(--tscrpthbcolor) transparent;
+    margin-right: 0px;
+    margin-bottom: var(--tscrptmgapn);
+}     
+.transcriptGuest {
+  justify-content: flex-start;
+  align-items: flex-start;
+	border-left: 0px dotted  #777777;
+}
+.transcriptGuest .transcriptSpeaking {
+  order: 1;
+  border-bottom-right-radius: var(--tscrptbcorner);
+  color: var(--tscrptgfcolor);
+  box-shadow: -4px 4px var(--tscrptsradius) -6px rgba(0,0,0,0.25);
+  margin-right: var(--tscrptmatsize);
+}
+.transcriptInterview .transcriptGuest .transcriptAvatar {
+  order: 2;
+  max-width: 80px;
+  min-width: var(--tscrptmasize);
+  position: relative;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: var(--tscrptmasize);
+  width: var(--tscrptmasize);
+  border-radius: var(--tscrptaradius);
+  background-size: cover;
+  background-position: center center;
+  top: var(--tscrptmatsize);
+  right: 0;
+}
+.transcriptGuest .transcriptAvatar:after{
+    content: "";
+    position: absolute;
+    left: 54%;
+    bottom: 0px;
+    border-style: solid;
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent var(--tscrptgbcolor) transparent;
+    margin-left: 0px;
+    margin-bottom: var(--tscrptmgapn);
+}
+.transcriptSpeaking {
+  background: #f6f6f6;
+  padding: 6px 6px 6px 6px;
+  margin-bottom: 10px;
+  margin-top: var(--tscrptmgapp);
+  border-radius: var(--tscrptbcorner);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  padding: var(--tscrptmbpvsize) var(--tscrptmbphsize);
+}
+.transcriptInterview .transcriptSpeaking p {
+  font-size: var(--tscrptmfsize) !important;
+  margin: 12px 0 12px 0;
+}
+.transcriptSpeaking strong {
+  font-size: var(--tscrptmfsize) !important;
+}
+}
+/* --------------------------------------------------------
+End AudioTyped Style Sheet for podcast interview transcripts 
+----------------------------------------------------------*/
