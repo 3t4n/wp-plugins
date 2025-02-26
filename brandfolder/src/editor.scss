@@ -1,0 +1,73 @@
+/**
+ * TODO: Verify that this is enough from a legal standpoint
+ * This is a modified version of @wordpress/block-library/src/image/image.js that only includes
+ * the functionality required for the plugin.
+ */
+
+
+$default-modal-padding: 24px;
+
+.editor-styles-wrapper .wp-block-brandfolder-editor-integration {
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+[data-align="wide"] > .wp-block-brandfolder-editor-integration,
+[data-align="full"] > .wp-block-brandfolder-editor-integration {
+	img {
+		width: 100%;
+	}
+}
+
+.wp-block[data-align="left"],
+.wp-block[data-align="center"],
+.wp-block[data-align="right"] {
+	> .wp-block-brandfolder-editor-integration {
+		display: table;
+
+		> figcaption {
+			display: table-caption;
+			caption-side: bottom;
+		}
+	}
+}
+
+.wp-block[data-align="left"] > .wp-block-brandfolder-editor-integration {
+	margin-right: 1em;
+	margin-left: 0;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.wp-block[data-align="right"] > .wp-block-brandfolder-editor-integration {
+	margin-left: 1em;
+	margin-right: 0;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.wp-block[data-align="center"] > .wp-block-brandfolder-editor-integration {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.brandfolder-integration-image-selector-modal {
+	width: 415px;
+	height: 700px;
+
+	& > .components-modal__content {
+		overflow: hidden;
+		padding: 0;
+
+		.components-modal__header {
+			margin-bottom: 0;
+		}
+
+		iframe {
+			width: calc(100% + #{$default-modal-padding} * 2);
+			height: 640px;
+			overflow: hidden;
+		}
+	}
+}

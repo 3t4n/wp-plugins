@@ -1,0 +1,86 @@
+{
+	"name": "brandfolder/editor-integration",
+	"title": "Brandfolder",
+	"category": "media",
+	"description": "The Brandfolder Integration gives you the ability to display your assets on your Wordpress website.",
+	"textdomain": "brandfolder-integration",
+	"supports": {
+		"align": true,
+	  	"anchor": true,
+		"lightBlockWrapper": true
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"align": {
+			"type": "string"
+		},
+		"url": {
+			"type": "string"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"caption": {
+			"type": "string",
+			"source": "html",
+			"selector": "figcaption"
+		},
+		"title": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "title"
+		},
+		"href": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "figure > a",
+			"attribute": "href"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "figure > a",
+			"attribute": "rel"
+		},
+		"linkClass": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "figure > a",
+			"attribute": "class"
+		},
+		"id": {
+			"type": "number"
+		},
+		"width": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "width"
+		},
+		"height": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "height"
+		},
+		"sizeSlug": {
+			"type": "string"
+		},
+		"linkDestination": {
+			"type": "string"
+		},
+		"linkTarget": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "figure > a",
+			"attribute": "target"
+		}
+	}
+}
