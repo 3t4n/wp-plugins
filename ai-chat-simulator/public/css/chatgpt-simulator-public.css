@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner font similar to what's used in many modern UIs */
+    background-color: #fafafa; /* Lighter background for better contrast */
+}
+
+#chatgpt-simulator {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    min-height: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Softer shadow for a more subtle depth */
+}
+
+#chatgpt-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Slightly off-white background for the messages area */
+}
+
+#chatgpt-messages div {
+    margin-bottom: 12px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 12px; /* More pronounced rounded corners */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Lighter shadow for each message */
+    border-left: 3px solid #007bff; /* Subtle branding color as an accent */
+}
+
+#chatgpt-input-area {
+    display: flex;
+    padding: 12px;
+    background: #fff; /* Matching the input area with the chat background */
+    border-top: 2px solid #eee; /* Slightly darker border for a subtle separation */
+}
+
+#chatgpt-input {
+    margin: 10px 20px;
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Softer border color */
+    border-radius: 20px; /* More modern rounded input */
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); /* Subtle inset shadow for depth */
+}
+
+#chatgpt-send {
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 20px; /* Rounded button for consistency with input */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#chatgpt-send:hover {
+    background-color: #0056b3;
+}
