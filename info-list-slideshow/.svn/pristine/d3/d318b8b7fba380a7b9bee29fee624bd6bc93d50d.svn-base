@@ -1,0 +1,1 @@
+<div class='sangar-content'>	<?php 	the_post_thumbnail( 'full' ); 	$sliderurl = get_post_meta( get_the_ID(),'rsris_ils_link', true );	$content = get_the_content();	$content = strip_tags($content);	$summary = $this->ils_truncate($content, 100);	if($sliderurl != '')	{ ?>		<a style="color:#ffffff;" href="<?php echo $sliderurl; ?>">Read more</a>	<?php } ?>	</div>
