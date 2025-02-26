@@ -1,0 +1,64 @@
+body.blocksolid-overlay .snippet-container {
+	outline: 2px solid #ecd87f;
+	outline-offset: -2px;
+	position: relative;
+	padding: 10px;
+	transition: all 0.3s ease-in-out!important;
+}
+
+body.blocksolid-overlay .snippet-container .components-panel {
+	padding: 20px;
+}
+
+.snippet-container > div > .wp-block-columns {
+	cursor: no-drop;
+}
+
+.snippet-container > div > .wp-block-columns * {
+	pointer-events: none;
+}
+
+body.blocksolid-overlay .snippet-container:hover {
+	outline: 2px solid #e1c354;
+}
+
+body.blocksolid-overlay .snippet-container:before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 20px;
+	bottom: 0;
+	right: auto;
+	z-index: 31;
+	width: 30px;
+	height: 10px;
+	display: block;
+	border-top: 10px solid #ecd87f;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out!important;
+}
+
+body.blocksolid-overlay .snippet-container:hover:before {
+	border-top: 10px solid #e1c354;
+}
+
+body.blocksolid-overlay .wp-block.is-selected > .snippet-container {
+	outline: 2px solid #d6a623;
+}
+
+body.blocksolid-overlay .wp-block.is-selected > .snippet-container:before {
+	border-top: 10px solid #d6a623;
+}
+
+body.blocksolid-overlay .snippet-container .wp-block-columns:before {
+	border-top: none!important;
+}
+
+body.blocksolid-overlay .snippet-container .wp-block-column:before {
+	border-top: none!important;
+}
+
+body.blocksolid-overlay .block-editor-block-list__layout .block-editor-block-list__block[data-type="pwd/snippets"].is-highlighted:after,
+body.blocksolid-overlay .block-editor-block-list__layout .block-editor-block-list__block[data-type="pwd/snippets"]:not([contenteditable]):focus:after {
+	box-shadow: none;
+}
