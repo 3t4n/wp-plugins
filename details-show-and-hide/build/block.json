@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "bm/wp-details-block",
+  "version": "1.0",
+  "title": "Details: Show and Hide",
+  "category": "design",
+  "icon": "arrow-right",
+  "description": "A block for showing and hiding content.",
+  "keywords": [
+    "details",
+    "show",
+    "hide",
+    "expand"
+  ],
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "source": "html",
+      "selector": ".wp-block-bm-wp-details-block"
+    }
+  },
+  "textdomain": "wp-details-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
