@@ -1,0 +1,752 @@
+/*
+* Plugin Name:      Rhino Portfolio
+* Plugin URI:       http://www.murshidalam.com/plugins/rhino-portfolio
+* Author:           Fahim Murshed
+* Author URI:       https://profiles.wordpress.org/fahimmurshed/
+* License:          GNU/GPL V2 or Later
+* Description:      Portfolio for WP Page Builder
+* Version:          1.0.0
+*/
+
+.ui-datepicker {
+	background-color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 54px rgba(0,0,0,0.15);
+	display: none;
+	margin-top: 4px;
+	padding: 10px;
+	width: 265px;
+	z-index: 100 !important;
+}
+.ui-datepicker a,
+.ui-datepicker a:hover {
+	text-decoration: none;
+}
+.ui-datepicker a:hover,
+.ui-datepicker td:hover a {
+	color: #2A6496;
+	-webkit-transition: color 0.1s ease-in-out;
+	-moz-transition: color 0.1s ease-in-out;
+	-o-transition: color 0.1s ease-in-out;
+	transition: color 0.1s ease-in-out;
+}
+.ui-datepicker .ui-datepicker-header {
+	margin-bottom: 10px;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title {
+	font-weight: 700;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	cursor: default;
+	font-family: 'Glyphicons Halflings';
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	margin-top: 2px;
+}
+.ui-datepicker .ui-datepicker-prev {
+	float: left;
+	text-align: left;
+}
+.ui-datepicker .ui-datepicker-next {
+	float: right;
+	text-align: right;
+}
+.ui-datepicker .ui-datepicker-prev:hover,
+.ui-datepicker .ui-datepicker-next:hover {
+	background: none !important;
+}
+.ui-datepicker .ui-datepicker-prev:before {
+	content: "\f104";
+	font-family: fontawesome;
+	font-size: 22px;
+}
+.ui-datepicker .ui-datepicker-next:before {
+	content: "\f105";
+	font-family: fontawesome;
+	font-size: 22px;
+}
+.ui-datepicker .ui-icon {
+	display: none;
+}
+.ui-datepicker .ui-datepicker-calendar {
+	table-layout: fixed;
+	width: 100%;
+}
+.ui-datepicker .ui-datepicker-calendar th,
+.ui-datepicker .ui-datepicker-calendar td {
+	text-align: center;
+	padding: 2px 0;
+	color: #b5b5b5;
+}
+.ui-datepicker .ui-datepicker-calendar th{
+	color: #000;
+}
+.ui-datepicker .ui-datepicker-calendar td {
+	-webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+	-moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+	-o-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+	transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+.ui-datepicker .ui-datepicker-calendar td:hover {
+	background-color: #eee;
+	cursor: pointer;
+}
+.ui-datepicker .ui-datepicker-calendar td a {
+	text-decoration: none;
+	color: #000;
+}
+.ui-datepicker .ui-datepicker-current-day a {
+	background-color: #00aeef;
+
+}
+.ui-datepicker .ui-datepicker-current-day a {
+	color: #fff !important;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+	background-color: #fff;
+	cursor: default;
+}
+.ui-datepicker .ui-datepicker-calendar,
+.ui-datepicker .ui-datepicker-calendar th, .ui-datepicker .ui-datepicker-calendar td{
+	border: none;
+}
+.ui-datepicker .ui-datepicker-calendar th, .ui-datepicker .ui-datepicker-calendar td{
+	width: 35px;
+	height: 35px;
+}
+.ui-datepicker .ui-datepicker-calendar td:hover{
+	background-color: transparent;
+}
+.ui-datepicker .ui-datepicker-calendar td:hover a{
+	color: #00aeef;
+}
+.ui-datepicker .ui-datepicker-calendar td span, .ui-datepicker .ui-datepicker-calendar td a {
+	width: 33px;
+	height: 33px;
+	line-height: 30px;
+	padding: 0;
+	border: 2px solid transparent;
+	box-shadow: none;
+	border-radius: 100%;
+	display: block;
+}
+.ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today a{
+	background: #ececec;
+	color: #000;
+}
+.ui-datepicker .ui-datepicker-calendar td.ui-state-active a{
+	background: #00aeef;
+}
+
+
+.rhino-counter-number,.counter-symbol{
+	display: inline-block;
+}
+.align-center .counter-content .counter-number-icon{
+	position: relative;
+}
+.align-right .counter-content span.counter-number-icon{
+	left: 5px;
+}
+.align-left .counter-content span.counter-number-icon{
+	right: 5px;
+}
+.padding-left30.wpb_column.vc_column_container{
+	padding-right: 30px;
+}
+
+.novisible{
+    visibility: hidden;
+}
+
+.wp-picker-container .wp-color-result.button .wp-color-result-text{
+	padding: 1px 6px !important;
+}
+
+
+/* -------------------------------------- *
+*           16. Isotope CSS3 transition   *
+* --------------------------------------- */
+span.portfolio-count, .portfolio-count a.all_portfolio_link{
+    float: right;
+    text-transform: uppercase;
+    color: #ababab;
+    transition: all .5s;
+    font-weight: 400;
+    margin-top: 4px;
+}
+.portfolioFilter a {
+    margin-right: 20px;
+    color:#6D7784;
+    text-decoration:none;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+.isotope-item {
+    z-index: 2;
+}
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+.isotope,
+.isotope .isotope-item {
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    transition-duration: 300ms;
+}
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
+.floox-progress-bar,
+.floox-progress-bar .elementor-progress-wrapper {
+    height: 7px;
+    border-radius: 5px;
+}
+.floox-progress-bar .elementor-progress-percentage{
+    margin-top: -32px;
+    position: absolute;
+    right: 0;
+    padding-right: 0;
+}
+.filterable-portfolio .container-fluid{
+	padding-left: 0;
+	padding-right: 0;
+}
+.portfolio-layout2{
+	width: auto;
+	background-image: linear-gradient(-180deg,#23d0ec 0%,#239cec 100%) !important;
+}
+.overlay-cont2{
+	display: none;
+}
+.portfolio-layout2 i{
+	font-size: 60px;
+	top: 50%;
+	margin-top: -30px;
+}
+
+
+.portfolio-content-wrapper, .portfolio-title-content-wrapper, .portfolio-content-gallery {
+    display: inline-block;
+    margin: 0 auto;
+}
+.portfolio-casestudy-container img {
+    width: 100%;
+}
+.blog-grid-two {
+    margin: 0;
+}
+.portfolio-title-content-wrapper {
+    padding: 0;
+    margin-bottom: 85px;
+}
+.portfolio-content-details-wrapper {
+    padding: 50px 30px 30px 30px;
+}
+.portfolio-items {
+    margin-left: -2px;
+}
+.portfolio-info {
+    font-size: 16px;
+    font-weight: 400;
+    color: #6D7784;
+}
+.portfolio-info ul li {
+    list-style: none;
+    float: left;
+}
+.portfolioContainer {
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+}
+.portfolio-info .blog-post-meta.clearfix {
+    margin: 0;
+    padding: 0;
+}
+.portfolio-info .meta-author {
+    margin-right: 20px;
+    line-height: 31px;
+}
+.portfolio-info h2{
+	font-size: 24px;
+    font-weight: bold;
+    color: #293340;
+    margin: 0px 0 8px 0;
+}
+.portfolio-info p {
+    color: #6D7784;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0;
+}
+.portfolio-content-wrapper {
+    width: 65%;
+    float: left;
+}
+.portfolio-social-icons {
+    width: 35%;
+    float: right;
+    margin-top: 8px;
+}
+.portfolio-info span {
+    margin-right: 6px;
+    line-height: 32px;
+}
+.portfolio-social-icons ul li {
+    margin: 0px 5px 0px 0px;
+    padding: 0;
+}
+.portfolio-social-icons ul li a {
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    display: inline-block;
+    padding-top: 4px;
+    font-size: 14px;
+    text-align: center;
+    color: #6D7784;
+    background: #E4E4E4;
+}
+.portfolio-social-icons ul {
+    overflow: hidden;
+    padding: 0;
+    text-align: right;
+    float: right;
+    margin: 0;
+        transition: .3s;
+}
+.portfolio-social-icons ul li a:hover, .portfolio-tag-cont li:hover a{
+    color: #fff;
+}
+.portfolio-full-content-wrapper {
+    margin: 0 auto;
+    display: inline-block;
+    background: #fff;
+    padding: 20px 30px 30px;
+}
+.floox-wrapper {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.floox-align {
+    margin-top: 40px;
+}
+.single-gallery{
+    margin-top: 4px;
+}
+.single-gallery .plus-icon img {
+    padding-top: 16px;
+}
+.floox-portfolio-button {
+    margin-top: 30px;
+    overflow: hidden;
+    display: inline-block;
+    background: #0065e0;
+    padding: 8px 24px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 35px rgba(0,0,0,0.05);
+}
+.floox-portfolio-button:hover {
+    color: #fff;
+}
+.portfolio-tag-cont {
+    padding: 0;
+    overflow: hidden;
+}
+
+.portfolio-info .portfolio-tag-cont  li {
+    list-style: none;
+    float: left;
+    margin-right: 12px;
+    padding: 5px 22px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.floox-content-flex li.flex-active-slide:before {
+    background: rgba(0, 101, 224, 0.71);
+    height: 65px;
+    width: 84px;
+    z-index: 99999;
+    content: "";
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: -42px;
+    right: auto;
+    border-radius: 3px;
+}
+.featured-wrap .flexslider {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.featured-wrap img {
+    margin: 0;
+}
+.featured-wrap img:hover{
+    cursor: pointer;
+}
+.portfolio-tag-cont li a {
+    color: #6D7784;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px; 
+    text-transform: capitalize;
+}
+.portfolio-tag-cont li {
+    display: inline-block;
+    margin-left: 5px;
+}
+.featured-wrap .floox-flesislider {
+    background: transparent;
+    position: relative;
+    margin-top: -5%;
+    text-align: center;
+}
+.featured-wrap .floox-content-flex {
+    width: 100% !important;
+}
+.featured-wrap .floox-content-flex li{
+    float: inherit !important;
+    display: inline-block !important;
+}
+
+.featured-wrap .flex-prev, .featured-wrap .flex-next{
+    display: none;
+}
+
+/* Portfolio Shortcode Items */
+.portfolioContainer .rhino-pagination{
+    margin-top: 45px;
+}
+.filterable-portfolio .portfolioFilter {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.filterable-portfolio .portfolioFilter a{
+	display: inline-block;
+	padding: 8px 20px;
+	border-radius: 3px;
+    text-transform: uppercase;
+	font-size: 14px;
+	line-height: 22px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    background: #f7f9fb;
+    transition: all .5s;
+}
+.portfolioContainer img {
+    padding: 0;
+    margin: 0;
+}
+.portfolio-single-items {
+    position: relative;
+    box-shadow: 0px 8px 14px 0px rgba(186, 186, 186, 0.1);
+    overflow: hidden;
+}
+.portfolio-item-wrap{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    transition: all .5s;
+    z-index: 2;
+    opacity: 0;
+}
+.portfolio-single-items.layout-two .portfolio-item-wrap{
+    margin-top: 0px;
+    opacity: 1;
+}
+.portfolio-single-items.layout-two .portfolio-item-wrap, 
+.portfolioContainer .portfolio-single-items.layout-two::before, 
+.portfolio-single-items.layout-two .portfolio-item-wrap{
+    position: inherit;
+}
+.portfolioContainer .portfolio-item-content{
+    height: 100%;
+    width: 100%;
+    display: table;
+    position: relative;
+}
+.portfolioContainer .portfolio-single-items::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 101%;
+    width: 100%;
+    content: "";
+    z-index: 1;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.portfolioContainer .portfolio-item-content-in{
+    display: table-cell;
+    vertical-align: bottom;
+}
+.portfolio-single-items:hover::before{
+    opacity: .9;
+}
+.portfolio-single-items:hover .portfolio-item-wrap{
+    margin-top: 0;
+    opacity: 1;
+}
+.portfolioContainer .portfolio-item-content-in span{
+    display: block;
+    margin-bottom: 5px;
+    /*font-size: 32px;
+    color: #fff;*/
+}
+.portfolioContainer .portfolio-single-items.layout-one .portfolio-item-content-in span.fa-camera{
+    color: #fff;
+    font-size: 26px;
+}
+.portfolioContainer .portfolio-item-content {
+    padding: 20px 25px;
+}
+.portfolioContainer .layout-two .portfolio-item-content {
+    padding: 45px 50px 40px 50px;
+}
+.portfolioContainer .layout-two .portfolio-item-content span.fa-camera{
+    position: absolute;
+    left: 30px;
+    top: -35px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: all .5s;
+    font-size: 22px;
+}
+.portfolio-single-items .portfolio-title {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    transition: all 400ms;
+}
+.portfolio-single-items .portfolio-title a{
+    transition: all 400ms;
+    color: #293340;
+}
+.layout_1 .portfolio-single-items .overlay-cont .portfolio-title a:hover {
+    color: #fff;
+}
+/* .portfolio-items:hover .portfolio-title a, .portfolio-items:hover .portfolio-category{
+    color: #fff;
+} */
+
+.portfolio-single-items .portfolio-category {
+    font-size: 14px;
+    text-transform: capitalize;
+    display: block;
+    margin: 3px 0 0px 0;
+    transition: all 300ms;
+    color: #6D7784;
+}
+.portfolioFilter a {
+    text-transform: capitalize;
+    line-height: 36px;
+}
+.caption-full-width {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.portfolio-items .caption-full-width2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all .5s;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+.portfolio-items .caption-full-width2 .overlay-cont a{
+    font-size: 60px;
+    color: #fff;
+}
+.portfolio-items .caption-full-width2 .overlay-cont a i{
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	background: #EC5538;
+	color: #fff;
+	border-radius: 50%;
+	font-size: 16px;
+}
+
+.portfolio-items .caption-full-width2 {
+    opacity: 0;
+    transition: all 300ms;
+   /* -webkit-transform: scale(.70);
+    transform: scale(.70);*/
+}
+.portfolio-items:hover .caption-full-width2 {
+    opacity: .9;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.portfolio-items img{
+    transition: all .5s;
+}
+.portfolio-items:hover img{
+    transform: scale(1.2);
+}
+.portfolio-single-items .caption-full-width .portfolio-category {
+    font-size: 14px;
+    text-transform: capitalize;
+    display: block;
+    margin: 2px 0 5px;
+    transition: all 300ms;
+}
+.overlay-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.overlay-btn {
+    background: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 25px;
+    border-radius: 3px;
+    transition: all 400ms;
+    margin-top: 12px;
+    overflow: hidden;
+    display: inline-block;
+    font-weight: 500;
+}
+.overlay-btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+/* Portfolio Layout2 */
+.portfolio-layout2 {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.overlay-cont2 {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    padding: 20px 30px;
+}
+.overlay-cont2 h3{
+    line-height: 14px;
+}
+.portfolio-items:hover .portfolio-layout2 {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    opacity: .9;
+    transition: all 0.4s;
+}
+
+.portfolio-thumb {
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-layout2 i {
+    top: 40%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 32px;
+    color: #fff;
+    opacity: 0;
+    transition: all .5s;
+}
+.portfolio-item-content-in i{
+    color: #d7dbdd;
+    margin: 20px;
+    display: block;
+}
+.portfolio-items .overlay-cont a i{
+    transform: scale(.8);
+}
+.portfolio-items:hover .overlay-cont i{
+    transform: scale(1.2);
+}
+.portfolio-items:hover .portfolio-item-content-in .floox-icon{
+    color: #23d0ec;
+}
+a.btn-view {
+    font-size: 30px;
+}
+
+/***********BLOG POST ADDON*******/
+.rhino-default-postbox{
+    padding: 40px;
+    background: #fff;
+    transition: all .4s;
+    margin-bottom: 30px;
+}
+.rhino-default-postbox .blog-post-title {
+    margin-bottom: 15px;
+}
+.rhino-default-postbox .blog-date-wrapper{
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.rhino-default-postbox:hover .blog-date-wrapper, 
+.rhino-default-postbox:hover .blog-post-title a, 
+.rhino-default-postbox:hover .blog-post-content
+{
+    color: #fff !important;
+}
+/*****SLIDER CSS********/
+.wppb-overlay-img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+.wppb-carousel.rhino-carousel .wppb-carousel-title{
+    text-shadow: 0 11px 10px rgba(0,0,0,0.19);
+    position: relative;
+    z-index: 99;
+}
+.wppb-carousel.rhino-carousel .wppb-carousel-subtitle{
+    text-shadow: 0 11px 10px rgba(0,0,0,0.19);
+}
+.wppb-carousel.rhino-carousel .wppb-carousel-btn{
+    z-index: 999;
+}
