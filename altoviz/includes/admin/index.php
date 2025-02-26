@@ -1,0 +1,6 @@
+<?php
+/**
+ * Chuuuuuut !
+ * 
+ * @package Altoviz
+ */
