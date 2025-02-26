@@ -1,0 +1,88 @@
+/* force scrollbar */
+html { overflow-y: scroll; }
+
+/* ---- grid ---- */
+
+.grid {
+  background: #ffffff;
+  margin-bottom: 25px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+
+.grid-item {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+    -webkit-transform: scale(1);
+    transform: scale(1.1);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+}
+.grid-item:hover img {
+ -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+.grid-item .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+    background: rgba(0,0,0,1);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+}
+.grid-item:hover .overlay{
+    opacity: .6;
+}
+
+.grid-item .content{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 35px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+}
+.grid-item:hover .content{
+    opacity: 1;
+}
+
+
+
+

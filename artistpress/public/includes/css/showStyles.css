@@ -1,0 +1,369 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+article.showBody,
+div.showBody {
+    max-width: 1400px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+div.showBody div ul {
+    list-style-type: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: .75em;
+}
+div.showBody div ul li{
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: .25em !important;
+}
+#showlist article{
+    border-bottom: 2px solid #e6e6e6;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+#showlist article div.showHeader{
+    display: none;
+}
+#showlist article div.showBody{
+    padding: 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#showlist h1{
+    font-weight: bold;
+}
+#showlist h2{
+    border-bottom: 2px solid #000000;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+#showlist h3{
+    font-weight: bold;
+}
+#showlist article div.showBody div{
+    flex: 1 0 100%;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    line-height: 2em;
+    padding: 0.75rem 0;
+}
+
+#showlist article div.showBody div.date,
+#showlist article div.showBody div.venue,
+#showlist article div.showBody div.city{
+    padding: 0.25rem 0;
+}
+
+
+
+#showlist article div.showBody div.artist::before,
+#showlist article div.showBody div.venue::before,
+#showlist article div.showBody div.city::before,
+#showlist article div.showBody div.address::before,
+#showlist article div.showBody div.date::before{
+    position: relative;
+    font-weight: bold;
+}
+#showlist article div.showBody div.artist::before{
+    content: 'Artist: ';
+}
+#showlist article div.showBody div.venue::before{
+    content: 'Venue: ';
+}
+#showlist article div.showBody div.city::before{
+    content: 'City: ';
+}
+#showlist article div.showBody div.address::before{
+    content: 'Address: ';
+}
+#showlist article div.showBody div.date::before{
+    content: 'Date: ';
+}
+div.showBody div a.button,
+div.showBody div a.button:link,
+div.showBody div a.button:visited{
+    float: left;
+    font-size: 1em;
+    line-height: 2em;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: .5em 1.6em;
+    margin: 0;
+    width: 100%;
+    max-width: 275px;
+    text-align: center;
+    background: rgba(0,0,0,.75);
+    color: #fff;
+    display: block;
+    min-width: 150px;
+    text-decoration: none;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+div.showBody div a.button:hover,
+div.showBody div a.button:active,
+div.showBody div a.button:focus{
+    background: rgba(0,0,0,1);
+}
+
+/* VENUE MAPS
+=============================*/
+#venueMap{
+    height: 40vh;
+    padding: 0;
+    border: 1px solid #000;
+    border-bottom: 3px solid #000;
+}
+#venueDirections{
+    width: 100%;
+    padding: 0;
+}
+input#start {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* GRID
+=============================*/
+.clear{
+    clear: both;
+}
+section.showList{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1400px;
+}
+div.showBody,
+article.showBody {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.showHeader{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+	padding-bottom: 1vw !important;
+    /*position: relative;*/
+}
+.row:after,
+.row:before {
+    display: table;
+    content: " ";
+    clear: both;
+}
+.artistPhoto{
+    width: 100%;
+    padding: 15px 15px 0;
+}
+.artistPhoto img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+.showInfo{
+    width: 100%;
+    padding: 0 0;
+}
+.showTitle{
+    width: 100%;
+    padding: 15px 15px;
+}
+.showInfo .showDetails, 
+.showInfo .venueDetails{
+    width: 100%;
+    padding: 15px 15px;
+    position: relative;
+}
+.showInfo .showDetails:after, 
+.showInfo .venueDetails:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.showInfo .showAdInfo{
+    width: 100%;
+    padding: 15px 15px;
+}
+.venueWrapper{
+    width: 100%;
+    padding: 15px 15px;   
+}
+.venueDirection{
+    width: 100%;
+    padding: 15px 15px;     
+}
+
+@media (min-width: 768px){
+	.showBody{
+    	width: 100%;
+
+    }
+    .showInfo .showDetails {
+        width: 49%;
+        float: left;
+    }
+    .showInfo .venueDetails {
+        width: 49%;
+        float: right;
+    }
+    #showlist article div.showHeader{
+        /* display: block; */
+        display: flex;
+        flex-direction: row;
+        border-bottom: 2px solid #e6e6e6;
+        margin-bottom: .25em;
+        padding: 0 0;
+        position: relative;
+    }
+    #showlist article div.showBody{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #showlist article div.showHeader::before,
+    #showlist article div.showHeader::after{
+        display: table;
+        content: " ";
+    }
+    #showlist article div.showHeader::after{
+        clear: both;
+    }
+    #showlist article div.showHeader div{
+        font-size: 14px;
+        font-weight: bold;
+        padding-bottom: .75em;
+        flex: 1 0 33%;
+    }
+    #showlist article div.showBody div {
+        flex: 1 0 33%;
+        padding-bottom: 0;
+    }
+    #showlist article div.showBody div.info,
+    #showlist article div.showBody div.tickets {
+        flex: 0 1 33%;
+        padding: 1em 4% 0 0;
+    }
+    #showlist article div.showBody div.date::before,
+    #showlist article div.showBody div.artist::before,
+    #showlist article div.showBody div.city::before,
+    #showlist article div.showBody div.venue::before{
+        content: ' ';
+    }
+    #showlist article div.showBody div a.button{
+        margin-right: 1rem;
+        line-height: 1.6rem;
+    }
+}
+
+@media (max-width: 992px) and (min-aspect-ratio: 4/3) {
+    #showlist article div.showHeader{
+        display: none;
+    }
+    #showlist article div.showBody{
+        flex-direction: column;
+    }
+    #showlist article div.showBody div {
+        flex: 1 0 100%;
+    }
+    #showlist article div.showBody div.artist::before{
+        position: relative;
+        content: 'Artist: ';
+    }
+    #showlist article div.showBody div.venue::before{
+        position: relative;
+        content: 'Venue: ';
+    }
+    #showlist article div.showBody div.city::before{
+        position: relative;
+        content: 'City: ';
+    }
+    #showlist article div.showBody div.address::before{
+        position: relative;
+        content: 'Address: ';
+    }
+    #showlist article div.showBody div.date::before{
+        position: relative;
+        content: 'Date: ';
+    }
+}
+
+@media (min-width: 992px){
+	.showBody{
+        max-width: 970px;
+    }
+    .artistPhoto {
+        width: 40%;
+        float: left;
+    }
+    .showInfo {
+        width: 60%;
+        float: left;
+    }
+    #showlist article {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    #showlist article div.showBody {
+        flex-wrap: nowrap;
+        margin: 1rem 0;
+    }
+    #showlist article div.showHeader div,
+    #showlist article div.showBody div{
+        font-size: 16px;
+        flex: 0 1 18%;
+    }
+    #showlist article div.showHeader div.date,
+    #showlist article div.showBody div.date{
+        flex: 0 1 14%;
+    }
+    #showlist article div.showBody div.info,
+    #showlist article div.showBody div.tickets{
+        flex: 0 1 25%;
+        padding: 0 0 0 1%;
+    }
+}
+
+@media (min-width: 992px) and (min-aspect-ratio: 4/3) {
+    #showlist article div.showBody div{
+        flex: 0 1 18%;
+    }
+    #showlist article div.showBody div.info,
+    #showlist article div.showBody div.tickets{
+        flex: 0 1 25%;
+    }
+}
+@media (min-width: 1200px){
+	.showBody{
+    	max-width: 1400px;
+	}
+    #showlist article div.showBody div a.button{
+        margin-left: 1rem;
+        margin-right: 0;
+        align-self: flex-end;
+        line-height: 1.6rem;
+        text-align: center;
+        width: calc(100% - 2rem);
+    }
+}
