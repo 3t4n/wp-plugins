@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آنیپو | خدمات پست آنلاین</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="34x34">
+  <link rel="stylesheet" href="../css/print-postal-receipt.css">
+  <link rel="stylesheet" href="../css/Fonts.css">
+</head>
+<body>
+<main class="main-receipt">
+  <div class="box-receipt">
+    <div class="top-side">
+      <div class="qr-code-box"></div>
+      <div class="post-box">
+        <img src="../assets/images/Post.png" alt="Post"/>
+        <p id="post_type" style="font-size: 8px"></p>
+        <p style="font-size: 8px">باجه مجازی آنیپو</p>
+      </div>
+      <div class="first-box">
+        <div class="third-box">
+          <p id="post_pocket"></p>
+          <p id="non_standard" style="font-size: 8px"></p>
+        </div>
+        <div class="third-box">
+          <p>سایز بسته</p>
+          <p id="box_size_id"></p>
+        </div>
+        <p id="shop_name" style="font-size: 8px"></p>
+        <p id="order_id"></p>
+      </div>
+    </div>
+    <div class="middle-side">
+
+      <div class="row-box-one">
+        <div class="right-side">
+          <div class="single-box">
+            <p>مبدا</p>
+            <p id="shop_city" class="p-center"></p>
+          </div>
+          <div class="row-double">
+            <div class="single-box">
+              <p>مقصد</p>
+              <p id="customer_city" class="p-center"></p>
+            </div>
+            <div class="single-box">
+              <p>وزن</p>
+              <p id="weight" class="p-center"></p>
+            </div>
+          </div>
+        </div>
+        <div class="left-side">
+          <p id="customer_state_number"></p>
+        </div>
+      </div>
+
+      <div class="row-box-two">
+        <div class="row-double">
+          <div class="single-box">
+            <p>تاریخ</p>
+            <p id="barcode_date" class="p-center"></p>
+          </div>
+          <div class="single-box">
+            <p>زمان</p>
+            <p id="barcode_time" class="p-center"></p>
+          </div>
+        </div>
+        <div class="single-box">
+          <p>کرایه</p>
+          <p id="total-price" class="p-center"></p>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="barcode-side">
+      <svg id="number_barcode"></svg>
+      <p id="barcode" style="font-size: 12px"></p>
+    </div>
+    <div style="page-break-before: always"></div>
+  </div>
+</main>
+
+<script src="../js/JsBarcode/JsBarcode.all.min.js"></script>
+<script>
+  let urlParams = new URLSearchParams(window.location.search);
+  let encodedData = urlParams.get('data');
+  let jsonData = JSON.parse(decodeURIComponent(encodedData));
+  console.log(jsonData)
+  document.getElementById('post_type').innerHTML = jsonData?.post_type;
+  document.getElementById('post_pocket').innerHTML = jsonData?.post_pocket;
+  document.getElementById('box_size_id').innerHTML = jsonData?.box_size_id;
+  if (+jsonData?.non_standard === 1) {
+    document.getElementById('non_standard').innerHTML = "H";
+  }
+  document.getElementById('shop_name').innerHTML = jsonData?.shop_name;
+  document.getElementById('order_id').innerHTML = jsonData?.order_id;
+  document.getElementById('shop_city').innerHTML = jsonData?.shop_city;
+  document.getElementById('customer_city').innerHTML = jsonData?.customer_city;
+  document.getElementById('customer_state_number').innerHTML = jsonData?.customer_state_number;
+  document.getElementById('weight').innerHTML = jsonData?.weight;
+  document.getElementById('barcode_date').innerHTML = jsonData?.barcode_date;
+  document.getElementById('barcode_time').innerHTML = jsonData?.barcode_time;
+  document.getElementById('total-price').innerHTML = +jsonData?.post_price + +jsonData?.post_tax;
+  document.getElementById('barcode').innerHTML = jsonData?.barcode;
+
+  const barcodeValue = jsonData?.barcode;
+  JsBarcode("#number_barcode", barcodeValue, {
+    width: 0.92,
+    height: 25,
+    displayValue: false,
+    format: "CODE128",
+    font: "monospace"
+  });
+
+  window.onload = function () {
+    window.print();
+  };
+</script>
+</body>
+</html>
