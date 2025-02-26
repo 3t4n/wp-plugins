@@ -1,0 +1,2368 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+// Positioners
+$topBar-Height: 65px;
+$componentBar-Width: 115px;
+$componentBar-maxHeight: 720px;
+$componentBar-BorderWidth: 2px;
+$description-padding: 28px;
+$description-fontSize: 19px;
+$elementConfiguration-LeftPadding: 28px;
+
+// Colors
+$highligh-Color: #107BC3;
+$weak-highlightColor: #4ea4eb;
+$altBG-Color: rgb(33, 47, 60);
+$dark-font: #222;
+$dark-background: #212f3c;
+$accentBorder-color: #ddd;
+$accentBorder-colorDarker: #ccc;
+$highlighBorder-Color: #107Bd3;
+$success-color: #9fff9f;
+
+/**
+ *  Gutenberg UI
+ */
+//<beginFold> Hide Meta Data
+.FP_compositionDataAttribute{
+	display: none;
+}
+.FP_hoverDataAttribute{
+	display: none;
+}
+//</endFold>
+
+//<beginFold> Edit Buttons
+.wp-block-firepro-firepro {
+	border: 1px dotted #f00;
+}
+.edit_comp{
+	background: #1989c1;
+  color: white;
+  padding: 8px;
+  border-radius: .2rem;
+  max-width: 190px;
+  cursor: pointer;
+  text-align: center;
+	font-size: 17px;
+}
+//</endFold>
+
+//<beginFold> outOfFree
+.FP_outOfFree_BackDrop{
+	position: fixed;
+	z-index: 999999999999;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,.7);
+}
+
+.FP_outOfFree{
+	background: white;
+	max-width: 770px;
+	max-height: 90vh;
+	margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	border-radius: 5px;
+}
+
+.FP_closeOutOfFree{
+	fill: #f70000;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+	height: 40px;
+	padding: 7px 11px;
+	cursor: pointer;
+}
+.FP_closeOutOfFree svg{
+	width: 100%;
+	height: 100%;
+}
+
+.FP_outOfFree_Icon{
+	fill: #ff5555;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+}
+.FP_outOfFree_Icon svg{
+	width: 100px;
+	height: 100px;
+}
+
+.FP_outOfFree_MessageContainer{
+	text-align: center;
+	padding: 20px 80px 15px;
+	font-size: 20px;
+	line-height: 25px;
+	color: #282828;
+}
+.FP_outOfFree_Message{
+	padding-bottom: 20px;
+}
+.FP_outOfFree_Message span{
+	color: $highligh-Color;
+}
+
+.FP_outOfFree_ButtonContainer{
+	display: flex;
+	margin: 0 auto;
+	width: 530px;
+	max-width: 100%;
+	padding-bottom: 40px;
+}
+.FP_outOfFree_Button{
+	padding: 16px 10px;
+	font-size: 20px;
+	border-radius: 3px;
+	cursor: pointer;
+	flex: 1;
+	margin: 0 14px;
+	display: flex;
+	align-items: center;
+	transition: all .2s;
+}
+.FP_outOfFree_Button div{
+	text-align: center;
+	margin: 0 auto;
+	line-height: 24px;
+}
+.FP_outOfFree_Button.--sad{
+	background: #eee;
+}
+.FP_outOfFree_Button.--sad:hover{
+	background: #ccc;
+}
+.FP_outOfFree_Button.--happy{
+	color: white;
+	background: $highligh-Color;
+}
+.FP_outOfFree_Button.--happy a{
+	color: white;
+	text-decoration: none;
+}
+.FP_outOfFree_Button.--happy:hover{
+	background: lighten($highligh-Color, 10%);
+}
+//</endFold>
+
+/**
+ *  Gutenberg Continued
+ */
+//<beginFold> Template Option
+.FM_templateOptionContainer{
+	background: white;
+  border-radius: 9px;
+  padding: 8px;
+  width: 100%;
+}
+
+.FM_templateOptionInnerContainer{
+	border: 2px dashed #c8c8c8;
+  border-radius: 5px;
+  height: 100%;
+  padding: 14px;
+  text-align: center;
+}
+
+.FM_templateSelectorButton{
+	padding: 6px;
+	background: #e4e4e4;
+	margin: 15px auto;
+	width: 350px;
+	cursor: pointer;
+	border-radius: 3px;
+	transition: all .2s;
+}
+.FM_templateSelectorButton:hover{
+	background: #ccc;
+}
+.FM_templateSelectorDivider{
+	height: 30px;
+	margin-top: -11px;
+}
+//</endFold>
+
+//<beginFold> Story Board Menu
+.FM_storyBoardMenuContainer{
+  background: #fff;
+	border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  border: 2px solid #ebebeb;
+}
+
+.FM_storyBoardMenuItem{
+	position: relative;
+	color: #444;
+	fill: #444;
+	font-size: 16px;
+	line-height: 1;
+	padding: 16px 0;
+	cursor: pointer;
+	text-align: center;
+	flex: 1;
+	transition: all .2s;
+}
+.FM_storyBoardMenuItem.--borderRight{
+	border-right: 2px solid #ccc;
+}
+.FM_storyBoardMenuItem:hover{
+	color: $highligh-Color;
+	fill: $highligh-Color;
+}
+//</endFold>
+
+//<beginFold> AR Controls
+.FM_arHolder{
+	position: absolute;
+  width: 600px;
+	margin-left: calc(-300px + 50%);
+  bottom: -144px;
+  z-index: 99;
+  background: white;
+  box-shadow: 0 0 2px 2px #bdbdbd;
+}
+.FM_arHolder.--hide{
+	display: none;
+}
+
+.FM_arFlexHolder{
+	display: flex;
+	margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.FM_arItem{
+	flex: 1;
+	transition: all .2s;
+}
+.FM_arItem.--active{
+	background: $highligh-Color;
+	color: white;
+}
+.FM_arItem.--borderRight{
+	border-right: 1px solid #ccc;
+}
+.FM_arItem:hover{
+	background: #afafaf;
+	color: white;
+}
+.FM_arItem.--active:hover{
+	background: $highligh-Color;
+	color: white;
+}
+.FM_arItem span{
+	padding: 15px;
+	display: block;
+}
+
+.FM_applyButton{
+	background: $highligh-Color;
+	color: white;
+	padding: 10px 15px;
+	border-radius: 2px;
+	width: 250px;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	transition: all .2s;
+}
+.FM_applyButton.--hover{
+	background: #0070a7;
+}
+
+.FM_rebuildDiv{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 500px;
+}
+//</endFold>
+
+//<beginFold> Story Board
+$slideControlArea: 60px;
+.FM_storyBoardContainer{
+	background: white;
+	// display: grid;
+	position: relative;
+	// grid-template-columns: 20% 80%;
+	padding: 15px;
+	padding-right: $slideControlArea;
+	border-bottom: 1px dashed #eee;
+	margin-bottom: 6px;
+}
+
+.FM_storyControlsContainer{
+	position: absolute;
+	top: 12px;
+	right: 10px;
+	width: 38px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.FM_storyBoardControl{
+	cursor: pointer;
+	transition: all .2s;
+	fill: #aaa;
+}
+.FM_storyBoardControl.--bottom1{
+	// padding-top: 80px;
+}
+.FM_storyBoardControl.--bottom2{
+
+}
+.FM_storyBoardControl.--hide{
+	display: none;
+	opacity: 0;
+	pointer-events: none;
+}
+.FM_storyBoardControl.--inuse{
+	fill: $weak-highlightColor;
+}
+.FM_storyBoardControl:hover{
+	fill: $highlighBorder-Color;
+}
+.FM_storyBoardControl svg{
+	width: 100%;
+	height: 100%;
+}
+
+
+.FM_linkInputContainer{
+	position: absolute;
+	top: 0;
+	background: white;
+	border-right: 3px solid gray;
+	padding: 20px;
+	z-index: 9;
+	width: calc(100% - #{($slideControlArea + 10)});
+	height: 100%;
+}
+.FM_linkConfirmContainer{
+	display: flex;
+	width: 400px;
+	margin-top: 8px;
+}
+.FM_linkInput{
+	font-size: 20px !important;
+	margin-top: 6px;
+}
+.FM_linkConfirm{
+	background: #ccc;
+	padding: 8px 22px;
+	cursor: pointer;
+	margin-right: 30px;
+	transition: all .2s;
+}
+.FM_linkConfirm:hover{
+	background: #aaa;
+}
+
+.FM_lineBreak{
+	margin-bottom: 24px;
+}
+
+.FM_checkBox{
+	margin: 0 10px !important;
+	background: #ffffff !important;
+	border-color: #11d232 !important;
+}
+
+.FM_storyBoardTransition{
+	width: 100%;
+  padding-top: 18px;
+  padding-bottom: 17px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+  background: rgba(233, 233, 233, 0.7);
+  transition: all .2s;
+  z-index: 9;
+  margin-bottom: 15px;
+}
+.FM_storyBoardTransition.--active{
+	background: rgba(126, 232, 144, 0.7);
+}
+.FM_storyBoardTransition:hover{
+	box-shadow: 0 0 8px #555;
+	background: rgba(220,220,220,0.7);
+}
+.FM_storyBoardTransition.--active:hover{
+	background: rgba(126, 232, 144, 1);
+}
+
+.FM_storyBoardTransition span{
+	font-size: 13px;
+  display: block;
+	user-select: none;
+	pointer-events: none;
+}
+
+.FM_transitionIcon{
+	stroke: #555;
+	transition: all .2s;
+}
+.FM_storyBoardTransition:hover .FM_transitionIcon{
+	stroke: $highlighBorder-Color;
+}
+.FM_storyBoardTransition.--active:hover .FM_transitionIcon{
+	stroke: #444;
+}
+
+.FM_storyBoardImageContainer{
+	cursor: pointer;
+	width: 100%;
+	border-radius: 5px;
+	transition: all .2s;
+	position: relative;
+	margin: auto;
+	background: #aaa;
+	background-size: 22px 22px;
+	background-position: 0 0,0 11px,11px -11px,-11px 0px;
+	background-image: linear-gradient(45deg, #fff 27%, transparent 25%),linear-gradient(-45deg, #fff 27%, transparent 25%),linear-gradient(45deg, transparent 75%, #fff 75%),linear-gradient(-45deg, transparent 75%, #fff 75%);
+	background-color: #aaa;
+	user-select: none;
+}
+.FM_storyBoardImageContainer:hover{
+	box-shadow: 0 0 8px #555;
+}
+.FM_storyBoardImageInnerContainer{
+
+}
+
+.FM_storyBoardImage{
+	user-select: none;
+	width: 100% !important;
+	height: 100% !important;
+	position: absolute !important;
+}
+
+.FM_newStoryBoardItem{
+	padding-top: 8px;
+	padding-bottom: 5px;
+	fill: gray;
+	cursor: pointer;
+	transition: all .2s;
+}
+.FM_newStoryBoardItem svg{
+	margin-bottom: -4px;
+}
+.FM_newStoryBoardItem:hover{
+	fill: $highligh-Color;
+	color: $highligh-Color;
+}
+//</endFold>
+
+//<beginFold> Slide Menu Options
+.FM_menuOptions{
+	margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.FM_menuTitle{
+	border-bottom: 1px solid #bcbcbc;
+	margin-bottom: 12px;
+}
+
+.FM_menuOption{
+	cursor: pointer;
+	padding: 5px 0;
+	transition: all .2s;
+	font-size: 20px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+.FM_menuOption span{
+	padding-right: 5px;
+}
+.FM_menuOption:hover{
+	color: $highligh-Color;
+}
+//</endFold>
+
+
+/**
+ * Helpful Classes
+ */
+//<beginFold> spacer
+.FP_flexSpacer{
+	flex-grow: 1;
+}
+.FP_flexSpacer.--title{
+	padding-left: 20px;
+	font-size: 30px;
+	padding-top: 22px;
+}
+//</endFold>
+
+//<beginFold> Hide
+.FP_hide{
+	position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+//</endFold>
+
+/**
+ * Composition Editor
+ */
+//<beginFold> Main Container
+.FP_compContainer{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999999999;
+	background: white;
+}
+
+.media-modal{
+	z-index: 9999999999 !important;
+}
+//</endFold>
+
+//<beginFold> Load Screen
+.FP_loadScreen{
+	width: 100%;
+  height: 100vh;
+  background: white;
+  z-index: 999999;
+  position: fixed;
+  top: 0;
+}
+.FP_loadScreen.--hide{
+	opacity: 0;
+	pointer-events: none;
+}
+
+.FP_loader{
+	width: 200px;
+  height: 100vh;
+  margin: 0 auto;
+  display: block;
+  padding-left: 100px;
+}
+//</endFold>
+
+//<beginFold> Top Bar
+.FP_compTopBar{
+	width: 100%;
+	height: $topBar-Height;
+	background: white;
+	z-index: 99;
+	box-shadow: 0 0 12px 2px #e2e2e2;
+	display: flex;
+}
+.FP_compTopBar.--wide{
+	height: 95px;
+	border-bottom: 2px solid $highligh-Color;
+}
+
+.FP_compTopBar_LogoContainer{
+	width: $componentBar-Width;
+	height: 100%;
+	border-right: $componentBar-BorderWidth solid #eee;
+}
+.FP_compTopBar_Logo{
+	width: $topBar-Height;
+	height: 100%;
+	margin: 0 auto;
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNjEyIiB4bWxuczp2PSJodHRwczovL3ZlY3RhLmlvL25hbm8iPjxzdHlsZT48IVtDREFUQVsuTXtmaWxsLXJ1bGU6ZXZlbm9kZH1dXT48L3N0eWxlPjxyYWRpYWxHcmFkaWVudCBpZD0iQSIgY3g9IjQxNS43MTMiIGN5PSItMzQuMzM3IiByPSI0NjkuNTk3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI2ZiYjAzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M0MjcyZSIvPjwvcmFkaWFsR3JhZGllbnQ+PHBhdGggZD0iTTQwOS41IDEwOS4zYy02MiA2Ni41IDI4LjMgMTAwLjMgNTcuNCAxNjQuNC00LTU0LjktNjUuMi0xMTMuMi01Ny40LTE2NC40eiIgZmlsbD0idXJsKCNBKSIgY2xhc3M9Ik0iLz48cmFkaWFsR3JhZGllbnQgaWQ9IkIiIGN4PSIxNTMuOTU4IiBjeT0iMTE3LjMyMyIgcj0iNDc3LjI2OSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNmYmIwM2IiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNDI3MmUiLz48L3JhZGlhbEdyYWRpZW50PjxnIGNsYXNzPSJNIj48cGF0aCBkPSJNMTEwLjIgMzk1LjRjLTQuNyA0NS45IDYuOSA4OS44IDMwIDEyNS44LTM2LjktNTguNS00LjctMTAzLjEgMzAuMS0xNDQtMTcuMy00Ni4yLTkuMi0xMDQuNSAxMy45LTEzMi0zOC44IDMyLjgtNjguNiA5Ny4zLTc0IDE1MC4yeiIgZmlsbD0idXJsKCNCKSIvPjxwYXRoIGQ9Ik0xNjQgMzU1LjFjLTI1LjMgMjkuOS00NS42IDY3LTQ1LjcgMTAzLjgtLjEgMjEuMyA5LjEgNDIuNiAyMS45IDYyLjMtMzYuOS01OC41LTQuNy0xMDMuMSAzMC4xLTE0NC0yLjctNy4xLTQuOC0xNC42LTYuMy0yMi4xeiIgb3BhY2l0eT0iLjIiLz48L2c+PHJhZGlhbEdyYWRpZW50IGlkPSJDIiBjeD0iMzgxLjQ0OSIgY3k9Ii0xODUuMzQ3IiByPSI3MTUuODAxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI2ZiYjAzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M0MjcyZSIvPjwvcmFkaWFsR3JhZGllbnQ+PGcgY2xhc3M9Ik0iPjxwYXRoIGQ9Ik0zMzIuOSAxLjdjLTQ4LjIgMzguMS0xMTAuMyAxMTQuOC02Mi41IDIwMS41IDE3LjggMzIuMiA1OS4zIDc5LjYgOTguNSAxMzAuOSAzMy4zLTQ5LjMgNDIuMy05Ny4yIDEwLjItMTM3LjUtNTUuNi01Ny42LTk4LjUtMTExLTQ2LjItMTk0Ljl6IiBmaWxsPSJ1cmwoI0MpIi8+PHBhdGggZD0iTTM1My4yIDMxNGwxNS42IDIwLjFjMjguMS00MS42IDM5LTgyLjEgMjIuNS0xMTcuOSA3LjIgNDUuNC0xNyA3OC44LTM4LjEgOTcuOHoiIG9wYWNpdHk9Ii4yIi8+PC9nPjxyYWRpYWxHcmFkaWVudCBpZD0iRCIgY3g9IjIzOS43MzkiIGN5PSItNDguMTcxIiByPSI3NjIuODg1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI2ZiYjAzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M0MjcyZSIvPjwvcmFkaWFsR3JhZGllbnQ+PHBhdGggZD0iTTI1My41IDQyMC44YzE0Ny4xLTExOS4zLTY0LjQtMTg1LjUtNy4zLTMwMy4yLTQ4LjYgNDQuOC01LjIgMTI5LjctMjQuOSAxODcuNC0yMiA2NC41LTE0MC4yIDEyMi40LTgxLjEgMjE2LjIgMzAuNyA0OC43IDgzLjIgODIuNyAxNDQuOSA4OS0xMDEuNy0yNS4yLTExNS44LTEyMS4xLTMxLjYtMTg5LjR6IiBmaWxsPSJ1cmwoI0QpIiBjbGFzcz0iTSIvPjxyYWRpYWxHcmFkaWVudCBpZD0iRSIgY3g9IjUwMy4wNTgiIGN5PSI0NzguNDY3IiByPSI0MjkuNDMxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI2ZiYjAzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M0MjcyZSIvPjwvcmFkaWFsR3JhZGllbnQ+PHBhdGggZD0iTTIzMy45IDQzOWMtMzIuNi05LjItNTMtMzMuMi02My43LTYxLjgtMzQuOCA0MC45LTY2LjkgODUuNC0zMCAxNDQgMzAuNyA0OC43IDgzLjIgODIuNyAxNDQuOSA4OS05My0yMy0xMTIuNy0xMDUuMi01MS4yLTE3MS4yeiIgZmlsbD0idXJsKCNFKSIgY2xhc3M9Ik0iLz48cmFkaWFsR3JhZGllbnQgaWQ9IkYiIGN4PSIzMDUuMjE4IiBjeT0iNDQzLjc0NSIgcj0iMjA2LjM0NyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iLjMzIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNjYiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cGF0aCBkPSJNMjM2LjggNDEzLjNjLTU2LjggNDYuMS04MiAxMTYtNDQuMSAxNTguNi0zMy4xLTQxLTkuMy0xMDkuNiA0Ny41LTE1NS43IDY2LTUzLjUgNjQuNi05OC4yIDQ0LTEzNi43IDE3LjIgMzkuNSAxOC42IDgwLjMtNDcuNCAxMzMuOHoiIGZpbGw9InVybCgjRikiIGNsYXNzPSJNIi8+PGxpbmVhckdyYWRpZW50IGlkPSJHIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwMy4wMDgiIHkxPSI0MTcuMjE4IiB4Mj0iMTgyLjEwOCIgeTI9IjM2My40MjMiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBkPSJNMjMxLjggMTkyLjNjNi41IDU5LjQgNjUuMiAxMTQuOC02LjQgMTc3LjUtNDMuNyAzOC4zLTkxLjkgOTkuOC01OC43IDE3MC42LTEwLjEtNTEuMSAyNi4zLTEwMy45IDY0LjEtMTM0LjUgMjguNy0yMy4zIDU4LjgtNTQuNSA1My4xLTk0LjUtNS42LTM4LjUtMzkuNy03OS4xLTUyLjEtMTE5LjF6IiBmaWxsPSJ1cmwoI0cpIiBjbGFzcz0iTSIvPjxyYWRpYWxHcmFkaWVudCBpZD0iSCIgY3g9IjY5LjUyOSIgY3k9Ijc1Ni45NTciIHI9IjgyOC44MzQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz48c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjZmJiMDNiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYzQyNzJlIi8+PC9yYWRpYWxHcmFkaWVudD48cGF0aCBkPSJNMjgzLjUgNDI1LjdDMTYzLjYgNTI5IDI3My4zIDY1Ni4yIDQwMC4xIDU4Ni42YzU0LjItMjkuOCA5My04NS4xIDk5LjctMTUxLjNDNTExLjMgMzIzLjQgNDM4IDI1Ny43IDM3OSAxOTYuNmM1MS45IDY1LjEtMy43IDE1MC4xLTk1LjUgMjI5LjF6IiBmaWxsPSJ1cmwoI0gpIiBjbGFzcz0iTSIvPjxyYWRpYWxHcmFkaWVudCBpZD0iSSIgY3g9IjgyNi40MDMiIGN5PSI4MjkuMzQzIiByPSI4MzUuMjQ1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iI2ZiYjAzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M0MjcyZSIvPjwvcmFkaWFsR3JhZGllbnQ+PHBhdGggZD0iTTM2OC44IDMzNC4xYzY0LjIgODQgMTIyLjEgMTc4LjQgNTkuMyAyMzMuOCAzOS4zLTMxLjYgNjYuMi03OC41IDcxLjgtMTMyLjYgMTEuNS0xMTEuOS02MS44LTE3Ny42LTEyMC44LTIzOC43IDMyIDQwLjMgMjMgODguMS0xMC4zIDEzNy41eiIgZmlsbD0idXJsKCNJKSIgY2xhc3M9Ik0iLz48cmFkaWFsR3JhZGllbnQgaWQ9IkoiIGN4PSIzNzEuNTQ1IiBjeT0iNDQ2LjM4NCIgcj0iMjk0LjE4NyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iLjMzIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIuNjYiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cGF0aCBkPSJNMjg4LjEgNDM3LjhjLTU0LjIgNDguMy01Ni40IDk5LjUtMzIuNyAxMzEuMi0xOS4xLTMzLjQtMTMuOS04NC40IDM1LjMtMTI4LjIgNzguMi02OS42IDEyNi45LTEzNC4zIDExNS45LTE5Mi41IDYuNSA1OC00MC4yIDExOS45LTExOC41IDE4OS41eiIgZmlsbD0idXJsKCNKKSIgY2xhc3M9Ik0iLz48bGluZWFyR3JhZGllbnQgaWQ9IksiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iODQyLjkzOCIgeTE9IjY5Mi43NzYiIHgyPSIzNTMuMDYxIiB5Mj0iNDEzLjU2OSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PjxwYXRoIGQ9Ik0zMzYuNiA1MzJjLTY5LjggNTMuNC0xNC45IDc2LjIgMzYuNyA1Ni42IDY1LjEtMjQuNyAxMDkuOS04NSAxMTctMTU0LjIgNy43LTc1LjMtMjQtMTI5LjktNzIuMy0xODMuMiA3OS4zIDExNi4xIDguOSAyMTEuNy04MS40IDI4MC44eiIgZmlsbD0idXJsKCNLKSIgY2xhc3M9Ik0iLz48L3N2Zz4=");
+	background-size: 75%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.FP_compTopBar_ButtonContainer{
+	display: flex;
+	align-items: center;
+}
+.FP_compTopBar_ButtonContainer div{
+	margin-right: 21px;
+}
+
+.FP_compTopBar_Button{
+	padding: 8px 13px;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	transition: all .2s;
+}
+.FP_compTopBar_Button svg{
+	padding-right: 5px;
+	width: 20px;
+}
+.FP_compTopBar_Button.--white{
+	background: rgb(243, 245, 246);
+	border: 1px solid rgb(0,124,186);
+	fill: $dark-font;
+	color: $dark-font;
+}
+.FP_compTopBar_Button.--white:hover{
+	background: rgb(233, 235, 236);
+	border: 1px solid rgb(0,114,176);
+	fill: #171717;
+	color: #171717;
+}
+.FP_compTopBar_Button.--blue{
+	background: #007cba;
+	border: 1px solid rgb(0,124,186);
+	fill: white;
+	color: white;
+}
+.FP_compTopBar_Button.--blue:hover{
+	background: #0070a7;
+	border: 1px solid #0070a7;
+	fill: white;
+	color: white;
+}
+//</endFold>
+
+//<beginFold> Editor Container
+.FP_compEditorContainer{
+	display: flex;
+	width: 100%;
+	height: calc(100vh - #{$topBar-Height});
+}
+//</endFold>
+
+//<beginFold> Component Bar
+.FP_compComponentBar{
+	width: $componentBar-Width;
+	background: $altBG-Color;
+	border-right: $componentBar-BorderWidth solid rgb(33, 47, 60);
+}
+
+.FP_compComponentBar_SubContainer{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+  max-height: $componentBar-maxHeight;
+}
+
+.FP_compComponentBar_Block{
+	color: white;
+	fill: white;
+	text-align: center;
+	font-size: 16px;
+	border-bottom: 2px solid #4e5257;
+	letter-spacing: .5px;
+}
+.FP_compComponentBar_Block_Color{
+	color: white;
+	fill: white;
+}
+
+.FP_compComponentBar_Description{
+	pointer-events: none;
+	font-size: $description-fontSize;
+	padding-top: $description-padding;
+	padding-bottom: $description-padding;
+	flex: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.FP_compComponentBar_Component{
+	flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+	transition: all .2s;
+	cursor: pointer;
+}
+.FP_compComponentBar_Component:hover{
+	background: $highligh-Color;
+}
+.FP_compComponentBar_Component.--active{
+	background: $highligh-Color;
+}
+.FP_compComponentBar_Component div{
+	margin: 0 auto;
+}
+.FP_compComponentBar_Component img{
+	padding-bottom: 8px;
+}
+.FP_compComponentBar_Component svg{
+	width: 100%;
+  height: 40px;
+  padding-bottom: 5px;
+}
+//</endFold>
+
+//<beginFold> Composition Preview
+.FP_compCompositionPreview{
+	flex: 1;
+	background: rgb(239,239,239);
+	padding: 0 40px;
+}
+@media only screen and (max-width: 1300px) {
+	.FP_compCompositionPreview{
+		padding: 0 20px;
+	}
+}
+@media only screen and (max-width: 1000px) {
+	.FP_compCompositionPreview{
+		padding: 0 12px;
+	}
+}
+
+.FP_compCompositionPreview_Description{
+	pointer-events: none;
+	font-size: $description-fontSize;
+	padding-top: $description-padding;
+	padding-bottom: $description-padding;
+	color: $dark-font;
+	font-weight: 600;
+}
+
+$checkeredBG-Size: 22px;
+$checkeredBG-Size-Inverse: -$checkeredBG-Size;
+.FP_compCompositionPreview_Preview{
+	width: 100%;
+	position: relative;
+	margin: 0 auto;
+	height: calc(100% - 130px);
+	// height: calc(100vh - #{$topBar-Height + $description-padding * 3 + $description-fontSize});
+	// background-image: linear-gradient(45deg, #ffffff 27%, transparent 25%), linear-gradient(-45deg, #ffffff 27%, transparent 25%), linear-gradient(45deg, transparent 75%, #ffffff 75%), linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+	// background-size: $checkeredBG-Size $checkeredBG-Size;
+	// background-position: 0 0, 0 $checkeredBG-Size/2, $checkeredBG-Size/2 $checkeredBG-Size-Inverse/2, $checkeredBG-Size-Inverse/2 0px;
+	// background-color: #aaa;
+	// border: 1px solid gray;
+	// box-shadow: 0 0 3px black;
+	// background: white;
+}
+@media only screen and (max-width: 1300px) {
+	.FP_compCompositionPreview_Preview{
+		height: calc(100% - 120px);
+	}
+}
+@media only screen and (max-width: 1000px) {
+	.FP_compCompositionPreview_Preview{
+		height: calc(100% - 110px);
+	}
+}
+
+.FP_compositionPreview_Inner1{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+.FP_compositionPreview_Inner2{
+	position: relative;
+}
+.FP_compositionPreview_Inner3{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.FP_compositionPreview_Inner3 canvas{
+	width: 100%;
+	height: 100%;
+}
+//</endFold>
+
+//<beginFold> Element Configuration
+$controlSelector-BorderWidth: 2.5px;
+.FP_compElementConfiguration{
+	display: flex;
+	flex-direction: column;
+	width: 360px;
+}
+@media only screen and (max-width: 1200px) {
+	.FP_compElementConfiguration{
+		display: flex;
+		flex-direction: column;
+		width: 340px;
+	}
+}
+@media only screen and (max-width: 1000px) {
+	.FP_compElementConfiguration{
+		display: flex;
+		flex-direction: column;
+		width: 330px;
+	}
+}
+
+
+.FP_compElementConfiguration_Description{
+	color: white;
+	fill: white;
+	text-align: center;
+	border-bottom: 2px solid #4e5257;
+	letter-spacing: .5px;
+	pointer-events: none;
+	font-size: $description-fontSize;
+	padding-top: $description-padding;
+	padding-bottom: $description-padding;
+	display: flex;
+	padding-left: $elementConfiguration-LeftPadding;
+	align-items: center;
+	background: $altBG-Color;
+}
+
+.FP_compElementConfiguration_ControlsSelector{
+	display: flex;
+	height: 60px;
+	font-size: 15px;
+	font-weight: 600;
+}
+.FP_compElementConfiguration_ControlsSelector .controlContainer{
+	flex-basis: 0;
+	flex: 1 1 0px;
+	border-bottom: $controlSelector-BorderWidth solid $accentBorder-color;
+	transition: all .2s;
+	position: relative;
+}
+.controlContainer:first-of-type{
+	border-left: 0px solid rgba(0,0,0,0) !important;
+}
+.controlContainer.--available{
+	border-left: $controlSelector-BorderWidth solid $accentBorder-color;
+	cursor: pointer;
+}
+.controlContainer.--available:hover{
+	border-bottom: $controlSelector-BorderWidth solid $highlighBorder-Color;
+}
+.controlContainer.--available.--active{
+	border-bottom: $controlSelector-BorderWidth solid $highlighBorder-Color;
+}
+
+.FP_compElementConfiguration_ControlsSelector .control{
+	position: absolute;
+	display: block;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+.FP_controlInterface{
+	width: calc(100% - 28px);
+	// height: calc(100% - 34px);
+	padding: 14px;
+	padding-top: 20px;
+	overflow-y: auto;
+	overflow-x: visible;
+}
+//</endFold>
+
+/**
+* Components Interface
+*/
+//<beginFold> Image Controls
+.FP_imgControl_imgContainer{
+	width: 100%;
+	padding-bottom: 56.5%;
+	position: relative;
+	background-image: linear-gradient(45deg, #fff 27%, transparent 25%),linear-gradient(-45deg, #fff 27%, transparent 25%),linear-gradient(45deg, transparent 75%, #fff 75%),linear-gradient(-45deg, transparent 75%, #fff 75%);
+	background-size: 22px 22px;
+	background-position: 0 0,0 11px,11px -11px,-11px 0px;
+	background-color: #aaa;
+	border-radius: 5px;
+	cursor: pointer;
+	overflow: hidden;
+	margin-bottom: 13px;
+}
+.FP_imgControl_imgContainer.--hide{
+	display: none;
+}
+
+.FP_imgControl_imgPreview{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+}
+
+.FP_imgControl_button{
+	padding: 14px 10px;
+	background: #f2f2f2;
+	border: 1px solid $highlighBorder-Color;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-bottom: 15px;
+	font-size: 16px;
+	transition: all .2s;
+}
+.FP_imgControl_button.--hide{
+	display: none;
+}
+.FP_imgControl_button.--warning{
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	border-radius: 20px;
+	width: 18px;
+	font-size: 23px;
+	height: 18px;
+	padding: 9px;
+	text-align: center;
+	background: #eee;
+	color: #e91b1b;
+	font-weight: 500;
+	transition: all .2s;
+	border-color: rgba(0,0,0,0);
+}
+.FP_imgControl_button.--warning:hover{
+	border-radius: 18px;
+	background: #fff;
+	color: red;
+	border-color: red;
+}
+.FP_imgControl_button:hover{
+	background: #eee;
+}
+//</endFold>
+
+//<beginFold> Effect Packages
+.FP_effectsPackage_Container{
+	position: relative;
+	padding: 35px 8px;
+	padding-top: 0;
+	cursor: pointer;
+}
+
+.FP_effectsPackage_Name{
+	padding: 0 1px;
+	font-size: 20px;
+	padding-bottom: 6px;
+	text-shadow: 0 0 1px #fff;
+	transition: all .3s;
+}
+.FP_effectsPackage_Container:hover .FP_effectsPackage_Name{
+	text-shadow: 0 0 1px #aaa;
+}
+.FP_effectsPackage_Container.--active .FP_effectsPackage_Name{
+	text-shadow: 0 0 1px #aaa;
+}
+
+.FP_effectsPackage_Selection{
+	font-size: 20px;
+  padding-bottom: 14px;
+}
+
+.FP_effectsPackage_Thumbnail_Container{
+	width: 100%;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 56%;
+  background-size: cover;
+  background-position: center;
+	background-color: #ccc;
+	position: relative;
+	border: 3px solid #fff;
+	transition: all .3s;
+	box-shadow: 3.5px 2.5px 9px white;
+	border-radius: 5px;
+}
+.FP_effectsPackage_Thumbnail_Container.--checkered{
+	background-image: linear-gradient(45deg, #fff 27%, transparent 25%),linear-gradient(-45deg, #fff 27%, transparent 25%),linear-gradient(45deg, transparent 75%, #fff 75%),linear-gradient(-45deg, transparent 75%, #fff 75%);
+	background-size: 22px 22px;
+  background-position: 0 0,0 11px,11px -11px,-11px 0px;
+  background-color: #aaa;
+}
+
+.FP_effectsPackage_Container.--active .FP_effectsPackage_Thumbnail_Container{
+  box-shadow: 3.5px 2.5px 9px #000;
+}
+.FP_effectsPackage_Container:hover .FP_effectsPackage_Thumbnail_Container{
+  box-shadow: 3.5px 2.5px 9px #000;
+}
+
+.FP_effectsPackage_active{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	padding: 5px;
+	fill: #fff;
+	top: 16px;
+	right: -6px;
+	z-index: 1;
+	opacity: 0;
+	transform: scale(0);
+	background: $dark-background;
+	border-radius: 5px;
+	border: 4px solid #fff;
+	transition: all .3s;
+}
+.FP_effectsPackage_active svg{
+	width: 100%;
+	height: 100%;
+}
+.FP_effectsPackage_Container.--active .FP_effectsPackage_active{
+	opacity: 1;
+	transform: scale(1);
+}
+
+.FP_effectsPackage_Pro{
+	position: absolute;
+	padding: 2px;
+	font-size: 14px;
+	color: white;
+	background: #bb0000;
+	border: 2px solid white;
+}
+//</endFold>
+
+//<beginFold> Effect Styles
+.FM_noStyles{
+	font-size: 16px;
+}
+
+.FM_stylesContainer{
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.FM_styleContainer{
+	cursor: pointer;
+  width: 85%;
+  padding-bottom: 85%;
+  border-radius: 5px;
+  transition: all .2s;
+  will-change: transform;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 13px;
+  background: #aaa;
+	border: 2px solid #ededed;
+}
+.FM_styleContainer.--active{
+	box-shadow: 1px 1px 4px black;
+	border: 2px solid white;
+}
+
+.FM_styleImage{
+	border-radius: 5px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
+.FM_style_active{
+	position: absolute;
+	fill: white;
+	color: white;
+	z-index: 999;
+	right: -5px;
+	background: #212f3c;
+	padding: 2px;
+	top: -5px;
+	border: 2px solid white;
+	border-radius: 8px;
+	transition: all .3s;
+	transform: scale(0);
+	opacity: 0;
+}
+.FM_styleContainer.--active .FM_style_active{
+	transform: scale(1);
+	opacity: 1;
+}
+
+.FM_styleBreak{
+	column-fill: balance;
+	grid-column: 1 / -1;
+	font-size: 18px;
+	background: white;
+	margin: 0;
+	margin-bottom: 6px;
+	border-radius: 0;
+	padding-bottom: 0;
+	margin-left: 4px;
+	margin-top: 12px;
+	border: 2px solid white;
+}
+.FM_styleBreak:first-of-type{
+	margin-top: 0;
+}
+
+.FM_styleBreakText{
+	display: inline;
+  padding-right: 5px;
+}
+//</endFold>
+
+//<beginFold> Text Drag Controls
+.FP_textDragControlContainer{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+$textDragBorderWidth: 8px;
+.FP_textDragControls{
+	border: $textDragBorderWidth solid rgba(0,0,0,0);
+	left: - $textDragBorderWidth;
+	top: - $textDragBorderWidth;
+	width: calc(100% + #{$textDragBorderWidth*2});
+	height: calc(100% + #{$textDragBorderWidth*2});
+	position: relative;
+	cursor: grab;
+	transition: border .2s;
+}
+.FP_textDragControls:hover{
+	border: $textDragBorderWidth solid $highlighBorder-Color;
+}
+.FP_textDragControls.--noHover:hover{
+	border: $textDragBorderWidth solid rgba(0,0,0,0);
+	cursor: auto;
+}
+
+.FP_textDragArea{
+	width: 100%;
+	height: 100%;
+}
+
+.FP_textDragCorner{
+	width: 30px;
+	height: 30px;
+	background: $highlighBorder-Color;
+	opacity: 0;
+	border-radius: 20px;
+	z-index: 5;
+	position: absolute;
+	transition: all .2s;
+}
+.FP_textDragControls:hover .FP_textDragCorner{
+	opacity: 1;
+}
+.FP_textDragControls.--noHover:hover .FP_textDragCorner{
+	opacity: 0;
+}
+.FP_textDragCorner.--northWest{
+	cursor: nw-resize;
+}
+.FP_textDragCorner.--northEast{
+	cursor: ne-resize;
+}
+
+.textDragBar{
+	position: absolute;
+	top: -75px;
+	height: 50px;
+	// width: calc(100% + #{$textDragBorderWidth*2});
+	// min-width: 360px;
+	width: 50px;
+	left: -20px;
+	background: white;
+	display: flex;
+	transition: all .2s;
+}
+.textDragBar.--showAll{
+	width: 503px;
+}
+
+.FP_textDragControl{
+	display: block;
+	position: relative;
+	fill: #555;
+	opacity: 0;
+	cursor: pointer;
+	pointer-events: none;
+	transition: all .2s;
+}
+.FP_textDragControl.--showAlways{
+	pointer-events: auto;
+	opacity: 1;
+}
+.textDragBar.--showAll .FP_textDragControl{
+	pointer-events: auto;
+	opacity: 1;
+}
+.FP_textDragControl.--rightBorder{
+	border-right: 2px solid gray;
+}
+.FP_textDragControl:hover{
+	fill: $highligh-Color;
+}
+.FP_textDragControl.--active{
+	fill: $highligh-Color;
+}
+.FP_textDragControl svg{
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 30px;
+	height: 30px;
+}
+.FP_textDragControl span{
+	display: block;
+	pointer-events: none;
+	padding: 6px;
+	position: absolute;
+	color: #222;
+	background: white;
+	border-radius: 2px;
+	font-size: 16px;
+	margin-top: 15px;
+	opacity: 0;
+	z-index: 9;
+	width: 100px;
+	transition: all .2s;
+}
+.FP_textDragControl:hover span{
+	opacity: 1;
+}
+
+.FP_textDragControl span::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%; /* At the bottom of the tooltip */
+  left: 25px;
+  margin-left: -7px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+//</endFold>
+
+
+/**
+* UI Modules
+*/
+//<beginFold> FP_label
+.FP_label{
+	color: $highligh-Color;
+	font-size: 16px;
+  padding-bottom: 8px;
+	font-weight: 500;
+	padding-top: 7px;
+	border-top: 1px solid #e2e2e2;
+}
+.FP_label:first-of-type{
+	border-top: none;
+}
+
+.FP_expandLabel{
+	float: right;
+	fill: gray;
+	cursor: pointer;
+}
+.FP_expandLabel .FP_minus{
+	display: none;
+}
+.FP_expandLabel.--active .FP_minus{
+	display: block;
+}
+.FP_expandLabel.--active .FP_plus{
+	display: none;
+}
+.FP_expandLabel.--inuse{
+	fill: $highligh-Color;
+}
+.FP_expandLabel:hover{
+	fill: $highligh-Color;
+}
+
+.FP_expandLabel svg{
+	width: 25px;
+	margin-bottom: -6px;
+	padding-right: 5px;
+	padding-left: 5px;
+	transition: all .2s;
+}
+//</endFold>
+
+//<beginFold> dropdown
+.FP_dropDown_Container{
+  flex: 100%;
+  padding: 3px 0;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.FP_dropdownOption{
+  height: 30px;
+	font-size: 14px;
+  background: #ddd;
+  padding: 10px;
+	padding-top: 16px;
+	padding-bottom: 1px;
+  cursor: pointer;
+  position: relative;
+  transition: all .2s;
+}
+.FP_dropdownOption.--font{
+	font-size: 16px;
+}
+.FP_dropdownOption.--active{
+  background: #eee;
+	border-radius: 1px;
+}
+.FP_dropdownOption:hover{
+  background: #eee;
+}
+.FP_dropdownOption.--active::after{
+  content: " ";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 9px solid #eee;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  opacity: 1;
+  transition: opacity .2s;
+  opacity: 0;
+}
+.FP_dropDown_Container.--inactive .FP_dropdownOption{
+  padding: 0rem;
+  padding-left: 10px;
+  height: 0;
+  overflow: hidden;
+}
+.FP_dropDown_Container.--inactive .FP_dropdownOption.--active{
+  padding: 0.5rem;
+  padding-left: 10px;
+	padding-top: 16px;
+	padding-bottom: 6px;
+  height: 30px;
+}
+.FP_dropDown_Container.--inactive .FP_dropdownOption.--active::after{
+  opacity: 1;
+}
+
+//</endFold>
+
+//<beginFold> rangedNumber
+.FP_containMultipleRangeInputs{
+
+}
+.FP_containMultipleRangeInputs .--hide{
+	display: none;
+}
+
+.FP_subContainMultipleRangeInputs{
+	font-size: 14px;
+}
+
+.FP_rangedNumberContainer{
+	font-size: 16px;
+	display: inline-block;
+}
+
+.FP_rangedNumberSubContainer{
+	cursor: e-resize;
+	padding: 11px 3px;
+	padding-top: 4px;
+	padding-right: 20px;
+}
+
+.FP_input{
+	padding: 11px 3px;
+	padding-top: 4px;
+	padding-right: 20px;
+}
+
+.FP_rangedNumber{
+	padding: 0 1px;
+	border-bottom: 1px dotted #00c4ff;
+}
+//</endFold>
+
+//<beginFold> Tool Tip
+.toolTip{
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.toolTip.show{
+  opacity: 1;
+}
+
+.toolTip_info{
+  background: gray;
+  color: white;
+  padding: 0 1rem;
+  display: inline;
+  border-radius: 1rem;
+}
+
+//</endFold>
+
+//<beginFold> text input
+.FM_textInput{
+	width: 100% !important;
+	padding: 6px 5px !important;
+	border: none !important;
+	font-size: 15px;
+	border-bottom: 1px solid $accentBorder-colorDarker !important;
+	border-radius: 0 !important;
+	box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+	outline-color: rgba(0,0,0,0) !important;
+	margin-bottom: 18px !important;
+	transition: all .1s !important;
+}
+.FM_textInput:focus{
+	box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+	outline-color: rgba(0,0,0,0) !important;
+	border-bottom: 1px solid $highligh-Color !important;
+}
+//</endFold>
+
+//<beginFold> color picker
+/*! Pickr 1.5.0 MIT | https://github.com/Simonwep/pickr */
+.pickr {
+	position: relative;
+	overflow: visible;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+	display: none;
+}
+
+.pickr * {
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	-webkit-appearance: none
+}
+
+.pickr .pcr-button {
+	position: relative;
+	height: 2em;
+	width: 2em;
+	padding: .5em;
+	margin-left: .2rem;
+	cursor: pointer;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+	border-radius: .15em;
+	background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" stroke="%2342445A" stroke-width="5px" stroke-linecap="round"><path d="M45,45L5,5"></path><path d="M45,5L5,45"></path></svg>') no-repeat 50%;
+	background-size: 0;
+	-webkit-transition: all .3s;
+	transition: all .3s
+}
+
+.pickr .pcr-button:before {
+	background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="%23aaaaaa" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	background-size: .5em;
+	z-index: -1;
+	z-index: auto
+}
+
+.pickr .pcr-button:after,
+.pickr .pcr-button:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: .15em
+}
+
+.pickr .pcr-button:after {
+	-webkit-transition: background .3s;
+	transition: background .3s;
+	background: currentColor
+}
+
+.pickr .pcr-button.clear {
+	background-size: 70%
+}
+
+.pickr .pcr-button.clear:before {
+	opacity: 0
+}
+
+.pickr .pcr-button.clear:focus {
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .85), 0 0 0 3px currentColor
+}
+
+.pickr .pcr-button.disabled {
+	cursor: not-allowed
+}
+
+.pcr-app *,
+.pickr * {
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	-webkit-appearance: none
+}
+
+.pcr-app button.pcr-active,
+.pcr-app button:focus,
+.pcr-app input.pcr-active,
+.pcr-app input:focus,
+.pickr button.pcr-active,
+.pickr button:focus,
+.pickr input.pcr-active,
+.pickr input:focus {
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .85), 0 0 0 3px currentColor
+}
+
+.pcr-app .pcr-palette,
+.pcr-app .pcr-slider,
+.pickr .pcr-palette,
+.pickr .pcr-slider {
+	-webkit-transition: box-shadow .3s;
+	transition: box-shadow .3s
+}
+
+.pcr-app .pcr-palette:focus,
+.pcr-app .pcr-slider:focus,
+.pickr .pcr-palette:focus,
+.pickr .pcr-slider:focus {
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .85), 0 0 0 3px rgba(0, 0, 0, .25)
+}
+
+.pcr-app {
+	position: relative !important;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+	z-index: 10000;
+	border-radius: .1em;
+	// opacity: 0;
+	// visibility: hidden;
+	-webkit-transition: opacity .3s, visibility 0s .3s;
+	transition: opacity .3s, visibility 0s .3s;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+	left: 0;
+	top: 0;
+	padding-top: 7px;
+	height: auto;
+}
+
+// .pcr-app.visible {
+// 	-webkit-transition: opacity .3s;
+// 	transition: opacity .3s;
+// 	visibility: visible;
+// 	opacity: 1;
+//   position: relative !important;
+// 	padding-top: 7px;
+// 	height: auto;
+// }
+
+.pcr-app .pcr-swatches {
+	display: -webkit-box;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: .75em
+}
+
+.pcr-app .pcr-swatches.pcr-last {
+	margin: 0
+}
+
+@supports (display:grid) {
+	.pcr-app .pcr-swatches {
+		display: grid;
+		-webkit-box-align: center;
+		align-items: center;
+		grid-template-columns: repeat(auto-fit, 1.75em)
+	}
+}
+
+.pcr-app .pcr-swatches>button {
+	font-size: 1em;
+	position: relative;
+	width: calc(1.75em - 5px);
+	height: calc(1.75em - 5px);
+	border-radius: .15em;
+	cursor: pointer;
+	margin: 2.5px;
+	flex-shrink: 0;
+	justify-self: center;
+	-webkit-transition: all .15s;
+	transition: all .15s;
+	overflow: hidden;
+	background: transparent;
+	z-index: 1
+}
+
+.pcr-app .pcr-swatches>button:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="%23aaaaaa" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	background-size: 6px;
+	border-radius: .15em;
+	z-index: -1
+}
+
+.pcr-app .pcr-swatches>button:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: currentColor;
+	border: 1px solid rgba(0, 0, 0, .05);
+	border-radius: .15em;
+	box-sizing: border-box
+}
+
+.pcr-app .pcr-swatches>button:hover {
+	-webkit-filter: brightness(1.05);
+	filter: brightness(1.05)
+}
+
+.pcr-interaction{
+	position: relative;
+}
+.pcr-app .pcr-interaction {
+	align-items: center;
+	margin: 0 -.2em;
+	margin-bottom: 61px;
+}
+@media only screen and (min-width: 350px) {
+  .pcr-app .pcr-interaction {
+		display: flex;
+  }
+}
+
+.pcr-app .pcr-interaction>* {
+	margin: 0 .2em
+}
+
+.pcr-app .pcr-interaction input {
+	letter-spacing: .07em;
+	font-size: 11px;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	background: #424242;
+	border-radius: .15em;
+	-webkit-transition: all .15s;
+	transition: all .15s;
+	padding: .45em .5em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	flex: auto;
+}
+
+.pcr-app .pcr-interaction input:hover {
+	-webkit-filter: brightness(.975);
+	filter: brightness(.975)
+}
+
+.pcr-app .pcr-interaction input:focus {
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .85), 0 0 0 3px rgba(66, 133, 244, .75)
+}
+
+.pcr-app .pcr-interaction .pcr-result {
+	color: #020202;
+	text-align: left;
+	min-width: 100%;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+	border-radius: .15em;
+	background: #cecece;
+	cursor: text;
+  position: absolute;
+  margin-top: 38px;
+	font-size: 15px;
+	top: 0;
+}
+
+.pcr-app .pcr-interaction .pcr-result::-moz-selection {
+	background: #4285f4;
+	color: #fff
+}
+
+.pcr-app .pcr-interaction .pcr-result::selection {
+	background: #4285f4;
+	color: #fff
+}
+
+.pcr-app .pcr-interaction .pcr-type.active {
+	color: #fff;
+	background: #999
+}
+
+.pcr-app .pcr-interaction .pcr-cancel,
+.pcr-app .pcr-interaction .pcr-clear,
+.pcr-app .pcr-interaction .pcr-save {
+	width: auto;
+	color: #fff
+}
+
+.pcr-app .pcr-interaction .pcr-cancel:hover,
+.pcr-app .pcr-interaction .pcr-clear:hover,
+.pcr-app .pcr-interaction .pcr-save:hover {
+	-webkit-filter: brightness(.925);
+	filter: brightness(.925)
+}
+
+.pcr-app .pcr-interaction .pcr-save {
+	background: #4285f4;
+  display: none;
+}
+
+.pcr-app .pcr-interaction .pcr-cancel,
+.pcr-app .pcr-interaction .pcr-clear {
+	background: #f44250;
+  display: none;
+}
+
+.pcr-app .pcr-interaction .pcr-cancel:focus,
+.pcr-app .pcr-interaction .pcr-clear:focus {
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .85), 0 0 0 3px rgba(244, 66, 80, .75)
+}
+
+.pcr-app .pcr-selection .pcr-picker {
+	position: absolute;
+	height: 26px;
+	width: 26px;
+	border: 2px solid #fff;
+	border-radius: 100%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+.pcr-app .pcr-selection .pcr-color-chooser,
+.pcr-app .pcr-selection .pcr-color-opacity,
+.pcr-app .pcr-selection .pcr-color-palette {
+	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+	cursor: grab;
+	cursor: -webkit-grab
+}
+
+.pcr-app .pcr-selection .pcr-color-chooser:active,
+.pcr-app .pcr-selection .pcr-color-opacity:active,
+.pcr-app .pcr-selection .pcr-color-palette:active {
+	cursor: grabbing;
+	cursor: -webkit-grabbing
+}
+
+.pcr-app[data-theme=classic] {
+	max-width: 95vw;
+}
+
+.pcr-app[data-theme=classic] .pcr-selection {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-flex: 1;
+	flex-grow: 1
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-preview {
+	position: relative;
+	z-index: 1;
+	width: 2em;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	margin-right: .75em
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-preview:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="%23aaaaaa" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	background-size: 15px;
+	border-radius: .15em;
+	z-index: -1
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-preview .pcr-last-color {
+	cursor: pointer;
+	-webkit-transition: background-color .3s, box-shadow .3s;
+	transition: background-color .3s, box-shadow .3s;
+	border-radius: .15em .15em 0 0;
+	z-index: 2
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-preview .pcr-current-color {
+	border-radius: 0 0 .15em .15em
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-preview .pcr-current-color,
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-preview .pcr-last-color {
+	background: currentColor;
+	width: 100%;
+	height: 50%
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-palette {
+	width: 100%;
+	height: 8em;
+	z-index: 1
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-palette .pcr-palette {
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	border-radius: .15em
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-palette .pcr-palette:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="%23aaaaaa" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	background-size: 15px;
+	border-radius: .15em;
+	z-index: -1
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-chooser,
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-opacity {
+	margin-left: 10px;
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-chooser .pcr-picker,
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-opacity .pcr-picker {
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%)
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-chooser .pcr-slider,
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-opacity .pcr-slider {
+	width: 28px;
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-chooser .pcr-slider {
+	background: -webkit-gradient(linear, left top, left bottom, from(red), color-stop(#ff0), color-stop(#0f0), color-stop(#0ff), color-stop(#00f), color-stop(#f0f), to(red));
+	background: linear-gradient(180deg, red, #ff0, #0f0, #0ff, #00f, #f0f, red)
+}
+
+.pcr-app[data-theme=classic] .pcr-selection .pcr-color-opacity .pcr-slider {
+	background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000)), url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="%23aaaaaa" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	background: linear-gradient(180deg, transparent, #000), url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="%23aaaaaa" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+	background-size: 100%, 50%
+}
+
+//</endFold>
+
+//<beginFold> buttonSelector
+.FP_buttonSelector{
+	display: flex;
+	padding-top: 7px;
+	padding-bottom: 12px;
+	justify-content: space-between;
+}
+
+.FP_buttonSelector_button{
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+	padding: 12px 6px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	color: black;
+	transition: all .2s;
+}
+.FP_buttonSelector_button.--hoverToggle{
+	color: #aaa;
+	border: none;
+	text-align: left;
+	font-size: 16px;
+	margin-left: -8px;
+	font-weight: 600;
+}
+.FP_buttonSelector_button.--hoverToggle.--active{
+	color: #107BC3;
+}
+
+.FP_hoverSwitchContainer{
+	width: 45px;
+  height: 20px;
+  border-radius: 20px;
+  background: #eee;
+  position: absolute;
+  right: 0;
+  top: 11px;
+	transition: all .2s;
+}
+.FP_hoverSwitchCircle{
+	position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 70px;
+  left: 0;
+  top: -1px;
+  background: #777;
+	transition: all .2s;
+}
+.FP_buttonSelector_button.--active .FP_hoverSwitchContainer{
+	background: #c2d0ee;
+}
+.FP_buttonSelector_button.--active .FP_hoverSwitchCircle{
+	background: $highligh-Color;
+	left: 21px;
+}
+//</endFold>
+
+//<beginFold> Hover Controls Container
+.FP_hoverStateContainer{
+	padding: 14px;
+  border: 1px solid #f9f9f9;
+  margin: 10px;
+  background: #e0e8e3;
+}
+//</endFold>
+
+//<beginFold> multiSelector
+.FP_multiSelector{
+	display: flex;
+	padding-top: 7px;
+	padding-bottom: 12px;
+	justify-content: space-between;
+}
+
+.FP_multiSelector_button{
+	cursor: pointer;
+	text-align: center;
+	padding: 12px 6px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	color: black;
+	transition: all .2s;
+}
+
+.FP_multiSelector_button.--active{
+	background: $highligh-Color;
+	color: white;
+}
+//</endFold>
+
+//<beginFold> Control Group Container
+.FM_controlGroupContainer{
+	background: #f6f6f6;
+  margin-bottom: 18px;
+	border: 2px solid $accentBorder-colorDarker;
+	width: calc(100% - 4px);
+	position: relative;
+	user-select: none;
+}
+
+.FM_groupLabel{
+	color: #107BC3;
+  padding: 14px 7px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #c4c4c4;
+}
+.FM_controlGroupContainer.--active .FM_groupLabel{
+  border-bottom: 2px solid;
+}
+.FM_groupLabel svg{
+	position: absolute;
+	right: 5px;
+	fill: $highligh-Color;
+	top: 10px;
+	transition: all .2s;
+}
+.FM_controlGroupContainer.--active .FM_groupLabel svg{
+	transform: rotateX(180deg);
+}
+
+.FM_groupControls{
+	padding: 0;
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+}
+.FM_controlGroupContainer.--active .FM_groupControls{
+	height: auto;
+	padding: 20px 15px 0px 15px;
+}
+//</endFold>
+
+
+/**
+* Template UI
+*/
+//<beginFold> Main Section
+.FP_compContainer.--templates{
+	font-family: "Lato", sans-serif;
+  font-display: fallback;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.FM_mainSection {
+  overflow: hidden;
+  min-height: calc(100vh - (50px + (15px * 2)));
+  z-index: -2;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.FM_flexContainer {
+  display: flex;
+  min-height: calc(100vh - 80px);
+}
+//</endFold>
+
+//<beginFold> Typography
+.---title {
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 6px;
+    text-align: center;
+}
+.---title.--light {
+  font-weight: 300;
+}
+//</endFold>
+
+//<beginFold> Side Bar Nav
+.FM_filterSidebar {
+  width: 300px;
+  padding: 10px;
+  padding-top: 30px;
+  background: #f9f9f9;
+  border-right: 1px solid #e7dede;
+}
+
+.FM_filterSidebar__icon{
+
+}
+
+.FM_filterSidebar__icon__text {
+	font-size: 29px;
+	font-weight: 300;
+	text-align: left;
+	padding-left: 18px;
+	padding-bottom: 5px;
+}
+
+.FM_listOption{
+	padding-top: 0;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.FM_listOptionContainer{
+	width: calc(100% - 40px);
+	padding: 20px;
+	padding-bottom: 0;
+	padding-top: 0;
+	position: relative;
+	text-align: left;
+	padding-bottom: 10px;
+	padding-top: 12px;
+	border-bottom: 1px solid #ededed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.FM_listOptionTitle{
+	width: 100%;
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: calc(100% - 10px);
+	line-height: 20px;
+	color: #333;
+	cursor: pointer;
+}
+
+.FM_listOptionTitle:before{
+	content: '';
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #777;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	opacity: .6;
+	transition: all .12s, border-color .08s;
+	border-radius: 2px;
+}
+
+.FM_listOptionContainer__check{
+	display: none !important;
+}
+.FM_listOptionContainer__check:checked + .FM_listOptionTitle:before{
+	width: 10px;
+	top: 5px;
+	left: 5px;
+	border-radius: 0;
+	border-width: 2px;
+	opacity: 1;
+	border-color: #0fc446;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	transform: rotate(45deg);
+	background: none;
+}
+
+//</endFold>
+
+//<beginFold> Search Bar
+.searchBar {
+    margin: 0 auto;
+    width: 100%;
+    z-index: 7;
+    background: white;
+    position: relative;
+}
+.searchBar.--librarySearchBar {
+    margin-top: 0rem;
+    margin-bottom: 30px;
+}
+
+.searchBar__icon {
+    width: 40px;
+    height: 40px;
+    padding: 20px 15px;
+    display: inline-block;
+    position: absolute;
+}
+
+.searchBar__textfeild {
+    background-color: transparent;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    color: #333;
+    padding-left: 65px;
+    border: 2px solid #f4f4f4;
+    border-bottom: 1px solid #0f8cff;
+    transition: all .2s;
+    padding-right: 15px;
+}
+//</endFold>
+
+//<beginFold> AR Container
+.ArContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: left;
+  object-fit: cover;
+	overflow: hidden;
+}
+.ArContainer.--Ar16-9 {
+  padding-bottom: 56.25%;
+}
+.ArContainer :first-child {
+  position: absolute;
+  width: 100%;
+}
+//</endFold>
+
+//<beginFold> Packages Container
+.FM_packagesTitle{
+	text-align: left;
+	padding: 15px 0;
+	font-size: 36px;
+	margin-top: 10px;
+	margin-bottom: -30px;
+}
+
+//</endFold>
+
+//<beginFold> Grid Section
+.FM_packagesFlexContainer__buffer {
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 0 7rem;
+	margin: 0 !important;
+  overflow: scroll;
+}
+
+.FM_grid {
+    display: grid;
+    grid-gap: 50px 30px;
+    margin: 40px auto;
+}
+.FM_grid.--threeRows {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.FM_grid__element {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px #b6b6b6;
+		transition: all .3s;
+		cursor: pointer;
+}
+.FM_grid__element.--hide{
+	display: none;
+}
+.FM_grid__element:hover{
+	box-shadow: 0px 0px 8px $highligh-Color;
+	background-color: #fff;
+}
+
+.FM_packageImage{
+	transition: all .3s;
+}
+.FM_grid__element:hover .FM_packageImage{
+	transform: scale(1.02);
+	padding-top: 0.9%;
+}
+
+.FM_grid__element__lowerSection {
+    width: calc(100% - 20px);
+    position: relative;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.FM_grid__element__lowerSection__title {
+    font-weight: 300;
+    font-size: calc(100% + 5px);
+    padding-right: 10px;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 90%;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 8px;
+}
+.FM_grid__element__lowerSection__title a{
+	text-decoration: none;
+	color: $highligh-Color;
+}
+
+.FM_grid__element__lowerSection__section {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.FM_grid__element__lowerSection__section__author {
+    width: 100%;
+    margin-right: 10px;
+    white-space: nowrap;
+    display: flex;
+    font-size: 16px;
+    text-align: left;
+    bottom: 1px;
+}
+.FM_grid__element__lowerSection__section__author__btn {
+    cursor: pointer;
+    margin-left: 5px;
+    white-space: nowrap;
+}
+
+.FM_grid__element__lowerSection__section__category {
+    width: 90%;
+    padding-left: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+}
+
+.FM_grid__element__lowerSection__section__category__subCat {
+    text-align: right;
+    position: relative;
+    margin-right: 25px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.FM_grid__element__lowerSection__section__category__subCat:last-child {
+    margin-right: 0;
+}
+//</endFold>
+
+//<beginFold> File Item (save template) UI
+.FM_fileItemUIContainer{
+	padding: 15px;
+	background: white;
+	position: absolute;
+	top: 80px;
+	width: 340px;
+	z-index: 9;
+}
+.FM_fileItemUIContainer.--hide{
+	display: none;
+}
+
+.FM_fileItemDescription{
+	padding-bottom: 10px;
+}
+
+.FM_fileItemInput{
+	width: 290px;
+}
+
+.FM_fileItemSave{
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+	padding: 12px 6px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	color: white;
+	background: $highligh-Color;
+	margin-top: 11px;
+	width: 70px;
+	transition: all .2s;
+}
+.FM_fileItemSave:hover{
+
+}
+//</endFold>
