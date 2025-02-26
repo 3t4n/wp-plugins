@@ -1,0 +1,102 @@
+<?php
+
+$imagePath = plugins_url('assets/img/toolbar', AEIDN_FILE_FULLNAME);
+
+$menu = [
+    [
+        'name' => 'Dasboard',
+        'icon' => 'dashboard',
+        'link' => ''
+    ],
+    [
+        'name' => 'Add product',
+        'icon' => 'add',
+        'link' => 'add'
+    ],
+    [
+        'name' => 'Schedule',
+        'icon' => 'schedule',
+        'link' => 'schedule'
+    ],
+    [
+        'name' => 'Statistics',
+        'icon' => 'stat',
+        'link' => 'stats'
+    ],
+    [
+        'name' => 'Settings',
+        'icon' => 'settings',
+        'link' => 'settings'
+    ],
+    [
+        'name' => 'Backup/Restore',
+        'icon' => 'backup',
+        'link' => 'backup'
+    ],
+    [
+        'name' => 'Status',
+        'icon' => 'status',
+        'link' => 'status'
+    ],
+    [
+        'name' => 'Support',
+        'icon' => 'support',
+        'link' => '-',
+        'exteral_link' => 'https://wordpress.org/support/plugin/affiliateimporteral',
+        'class' => 'right'
+    ]
+];
+
+?>
+<div class="dnlb_toolbar">
+  <div class="dnlb_informer">
+    <?php include(plugin_dir_path( __DIR__ ) . 'layout/informer.php'); ?>
+  </div>
+
+    <ul class="dnlb_menu">
+        <?php
+foreach ($menu as $menuEl) {
+  $menuclass = '';
+  if (isset($menuEl['class'])) {
+    $menuclass = $menuEl['class'];
+  }
+            ?>
+            <li class="<?= $menuclass ?>" data-rel="<?= $menuEl['link'] ?>">
+                <a href="<?= (isset($menuEl['exteral_link']) ? $menuEl['exteral_link'] : admin_url('admin.php?page=aeidn' . ($menuEl['link'] ? '-' . $menuEl['link'] : ''))) ?>"<?= ($activePage === $menuEl['link'] ? ' class="active_page"' : '') ?><?= (isset($menuEl['exteral_link'])?' target="_blank"':'') ?>>
+                    <img src="<?= $imagePath . '/' . $menuEl['icon'] ?>.png"/>
+                    <span><?= $menuEl['name'] ?></span>
+                </a>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <div style="clear: both;"></div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function () {
+  jQuery(".dnlb_menu a").mouseover(function () {
+    setActivePage(this);
+  });
+
+  jQuery(".dnlb_menu a").mouseout(function () {
+    jQuery(".dnlb_menu a").removeClass('active');
+
+    jQuery('img', this).attr("src", jQuery('img', this).attr("data-normal"));
+  });
+
+  setActivePage(jQuery("*[data-rel='<?=$activePage?>'] a"));
+});
+
+function setActivePage(object) {
+  jQuery(".dnlb_menu a").removeClass('active');
+  jQuery(object).addClass('active');
+
+  var attr = jQuery('img', object).attr('data-hover');
+
+  if (!(typeof attr !== typeof undefined && attr !== false)) {
+    jQuery('img', object).attr("data-hover", jQuery('img', object).attr("src").replace(/.png/, '_active.png'));
+  }
+  jQuery('img', object).attr("data-normal", jQuery('img', object).attr("src"));
+}
+</script>
