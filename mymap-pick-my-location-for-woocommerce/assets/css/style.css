@@ -1,0 +1,56 @@
+#mymap_location_url_field {
+    display: none;
+}
+#map_canvas,
+#map_canvas_edit {
+    height: 500px;
+}
+
+.mymap_button,
+.mymap_pick_location_billing,
+.mymap_pick_location_shipping {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    padding: 4px 10px;
+}
+
+.mymap_button svg,
+.mymap_pick_location_billing svg,
+.mymap_pick_location_shipping svg {
+    width: 19px;
+    margin-right: 10px;
+}
+#czar_location_url_field {
+    display: none;
+}
+
+.mymap_pick_location_billing,
+.mymap_pick_location_shipping {
+    background-color: #111;
+    color: #fff;
+    text-decoration: unset;
+    cursor: pointer;
+    display: inline-block;
+    padding: 9px 15px;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.mymap_pick_location_billing svg,
+.mymap_pick_location_shipping svg {
+    fill: #fff;
+    float: left;
+}
+
+.mymap_pick_location_billing:hover,
+.mymap_pick_location_shipping:hover {
+    background-color: #515151;
+}
+
+.mymap_pick_location_billing.loading, .mymap_pick_location_shipping.loading {
+    position: relative;
+    opacity: 0.5;
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
