@@ -1,0 +1,23 @@
+{
+    "name": "andyexeter/post-lockdown",
+    "description": "A WordPress plugin to protect posts from being deleted and/or edited",
+    "type": "wordpress-plugin",
+    "license": "GPL2",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^v3.54",
+        "wp-cli/wp-cli": "^2.4",
+        "roots/wordpress": "^5.9",
+        "palmtree/php-cs-fixer-config": "^2.1"
+    },
+    "scripts": {
+        "fix": "vendor/bin/php-cs-fixer fix --diff"
+    },
+    "config": {
+        "allow-plugins": {
+            "roots/wordpress-core-installer": true
+        }
+    }
+}
