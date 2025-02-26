@@ -1,0 +1,27 @@
+/*
+    Plugin Name: DICOM Viewer
+    Plugin URI: https://redthread.studio/dicom_viewer
+    Description: DICOM Viewer for Wordpress: allows to upload DICOM (*.dcm) files in the media library and add them to a post. The CornerstoneJS library is used for .dcm processing (<a href="https://github.com/cornerstonejs/cornerstone">CornerstoneJS</a>).
+    Author: Red Thread Design
+    Author URI: https://redthread.studio/
+*/
+
+.dcms { display: none; }
+
+.dicom_image_wrapper { position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; max-width: 100%; max-height: -webkit-calc(100vw - 380px); max-height: expression(100vw - 380px); max-height: -moz-calc(100vw - 380px); max-height: -o-calc(100vw - 380px); max-height: calc(100vw - 380px); color: white; background-color: black; overflow: hidden; }
+.dicom_image_wrapper .dicom_image_blender { top: 0px; left: 0px; bottom: 0; right: 0; background: url(../img/pr.svg) center no-repeat; position: absolute; z-index: 1; }
+.dicom_image_wrapper .dicom_image_blender .dicom_image_blender_progress { position: absolute; top: 50%; left: 50%; -webkit-transform: translateX(-50%) translateY(-50%); -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); text-shadow: 1px -1px 0 #000; }
+.dicom_image_wrapper .dicom_image_blender ~ .dicom_image_nav .dicom_image_nav_load .dicom_image_nav_load_ind { -webkit-flex: 0 1 auto; -moz-flex: 0 1 auto; -ms-flex: 0 1 auto; -o-flex: 0 1 auto; flex: 0 1 auto; }
+.dicom_image_wrapper .dicom_image_frame_no { z-index: 1; position: relative; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none; -webkit-touch-action: auto; -moz-touch-action: auto; -ms-touch-action: auto; touch-action: auto; top: 5px; left: 5px; font-size: 85%; }
+.dicom_image_wrapper .dicom_image { position: absolute; top: 0; left: 0; right: 20px; bottom: 0; max-width: 100%; max-height: 100%; }
+.dicom_image_wrapper .dicom_image canvas { position: absolute; min-width: 100%; min-height: 100%; max-width: 100%; max-height: 100%; }
+.dicom_image_wrapper .dicom_image_nav { height: 100%; background: url(../img/icons.svg#larr) center no-repeat; top: 0px; right: 0px; width: 20px; height: 100%; position: absolute; background-color: rgba(255, 255, 255, 0.1); }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_point { position: absolute; top: auto; bottom: 0; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none; -webkit-touch-action: auto; -moz-touch-action: auto; -ms-touch-action: auto; touch-action: auto; font-size: 20px; }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_point:after { content: ''; position: absolute; bottom: 100%; left: 50%; -webkit-transform: translateX(50%) translateY(50%); -moz-transform: translateX(50%) translateY(50%); -ms-transform: translateX(50%) translateY(50%); -o-transform: translateX(50%) translateY(50%); transform: translateX(50%) translateY(50%); width: 20px; height: 20px; background: url(../img/icons.svg#larr) center no-repeat; background-size: cover; }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_load { position: absolute; top: 0; left: 0; right: 0; bottom: 0; -webkit-flex-direction: column-reverse; -moz-flex-direction: column-reverse; -ms-flex-direction: column-reverse; -o-flex-direction: column-reverse; flex-direction: column-reverse; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none; -webkit-touch-action: auto; -moz-touch-action: auto; -ms-touch-action: auto; touch-action: auto; }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_load .dicom_image_nav_load_ind { width: 100%; -webkit-flex: 1 1 auto; -moz-flex: 1 1 auto; -ms-flex: 1 1 auto; -o-flex: 1 1 auto; flex: 1 1 auto; }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_load .dicom_image_nav_load_ind[data-status="loading"] { opacity: .3; }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_load .dicom_image_nav_load_ind[data-status="loaded"] { opacity: .15; }
+.dicom_image_wrapper .dicom_image_nav .dicom_image_nav_load .dicom_image_nav_load_ind[data-status="failed"] { opacity: 1; }
+
+/*# sourceMappingURL=style.css.map */
