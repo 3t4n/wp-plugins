@@ -1,0 +1,39 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Refact\\ACFG\\": [
+        "src/"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "wp-coding-standards/wpcs": "^3.1.0",
+    "automattic/vipwpcs": "^3.0.0",
+    "php-parallel-lint/php-parallel-lint": "^1.4.0",
+    "phpcsstandards/phpcsutils": "^1.0.11",
+    "phpcsstandards/phpcsextra": "^1.2.1",
+    "phpcompatibility/php-compatibility": "^9.3",
+    "wp-cli/i18n-command": "^2.2.5"
+  },
+  "scripts": {
+    "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+    "make-pot": "wp i18n make-pot . languages/_s.pot",
+    "post-update-cmd": [
+      "composer dump-autoload"
+    ],
+    "package": [
+      "composer install --no-dev --optimize-autoloader --prefer-dist",
+      "cd .. && zip -r advanced-control-for-gutenberg.zip advanced-control-for-gutenberg -x 'advanced-control-for-gutenberg/.git/*' -x 'advanced-control-for-gutenberg/.gitignore' -x 'advanced-control-for-gutenberg/.github/*' -x 'advanced-control-for-gutenberg/composer.lock' -x 'advanced-control-for-gutenberg/*.md' -x 'advanced-control-for-gutenberg/blocks/settings/.npmrc' -x 'advanced-control-for-gutenberg/blocks/settings/package-lock.json' -x 'advanced-control-for-gutenberg/blocks/settings/node_modules/*' -x 'advanced-control-for-gutenberg/*.phpcs.xml*' -x 'advanced-control-for-gutenberg/phpcs.xml.dist' -x 'advanced-control-for-gutenberg/.DS_Store'"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

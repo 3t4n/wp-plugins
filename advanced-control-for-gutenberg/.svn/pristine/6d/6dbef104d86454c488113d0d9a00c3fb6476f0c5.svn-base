@@ -1,0 +1,149 @@
+<?php
+/**
+ * Provide a admin area view for the plugin
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ * php version 7.4+
+ *
+ * @category   Plugin
+ * @package    ACFG
+ * @subpackage ACFG/admin/partials
+ * @author     Refact <dev@refact.co>
+ * @license    GPL-2.0+ http://www.gnu.org/licenses/gpl-2.0.txt
+ * @link       https://refact.co/
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+?>
+<div class="refact-settings-wrap">
+    <div id="acfg-dashboard">
+        <div class="refact-settings-header" key="settings-header">
+            <div class="refact-settings__wrapper">
+                <div class="refact-settings__logo">
+                    <a href="?page=acfg" aria-label="Advanced Control for Gutenberg">
+                        <svg width="128" viewBox="0 0 128 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.702 16.788c2.68-1.466 4.017-4.021 4.01-7.665a8.007 8.007 0 0 0-.494-3.293 8.054 8.054 0 0 0-1.793-2.815A9.11 9.11 0 0 0 8.923.847H0v27.484h5.59V18.264h2.779l4.174 10.047h6.01v-.265l-4.851-11.258Zm-2.42-4.255a2.963 2.963 0 0 1-2.513 1.1h-3.18V5.488h3.282c2.168 0 3.251 1.377 3.251 4.133a4.778 4.778 0 0 1-.84 2.91ZM38.132 5.438V.807H22.267V28.29h9.978l1.334-4.61h-5.723v-7.248h7.815l1.292-4.48h-9.107V5.439h10.276Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="m45.346.807-7.737 27.61h3.918L49.23.807h-3.883Z" fill="#fff"/><path d="M60.622 5.98c-.04-.398-.21-.708-.509-.93-.3-.22-.707-.33-1.221-.33-.35 0-.645.05-.885.148-.24.096-.425.23-.554.4a.964.964 0 0 0-.188.584.833.833 0 0 0 .114.474c.086.136.203.253.35.352.15.095.32.18.515.252.195.069.402.128.623.178l.91.217c.441.1.847.23 1.216.396.37.165.689.367.96.608.27.24.479.524.627.85.152.327.23.7.233 1.123-.004.62-.162 1.157-.475 1.611-.31.452-.758.803-1.345 1.053-.583.248-1.287.371-2.111.371-.817 0-1.53-.125-2.136-.376-.603-.25-1.075-.62-1.414-1.112-.336-.494-.513-1.106-.529-1.834h2.072c.023.34.12.623.291.85.175.224.407.394.697.51.294.111.625.168.994.168.363 0 .678-.053.944-.159.27-.105.48-.252.628-.44.149-.188.223-.404.223-.647a.842.842 0 0 0-.203-.574c-.132-.155-.326-.287-.583-.395a5.933 5.933 0 0 0-.935-.297l-1.102-.277c-.854-.208-1.528-.532-2.022-.974-.495-.442-.74-1.037-.737-1.785-.003-.613.16-1.148.49-1.607.332-.458.789-.815 1.369-1.072.58-.258 1.24-.386 1.978-.386.751 0 1.407.128 1.967.386.564.257 1.002.614 1.316 1.072.313.459.474.99.484 1.592h-2.052Zm3.59 7.214V5.6h2.107v7.594h-2.106Zm1.059-8.573c-.313 0-.582-.104-.806-.312a1.01 1.01 0 0 1-.331-.756c0-.29.11-.54.331-.747.224-.21.493-.316.806-.316.313 0 .58.105.8.316a.983.983 0 0 1 .337.747c0 .293-.112.545-.336.756-.221.208-.488.312-.801.312Zm2.735 8.573V5.6h2.007v1.34h.09c.158-.445.421-.796.79-1.054.37-.257.811-.385 1.326-.385.52 0 .964.13 1.33.39.365.258.61.607.731 1.049h.08a2.02 2.02 0 0 1 .84-1.044c.409-.263.891-.395 1.448-.395.71 0 1.284.226 1.726.677.445.448.668 1.085.668 1.909v5.107H76.94V8.502c0-.422-.112-.738-.336-.95a1.179 1.179 0 0 0-.84-.316c-.383 0-.681.122-.895.366-.215.24-.322.559-.322.954v4.638h-2.042V8.457c0-.372-.107-.669-.321-.89-.211-.22-.49-.33-.836-.33-.234 0-.445.059-.632.177a1.222 1.222 0 0 0-.44.49 1.556 1.556 0 0 0-.164.731v4.559h-2.106Zm12.7 2.848V5.6h2.076v1.275h.094c.092-.204.225-.412.4-.623.178-.214.409-.392.692-.534.287-.145.643-.217 1.068-.217.554 0 1.065.145 1.533.435.468.287.842.72 1.122 1.3.28.577.42 1.3.42 2.17 0 .848-.136 1.563-.41 2.146-.27.58-.64 1.02-1.107 1.32a2.843 2.843 0 0 1-1.563.446c-.409 0-.756-.068-1.043-.203a2.157 2.157 0 0 1-.697-.51 2.588 2.588 0 0 1-.415-.627h-.065v4.064h-2.106Zm2.06-6.645c0 .451.063.845.189 1.181.125.337.306.599.544.787.237.184.525.276.865.276.343 0 .633-.094.87-.281.237-.192.417-.455.539-.791.125-.34.188-.73.188-1.172 0-.439-.061-.824-.183-1.157a1.723 1.723 0 0 0-.54-.781c-.236-.188-.528-.282-.874-.282-.343 0-.633.09-.87.272-.234.181-.414.438-.54.771-.124.333-.187.725-.187 1.177Zm8.856-6.329v10.126h-2.106V3.068h2.106Zm1.687 10.126V5.6h2.106v7.594H93.31Zm1.058-8.573c-.313 0-.582-.104-.806-.312a1.01 1.01 0 0 1-.331-.756c0-.29.11-.54.331-.747.224-.21.493-.316.806-.316.313 0 .58.105.8.316a.983.983 0 0 1 .337.747c0 .293-.112.545-.336.756-.22.208-.488.312-.801.312Zm6.819.979v1.582h-4.687V5.6h4.687Zm-3.614 7.594V5.05c0-.55.107-1.007.321-1.37.218-.362.514-.634.89-.815a2.91 2.91 0 0 1 1.281-.272c.323 0 .618.024.885.074.27.05.471.094.603.133l-.376 1.582a2.598 2.598 0 0 0-.306-.074 1.918 1.918 0 0 0-.366-.034c-.31 0-.526.072-.648.217-.122.142-.183.341-.183.598v8.104h-2.101Zm6.201 2.848a4.17 4.17 0 0 1-.751-.065 2.748 2.748 0 0 1-.574-.153l.475-1.572c.247.076.469.117.667.123a.848.848 0 0 0 .519-.138c.149-.099.269-.267.361-.504l.124-.322L101.87 5.6h2.215l1.572 5.577h.079l1.587-5.577h2.23l-2.952 8.415a3.536 3.536 0 0 1-.578 1.067 2.376 2.376 0 0 1-.915.707c-.369.169-.814.253-1.335.253Zm-41.93 4.3a2.218 2.218 0 0 0-.291-.639 1.972 1.972 0 0 0-1.073-.776 2.591 2.591 0 0 0-.757-.104c-.517 0-.972.129-1.364.386-.39.257-.692.631-.91 1.122-.217.488-.326 1.085-.326 1.79 0 .706.107 1.305.321 1.8.214.494.518.872.91 1.132.392.257.855.386 1.39.386.484 0 .897-.086 1.24-.257.346-.175.61-.42.791-.737.185-.317.277-.69.277-1.122l.435.064h-2.61v-1.612h4.237v1.276c0 .89-.188 1.654-.564 2.294a3.841 3.841 0 0 1-1.552 1.473c-.66.343-1.414.514-2.265.514-.949 0-1.783-.209-2.501-.628a4.358 4.358 0 0 1-1.681-1.794c-.4-.778-.599-1.701-.599-2.769 0-.82.119-1.552.356-2.195a4.69 4.69 0 0 1 1.009-1.642c.432-.448.934-.79 1.508-1.023a4.886 4.886 0 0 1 1.864-.351c.573 0 1.107.084 1.602.252.494.165.932.399 1.315.702.385.303.7.664.944 1.083.244.415.4.873.47 1.374h-2.176Zm8.708 3.618V19.6h2.106v7.594h-2.022v-1.38h-.079a2.243 2.243 0 0 1-.855 1.073c-.396.27-.879.406-1.449.406-.507 0-.954-.116-1.34-.346a2.379 2.379 0 0 1-.904-.984c-.215-.425-.323-.935-.327-1.528V19.6h2.106v4.46c.004.448.124.802.361 1.062.238.26.556.39.955.39.253 0 .49-.057.712-.172.22-.119.398-.293.534-.524.138-.231.206-.516.202-.856Zm7.83-4.36v1.582h-4.573V19.6h4.573Zm-3.535-1.82h2.107v7.08c0 .195.03.346.089.455a.49.49 0 0 0 .247.223c.109.042.234.064.376.064a1.8 1.8 0 0 0 .296-.025c.1-.02.175-.035.228-.044l.33 1.567c-.105.033-.253.07-.444.114a3.565 3.565 0 0 1-.697.084c-.508.02-.953-.048-1.335-.203a1.863 1.863 0 0 1-.885-.722c-.211-.326-.315-.738-.312-1.236V17.78Zm8.287 9.562c-.781 0-1.454-.158-2.017-.474a3.25 3.25 0 0 1-1.296-1.355c-.303-.587-.455-1.28-.455-2.082 0-.78.152-1.466.455-2.056.303-.59.73-1.05 1.28-1.38.554-.33 1.204-.494 1.949-.494.5 0 .967.08 1.399.242.435.158.814.397 1.137.717.326.32.58.722.761 1.206.182.482.272 1.045.272 1.691v.579h-6.412V22.63h4.43c0-.303-.066-.571-.198-.805a1.416 1.416 0 0 0-.549-.55c-.23-.134-.5-.202-.806-.202-.32 0-.603.074-.85.223a1.56 1.56 0 0 0-.574.588 1.66 1.66 0 0 0-.212.816v1.24c0 .376.069.701.207.975.142.273.342.484.599.633a1.8 1.8 0 0 0 .914.222c.234 0 .449-.033.643-.099s.361-.165.5-.297a1.29 1.29 0 0 0 .316-.484l1.948.128a2.66 2.66 0 0 1-.608 1.227 3.054 3.054 0 0 1-1.177.81c-.478.192-1.03.287-1.656.287Zm6.966-4.538v4.39h-2.106V19.6H90v1.34h.09c.167-.442.449-.792.844-1.049.396-.26.876-.39 1.44-.39.527 0 .986.115 1.379.346.392.23.697.56.914.989.218.425.327.933.327 1.523v4.835h-2.107v-4.46c.004-.465-.115-.827-.356-1.087-.24-.264-.571-.396-.993-.396a1.51 1.51 0 0 0-.752.183c-.214.122-.382.3-.504.534-.119.23-.18.51-.183.835Zm6.594 4.39V17.068H98.8v3.807h.065c.092-.204.225-.412.4-.623.178-.214.409-.392.692-.534.287-.145.643-.217 1.068-.217.554 0 1.065.145 1.533.435.468.287.842.72 1.122 1.3.28.577.42 1.3.42 2.17 0 .848-.136 1.563-.41 2.146-.27.58-.639 1.02-1.107 1.32a2.845 2.845 0 0 1-1.563.445c-.408 0-.756-.067-1.043-.202a2.157 2.157 0 0 1-.697-.51 2.588 2.588 0 0 1-.415-.627h-.094v1.216h-2.077Zm2.062-3.797c0 .451.063.845.188 1.181.125.337.306.599.544.787.237.184.525.276.865.276.343 0 .633-.093.87-.281.237-.192.417-.455.539-.791.125-.34.188-.73.188-1.172 0-.439-.061-.824-.183-1.157a1.727 1.727 0 0 0-.539-.781c-.237-.188-.529-.282-.875-.282-.343 0-.633.09-.87.272-.234.181-.414.438-.54.771-.124.333-.187.725-.187 1.177Zm10.211 3.945c-.782 0-1.454-.158-2.018-.474a3.25 3.25 0 0 1-1.295-1.355c-.303-.587-.455-1.28-.455-2.082 0-.78.152-1.466.455-2.056.303-.59.73-1.05 1.281-1.38.553-.33 1.203-.494 1.948-.494.501 0 .967.08 1.399.242.435.158.814.397 1.137.717.326.32.58.722.761 1.206.182.482.272 1.045.272 1.691v.579h-6.412V22.63h4.43c0-.303-.066-.571-.198-.805a1.417 1.417 0 0 0-.549-.55 1.565 1.565 0 0 0-.806-.202c-.32 0-.603.074-.85.223a1.565 1.565 0 0 0-.574.588 1.662 1.662 0 0 0-.212.816v1.24c0 .376.069.701.207.975.142.273.342.484.599.633.257.148.562.222.914.222.234 0 .449-.033.643-.099s.361-.165.499-.297a1.29 1.29 0 0 0 .317-.484l1.948.128a2.666 2.666 0 0 1-.608 1.227 3.062 3.062 0 0 1-1.177.81c-.478.192-1.03.287-1.656.287Zm4.86-.148V19.6h2.042v1.325h.079c.138-.472.371-.828.697-1.068a1.832 1.832 0 0 1 1.127-.366 3.173 3.173 0 0 1 .663.074v1.869a2.744 2.744 0 0 0-.411-.08 3.665 3.665 0 0 0-.479-.034c-.31 0-.587.068-.831.203a1.483 1.483 0 0 0-.573.554c-.139.237-.208.51-.208.82v4.297h-2.106Zm8.764 3.006c-.682 0-1.267-.094-1.755-.282-.484-.184-.87-.437-1.157-.756a2.325 2.325 0 0 1-.558-1.078l1.948-.262c.059.151.153.293.281.425.129.132.299.237.51.316.214.083.474.124.781.124.458 0 .835-.112 1.132-.336.3-.221.45-.592.45-1.113V25.85h-.089c-.092.211-.231.41-.415.598a2.098 2.098 0 0 1-.712.46c-.29.119-.636.178-1.039.178-.57 0-1.089-.132-1.557-.396-.465-.266-.836-.674-1.112-1.22-.274-.551-.411-1.247-.411-2.087 0-.86.14-1.579.42-2.156.281-.576.653-1.008 1.118-1.295.468-.287.98-.43 1.537-.43.426 0 .782.072 1.068.217.287.142.518.32.693.534.178.211.314.419.41.623h.079V19.6h2.091v7.668c0 .646-.158 1.187-.474 1.622-.317.435-.755.761-1.315.979-.557.22-1.199.33-1.924.33Zm.045-4.697c.339 0 .626-.084.86-.252.237-.172.419-.416.544-.732.129-.32.193-.702.193-1.147 0-.445-.063-.83-.188-1.157a1.692 1.692 0 0 0-.544-.766 1.383 1.383 0 0 0-.865-.272c-.346 0-.638.094-.875.282a1.687 1.687 0 0 0-.539.771 3.28 3.28 0 0 0-.183 1.142c0 .438.061.817.183 1.137.125.317.305.562.539.737.237.171.529.257.875.257Z" fill="#fff"/></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="refact-settings__docs">
+                <a href="https://refact.co" target="_blank" class="refact-link" rel="noopener noreferrer">
+                    Documentation
+                </a>
+            </div> -->
+        </div>
+        <div class="refact-settings-navbar">
+            <h2 class="refact-settings-navbar__title"><?php esc_html_e( 'Rules', 'advanced-control-for-gutenberg'); ?></h2>
+            <a href="<?php echo esc_url( admin_url('options-general.php?page=acfg-add-rules') );?>" class="components-button refact-btn has-refact-icon" id="refact-settings-add-rule">
+                <svg width="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.125 10h13.75M10 3.125v13.75" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <?php esc_html_e( 'Add New', 'advanced-control-for-gutenberg'); ?>
+            </a>
+        </div>
+        
+        <div class="refact-settings-tabs__contents">
+        <?php
+        if ( isset($_GET['sg_nonce']) && wp_verify_nonce( sanitize_text_field( wp_unslash($_GET['sg_nonce']) ), 'sg_duplicate_rule' ) && isset( $_GET['sg_duplicated'] ) ) { ?>
+            <div class="refact-settings-notice notice notice-success is-dismissible">
+                <p><?php esc_html_e( 'Rule duplicated successfully.', 'advanced-control-for-gutenberg'); ?></p>
+            </div>
+        <?php } ?>
+            <div class="refact-settings-rules">
+                <?php if ( ! empty( $rules ) ) : ?>
+                    <ul class="refact-settings-rules-items">
+                    <li class="refact-settings-rules-items-heading ui-state-default">
+                        <div class="refact-list-main">
+                            <strong><?php esc_html_e( 'Rule Name', 'advanced-control-for-gutenberg'); ?></strong>
+                        </div>
+                        <div class="refact-list-wrapper">
+                            <div class="refact-list-items">
+                                <div class="refact-data__item">
+                                    <strong><?php esc_html_e( 'Status', 'advanced-control-for-gutenberg'); ?></strong>
+                                </div>
+                            </div>
+                            <div class="refact-list-items">
+                                <div class="refact-data__item">
+                                    <strong><?php esc_html_e( 'Rule Action', 'advanced-control-for-gutenberg'); ?></strong>
+                                </div>
+                            </div>
+                            <div class="refact-list-items">
+                                <div class="refact-data__item">
+                                    <strong><?php esc_html_e( 'Blocks/Categories', 'advanced-control-for-gutenberg'); ?></strong>
+                                </div>
+                            </div>
+                            <div class="refact-list-items"></div>
+                        </div>
+                    </li>
+                    <?php foreach ( $rules as $index => $rule ) : ?>
+                        <li class="ui-state-default" data-index="<?php echo esc_attr( $index );?>">
+                            <div class="refact-list-main">
+                                <div class="refact-list-main__name">
+                                    <span class="handle"></span>
+                                    <span>
+                                        <a class="refact-acfg-edit-link" href="<?php echo esc_url( admin_url('options-general.php?page=acfg-add-rules&index=' . $index ));?>">
+                                            <?php echo esc_html( $rule['rule_name'] ); ?>
+                                        </a>
+                                    </span>
+                                </div>
+                                <button type="button" class="refact-toggle-row js-refact-collapse">
+                                    <svg width="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m13 6-5 5-5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <span class="screen-reader-text"><?php esc_html_e('Show more details', 'advanced-control-for-gutenberg') ;?></span>
+                                </button>
+                            </div>
+                            <div class="refact-list-wrapper">
+                                <div class="refact-list-items">
+                                    <div class="refact-data__item">
+                                        <span class="refact-data__title"><?php esc_html_e('Status', 'advanced-control-for-gutenberg');?></span>
+                                        <span><?php echo $rule['rule_status'] ? esc_html_e( 'Active', 'advanced-control-for-gutenberg') : esc_html_e( 'Inactive', 'advanced-control-for-gutenberg');?></span>
+                                    </div>
+                                    <div class="refact-data__item">
+                                        <span class="refact-data__title"><?php esc_html_e('Action', 'advanced-control-for-gutenberg');?></span>
+                                        <span>
+                                            <?php
+                                                $action_label = str_replace( "_", " ", $rule['rule_action'] );
+                                                $action_label = ucwords( $action_label );
+                                                echo esc_html($action_label);
+                                            ?>
+                                        </span>
+                                    </div>
+                                    <div class="refact-data__item">
+                                        <span class="refact-data__title"><?php esc_html_e( 'Blocks', 'advanced-control-for-gutenberg'); ?></span>
+                                        <span class="refact-settings-rules-items-blocks">
+                                        <?php 
+                                            if ( $rule['blocks'] ) : 
+                                                foreach ( $rule['blocks'] as $block ) : ?>
+                                                    <code><?php echo esc_html( $block['value'] ) ;?></code>
+                                                <?php endforeach; 
+                                            elseif ( $rule['categories'] ) : 
+                                                foreach ( $rule['categories'] as $category ) : ?>
+                                                    <code><?php echo esc_html( $category['value'] ) ;?></code>
+                                                <?php endforeach; 
+                                            endif; 
+                                        ?>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="refact-list-cta">
+                                    <a class="components-button refact-btn refact-acfg-edit-link" href="<?php echo esc_url( admin_url('options-general.php?page=acfg-add-rules&index=' . $index ));?>">
+                                        <?php esc_html_e( 'Edit', 'advanced-control-for-gutenberg'); ?>
+                                    </a>
+                                    <button data-index="<?php echo esc_attr( $index );?>" class="components-button refact-btn refact-btn--secondary refact-settings-rules-item-clone">
+                                        <?php esc_html_e( 'Duplicate', 'advanced-control-for-gutenberg'); ?>
+                                        </button>
+                                    <button data-index="<?php echo esc_attr( $index );?>" class="components-button refact-btn refact-btn-danger is-destructive refact-settings-rules-item-delete">
+                                            <?php esc_html_e( 'Delete', 'advanced-control-for-gutenberg'); ?>
+                                    </button>
+                                </div>
+                            </div>    
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <p class="refact-settings-rules-empty">
+                        <?php esc_html_e( 'No rules have been created yet.', 'advanced-control-for-gutenberg'); ?>
+                    </p>
+                <?php endif; ?>
+                    
+            </div>
+        </div>
+    </div>
+</div>
