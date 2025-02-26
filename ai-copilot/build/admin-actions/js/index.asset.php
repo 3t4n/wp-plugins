@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('aicp-api-action-templates', 'aicp-api-services', 'aicp-components', 'aicp-helpers', 'aicp-icons', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-element', 'wp-hooks', 'wp-i18n', 'wp-notices'), 'version' => 'aedf7a096b03d8d8f186');
