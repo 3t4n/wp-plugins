@@ -1,0 +1,2 @@
+<script type="text/javascript" src="<?php echo plugins_url('/js/iframeResizer.min.js', dirname(__FILE__) ) ?>"></script>
+<script type="text/javascript">iFrameResize({log:false, checkOrigin: false});</script>
