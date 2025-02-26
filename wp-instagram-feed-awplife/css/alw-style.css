@@ -1,0 +1,67 @@
+.insta-img-thumbnail {
+    aspect-ratio: 1;
+    max-width: 100%;
+}
+.insta-main-div .insta-img-thumbnail{
+	height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.insta-img-thumbnail{
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+	background-color: #000;
+	cursor: pointer;
+	transition: all ease .3s;
+}
+.insta-img-thumbnail:hover img, .insta-img-thumbnail.hover img {
+    opacity: 0.3;
+}
+.insta-img-thumbnail svg.insta_svg_icon {
+    color: #FFFFFF;
+    position: absolute;
+    top: 45%;
+	right: 43%;
+    font-size: 40px;
+    line-height: 1em;
+    opacity: 0;
+    -webkit-transition: all 0.4s cubic-bezier(0.6, -0.8, 0.735, 0.045);
+    transition: all 0.4s cubic-bezier(0.6, -0.8, 0.735, 0.045);
+}
+.insta-img-thumbnail:hover svg.insta_svg_icon, .insta-img-thumbnail.hover svg.insta_svg_icon {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    opacity: 1;
+}
+.insta-img-thumbnail:hover figcaption, .insta-img-thumbnail.hover figcaption {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 1;
+}
+.insta-img-thumbnail figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    -webkit-transform: translateY(-25%);
+    transform: translateY(-25%);
+    padding: 5px 40px;
+    opacity: 0;
+}
+.insta-img-thumbnail p {
+    font-weight: 400;
+    margin: 0;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.col-md-1 figcaption {
+	display: none;
+}
+.instagram-video {
+	position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 1.5em;
+	fill: #fff;
+}
