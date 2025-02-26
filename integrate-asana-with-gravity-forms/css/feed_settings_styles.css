@@ -1,0 +1,48 @@
+/* General alignment for all elements */
+#gform_setting_html_description_before,
+#gform_setting_html_description_after,
+#gform_setting_amount_of_time,
+#gform_setting_time_options,
+#gform_setting_before_after {
+    display: inline-flex; /* Keep all elements on the same line */
+    align-items: center; /* Vertically align content */
+    vertical-align: middle; /* Align to the middle */
+    padding: 0; /* Remove padding for clean layout */
+    margin: 0 0 5px;
+}
+
+/* Specific spacing for the first text */
+#gform_setting_html_description_before {
+    margin-right: 5px; /* Add space between the first text and the input */
+    white-space: nowrap; /* Prevent text wrapping */
+    font-size: 14px; /* Match font size for consistency */
+    font-family: Arial, sans-serif; /* Ensure font consistency */
+    line-height: 22px; /* Align vertically with other elements */
+    font-weight: 400;
+}
+
+#gform_setting_amount_of_time {
+    margin-right: 5px; /* Add space between the first input and the next field */
+}
+
+#gform_setting_time_options {
+    margin-right: 5px; /* Space between middle inputs */
+}
+
+#gform_setting_before_after {
+    margin-left: 0; /* Reduce unnecessary spacing */
+}
+
+/* Specific spacing for the last text */
+#gform_setting_html_description_after {
+    margin-left: 5px; /* Add space before the final text */
+    white-space: nowrap; /* Prevent wrapping */
+    font-size: 14px; /* Match font size for consistency */
+    font-family: Arial, sans-serif; /* Ensure font consistency */
+    line-height: 22px; /* Align vertically with other elements */
+    font-weight: 400;
+}
+
+#gform_setting_amount_of_time:has(.gform-settings-validation__error) {
+    vertical-align:baseline;
+}
