@@ -1,0 +1,129 @@
+/* Main */
+.takeads-plugin-logo {
+    margin: 25px 0;
+}
+.takeads-plugin-logo img {
+    width: 100%;
+    max-width: 150px;
+}
+.takeads-plugin a {
+    color: #2271b1 !important;
+}
+.takeads-plugin p,
+.takeads-plugin span,
+.takeads-plugin h1,
+.takeads-plugin h2,
+.takeads-plugin h3,
+.takeads-plugin h4,
+.takeads-plugin h5,
+.takeads-plugin label,
+.takeads-plugin input:not(.button) {
+    color: #000 !important;
+}
+.takeads-plugin-info-installed p {
+    color: green !important;
+}
+
+/* Form */
+.takeads-plugin table th {
+    display: none;
+}
+.takeads-plugin table td {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.takeads-plugin form {
+    padding: 20px;
+    display: inline-block;
+    background: #fff;
+}
+.takeads-plugin form .error {
+    position: relative;
+    color: red !important;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.takeads-plugin form h3 {
+    margin-top: 0;
+}
+.takeads-plugin form p.submit {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    display: inline-block;
+}
+.takeads-plugin input[type="text"] {
+    width: 100%;
+    min-width: 350px;
+    text-align: center;
+}
+
+/* Popup */
+.takeads-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+    z-index: 99999;
+}
+.takeads-popup.active {
+    opacity: 1;
+    pointer-events: all;
+    transition: 0.5s all;
+}
+.takeads-popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 400px;
+    padding: 25px;
+    transition: 0.5s all;
+    border-radius: 20px;
+}
+.takeads-popup-content.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.5s all;
+}
+.takeads-popup-text > * {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000 !important;
+}
+.takeads-popup-buttons {
+    display: flex;
+}
+.takeads-popup-buttons > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* Buttons */
+.takeads-btn {
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+.takeads-btn-el {
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+.takeads-btn-el[data-action="delete"] {
+    background: #dc3545;
+    color: #fff;
+}
+.takeads-btn-el[data-action="delete"]:hover {
+    background: #b02a37;
+}
+.takeads-btn-el[data-action="cancel"] {
+    background: #198754;
+    color: #fff;
+}
+.takeads-btn-el[data-action="cancel"]:hover {
+    background: #157347;
+}
