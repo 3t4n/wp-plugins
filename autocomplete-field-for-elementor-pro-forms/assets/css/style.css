@@ -1,0 +1,43 @@
+input[type='gh-select-autocomplete']:focus + .elementor-select-autocomplete-container
+{
+    display:block !important;
+}
+
+.elementor-select-autocomplete-container.hidden,
+.elementor-select-autocomplete-container .hidden
+{
+    display: none;
+}
+
+.autocomplete-helper
+{
+	padding:15px !important;
+}
+
+.elementor-select-autocomplete-container
+{
+    position:absolute;		
+    width:calc( 100% - 10px );
+    margin:0px 5px;	
+    left:0px;
+    transition:300ms ease all; 
+    transform: translateY(100%);
+    bottom: 0px;
+    background:White;
+    z-index:999;
+    overflow: auto;
+    max-height: 300px;
+}
+
+.autocomplete-row
+{
+    padding:4px 10px;
+    transition:300ms ease all;
+    cursor:pointer;
+    font-size: 0.9em;
+}
+
+.autocomplete-row:hover
+{
+    background-color: #efefef;  
+}
