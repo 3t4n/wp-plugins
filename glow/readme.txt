@@ -1,0 +1,206 @@
+=== Plugin Name ===
+Contributors: Ramoonus
+Donate link: http://www.ramoonus.nl
+Tags: Glow, javascript, bbc, 
+Requires at least: 3.9
+Tested up to: 4.6
+Stable tag: 2.0.0
+
+This plugin adds BBCs Glow Javascript library to your set-up.
+
+== Description ==
+This plugin adds [BBCs Glow Javascript library](http://www.bbc.co.uk/glow/) to your set-up.
+
+Glow is a JavaScript library which gives you... 
+
+* Simplified DOM manipulation, event handling, animations, etc 
+* A versatile set of user interface widgets 
+* Clear and comprehensive documentation 
+* BBC Browser Support Standards compliance 
+
+From 1 October 2016 on, this plugin is no longer supported. Please use [Powerpack](http://www.ramoonus.nl/wordpress/powerpack/) instead.
+
+== Installation ==
+1. Upload `glow/` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Frequently Asked Questions == 
+None at this moment.
+
+== Screenshots ==
+Not relevant.
+
+== Changelog ==
+= 2.0.0 =
+* Last version of this plugin
+* Updated readme
+* Minor code update (use wp_enqueue_scripts instead of init)
+
+Glow Changelog
+
+= 1.7.7 =
+
+* glow.widgets.AutoSuggest - Fix bug that appeared when escaping the textfield after entering no text.
+* glow.widgets.DragDrop - Fix bug affecting IE9 that prevented dragging.
+
+= 1.7.6 =
+
+* Check stylesheets have href before using it.
+
+= 1.7.5 =
+
+* glow.widgets.Overlay - Revert fix positional issue which caused mask to grow too big as it breaks Barlesque
+
+= 1.7.4 =
+
+* glow.widgets.Editor - Fix wrong variable name in editor widget.
+* glow.net - Changing cachebusting param to fit in with BBC S&Gs
+* glow.widgets.Carousel - Documentation update
+* glow.widgets.Overlay - Fix positional issue which caused mask to grow too big
+* glow.widgets.AutoSuggest - Fix to default ID
+* glow.widgets.Sortable - Fixed 'sort' firing when last item is picked up but not moved to a different position
+
+= 1.7.3 =
+
+* glow - Fixed issue with two instances of Glow clashing
+* glow.net - Added x-domain request support (thanks to Tom Yandell)
+* glow.net - Added PUT & DELETE support (thanks to Gilles Ruppert & Max Noé)
+* glow.widgets.Draggable - Fixed constructor onAfterDrop shortcut
+* glow.widgets.AutoSuggest - Made options object truly optional
+* glow.anim - Corrected return value for fadeOut()
+
+= 1.7.2 =
+
+* glow.anim - slideDown() regression fix
+
+= 1.7.1 =
+
+* glow.widgets.AutoSuggest - Handle missing opts
+* glow.widgets.AutoSuggest - Adding "id" & "classname" options
+* glow.widgets.Carousel - Handle text in first item
+* glow.widgets.Editor - Bad loop fix
+* glow.widgets.Overlay - returnTo() fix
+* glow.anim - slideDown() fix
+* glow.dom - html() param as number, clone() empty NodeList IE fix
+* glow.net - loadScript() memory usage regression fix
+* glow.net - Adding Header X-Requested-With: XmlHttpRequest to requests
+
+= 1.7.0 =
+
+* glow.widgets.Autosuggest - Fixed bug that sometimes caused the suggestion list to be position off by 1 pixel
+* glow.widgets.Autosuggest - Added option to turn off selection of the completed text in the input element
+* glow.widgets.Mask - Fixed issue that causes IE6 to get into a resize event loop
+* glow.dom - Changing method for getting document size to correct IE issue
+* glow.embed - Added documentation for isSupported
+
+= 1.7.0-rc1 =
+
+New:
+* glow.lang.interpolate - Added option to escape HTML from data object
+* glow.net.get / post - Added 'forceXml' option to treat any file as XML
+* glow.dom.create - Added option to escape HTML from interpolated data object
+* glow.dom.NodeList#ancestors - New method to get all ancestors of a NodeList
+* glow.dom.NodeList#data / removeData - New methods to associate data with nodes
+* glow.dom.NodeList#scrollLeft / scrollTop - New methods to get / set scroll position of document / nodes
+* glow.dom.NodeList#wrap / unwrap - New methods to wrap elements inside another
+* glow.widgets.Overlay - Prevent focus going to other elements while modal overlay is shown
+* glow.widgets.Editor - Added ordered & unordered lists
+* glow.widgets.Editor - Added heading dropdown
+* glow.widgets.AutoSuggest - Added 'useCache' option to cache results from the server
+
+Fixes:
+* glow.net.get / post - Fixed IE issues when fetching file from local filesystem
+* glow.dom.NodeList#css - Fixing IE issues with relative CSS values
+* glow.dom.NodeList#html - Fixing IE issues with some elements (eg tables)
+* glow.forms.Form - Allowing email address to end in underscore, eg blah_@blah.co.uk
+* glow.widgets.Carousel - Fixed pageNav after adding / removing items
+* glow.widgets.Carousel - Preventing user creating an empty carousel (rather than erroring)
+* glow.widgets.AutoSuggest - Preventing suggestions hiding when left / right arrow keys are pressed
+* glow.widgets.InfoPanel - Improving ARIA support
+* glow.widgets.Slider - Allowing left / right arrow keys to navigate vertical slider (recommendation from ARIA spec)
+* glow.widgets.AutoSuggest - Fixed minor bugs affecting suggestions list display.
+
+= 1.6.1 =
+
+* glow.widgets.Sortable - Fixed negative margin issue
+* glow.widgets.Carousel - Fixed edge case where original element was floated
+* glow.widgets.Carousel - Fixed issue with visibleIndexes misreporting
+* glow.widgets.Editor - Fixed issue with 'commit' event firing too often
+* glow.widgets.Carousel, glow.widgets.Editor, glow.widgets.Timetable - Documentation updates
+* glow.dom.NodeList#offset - Fixed for browsers that don't support getBoundingClientRect
+* glow.dom.NodeList#css - Fix to real-to-absolute unit convertor for IE
+* glow.forms.Form - Better error reporting when form has an element with name='submit'
+
+= 1.6.0 =
+
+* glow.widgets.Carousel - Fixed issues with tabbing naviagation
+* glow.widgets.Carousel - Making itemClick event preventable
+* glow.widgets.Mask - Fixing issues where Mask didn't dover the whole page
+* glow.widgets.Overlay - Fixed issue where hideWhileShown was hiding items inside the overlay
+* glow.widgets.Overlay - Fixed returnTo focus
+* glow.widgets.NodeList - Fixed setting val() for select items in Firefox
+
+= 1.6.0-rc2 =
+
+* glow.widgets.AutoSuggest - Added support for 'show' and 'hide' event listeners on the AutoSuggest instance
+* glow.widgets.AutoSuggest - Added autoPosition option to allow user to manually place the suggestion list
+* glow.widgets.AutoSuggest - Improved interface when using keys to navigate suggestions, esc now restores the original value
+* glow.widgets.AutoSuggest - Added new 'filter' option to allow user to modify results before they are displayed
+* glow.widgets.Carousel - Fixed bug that caused Next and Previous text to be visible in Opera when images were on
+* glow.widgets.AutoSuggest - Fixed bug that caused position of suggestion list to be wrong when text was zoomed in recent webkit browsers
+* glow core - Fix bug in domReady code that prevented ready / onDomReady working in some browsers (eg, PS3 NetFront)
+
+= 1.6.0-rc1 =
+
+* glow.widgets.Timetable - Fixing bug that may result in item sizes less than 0
+* glow.forms - Allow more control over ajax tests
+* glow.widgets - Improving CSS load detection for widgets.css
+* glow.anim - Improved memory usage for animation shortcuts
+* glow.events - Added 'mouseenter' and 'mouseleave' events which don't bubble
+* glow.net.Response#xml - Works in IE for application/(whatever)-xml content-type
+* glow.widgets.Sortable - Better position & margin handling
+* glow.dom.NodeList#position - For getting the position relative to the positioned parent
+* glow.dragdrop - Improved position detection and margin handling
+* glow.dom.NodeList#prop - Similar to attr, but for getting/setting node properties
+* glow.embed.Flash - Generating IDs for <object> to fix a string bug in IE
+* glow.net.Request#destroy - For cleaning up loadScript calls that don't have an onLoad callback
+* glow.events - No longer adds a cleanup unload listener for browsers that don't need it, allows quick back & forward switching in those browsers
+* glow.widgets.Carousel - Fixed issue where events would double-fire after items were added
+* glow.dom.NodeList#css - Returns correct value for margin-right in modern Webkit versions
+* glow.dom.NodeList - width & height methods more reliable for elements with width:auto
+* glow.dom.create - Fixed elements that couldn't appear within a div (eg, <option />)
+* glow.data.decodeUrl - Now supports ; as a separator
+* glow.dom.NodeList#css - Can now provide an object (property:value) to set many values
+* glow.dom.create - Can now provide interpolation params as an option
+* glow.i18n - New module for managing multiple languages for JavaScript applications
+* glow.widgets.Panel - Fixed IE8 rendering issue (standards & compat mode)
+* glow.anim - Can now add events in the options object of glow.anim.css, glow.anim.Animtion and glow.anim.Timeline
+* glow.events - Focus/blur events allow bubbling on all elements.
+* glow.widgets.Overlay - closeToEsc param added to constructor option.  Enabling this allows user to close overlay with ESC button.
+* glow.events.fire - Allow attachTo parameter to be DOM node, glow.dom.nodeList or string.
+* glow.widgets.Carousel - Better keyboard interaction.  User can tab through items in the carousel.
+* glow.widgets.Mask - Mask now correctly calculates the required width (previously wasn't doing this when the content scrolled horizontally).
+* glow.dom.get - Extended "invalid selector" error message with value of invalid selector used.
+
+= 1.5.1 =
+
+* glow.anim.css - now silently fails if an empty nodelist is passed in, rather than throwing an error
+
+= 1.5.0 =
+
+* glow.forms - Added "is" test, to ensure one field equals a particular value
+* glow.anim - Introduced Animation#destroy to remove animations when they're complete
+* glow.dom.NodeList - Added destroy method for clearing nodes from memory
+
+* glow.dom - Fixing some bugs in the child selector
+* glow.widgets.Overlay - Fixing an unscoped variable
+* glow.widgets.Carousel - Cloning events on duplicate items
+* glow.anim - Improvements to shortcut functions
+* glow.widgets.Overlay - aliasing "roll" transition to "slide" for compatibility with glow.anim shortcuts
+* glow.events - Deprecated addKeyListener, will return 'new and improved' in Glow 2.0
+* glow.widgets.Mask - Deprecated disableScroll
+* glow.embed - Updated "no flash" message to include links to webwise.
+* glow.widgets.Overlay - Fixed bug creating inconsistency with Flash hiding when using multiple overlays
+* glow.widgets.Overlay - Now stops Flash within an Overlay playing on hide
+* glow.embed - Fixed bug where IE needs Flash movies to have an ID
+* glow.widgets.Carousel - Improvements to keyboard access
