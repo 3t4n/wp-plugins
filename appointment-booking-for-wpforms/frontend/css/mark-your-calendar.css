@@ -1,0 +1,478 @@
+:root {
+    --booknow-pt-main-bg-color: #12D488;
+    --booknow-pt-main-color: #fff;
+}
+.booknow-container .booknow-row {
+    display: flex;
+}
+.booknow-container .booknow-col {
+    width: 100%;
+    padding-right: 15px;
+}
+.booknow-container .booknow-calendar {
+    padding-top: 15px;
+}
+.booknow-container .booknow-calendar-week-container,
+.booknow-container .booknow-calendar-week-container th,
+.booknow-container .booknow-calendar-week-container td,
+.booknow-container .booknow-calendar-week-container tr,
+.booknow-container .boooknow-available-time,
+.booknow-container .booknow-prev-week,
+.booknow-container .booknow-next-week,
+.booknow-container .boooknow-available-more,
+.booknow-container .booknow-datas .booknow-content,
+.booknow-container .booknow-input-container-list ul li  {
+    color: var(--booknow-pt-main-content);
+    border: 1px solid #E2E6E7;
+}
+.booknow-current-month-year-container {
+    color: var(--booknow-pt-main-content);
+}
+.booknow-container *{
+    font-size:15px;
+    font-weight:400;
+    line-height:150%;
+    font-family:'Lato';
+    box-sizing:border-box;
+}
+.booknow-container a{
+    outline:none;
+    text-decoration:none;
+}
+.booknow-container a:hover
+{
+    text-decoration:underline;
+}
+.booknow-container .booknow-calendar-week-container
+{
+    width:100%;
+    table-layout:fixed;
+    border-style:solid;
+    border-width:0px;
+    border-collapse:collapse;   
+}
+.booknow-container .booknow-calendar-week-container tr>th,
+.booknow-container .booknow-calendar-week-container tr>td {
+    padding:0px;
+    min-width:140px;
+    border-width:1px;
+    border-style:solid;
+    vertical-align:top;
+    box-sizing:border-box;
+    display: table-cell;
+}
+.booknow-container .booknow-nav-container{
+    display: flex;
+}
+.booknow-container .booknow-nav-container>div {
+    width: 100%;
+}
+.booknow-container .booknow-current-month-year-container{
+    font-size:24px;
+    text-transform: capitalize;
+    text-align:center;
+    display: inline-block;
+    padding-top: 8px;
+}
+.booknow-container .boooknow-next-week-container {
+    text-align: right;
+}
+.booknow-container .booknow-next-week>a{
+    margin-top:10px;
+}
+.booknow-container .booknow-next-week a:hover{
+    text-decoration:none;
+}
+.booknow-container .booknow-prev-week,
+.booknow-container .booknow-next-week {
+    display:inline-block;
+    width:47px;
+    height:47px;
+    line-height:42px;
+    border-width:1px;
+    text-align:center;
+    border-radius:100%;
+    border-style:solid;
+    position:relative;
+    top:-3px;
+    margin:0 10px;
+}
+.booknow-container .booknow-calendar-week-container .booknow-date-header{
+    position: relative;
+}
+.booknow-container .booknow-calendar-week-container .booknow-calendar-subheader .booknow-date-number{
+    width:47px;
+    height:47px;
+    font-size:24px;
+    line-height:43px;
+    border-width:1px;
+    text-align:center;
+    border-radius:100%;
+    border-style:solid;
+    padding: 10px;
+    color: #7b7b7b;
+    font-weight: 600;
+}   
+.booknow-container .booknow-calendar-week-container .booknow-calendar-subheader .boooknow-date-display{
+       top: 1px;
+        right: 5px;
+        position: absolute;
+        text-transform: capitalize;
+}
+.booknow-container .booknow-calendar-datas{
+    text-align:center;
+}
+.booknow-container .booknow-calendar-datas a{
+    width:100%;
+    font-size:14px;
+    border-width:1px;
+    margin-bottom:10px;
+    border-style:solid;
+    border-radius:999px;
+    display:inline-block;
+    padding:9px 15px 10px 9px;
+}
+.booknow-container .booknow-calendar-datas a,
+.booknow-container .booknow-calendar-datas a:hover{
+    text-decoration:none;
+}
+.booknow-container .booknow-calendar-datas .booknow-calendar-datas-more{
+    margin-bottom:0px;
+}
+.booknow-container .booknow-calendar-datas a.selected, .booknow-calendar-datas a:hover{
+   background-color: var(--booknow-pt-main-bg-color);
+   color: var(--booknow-pt-main-color);
+}
+.booknow-container .boooknow-day-time-container ul {
+    padding:  0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.booknow-container .boooknow-not-available {
+    text-align: center;
+}
+.hidden {
+    display: none !important;
+}
+.booknow-container .booknow-datas .booknow-content {
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+}
+.booknow-container .booknow-col-last {
+    padding-right: 0;
+}
+.booknow-container .booknow-datas-content-title {
+    width: 100%;
+    text-align: right;
+}
+.booknow-container .booknow-datas-content-title h5 {
+    font-size: 24px;
+    color: var(--booknow-pt-main-bg-color);
+    margin: 0;
+    padding: 0;
+}
+.booknow-container .booknow-datas-content-icon {
+    position: relative;
+}
+.booknow-container .booknow-datas-content-icon span{
+    font-size: 40px;
+    position: absolute;
+    top: 1px;
+}
+.booknow-container .booknow-input-container-list ul{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   /* max-height: 220px; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.booknow-container .booknow-input-container-list ul::-webkit-scrollbar {
+    display: none;
+    margin-top: 10px;
+}
+.booknow-container .booknow-input-container-list ul li {
+    display: flex;
+    padding: 10px;
+}
+.booknow-container .booknow-input-container-list ul li:hover, .booknow-input-container-list ul li.active{
+    border-color: var(--booknow-pt-main-bg-color);
+    cursor: pointer;
+}
+.booknow-container .booknow-input-container-list ul li .booknow-list-img {
+    width: 56px;
+}
+.booknow-container .booknow-input-container-list ul li .booknow-list-img img {
+    border-radius: 5px;
+    width: 100%;
+}
+.booknow-container .booknow-list-content {
+    width: 100%;
+    margin-left: 15px;
+    position: relative;
+}
+.booknow-container .booknow-list-content-des {
+    display: flex;
+}
+.booknow-container .booknow-list-content-des-duration {
+    width: 100%;
+}
+.booknow-container .booknow-list-content-des-duration strong {
+    font-weight: bold;
+}
+.booknow-container .booknow-list-content-des-price {
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+}
+.booknow-container .booknow-list-content-title {
+    font-size: 18px;
+}
+.booknow-container .booknow-list-content-title span {
+    position: absolute;
+    font-size: 20px;
+    top: 0px;
+    right: 0;
+    color: var(--booknow-pt-main-bg-color);
+    display: none;
+}
+.booknow-container .active .booknow-list-content-title span {
+display: block;
+}
+.booknow-container.booknow-content label,
+.booknow-container .booknow-datas-title{
+   color: var(--booknow-pt-main-bg-title);
+   font-weight: 600;
+}
+.booknow-container .booknow-datas-title {
+    padding: 5px 0;
+    font-size: 18px;
+}
+.booknow-container table ul,
+.booknow-container table ul li{
+    padding: 0;
+    margin: 0 !important;
+    list-style: none;
+}
+.booknow-container .booknow-date-header-0 .booknow-date-number {
+    color: var(--booknow-pt-main-color) !important;
+    background: var(--booknow-pt-main-bg-color);
+    border-color: var(--booknow-pt-main-bg-color);
+}
+.booknow-container .booknow-content label {
+    font-weight: 600;
+}
+.booknow-datas-title {
+    padding: 15px 0;
+}
+.booknow-container .booknow-datas-title,
+.booknow-container .booknow-content label {
+   color: var(--booknow-pt-main-title);
+}
+.booknow-nav-container a:hover {
+    color: var(--booknow-pt-main-color) !important;
+    background: var(--booknow-pt-main-bg-color);
+    border-color: var(--booknow-pt-main-bg-color);
+}
+.booknow-container .booknow-calendar-week-container tr>th>div,
+.booknow-container .booknow-calendar-week-container tr>td>div{
+   padding: 20px 12px;
+}
+.boooknow-not-available {
+    color: #A8B1B6;
+}
+.single-product .product-type-booknow .woocommerce-product-gallery {
+    width: 100% !important;
+    float: none !important;
+    display: none;
+}
+.single-product .product-type-booknow .woocommerce-product-gallery>div {
+    max-width : 500px;
+    margin: 0 auto !important;
+}
+.single-product .product-type-booknow .entry-summary {
+    width: 100% !important;
+    float: none !important;
+}
+.single-product .product-type-booknow .booknow-container .booknow-input-container-list ul {
+    max-width: 100%;
+}
+.single-product .product-type-booknow .booknow-input-staff{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+.single-product .product-type-booknow .booknow-input-staff li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.single-product .product-type-booknow .entry-summary .price{
+    display: none;
+}
+.single-product .product-type-booknow .quantity {
+    display: none;
+}
+.booknow_list_booking {
+     list-style: none;
+}
+dd .booknow_list_booking {
+     list-style: none;
+    padding-left: 50px;
+}
+.booknow-order-container .booknow-order-list{
+   list-style: none;
+   margin: 0;
+   border: 1px solid #e7e7e7;
+}
+.booknow-order-container .booknow-order-list>li {
+   padding: 5px 15px;
+}
+.booknow-order-container .booknow-order-list>li:first-child {
+    font-weight: bold;
+    font-size: 16px;
+    border-top: none;
+}
+.booknow-order-container .booknow-order-list>li:last-child {
+    font-weight: bold;
+    font-size: 16px;
+}
+.booknow-order-container .booknow-order-list>li {
+    border-top: 1px solid #e7e7e7;
+}
+.booknow-order-container .booknow-order-title {
+    color: #2e2e2e;
+    font-weight: 700;
+    padding: 15px 0;
+    font-size: 18px;
+}
+.booknow-order-list-des {
+    display: flex;
+}
+.booknow-order-list-des>div {
+    width: 100%;
+}
+.booknow-order-list-id {
+    min-width: 70px;
+}
+.booknow-order-list-service {
+    min-width: 200px;
+}
+.booknow-order-list-status {
+    min-width: 100px;
+}
+.booknow-order-list-booking-date {
+    min-width: 200px;
+}
+.booknow-order-list-booking-time {
+    min-width: 200px;
+}
+body .booknow-order-container {
+    width: 100%;
+    max-width: 100%;
+}
+.booknow_modal_overwrite {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.booknow_modal_content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:600px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+    border-radius:20px;
+    display: block;
+    position: fixed;
+    box-shadow:0px 0px 10px #111;
+}
+@media (max-width: 700px) {
+    .booknow_modal_content {width:90%;}
+}
+.booknow_modal_close {
+    text-align:center;
+    margin-top:-40px;
+    margin-bottom:10px;
+}
+.booknow_modal_title{
+    font-weight:bold;
+    font-size:20px;
+    margin-bottom:10px;
+}
+.booknow_modal_close button{
+    width:40px;
+    height:40px;
+    font-size:30px;
+    padding:0px;
+    border-radius:100%;
+    background:#333;
+    color:#fff;
+    border:none;
+}
+.booknow_modal_close button:hover{
+   cursor: pointer;
+   opacity: 0.8;
+}
+.booknow_modal.active .booknow_modal_overwrite {
+  display:block;
+}
+.booknow_modal.active .booknow_modal_content {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.booknow_modal_content_inner ul{
+  list-style: none;
+}
+.booknow_modal_content_inner ul li{
+  display: flex;
+  padding-bottom: 10px;
+}
+.booknow_modal_content_inner ul li>div {
+    width: 100%;
+}
+.booknow_modal_inner-tt {
+    text-align: right;
+    padding-right: 15px;
+    font-weight: 600;
+}
+.booknow_modal_inner-ct {
+    text-align: left;
+}
+.booknow-order-list-id a {
+    text-decoration: none;
+}
+.booknow-order-list-id a:hover {
+    opacity: 0.8;
+}
+@media screen and (max-width: 980px) {
+  .booknow-container .booknow-row{
+     display: block !important;
+  }
+  .booknow-container .booknow-col{
+    padding-right: 0;
+  }
+  .booknow-container .booknow-calendar-week-container tr>th>div,
+  .booknow-container .booknow-calendar-week-container tr>td>div{
+       padding: 20px 8px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .booknow-order-list-booking-date,
+  .booknow-order-list-service{
+    display: none;
+  }
+}
