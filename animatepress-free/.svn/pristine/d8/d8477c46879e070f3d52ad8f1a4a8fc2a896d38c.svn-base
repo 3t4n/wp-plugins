@@ -1,0 +1,287 @@
+@keyframes slideTopIn {
+  0% {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideTopOut {
+  0% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes slideRightIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideRightOut {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes slideBottomIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideBottomOut {
+  0% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes slideLeftIn {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideLeftOut {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes SpinnerBasic {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50%0, 50%0, 50%0, 50%0, 50%0);
+  }
+  12.5% {
+    clip-path: polygon(50% 50%, 0 0, 50%0, 100%0, 100%0, 100%0, 100%0);
+  }
+  25% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50%0,
+      100%0,
+      100% 100%,
+      100% 100%,
+      100% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 50%0, 100%0, 100% 100%, 50% 100%, 0 100%);
+  }
+  62.5% {
+    clip-path: polygon(
+      50% 50%,
+      100%0,
+      100%0,
+      100%0,
+      100% 100%,
+      50% 100%,
+      0 100%
+    );
+  }
+  75% {
+    clip-path: polygon(
+      50% 50%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      50% 100%,
+      0 100%
+    );
+  }
+  to {
+    clip-path: polygon(
+      50% 50%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      0 100%
+    );
+  }
+}
+@keyframes SpinnerBasic2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+  to {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}
+@keyframes DotsBasic {
+  to {
+    clip-path: inset(0-34%0 0);
+  }
+}
+:root {
+  --animatepress-cursor-delay: 0.1s;
+  --animatepress-cubic-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+html {
+  margin-top: 0 !important;
+}
+#animatepress-overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+#animatepress-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 300ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 24px;
+}
+.fade,
+.fade--in,
+.fade--out {
+  transition: all 700ms var(--animatepress-cubic-bezier);
+}
+.fade {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: var(--color-option);
+  visibility: hidden;
+}
+.fade--in,
+.fade--out {
+  visibility: visible;
+  opacity: 1;
+}
+.fade--out {
+  visibility: hidden;
+  opacity: 0;
+}
+.slide-bottom,
+.slide-left,
+.slide-right,
+.slide-top {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-option);
+}
+#animatepress-confettis-form,
+.animatepress-confettis {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  pointer-events: none;
+}
+.spinner-basic {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid var(--animatepress-loader-color);
+  margin: auto;
+  animation: SpinnerBasic 0.8s infinite linear alternate,
+    SpinnerBasic2 1.6s infinite linear;
+}
+.dots-basic {
+  width: 56px;
+  height: 13.4px;
+  background: radial-gradient(
+      circle closest-side,
+      var(--animatepress-loader-color) 90%,
+      #0000
+    )
+    0 0/33% 100%space;
+  clip-path: inset(0 100%0 0);
+  margin: auto;
+  animation: DotsBasic 1s steps(4) infinite;
+}
+
+.bars-basic {
+  width: 50.4px;
+  height: 67.2px;
+  --color: linear-gradient(var(--animatepress-loader-color) 0 0);
+  background: var(--color) 0% 100%, var(--color) 50% 100%,
+    var(--color) 100% 100%;
+  background-size: 10.1px 65%;
+  background-repeat: no-repeat;
+  animation: BarsBasic 1s infinite linear;
+}
+
+@keyframes BarsBasic {
+  20% {
+    background-position: 0% 50%, 50% 100%, 100% 100%;
+  }
+
+  40% {
+    background-position: 0% 0%, 50% 50%, 100% 100%;
+  }
+
+  60% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+
+  80% {
+    background-position: 0% 100%, 50% 100%, 100% 0%;
+  }
+}
+
+.progressbar-basic {
+  width: 100px;
+  height: 20px;
+  background: linear-gradient(var(--animatepress-loader-color) 0 0) left/0% 100%
+    no-repeat
+    color-mix(in srgb, var(--animatepress-loader-color) 20%, transparent);
+  animation: ProgressBarBasicAnimation 2s infinite linear;
+}
+
+@keyframes ProgressBarBasicAnimation {
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+.pulse-basic {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--animatepress-loader-color);
+  box-shadow: 0 0 0 0 var(--animatepress-loader-color);
+  animation: PulseBasicAnimation 1s infinite;
+}
+
+@keyframes PulseBasicAnimation {
+  100% {
+    box-shadow: 0 0 0 30px #0000;
+  }
+}
