@@ -1,0 +1,972 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.feexpay_modal_container{
+    font-family: 'Roboto', sans-serif;
+    position:fixed;
+    display: none;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(0, 0, 0, 0.7);
+    height:100vh;
+    width:100vw;  
+    z-index:100000000 !important;
+    margin:0px;
+    padding:0px;
+    flex-direction:column;
+    top:0px;
+    left:0px;
+   
+
+    
+    
+}
+
+.feexpay_modal_container .modal{
+   display:grid;
+   flex-direction:column;
+   width:30%;
+   height:92%;
+   background-color: #f8f9fa !important;
+   color:black;
+
+  
+}
+
+.feexpay_modal_container .modal .modal_header{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    margin-bottom:2rem;
+    box-shadow: 2px 3px 9px -4px rgba(0, 0, 0, 0.397);
+    border-bottom-left-radius:1rem;
+    border-bottom-right-radius:1rem;
+    height: fit-content;
+    
+    
+}
+
+.feexpay_modal_container .modal .header_text{
+    font-size:12.25px;
+    color:black;
+    width:60%;
+    text-align:right;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    height: fit-content;
+
+    
+    
+}
+.feexpay_modal_container .modal .logo_container{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    width:40%;
+    height: fit-content;
+}
+.feexpay_modal_container .modal .logo_container .logo {
+    width:100px;
+
+}
+.pay_with{
+    font-size:1rem;
+    font-weight:800;
+    color:darkblue;
+    font-family: sans-serif;
+}
+
+.footer_modal_container{
+    width:100%;
+    /* height:6%; */
+    background-color:white;
+    align-self:flex-end;
+    display:flex;
+    align-items:flex-end;
+  
+}
+
+.feexpay_modal_container .footer_modal{
+    width:100%;
+    height:30px;
+    background-color:#112C56;
+    background-image:url("https://api.feexpay.me/api/static/motif_footer.svg");
+    background-size:cover;
+    background-position:center;
+    
+
+}
+
+
+
+
+
+
+
+
+/* .feexpaycardBankForm */
+
+    
+.feexpaycardBankForm .form_pay{
+    width:100%;
+  
+ }
+
+
+ .feexpaycardBankForm .titulaire_info_container{
+      display:flex;
+      flex-direction:column;
+      margin-top:0.3rem;
+
+ }
+
+ .feexpaycardBankForm .titulaire_input{
+     display:flex;
+     flex-direction:row;
+     width:100%;
+     background-color:#cfcfcf;
+     border-radius:0px;
+     justify-content: inherit;
+ }
+ .feexpaycardBankForm .titulaire_lab{
+    margin-bottom:5px;
+    margin-top:0px;
+    font-size: 0.8rem;
+ }
+
+
+ .feexpaycardBankForm .input_container{
+     width:90%;
+ }
+ .feexpaycardBankForm .input_info{
+    background-color:#fffcfc;
+    border:none;
+    outline:none;
+    padding:10px;
+    width:100%;
+    border: 1px solid #5a5a5a69;
+    border-radius: 2px;
+
+ }
+ .feexpaycardBankForm .input_info::placeholder{
+    font-size: 0.8rem;
+ }
+
+ .feexpaycardBankForm .input_customer{
+    width: 85%;
+ }
+ .feexpaycardBankForm .input_customer_prenom{
+    float: right;
+ }
+ .feexpaycardBankForm .input_info:focus{
+   background-color:whitesmoke;
+ }
+ .feexpaycardBankForm .img_container{
+    display:flex;
+  
+ }
+ .feexpaycardBankForm .img_user{
+      width:25px;
+      margin-right:1rem;
+ }
+
+
+ .feexpaycardBankForm .other_info_container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:row;
+    width:100%;
+    margin-top:0.3rem;
+  
+ }
+
+ .feexpaycardBankForm .expiration_date,.cryptogramme{
+      width:50%;
+      display:flex;
+      flex-direction:column;
+
+ }
+
+ .feexpaycardBankForm .cryptogramme{
+  display:flex;
+  justify-content:flex-end;
+  
+  
+}
+.feexpaycardBankForm .cryptogramme_custom{
+    width:70% !important;
+    align-items:flex-end !important;
+  }
+.feexpaycardBankForm .expiration_date_custom{
+    width:30% !important;
+}
+.cryptogramme .titulaire_lab_prenom{
+    /* padding-left:12%; */
+    padding-left:12%;
+}
+
+ .feexpaycardBankForm .date_expiration_input,.feexpaycardBankForm .cryptogramme_input{
+      width:83%;
+      padding:15px;
+      background-color:#cfcfcf;
+      border:none;
+      outline:none;
+      border-radius:0.5rem;
+ }
+ .feexpaycardBankForm .cryptogramme_custom .input_w{
+      width:87% !important;
+  }
+
+ 
+ .feexpaycardBankForm .cryptogramme_input:focus{
+  background-color:whitesmoke;
+ }
+ .feexpaycardBankForm .date_expiration_input:focus{
+  background-color:whitesmoke;
+ }
+.feexpay_modal_container .padding_add{
+     padding-left: 2rem;
+     padding-right: 2rem;
+     height: 94%;
+     
+}
+.feexpay_container_form{
+    height: 100%;
+    display: grid;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+.feexpay_payment_message{
+    position: fixed;
+    z-index: 100000000000000000;
+    bottom: 1rem;
+    right: 2rem;
+    width: 20%;
+    padding: 2rem;
+    background-color: #D45D00;
+    color: white;
+    box-shadow: 15px 14px 32px -16px rgba(0,0,0,0.58);
+    -webkit-box-shadow: 15px 14px 32px -16px rgba(0,0,0,0.58);
+    -moz-box-shadow: 15px 14px 32px -16px rgba(0,0,0,0.58);
+    border-radius: 0.4rem;
+    text-align: center;
+    display: none;
+    font-family: "Poppins",sans-serif;
+}
+.feexpay_button_close_modal{
+    width: 27%;
+    padding: 15px;
+    background-color: crimson;
+    border-radius:0.4rem;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+
+}
+
+ @media screen and (max-width:924px) {
+      .feexpaycardBankForm .expiration_date,.feexpaycardBankForm .cryptogramme{
+          width:100%;
+          padding:0px;
+
+       }
+       .feexpaycardBankForm .titulaire_lab{
+          
+            margin-top:10px;
+        
+       }
+    
+       .cryptogramme .titulaire_lab_prenom{
+          padding: 0%;
+       }
+       .feexpaycardBankForm .input_customer{
+        width: auto;
+      }
+       .feexpaycardBankForm .cryptogramme_custom .input_w{
+        width:100% !important;
+    }
+  
+       .feexpaycardBankForm .other_info_container{
+          flex-direction:column;
+
+          
+       }
+       .feexpaycardBankForm .expiration_date_custom{
+        width: 100% !important;
+    }
+       .feexpaycardBankForm .date_expiration_input,.feexpaycardBankForm .cryptogramme_input{
+          width:91%;
+       }
+
+       .feexpaycardBankForm .cryptogramme_custom{
+            width:100% !important;
+            align-items: flex-start !important;
+            
+        }
+        .feexpay_modal_container .padding_add{
+
+            height:fit-content;
+            
+       }
+    
+
+ 
+  }
+
+
+
+.feexpaylocalchoice{
+transition:all 1s;
+border:solid 1.5px gray;
+display:flex;
+flex-direction:row;
+align-items:center;
+width:100%;
+margin-top:1rem;
+transform-origin: center;
+cursor:pointer;
+border-radius: 0.25rem !important;
+}
+
+.feexpaylocalchoice:hover{
+  transition:all 1s;
+  border:solid 1.5px orangered;
+}
+
+.feexpaylocalchoice .image_choice{
+   display:flex;
+   flex-direction:row;
+   justify-content:end;
+   align-items:center;
+   position:relatif;
+   right:1rem;
+   justify-self:flex-end;
+   padding-top:8px;
+   padding-bottom:8px;
+   width:50%;
+  
+}
+.feexpaylocalchoice .image_choice img{
+ width:40px;
+}
+.feexpaylocalchoice .input_choice,.choice_text{
+   margin-left:0.5rem;
+}
+.feexpaylocalchoice .img_moov{
+   margin-right:2rem;
+}
+.feexpaylocalchoice .img_mtn{
+  margin-right:1rem
+}
+.feexpaylocalchoice .text_container{
+   width:70%;
+   display:flex;
+   align-items:center;
+   flex-direction:row;
+
+}
+
+
+
+.feexpaycardbankchoice{
+    transition:all 1s;
+    border:solid 1.5px gray;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:100%;
+    margin-top:1rem;
+    transform-origin: center;
+    cursor:pointer;
+    border-radius: 0.25rem !important;
+  
+}
+
+.feexpaycardbankchoice:hover{
+    transition:all 1s;
+    border:solid 1.5px orangered;
+  }
+
+  
+.feexpaycardbankchoice .image_choice{
+    display:flex;
+    flex-direction:row;
+    justify-content:end;
+    align-items:center;
+    position:relatif;
+    right:1rem;
+    justify-self:flex-end;
+    padding-top:8px;
+    padding-bottom:8px;
+    width:50%;
+   
+ }
+ .feexpaycardbankchoice .image_choice img{
+  width:40px;
+ }
+ .feexpaycardbankchoice .input_choice,.choice_text{
+    margin-left:0.5rem;
+ }
+ .feexpaycardbankchoice .img_moov{
+    margin-right:2rem;
+ }
+ .feexpaycardbankchoice .img_mtn{
+   margin-right:1rem
+ }
+ .feexpaycardbankchoice .text_container{
+    width:70%;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+
+ }
+
+
+.feexpaycancel{
+    transition:all 1s;
+    border:solid 1.5px gray;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:100%;
+    margin-top:1rem;
+    transform-origin: center;
+    height:56px;
+    border-radius: 0.25rem !important;
+}
+.feexpaycancel:hover{
+    transition:all 1s;
+    border:solid 1.5px orangered;
+
+}
+.feexpaycancel .input_choice,.feexpaycancel .choice_text{
+    margin-left:0.5rem;
+ }
+
+
+
+
+
+
+
+
+
+ .feexPayMobilePay .choice_operator_card{
+        width:100%;
+        border-bottom:solid 1.5px #00000071;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:center;
+        
+
+    }
+
+.feexPayMobilePay .choice_operator_text{
+         width:60%;
+         display:flex;
+         align-items:center;
+         font-weight:700;
+         font-size:0.8rem;
+         
+    }
+.feexPayMobilePay .choice_operator_img{
+        display:flex;
+        width:40%;
+        justify-content:flex-end;
+        align-items:center;
+        flex-direction:row;
+
+    }
+.feexPayMobilePay .choice_operator_img input{
+        margin-right:0.3rem;
+    }
+.feexPayMobilePay .choice_operator_img img{
+        width:45px;
+        padding-top:8px;
+        padding-bottom:8px;
+        
+    }
+
+
+.feexPayMobilePay .choice_mtn{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:row;
+  
+  
+     }
+.feexPayMobilePay .choice_moov{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:row;
+     }
+    
+
+
+.feexPayMobilePay .img_mtn{
+        margin-right:1rem;
+    }
+.feexPayMobilePay .error_text_operator{
+    font-size:0.6rem;
+    color:crimson;
+    margin-top:0.5rem;
+}
+
+/* feexPayMobilePay */
+
+
+
+.feexPayMobilePay .choice_operator_card{
+    width:100%;
+    border-bottom:solid 1.5px #00000071;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    
+
+}
+
+.feexPayMobilePay .choice_operator_text{
+     width:60%;
+     display:flex;
+     align-items:center;
+     font-weight:700;
+     font-size:0.8rem;
+     
+}
+.feexPayMobilePay .choice_operator_img{
+    display:flex;
+    width:40%;
+    justify-content:flex-end;
+    align-items:center;
+    flex-direction:row;
+
+}
+.feexPayMobilePay .choice_operator_img input{
+    margin-right:0.3rem;
+}
+.feexPayMobilePay .choice_operator_img img{
+    width:45px;
+    padding-top:8px;
+    padding-bottom:8px;
+    
+}
+
+
+.feexPayMobilePay .choice_mtn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+
+
+ }
+ .feexPayMobilePay .choice_moov{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+ }
+
+
+
+.feexPayMobilePay .img_mtn{
+    margin-right:1rem;
+}
+
+.feexPayMobilePay .error_text_operator{
+font-size:0.6rem;
+color:crimson;
+margin-top:0.5rem;
+}
+@media screen and (max-width:960px){
+  
+    .feexPayMobilePay .img_mtn{
+        margin-right:0px;
+    }
+    .feexPayMobilePay .choice_operator_img{
+       display:flex; 
+       align-items:center;
+       justify-content:flex-end;  
+       flex-direction:column;
+    }
+    .feexPayMobilePay .choice_mtn{
+       display:flex;
+ 
+    }
+    .feexPayMobilePay .choice_moov{
+        display:flex;
+    }
+    .feexPayMobilePay .img_mtn{
+       margin-right:0px;
+    }
+ 
+ 
+ }
+
+
+/* .feexPay_payButtonStyles */
+
+.feexPay_payButtonStyles .button_container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+  }
+  .feexPay_payButtonStyles .button_pay{
+    background-color:#112C56;
+    color:white;
+    text-align:center;
+    padding:10px;
+    border:none;
+    /*width:45%;*/
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:row;
+    cursor:pointer;
+    border-radius:5px;
+    margin-top: 0.5rem;
+
+  }
+  .feexPay_payButtonStyles .button_text{
+     font-size:0.8rem;
+     font-weight:500;
+    
+  }
+
+  @media screen and (max-width:960px) {
+  
+    .feexPay_payButtonStyles .button_pay{
+      /*width:100%;*/
+     }
+
+
+}
+
+
+
+
+
+/* .feexpay_chargement_loader */
+
+.feexpay_chargement_container{
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background-color:#404040a6;
+    z-index:1000000000;
+    
+    flex-direction:column;
+    align-items:center;
+    justify-coNtent:center;
+    
+  }
+  .feexpay_message_container{
+   
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:25%;
+    height:25%;
+    justify-coNtent:center;
+    background-color:#D45D00;
+    box-shadow:2px 2px 10px 2px #5a5a5a1f;
+    transform:translateY(10px);
+  }
+ 
+
+  .feexpay_request_msg{
+    font-size:0.9rem;
+    color:white;
+    font-weight:500;
+    margin-top:1rem;
+    font-family: 'Poppins', sans-serif;
+    text-align:center;
+
+  }
+
+  .feexpay_loader{
+    width:50px;
+    height:50px;
+    border:10px solid white;
+    border-top:10px solid #112C56;
+    margin:0 auto;
+    border-radius:50%;
+    animation: spin 2s linear infinite;
+
+  }
+  @keyframes spin {
+    0%{transform: rorate(0deg)}
+    100%{transform:rotate(360deg)}
+  }
+
+
+  
+@media screen and (max-width:700px) {
+  .feexpay_message_container{
+    width:60%;
+    height:30%;
+  }
+}
+
+
+  
+
+
+
+
+.feexpay_num_imput .margin{
+    margin-top:1.5rem;
+    margin-bottom:1.5rem;
+}
+
+.feexpay_num_imput .num_operator_card{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+
+}
+.feexpay_num_imput .num_input_container{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    /*border-bottom:solid 1.5px #00000071;*/
+}
+.feexpay_num_imput .flag{
+    width:10%;
+    text-align: center;
+}
+.feexpay_num_imput .input_num{
+    border:none !important;
+    outline:none !important;
+    background-color: transparent;
+    padding:10px !important;
+    width: -webkit-fill-available;
+}
+.feexpay_num_imput .flag .img_flag{
+    width:25px !important;
+    text-align: center;
+}
+
+.feexpay_num_imput .num_flag_container{
+    width:30%;
+    padding:0px;
+    background-color:white;
+    box-shadow:1px 1px 20px 0.2px lightgrey;
+    
+    flex-direction:column;
+    transform:translateY(40%);
+    position:absolute;
+    
+}
+.feexpay_num_imput .flag_info_container{
+    transition:all 1s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:3px;
+    padding-left:0px;
+    cursor:pointer;
+
+}
+.feexpay_num_imput .flag_info_container:hover{
+    transition:all 1s;
+    background-color:whitesmoke;
+
+}
+.feexpay_close_btn{
+  background-color: crimson;
+  border-radius: 5rem;
+  transform: translateX(100%) translateY(-100%);
+  cursor: pointer;
+  height:30px;
+  width: 30px;
+  background-image: url("https://api.feexpay.me/api/static/cross-23.png");
+  background-size: cover;
+  background-position: center;
+  float: right;
+ 
+
+}
+
+.feexpay_num_imput .flag_container img{
+    width:25px;
+}
+.feexpay_num_imput .flag_conyainer{
+    width:10%;
+    padding-top:5px;
+}
+.feexpay_num_imput .flag_name{
+    width:90%;
+    text-align:right;
+    padding-right:1rem;
+    font-size:0.8rem;
+}
+.feexpay_num_imput .error_text_operator_input{
+    font-size: 12.25px;
+    color:crimson;
+    margin-top:0.5rem;
+}
+@media screen and (max-width:700px) {
+     .feexpay_num_imput .num_flag_container{
+         width:85%;
+    }
+
+}
+
+
+
+/* Mail And Name Input*/
+
+.feexpay_input_simple{
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    outline:none;
+    /*border-bottom: solid 1.5px #00000071;*/
+    padding-bottom:10px;
+    padding-top:10px;
+    padding-left:10px;
+    width: -webkit-fill-available;
+    margin-bottom: 1.5rem;
+    margin-top: 5px;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+    @media screen and (max-width:960px){
+      
+        .feexPayMobilePay .img_mtn{
+            margin-right:0px;
+        }
+        .feexPayMobilePay .choice_operator_img{
+           display:flex; 
+           align-items:center;
+           justify-content:flex-end;  
+           flex-direction:row;
+        }
+        .feexPayMobilePay .choice_mtn{
+           display:flex;
+     
+        }
+        .feexPayMobilePay .choice_moov{
+            display:flex;
+        }
+        .feexPayMobilePay .img_mtn{
+           margin-right:0px;
+        }
+     
+     
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:700px) {
+    .feexpay_modal_container .modal{
+        width:100%;
+        height:100%;
+        background-color: #f8f9fa !important;
+    }
+    .feexpay_modal_container .footer_modal_container{
+        width:100%;
+        
+        
+    }
+}
+
+@media screen and (max-height:850px) and (max-width:700px) {
+    .feexpay_modal_container .modal{
+        background-color: #f8f9fa !important;
+        overflow-y:scroll;
+    }
+    
+}
