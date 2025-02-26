@@ -1,0 +1,57 @@
+{
+    "name": "wpify\/benefit-plus-gateway-sdk",
+    "description": "This is a \"swagger\" definition of application programming interface of the Benefit Plus e-commerce payment gateway 3. You may leverage this API from your e-shop to integrate payments by employee-benefits-programme funds. This version of the programme uses mobile payment application Benefit Plus Pay. <br\/><br\/>RFC version - this is a conceptual document intended for reviewing by the Benefit Plus partnering merchants and for integration planning.<\/br><\/br> <b>Requests signing<\/b><\/br><\/br>All requests except <code>\/auth\/token<\/code> must be signed by \"SHA-256 with RSA\" (RSASSA-PKCS1-v1_5,  <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/rfc8017#section-8.2\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 8017 chapter 8.2<\/a>) electronic signatures. See online gateway documentation for details.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https:\/\/openapi-generator.tech",
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "OpenAPI",
+            "homepage": "https:\/\/openapi-generator.tech"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp\/guzzle": "^7.3",
+        "guzzlehttp\/psr7": "^1.7 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit\/phpunit": "^8.0 || ^9.0",
+        "friendsofphp\/php-cs-fixer": "^3.5"
+    },
+    "archive": {
+        "exclude": [
+            "\/.openapi-generator-ignore",
+            "\/docs",
+            "\/test",
+            "\/.php-cs-fixer.dist.php",
+            "\/.travis.yml",
+            "\/benefitplus.yaml",
+            "\/client-config.json",
+            "\/generateClient",
+            "\/git_push.sh",
+            "\/phpunit.xml.dist"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "MuzaPayDeps\\BenefitPlusGatewaySdk\\": "lib\/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MuzaPayDeps\\BenefitPlusGatewaySdk\\Test\\": "test\/"
+        }
+    }
+}

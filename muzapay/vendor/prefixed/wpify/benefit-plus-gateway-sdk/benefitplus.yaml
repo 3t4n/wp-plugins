@@ -1,0 +1,469 @@
+openapi: 3.0.0
+info:
+  title: Benefit Plus e-commerce payment gateway 3
+  version: 1.0.RFC8
+  description: >-
+    This is a "swagger" definition of application programming interface of the Benefit Plus e-commerce payment gateway 3.
+    You may leverage this API from your e-shop to integrate payments by employee-benefits-programme funds.
+    This version of the programme uses mobile payment application Benefit Plus Pay.
+    <br/><br/>RFC version - this is a conceptual document intended for reviewing by the Benefit Plus partnering merchants and for integration planning.</br></br>
+    <b>Requests signing</b></br></br>All requests except <code>/auth/token</code> must be signed by "SHA-256 with RSA" (RSASSA-PKCS1-v1_5,  <a href="https://datatracker.ietf.org/doc/html/rfc8017#section-8.2" target="_blank" rel="noopener noreferrer">RFC 8017 chapter 8.2</a>) electronic signatures. See online gateway documentation for details.
+  termsOfService: https://profirmy.benefit-plus.cz/partneri/podminky
+  contact:
+    email: partneri@benefit-plus.cz
+    name: Benefit Plus support
+    url: https://profirmy.benefit-plus.cz/podpora/
+  license:
+    name: Benefit Plus License
+    url: https://profirmy.benefit-plus.cz/partneri/licence
+externalDocs:
+  description: Online gateway documentation
+  url: https://benefitplus.atlassian.net/wiki/spaces/BP2/pages/753665
+servers:
+  - url: https://pay.benefit-plus.cz
+    description: will be confirmed
+security:
+  - bearerAuth: []
+paths:
+  /:
+    get:
+      tags:
+        - Landing page
+      description: "Returns the landing page of the gateway."
+      operationId: getLandingPage
+      responses:
+        200:
+          description: "Landing page returned successfully."
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Hello, you are visiting the BP2 gateway interface. Please follow the integration guidelines. Thanks!”"
+  /v1/auth/token:
+    post:
+      tags:
+        - Merchant - E-shop authentication
+      summary: authenticate()
+      description: >-
+        Validates and authenticates the e-shop and returns access token which must be used in further communication with the gateway.
+        Send credentials <code>eshopId</code> and <code>eshopPassword</code> assigned to you in your e-shop onboarding in <code>Authorization</code> header using Basic scheme.
+        In case of token expiration the e-shop must reauthenticate.<br/></br>
+
+        The token returned in the response must be sent in HTTP header of all further requests to the gateway.
+        Example of the header for further operation is <code>Authorization: Bearer UMWZw61rbGFkb3bDvSBKV1QgdG9rZW4u</code>.
+      operationId: authenticate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthenticationRequest"
+      responses:
+        200:
+          description: "Your e-shop was successfully authenticated."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthenticationResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          description: "Unauthenticated."
+        default:
+          $ref: "#/components/responses/Default"
+      security:
+        - basicAuth: []
+  /v1/payments/init:
+    post:
+      tags:
+        - Merchant - Payment
+      summary: initPayment()
+      description: "Registers payment request in the gateway and returns unique identifier of the payment for further referencing."
+      operationId: initPayment
+      parameters:
+        - in: header
+          name: X-Correlation-ID
+          description: >-
+            Correlation identifier which may be sent by the e-shop in the request.
+            The gateway will echo it in positive responses related to the same payment instance.
+            Maximum length 128 characters.
+          schema:
+            type: string
+            pattern: "^[ -~]{0,128}$"
+            nullable: true
+        - in: query
+          name: signature
+          description: "Request signature data. URL encoded. Sign X-Correlation-ID, <b>amount, productCode, orderReferenceCode</b>, orderDescription, merchantData, <b>returnUrl, language</b> in this order. See online gateway documentation for details."
+          schema:
+            type: string
+          required: true
+          example: "mRkwRXiFxjn3wjA804sHqSNAZ14UbD20lNAmTDVM6BS%2F49ji7%2F3P%2BP6Z4YGYhdKF6MQ6MDnIwcFNLX7WYUxQbBYpS1HAwEUx60SosIkv6SkrutqVXDAkU79JEH3G11AfqgHRhPgZGa8kJXXsgtYGvI308%2BIE2dwXeFez89PLzrI9Lo47%2BSVJVA46WA30WCEvSO5vMmBcs2WVPnZKTT8DDAJ%2B%2B9Drf1LL0i7KS%2FXsTyuzNE5TWctvDC18YLMmpqcDmFDwWpmS%2BSEqHkDPM0zkbCJeL%2Fws74UMFvixdHtHpopgdVj7Y%2FWrwJehLXsm%2FMA7LPSDu1ch9Af69cWP94QN9epUgvFHt1LWnL8aNQzPCJf6CbxdIh%2B%2FU2wstSDJj4QVXnJpcDVzZj7Lb6KG8GOU6yu9CsyuYlKxeB9CnQzEFMTPCe91ceZWgeHB6rwQvESlRR7D%2BZy4cmKcYoJuXwru4YlLo52N8%2FTaelgXRahOTjKCsjw0p9CIjK%2Foe%2BjnKHYbH7v6tLdfV0OTjrDDjjzehlxK%2FxL0ximWT14IKaHG%2FCQRMJQy3wDgcEp6g9OJ8QGQou2YbuMKSRnewbfb2hKrpd1%2FI4E%2FOlNjF1VeocwUWB3fhbnV%2BrF7Z6fRqvFpYbsWaYNU8c7BEHOGrSeZuhbsQqaBJ9WOgmjveOVVrd45pa8%3D"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InitPaymentRequest"
+      responses:
+        200:
+          description: "Payment created successfully."
+          headers:
+            X-Correlation-ID:
+              $ref: "#/components/headers/X-Correlation-ID"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InitPaymentResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          description: "Unauthenticated."
+        403:
+          $ref: "#/components/responses/Forbidden"
+        default:
+          $ref: "#/components/responses/Default"
+  /v1/payments/{paymentId}/state:
+    get:
+      summary: getPaymentState()
+      description: "Returns current state of the payment. Response code and/or message will be returned when available."
+      operationId: getPaymentState
+      tags:
+        - Merchant - Payment
+      parameters:
+        - $ref: "#/components/parameters/paymentId"
+        - in: query
+          name: signature
+          description: "Request signature data. URL encoded. Sign <b>paymentId</b>. See online gateway documentation for details."
+          required: true
+          schema:
+            type: string
+            example: "E1U95wMS2AUaPnnI6RknP0arEjwFs%2Bfr%2BkYBYIpIJqrSkwBpfr35JfWU8KLKFhcgsNmyMx1sHhXeOwB9Dqz3dPotSPV0XzJ6BuvIGaW1fgsTsoFSMXhYbSbzJHZXiEosvmGrQSXHBrS8upLhiGcVr9UCnQ3jTryp%2BKKGtJQQj%2FRE4yzRbRTPtl2JfVCleU3g6nXhKjDAEGkgf623KhCtQ4b9MOiaofyu5z%2BsFlKXVzmLe9vu9ARGZcPunv1RJyI1ysovarQU5%2F0H848dVxCJtMb3ZZvnn%2BkmZCOPJnKv8DJXeltcEYSOOV4tn%2Fy4MRzQYJmDhg3N5JILWtzE6VoG5hrq4RyWHryh7ZY4tIffG6TCMpYuJhurHYXY%2FOC2GIU8GsDWBy5%2B0McJrUTIbqIUwXjRO9LvlCzB%2BhgBgBSWeAtsGgbivQc5%2Fckf%2FRaxtmgWztrD%2BJONmnhkOCvOrNd3at%2BnbDgBsAn775f6Vnwit%2FISh7sNLyAZKsMC5XTY9%2FyMtCo0CHPu%2B4rbKsgGB3XfatSIZSo6IKiDXZ4U6FOb5hlgWNS8GJid%2B%2FbAV3NPzHjMrn1UxuDfZeR7mv2pwStO9sQA4%2FQZi4Qxu6nu6V3n%2BbRvvZg%2FHXi5rpHQsEI3eBmrEMhRTo7RUF3zBCYv78DscmLmHerN50yRjSk5nXcfFXM%3D"
+      responses:
+        200:
+          description: "Payment state returned successfully."
+          headers:
+            X-Correlation-ID:
+              $ref: "#/components/headers/X-Correlation-ID"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentStateResponse"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          description: "Unauthenticated."
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        default:
+          $ref: "#/components/responses/Default"
+  /v1/payments/{paymentId}/cancel:
+    put:
+      tags:
+        - Merchant - Payment
+      summary: cancelPayment()
+      description: >-
+        Attempts to perform cancel (a technical reversal) of the previously initiated payment. The operation is asynchronous on the gateway. After you received 202, please use <code>/payments/{paymentId}/state</code> operation to verify the final outcome of the operation. Cancellation time is limited to 30 minutes after payment initialization. For later reclamation please contact helpdesk.
+      operationId: cancelPayment
+      parameters:
+        - $ref: "#/components/parameters/paymentId"
+        - in: query
+          name: signature
+          description: "Request signature data. URL encoded. Sign <b>paymentId</b> in this order. See online gateway documentation for details."
+          required: true
+          schema:
+            type: string
+            example: "JAl14ryV0FZw9tyBZNlMaJOrY34t/a1kiHJksvlLw0MVeMCrCbEdYPdGFHBQ5dThw08moCFg6iohmxdaKH8403HXuqNW2wct1zWQrobe/9JNGBzlJEEXUs15tdwuexSeHF0RP2cHiE8kiRc7I+LvVz+so9Vy2dZZHxcWGOhyk4RbYMCZ5qVOHNqWMepeLWkJkrwUQmYOqb/or0QhXo92yG+HDNvHEFU/BFEiXkKEHZtOUsmtXTG6LkS40QMQOGlUBnWGjseTcpaizTj8v1MdIbVXZMwlDn06t/yZdxHp6U2Ajj//6r8NQmcaOAqkmCzqoBucwR2Oa8gEx5ablm32RyQKBoI3vDXH4lRFXkTTsC6Fxq4HYZno4ZFRpd2fGJXtuV3z7pKVnIoxNDz8Lp4RjEwq3A1r929I/T4oAZyyMUSvh9nRyySldIIDYmw8Q/Z81xhoygW6IvVGyFU6ebPH+B4UHqcdzK2Zv7wUsddS3Wc6C7A8QD8g81w3nyy7zavTd5zgPk1KjVkvaZWUoqDfLwccApl9DqqWKPr4CvEJpJgKEaXjI+nbg+vPa9LvZ7f5si2RcIs1cXkzzOhgiT9b5q4Nkd/BoUYBufVJEZQCquXaXdKg0y8T+jD6qX2+Gh5EEYcbFtjXD/EW43mjgdz3CwVWIRj+STSmgLlUVm7HDPg="
+      responses:
+        202:
+          description: "Cancel request was successfully accepted. Verify state of the payment later."
+          headers:
+            X-Correlation-ID:
+              $ref: "#/components/headers/X-Correlation-ID"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          description: "Unauthenticated."
+        403:
+          $ref: "#/components/responses/Forbidden"
+        default:
+          $ref: "#/components/responses/Default"
+components:
+  parameters:
+    paymentId:
+      name: paymentId
+      in: path
+      required: true
+      description: >-
+        The unique identifier of the payment assigned by the gateway in /payments/init operation.
+      schema:
+        type: string
+        pattern: "^[A-F0-9]{32}$"
+        example: "EC42E6695FFADAE5D0017952F0CF7A69"
+  headers:
+    X-Correlation-ID:
+      description: >-
+        Correlation identifier which may be sent by the e-shop in the request.
+        The gateway will echo it in positive responses related to the same payment instance.
+        Maximum length 128 characters.
+      schema:
+        type: string
+        pattern: "^[ -~]{0,128}$"
+        nullable: true
+  responses:
+    BadRequest:
+      description: "Wrong request structure or data."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BadRequestErrorResponse"
+    NotFound:
+      description: "Payment not found."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    Forbidden:
+      description: "Unauthorized."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    Default:
+      description: "General error."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+  schemas:
+    AuthenticationRequest:
+      type: object
+      properties:
+        country:
+          description: "The country of e-shop registration."
+          enum:
+            - CZ
+            - SK
+          type: string
+        tokenScope:
+          description: "The requested purpose of authentication. Single payment or other operations with single/multiple payments."
+          enum:
+            - SINGLE_PAYMENT
+            - ESHOP_PAYMENTS
+          default: SINGLE_PAYMENT
+          type: string
+      required:
+        - country
+    AuthenticationResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: "Access token."
+          example: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTU4MjQ2ODQsImV4cCI6MTY5NTgyNTI4NCwiaXNzIjoiZ2F0ZXdheS1hZGFwdGVyLXNhQGJlbmVmaXQtcGx1cy1kZXYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJnYXRld2F5LWFkYXB0ZXItc2EiLCJzdWIiOiJnYXRld2F5LWFkYXB0ZXItc2FAYmVuZWZpdC1wbHVzLWRldi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImVtYWlsIjoiZ2F0ZXdheS1hZGFwdGVyLXNhQGJlbmVmaXQtcGx1cy1kZXYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJlc2hvcElkIjoiQUFBMUVDOTVFREJCNEM3QTg3MDhDQzdCNDBEOTc2M0EiLCJ0ZW5hbnRJZCI6ImJuZmN6IiwidmFsaWRUbyI6IjIwMjMtMDktMjdUMTQ6MzQ6NDRaIn0.bu2XKKvCG9arpxnjJNiFI9B_U5Nlol8hupAqudviDeC5O5B9K3VYPv4vzwd01mvxKBuxqEsipHbIqe5HRBl0cfZP7sRWWsV23F3eT5LoUKBzqjuv29oL0LvGR0Wc0YIFvesYnJuYjCHHK_Z8f5p39KQkH2Q91x8vLTPY23wNa_GkQo5o_Zw2QGsJIfTxIkihTS1qePF0_FAvTR_NuhHH0qdpLtpt4DDn09OS51_8UerW1Mad_-R9UWEggUHBhQaLeK7c5TCOT8hsFz4HghlEuuQkrgBhJ_5h_jGJ1-zum97vO_lXgiZMV6HI7GSvx-5bA1oLfbl2HB-8Y1LDiEEl9Q"
+        validTo:
+          type: string
+          format: date-time
+          description: "ISO 8601 formatted timestamp until the access token is valid. UTC time zone."
+          example: "2023-09-27T14:34:44Z"
+      required:
+        - accessToken
+        - validTo
+    InitPaymentRequest:
+      type: object
+      properties:
+        amount:
+          description: "Total requested amount of the payment in the lowest currency denomination (halíř, cent)."
+          format: int64
+          type: integer
+          minimum: 1
+          example: 1250
+        productCode:
+          description: >-
+            Product category code of the purchase.
+            Food and beverages is FOOD (food stamps); travelling, tourism, culture, sport, printed books, learning and healthcare is LEISURE.
+          enum:
+            - LEISURE
+            - FOOD
+          type: string
+        orderReferenceCode:
+          $ref: "#/components/schemas/OrderReferenceCode"
+        orderDescription:
+          type: string
+          description: "Optional description of the order."
+          maxLength: 20
+          nullable: true
+          pattern: '^$|^\S$|^\S.*\S$'
+          example: "Wellness entry ticket"
+        merchantData:
+          $ref: "#/components/schemas/MerchantData"
+        returnUrl:
+          description: >-
+            The returning URL of the e-shop to which the gateway should pass on the control of the flow after payment conclusion.
+            E-shop <b>must</b> implement the endpoint which accepts the GET method with query parameter paymentId and listens on <code>returnUrl</code> address.
+          type: string
+          format: url
+          nullable: false
+          maxLength: 1770
+          pattern: 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'   #TODO fine tune some nice pattern
+          example: "https://eshop.partnerx.cz/returns"
+        language:
+          description: "Code of the desired language in which the gateway should communicate with the payer."
+          enum:
+            - cs
+            - sk
+            - en
+          type: string
+      required:
+        - amount
+        - productCode
+        - orderReferenceCode
+        - returnUrl
+        - language
+    InitPaymentResponse:
+      type: object
+      properties:
+        paymentId:
+          description: "The unique identifier of the payment assigned by the gateway in <code>payments/init</code> operation."
+          type: string
+          pattern: "^[A-F0-9]{32}$"
+          example: "EC42E6695FFADAE5D0017952F0CF7A69"
+        orderReferenceCode:
+          description: "Echo of the request value."
+          type: string
+          pattern: '^$|^\S$|^\S.*\S$'
+          example:  "34324Q22A4"
+        beneficiaryId:
+          description: "Identifier of the payment beneficiary (a payee) assigned in merchant onboarding. Will be used in settlement."
+          type: string
+          pattern: "^[A-F0-9]{32}$"
+        amount:
+          description: "Total payment amount in the lowest currency denomination (halíř, cent)."
+          type: integer
+          format: int64
+        currency:
+          $ref: "#/components/schemas/Currency"
+        gatewayUrl:
+          type: string
+          format: url
+          description: "The temporary URL of the gateway which should be opened by the e-shop from payer's browser."
+          example: "https://pay.benefit-plus.cz/cs/euZppc4ePyJdxgJQZGGyPSl%2BTOCwR8nkGcaOUwGNFCCkh4b%2F3vVucdJWIGDPVz3Veh38VnBHgrptQQ9il5pqX5wG"
+        signature:
+          description: "Response signature data."
+          type: string
+          example: "hvnNmfUlwDRh0+dvaaHMsqz14B1VzelUfxqcmfy3s6KPha4bVBcReWEtlK4EZV7sexvQKVE0BQmWudG7XsB9e6LciYmIBg/nA0ouAYbKepXLZyfA/K5yjzJVBe8EJHdYmuthsSIaG7UkHLl2PJdx4qMZpFCnMWkgpYIg/EhJ2/AgagTMkSv/6LTVMQiEUDvMOp0i5bS0fu7FETqfGcHXCibVX5xcENgcflV/Z9+t5n1FuG9ctnS378d1olIJCOLoqIWVXD+i9Tj6AjHDb8Ey6+NOl7PCFvBPvt9kq8fIqRUjLCHVZXi6NZymhszD8RreSOqjBSUjJLX36Emd42k2R7RqASmszTPoBNi5xr18O3wN/w7iimzrWqnKL+UsFzQOXqc6XvUUm7v7XIPSrRPNo3I8GkVBFQhtlAqtjYyx/emzLHulBkhL/4EabfGHRtFyofhAPrhfr5ASMgJTpTiwOjAps7VtSxJuSFeTbBzmjCxNO9fBc3zJ5cgVJFK94hnCBwyu+TQK4zdYq/97Akq53QpFHYAfxnivr9aqEQfMSV074+kqRp2445AAOkuUyYShlHrfNfXAtbzK113G3gfmXKYS9Oavmfxl3lpSxiJ9z4NxMTZPzdXOiNs2xMrcMTECkv0vf6Odz1WB7yHr7yecomkFhoVQZC6e+imQe7GjUJE="
+      required:
+        - paymentId
+        - orderReferenceCode
+        - beneficiaryId
+        - amount
+        - currency
+        - gatewayUrl
+        - signature
+    PaymentStateResponse:
+      description: "The response which contains current payment state and optional return code and return message."
+      type: object
+      properties:
+        paymentId:
+          type: string
+          pattern: "^[A-F0-9]{32}$"
+          description: "The unique identifier of the payment assigned by the gateway in <code>payments/init</code> operation."
+          example: "EC42E6695FFADAE5D0017952F0CF7A69"
+        amountAuthorized:
+          description: "Approved payment amount in the lowest currency denomination. Will be present only for approved and/or partially cancelled payments."
+          type: integer
+          format: int64
+          nullable: true
+        paymentState:
+          enum:
+            - CANCELED
+            - DECLINED
+            - EXPIRED
+            - IN_PROGRESS_UNPAID
+            - PAID
+            - PENDING_INFO
+          type: string
+        paymentDateTime:
+          type: string
+          format: date-time
+          description: "Date and time at which the payment was initiated on gateway. UTC time zone. ISO 8601."
+          example: "2023-03-10T12:15:50"
+        responseCode:
+          description: "Response code which specifies detail of the payment outcome."
+          type: integer
+          format: int32
+          nullable: true
+        orderReferenceCode:
+          $ref: "#/components/schemas/OrderReferenceCode"
+        responseMessage:
+          description: "Message with the transaction outcome text."
+          type: string
+          nullable: true
+        signature:
+          description: "Response signature data."
+          type: string
+          example: "AAl14ryV0FZw9tyBZNlMaJOrY34t/a1kiHJksvlLw0MVeMCrCbEdYPdGFHBQ5dThw08moCFg6iohmxdaKH8403HXuqNW2wct1zWQrobe/9JNGBzlJEEXUs15tdwuexSeHF0RP2cHiE8kiRc7I+LvVz+so9Vy2dZZHxcWGOhyk4GbYMCZ5qVOHNqWMepeLWkJkrwUQmYOqb/or0QhXo92yG+HDNvHEFU/BFEiXkKEHZtOUsmtXTG6LkS40QMQOGlUBnWGjseTcpaizTj8v1MdIbVXZMwlDn06t/yZdxHp6U2Ajj//6r8NQmcaOAqkmCzqoBucwR2Oa8gEx5ablm32RyQoBoI3vDXH4lRFXkTTsC6Fxq4HYZno4ZFRpd2fGJXtuV3z7pKVnIoxNDz8Lp4RjEwq3A1r929I/T4oAZyyMUSvh9nRyySldIIDYmw8Q/Z81xhoygW6IvVGyFU6ebPH+B4UHqcdzK2Zv7wUsddS3Wc6C7A8QD8g81w3nyy7zavTd5zgPk1KjVkvaZWUoqDfLwccApl9DqqWKPr4CvEJpJgKEaXjI+nbg+vPa9LvZ7f5si2RcIs1cXkzzOhgiT9b5q4Nkd/BoUYBufVJEZQCquXaXdKg0y8T+jD6qX2+Gh5EEYcbFtjXD/EW43mjgdz3CwVWIRj+STSmgLlUVm7DDPg="
+      required:
+        - paymentId
+        - paymentState
+        - orderReferenceCode
+        - signature
+    ErrorResponse:
+      description: "Standard error response of the gateway."
+      type: object
+      properties:
+        responseCode:
+          description: "Response code which specifies detail of the transaction outcome."
+          type: integer
+          format: int32
+        responseMessage:
+          type: string
+          description: "Message with the transaction outcome text."
+    BadRequestErrorResponse:
+      description: "Error response in case of wrong request.<br/>Will be returned only in test environment. In production environment will be empty."
+      type: object
+      properties:
+        fieldNames:
+          type: string
+          description: "The semicolon-delimited list of problematic parameters."
+          nullable: true
+        reasoningMessage:
+          description: "Optional justification of errors."
+          type: string
+          nullable: true
+        responseCode:
+          description: "Response code which specifies detail of the transaction outcome."
+          type: integer
+          format: int32
+          nullable: true
+    OrderReferenceCode:
+      type: string
+      pattern: '^$|^\S$|^\S.*\S$'
+      description: >-
+        Order code/number assigned by the merchant.
+        The gateway will echo it in selected operations.
+        Can be used as identifier of the purchase in e-shop and in settlement with Benefit Plus.
+        The gateway checks for existence of the successful payment with the same value.
+      example:  "34324Q22A4"
+      maxLength: 40
+    Currency:
+      description: "Currency of the e-shop assigned in onboarding of your e-shop. Cannot be changed from e-shop."
+      enum:
+        - CZK
+        - EUR
+      type: string
+    MerchantData:
+      description: "Optional merchant's data received in <code>payments/init</code> operation. Encoded in Base64 (RFC 4684)."
+      type: string
+      nullable: true
+      maxLength: 255
+      example: "cMWZw61rYWQ7ZGF0O29iY2hvZG7DrWth"
+  securitySchemes:
+    basicAuth:     # for /auth/token only
+      type: http
+      scheme: basic
+    bearerAuth:   # for all other operations
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

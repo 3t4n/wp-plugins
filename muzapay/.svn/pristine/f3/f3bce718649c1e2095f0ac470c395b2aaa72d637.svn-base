@@ -1,0 +1,85 @@
+<?php
+
+namespace MuzaPay\Features;
+
+use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
+use MuzaPayDeps\Wpify\Asset\AssetFactory;
+use MuzaPayDeps\Wpify\PluginUtils\PluginUtils;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+} // Exit if accessed directly
+
+class CheckoutIntegration extends AbstractPaymentMethodType {
+	/**
+	 * The gateway instance.
+	 *
+	 * @var Gateway
+	 */
+	private $gateway;
+
+	/**
+	 * Payment method name/id/slug.
+	 *
+	 * @var string
+	 */
+	protected $name = Gateway::NAME;
+
+	/**
+	 * Initializes the payment method type.
+	 */
+	public function initialize() {
+		$this->settings = get_option( 'woocommerce_' . $this->name . '_settings', [] );
+		$this->gateway  = WC()->payment_gateways()->payment_gateways[ Gateway::class ];
+	}
+
+	/**
+	 * Returns if this payment method should be active. If false, the scripts will not be enqueued.
+	 *
+	 * @return boolean
+	 */
+	public function is_active() {
+		return $this->gateway->is_available();
+	}
+
+	/**
+	 * Returns an array of scripts/handles to be registered for this payment method.
+	 *
+	 * @return array
+	 */
+	public function get_payment_method_script_handles() {
+		$utils         = muzapay_container()->get( PluginUtils::class );
+		$asset_factory = muzapay_container()->get( AssetFactory::class );
+
+		$asset_factory->wp_script(
+			$utils->get_plugin_path( 'build/gateway.js' ),
+			[
+				'do_enqueue' => '__return_false',
+				'handle'     => 'muzapay-gateway-blocks',
+				'in_footer'  => true,
+			]
+		);
+
+		if ( function_exists( 'wp_set_script_translations' ) ) {
+			wp_set_script_translations( 'muzapay-gateway-blocks', 'muzapay', $utils->get_plugin_path( 'languages' ) );
+		}
+
+		return [ 'muzapay-gateway-blocks' ];
+	}
+
+	/**
+	 * Returns an array of key=>value pairs of data made available to the payment methods script.
+	 *
+	 * @return array
+	 */
+	public function get_payment_method_data() {
+		return [
+			'title'       => $this->get_setting( 'title' ),
+			'description' => $this->get_setting( 'description' ),
+			'supports'    => array_filter( $this->gateway->supports, [ $this->gateway, 'supports' ] ),
+		];
+	}
+}
+
+
+
