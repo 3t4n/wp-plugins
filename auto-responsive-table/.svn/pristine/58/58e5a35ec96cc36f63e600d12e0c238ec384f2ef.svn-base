@@ -1,0 +1,31 @@
+@media screen and (max-width: 600px) {
+   table {
+    border: none!important; /*Should be*/
+   }
+
+  table thead {
+    border: 1px solid #ddd;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+
+  table tr {
+    border: 1px solid #ddd;
+    display: block;
+    margin: 20px;
+  }
+
+  table td {
+    display: block;
+    text-align: right;          /*Left or Right Alignment*/
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;          /*Left or Right Alignment for Table Head*/
+    font-weight: bold;        /*If you want normal, then edit or delete this line*/
+  }
+
+}
