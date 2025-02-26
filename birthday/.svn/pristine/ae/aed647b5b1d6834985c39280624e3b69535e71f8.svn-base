@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="CS">
+	<description>Birthday For WooCommerce coding standards.</description>
+	<config name="testVersion" value="5.6-"/>
+	
+	<arg value="ps"/>
+	<arg name="colors"/>
+	<arg name="parallel" value="100"/>
+	<arg name="extensions" value="php"/>
+
+	<rule ref="WordPress">
+		<!-- PSR4 -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+	</rule>
+
+	<rule ref="Generic.Metrics.CyclomaticComplexity">
+		<properties>
+			<property name="complexity" value="5"/>
+			<property name="absoluteComplexity" value="7"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.Metrics.NestingLevel">
+		<properties>
+			<property name="absoluteNestingLevel" value="4"/>
+		</properties>
+	</rule>
+
+	<rule ref="Squiz.Commenting">
+		<exclude name="Squiz.Commenting.FileComment.Missing" />
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+	</rule>
+</ruleset>
