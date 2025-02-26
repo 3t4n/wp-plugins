@@ -1,0 +1,89 @@
+$color_1: #ffffff;
+$color_2: #c2c2c2;
+$color_3: crimson;
+
+.opbw-steps {
+	margin-bottom: 50px;
+	
+	.step-indicator {
+		margin-top: 50px;
+		display: flex;
+		align-items: center;
+		padding: 0 40px;
+		.step-icon {
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			background: #c2c2c2;
+			font-size: 10px;
+			text-align: center;
+			color: $color_1;
+			position: relative;
+			line-height: 50px;
+			font-size: 20px;
+		}
+	}
+	
+	.step-item {
+		display: flex;
+		align-items: center;
+		&:not(:last-child) {
+			flex: 1;
+		}
+		
+		.step {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			position: relative;
+			z-index: 1;
+			span {
+				display: block;
+				text-align: center;
+				position: absolute;
+				bottom: -25px;
+				width: 200px;
+				color: $color_2;
+				font-size: 14px;
+				font-weight: bold;
+			}
+		
+			&:nth-child(n+2) span {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		.indicator-line {
+			width: 100%;
+			height: 2px;
+			background: #c2c2c2;
+			flex: 1;
+		}
+
+		&.active {
+			.step {
+				.step-icon {
+					background: crimson;
+				}
+				span {
+					color: $color_3;
+				}
+			}
+
+			.indicator-line {
+				background: crimson;
+			}
+		}
+		
+		
+		@media screen and (max-width: 500px) {
+			.step {
+				span {
+					font-size: 11px;
+					bottom: -20px;
+				}
+			}
+		}
+	}
+}
