@@ -1,0 +1,332 @@
+/**
+ * Front end default styles
+ * 
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+ 
+ /* ALL */
+ 
+ .aps_container {
+	white-space:normal; /* forces text to wrap */
+	background-color:#F0F5F2;
+	color:#000;
+	border:#D6E6DC thin solid;
+	border-radius: 10px;
+	padding:1%;
+	max-width:100%;
+
+}
+
+
+/* Book */
+
+/* most likely if shortcode used in widget it will be a text widget - therefore overide any width to make 100% sucky to use !important but there ya go.*/
+.textwidget div.aps_container {
+	width:100% !important;
+}
+
+.aps_book_container {
+	}
+/* reset padding - requires #content container div, so may not work on all themes */
+#content .aps_book_container p,
+#content .aps_book_container h1,
+#content .aps_book_container h2 {
+	padding:0;
+	margin:0;
+}
+
+.aps_book_name {}
+.aps_book_website {}
+.aps_book_description {}
+.aps_book_author {}
+/* adds by before author name */
+.aps_book_author:before {
+	content:"By ";
+	}
+
+
+/* meta = container for publisher, pubdatem, isbn, edition */
+.aps_book_meta {}
+.aps_book_publisher {}
+.aps_book_pubdate {}
+.aps_book_edition {}
+.aps_book_isbn {}
+
+/* genreformat = container for genre and format */
+.aps_book_genreformat {}
+.aps_book_format {}
+.aps_book_genre {}
+
+/* adds a pipe | between elements */
+.aps_book_separator:after {
+	content: " | ";
+	}
+/* removes the pipe | from last element */
+.aps_book_meta span:last-child:after {
+	content: " ";
+}
+
+
+/* Event */
+.aps_event_container {}
+.aps_event_type {}
+.aps_event_name {}
+.aps_event_website {}
+.aps_event_description {}
+.aps_event_start_date {}
+.aps_event_start_time {}
+.aps_event_end_date {}
+.aps_event_end_time {}
+.aps_event_duration {}
+.aps_event_address {}
+.aps_event_pobox {}
+.aps_event_city {}
+.aps_event_state_region {}
+.aps_event_postal_code {}
+.aps_event_country {}
+.aps_event_email {}
+.aps_event_telephone {}
+.aps_event_separator {}
+/* adds a pipe | between elements */
+.aps_event_separator:after {
+	content: " | ";
+	}
+/* removes the pipe | from last element */
+.aps_event_separator span:last-child:after {
+	content: " ";
+}
+
+
+/* Movie */
+.aps_movie_container {}
+.aps_movie_name {}
+.aps_movie_website {}
+.aps_movie_description {}
+/* meta = director and producer wrapper */
+.aps_movie_meta {}
+.aps_movie_director {}
+.aps_movie_producer {}
+.aps_movie_actors {}
+.aps_movie_separator {}
+/* adds a pipe | between elements */
+.aps_movie_separator:after {
+	content: " | ";
+	}
+/* removes the pipe | from last element */
+.aps_movie_separator span:last-child:after {
+	content: " ";
+}
+.aps_movie_director_label { font-weight:bold;}
+.aps_movie_producer_label {font-weight:bold;}
+.aps_movie_actors_label {font-weight:bold;}
+
+
+
+/* Organisation */
+.aps_organisation_container {}
+.aps_organisation_logo { 
+	float:right;
+	width:200px;
+}
+.aps_organisation_type {}
+.aps_organisation_name {}
+.aps_organisation_website {}
+.aps_organisation_description {}
+/* location = wrapper for address */
+.aps_organisation_location {}
+/* address contains, address, po box, city, state,postal code, country */
+.aps_organisation_address {}
+/* contact = wrapper fro email, phone and fax */
+.aps_organisation_contact {}
+.aps_organisation_email {}
+.aps_organisation_telephone {}
+.aps_organisation_fax {}
+.aps_organisation_separator {}
+.aps_organisation_separator:after {
+	content: " | ";
+	}
+/* removes the pipe | from last element */
+.aps_organisation_separator span:last-child:after {
+	content: " ";
+}
+
+.aps_organization_email_label {font-weight:bold;}
+.aps_organization_phone_label {font-weight:bold;}
+.aps_organization_fax_label {font-weight:bold;}
+
+
+
+/* Person */
+.aps_person_container {}
+.aps_person_name {}
+.aps_person_image {}
+.aps_person_organisation {}
+.aps_person_job_title {}
+.aps_person_website {}
+.aps_person_description {}
+.aps_person_birthday {}
+/* location = wrapper for address */
+.aps_person_location {}
+/* address contains, address, po box, city, state,postal code, country */
+.aps_person_address {}
+/* contact = wrapper for email and phone and fax */
+.aps_person_contact {}
+.aps_person_email {}
+.aps_person_telephone {}
+.aps_person_fax {}
+.aps_person_separator {}
+.aps_person_separator:after {
+	content: " | ";
+	}
+/* removes the pipe | from last element */
+.aps_person_separator span:last-child:after {
+	content: " ";
+}
+
+.aps_person_works_for_label {}
+.aps_person_job_title_label {}
+.aps_person_email_label {font-weight:bold;}
+.aps_person_phone_label {font-weight:bold;}
+.aps_person_fax_label {font-weight:bold;}
+.aps_person_birthday_label { }
+
+
+/* Product */
+.aps_product_container {}
+.aps_product_name {}
+.aps_product_website {}
+.aps_product_description {}
+.aps_product_brand {}
+.aps_product_manufacturer {}
+.aps_product_model {}
+/* star type also wraps avg rating and number of reviews */
+.aps_product_startype {}
+.aps_product_startype img {
+	border: none;
+	box-shadow: none;
+}
+.aps_product_avg_rating {}
+.aps_product_number_reviews {}
+.aps_product_price {}
+.aps_product_image_url {
+	float: right;
+	width: 200px;
+	margin: 0 0 0 10px;
+	}
+/* meta = wrapper for condition and product id */
+.aps_product_meta {}
+.aps_product_condition {}
+.aps_product_product_id {}
+.aps_product_price_label {}
+.aps_product_condition_label {}
+.aps_product_productid_label {}
+.aps_product_separator {}
+.aps_product_separator:after {
+	content: " | ";
+	}
+/* removes the pipe | from last element */
+.aps_product_separator span:last-child:after {
+	content: " ";
+}
+.aps_product_price_label {}
+.aps_product_condition_label {}
+.aps_product_productid_label {}
+.aps_product_avg_rating_label {}
+.aps_product_number_ratings_label {}
+
+
+
+/* Recipe */
+.aps_recipe_container {}
+.aps_recipe_image_url {
+	float:right;
+	margin-left:10px;
+}
+.aps_recipe_name {}
+.aps_recipe_description {}
+.aps_recipe_author {}
+.aps_recipe_pub_date {
+	float:right;
+}
+.aps_recipe_prep {}
+.aps_recipe_prep_hours {}
+.aps_recipe_prep_minutes {}
+.aps_recipe_cook {}
+.aps_recipe_cook_hours {}
+.aps_recipe_cook_minutes {}
+.aps_recipe_cook {}
+.aps_recipe_yield  {}
+.aps_recipe_separator {}
+.aps_recipe_nutrition {}
+.aps_recipe_calories {}
+.aps_recipe_fat {}
+.aps_recipe_sugar {}
+.aps_recipe_salt {}
+.aps_recipe_ingredients {}
+.aps_recipe_instructions {
+	clear:both;
+}
+.aps_recipe_prep_container {
+	float:right;
+	padding:0 1%;
+	width:30%;
+}
+.aps_recipe_nutrition_container {
+	float:right;
+	padding:0 1%;
+	width:30%;
+}
+.aps_recipe_ingredients_container {
+	float:left;
+	width:30%;
+	padding:0 1%;
+	background-color:#fff;
+	border:#666 thin solid;
+}
+.aps_recipe_ingredients_nutrition_title {}
+.aps_recipe_ingredients_ingredients_title {}
+.aps_recipe_ingredients_yield_title {}
+.aps_recipe_ingredients_instructions_title {}
+
+.aps_recipe_ingredients_instructions_title,
+.aps_recipe_ingredients_nutrition_title,
+.aps_recipe_ingredients_ingredients_title,
+.aps_recipe_ingredients_yield_title {
+	font-weight:bold;
+	}
+.aps_recipe_rating_container {
+		float:right;
+		margin-top:-55px;
+}
+.aps_recipe_rating {}
+.aps_recipe_rating img {
+	border: none;
+	box-shadow: none;
+}
+.aps_recipe_text_rating {
+	display:none;
+}
+
+
+/* Review */
+.aps_review_container {}
+.aps_review_name {}
+.aps_review_website {}
+.aps_review_description {}
+.aps_review_item_name {}
+.aps_review_item_review {}
+.aps_review_rating {}
+.aps_review_rating img {
+	box-shadow:none;
+	border:none;
+}
+
+.aps_review_rating_max {}
+.aps_review_meta {}
+.aps_review_review_id {}
+.aps_review_author {}
+.aps_review_pub_date {
+	float:right;
+}
+.aps_review_text_rating { display:none;}
