@@ -1,0 +1,138 @@
+:root {
+    --companion-primary-color: #00cab6;
+    --companion-secondary-color: #8e65c0;
+    --companion-general-color: #3c434a;
+    --companion-alt-general-color: #fff;
+}
+.ocdi-importer-companion .ocdi-companion-btn {
+    color: var(--companion-alt-general-color);
+}
+.ocdi-importer-companion .ocdi-companion-btn-primary {
+    background-color: var(--companion-primary-color);
+    border-color: var(--companion-primary-color);
+}
+.ocdi-importer-companion .ocdi-companion-btn-secondary {
+    background-color: var(--companion-secondary-color);
+    border-color: var(--companion-secondary-color);
+}
+.ocdi-importer-companion .ocdi-companion-btn:hover,
+.ocdi-importer-companion .ocdi-companion-btn:focus {
+    background-color: var(--companion-general-color);
+    border-color: var(--companion-general-color);
+    color: var(--companion-alt-general-color);
+}
+.ocdi-companion-header {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 920px;
+}
+.ocdi-companion-header .ocdi-companion-title {
+    margin: 0;
+}
+.ocdi-companion-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+.ocdi-companion-item {
+    position: relative;
+}
+@media (max-width: 1300px) {
+    .ocdi-companion-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 640px) {
+    .ocdi-companion-row {
+        grid-template-columns: 1fr;
+    }
+}
+.ocdi-companion-panel {
+    border: 1px solid #ebebeb;
+    position: relative;
+}
+.ocdi-companion-image {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+.ocdi-companion-image:after {
+    content: "";
+    display: block;
+    padding-top: 70%;
+}
+.ocdi-responsive-image {
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+.ocdi-companion-footer {
+    margin: 0;
+    padding: 15px 10px;
+    border-top: 1px solid #ebebeb;
+    background: #ffffff;
+}
+.ocdi-companion-footer-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    margin: 0;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    font-weight: 500;
+    color: #23282d;
+    padding: 5px 0 6px;
+}
+.ocdi-companion-btn-group {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.ocdi-companion-item:hover .ocdi-companion-btn-group,
+.ocdi-companion-item:focus .ocdi-companion-btn-group {
+    display: flex;
+}
+.ocdi-companion-item:hover .ocdi-companion-footer-title,
+.ocdi-companion-item:focus .ocdi-companion-footer-title {
+    display: none;
+}
+.ocdi-importer-companion .ocdi-companion-badge {
+    background-color: var(--companion-primary-color);
+    color: #fff;
+    --f: 10px;
+    --r: 15px;
+    --t: 20px;
+    position: absolute;
+    inset: var(--t) calc(-1 * var(--f)) auto auto;
+    padding: 0 20px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--f)), calc(100% - var(--f)) 100%, calc(100% - var(--f)) calc(100% - var(--f)), 0 calc(100% - var(--f)), var(--r) calc(50% - var(--f) / 2));
+    box-shadow: 0 calc(-1 * var(--f)) 0 inset #0005;
+    z-index: 9;
+    line-height: 30px;
+    height: 40px;
+}
+.ocdi-importer-companion .ocdi__theme-about-info hr,
+.ocdi-importer-companion .ocdi__theme-about-info .theme-tags,
+.ocdi-importer-companion .ocdi__theme-about-info .theme-author,
+.ocdi-importer-companion .ocdi-install-plugins-content-content .ocdi-content-notice.ocdi-content-notice--warning,
+.ocdi-importer-companion .ocdi-install-plugins-content-content .plugin-item-wpforms-lite:first-child,
+.ocdi-importer-companion .ocdi-install-plugins-content-content .plugin-item-all-in-one-seo-pack,
+.ocdi-importer-companion .ocdi-install-plugins-content-content .plugin-item-google-analytics-for-wordpress,
+.ocdi-importer-companion .ocdi__content-container .ocdi__demo-import-notice {
+    display: none !important;
+}
+/* WPForms Fix */
+.ocdi-importer-companion .ocdi-install-plugins-content-content .plugin-item-wpforms-lite .plugin-item-content-title span {
+    display: none !important;
+}
