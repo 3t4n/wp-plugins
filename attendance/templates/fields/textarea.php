@@ -1,0 +1,1 @@
+<textarea type="text" id="attendance_<?php echo $setting['key']; ?>" name="attendance_<?php echo $setting['key']; ?>" class="regular-text" rows=5 cols=30 data-dependency="<?php if (isset($setting['dependency'])) echo $setting['dependency']; ?>"><?php echo $attendance[$setting['key']]; ?></textarea>
