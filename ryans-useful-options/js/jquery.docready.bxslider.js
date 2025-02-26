@@ -1,0 +1,1 @@
+$(document).ready(function(){ $('.bro').bxSlider({ auto: true, adaptiveHeight: true, pager: false, mode:'fade' }); });
