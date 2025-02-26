@@ -1,0 +1,560 @@
+/**
+* Plugin Name: 	Arashtad Toggle
+* Plugin URI:  	https://arashtad.com/wordpress-plugins/introductions/arashtad-toggle/
+* Description: 	Responsive accordion widget for WordPress, created by <a href="https://arashtad.com" target="_blank">Arashtad.com</a>
+* Version:     	1.2
+* Author:      	Amin Shahrokhi
+* Author URI:  	https://arashtad.com/
+* License:     	GPL2
+* License URI: 	https://www.gnu.org/licenses/gpl-2.0.html
+* Copyright:	(c) 2011 - 2016 Arashtad Ltd. All Rights Reserved.
+**/
+
+/* Assets */
+.clear {
+	clear: both;
+}
+
+/* Preset Styles */
+.artoggle_style_1 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.artoggle_style_1 .artoggle {
+	margin: 10px auto;
+	padding: 3px;
+	background: #f9f9f9;
+	border: 1px solid #e4e4e4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_1 .artoggle section.artoggle_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	background: #f9f9f9;
+}
+.artoggle_style_1 .artoggle section.artoggle_tab div.artoggle_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	border-top: 1px solid white;
+	border-bottom: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 3px #cccccc;
+	-moz-box-shadow: 0 0 3px #cccccc;
+	box-shadow: 0 0 3px #cccccc;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.artoggle_style_1 .artoggle section.artoggle_tab div.artoggle_heading:hover {
+	-webkit-box-shadow: 0 0 8px #cccccc;
+	-moz-box-shadow: 0 0 8px #cccccc;
+	box-shadow: 0 0 8px #cccccc;
+}
+.artoggle_style_1 .artoggle section.artoggle_tab div.artoggle_heading h3:before {
+	width: 21px;
+	height: 21px;
+	margin: 0 6px;
+	padding: 4px;
+	font-size: 15px;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: white;
+	background-color: #444444;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: .9em;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+.artoggle_style_1 .artoggle section.artoggle_active div.artoggle_heading h3:before {
+	content: '-';
+	color: #CCCCCC;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	line-height: .8em;
+}
+.artoggle_style_1 .artoggle section.artoggle_tab article.artoggle_content {
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	display: none;
+}
+.artoggle_style_1 .artoggle section.artoggle_tab article.artoggle_content:hover {
+
+}
+.artoggle_style_1 .artoggle section:first-child article.artoggle_content {
+	display: block;
+}
+
+/* Begin Style 2 */
+.artoggle_style_2 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.artoggle_style_2 .artoggle {
+	margin: 10px auto;
+	padding: 3px;
+	background: #f9f9f9;
+	border: 1px solid #aaaaaa;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_2 .artoggle section.artoggle_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	background: white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_2 .artoggle section.artoggle_tab div.artoggle_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #aaaaaa;
+	background: #f9f9f9;
+	border: 1px solid #aaaaaa;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.artoggle_style_2 .artoggle section.artoggle_tab div.artoggle_heading:hover {
+	color: #f9f9f9;
+	background: #aaaaaa;
+}
+.artoggle_style_2 .artoggle section.artoggle_tab div.artoggle_heading h3:before {
+	width: 21px;
+	height: 21px;
+	margin: 0 6px;
+	padding: 4px;
+	font-size: 15px;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: white;
+	background-color: #444444;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: .9em;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+.artoggle_style_2 .artoggle section.artoggle_active div.artoggle_heading h3:before {
+	content: '-';
+	color: #CCCCCC;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	line-height: .8em;
+}
+.artoggle_style_2 .artoggle section div.artoggle_heading:hover h3:before {
+	color: #f9f9f9;
+}
+.artoggle_style_2 .artoggle section.artoggle_tab article.artoggle_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.artoggle_style_2 .artoggle section.artoggle_tab article.artoggle_content:hover {
+
+}
+.artoggle_style_2 .artoggle section:first-child article.artoggle_content {
+	display: block;
+}
+
+/* Begin Style 3 */
+.artoggle_style_3 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.artoggle_style_3 .artoggle {
+	margin: 10px auto;
+	padding: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_3 .artoggle section.artoggle_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_3 .artoggle section.artoggle_tab div.artoggle_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	border-bottom: 1px solid #cccccc;
+	cursor: pointer;
+}
+.artoggle_style_3 .artoggle section.artoggle_tab div.artoggle_heading:hover {
+
+}
+.artoggle_style_3 .artoggle section.artoggle_tab div.artoggle_heading h3:before {
+	width: 21px;
+	height: 21px;
+	margin: 0 6px;
+	padding: 4px;
+	font-size: 15px;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: white;
+	background-color: #444444;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: .9em;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+.artoggle_style_3 .artoggle section.artoggle_active div.artoggle_heading h3:before {
+	content: '-';
+	color: #CCCCCC;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	line-height: .8em;
+}
+.artoggle_style_3 .artoggle section.artoggle_tab article.artoggle_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.artoggle_style_3 .artoggle section.artoggle_tab article.artoggle_content:hover {
+
+}
+.artoggle_style_3 .artoggle section:first-child article.artoggle_content {
+	display: block;
+}
+
+
+/* Begin Style 4 */
+.artoggle_style_4 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.artoggle_style_4 .artoggle {
+	margin: 10px auto;
+	padding: 3px;
+	background: #f9f9f9;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_4 .artoggle section.artoggle_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #666666;
+	background: white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_4 .artoggle section.artoggle_tab div.artoggle_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #666666;
+	background: aqua;
+	vertical-align: middle;
+	color: #333;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+	background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5e5e5', GradientType=0);
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	*background-color: #e6e6e6;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	border: 1px solid #bbb;
+	*border: 0;
+	border-bottom-color: #a2a2a2;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.artoggle_style_4 .artoggle section.artoggle_tab div.artoggle_heading:hover {
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e0e0e0);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e0e0e0));
+	background-image: -webkit-linear-gradient(top,#fff,#e0e0e0);
+	background-image: -o-linear-gradient(top,#fff,#e0e0e0);
+	background-image: linear-gradient(to bottom,#fff,#e0e0e0);
+	background-repeat: repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe5e5e5', GradientType=0);
+	border-color: #e0e0e0 #e0e0e0 #bfbfbf;
+	*background-color: #e0e0e0;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	border: 1px solid #bbb;
+}
+.artoggle_style_4 .artoggle section.artoggle_tab article.artoggle_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.artoggle_style_4 .artoggle section.artoggle_tab article.artoggle_content:hover {
+
+}
+.artoggle_style_4 .artoggle section.artoggle_tab div.artoggle_heading h3:before {
+	width: 21px;
+	height: 21px;
+	margin: 0 6px;
+	padding: 4px;
+	font-size: 15px;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: white;
+	background-color: #444444;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: .9em;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+.artoggle_style_4 .artoggle section.artoggle_active div.artoggle_heading h3:before {
+	content: '-';
+	color: #CCCCCC;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	line-height: .8em;
+}
+.artoggle_style_4 .artoggle section:first-child article.artoggle_content {
+	display: block;
+}
+
+/* Begin Style 5 */
+.artoggle_style_5 h3 {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.artoggle_style_5 .artoggle {
+	margin: 10px auto;
+	padding: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab {
+	margin: 2px 0;
+	padding: 2px;
+	clear: both;
+	color: #999999;
+	background: white;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab div.artoggle_heading {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 6px 2% 7px;
+	color: #BBBBBB;
+	background: black;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab div.artoggle_heading:hover,
+.artoggle_style_5 .artoggle section.artoggle_active div.artoggle_heading {
+	color: black;
+	background: #BBBBBB;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab div.artoggle_heading h3 {
+	color: #eeeeee;
+}
+.artoggle_style_5 .artoggle section.artoggle_active div.artoggle_heading h3 {
+	color: #303030;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab div.artoggle_heading h3:before {
+	width: 21px;
+	height: 21px;
+	margin: 0 6px;
+	padding: 4px;
+	font-size: 15px;
+	display: inline-block;
+	font-family: FontAwesome;
+	content: '+';
+	color: white;
+	background-color: #444444;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: .9em;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+.artoggle_style_5 .artoggle section.artoggle_active div.artoggle_heading h3:before {
+	content: '-';
+	color: #CCCCCC;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	line-height: .8em;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab article.artoggle_content {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+	color: #666666;
+	background: white;
+	display: none;
+}
+.artoggle_style_5 .artoggle section.artoggle_tab article.artoggle_content:hover {
+
+}
+.artoggle_style_5 .artoggle section:first-child article.artoggle_content {
+	display: block;
+}
+div.artoggle_heading h3 {
+	margin: 0;
+}
+
+/*
+** Preset Style 6 (Custom style).
+** The following selectors are used for styling the artoggle module output,
+** when the "Custom" style is selected via artoggle module manager.
+*/
+
+.artoggle_style_6 h3 {
+
+}
+.artoggle_style_6 .artoggle {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_tab {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_tab div.artoggle_heading {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_tab div.artoggle_heading:hover {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_tab div.artoggle_heading h3:before {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_active div.artoggle_heading h3:before {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_tab article.artoggle_content {
+
+}
+.artoggle_style_6 .artoggle section.artoggle_tab article.artoggle_content:hover {
+
+}
+.artoggle_style_6 .artoggle section:first-child article.artoggle_content {
+
+}
