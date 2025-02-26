@@ -1,0 +1,21 @@
+@import "../variables";
+@import "../toolbar";
+
+.phone-toolbar {
+    @include toolbar(42px);
+    background: $dialer-background;
+    border-radius: 0 0 $form-border-radius $form-border-radius;
+}
+
+.root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-small;
+}
+
+.chat {
+    height: 300px;
+    overflow-y: hidden;
+    transition: height 0.2s ease-in-out;
+}

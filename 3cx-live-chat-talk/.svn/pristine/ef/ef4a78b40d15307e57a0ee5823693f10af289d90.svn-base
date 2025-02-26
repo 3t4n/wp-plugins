@@ -1,0 +1,43 @@
+@import "../variables";
+
+.message {
+    border-radius: $form-border-radius;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+}
+
+.content {
+    margin: $padding * 2;
+    color: black;
+    font-size: $font-size-large;
+    border-radius: $form-border-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: white;
+    padding: 15px;
+
+    button {
+        font-size: $font-size-large;
+    }
+}
+
+.background {
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: black;
+    opacity: 0.5
+}
