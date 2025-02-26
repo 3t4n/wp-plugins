@@ -1,0 +1,226 @@
+{% use 'form_div_layout.html.twig' %}
+
+{# {%- block form_row -%}
+    {%- set row_attr = row_attr|merge({ class: row_attr.class|default(row_class|default('mb-6')) }) -%}
+    {{- parent() -}}
+{%- endblock form_row -%} #}
+
+{% block form_widget_simple -%}
+    {%- if type is not defined or type != 'hidden' %}
+        {%- set default_class = ' rounded-sm border-0 text-gray-900 placeholder:text-gray-400 sm:text-sm' %}
+        {%- if type|default('') == 'color' -%}
+            {%- set default_class = default_class ~ ' ' -%}
+        {%- elseif type|default('') == 'range' -%}
+            {%- set default_class = default_class ~ ' w-full py-1.5' -%}
+        {%- else  -%}
+            {%- set default_class = default_class ~ ' w-full flex-1 px-2 py-1.5 block shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600' -%}
+        {%- endif -%}
+        {%- set attr = attr|merge({class: (attr.class|default(default_class))|trim}) -%}
+    {% endif -%}
+    {%- if type is defined and type in ['range', 'color'] %}
+        {# Attribute "required" is not supported #}
+        {% set required = false %}
+    {% endif -%}
+    {{- parent() -}}
+{%- endblock form_widget_simple %}
+
+{%- block form_row -%}
+    {%- set row_attr = row_attr|merge({ class: row_attr.class|default(row_class|default('mb-6')) }) -%}
+    <{{ element|default('div') }}{% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        <div class="flex items-center w-full">{{- form_widget(form) -}}</div>
+        {{- form_errors(form) -}}
+        {{- form_help(form) -}}
+    </{{ element|default('div') }}>
+{%- endblock form_row %}
+
+{%- block collection_widget -%}
+    {% if prototype is defined and not prototype.rendered %}
+        {%- set attr = attr|merge({'data-prototype': form_row(prototype) }) -%}
+    {% endif %}
+    {{- block('form_widget') -}}
+{%- endblock collection_widget -%}
+
+{%- block widget_attributes -%}
+    {% if type != 'hidden' %}
+    {%- set attr = attr|merge({ class: attr.class|default(widget_class|default('block w-full rounded-sm border-0 px-2 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-800 placeholder:opacity-40 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm')) ~ (disabled ? ' ' ~ widget_disabled_class|default('border-gray-300 text-gray-500')) ~ (type == 'select' ? ' pr-10 ') ~ (errors|length ? ' ' ~ widget_errors_class|default('border-red-700')) }) -%}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock widget_attributes -%}
+
+{%- block choice_widget -%}
+    {% if expanded %}
+        {{- block('choice_widget_expanded') -}}
+    {% else %}
+        {{- block('choice_widget_collapsed') -}}
+    {% endif %}
+{%- endblock choice_widget -%}
+
+{%- block choice_widget_expanded -%}
+    {% set type = 'select' %}
+    {%- set attr = attr|merge({ class: attr.class|default('mt-2') ~ ' pr-5' }) -%}
+    <div {{ block('widget_container_attributes') }}>
+        {%- for child in form %}
+            <div class="relative flex gap-x-3">
+                <div class="flex items-center h-6">
+                    {{- form_widget(child) -}}
+                </div>
+                <div class="flex items-center text-sm">
+                    {{- form_label(child, null, { translation_domain: choice_translation_domain, mb: 0 }) -}}
+                </div>
+            </div>
+        {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded -%}
+
+{% block choice_widget_collapsed -%}
+    {% set type = 'select' %}
+    {% if errors|length > 0 -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' error')|trim}) %}
+    {% endif %}
+
+    {% if multiple -%}
+        {% set attr = attr|merge({style: (attr.style|default('') ~ ' height: auto; background-image: none;')|trim}) %}
+    {% endif %}
+
+    {% if required and placeholder is none and not placeholder_in_choices and not multiple -%}
+        {% set required = false %}
+    {%- endif -%}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple" {% endif %}>
+        {% if placeholder is not none -%}
+            <option value=""{% if placeholder_attr|default({}) %}{% with { attr: placeholder_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}{% if required and value is empty %} selected="selected"{% endif %}>{{ translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain) }}</option>
+        {%- endif %}
+        {%- if preferred_choices|length > 0 -%}
+            {% set options = preferred_choices %}
+            {% set render_preferred_choices = true %}
+            {{- block('choice_widget_options') -}}
+            {% if choices|length > 0 and separator is not none -%}
+                <option disabled="disabled">{{ separator }}</option>
+            {%- endif %}
+        {%- endif -%}
+        {% set options = choices -%}
+        {%- set render_preferred_choices = false -%}
+        {{- block('choice_widget_options') -}}
+    </select>
+{%- endblock choice_widget_collapsed %}
+
+{%- block form_label -%}
+    {%- set label_attr = label_attr|merge({ class: label_attr.class|default(label_class|default('block font-semibold ' ~ 'mb-' ~ (mb is defined ? mb: "1"))) }) -%}
+    {{- parent() -}}
+{%- endblock form_label -%}
+
+{%- block form_help -%}
+    {%- set help_attr = help_attr|merge({ class: help_attr.class|default(help_class|default('mt-1 text-sm opacity-60')) }) -%}
+    {{- parent() -}}
+{%- endblock form_help -%}
+
+{%- block form_errors -%}
+    {%- if not form is rootform -%}
+    <div class="field-error field-{{name}}">
+    {%- if errors|length > 0 -%}
+        <ul class="mb-1">
+            {%- for error in errors -%}
+                <li class="{{ error_item_class|default('bg-red-50 border border-red-300 mt-1 px-2 py-0.5 rounded-sm text-red-500 text-xs') }}">{{ error.message }}</li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+    </div>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{% block datetime_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {% else %}
+        
+        <div {{ block('widget_container_attributes') }}>
+            <div class="flex items-center mr-2 space-x-3">
+                {{ form_widget(form.date, { datetime: true } ) }}
+                <div class="flex-shrink-0">
+                {{ form_widget(form.time, { datetime: true } ) }}
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2">{{ form_errors(form.date) }}{{ form_errors(form.time) }}</div>
+        </div>
+    {% endif %}
+{%- endblock datetime_widget %}
+
+{% block recaptcha_row %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div id="{{ id }}" class="mb-6 g-recaptcha" data-sitekey="{{ key }}"></div>
+{% endblock %}
+
+{%- block time_widget -%}
+    {%- if widget == 'single_text' -%}
+        {{ block('form_widget_simple') }}
+    {%- else -%}
+        {%- set vars = widget == 'text' ? { 'attr': { 'size': 1 }} : {} -%}
+        <div {{ block('widget_container_attributes') }}>
+            <div class="flex items-center space-x-2">
+                {{ form_widget(form.hour, vars) }}{% if with_minutes %}:{{ form_widget(form.minute, vars) }}{% endif %}{% if with_seconds %}:{{ form_widget(form.second, vars) }}{% endif %}
+            </div>
+        </div>
+    {%- endif -%}
+{%- endblock time_widget -%}
+
+{%- block term_posts_widget -%}
+    <div {{ block('widget_container_attributes') }}>
+        <div class="flex items-center space-x-3">
+            {{ form_widget(form.children.terms) }}{{ form_widget(form.children.posts) }}
+        </div>
+    </div>
+{%- endblock term_posts_widget -%}
+
+{% block date_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {% else %}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' flex items-center space-x-3')|trim}) %}
+        {% if datetime is not defined or not datetime %}
+            <div {{ block('widget_container_attributes') }}>
+        {% endif %}
+        {{- date_pattern|replace({
+            '{{ year }}': form_widget(form.year),
+            '{{ month }}': form_widget(form.month),
+            '{{ day }}': form_widget(form.day),
+        })|raw -}}
+        {% if datetime is not defined or not datetime %}
+            </div>
+        {% endif %}
+    {% endif %}
+{%- endblock date_widget %}
+
+{%- block checkbox_row -%}
+    {%- set row_attr = row_attr|merge({ class: row_attr.class|default(row_class|default('mb-3')) }) -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+    {%- endif -%}
+    <div{% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+        <div class="relative flex gap-x-3">
+            <div class="flex items-center h-6">
+                {{- form_widget(form, widget_attr) -}}
+            </div>
+            <div class="flex flex-col justify-center text-sm">
+                {{- form_label(form) -}}
+                {{- form_help(form) -}}
+            </div>
+        </div>
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock checkbox_row -%}
+
+{%- block checkbox_widget -%}
+    {%- set widget_class = widget_class|default('h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600') -%}
+    {{- parent() -}}
+{%- endblock checkbox_widget -%}
+
+{%- block radio_widget -%}
+    {%- set widget_class = widget_class|default('h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600') -%}
+    {{- parent() -}}
+{%- endblock radio_widget -%}
+
+{% block button_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('rounded-sm bg-white px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'))|trim}) %}
+    {{- parent() -}}
+{%- endblock button_widget %}
