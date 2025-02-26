@@ -1,0 +1,238 @@
+.fruitslider {
+    display: inline-block;
+    width: 100%;
+}
+.fruit-slider {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 -2px 1px #ffffff;
+    display: block;   
+    overflow: hidden;
+    position: relative;
+    transition: background-position 1.4s ease-in-out 0.3s;
+    -webkit-transition: background-position 1.4s ease-in-out 0.3s;
+    width: 100%;
+}
+.fruit-slide {
+    display: inline-block;
+    height: auto;
+    float:left;
+    width: 100%;
+}
+.fruit-slide .fruit-background {	
+    overflow:hidden;
+}
+.fruit-slide .fruit-background > img {
+	display: none;   
+}
+.fruit-slide.active .fruit-background > img {
+	display: block;
+	max-width:100%;
+}
+.fruitslider .fruit-content{
+	display: inline-block;
+	width:100%;
+}
+.fruitslider .fruit-slide .fruit-foreground { 
+	display:none;
+}
+.fruitslider .fruit-slide.active .fruit-foreground {
+    display:block;   
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;   
+}
+.fruit-slide .slider_link {
+	left: 10px;
+    position: absolute;
+    top: 100px;
+    transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+}
+.fruit-slide .slider_link a:before {
+    border: 2px solid #ea0032;
+ }
+ .fruit-slide .slider_link a:hover {
+    background-color: #ea0032;
+ }
+.fruit-slide .heading {
+	 border-width: 0;
+    font-size: 48px;   
+    letter-spacing: 0;    
+    color:#fff; 
+    padding: 10px;
+    position: absolute; 
+    top:0;
+    left:0;    
+    text-shadow: -3px 3px 8px rgba(0, 0, 0, 0.75); 
+ }
+.fruit-slide div.subheading {
+    color: #ffffff;
+    font-size: 24px;   
+    color: #ffffff;   
+    margin: 0;   
+    padding: 10px;
+    position: absolute;
+    top: 30px;
+    text-shadow: -3px 3px 8px rgba(0, 0, 0, 0.75);
+}
+.fruit-dots {
+    -moz-user-select: none;
+    bottom: 0px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;  
+}
+.fruit-dots span {
+	background: url("../images/bullet.png") no-repeat scroll left top rgba(0, 0, 0, 0);     
+    cursor: pointer;
+    display: inline-block;
+    height: 12px;
+    margin: 3px;
+    position: relative;
+    width: 20px;      
+}
+.fruit-dots span:hover ,.fruit-dots span.fruit-dots-current{
+    background: url("../images/bullet.png") no-repeat scroll left -20px rgba(0, 0, 0, 0); 
+}
+.fruitslider .fruit-arrows {
+	-moz-user-select: none;
+}
+.fruitslider .fruit-arrows span {
+    background: none repeat scroll 0 0 #000;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    height: 30px;
+    opacity: 0;
+    position: absolute;
+    top: 45%;
+    transition: opacity 0.4s ease-in-out 0.2s;
+    -webkit-transition: opacity 0.4s ease-in-out 0.2s;
+    width: 30px;    
+}
+.fruit-slider:hover .fruit-arrows span{
+	opacity: 1;
+}
+.fruitslider .fruit-arrows span:after {
+    background: url("../images/arrows.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    content: "";
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 20px;
+}
+.fruitslider .fruit-arrows span.fruit-arrows-prev {
+    left: 15px;
+}
+.fruitslider .fruit-arrows span.fruit-arrows-next:after {
+    background-position: right top;
+}
+.fruitslider .fruit-arrows span.fruit-arrows-next {
+    right: 15px;
+}
+.fruitslider .fruit-thumbnails {    
+    position: relative;
+    width: 100%;
+}
+.fruitslider .fruit-thumbnails ul {
+    background: none repeat scroll 0 0 #000000;
+    margin: 0;
+    padding: 0;   
+}
+.fruitslider .fruit-thumbnails ul .fruit-thumbnail {
+    background: none repeat scroll 0 0 #000000;
+    display: block;
+    float: left;
+    margin: 0;
+    position: relative;
+    z-index: 0;
+}
+.fruitslider .fruit-thumbnails ul .fruit-thumbnail img {
+    max-height: 150px;
+    opacity: 0.5;
+    width: 100%;
+}
+.fruitslider .fruit-thumbnails ul .active img {
+    opacity: 1;
+}
+
+@media (min-width:981px) and (max-width:1024px) { 
+.fruit-slide .heading {
+	font-size:38px;
+	padding:0;
+}
+.fruit-slide div.subheading {
+	font-size:18px;
+	padding:0;
+}
+.fruit-slide .slider_link a {
+	font-size:15px !important;
+}
+.fruitslider .fruit-thumbnails ul .fruit-thumbnail img {
+	max-height:100px;
+}
+}
+
+@media (min-width:768px) and (max-width:980px) { 
+.fruit-slide .heading {
+	font-size: 30px;    
+    text-align: center;    
+}
+.fruit-slide div.subheading {
+	font-size: 15px;  
+}
+.fruit-slide .slider_link {   
+    text-align: center;   
+}
+.fruit-slide .slider_link a {
+	font-size:12px !important;
+}
+}
+/*
+@media (max-width:767px) { 
+.fruit-slider {
+	min-height:350px;
+}
+.fruit-slide .heading {
+	font-size: 30px;
+    left: 13% !important;
+    right: 13%;
+    text-align: center;
+    top:110px !important;
+}
+.fruit-slide div.subheading {
+	font-size: 15px;
+    left: 10% !important;
+    right: 10%;
+    text-align: center;
+    top:200px !important;
+}
+.fruit-slide .slider_link {
+    left: 10% !important;
+    right: 10%;
+    text-align: center;
+    top:280px !important;
+}
+.fruit-slide .slider_link a {
+	font-size:12px !important;
+}
+.fruitslider .fruit-slide.active .fruit-foreground {
+	bottom:20%;
+	top:-20% !important;
+}
+}
+
+@media (max-width:400px) { 
+.fruit-slider {
+	min-height:250px;
+}
+.fruitslider .fruit-slide.active .fruit-foreground {
+    bottom: 50%;
+    top: -50% !important;
+}
+}*/
