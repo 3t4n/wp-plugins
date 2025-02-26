@@ -1,0 +1,99 @@
+<div class="wrap">
+
+    <h1>Customize Address Bar Colorizer</h1>
+
+    <div id="poststuff">
+
+        <div id="post-body" class="metabox-holder columns-2">
+
+            <!-- main content -->
+            <div id="post-body-content">
+
+                <div class="meta-box-sortables ui-sortable">
+
+                    <div class="postbox">
+
+                        <h2 class="hndle"><span>Settings</span></h2>
+
+                        <div class="inside">
+
+                            <form id="form-settings" method="post" action="options.php">
+                                <?php settings_fields('address-bar-colorizer-settings-group'); ?>
+                                <?php do_settings_sections('address-bar-colorizer-settings-group'); ?>
+                                <table class="form-table">
+                                    <tr valign="top">
+                                        <th scope="row">Homepage Color</th>
+                                        <td><input type='text' name='address-bar-colorizer-default-color'
+                                                   value="<?php echo get_option('address-bar-colorizer-default-color'); ?>"
+                                                   class='address-bar-colorizer-color-field'></td>
+                                    </tr>
+
+                                    <tr valign="top">
+                                        <th scope="row">Use Homepage Color Sitewide</th>
+                                        <td><input type='checkbox' name='address-bar-colorizer-sitewide-enabled'
+                                                   value="1"
+                                            <?php checked(1, get_option('address-bar-colorizer-sitewide-enabled')); ?> >
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <br>
+                                <input class="button-primary" type="submit" value="Save Changes">
+                            </form>
+
+                        </div>
+                        <!-- .inside -->
+
+                    </div>
+                    <!-- .postbox -->
+
+                </div>
+                <!-- .meta-box-sortables .ui-sortable -->
+
+            </div>
+            <!-- post-body-content -->
+
+            <!-- sidebar -->
+            <div id="postbox-container-1" class="postbox-container">
+
+                <div class="meta-box-sortables">
+
+                    <div class="postbox">
+
+                        <h2 class="hndle"><span>Useful Information</span></h2>
+
+                        <ol>
+                            <li>Each post has its own Address Bar<br>Colorizer setting.</li>
+                            <li>Enabling <i>Sitewide</i> option will override individual post setting.</li>
+                        </ol>
+
+                    </div>
+                    <!-- .postbox -->
+
+                    <div class="postbox">
+
+                        <h2 class="hndle"><span>Feedback</span></h2>
+
+                        <div class="inside">
+                            <p>Have something to share? A bug to report? Please head over to
+                                <a href="https://wordpress.org/support/plugin/address-bar-colorizer">Support Form</a>
+                                for plugin and share the details.</p>
+                            <p>Thanks in advance for your time!</p>
+                        </div>
+                        <!-- .inside -->
+
+                    </div>
+                    <!-- .postbox -->
+
+                </div>
+                <!-- .meta-box-sortables -->
+
+            </div>
+            <!-- #postbox-container-1 .postbox-container -->
+
+        </div>
+        <!-- #post-body .metabox-holder .columns-2 -->
+
+    </div>
+
+</div>
