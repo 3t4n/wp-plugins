@@ -1,0 +1,102 @@
+.atfe__title_row {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.elementor-widget-elementor_accordion_title {
+  position: relative;
+  cursor: pointer;
+}
+
+.elementor-widget-elementor_accordion_title .apfe__arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  display: block;
+  position: absolute;
+  right: 10px;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: 0.25s all;
+  top: 50%;
+}
+
+.elementor-widget-elementor_accordion_title.open .apfe__arrow {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.elementor-widget-elementor_accordion_title .apfe__plus {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.elementor-widget-elementor_accordion_title .apfe__plus1 {
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  display: block;
+  position: absolute;
+  transition: 0.25s transform;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.elementor-widget-elementor_accordion_title.open .apfe__plus1 {}
+
+.elementor-widget-elementor_accordion_title .apfe__plus2 {
+  width: 2px;
+  height: 20px;
+  background-color: #000;
+  display: block;
+  position: absolute;
+  transition: 0.25s transform, 0.25s opacity;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.elementor-widget-elementor_accordion_title.open .apfe__plus2 {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.elementor-widget-elementor_accordion_title+.elementor-element {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.25s padding-top, max-height .5s cubic-bezier(0, 1, 0, 1) -.1s, opacity 0.25s;
+  opacity: 0;
+}
+
+.elementor-widget-elementor_accordion_title.apfe__border {
+  margin-bottom: 0 !important;
+}
+
+.elementor-widget-elementor_accordion_title.apfe__border+.elementor-element {
+  border: 0px;
+}
+
+.elementor-widget-elementor_accordion_title.open.apfe__border+.elementor-element {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.elementor-widget-elementor_accordion_title.open+.elementor-element {
+  max-height: 99999px;
+  transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+  transition-delay: 0s;
+  opacity: 1;
+}
+
+.elementor-editor-active .elementor-widget-elementor_accordion_title+.elementor-element {
+  max-height: inherit !important;
+  opacity: 1 !important;
+  border: 2px dashed #f00;
+}
