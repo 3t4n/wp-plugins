@@ -1,0 +1,88 @@
+/**********************************************************
+BASE STYLES
+	- these are applied across all screen sizes 
+**********************************************************/
+
+#aw_ss_wrapper {width: 100%; height: auto;}
+
+.aw_ss_post_wrapper {margin-bottom: 15px; position: relative;}
+
+.aw_ss_featured_image {max-width: 100%; height: auto; border: 0; vertical-align: middle;}
+
+#aw_ss_buttons {margin-bottom: 20px;}
+
+.aw_ss_button_li {list-style: none; display: inline-block; margin-right: 1%;}
+
+.aw_ss_active_button {background: #ffffff!important; border: 2px solid #000000!important; color: #000000!important;}
+
+.aw_ss_hoverbox {position: absolute; bottom: 0; left: 0; width: 100%; z-index: 999; background: rgba(0, 0, 0, 0.6); -webkit-transition: all .5s ease-in-out; -moz-transition: all .5s ease-in-out; -o-transition: all .5s ease-in-out; -ms-transition: all .5s ease-in-out; -webkit-transform: scale(0); -moz-transform: scale(0); -o-transform: scale(0); transform: scale(0);}
+
+.aw_ss_hoverbox_transition {-webkit-transform: scale(1); -moz-transform: scale(1); -o-transform: scale(1); transform: scale(1);}
+
+.aw_read_more {background-color: #ffffff; width: 150px; height: 50px; line-height: 50px; text-decoration: none; position: absolute; top: 50%; left: 50%; margin-left: -75px; margin-top: -25px; transition: all 0.2s ease 0s; text-transform: uppercase; text-align: center; color: #000000; border: 2px solid #ffffff; font-family: "Trebuchet MS";}
+.aw_read_more:visited {background-color: #ffffff; color: #000000;}
+.aw_read_more:visited:hover {background: transparent; border: 2px solid #ffffff; color: #ffffff;}
+.aw_read_more:hover {background: transparent; border: 2px solid #ffffff; color: #ffffff;}
+
+
+.aw_title_wrapper {}
+.aw_title_wrapper h3 {margin: 0 0 5px 0; padding: 0; font-size: 1.2em; line-height: 1.1em; font-family: "Trebuchet MS"; color: #000000;}
+
+select:-moz-focusring {color: transparent; text-shadow: 0 0 0 #000;}
+
+
+/**********************************************************
+PHONE STYLES
+	- these are applied to screen sizes up to 767 pixels 
+**********************************************************/
+@media only screen and (max-width : 767px) {
+	
+	.aw_ss_post_wrapper {max-width: 100%; margin: 0 auto 30px auto;}
+	
+	.aw_ss_featured_image {width: 100%; max-width: none;}
+	
+	#aw_ss_button_list {display: none;}
+	
+	#aw_ss_select_wrapper {border: 2px solid #ffffff; width: 80%; overflow: hidden; background: #000000 url(../img/triangle.png) no-repeat 95% 50%; margin: 0 auto;}
+	
+	#aw_ss_select_wrapper select {padding: 15px; width: 100%; border: none; box-shadow: none; background: transparent; background-image: none; -webkit-appearance: none; color: #ffffff!important; font-family: "Trebuchet MS";}
+	
+}
+
+
+/**********************************************************
+TABLET AND LARGE PHONE STYLES
+	- these are applied to screen sizes between 768 and 1024 pixels 
+**********************************************************/
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+	
+	.aw_ss_post_wrapper {float: left; width: 49%; margin-right: 1%;}
+	
+	#aw_ss_button_list {}
+	
+	.aw_ss_button {background-color: #000000; padding: 15px; transition: all 0.2s ease 0s; text-transform: uppercase; text-align: center; color: #ffffff; border: 2px solid #ffffff; font-family: "Trebuchet MS";}
+	.aw_ss_button:hover {background: #ffffff; border: 2px solid #000000; color: #000000;}
+	
+	#aw_ss_select_wrapper {display: none;}
+	
+}
+
+
+/**********************************************************
+LARGER THAN TABLET STYLES
+	- these are applied to screen sizes larger than 1024 pixels
+**********************************************************/
+
+@media only screen and (min-width : 1025px) {
+	
+	.aw_ss_post_wrapper {float: left; width: 24%; margin-right: 1%;}
+	
+	#aw_ss_button_list {}
+	
+	.aw_ss_button {background-color: #000000; padding: 15px; transition: all 0.2s ease 0s; text-transform: uppercase; text-align: center; color: #ffffff; border: 2px solid #ffffff; font-family: "Trebuchet MS";}
+	.aw_ss_button:hover {background: #ffffff; border: 2px solid #000000; color: #000000;}
+	
+	#aw_ss_select_wrapper {display: none;}
+	
+}
