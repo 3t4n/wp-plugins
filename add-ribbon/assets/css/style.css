@@ -1,0 +1,140 @@
+/*
+
+  _________.__                  __      _________
+ /   _____/|  |__   ___________|  | __ /   _____/_____   ____ _____ _______
+ \_____  \ |  |  \_/ __ \_  __ \  |/ / \_____  \\____ \_/ __ \\__  \\_  __ \
+ /        \|   Y  \  ___/|  | \/    <  /        \  |_> >  ___/ / __ \|  | \/
+/_______  /|___|  /\___  >__|  |__|_ \/_______  /   __/ \___  >____  /__|
+        \/      \/     \/           \/        \/|__|        \/     \/
+		
+	STYLES...	
+*/
+
+
+.sherkribbon{
+	width: 200px;
+	height: 300px;
+	position: relative;
+	border: 0px solid #BBB;
+	background: #EEE;
+}
+
+.sherkribbon .imgribbon{
+    position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.ribbonlabel.leftribbon {
+  position: absolute;
+  left: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+
+.ribbonlabel.leftribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+   -ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Safari */
+    transform: rotate(-45deg); /* Standard syntax */
+  width: 100px;
+  display: block;
+  background: #474747;
+  background: linear-gradient(#000000 0%, #474747 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; left: -21px;
+}
+
+.ribbonlabel.leftribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #474747;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #474747;
+}
+
+.ribbonlabel.leftribbon span::after {
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #474747;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #474747;
+}
+
+
+
+.ribbonlabel.rightribbon {
+	position: absolute;
+	right: -5px; top: -5px;
+	z-index: 1;
+	overflow: hidden;
+	width: 75px; height: 75px;
+	text-align: right;
+}
+
+.ribbonlabel.rightribbon span {
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 20px;
+	 -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); /* Standard syntax */
+	width: 100px;
+	display: block;
+	background: linear-gradient(#000000 0%, #474747 100%);
+	box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+	position: absolute;
+	top: 19px; right: -21px;
+}
+
+.ribbonlabel.rightribbon span::before {
+	content: "";
+	position: absolute; left: 0px; top: 100%;
+	z-index: -1;
+	border-left: 3px solid #474747;
+	border-right: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	border-top: 3px solid #474747;
+}
+
+.ribbonlabel.rightribbon span::after {
+	content: "";
+	position: absolute; right: 0px; top: 100%;
+	z-index: -1;
+	border-left: 3px solid transparent;
+	border-right: 3px solid #474747;
+	border-bottom: 3px solid transparent;
+	border-top: 3px solid #474747;
+}
+
+.sherkribbon.wider .ribbonlabel{
+	width:250px;
+	height:250px;
+}
+
+.sherkribbon.wider .leftribbon.ribbonlabel span{
+	width:200px;
+	top:55px;
+	left:-35px;
+}
+
+.sherkribbon.wider .ribbonlabel span{
+	width:200px;
+	top:55px;
+	right:-35px;
+}
