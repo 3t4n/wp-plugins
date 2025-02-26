@@ -1,0 +1,244 @@
+.qcld-express-container {
+    position: fixed;
+    z-index: 99999999999999;
+    top: 0;
+    right: -50%;
+    background: #F5F5F5;
+    width:  50%;
+    height: 100%;
+}
+
+.qcld-express-cart-header {
+    background: #F5F5F5;
+    padding: 15px 10px;
+    font-size: 16px;
+    color: #272727;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all .5s ease;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #e02a2a;
+    font-size: 15px;
+    border: 10px solid #e4e4e4;
+}
+.qcld-express-cart-header.hascart{
+    left: -70px;
+}
+
+.qcld-express-inner {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    padding: 30px;
+}
+
+.qcld-express-container .cart-collaterals .cart_totals {
+    width:  100%;
+    float:  left;
+}
+
+.qcld-express-container .wc-proceed-to-checkout .button{
+    display: inline-block;
+}
+
+.qcld-express-container .cart .actions {
+    border-top-color: transparent;
+}
+
+#qcld-express-checkout-area{
+    display: none;
+}
+
+#back_to_cart {
+    margin-bottom: 15px;
+}
+
+#qcld-express-cart-fly{
+    position: absolute;
+    opacity: 0;
+    z-index: 999;
+    font-size: 20px;
+    line-height: 3;
+    
+    width: 40px;
+    text-align: center;
+}
+
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message,
+.woocommerce-noreviews,
+p.no-comments {
+  display: none;
+}
+
+.woocommerce-error:first-child,
+.woocommerce-info:first-child,
+.woocommerce-message:first-child,
+.woocommerce-noreviews:first-child,
+p.no-comments:first-child {
+  display: block;
+}
+
+
+/*Bootstrap 4 Checkout Comulmn Fix */
+#qcld-express-checkout-area .col2-set .col-1,
+.woocommerce-page .col2-set .col-1 {
+    display: block;
+    min-width: 100%;
+    padding: 0;
+}
+
+#qcld-express-checkout-area .col2-set .col-2,
+.woocommerce-page .col2-set .col-2 {
+    min-width: 100%;
+    padding: 0;
+}
+#qcld-express-checkout-area #customer_details {
+    width: 100%;
+    float: none;
+}
+
+#qcld-express-checkout-area #order_review {
+    width: 100%;
+    float: none;
+}
+
+#qcld-express-checkout-area #payment .place-order .button {
+    width: auto;
+    display: inline-block;
+}
+
+.woocommerce form .form-row label {
+    display: block;
+    float: none;
+    width: 100%;
+}
+
+#qcld-express-checkout-area .woocommerce-input-wrapper {
+    width: 100%;
+}
+
+#qcld-express-checkout-area .shipping_address{
+    display: none;
+}
+
+#qcld-express-checkout-area .woocommerce-form-coupon-toggle,
+#qcld-express-checkout-area .woocommerce-form-coupon{
+    display: none !important;
+}
+
+/* Cart Design Fixing */
+#qcld-express-cart-area table.cart .product-thumbnail img {
+    margin: 0 auto;
+    max-width: 60px;
+    height: auto;
+}
+
+
+/*quick view variable product*/
+.qcld-express-quick-view {
+    display: none;
+    width: 260px;
+    padding: 25px 15px 15px;
+    background: #F5F5F5;
+    position: absolute;
+    z-index: 990;
+    overflow: hidden;
+}
+.qcld-express-quick-view .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    cursor: url(../cursor-x.png), crosshair;
+    text-align: center;
+    font-size: 16px;
+    z-index: 1;
+    line-height: 20px;
+}
+.qcld-express-quick-view .close:before {
+    content: 'x';
+}
+.qcld-express-quick-view table tbody td {
+    background-color: transparent !important;
+    padding: 0;
+    text-align: right;
+}
+
+.qcld-express-quick-view .quantity {
+    float: left;
+}
+
+.qcld-express-quick-view .added_to_cart {
+    margin-top: 3px;
+}
+
+.qcld-express-quick-view .woocommerce-variation-price {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.qcld-express-quick-view .variations {
+    margin: 0;
+}
+
+.qcld-express-quick-view .woocommerce-Price-amount.amount {
+    font-size: 18px;
+}
+
+/* Strip payment images */
+#qcld-express-checkout-area .payment_method_stripe img {
+    max-width: 30px;
+}
+
+.express-shop-wrapper .wc-forward{
+    display: block;
+    line-height: 1;
+    color:#666;
+    display: none !important;
+}
+
+/**
+ * Responsive Styles
+ *
+ */
+
+@media(max-width: 767px){
+    .qcld-express-container{
+        width: 100%;
+        right: -100%;
+    }
+    .qcld-express-cart-header.hascart.open {
+        left: 0;
+        z-index: 1;
+    }
+    .qcld-express-quick-view {
+        left: 0 !important;
+        margin: 0 auto;
+        right: 0;
+    }
+}
+
+.qcld-express-container{
+    right: -50%;
+}
+.qcld-express-cart-header.hascart {
+    left: -70px;
+}
+@media (max-width: 767px){
+    .qcld-express-container{
+        right: -100%;
+    }
+}
