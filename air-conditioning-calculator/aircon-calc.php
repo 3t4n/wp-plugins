@@ -1,0 +1,20 @@
+<?php
+/*
+Plugin Name: Air Conditioning Calculator
+Plugin URI: http://www.watkinshire.co.uk/
+Description: A simple tool to calculate your air conditioning needs
+Author: Adam Clark
+Version: 1.01
+Author URI: http://www.watkinshire.co.uk/
+*/
+
+function aircon_widget() {
+	echo "<h2>Air Conditioning Calculator</h2><style type=\"text/css\" media=\"all\">@import url(wp-content/plugins/air-conditioning-calculator/styles/aircon-calc.css);</style><div id=\"AirConCalcContainer\"><div id=\"AirConCalcInnerContainer\"><form action=\"calc-html.php\" id=\"CoolingCalculator\" method=\"post\" name=\"CoolingCalculator\"><fieldset><legend>Size of Area</legend><label for=\"AirConCalcLength\">Length:</label><br /><input id=\"AirConCalcLength\" maxlength=\"5\" name=\"AirConCalcLength\" onblur=\"CalculateVolume('AirConCalcLength','AirConCalcWidth','AirConCalcVolume');\" onkeyup=\"CalculateVolume('AirConCalcLength','AirConCalcWidth','AirConCalcVolume');\" type=\"text\" /><br /><label for=\"AirConCalcWidth\">Width:</label><br /><input id=\"AirConCalcWidth\" maxlength=\"5\" name=\"AirConCalcWidth\" onblur=\"CalculateVolume('AirConCalcLength','AirConCalcWidth','AirConCalcVolume');\" onkeyup=\"CalculateVolume('AirConCalcLength','AirConCalcWidth','AirConCalcVolume');\" type=\"text\" /><br /><label for=\"AirConCalcVolume\">Total Volume of Area (in metres cubed):</label><br /><input class=\"AirConCalcReadonly\" id=\"AirConCalcVolume\" name=\"AirConCalcVolume\" readonly=\"readonly\" type=\"text\" /></fieldset><fieldset><legend>Area Conditions</legend><label for=\"AirConCalcElectricItems\">Number of Electrical Items (eg computers, printers, etc):</label><br /><input id=\"AirConCalcElectricItems\" maxlength=\"5\" name=\"AirConCalcElectricItems\" onblur=\"CalculateArea('AirConCalcElectricItems','AirConCalcPersonnel','AirConCalcType','AirConCalcArea','AirConCalcDuty','AirConCalcVolume');\" onkeyup=\"CalculateArea('AirConCalcElectricItems','AirConCalcPersonnel','AirConCalcType','AirConCalcArea','AirConCalcDuty','AirConCalcVolume');\" type=\"text\" /><br /><label for=\"AirConCalcPersonnel\">Number of Personnel in the Area:</label><br /><input id=\"AirConCalcPersonnel\" maxlength=\"5\" name=\"AirConCalcPersonnel\" onblur=\"CalculateArea('AirConCalcElectricItems','AirConCalcPersonnel','AirConCalcType','AirConCalcArea','AirConCalcDuty','AirConCalcVolume');\" onkeyup=\"CalculateArea('AirConCalcElectricItems','AirConCalcPersonnel','AirConCalcType','AirConCalcArea','AirConCalcDuty','AirConCalcVolume');\" type=\"text\" /><br /><label for=\"AirConCalcType\">Type of Area:</label><br /><select id=\"AirConCalcType\" name=\"AirConCalcType\" onchange=\"CalculateArea('AirConCalcElectricItems','AirConCalcPersonnel','AirConCalcType','AirConCalcArea','AirConCalcDuty','AirConCalcVolume');\"><option value=\"\">Select Area Type</option><option value=\"140\">Office</option><option value=\"300\">Marquee</option><option value=\"200\">Glass</option><option value=\"260\">Sun Facing</option><option value=\"240\">Internal Room</option><option value=\"250\">Kitchen</option><option value=\"250\">Cabin</option><option value=\"200\">Factory</option><option value=\"200\">Workshop</option></select><br /><label for=\"AirConCalcDuty\">Air Conditioning<br />Duty Required (in Kw):</label><br /><input class=\"AirConCalcReadonly\" id=\"AirConCalcDuty\" name=\"AirConCalcDuty\" readonly=\"readonly\" type=\"text\" /></fieldset><div id=\"AirConCalcResults\"><!-- JavaScript --></div></form><p id=\"AirConCalcHomeLink\"><a href=\"http://www.watkinshire.co.uk/air-conditioning-hire/\" target=\"_blank\" title=\"Air Conditioning Hire\">Air Conditioning Hire</a></p></div></div><script language=\"javascript\" src=\"wp-content/plugins/air-conditioning-calculator/javascript/aircon-calc.js\" type=\"text/javascript\"></script>";
+}
+
+function init_aircon(){
+	register_sidebar_widget("Tester", "aircon_widget");
+}
+
+add_action("plugins_loaded", "init_aircon");
+?>
