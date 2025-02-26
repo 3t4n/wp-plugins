@@ -1,0 +1,801 @@
+@font-face {
+  font-family: "XMAS_AsapRegular";
+  src:url(../fonts/Asap-Regular.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: "XMAS_AsapSemiBold";
+  src:url(../fonts/Asap-SemiBold.ttf) format("opentype");
+}
+
+header {
+  z-index: 100 !important;
+}
+
+#xmas_calendar_main {
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.xmas_cta {
+  margin-top: 50px;
+  display: block;
+  background-color: #d9e7f0;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  text-decoration: none !important;
+  color: #fff !important;
+  padding: 10px;
+}
+
+.single-xmas-calendar {
+  background: url(../img/bg.jpg) no-repeat #d9e7f0;
+  background-position: center top;
+  background-size: 100% auto;
+  background-attachment: fixed;
+}
+
+.xmas_calendar_thankyou#xmas_calendar_main {
+  background: url(../img/bg-lightbox.jpg) no-repeat #d9e7f0;
+  background-position: center top;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.post-type-archive-xmas-calendar {
+  background: url(../img/bg.jpg) no-repeat #d2e4ee;
+  background-position: center top;
+  background-size: 100% auto;
+  background-attachment: fixed;
+}
+
+body.post-type-archive-xmas-calendar .container {
+  padding: 0;
+}
+
+#xmas_calendar_main h1 {
+  color: #fff;
+  text-align: center;
+  font-family: 'Reenie Beanie';
+  font-size: 80px;
+}
+
+.xmas_calendar_footer {
+  padding-top: 75px;
+}
+
+.xmas_calendar_footer img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.xmas_calendar_footer a { 
+  color: #fff !important;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 34px;
+  transition: 0.3s ease;
+  font-family: 'XMAS_AsapSemiBold';
+}
+
+.xmas_calendar_footer a:hover {
+  opacity: 0.5;
+  text-decoration: none !important;
+}
+
+#xmas_calendar_wrapper ul, #xmas_calendar_wrapper li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#xmas_calendar_wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+}
+
+.xmas_calendar_thankyou #xmas_calendar_wrapper, .single-xmas-calendar #xmas_calendar_wrapper {
+  padding: 15px;
+}
+
+#xmas_calendar_wrapper h1 img {
+  max-width: 170px;
+  display: block;
+  height: auto;
+  margin: auto;
+}
+
+.single-xmas-calendar #xmas_calendar_wrapper h1 {
+  margin: 40px 0;
+}
+
+.single-xmas-calendar #xmas_calendar_wrapper h1 img {
+  float: right;
+  margin-bottom: 50px;
+  position: relative;
+  max-width: 143px;
+}
+
+.door_list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 7px;
+  grid-row-gap: 7px;
+}
+
+.door_list li {
+  background-color: transparent;
+  position: relative;
+}
+  
+.xmas_door_1 { grid-area: 1 / 1 / 2 / 3; }
+.xmas_door_2 { grid-area: 1 / 3 / 2 / 4; }
+.xmas_door_3 { grid-area: 1 / 4 / 2 / 5; }
+.xmas_door_4 { grid-area: 1 / 5 / 2 / 6; }
+.xmas_door_5 { grid-area: 1 / 6 / 2 / 7; }
+.xmas_door_6 { grid-area: 2 / 1 / 3 / 2; }
+.xmas_door_7 { grid-area: 2 / 2 / 3 / 3; }
+.xmas_door_8 { grid-area: 2 / 3 / 3 / 4; }
+.xmas_door_9 { grid-area: 2 / 4 / 3 / 6; }
+.xmas_door_10 { grid-area: 2 / 6 / 3 / 7; }
+.xmas_door_11 { grid-area: 3 / 1 / 4 / 2; z-index: 1;}
+.xmas_door_12 { grid-area: 3 / 2 / 5 / 4; z-index: 10;}
+.xmas_door_13 { grid-area: 3 / 4 / 4 / 5; z-index: 11;}
+.xmas_door_14 { grid-area: 3 / 5 / 4 / 6; z-index: 11;}
+.xmas_door_15 { grid-area: 3 / 6 / 4 / 7; z-index: 11;}
+.xmas_door_16 { grid-area: 4 / 1 / 5 / 2; z-index: 1;} 
+.xmas_door_17 { grid-area: 4 / 4 / 5 / 5; z-index: 11;}
+.xmas_door_18 { grid-area: 4 / 5 / 5 / 6; z-index: 11;}
+.xmas_door_19 { grid-area: 4 / 6 / 5 / 7; z-index: 11;}
+.xmas_door_20 { grid-area: 5 / 1 / 6 / 2; }
+.xmas_door_21 { grid-area: 5 / 2 / 6 / 3; }
+.xmas_door_22 { grid-area: 5 / 3 / 6 / 4; }
+.xmas_door_23 { grid-area: 5 / 4 / 6 / 6; }
+.xmas_door_24 { grid-area: 5 / 6 / 6 / 7; }
+
+
+/*door*/
+.door {
+  position: relative;
+  width: 100%;
+  height:100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  min-height: 187px;
+  text-align: center;
+}
+
+.door_locked .door {
+  cursor: initial;
+}
+
+.door-front {
+  background-size: 100% 100%, 85px 85px, auto;
+  background-position: left 0, top right, center; 
+  background-repeat: no-repeat;
+  width: 100%;
+  height:100%;
+  transform-origin: left;
+  position: absolute;
+  background-color: #d8b787;
+  z-index:1;
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(-0deg);  
+}
+
+.door_list li:first-child .door-front::before {
+  content: '';
+  background: url(../img/snow-corner-small.svg) no-repeat;
+  background-position: top left;
+  width: 78px;
+  height: 95px;
+  position: absolute;
+  left: -10px;
+  top: -7px;
+}
+
+.door_list li:nth-child(18) .door-front::before {
+  content: '';
+  background: url(../img/snow-corner-long.svg) no-repeat;
+  background-position: top right;
+  width: 155px;
+  height: 38px;
+  position: absolute;
+  right: -4px;
+  top: -8px;
+}
+
+.door_list li:nth-child(12) .door-front::before {
+  content: '';
+  transform: scaleX(-1);
+  background: url(../img/snow-corner-long.svg) no-repeat;
+  background-position: top right;
+  width: 155px;
+  height: 38px;
+  position: absolute;
+  left: -4px;
+  top: -8px;
+}
+
+.door_list li:nth-child(12) .door-front::after {
+  content: '';
+  transform: scaleX(-1) scaleY(-1);
+  background: url(../img/snow-corner-small.svg) no-repeat;
+  background-position: top left;
+  width: 46px;
+  height: 57px;
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+}
+
+.door_list li:nth-child(20) .door-front::after {
+  content: '';
+  transform: scaleX(-1) scaleY(-1);
+  background: url(../img/snow-corner-long.svg) no-repeat;
+  background-position: top left;
+  background-size: contain;
+  width: 95px;
+  height: 23px;
+  position: absolute;
+  bottom: -5px;
+  left: -9px;
+}
+
+.door_list li:nth-child(24) .door-front::after {
+  content: '';
+  transform: scaleX(-1) scaleY(-1);
+  background: url(../img/snow-corner-small.svg) no-repeat;
+  background-position: top left;
+  width: 52px;
+  height: 63px;
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+}
+
+.door_list li:nth-child(10) .door-front::after {
+  content: '';
+  background: url(../img/snow-corner-long.svg) no-repeat;
+  background-position: top right;
+  width: 155px;
+  height: 38px;
+  position: absolute;
+  right: -4px;
+  top: -8px;
+}
+
+.current_xmas_calendar_day img {
+  position: absolute;
+  right: 7px;
+  bottom: 30px;
+  transition: 0.3s ease;
+}
+
+.current_xmas_calendar_day img:hover {
+  right: 4px;
+  opacity: 0.5;
+}
+
+.current_xmas_calendar_day .door-front {
+  border-radius: 0 0 0 0;
+  background-size: 100% 100%, 85px 85px, auto;
+  background-color: transparent;
+}
+
+.current_xmas_calendar_day:hover .door-front {
+  transform: rotateY(-120deg); 
+  /*box-shadow: 30px 0 50px rgba(0,0,0,0.2); */
+}
+
+.door_locked .door:hover .door-front {
+  transform: none;
+}
+
+.door-back {
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  display: block;
+  text-decoration: none !important;
+  height: 100%;
+  overflow: hidden;
+}
+
+.door_past .door-back {
+  display: flex;
+  align-items: flex-end;
+}
+
+.past_overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  bottom: 0;
+  opacity: 0.8;
+}
+
+.door_past b {
+  z-index: 100;
+  position: relative;
+  color: #fff;
+  text-align: left;
+  padding: 10px;
+  line-height: normal;
+  font-weight: normal;
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.door_past i {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 100;
+  color: #fff;
+  font-style: normal;
+  background-color: #1278BF;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+/*
+.current_xmas_calendar_day::after {
+  content: '';
+  background-image: url(../img/corner.png);
+  display: block;
+  width: 45px;
+  height: 45px;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-size: cover;
+}
+*/
+/* SPARKLE */
+
+.xmas_sparkle_wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.xmas_sparkle_wrapper svg {
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}
+
+.xmas_sparkle_wrapper .sparkles path {
+  fill: white;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: sparkle var(--duration) var(--delay) infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(-1, 0);
+  }
+  80% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* SINGLE PAGE */
+.xmas_calendar_single_inner {
+  display: flex;
+  flex-wrap: nowrap;
+  clear: both;
+}
+
+.xmas_calendar_single_inner_left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.xmas_calendar_single_inner_left {
+  width: 45%;
+  position: relative;
+  background-color: #fff;
+}
+
+.xmas_calendar_single_inner_right {
+  width: 55%;
+  background-color: #fff;
+  padding: 30px;
+  box-sizing: border-box;
+  margin-left: 15px;
+  position: relative;
+}
+
+.xmas_calendar_single_inner_right p {
+  margin: 0;
+}
+
+.xmas_calendar_single_inner_left::before {
+  content: '';
+  transform: scaleX(-1);
+  background: url(../img/snow-corner-long.svg) no-repeat;
+  background-position: right top;
+  width: 192px;
+  height: 46px;
+  position: absolute;
+  left: -5px;
+  top: -10px;
+}
+
+.xmas_calendar_single_inner_left::after {
+  content: '';
+  transform: scaleX(1) scaleY(-1);
+  background: url(../img/snow-corner-small.svg) no-repeat;
+  background-position: top left;
+  width: 46px;
+  height: 57px;
+  position: absolute;
+  bottom: -4px;
+  left: -6px;
+}
+
+.xmas_calendar_single_inner_right::before {
+  content: '';
+  background: url(../img/snow-corner-long.svg) no-repeat;
+  background-position: right top;
+  width: 263px;
+  height: 64px;
+  position: absolute;
+  right: -7px;
+  top: -17px;
+}
+
+.xmas_calendar_single_inner_right::after {
+  content: '';
+  transform: scaleX(-1) scaleY(-1);
+  background: url(../img/snow-corner-small.svg) no-repeat;
+  background-position: top left;
+  width: 56px;
+  height: 69px;
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+}
+
+
+/* GRAVITY STYLING */
+.xmas_calendar_single_inner .gform_title {
+  font-size: 28px;
+  margin: 1rem 0;
+  font-family: 'Reenie Beanie';
+  color: #343434;
+  font-weight: normal;
+} 
+
+#xmas_calendar_main .gform_wrapper input {
+  color: #c02b0a !important;
+}
+
+#xmas_calendar_main .gform_wrapper input[type="submit"] {
+  color: #fff !important;
+  background-color: #1E82CA;
+  border: 0;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+#xmas_calendar_main .gform_wrapper input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #666;
+  opacity: 1; /* Firefox */
+}
+
+#xmas_calendar_main .gform_wrapper input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #666;
+}
+
+#xmas_calendar_main .gform_wrapper input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #666;
+}
+
+.xmas_calendar_single_inner .gform_description {
+  font-size: 14px;
+  margin-bottom: 1rem;
+  display: block;
+  color: #343434;
+  font-family: "XMAS_AsapRegular";
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_container_date input {
+  width: 100%;
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme .gfield input.large, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .gfield select.large, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_complex input, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_complex select, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_container_date input {
+  background-color: #ececec;
+  border: 0;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme .gfield_label, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_complex label, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_complex legend {
+  color: #343434;
+  font-size: 12px;
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme .ginput_full:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme #field_submit input, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .gform_footer input {
+  background-color: #d9e7f0 !important;
+  font-size: 18px;
+  min-width: 187px;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 14px 5px;
+  transition: 0.3s ease;
+  text-transform: none;
+  appearance: none;
+  font-family: 'Reenie Beanie';
+  font-weight: normal !important;
+  letter-spacing: 1px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme #field_submit input:hover, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .gform_footer input:hover {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.xmas_calendar_single_inner .gform_wrapper.gravity-theme .gform_footer, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .gform_page_footer {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.xmas_calendar_single_inner .gform_wrapper label {
+  font-size: 14px;
+  color: #343434;
+}
+
+/* THANK YOU PAGE */
+.xmas_calendar_share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.xmas_calendar_share a {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 90%;
+  background-color: #fff;
+  margin: 30px 3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.xmas_calendar_share a:hover {
+  filter: grayscale(1);
+  transform: scale(0.95);
+}
+
+#xmas_calendar_main.xmas_calendar_thankyou h1 {
+  font-size: 32px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.xmas_calendar_thankyou #xmas_calendar_wrapper h1 img {
+  margin: 50px auto;
+}
+
+.xmas_calendar_thankyou_content {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+
+/* RESPONSIVE */
+@media all and (max-width:1400px) {
+  .current_xmas_calendar_day:hover .door-front {
+    transform: rotateY(-100deg);
+  }
+
+  #xmas_calendar_wrapper {
+    padding: 15px 50px;
+  }
+}
+
+@media all and (max-width:1200px) {
+  .door {
+    min-height: 14.7vw;
+  }
+}
+
+@media all and (max-width:991px) {
+  .door_list li:nth-child(10) .door-front::after, .door_list li:nth-child(18) .door-front::before {
+    width: 90px;
+    height: 25px;
+  }
+
+  .xmas_calendar_thankyou#xmas_calendar_main {
+    background-image: url(../img/bg-mobile.jpg);
+  }
+
+  .xmas_calendar_single_inner .gform_wrapper.gravity-theme #field_submit input, .xmas_calendar_single_inner .gform_wrapper.gravity-theme .gform_footer input {
+    margin: auto;
+  }
+
+  .xmas_calendar_single_inner_right .gform_wrapper.gravity-theme .ginput_complex span:last-child {
+    margin-bottom: 0;
+    margin-top: 7px;
+  }
+
+  .xmas_calendar_single_inner_right .address_zip input {
+      margin-top: 6px !important;
+  }
+
+  .xmas_calendar_single_inner_right .address_zip {
+      margin-bottom: 0 !important;
+  }
+
+  .single-xmas-calendar {
+    background: url(../img/bg-mobile.jpg) no-repeat #d9e7f0;
+    background-position: center top;
+    background-size: 100% auto;
+    background-attachment: fixed;
+  }
+
+  .door_past b {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width:768px) {
+  .xmas_calendar_single_inner {
+    flex-wrap: wrap;
+  }
+
+  .xmas_calendar_single_inner_left, .xmas_calendar_single_inner_right {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .xmas_calendar_single_inner_right {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width:767px) {
+   .xmas_calendar_footer_mobile {
+      display: block !important;
+   }
+
+   #xmas_calendar_wrapper {
+    margin-top: 150px !important;
+}
+
+   .single-xmas-calendar #xmas_calendar_wrapper h1 img {
+      float: none;
+      margin-bottom: 0;
+   }
+
+   #xmas_calendar_main h1 {
+    font-size: 40px;
+   }
+
+   .xmas_calendar_footer_desktop {
+      display: none !important;
+  }
+
+  .xmas_calendar_thankyou h1 {
+    font-size: 20px;
+  }
+
+  .xmas_calendar_thankyou_content {
+    margin-bottom: 0;
+  }
+
+  .xmas_calendar_thankyou #xmas_calendar_wrapper h1 img {
+      margin: 0 auto 40px;
+  }
+  .door_list li:first-child .door-front::before {
+      background-position: center top;
+      width: 60px;
+      height: 60px;
+      top: -5px;
+      left: -11px;
+  }
+
+  #xmas_calendar_main {
+    background: url(../img/bg-mobile.jpg) no-repeat transparent;
+  }
+
+  /* GRID */
+  .door_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    grid-column-gap: 7px;
+    grid-row-gap: 7px;
+  }
+
+  .xmas_door_1 { grid-area: 1 / 1 / 2 / 2; }
+  .xmas_door_2 { grid-area: 1 / 2 / 2 / 3; }
+  .xmas_door_3 { grid-area: 2 / 1 / 3 / 3; }
+  .xmas_door_4 { grid-area: 3 / 1 / 4 / 2; }
+  .xmas_door_5 { grid-area: 3 / 2 / 4 / 3; }
+  .xmas_door_6 { grid-area: 4 / 1 / 5 / 2; }
+  .xmas_door_7 { grid-area: 4 / 2 / 5 / 3; }
+  .xmas_door_8 { grid-area: 5 / 1 / 6 / 2; }
+  .xmas_door_9 { grid-area: 5 / 2 / 6 / 3; }
+  .xmas_door_10 { grid-area: 6 / 1 / 7 / 2; }
+  .xmas_door_11 { grid-area: 6 / 2 / 7 / 3; }
+  .xmas_door_12 { grid-area: 7 / 1 / 9 / 3; }
+  .xmas_door_13 { grid-area: 9 / 1 / 10 / 2; }
+  .xmas_door_14 { grid-area: 9 / 2 / 10 / 3; }
+  .xmas_door_15 { grid-area: 10 / 1 / 11 / 2; z-index: 5;}
+  .xmas_door_16 { grid-area: 10 / 2 / 11 / 3; z-index: 10;}
+  .xmas_door_17 { grid-area: 11 / 1 / 12 / 2; }
+  .xmas_door_18 { grid-area: 11 / 2 / 12 / 3; }
+  .xmas_door_19 { grid-area: 12 / 1 / 13 / 2; z-index: 5;}
+  .xmas_door_20 { grid-area: 12 / 2 / 13 / 3; z-index: 10;}
+  .xmas_door_21 { grid-area: 13 / 1 / 14 / 2; }
+  .xmas_door_22 { grid-area: 13 / 2 / 14 / 3; }
+  .xmas_door_23 { grid-area: 14 / 1 / 15 / 2; }
+  .xmas_door_24 { grid-area: 14 / 2 / 15 / 3; }
+
+  .door {
+      min-height: 40.6vw;
+  }
+
+}
+
+@media all and (max-width:375px) {
+  .xmas_calendar_share a {
+    width: 40px;
+    height: 40px;
+  }
+}
