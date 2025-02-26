@@ -1,0 +1,55 @@
+#rcb_container
+{
+	position: absolute;
+	top: 0;
+	z-index: 10000;		/* Twenty Eleven #branding has z-index of 9999, so this has to be higher */
+	border-width: 0;
+}
+
+	#rcb_container.top-left
+	{
+		left: 0;
+	}
+	
+	#rcb_container.top-right
+	{
+		right: 0;
+	}
+	
+	#rcb_add-icon
+	{
+		display: none;
+		margin-right: 7px;
+	}
+	
+		#rcb_container.top-left #rcb_add-icon
+		{
+			float: right;
+		}
+		
+		#rcb_container.top-right #rcb_add-icon
+		{
+			float: left;
+		}
+
+/* Move to the bottom of the page on small screens */
+@media ( max-width: 755px ), ( max-device-width: 755px )
+{
+	#rcb_container.bottom
+	{
+		position: static;
+		top: auto;
+		right: auto;
+		z-index: auto;
+	}
+	
+		#rcb_container.top-left.bottom
+		{
+			float: left;
+		}
+		
+		#rcb_container.top-right.bottom
+		{
+			float: right;
+		}
+}
