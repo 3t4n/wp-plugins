@@ -1,0 +1,143 @@
+@keyframes float-labels {
+  0% {
+    opacity: 0;
+    color: #aaa;
+    top: 0.1em;
+    font-size: 1.5em; }
+
+  20% {
+    font-size: 1.5em;
+    opacity: 0; }
+
+  30% {
+    top: 0.1em; }
+
+  50% {
+    opacity: 0;
+    font-size: 0.85em; }
+
+  100% {
+    top: -1em;
+    opacity: 1; } }
+@-webkit-keyframes float-labels {
+  0% {
+    opacity: 0;
+    color: #aaa;
+    top: 0.1em;
+    font-size: 1.5em; }
+
+  20% {
+    font-size: 1.5em;
+    opacity: 0; }
+
+  30% {
+    top: 0.1em; }
+
+  50% {
+    opacity: 0;
+    font-size: 0.85em; }
+
+  100% {
+    top: -1em;
+    opacity: 1; } }
+/* set input color variables */
+/* misc */
+/* 
+* Extendable class for light input
+*/
+.ext-light-input, body #commentform input[type="text"], body #commentform input[type="email"], body #commentform input[type="tel"], body #commentform input[type="url"], body #commentform textarea {
+  /* default input style reset */
+  /* TODO more serious reset in future */
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  color: black;
+  line-height: normal;
+  /* default input style */
+  font-size: 1em;
+  color: #525252;
+  font-family: inherit;
+  font-weight: 100;
+  /* LABEL style */
+  /* TODO make label reset */
+  /* AS label */
+  /* AS placeholder */
+  /* highlight effect */ }
+  .ext-light-input + label, body #commentform input[type="text"] + label, body #commentform input[type="email"] + label, body #commentform input[type="tel"] + label, body #commentform input[type="url"] + label, body #commentform textarea + label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    top: -1em;
+    left: 0;
+    width: 100%;
+    height: auto;
+    cursor: text;
+    font-size: 0.75em;
+    font-family: inherit;
+    color: #aaaaaa;
+    /* spacing */
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    /* animation */
+    animation: float-labels 300ms none ease-out;
+    -webkit-animation: float-labels 300ms none ease-out;
+    animation-play-state: running !important;
+    -webkit-animation-play-state: running !important; }
+  .ext-light-input.empty + label, body #commentform input.empty[type="text"] + label, body #commentform input.empty[type="email"] + label, body #commentform input.empty[type="tel"] + label, body #commentform input.empty[type="url"] + label, body #commentform textarea.empty + label {
+    top: 0;
+    color: #b8b8b8;
+    font-size: 1em;
+    padding-top: 0.3em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    /* no animation */
+    animation: none;
+    -webkit-animation: none; }
+  .ext-light-input:not(.empty):focus + label, body #commentform input[type="text"]:not(.empty):focus + label, body #commentform input[type="email"]:not(.empty):focus + label, body #commentform input[type="tel"]:not(.empty):focus + label, body #commentform input[type="url"]:not(.empty):focus + label, body #commentform textarea:not(.empty):focus + label {
+    color: #389eb1; }
+
+/* 
+* Extendable class for light textarea
+*/
+/* TODO make more correct text positioning */
+textarea.ext-light-input, body #commentform textarea {
+  box-sizing: border-box;
+  resize: none;
+  height: 100%; }
+  textarea.ext-light-input + label, body #commentform textarea + label {
+    top: -1.8em; }
+  textarea.ext-light-input.empty + label, body #commentform textarea.empty + label {
+    padding-top: 0.2em; }
+
+body #commentform {
+  /* TODO make more correct text positioning */ }
+  body #commentform .input-container, body #commentform .textarea-container {
+    font-size: 17.6px;
+    padding: 0.2em 0.3em 0.3em 0.3em;
+    /* error */ }
+    body #commentform .input-container.error, body #commentform .textarea-container.error {
+      border-color: red; }
+  body #commentform .input-container {
+    border-bottom: 1px solid silver; }
+  body #commentform .textarea-container {
+    margin-top: 2em;
+    border: 1px solid silver;
+    padding-top: 0.25em; }
+
+/* v0.1 using padding on input element  */
+/*
+* Never manipulate with input/padding/border element combination
+if you need precise and predictable result
+.Takes all your time and leads nowhere - instead use a container.
+*/
+#comments #respond #commentform {
+  position: relative; }
+  #comments #respond #commentform p {
+    position: relative; }
