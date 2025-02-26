@@ -1,0 +1,276 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ .aigwl_current_short_code {
+    margin-bottom: 20px;
+}
+.aigwl-current-short-code-wrap {
+    display: flex;
+}
+.aigwl-current-short-code-wrap input:disabled {
+   color: rgb(44 51 56 / 78%);
+}
+img.aigwl-copy-to-clip {
+   width: 25px;
+   height: auto;
+   cursor: pointer;
+}
+.aigwl_style_4, .aigwl_style_3{
+   display:none;
+}
+.aigwl-text-copied-msg {
+    background: #5198d1ed;
+    color: #fff;
+    padding: 5px;
+    border: 1px;
+    border-color: #ffffff;
+    border-radius: 3px;
+}
+input.aigwl-layout-opt {
+    display: none;
+}
+.aigwl-layout-opt-img {
+    border: 1px solid #aebab6;
+}
+.aigwl-layout-opt-img.active {
+   border: 1px solid #4b5451;
+}
+.aigwl_row {
+   display: flex;
+   align-items: flex-start;
+}
+.aigwl_row_name {
+   padding: 20px 10px 20px 0;
+   width: 200px;
+   line-height: 1.3;
+   font-weight: 600;
+   font-size: 14px;
+   flex: 0 0 22%;
+}
+.aigwl_row_desc {
+   padding: 15px 10px;
+   line-height: 1.3;
+}
+.aigwl_preview_note{
+   display: flex;
+   flex-wrap: wrap;
+}
+.preview_note {
+    margin-top: 6px;
+    margin-left: 20px;
+}
+.aigwl_row label{
+   font-weight: 600;
+   font-size: 14px;
+   margin-bottom: 0;
+}
+.aigwl_row_desc input[type=radio] {
+   margin: 0 5px 0 0;
+}
+.aigwl_row input[type=text],.aigwl_row input[type=number], .aigwl_row select{
+   line-height: initial;
+   width: 240px;
+}
+#aigwl_gallery_admin h2 {
+   padding-bottom: 21px;
+   font-size: 30px;
+   font-weight: 600;
+}
+.aigwl_style_output {
+   position: absolute;
+   padding-left: 40px;
+   right: 20px;
+   width: 57%;
+}
+.aigwl_style_output img {
+   width: 100%;
+   box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+.aigwl-gallery-setting li.ui-sortable-handle {
+   display: inline-flex;
+}
+.aigwl-nav-tab-wrapper {
+   margin-bottom: 30px;
+}
+.aigwl_tab_information p {
+   font-size: 15px;
+}
+.aigwl_current_short_code h4 {
+   font-size: 1rem;
+}
+ul.aigwl_gallery_gallery_mtb.ui-sortable {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+ul.aigwl_gallery_gallery_mtb.ui-sortable li {
+    position: relative;
+    margin: 6.5px;
+}
+.aigwl-gallery a{
+   outline: none !important;
+}
+.aigwl_gallery_gallery_mtb li span, .aigwl_gallery_gallery_mtb li img {
+   display: inline-flex;
+   height: 136px;
+   width: 136px;
+   background-size: cover;
+   background-repeat: no-repeat; 
+   /*border-radius: 10px;*/
+   box-shadow: 0px 6px 10px rgb(0 0 0 / 20%);
+}
+/* The Modal (background) */
+.preview_modal {
+   display: none; 
+   position: fixed;
+   z-index: 9999; 
+   padding-top: 100px;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgb(0,0,0);
+   background-color: rgba(0,0,0,0.4);
+ }
+ /* Modal Content */
+ .preview-modal-content {
+   position: relative;
+   background-color: #fefefe;
+   margin: auto;
+   padding: 20px;
+   border-radius: 20px;
+   width: 60%;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+   -webkit-animation-name: animatetop;
+   -webkit-animation-duration: 0.4s;
+   animation-name: animatetop;
+   animation-duration: 0.4s
+ }
+ .preview-modal-body img {
+   margin: 20px 0px;
+}
+.warning_for_fullwidth, .warning_for_gallery_hover_effect{
+   margin-top: 10px;
+   font-size: 1.3rem !important;
+   font-weight: bold;
+   color:red;
+}
+ .popup {
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   display: none;
+ }
+ /* Popup inner div */
+ .popup-content {
+   width: 600px;
+   margin: 0 auto;
+   padding: 40px;
+   margin-top: 100px;
+   border-radius: 3px;
+   background: #fff;
+   position: relative;
+ }
+ /* Popup close button */
+ .closeBtn {
+   position: absolute;
+   top: 5px;
+   right: 12px;
+   font-size: 17px;
+   color: #7c7575;
+   text-decoration: none;
+ }
+ /* Add Animation */
+ @-webkit-keyframes animatetop {
+   from {top:-300px; opacity:0} 
+   to {top:0; opacity:1}
+ }
+ 
+ @keyframes animatetop {
+   from {top:-300px; opacity:0}
+   to {top:0; opacity:1}
+ }
+ 
+ /* The Close Button */
+ .preview_close {
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+   line-height: 23px;
+ }
+ .preview_gallerys {
+   background: #2271b1;
+   color: #fff;
+   padding: 6px;
+   margin-left: 10px;
+   border-radius: 3px;
+   cursor: pointer;
+}
+.preview_gallerys:hover {
+   color: #fff;
+   background: #135e96;
+}
+ .preview_close:hover,
+ .preview_close:focus {
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ .preview-modal-body {padding: 2px 16px;}
+
+ /* custom file upload  */
+ .button.aigwl_gallery_upload_gallery_button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 96%;
+    max-width: 100%;
+    padding: 25px;
+    border: 1px dashed rgb(34 113 177);
+    border-radius: 3px;
+    transition: 0.2s;
+   flex-wrap: wrap;
+   justify-content: center;
+ }
+ .button.aigwl_gallery_upload_gallery_button:focus {
+     outline: none;
+     box-shadow: none;
+ }
+
+ a.aigwl_gallery_gallery_remove {
+   position: absolute;
+   right: 5px;
+   color: #fff;
+   text-decoration: none;
+   height: 20px;
+   width: 20px;
+   font-size: 20px;
+   line-height: 17px;
+   top: 5px;
+   background-color: #2271b1;
+   border-radius: 50%;
+   display: inline-block;
+   margin: 0;
+   padding: 2px;
+   text-align: center;
+   box-shadow: 1px 1px 7px #00000052;
+   font-weight: 800;
+}
+a.aigwl_gallery_gallery_remove:hover{
+   background-color: #ffffffd4;
+   color:  #2271b1;
+}
+@media (max-width: 1024px) {
+	.aigwl_row_desc{
+		display:unset;
+	}
+	.preview_note{
+		margin-left:0px;
+		margin-top:20px;
+	}
+}
