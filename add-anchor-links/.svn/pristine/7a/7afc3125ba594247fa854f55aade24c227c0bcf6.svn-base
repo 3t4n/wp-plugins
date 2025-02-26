@@ -1,0 +1,70 @@
+﻿=== Add Anchor Links ===
+Contributors: vyskoczilova
+Requires at least: 4.8
+Tested up to: 6.7
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: anchor, anchor links, content links, content, headings
+Stable tag: 1.0.4
+Requires PHP: 7.1
+
+Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
+
+== Description ==
+
+Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
+
+Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)!
+
+=== Features ===
+* Select post type where the anchor links will be added.
+* Disable CSS.
+
+=== Compatibility ===
+* PHP PHP 7 & PHP 8
+
+
+== Installation ==
+
+1. Follow the standard [WordPress plugin installation procedere](http://codex.wordpress.org/Managing_Plugins).
+2. When installed, go to `Settings -> Add Anchor Links` and when should be applied.
+
+
+== Frequently asked questions ==
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/add-anchor-links).
+
+= I found a bug. Where should I post it? =
+
+I personally prefer GitHub, to keep things straight. The plugin code is here: [GitHub](https://github.com/vyskoczilova/add-anchor-links)
+But you may use the WordPress Forum as well.
+
+= I found a bug and fixed it. How can I contribute? =
+
+Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) or—if you are working on a cloned repository—send me a pull request.
+
+
+== Changelog ==
+
+= 1.0.4 = (2021-03-07)
+* Make `Kybernaut\AddAnchorLinks::add_anchors( $string )` function available for custom calls
+
+= 1.0.3 = (2021-03-07)
+* Fix: Use escaping attribute on admin screens
+* Add PHPCS & simple PHPUnit test
+* Use Travis CI/CD (PHPCS, PHPUnit)
+
+= 1.0.2 (2020-01-13) =
+* Fix: Fix link position when header has attributes ([PR#1](https://github.com/vyskoczilova/add-anchor-links/pull/1) by [@a-mt](https://github.com/a-mt))
+
+= 1.0.1 (2018-02-12) =
+* Fix: Few typos in readme files.
+* Fix: Post types error.
+* Added: Notice about settings shown on plugin activation.
+* Added: Constant ADD_ANCHOR_LINKS_DONT_LOAD_CSS (see Github).
+* Added: Banner & icon image to the WP repository (by [Dušan Konečný](http://abmanufaktura.cz)).
+
+= 1.0.0 (2018-02-08) =
+* Initial release
