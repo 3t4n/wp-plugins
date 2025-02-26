@@ -1,0 +1,9 @@
+jQuery(document).ready(function(){
+	jQuery('#insert-edit-link')
+		.mouseover(function(){
+			jQuery(this).stop().animate({'bottom':0});
+		})
+		.mouseout(function(){
+			jQuery(this).stop().animate({'bottom':-32});
+		});
+});
