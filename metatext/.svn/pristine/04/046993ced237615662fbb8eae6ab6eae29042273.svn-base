@@ -1,0 +1,303 @@
+import 'core-js/es/object';
+import 'core-js/es/function';
+
+import { textVide } from "text-vide";
+
+import metaReadHtml from '../htmlparts/metabutton.template.html';
+import sass from "../scss/all.scss";
+
+import { GetAppState, CLASS_INIT_ACCESS_TOOL} from "./contants";
+import { htmlEntitiesModifier } from './helpers/utils';
+
+
+const fillTemplate = function (templateString, templateVars) {
+  const func = new Function(
+    ...Object.keys(templateVars),
+    "return `" + templateString + "`;"
+  );
+  return func(...Object.values(templateVars));
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const MetaTextWP = (function () {
+
+  function MetaTextWP() {
+    (() => {
+      const startUpInterval = setInterval(() => {
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "loading" ||
+          document.readyState === "interactive"
+        ) {
+          clearInterval(startUpInterval);
+          window.MetaTextWP.run();
+        }
+      }, 1000);
+    })();
+  }
+
+  MetaTextWP.prototype.run = function () {
+    window.MetaTextWP.setDefaultAppState();
+    window.MetaTextWP.processCreatedToolBox();
+    this.buildToolBox();
+  };
+
+  MetaTextWP.prototype.processCreatedToolBox = function () {
+    const mediaMatch = window.matchMedia("(pointer:none), (pointer:coarse)");
+    window.MetaTextWP_APPSTATE.isMobile = mediaMatch.matches;
+    this.initialApp();
+  };
+
+  MetaTextWP.prototype.buildToolBox = function () {
+    // @ts-ignore: Unreachable code error
+    const obj = appLocalizerMetaTextFrontEnd ?? null;
+    
+    if (!obj) {
+      return;
+    }
+
+    if (window.MetaTextWP_APPSTATE.isMobile && obj.mobile == 'hide') {
+      return;
+    }
+
+    const metaReadHtmlBox = fillTemplate(metaReadHtml, obj);
+    const styleTag = document.createElement("style");
+    styleTag.textContent = sass;
+    document.head.appendChild(styleTag);
+
+    const createToolBox = document.createElement("div");
+    createToolBox.id = CLASS_INIT_ACCESS_TOOL;
+    createToolBox.innerHTML = metaReadHtmlBox;
+
+    // createToolBox.innerHTML = htmlToolBox;
+    document.body.insertBefore(createToolBox, document.body.firstChild);
+
+    // Event Listeners
+    const metaReadBox = document.getElementById(
+      "meta-text__general-switch-button"
+    );
+
+    if (!metaReadBox) {
+      return;
+    }
+
+    // Positioning
+    const { verticalAlignment, horizontalAlignment, description } = obj;
+
+    // custom adjustment
+    const margins = JSON.parse(obj.margins);
+    const horizontalMargin = parseInt(margins.horizontal);
+    const verticalMargin = parseInt(margins.vertical);
+
+    // Text Description 
+    (document.getElementById('meta-text__textContent') as HTMLElement).innerText = description;
+
+    // Button Width
+    let buttonWidth = parseInt(obj.buttonWidth);
+    if (buttonWidth < 68) {
+      buttonWidth = 68;
+    }
+
+    (document.querySelector('.meta-text__switch') as HTMLLabelElement).style.width = buttonWidth+'px';
+
+    // Slider Width
+    let sliderWidth = buttonWidth - 34;
+    window.MetaTextWP_APPSTATE.sliderWidth = sliderWidth;
+
+    // Overwrite Default Offset
+    if (horizontalMargin > 0) { 
+      metaReadBox.style[horizontalAlignment] = `${horizontalMargin}px`;
+    }
+
+    if (verticalMargin > 0) {
+      metaReadBox.style[verticalAlignment] = `${verticalMargin}px`;
+    }
+
+    window.MetaTextWP.defaultLoadState();
+    window.addEventListener("click", window.MetaTextWP.manageClick.bind(this));
+  };
+
+  MetaTextWP.prototype.defaultLoadState = function () {
+    
+    // Default State on Load    
+    const local = localStorage.getItem("meta-text-states");   
+    let prevState = {
+      buttonActive: false,
+    }; 
+    if (local) {
+      prevState = JSON.parse(local);
+    }
+
+    if (prevState.buttonActive) {
+      // keep logic on
+      window.MetaTextWP.easyReadPathFinder();
+      // keep style on
+      const checkbox = document.getElementById('meta-text__checkbox') as HTMLInputElement;
+      checkbox.checked = true;
+      window.MetaTextWP.sliderTransformToggle();
+    }
+  }
+
+  MetaTextWP.prototype.manageClick = function (e) {
+    
+    const target = e.target as HTMLElement;
+    
+    const metaTextBox = document.getElementById(
+      "meta-text__general-switch-button"
+    );
+
+    if (target.tagName !== 'INPUT') {
+      return;
+    }
+
+    if (!metaTextBox) {
+      return;
+    }
+
+    const local = localStorage.getItem("meta-text-states");
+    let prevState = {
+      buttonActive: false,
+    };
+
+    if (local) {
+      prevState = JSON.parse(local);
+    }
+
+    if (metaTextBox?.contains(target)) {
+      // Add Local Storage on current settings
+      localStorage.setItem("meta-text-states", JSON.stringify({
+        ...prevState, 
+        buttonActive: !prevState.buttonActive
+      }));
+      // Session store current data
+      if (!prevState.buttonActive) {
+        window.MetaTextWP.easyReadPathFinder();
+      } else {                
+        if (window.MetaTextWP.prevState == '') {
+          window.location.reload();
+          return;
+        }
+        
+        setTimeout( () => (
+          (document.querySelector('body') as HTMLElement).innerHTML = window.MetaTextWP.prevState,
+          window.MetaTextWP.prevState = ''
+        ), 500);
+        
+      }
+      // Toggle Button Slider
+      window.MetaTextWP.sliderTransformToggle();
+    }  
+  }
+
+  MetaTextWP.prototype.sliderTransformToggle = function () {
+    const checkbox = document.querySelector(`#${CLASS_INIT_ACCESS_TOOL} input`) as HTMLInputElement;
+    const slider = checkbox.nextElementSibling?.firstElementChild as HTMLElement;
+
+    if (checkbox.checked) {
+      slider.style.transform = `translateX(${window.MetaTextWP_APPSTATE.sliderWidth}px)`;
+    } else {
+      slider.style.transform = 'translateX(0px)';
+    }
+  }
+
+  MetaTextWP.prototype.prevState = '';
+  MetaTextWP.prototype.easyReadPathFinder = function () {
+
+    // @ts-ignore: Unreachable code error
+    const {selector} = appLocalizerMetaTextFrontEnd ?? {};
+    const mainSelector = !selector? 'body' : selector;
+    const body = document.querySelector(mainSelector) as HTMLElement;
+
+    window.MetaTextWP.prevState = 
+      (document.querySelector('body') as HTMLElement)?.innerHTML ?? '';
+
+    body && window.MetaTextWP.addEasyReading(body);
+  }
+  
+  MetaTextWP.prototype.addEasyReading = function (item: HTMLElement) {
+    if (item.id === CLASS_INIT_ACCESS_TOOL) {
+      return;
+    }
+
+    if (item.children.length) {
+      Array.from(item.children).forEach((ch) => {
+        window.MetaTextWP.addEasyReading(ch);
+      });
+    }
+    
+    const textContent = item.innerHTML ?? '';
+    const firstNodeValue = item.firstChild?.nodeValue?.trim() ?? '';
+    const lastNodeValue = item.lastChild?.nodeValue?.trim() ?? '';
+    
+    if (
+      (firstNodeValue !== '' || lastNodeValue !== '') &&
+      !window.MetaTextWP_APPSTATE.easyReadElementsExclude.split(',').includes(item.tagName.toLowerCase())
+    ) {
+
+      const strippedContent = textContent
+        .replace(/<b>(.*?)<\/b>/ig, '')
+        .replace(/<([^>]+?)([^>]*?)>(.*?)<\/\1>/ig, '')
+        .replace(/<([^>]+?)([^>]*?)>/ig, ' ')
+        .trim()
+      
+      const fixatedContent = strippedContent.split(' ').reduce((accumultor, word) => {
+        const trimedWord = word.replace(/^\s+|\s+$/g, '')
+        if (trimedWord !== '') {
+          const fixatedWord = textVide(htmlEntitiesModifier(trimedWord), {
+            fixationPoint: 3
+          })
+          const newWord = word.replace(trimedWord, htmlEntitiesModifier(fixatedWord, false))
+          accumultor += newWord
+        }
+
+        return accumultor + ' '
+      }, '').trim()
+
+      // item.innerHTML = textContent.replace(strippedContent, fixatedContent)
+      
+      // Rare Senarios
+      let newTextContent = textContent;
+      const chunkLen = 2; 
+      const strippedArr = strippedContent.split(' ');
+      const fixatedArr = fixatedContent.split(' ');
+      for (let i =0; i < strippedArr.length; i += chunkLen) {
+        const StripChunkStr = strippedArr.slice(i,  i + chunkLen).join(' ');
+        const fixatedChunkStr = fixatedArr.slice(i,  i + chunkLen).join(' ');
+        newTextContent = newTextContent.replace(StripChunkStr, fixatedChunkStr)
+      }
+
+      item.innerHTML = newTextContent;
+    }
+  }
+
+  MetaTextWP.prototype.setDefaultAppState = function () {
+    window.MetaTextWP_APPSTATE = GetAppState();
+  };
+
+  MetaTextWP.prototype.initialApp = function () {
+    let lastUrl = location.href;
+
+    const mutaitonObserverCallback = function (mutations) {
+      const url = location.href;
+
+      if (url !== lastUrl) {
+        lastUrl = url;
+        window.MetaTextWP.easyReadPathFinder();
+      }
+    }
+
+    const observer = new MutationObserver(mutaitonObserverCallback);
+    observer.observe(document.documentElement, {
+      attributes: false,
+      characterData: false,
+      childList: true,
+      subtree: true,
+      attributeOldValue: false,
+      characterDataOldValue: false,
+    });
+
+  };
+
+  window.MetaTextWP = MetaTextWP;
+})();
+

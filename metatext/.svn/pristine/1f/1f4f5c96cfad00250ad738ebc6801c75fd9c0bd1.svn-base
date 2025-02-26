@@ -1,0 +1,64 @@
+<!doctype html><html lang=""><head><meta charset="utf-8"><title>Accessibility Toolbar Plugin</title><meta name="description" content=""><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><style>@media (min-width: 500px) {
+            body {
+                color: blue;
+            }
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 18px;
+            }
+        }
+        body {
+            background-color: #ddd;
+            font-size: 40px;
+            transition: all 1s;
+        }
+
+        a {
+            transition: all 1s;
+        }
+
+        .hover_me:hover {
+            color: green;
+        }
+
+        .label, label:not(.variant__button-label) {
+            text-transform: uppercase;
+            letter-spacing: .3em;
+            font-family: Raleway;
+            font-weight: 400;
+        }</style><script defer="defer" src="meta-text.min.js"></script></head><body><img src="https://picsum.photos/200" alt="sample text"> <img src="https://picsum.photos/200" alt=""> <img src="https://picsum.photos/200" alt=""><h1>H1 ndsadsda</h1><h2>H2 sdfskafksdjf</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><button id="button">Open dialog</button> <button id="button2">Open dialog2</button><dialog id="modal"><form><small>Try navigating through inputs with TAB</small><p><label>Username</label> <input/></p><p><label>Password</label> <input type="password"/></p><p><label>Remember me</label> <input type="checkbox"/></p><p tabindex="100"></p><p tabindex="100"></p><p tabindex="100">a</p><p tabindex="100">&nbsp;</p><p tabindex="100">&nbsp;&nbsp;&nbsp;&nbsp;</p><input type="submit" value="Login"/></form></dialog><div id="modal2" style="position: absolute;
+    background-color: rgba(0,225,0, 0.6);
+    top: 0; left: 0; height: 100%; width: 100%; display: none"><button id="button_close_1">Close dialog</button><div id="button_close_2">close-me</div></div><div class="hover_me" tabindex="1" role="menuitem">test</div><div id="hover_me_lol" tabindex="2">test</div><div id="hover_me3" tabindex="3">test</div><div id="hover_me4" tabindex="4">test</div><div style="height: 20000px; background-color: red;"></div><div><a href="#" style="position: absolute; top: -1000px"><img src="https://picsum.photos/200" alt="sample text"> </a><a href="#" style="position: absolute; top: -1000px" alt="test"><img src="https://picsum.photos/200" alt="sample text"></a></div><script>var button = document.getElementById('button');
+    var modal = document.getElementById('modal');
+    button.onclick = () => {
+        modal.showModal();
+    }
+
+    var button2 = document.getElementById('button2');
+    var modal2 = document.getElementById('modal2');
+    var button_close_2 = document.getElementById('button_close_2');
+    button2.onclick = () => {
+        modal2.style.display = "block";
+    }
+    button_close_2.onclick = () => {
+        modal2.style.display = "none";
+    }
+
+    var hover2 = document.getElementById('hover_me_lol');
+    hover2.onclick = () => {
+        hover2.style.color = "red";
+    }
+    hover2.click = () => {
+        hover2.style.color = "blue";
+    }
+    var hover3 = document.getElementById('hover_me3');
+    hover3.onclick = function An(){}
+    hover3.click = () => {
+        hover2.style.color = "yellow";
+    }
+    var hover4 = document.getElementById('hover_me4');
+    hover4.click = () => {
+        hover2.style.color = "green";
+    }</script><script>window.EQUALLY_AI_API_KEY="YsdBgTp1S6lgywGPYMP5";var intervalId=setInterval(function(){EquallyAi&&(clearInterval(intervalId),window.EquallyAi=new EquallyAi)},500);</script></body></html>

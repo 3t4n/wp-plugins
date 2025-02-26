@@ -1,0 +1,39 @@
+module.exports = {
+  root: true,
+  overrides: [
+    {
+      files: ["app/**/*.ts", "app/**/*.tsx"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+      parserOptions: {
+        project: ["./tsconfig.json"], // Specify it only for TypeScript files
+      },
+      rules: {
+        // TODO: Remove in future
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/restrict-plus-operands": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+      },
+    },
+    {
+      files: ["./*.js"],
+      env: {
+        node: true,
+      },
+      extends: [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+      ],
+      parserOptions: {
+        ecmaVersion: 2020,
+      },
+      plugins: ["import"],
+    },
+  ],
+};

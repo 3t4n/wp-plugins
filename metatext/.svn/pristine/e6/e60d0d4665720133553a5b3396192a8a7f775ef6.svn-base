@@ -1,0 +1,112 @@
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const fs = require("fs");
+const posthtml = require("posthtml");
+const inlineSVG = require("posthtml-inline-svg");
+
+var dotenv = require("dotenv").config({ path: __dirname + "/.env" });
+var fileContent = fs.readFileSync("VERSION", "utf-8");
+var lines = fileContent.split("\n");
+
+module.exports = (_, argv) => ({
+  entry: "./app/js/common.ts",
+  output: {
+    filename: "meta-text.min.js",
+    path: path.resolve(__dirname, "doc/"),
+  },
+  devServer: {
+    port: 3001,
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify("Widget Version " + lines[0]),
+      "process.env": JSON.stringify(dotenv.parsed),
+    }),
+    new HtmlWebpackPlugin({
+      template: "app/index.html",
+    }),
+  ],
+  optimization: {
+    minimize: argv.mode === "production",
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          keep_classnames: true,
+          keep_fnames: true,
+        },
+      }),
+    ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/i,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+        exclude: /(?!\.template\.html)$/i,
+        options: {
+          sources: false,
+          minimize: true,
+        },
+      },
+      {
+        test: /\.template\.html$/i,
+        loader: "html-loader",
+        options: {
+          sources: false,
+          minimize: true,
+          /* Preprocess template.html to inline SVG */
+          preprocessor: async (content, loaderContext) => {
+            return await posthtml(
+              inlineSVG({
+                cwd: path.resolve("src"),
+                tag: "icon",
+                attr: "src",
+                svgo: {
+                  removeDimensions: true,
+                },
+              })
+            )
+              .process(content)
+              .then((result) => result.html)
+              .catch((error) => {
+                loaderContext.emitError(error);
+                return content;
+              });
+          },
+        },
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["css-loader", "sass-loader"],
+      },
+      {
+        test: /\.svg$/,
+        loader: "svg-inline-loader",
+      },
+      {
+        test: /\.(cur|png|jpg|jpeg|gif)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]",
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]",
+        },
+      },
+    ],
+  },
+});

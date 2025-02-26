@@ -1,0 +1,13 @@
+export {};
+
+declare global {
+  interface FontFaceSet extends Iterable<FontFace> {
+    readonly status: FontFaceSetStatus;
+    readonly ready: Promise<FontFaceSet>;
+    add(font: FontFace): void;
+    check(font: string, text?: string): boolean; // throws exception
+    load(font: string, text?: string): Promise<FontFace[]>;
+    delete(font: FontFace): void;
+    clear(): void;
+  }
+}
