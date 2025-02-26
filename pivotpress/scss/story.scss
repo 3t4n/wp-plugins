@@ -1,0 +1,67 @@
+.pivotpress-story {
+  .story-title {
+    font-size: 1.2em;
+  }
+
+  &.state-unscheduled {
+    border-left: 10px solid $light-blue;
+  }
+
+  &.state-unstarted {
+    border-left: 10px solid $light-grey-blue;
+  }
+
+  &.state-planned {
+    border-left: 10px solid $light-grey;
+  }
+
+  &.state-started {
+    border-left: 10px solid $lighter-yellow;
+  }
+
+  &.state-finished {
+    border-left: 10px solid $light-yellow;
+  }
+
+  &.state-delivered {
+    border-left-width: 10px;
+    border-right-width: 0px;
+    border-left-style: solid;
+    -webkit-border-image:
+            -webkit-gradient(linear, 0 0, 0 100%, from($light-red), to($light-green)) 1 100%;
+    -webkit-border-image:
+            -webkit-linear-gradient($light-red, $light-green) 1 100%;
+    -moz-border-image:
+            -moz-linear-gradient($light-red, $light-green) 1 100%;
+    -o-border-image:
+            -o-linear-gradient($light-red, $light-green) 1 100%;
+    border-image:
+            linear-gradient($light-red, $light-green) 1 100%;
+  }
+
+  &.state-rejected {
+    border-left: 10px solid $light-red;
+  }
+
+  &.state-accepted {
+    border-left: 10px solid $light-green;
+  }
+
+  .estimate {
+    font-size: 1em;
+    display: inline-block;
+    width: 1.6em;
+    text-align: center;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .story-meta {
+    text-align: right;
+  }
+}
+
