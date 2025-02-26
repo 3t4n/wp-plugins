@@ -1,0 +1,134 @@
+@import "media-queries.scss";
+$gutter: 15px;
+
+.slboxs {
+    position:fixed;
+    top: 120px;
+    color: #000;
+    z-index: 99999;
+    width: 300px;
+    &--disable_on_mobile {
+        @include mobile-landscape-and-below {
+            display: none;
+        }
+    }
+    
+    /* General */
+    &__container {
+    }
+    &__label {
+        background-size: 35px auto;
+        height: 35px;
+        width: 35px;
+        position: absolute;
+        top: 0;
+        cursor: pointer;
+        span {
+            display: none;
+        }
+    }
+    &__inside {
+        padding: 0;
+        border: 1px solid #3B5998;
+        background: #fff;
+        width: 300px;
+        height: 400px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        &.slboxs__youtube {
+           height: 250px; 
+        }
+    } 
+    
+    &__container {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+    /* Twitter */
+    &__twitter {
+        &__container {
+            top: 3*$gutter;
+            &.slboxs__big-trans, &.slboxs__big-fill {
+                top: 95px;
+            }
+        }
+    }
+
+    /* YouTube */
+    &__youtube {
+        &__container {
+            top: 6*$gutter;
+            &.slboxs__big-trans, &.slboxs__big-fill {
+                top: 190px;
+            }
+        }
+    }
+    
+}
+
+    /* Facebook */
+    $types: (
+        'facebook', 
+        'twitter', 
+        'youtube'
+    );
+    @each $type in $types {
+    .slboxs__#{nth($type, 1)} {
+        
+        &__container {
+            &-style {
+                &-small{
+                    &-fill-left .slboxs__label, &-fill-right .slboxs__label {
+                        background: url(../images/#{nth($type, 1)}-small-fill.png) no-repeat scroll transparent;
+                        background-image: url(../images/#{nth($type, 1)}-small-fill.svg), none;
+                    }
+                    &-trans-left .slboxs__label, &-trans-right .slboxs__label {
+                        background: url(../images/#{nth($type, 1)}-small-trans.png) no-repeat scroll #fff;
+                        background-image: url(../images/#{nth($type, 1)}-small-trans.svg), none;
+                    }
+                    &-trans-left .slboxs__label, 
+                    &-fill-left .slboxs__label {
+                        margin-right: -35px;
+                        
+                    }
+                    &-trans-right .slboxs__label, 
+                    &-fill-right .slboxs__label {
+                        margin-left: -35px;
+                    }
+                }
+                &-big{
+                    &-fill {
+                        &-left .slboxs__label {
+                            background: url(../images/#{nth($type, 1)}-big-fill-left.png) no-repeat scroll transparent;
+                            background-image: url(../images/#{nth($type, 1)}-big-fill-left.svg), none;
+                            height: 92px;
+                            margin-right: -35px;
+                        }
+                        &-right .slboxs__label {
+                            background: url(../images/#{nth($type, 1)}-big-fill-right.png) no-repeat scroll transparent;
+                            background-image: url(../images/#{nth($type, 1)}-big-fill-right.svg), none;
+                            height: 92px;
+                            margin-left: -35px;
+                        }
+                    }
+                    &-trans {
+                        &-left .slboxs__label {
+                            background: url(../images/#{nth($type, 1)}-big-trans-left.png) no-repeat scroll #fff;
+                            background-image: url(../images/#{nth($type, 1)}-big-trans-left.svg), none;
+                            height: 92px;
+                            margin-right: -35px;
+                        }
+                        &-right .slboxs__label {
+                            background: url(../images/#{nth($type, 1)}-big-trans-right.png) no-repeat scroll #fff;
+                            background-image: url(../images/#{nth($type, 1)}-big-trans-right.svg), none;
+                            height: 92px;
+                            margin-left: -35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    }
