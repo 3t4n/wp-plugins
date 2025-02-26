@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Insert youtube video</title>
+<style>
+body,input{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+}
+
+table div{
+float:left;
+margin:3px;
+}
+
+table span{display:block;background:#bbb;cursor:pointer;float:left;clear:left;margin-top:1px;color:#EEE;font-size:9px}
+
+table img {width:85px;height:48px;padding:4px;cursor:pointer;background:#bbb}
+th {vertical-align:top;text-align:right;}
+td{text-align:left}
+label{cursor:pointer}
+input{padding:2px 5px}
+input[type='button']{
+	border:1px solid #bbb;
+	border-radius:5px;
+	padding:2px 10px;
+	cursor:pointer;
+	}
+a{color:#990000;text-decoration:none}	
+
+.searchVResults img{
+	float:left;
+	width:120px;
+	cursor:pointer;
+}
+.searchVResults .vItemDiv{margin-left:150px;}
+.searchVResults ol{list-style:none};
+li.vItemLi{
+	overflow:hidden;
+	display:block;
+	padding:5px;
+	border:1px solid #f00;
+	height:100px;
+}
+</style>
+<script type="text/javascript">
+function $(ob){
+return document.getElementById(ob);
+}
+
+var youtubeUrl="http://www.youtube.com/embed/";
+var youtubeImg="http://img.youtube.com/vi/";
+var bgC = "#bbb";
+var selBgC = "#b00";
+
+function getDesc(url,tp)
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  { xmlhttp=new XMLHttpRequest();}
+else
+  { xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+		if (tp=="desc")
+		fillDesc(xmlhttp.responseText);
+		else
+		fillSearch(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+
+function changeVideo(){
+	if ($("vUrl").value!="" && $("vUrl").value.indexOf("v=")>-1 && $("vUrl").value.indexOf("youtube.com")>-1){
+		url = $('vUrl').value
+		results = url.match("[\\?&]v=([^&#]*)");
+		thevId = ( results === null ) ? url : results[1];	
+		$("vId").value = thevId;
+		if($("youtubVd").src!=youtubeUrl+thevId){
+		$("vFUrl").value = youtubeUrl+thevId
+		$("youtubVd").src=youtubeUrl+thevId;
+		$("yImg1").src=youtubeImg+thevId+"/0.jpg";
+		$("yImg2").src=youtubeImg+thevId+"/1.jpg";
+		$("yImg3").src=youtubeImg+thevId+"/2.jpg";
+		selThisSize($("vSize1"))
+		selThisImg($("yImg1"))
+		}
+	}	
+
+getDesc("http://gdata.youtube.com/feeds/api/videos/"+thevId+"?v=2&alt=json","desc");
+}
+
+function fillDesc(vd){
+	var vdesc = JSON.parse(vd);
+	$("vTitle").value = vdesc.entry.title.$t
+	$("vDesc").value = vdesc.entry.media$group.media$description.$t
+}
+
+function selThisSize(obj){
+$("vSize1").style.backgroundColor = bgC;	
+$("vSize2").style.backgroundColor = bgC;	
+$("vSize3").style.backgroundColor = bgC;	
+$("vSize4").style.backgroundColor = bgC;	
+
+if (obj.tagName=="SPAN"){
+obj.style.backgroundColor = selBgC;
+$("vWidth").value = ""
+$("vHeight").value = ""
+var wh=obj.getAttribute("data-wh").split("x");
+$("vWidth").value = wh[0]
+$("vHeight").value = wh[1]
+}
+else{
+	if(obj.id=="vWidth"){
+		$("vHeight").value = Math.floor($("vWidth").value/1.777)
+	}	
+}
+}
+
+function selThisImg(obj){
+$("vImg").value = $("yImg1").src
+$("yImg1").style.backgroundColor = bgC;	
+$("yImg2").style.backgroundColor = bgC;	
+$("yImg3").style.backgroundColor = bgC;
+obj.style.backgroundColor = selBgC;
+$("vImg").value = obj.src
+}
+
+function selimgSize(){
+$("imHeight").value = Math.floor($("imWidth").value/1.777)
+}
+
+function insertVideo(){
+if($("vUrl").value!=""){	
+	var theFinalVideo="";
+	var vInsertAs = $("vInsertAs").value;
+	switch (vInsertAs)
+  {
+		case "embed":
+			theFinalVideo = '<iframe style="width:'+$("vWidth").value+'px;height:'+$("vHeight").value+'px" width="'+$("vWidth").value+'" height="'+$("vHeight").value+'" src="'+$("vFUrl").value+'" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe>';
+		break;
+		case "shortCode":
+			theFinalVideo = '[am_youtube]'+$("vWidth").value+'|'+$("vHeight").value+'|'+$("vId").value+'[/am_youtube]';
+		break;
+		case "img":
+			theFinalVideo = '<a href="'+$("vFUrl").value+'?TB_iframe=true&width='+$("vWidth").value+'&height='+$("vHeight").value+'" class="thickbox" title="'+$("vTitle").value.replace(/"/g,"&quot;")+'">'
+			+'<img width="'+$("imWidth").value+'" height="'+$("imHeight").value+'" src="'+$("vImg").value+'" /></a>';
+		break;
+		case "imgLink":
+			theFinalVideo = '<a href="'+$("vUrl").value+'">'
+			+'<img width="'+$("imWidth").value+'" height="'+$("imHeight").value+'" src="'+$("vImg").value+'" title="'+$("vTitle").value.replace(/"/g,"&quot;")+'"/></a>';
+		break;
+		case "link":
+			theFinalVideo = '<a href="'+$("vUrl").value+'">'+$("vTitle").value.replace(/"/g,"&quot;")+'</a>';
+		break;
+}
+
+	if($("insertAfBef").value!=""){
+	if($("insertAfBef").value=="after")
+	theFinalVideo += "<br /><br />"+$("vDesc").value;
+	else
+	theFinalVideo = $("vDesc").value+"<br /><br />"+theFinalVideo;
+	}
+	
+if($('vTitleInsert').checked==true){	
+window.top.document.forms['post'].post_title.focus();
+window.top.document.forms['post'].post_title.value = $("vTitle").value;
+}
+window.parent.tinyMCE.activeEditor.focus();
+window.parent.tinyMCE.execCommand('mceInsertContent',false,theFinalVideo);
+window.parent.tb_remove();
+}
+}
+
+/*search box section*/
+function switchBox(bx,obj,vID){
+$('youtubeMain').style.display = 'none';
+$('searchBox').style.display = 'none';
+$(bx).style.display = 'block';
+$('youtubeMainBtn').style.color = '#000';
+$('searchBoxBtn').style.color = '#000';
+$(obj).style.color ="red"
+if (typeof(vID)!="undefined"){
+$("vUrl").value = "http://youtube.com/watch/?v=" + vID;
+changeVideo();
+}
+}
+
+var srchSt = 1;
+function doSearch(tp){
+if ($("q").value==""){
+	alert("Search term please.");
+	return false;
+}
+if (tp=="srch"){
+srchSt =1;
+$("searchVResults").innerHTML = "";
+}
+var lnk = "https://gdata.youtube.com/feeds/api/videos?q="+$("q").value+"&orderby="+$("orderBy").value+"&start-index="+srchSt+"&max-results=20&v=2&alt=jsonc";
+getDesc(lnk,"srch");
+srchSt = srchSt+10;
+}
+
+function secondsToTime(secs)
+{
+    var hours = Math.floor(secs / (60 * 60));
+   
+    var divisor_for_minutes = secs % (60 * 60);
+    var minutes = Math.floor(divisor_for_minutes / 60);
+ 
+    var divisor_for_seconds = divisor_for_minutes % 60;
+    var seconds = Math.ceil(divisor_for_seconds);
+   
+    var obj = hours+":"+minutes+":"+seconds;
+    return obj;
+}
+
+
+function fillSearch(srch){
+var vdSrch = JSON.parse(srch);
+if (typeof(vdSrch.data.items)!='undefined'){
+var finalV = "<ol>";
+for(var v=0;v<vdSrch.data.items.length;v++){
+		var vItem = vdSrch.data.items[v];
+		var feedTitle = vItem.title;
+		var uploaded = vItem.uploaded.split(".")[0].replace("T","  ");
+		var category = vItem.category;
+        var videoID = vItem.id;
+        var thumb = "http://img.youtube.com/vi/"+ videoID +"/default.jpg";
+        if (videoID !='videos') {
+		finalV += '<li style="height:100px;" class="vItemLi"><img alt="'+ feedTitle+'" src="'+ thumb +'" onclick="switchBox(\'youtubeMain\',\'youtubeMainBtn\',\''+videoID+'\')" /><div class="vItemDiv"><b>Title: </b>'+feedTitle+'<br/><b>Uploaded on:</b> '+uploaded+'<br/><b>Uploaded by:</b> '+vItem.uploader+'<br/><b>Duration:</b>'+secondsToTime(vItem.duration)+'<br/><b>Category:</b> '+category+'</div></li>';
+}
+};
+finalV += "</ol>";
+$("searchVResults").innerHTML = $("searchVResults").innerHTML + finalV;
+$("loadMoreV").style.display="block";
+}
+else
+{
+$("searchVResults").innerHTML = $("searchVResults").innerHTML + "<p><center>No videos were found.</center></p>";
+}
+}
+
+</script>
+</head>
+<body style="margin:10px 20px;background:#f5f5f5">
+<div style="padding:10px 20px;">
+<input type="button" onclick="switchBox('youtubeMain',this.id)" value="Home" id="youtubeMainBtn" style="color:#f00"/>
+<input type="button" onclick="switchBox('searchBox',this.id)" value="Search" id="searchBoxBtn" />
+</div>
+
+<div id="searchBox" style="display:none">
+Search for: <input type="text" id="q" />
+Orde by: <select name="orderBy" id="orderBy">
+		 <option value="published">Published</option>
+         <option value="rating">Rating</option>
+         <option value="relevance">Relevance</option>
+         <option value="viewCount">View count</option>
+         </select>
+<input type="button" value="Search" onclick="doSearch('srch')"/>    
+<div id="searchVResults" class="searchVResults"></div>
+<div id="loadMoreV" style="display:none"><center><input type="button" value="Load more" onclick="doSearch('load')"/></center></div>
+</div>
+<div id="youtubeMain">
+<center>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr><td style="padding-left:15px">
+<iframe width="410" id="youtubVd" height="230" src="youtube.html" frameborder="0" allowfullscreen="allowfullscreen" style="border:solid 1px #000;background:#000" scrolling="no"></iframe>
+</td>
+<td>
+<div id="ySizes">
+<br />
+<span id="vSize1" style="width:60px;height:26px;" onclick="selThisSize(this)" data-wh="560x315">560 x 315</span>
+<br />
+<span id="vSize2" style="width:70px;height:31px;" onclick="selThisSize(this)" data-wh="640x360">640 x 360</span>
+<br />
+<span id="vSize3" style="width:85px;height:40px;" onclick="selThisSize(this)" data-wh="853x480">853 x 480</span>
+<br />
+<span id="vSize4" style="width:110px;height:54px;" onclick="selThisSize(this)" data-wh="1280x720">1280 x 720</span>
+<div>
+Custom<br />
+<table id="yCSize">
+<tr><td>width:</td><td><input type="text" size="2" id="vWidth" onkeyup="selThisSize(this)" onchange="selThisSize(this)" value="560"/>px</td></tr>
+<tr><td>Height:</td><td><input type="text" size="2" id="vHeight" disabled="disabled" value="315"/>px</td></tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<input type="hidden" id="vId" />
+<input type="hidden" id="vFUrl" />
+<input type="hidden" id="vImg" />
+<input type="hidden" id="vInsertAs" value="embed"/>
+<table width="100%">
+<tr><th width="80">Video link:</th><td><input type="text" name="url" id="vUrl" style="width:350px" value="" onchange="changeVideo()" onkeyup="changeVideo()"/><br /><div style="font-size:10px;">
+Copy a link from <a href="http://youtube.com" target="_blank">youTube&trade;</a> website and paste here.<br/>eg (https://www.youtube.com/watch?v=xxxxx)</div></td></tr>
+<tr><th>Title:</th><td><input type="text" name="vTitle" id="vTitle" style="width:350px" value="" /><input id="vTitleInsert" type="checkbox" title="Insert as article title" /><label for="vTitleInsert">Insert title</label></td></tr>
+<tr><th>Description:</th><td><textarea type="text" name="vDesc" id="vDesc" style="width:350px;height:50px;resize:none" value=""></textarea>
+<select size="1" id="insertAfBef" title="Insert in the article body" style="width:140px;">
+<option value="">Insert description</option>
+<option value="before">Before the video</option>
+<option value="after">After the video</option>
+</select>
+</td></tr>
+<tr><th>Images:</th><td>
+<div id="videoImgs" style="clear:both">
+<div>
+<img id="yImg1" src="blank.gif" onclick="selThisImg(this)"/>
+</div>
+<div>
+<img id="yImg2" src="blank.gif" onclick="selThisImg(this)"/>
+</div>
+<div>
+<img id="yImg3" src="blank.gif" onclick="selThisImg(this)"/>
+</div>
+<div>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="radio" id="imgWH" checked="checked" name="imgWH" onchange="$('imWidth').value = '250';$('imHeight').value = '140';"/><label for="imgWH">250 x 140</label><br />
+<input type="radio" id="imgWH1" name="imgWH" onchange="$('imWidth').value = '560';$('imHeight').value = '513';"/><label for="imgWH1">560 x 315</label><br />
+<input type="radio" id="imgWH2" name="imgWH" onchange="$('imWidth').value = '640';$('imHeight').value = '360';"/><label for="imgWH2">640 x 360</label><br />
+</td>
+<td>
+<table id="imgCSize" style="margin-left:5px">
+<tr><td>width:</td><td><input type="text" size="2" id="imWidth" onkeyup="selimgSize(this)" onchange="selimgSize(this)" value="250"/>px</td></tr>
+<tr><td>Height:</td><td><input type="text" size="2" id="imHeight" disabled="disabled" value="140"/>px</td></tr>
+</table>
+</td></tr>
+</table>
+
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<th>Insert as:</th>
+<td>
+<input type="radio" id="insertAsEmbed"  name="insertAs" checked="checked" onclick="$('vInsertAs').value = 'embed'"/><label for="insertAsEmbed">Embed iframe</label><br />
+<input type="radio" id="insertAsShortCode"  name="insertAs"  onclick="$('vInsertAs').value = 'shortCode'"/><label for="insertAsShortCode">ShortCode for embed iframe</label><br />
+<input type="radio" id="insertAsImg" name="insertAs" onclick="$('vInsertAs').value = 'img'"/><label for="insertAsImg">Image with popup video</label><br />
+<input type="radio" id="insertAsImgLink" name="insertAs" onclick="$('vInsertAs').value = 'imgLink'"/><label for="insertAsImgLink">Image with link to youtube.com</label><br />
+<input type="radio" id="insertAsLink" name="insertAs" onclick="$('vInsertAs').value = 'link'"/><label for="insertAsLink">Video title with link to youtube.com</label><br />
+<input type="button" value="Insert" style="float:right;margin-right:50px" onclick="insertVideo()"/><br />
+</td>
+</tr>
+</table>
+</center>
+</div>
+</body>
+</html>
