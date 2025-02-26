@@ -1,0 +1,1 @@
+jQuery(document).ready(function($){$("[data-slider]").each(function(){var e=$(this);$("<span>").addClass("output").insertAfter($(this))}).bind("slider:ready slider:changed",function(e,t){$(this).nextAll(".output:first").html(t.value.toFixed(2))}),jQuery(".wrap").sortable(),jQuery(".wrap").disableSelection()});
