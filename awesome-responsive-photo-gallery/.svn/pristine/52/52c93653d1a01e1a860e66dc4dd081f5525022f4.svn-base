@@ -1,0 +1,205 @@
+/**
+Author: Realwebcare
+Package: Awesome Responsive Photo Gallery - v1.2 - 12 January, 2025
+*/
+.wrap .awrpg-clear{clear:both}
+#add_new_gallery{width:68%}
+#add_new_gallery h2.gallery-header{font-size:1.8rem;color:#4caf50;text-align:center;margin-bottom:10px;font-weight:bold;text-transform:uppercase}
+#add_new_gallery h2.gallery-header a.add-new-h2{font-style:normal;font-size:14px;font-weight:700}
+#add_new_gallery h2.gallery-header span#awrpg-loading-image{background:url(../images/ajax-loader.gif) no-repeat 0 0;margin:-3px 10px;width:96px;height:20px;display:none}
+#add_new_gallery #awrpg_new{display:none;max-width:600px;margin:20px auto;padding:20px;border:1px solid #ddd;border-radius:8px;background:#ffffff;box-shadow:0 4px 8px rgba(0,0,0,0.1);font-family:Arial,sans-serif}
+#add_new_gallery #awrpg_new h3{font-size:1.5rem;margin-bottom:15px;color:#333;text-align:center}
+#add_new_gallery #awrpg_new #awesome_gallery{width:100%;padding:12px 15px;margin:10px 0;border:1px solid #ccc;border-radius:4px;font-size:1rem;box-shadow:inset 0 2px 4px rgba(0,0,0,0.05);transition:border-color 0.3s,box-shadow .3s}
+#add_new_gallery #awrpg_new input[type="text"]:focus{border-color:#4caf50;box-shadow:0 0 5px rgba(76,175,80,0.5);outline:none}
+#add_new_gallery #awrpg_new input::placeholder{color:#aaa;font-style:italic}
+#add_new_gallery #awrpg_new input[type="submit"],
+#add_new_gallery #awrpg_new .button-primary{width:100%;padding:12px 15px;font-size:1rem;color:#ffffff;background:#4caf50;border:none;border-radius:4px;cursor:pointer;text-transform:uppercase;font-weight:bold;transition:background-color 0.3s,transform .2s}
+#add_new_gallery #awrpg_new input[type="submit"]:hover,
+#add_new_gallery #awrpg_new .button-primary:hover{background:#45a049;transform:translateY(-2px)}
+#add_new_gallery #awrpg_new input[type="submit"]:active,
+#add_new_gallery #awrpg_new .button-primary:active{background:#388e3c;transform:translateY(0)}
+#add_new_gallery .gallerynamewrap{border-bottom:1px solid #CCC;margin:10px 10px 30px}
+#add_new_gallery input#awrpg_add_new{float:right;margin-top:10px}
+#add_new_gallery .gallery_list{width:97%;margin-top:15px}
+#add_new_gallery .gallery_list p.get_started{font-size:16px;line-height:28px;border-left:5px solid #7ad03a;max-width:600px;margin:20px auto;padding:40px;border-radius:8px;background:#ffffff;box-shadow:0 4px 8px rgba(0,0,0,0.1);font-family:Arial,sans-serif}
+#add_new_gallery .gallery_list table{width:100%;border-collapse:collapse;font-family:Arial,sans-serif;color:#333;text-align:left;margin:20px auto}
+#add_new_gallery .gallery_list table thead th{width:auto;font-size:14px;background:#4CAF50;color:white;font-weight:bold;padding:15px;border:1px solid #ddd}
+#add_new_gallery .gallery_list table thead th .awrpg_notice{color:#bfffc1;margin-left:10px;text-shadow:1px 1px 2px #122713}
+#add_new_gallery .gallery_list table thead th .awrpg_notice a{color:#184d91;text-shadow:1px 1px 2px #a9f9ac;text-decoration:none;text-transform:uppercase}
+#add_new_gallery .gallery_list table thead th .awrpg_notice a:hover{color:#bfffc1;text-shadow:1px 1px 2px #122713}
+#add_new_gallery .gallery_list table tbody tr{background-color:#F9F9F9}
+#add_new_gallery .gallery_list table tbody td{position:relative;font-size:16px;height:50px;padding:10px 15px;border:1px solid #ddd;background-color:#ffffff;transition:background-color .3s ease}
+#add_new_gallery .gallery_list table tbody td,
+#add_new_gallery .gallery_list table tbody th{padding:30px 15px 15px;vertical-align:top}
+#add_new_gallery .gallery_list table tbody td:first-child{width:8%}
+#add_new_gallery .gallery_list table tbody td:last-child{padding:10px 15px;vertical-align:middle}
+#add_new_gallery .gallery_list table tbody .alt td{background:#effbef}
+#add_new_gallery .gallery_list table tbody tr:hover td{background-color:#dff0d8;cursor:pointer}
+#add_new_gallery .gallery_list table tbody td .awrpg_notice{font-size:12px}
+#add_new_gallery .gallery_list table tbody td.gallery_name{width:45%}
+#add_new_gallery .gallery_list table tbody td.gallery_name div{padding-bottom:5px;cursor:pointer}
+#add_new_gallery .gallery_list table tbody td.gallery_name span:first-of-type{border:none;padding-left:0}
+#add_new_gallery .gallery_list table tbody td.gallery_name span{display:none;font-size:14px;cursor:pointer;border-left:1px solid #ddd;color:#0074a2;padding-left:5px}
+#add_new_gallery .gallery_list table tbody td.gallery_name span:hover{color:#2ea2cc}
+#add_new_gallery .gallery_list table tbody td input.awrpg_galid{background:#ffffff;color:#4caf50;padding:0 5px;border-radius:5px;font-size:16px;font-weight:600;width:70px;text-align:center;box-shadow:inset -1px -1px 2px 0 #b1b1b1}
+#add_new_gallery .gallery_list table tbody td input.awrpg_galid:hover{box-shadow:inset 1px 1px 2px 0 #8d8d8d}
+#add_new_gallery .gallery_list table tbody td .duplicate_gallery{background:url(../images/awrpg-buttons.png) no-repeat -6px -108px;position:absolute;top:19px;left:15px;width:22px;height:22px;cursor:pointer}
+#add_new_gallery .gallery_list table tbody td .no_duplicate{background:url(../images/awrpg-buttons.png) no-repeat -7px -5px;position:absolute;top:12px;left:15px;width:20px;height:20px}
+#add_new_gallery .gallery_list table tbody td.awrpg_notice{width:40%}
+#add_new_gallery .gallery_list table tbody td.awrpg_notice span{font-size:13px;color:#778899}
+#add_new_gallery .gallery_list table tbody td.awrpg_notice span strong{font-weight:700}
+#add_new_gallery #settinggallerydiv{margin:0 0 10px;line-height:24px}
+#add_new_gallery #settinggallerydiv .gallery-input{margin-bottom:10px}
+#add_new_gallery #settinggallerydiv .gallery-input h4{padding:0 0 5px;border-bottom:1px solid #ddd}
+#add_new_gallery #settinggallerydiv .gallery-input h4:first-child{margin-top:0}
+#add_new_gallery #settinggallerydiv .gallery-input label.label-title,
+#add_new_gallery #settinggallerydiv .gallery-input label.label-check,
+#add_new_gallery #settinggallerydiv .gallery-input label.label-title-check{color:#555555;margin:0;padding:10px 0;display:inline-block;font-size:14px;width:320px}
+#add_new_gallery #settinggallerydiv .gallery-input input.medium,
+#add_new_gallery #settinggallerydiv .gallery-input input.tickbox{padding:4px;border-radius:4px;border:1px solid #ccc}
+#add_new_gallery #settinggallerydiv .gallery-input input.medium{width:20%;margin:5px 3px 0;padding-left:10px}
+#add_new_gallery #settinggallerydiv .gallery-input input[type=text]{width:45%}
+#add_new_gallery #settinggallerydiv .gallery-input input.tickbox{margin:2px 30% 2px 3px;border:1px solid #aaa}
+#add_new_gallery #settinggallerydiv .gallery-input input.tickbox:checked:before{margin:-3px 0 0 -5px}
+#add_new_gallery #settinggallerydiv .gallery-input select.gallery-dir{width:auto;max-width:50%;min-width:20%;margin:2px 3px 0;padding:0 10px;border-radius:5px;border:1px solid #ccc}
+#add_new_gallery #settinggallerydiv .gallery-input label.label-title-check{float:left}
+#add_new_gallery #settinggallerydiv .gallery-input .include_metas{padding:12px 0;display:inline-block;width:450px}
+#add_new_gallery #settinggallerydiv .gallery-input label.metainclude{display:block}
+#add_new_gallery #settinggallerydiv .gallery-input input.metabox{margin:2px 5px;border:1px solid #aaa;border-radius:5px}
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-header,
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-input{background-color:#fff}
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-header{display:block;margin:0}
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-input{margin:0;padding:0;display:block}
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-input th{padding:5px 0}
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-input th label.label-title{font-size:12px}
+#add_new_gallery #settinggallerydiv .gallery-input table tr.galtab-header td{color:#555555;font-weight:700;padding-bottom:10px;border:none}
+#add_new_gallery #settinggallerydiv .gallery-input table tr td{height:auto;padding:8px 0 0;border:none}
+#add_new_gallery #settinggallerydiv .gallery-input table tr td:hover{background:transparent}
+#add_new_gallery #settinggallerydiv .gallery-input table tr td input.medium{width:104px;margin:1px 0 0;padding-left:5px}
+#add_new_gallery #settinggallerydiv .gallery-input #imageWidthHeight,
+#add_new_gallery #settinggallerydiv .gallery-input #thumbnailShadow,
+#add_new_gallery #settinggallerydiv .gallery-input #shareSocialMedia,
+#add_new_gallery #settinggallerydiv .gallery-input #lcIframeElement,
+#add_new_gallery #settinggallerydiv .gallery-input #lcVideoOption,
+#add_new_gallery #settinggallerydiv .gallery-input #jgalleryThumbnails{display:none}
+#add_new_gallery #settinggallerydiv .gallery-input #thumbBorderWidth{display:block}
+#add_new_gallery #settinggallerydiv a.wp-color-result{margin:2px 2px 0 0;height:22px;-webkit-box-shadow:none;box-shadow:none}
+#add_new_gallery #settinggallerydiv .wp-picker-container input[type=text].wp-color-picker,
+#add_new_gallery #settinggallerydiv .button.button-small{margin:2px 2px 0 0 !important;font-size:12px;width:70px}
+#add_new_gallery a.awrpg_tooltip{background:url(../images/awrpg-buttons.png) -10px -87px no-repeat;width:14px;height:14px;margin:0 0 0 5px;text-decoration:none;position:relative;display:inline-block;vertical-align:middle;font-weight:400;color:#364D55}
+#add_new_gallery a.awrpg_tooltip:hover:after{background:#F8F8FF;border:1px solid #aaa;-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;-khtml-border-radius:5px;border-radius:5px;top:-12px;left:35px;color:#6E6E6E;content:attr(rel);padding:10px;position:absolute;z-index:98;width:225px;font-size:12px;font-style:italic;text-align:left;line-height:16px}
+#add_new_gallery a.awrpg_tooltip:hover:before{border:solid;border-color:transparent #aaa transparent transparent;border-width:10px;bottom:-4px;content:"";left:15px;position:absolute;z-index:99}
+#settinggallerydiv .gallery-input .gallery-onoff-check{background:#eee;border:1px solid #ddd;border-radius:3px;display:inline-block;margin:5px 0 10px;padding:5px}
+#settinggallerydiv .gallery-input .player_param{display:inline-block;border-radius:5px;padding:6px;margin:0;position:relative;font-size:13px;cursor:pointer;line-height:24px;background-color:#f5f5f5;background-image:-moz-linear-gradient(top,#fff,#e6e6e6);background-image:-webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));background-image:-webkit-linear-gradient(top,#fff,#e6e6e6);background-image:-o-linear-gradient(top,#fff,#e6e6e6);background-image:linear-gradient(to bottom,#fff,#e6e6e6);background-repeat:repeat-x;border:1px solid #ccc;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);border-bottom-color:#b3b3b3;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05)}
+#settinggallerydiv .gallery-input .player_param span{padding-right:2em;line-height:24px;display:inline-block}
+#settinggallerydiv .gallery-input .player_param input[type=checkbox]{margin:4px 7px 4px 10px}
+#settinggallerydiv .gallery-input .player_param input[type=checkbox]:after{content:"Off";position:absolute;z-index:1;margin:-14px 0 0;top:50%;right:4px;display:inline-block;background:#CCCCCC;padding:14px 5px;width:4em;border-radius:30px;box-shadow:inset 1px 1px 1px rgba(0,0,0,0.3);color:#EEEEEE;text-transform:uppercase;font-size:11px;text-align:left}
+#settinggallerydiv .gallery-input .player_param input[type=checkbox]:checked:after{content:"On";text-align:right;padding-right:6px;background:#9ad179;color:#669933}
+#settinggallerydiv .gallery-input .player_param input[type=checkbox]:before{content:"";position:absolute;z-index:2;width:1.6em;height:1.6em;top:50%;margin-top:-.8em;right:7px;font-size:14px;background:#eee;border-radius:1em;box-shadow:0 1px 1px #999,inset 0 3px 4px #fff;transition:right .05s linear}
+#settinggallerydiv .gallery-input .player_param input[type=checkbox]:checked:before{right:34px}
+#add_new_gallery #awrpg_edit_form #form-messages{position:relative;top:20px;color:#22313f;font-size:18px;text-shadow:1px 1px 2px rgb(34 49 63 / 30%);cursor:pointer;border-radius:12px;background:#fff;margin:0;padding:15px 25px;box-shadow:0 0 3px 1px rgb(34 49 63 / 40%);overflow:hidden;display:none;transition:all .5s cubic-bezier(0.68,-0.55,0.265,1.35)}
+#add_new_gallery .success:before{content:"";position:absolute;width:0;color:#49D761;border-left:2px solid;border-right:3px solid;border-bottom-right-radius:5px;border-top-right-radius:5px;left:0;top:50%;transform:translate(0,-50%);height:36px}
+#add_new_gallery .success>.start-icon{margin:-5px 20px 0 0;min-width:20px;text-align:center;color:#49D761;font-size:30px}
+#add_new_gallery .success .blackcross{font-size:24px;color:#22313f;width:24px;height:24px}
+#add_new_gallery .success .awrpg_close{position:absolute;top:50%;right:15px;color:#000;text-shadow:0 1px 0 #fff;opacity:.5;height:24px;line-height:24px;padding:0;background-color:transparent;border:0;transform:translateY(-50%)}
+#add_new_gallery .success .awrpg_close:hover{opacity:1}
+#add_new_gallery .success .awrpg_close:not(:disabled):not(.disabled){cursor:pointer}
+.awrpg-modal{position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.75);display:flex;justify-content:center;align-items:center;transition:opacity .3s ease-in-out}
+.awrpg-modal-content{background:linear-gradient(145deg,#ffffff,#f3f3f3);color:#333333;font-weight:600;padding:25px;border-radius:10px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.3);animation:fadeIn .5s ease-in-out;max-width:400px;width:90%}
+.awrpg-modal-content h2{font-size:1.5rem;color:#0073aa;margin-bottom:10px;font-weight:bold}
+.awrpg-modal-content p{font-size:1rem;margin-bottom:20px;line-height:1.5}
+.awrpg-modal-content img{width:50px;height:auto;margin-top:15px}
+.awrpg-modal.shrink-out{transform:scale(1);opacity:1;transition:all .3s ease-in-out}
+.awrpg-modal.shrink-out.hide{transform:scale(0.5);opacity:0}
+.awrpg-btn-confirm,.awrpg-btn-cancel{padding:10px 20px;margin:0 10px;border:none;border-radius:5px;cursor:pointer;font-size:14px}
+.awrpg-btn-confirm{background:#4CAF50;color:#fff}
+.awrpg-btn-cancel{background:#F44336;color:#fff}
+@keyframes fadeIn {
+from{transform:scale(0.95);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+#awrpg-modal-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:9999}
+#awrpg-modal-container #awrpg-modal-content{background-color:#fff;max-width:90%;max-height:90%;overflow:auto;padding:20px;box-shadow:0 0 10px rgba(0,0,0,0.3)}
+#awrpg-modal-container #awrpg-modal-content img{width:100%}
+#add_new_gallery .gallery-info{background-color:#fff;border:1px solid #ddd;border-radius:8px;padding:20px;margin:34px 10px 20px 0;font-family:Arial,sans-serif;line-height:1.6}
+#add_new_gallery .gallery-info .get-instructed{font-size:20px;font-weight:bold;margin-bottom:15px;text-transform:uppercase}
+#add_new_gallery .gallery-info .gallery-instructions{list-style:decimal inside;margin:0;padding:0;color:#333}
+#add_new_gallery .gallery-info .gallery-instructions ul{list-style:disc inside;margin:10px 0 0 20px;padding:0}
+#add_new_gallery .gallery-info .gallery-instructions li{margin:10px 0;padding:10px;background-color:#f9f9f9;border:1px solid #eee;border-radius:4px}
+#add_new_gallery .gallery-info .gallery-instructions li code{display:block;margin:10px 0;padding:10px;background-color:#f4f4f4;border:1px solid #ddd;border-radius:4px;font-family:Consolas,monospace;color:#d14}
+#add_new_gallery .gallery-info .gallery-instructions li strong{color:#0056b3;font-weight:bold}
+#add_new_gallery .gallery-info .getting-started_video{display:flex}
+#add_new_gallery .gallery-info .getting-started_video img{max-width:100%}
+#awrpg-narration{position:relative;top:30px;margin:0 0 50px;float:left}
+#awrpg-narration .awrpgusage-maincontent .awrpg{background:#ffffff;margin:0 0 30px;padding:20px 40px}
+#awrpg-narration .awrpgusage-maincontent .awrpg p{font-size:15px;line-height:1.6}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg .likeit{position:relative;margin:0 0 50px;font-size:14px;text-transform:uppercase;text-align:justify;color:#2271b1;font-weight:600;line-height:1.5}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg .likeit a{position:absolute;left:50%;top:calc(100% + 5px);font-size:16px;background-image:linear-gradient(147deg,#fe8a39 0%,#fd3838 74%);margin:10px 0 0;padding:6px 18px;border-radius:50px;color:#fff;text-decoration:none;text-align:center;letter-spacing:4px;transform:translateX(-50%)}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg .likeit a:hover{text-decoration:none;color:#ffe000;background-image:linear-gradient(335deg,#fe8a39 0%,#fd3838 74%)}
+#awrpg-sidebar{position:relative;width:30%;float:left;top:80px;margin-left:10px;margin-bottom:50px}
+#awrpg-sidebar.pro-team{top:28px}
+#awrpg-sidebar.awrpg-tools{width:30%;top:0;left:20px;margin-left:0}
+#awrpg-sidebar .awrpgusage-sidebar h3{border-bottom:1px solid #72777c;padding-bottom:7px;text-transform:uppercase;font-size:20px;font-weight:700;color:#0d0925;margin-bottom:10px;line-height:30px}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar h3{background:#3d1d94;border-radius:50px;font-size:12px;color:#fff;margin:0 0 15px;padding:2px 20px;text-transform:uppercase;text-shadow:none}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar .awrpgusage-list li{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;list-style:none;color:#121212;display:block;font-weight:500;line-height:1.5;font-size:.775rem;margin:0;padding:4px 5px}
+#awrpg-sidebar .awrpgusage-pro-body .awrpgusage-list li{border-top:1px dotted #bdbdbd}
+#awrpg-sidebar .awrpgusage-pro-body .awrpgusage-list li:first-child{border-top:none}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar,
+#awrpg-sidebar #awrpgusage-info.awrpgusage-sidebar,
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar{background-color:#ffffff;border:1px solid #ddd;color:#000;position:relative;max-width:422px;padding:15px;margin-bottom:20px!important;box-shadow:0 4px 8px rgba(0,0,0,0.1);padding:25px;border-radius:10px;transition:all .3s}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar,
+#awrpg-sidebar #awrpgusage-info.awrpgusage-sidebar{height:auto;padding-top:0;padding-bottom:40px;border-bottom:5px solid #7ad03a}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar{border:none;margin-bottom:35px;padding:0;background:#fff;border-radius:10px;-webkit-box-shadow:0 2px 20px rgba(0,0,0,0.3);box-shadow:0 2px 20px rgba(0,0,0,0.3);overflow:hidden}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar .awrpgusage-pro-header img{height:200px;width:100%;-o-object-fit:cover;object-fit:cover}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar .awrpgusage-pro-body{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:start;-ms-flex-align:start;align-items:start;padding:20px 20px 38px;min-height:200px}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg,
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg,
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar .awrpg{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;margin:0 0 10px;line-height:30px}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar .awrpg{font-size:14px;font-weight:500;color:#4b4e4d;line-height:1.4;margin:0;padding:0 5px}
+#awrpg-sidebar ul.awrpgusage-list{margin:1em 0 2em;padding:0}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar a.btn-demo{align-items:center;appearance:none;background-image:radial-gradient(100% 100% at 100% 0,#5adaff 0,#5468ff 100%);border:0;border-radius:6px;box-shadow:rgba(45,35,66,.4) 0 2px 4px,rgba(45,35,66,.3) 0 7px 13px -3px,rgba(58,65,111,.5) 0 -3px 0 inset;box-sizing:border-box;color:#fff;cursor:pointer;display:inline-flex;height:42px;justify-content:center;line-height:1;list-style:none;overflow:hidden;padding-left:16px;padding-right:16px;position:absolute;right:15px;bottom:15px;text-align:left;text-decoration:none;transition:box-shadow .15s,transform .15s;user-select:none;-webkit-user-select:none;touch-action:manipulation;white-space:nowrap;will-change:box-shadow,transform;font-size:18px}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar a.btn-demo:focus{box-shadow:#3c4fe0 0 0 0 1.5px inset,rgba(45,35,66,.4) 0 2px 4px,rgba(45,35,66,.3) 0 7px 13px -3px,#3c4fe0 0 -3px 0 inset}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar a.btn-demo:hover{box-shadow:rgba(45,35,66,.4) 0 4px 8px,rgba(45,35,66,.3) 0 7px 13px -3px,#3c4fe0 0 -3px 0 inset;transform:translateY(-2px)}
+#awrpg-sidebar #awrpgusage-pro.awrpgusage-sidebar a.btn-demo:active{box-shadow:#3c4fe0 0 3px 7px inset;transform:translateY(2px)}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg .awrpg-first::first-letter{font-size:1.5em;line-height:1;letter-spacing:-1.5px;font-weight:700;color:#e9950c}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg pre{overflow:auto;margin:0;scrollbar-width:thin;scrollbar-color:#d4aa70 #0e8cf1;scrollbar-gutter:stable}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg pre::-webkit-scrollbar{height:8px}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg pre::-webkit-scrollbar-track{background-color:#343541}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg pre::-webkit-scrollbar-thumb{background-color:#0e8cf1;border-radius:100px;background-clip:content-box}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg code{color:#ffd100;display:block;height:36px;line-height:36px;margin:0;padding:0 4px;font-size:13px;font-weight:600;border-left:10px solid #343541;background:#000000;min-width:410px;width:490px}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg ol li code{width:auto;min-width:298px}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg p{font-size:.9rem;line-height:1.5;margin-bottom:10px}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg p:last-child{margin:10px 0 -25px}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg ol,
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg ol{margin:15px 10px 15px 24px;padding:0}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg ol li,
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg ol li{margin:0 0 5px;padding:0;font-size:13px;font-weight:400;line-height:1.4;color:#29333b}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg ol li pre{margin:10px -21px;width:calc(100% + 24px)}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg pre code,
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg pre code{border-left-width:10px;border-left-color:#343541;background:#000;color:#fff;height:50px;line-height:50px}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg .awrpg-meta{color:hsla(0,0%,100%,.6)}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg .awrpg-keyword{color:#2e95d3}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg .awrpg-function{color:#f22c3d}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg .awrpg-string{color:#00a67d}
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg .awrpg-built_in{color:#e9950c}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg a,
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg a{float:none;background:none;margin:0;padding:0;color:#2271b1;font-size:100%;border-radius:0;box-shadow:none;border:0;font-weight:600;text-decoration:none}
+#awrpg-narration #awrpgusage-note.awrpgusage-maincontent .awrpg a:hover,
+#awrpg-sidebar #awrpgusage-note.awrpgusage-sidebar .awrpg a:hover{color:#135e96;text-decoration:underline}
+#awrpg-sidebar #awrpgusage-info.awrpgusage-sidebar .awrpgusage-list{margin:10px 0 0}
+#awrpg-sidebar #awrpgusage-info.awrpgusage-sidebar .awrpgusage-list li{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;list-style:disc;margin:0 0 0 20px;font-size:16px;line-height:30px}
+#awrpg-sidebar #awrpgusage-info.awrpgusage-sidebar a{color:#0073aa;text-decoration:none;font-weight:600}
+#awrpg-sidebar #awrpgusage-info.awrpgusage-sidebar a:hover{text-decoration:underline}
+@media screen and (max-width: 768px) {
+#add_new_gallery .gallery_list table tbody tr{display:block;margin-bottom:10px;border:1px solid #ddd;border-radius:8px}
+#add_new_gallery .gallery_list table tbody td{display:block;text-align:right;font-size:14px}
+#add_new_gallery .gallery_list table tbody td.gallery_name{width:auto}
+#add_new_gallery .gallery_list table tbody td:before{content:attr(data-label);float:left;text-transform:uppercase;font-weight:bold;color:#555}
+#add_new_gallery .gallery-info .getting-started_video{display:flex}
+}
+@media (max-width: 480px) {
+#add_new_gallery #awrpg_new{padding:15px}
+#add_new_gallery #awrpg_new h3{font-size:1.2rem}
+#add_new_gallery #awrpg_new input[type="submit"],
+#add_new_gallery #awrpg_new .button-primary{font-size:.9rem}
+}

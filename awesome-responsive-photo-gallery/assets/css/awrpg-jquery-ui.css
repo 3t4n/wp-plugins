@@ -1,0 +1,120 @@
+/**
+Author: Realwebcare
+Package: Awesome Responsive Photo Gallery - v1.2 - 12 January, 2025
+*/
+/* General Container Styling */
+#add_new_gallery .ui-tabs {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    margin-top: 14px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#add_new_gallery .ui-accordion {
+    margin: 20px 0 0;
+    padding: 0 15px;
+}
+
+/* Tab Navigation Bar */
+#add_new_gallery .ui-tabs-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    border-bottom: 2px solid #4CAF50;
+    background: #e3e9f0;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+}
+
+#add_new_gallery .ui-tabs-nav li {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    text-align: center;
+}
+
+#add_new_gallery .ui-tabs-nav li a {
+    display: block;
+    padding: 10px 15px;
+    color: #429846;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#add_new_gallery .ui-tabs-nav li.ui-tabs-active a,
+#add_new_gallery .ui-tabs-nav li a:hover {
+    background: #4CAF50;
+    color: #fff;
+}
+
+#add_new_gallery .ui-tabs-nav li a:focus {
+    box-shadow: 0 0 0 2px #429846;
+}
+
+/* Tab Content Styling */
+#add_new_gallery .ui-tabs-panel {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    line-height: 1.6;
+}
+
+/* Accordion Header Styling */
+#add_new_gallery .ui-accordion-header {
+    background: #e3e9f0;
+    color: #429846;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-top: 5px;
+}
+
+#add_new_gallery .ui-accordion-header:hover {
+    background: #429846;
+    color: #fff;
+}
+
+#add_new_gallery .ui-accordion-header-active {
+    background: #429846;
+    color: #fff;
+    border-radius: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#add_new_gallery .ui-accordion-header-icon {
+    float: right;
+}
+
+#add_new_gallery .ui-accordion-header::before {
+    content: '\25B6'; /* Unicode for right arrow */
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+#add_new_gallery .ui-accordion-header-active::before {
+    transform: rotate(360deg); /* Rotate to point down */
+    content: '\25BC'; /* Unicode for down arrow (optional, if rotation isn't preferred) */
+}
+
+/* Accordion Content Styling */
+#add_new_gallery .ui-accordion-content {
+    margin: -19px 0 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+    background: #fff;
+    border-radius: 0 0 6px 6px;
+    line-height: 1.6;
+}
