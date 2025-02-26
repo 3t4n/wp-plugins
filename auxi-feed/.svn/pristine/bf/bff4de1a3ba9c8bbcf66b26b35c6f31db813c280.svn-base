@@ -1,0 +1,51 @@
+.error {
+    color: #ff0909;
+    font-size: 12px;
+}
+.div_left {
+    float: left;
+    width: 18%;
+    font-size:14px;
+    font-weight: bold;
+}
+.row {
+    float: left;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .div_left {
+        font-size:9px;
+    }
+}
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('../../../assets/images/wait.gif')
+    50% 50%
+    no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+.auxi-settings h3 {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 6px 0 6px 12px;
+}
