@@ -1,0 +1,474 @@
+/**
+*  @package WP Comment Form  backend style
+*
+**/
+
+
+:root{
+    --commentformwpWhiteColor: #fff;
+    --commentformwpPrimaryColor: #74b9ff;
+    --commentformwpSecondaryColor: #b2bec3;
+    --commentformwpBlackColor: #333;
+    --commentformwpSpanColor: #7c7979;
+    --commentformwpRedColor: #eb5454;
+}
+.commentformwp-option{
+    font-size: 15px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin: 15px 15px 15px 0;
+}
+.commentformwp-option h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.commentformwp-option h1{
+    font-size: 35px;
+}
+.commentformwp-option h2{
+    font-size: 32px;
+}
+.commentformwp-option h3{
+    font-size: 30px;
+}
+.commentformwp-option h4{
+    font-size: 28px;
+}
+.commentformwp-option h5{
+    font-size: 25px;
+}
+.commentformwp-option h6{
+    font-size: 22px;
+}
+.commentformwp-option a{
+    text-decoration: none;
+    color: var(--commentformwpBlackColor);
+    font-size: 15px;
+}
+.commentformwp-option a:focus,
+.commentformwp-option a:hover{
+    text-decoration: none;
+    box-shadow: none;
+    outline: none;
+}
+.commentformwp-option .container{
+	background-color: var(--commentformwpWhiteColor);
+	padding: 15px;
+	max-width: 100%;
+	overflow: hidden;
+}
+.commentformwp-option h2.title{
+	font-size: 28px;
+    color: var(--commentformwpBlackColor);
+    margin: 10px 0 24px;
+    padding: 8px 0 12px 10px;
+    border-left: 4px solid var(--commentformwpPrimaryColor);
+    border-radius: 5px;
+}
+
+/* Tabs */
+.commentformwp-option ul{
+    list-style: none;
+    -webkit-box-shadow: 0 0 3px var(--commentformwpSecondaryColor);
+            box-shadow: 0 0 3px var(--commentformwpSecondaryColor);
+    padding: 17px 5px 17px 10px;
+    border-radius: 4px;
+}
+.commentformwp-option ul li{
+    display: inline-block;
+}
+.commentformwp-option ul li:nth-child(2),
+.commentformwp-option ul li:nth-child(3){
+    margin-left: 10px;
+}
+.commentformwp-option ul li a{
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .8px;
+    padding: 8px 12px;
+    font-weight: bold;
+    color: var(--commentformwpBlackColor);
+    border-bottom: 3px solid transparent;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.commentformwp-option ul li.ui-tabs-active a{
+    color: var(--commentformwpPrimaryColor);
+    border-bottom: 3px solid var(--commentformwpPrimaryColor);
+    position: relative;
+}
+.commentformwp-option ul li.ui-tabs-active a::after {
+    content: '';
+    clear: both;
+    position: absolute;
+    left: 40%;
+    top: 100%;
+    height: 33px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: var(--commentformwpPrimaryColor) transparent transparent transparent;
+}
+.commentformwp-option .commentformwp-form #wpcf_settings,
+.commentformwp-option .commentformwp-form #wpcf_textchange{
+    padding: 10px;
+    -webkit-box-shadow: 0 0 3px var(--commentformwpSecondaryColor);
+            box-shadow: 0 0 3px var(--commentformwpSecondaryColor);
+    border-radius: 4px;
+}
+
+/* Form Style */
+.commentformwp-option .commentformwp-form{
+    width: 65%;
+    float: left;
+    -webkit-box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+            box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+    padding: 8px 12px 15px 12px;
+    border-radius: 4px;
+}
+.commentformwp-option .commentformwp-form form p{
+    margin: 3px 0 10px 0;
+    color: var(--commentformwpRedColor);
+    font-weight: 500;
+}
+.commentformwp-option .commentformwp-form form span.style-span{
+    background: var(--commentformwpSpanColor);
+    padding: 0 7px;
+    color: var(--commentformwpWhiteColor);
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 2px;
+    cursor: help;
+}
+.commentformwp-option .commentformwp-form form label{
+    text-transform: capitalize;
+	color: var(--commentformwpBlackColor);
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+}
+.commentformwp-option .commentformwp-form form label.label_yesnot{
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: -3px;
+}
+.commentformwp-option .commentformwp-form form small{
+	font-style: italic;
+	margin: 0 0 8px 0;
+    color: var(--commentformwpSecondaryColor);
+    display: inline-block;
+}
+.commentformwp-option .commentformwp-form form select,
+.commentformwp-option .commentformwp-form form input[type="color"],
+.commentformwp-option .commentformwp-form form input[type="text"]{
+	width: 90%;
+	color: var(--commentformwpBlackColor);
+	font-size: 15px;
+	padding: 5px 10px;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	-webkit-box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+	        box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+	margin-bottom: 15px;
+	display: block;
+	-webkit-transition: .3s ease all;
+	-o-transition: .3s ease all;
+	transition: .3s ease all;
+}
+.commentformwp-option .commentformwp-form form input[type="radio"]{
+	padding: 7px 10px;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	-webkit-box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+	        box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+	display: inline-block;
+	-webkit-transition: .3s ease all;
+	-o-transition: .3s ease all;
+	transition: .3s ease all;
+}
+.commentformwp-option .commentformwp-form form input:focus{
+	-webkit-box-shadow: 0 0 8px var(--commentformwpSecondaryColor);
+	        box-shadow: 0 0 8px var(--commentformwpSecondaryColor);
+}
+.commentformwp-option .commentformwp-form form input[type="color"]{
+	width: 110px;
+	height: 95px;
+	cursor: pointer;
+}
+.commentformwp-option .commentformwp-form form input[type=radio]:checked::before{
+	background-color: var(--commentformwpPrimaryColor);
+	margin: 4px;
+}
+.commentformwp-option .commentformwp-form form input[type="submit"]{
+	color: var(--commentformwpWhiteColor);
+    cursor: pointer;
+    background: var(--commentformwpPrimaryColor);
+    padding: 8px 25px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .8px;
+    -webkit-transition: .4s ease all;
+    -o-transition: .4s ease all;
+    transition: .4s ease all;
+}
+.commentformwp-option .commentformwp-form form input[type="submit"]:hover{
+	background: var(--commentformwpWhiteColor);
+	border: 2px solid var(--commentformwpPrimaryColor);
+	color: var(--commentformwpPrimaryColor);
+}
+.commentformwp-option .commentformwp-form form ::-webkit-input-placeholder{
+	text-transform: capitalize;
+	color: var(--commentformwpBlackColor);
+    font-size: 14px;
+	font-style: italic;
+	opacity: .8;
+}
+.commentformwp-option .commentformwp-form form ::-moz-placeholder{
+	text-transform: capitalize;
+	color: var(--commentformwpBlackColor);
+    font-size: 14px;
+	font-style: italic;
+	opacity: .8;
+}
+.commentformwp-option .commentformwp-form form :-ms-input-placeholder{
+	text-transform: capitalize;
+	color: var(--commentformwpBlackColor);
+    font-size: 14px;
+	font-style: italic;
+	opacity: .8;
+}
+.commentformwp-option .commentformwp-form form ::-ms-input-placeholder{
+	text-transform: capitalize;
+	color: var(--commentformwpBlackColor);
+    font-size: 14px;
+	font-style: italic;
+	opacity: .8;
+}
+.commentformwp-option .commentformwp-form form ::placeholder{
+	text-transform: capitalize;
+	color: var(--commentformwpBlackColor);
+    font-size: 14px;
+	font-style: italic;
+	opacity: .8;
+}
+.commentformwp-option small{
+	margin: 0 0 10px 0;
+}
+.commentformwp-option .commentformwp-form form .commentformwp_labelyes,
+.commentformwp-option .commentformwp-form form .commentformwp_placeholderyes{
+    margin-top: 13px;
+}
+
+/* Author Style */
+.commentformwp-option .commentformwp-author .author-description p a{
+    text-decoration: underline;
+}
+.commentformwp-option .commentformwp-author{
+    width: 29%;
+    float: right;
+    -webkit-box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+            box-shadow: 0 0 5px var(--commentformwpSecondaryColor);
+    padding: 8px 12px 15px 12px;
+    border-radius: 4px;
+}
+.commentformwp-option .commentformwp-author img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    border: 3px solid var(--commentformwpPrimaryColor);
+}
+.commentformwp-option .commentformwp-author h4.author-name {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 25px 5px 18px;
+}
+.commentformwp-option .commentformwp-author p{
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6em;
+}
+.commentformwp-option .commentformwp-author .donate-btn a{
+    text-decoration: none;
+}
+.commentformwp-option .commentformwp-author .donate-btn a h4{
+    padding: 8px 10px 10px;
+    text-align: center;
+    background: var(--commentformwpPrimaryColor);
+    color: var(--commentformwpWhiteColor);
+    font-size: 23px;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transition: .4s ease all;
+    -o-transition: .4s ease all;
+    transition: .4s ease all;
+}
+.commentformwp-option .commentformwp-author .donate-btn a h4:hover{
+    color: var(--commentformwpSecondaryColor);
+}
+.commentformwp-option .commentformwp-author .donate-btn a h4 span{
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.commentformwp-option .commentformwp-author h3.social-title{
+    margin: 20px 0;
+    font-size: 20px;
+    border-left: 4px solid var(--commentformwpPrimaryColor);
+    height: 24px;
+    padding: 5px 0 0 8px;
+    border-radius: 5px;
+}
+.commentformwp-option .commentformwp-author .social-icons{
+    text-align: center;
+}
+.commentformwp-option .commentformwp-author .social-icons a{
+    text-decoration: none;
+    margin-right: 6px;
+    display: inline-block;
+}
+.commentformwp-option .commentformwp-author .social-icons a img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--commentformwpPrimaryColor);
+    -webkit-transition: .3s ease all;
+    -o-transition: .3s ease all;
+    transition: .3s ease all;
+}
+.commentformwp-option .commentformwp-author .social-icons a img:hover{
+    background-color: var(--commentformwpSecondaryColor);
+}
+.commentformwp-option .commentformwp-author .thank-you{
+    text-align: center;
+    margin: 35px 0 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.commentformwp-option .commentformwp-author .thank-you span{
+    display: inline-block;
+    font-size: 35px;
+    color: var(--commentformwpRedColor);
+}
+.commentformwp-option .commentformwp-author .thank-you h5{
+    font-size: 16px;
+    text-transform: capitalize;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 550px){
+    .commentformwp-option .commentformwp-author .donate-btn a h4{
+        font-size: 20px;
+        line-height: 1.2em;
+        text-align: left;
+    }
+    .commentformwp-option .commentformwp-author .social-icons a img{
+        height: 36px;
+        width: 36px;
+    }
+}
+@media only screen and (min-width: 1050px) and (max-width: 1200px){
+    .commentformwp-option .commentformwp-author{
+		width: 28%
+	}
+    
+}
+@media only screen and (min-width: 900px) and (max-width: 1050px){
+    .commentformwp-option .commentformwp-author{
+		width: 27%
+	}
+}
+@media only screen and (max-width: 900px){
+	.commentformwp-option .commentformwp-form{
+		width: 95%;
+		float: none;
+	}
+    .commentformwp-option .commentformwp-author{
+		width: 60%;
+		float: none;
+		margin: 25px auto 20px auto;
+	}   
+}
+@media only screen and (max-width: 1150px){
+    .commentformwp-option .commentformwp-author .donate-btn a h4{
+        font-size: 18px;
+    }
+}
+@media only screen and (max-width: 782px){
+    .commentformwp-option .commentformwp-author .donate-btn a h4{
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width: 781.99px){
+    .commentformwp-option .commentformwp-author .donate-btn a h4{
+        font-size: 17px;
+    }
+    .commentformwp-option  .commentformwp-form form input[type="radio"]{
+        height: 17px;
+        width: 17px;
+    }
+}
+@media only screen and (max-width: 550px){
+	.commentformwp-option .commentformwp-form{
+		width: 93%;
+	}
+    .commentformwp-option .commentformwp-author{
+        width: 80%;
+    }
+    .commentformwp-option .commentformwp-author .donate-btn a h4{
+        font-size: 16px;
+        line-height: 1.2em;
+        text-align: left;
+    }
+    .commentformwp-option .commentformwp-author .social-icons a img{
+        height: 36px;
+        width: 36px;
+    }
+    .commentformwp-option .commentformwp-author h4.author-name{
+        font-size: 16px;
+        padding: 32px;
+    }
+    .commentformwp-option h2.title{
+        line-height: 1.3em;
+        padding: 2px 0 7px 10px;
+    }
+    .commentformwp-option ul li:nth-child(3){
+        margin-top: 25px;
+    }
+}
+@media only screen and (max-width: 348px){
+    .commentformwp-option ul li:nth-child(2),
+    .commentformwp-option ul li:nth-child(3){
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    
+}
+
