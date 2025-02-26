@@ -1,0 +1,477 @@
+/*
+* CSS Version: 1.0.0
+*/
+
+/*modal*/
+.acfw30_modal_wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: scale(0);
+    transition: opacity 0.3s linear, transform 0.1s linear 0.3s, background 0.3s linear;
+    opacity: 0;
+    z-index: 999999;
+}
+
+.acfw30_close_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.acfw30_close_modal_min {
+	position: relative;
+	top: -10px;
+	width: 20px;
+	height: 20px;
+	z-index: 75;
+	left: 358px;
+}
+
+.acfw30_close_modal_min::before {
+    content: '+';
+    position: absolute;
+    top: 20%;
+    right: 60%;
+    font-size: 25px;
+    color: #424242;
+    line-height: 0;
+    transform: rotate(45deg);
+    transition: all 0.3s linear;
+}
+
+.acfw30_container {
+	width: 400px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/*popup form*/
+.acfw30_popup_contact_form input::-webkit-input-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1; 
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_popup_contact_form input:-moz-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_popup_contact_form input::-moz-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1; 
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_popup_contact_form input:-ms-input-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_popup_contact_form p,
+.acfw30_popup_contact_form a,
+.acfw30_popup_contact_form input[type="text"],
+.acfw30_popup_contact_form input[type="number"],
+.acfw30_popup_contact_form input[type="email"],
+.acfw30_popup_contact_form input[type="tel"],
+.acfw30_popup_contact_form input[type="url"],
+.acfw30_popup_contact_form textarea,
+.acfw30_popup_contact_form button[type="submit"] {
+  	font-weight: 400;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: Arial;
+    letter-spacing: normal;
+    margin: 0px;
+    padding: 0px;
+}
+
+.acfw30_popup_contact_form {
+	padding: 30px;
+	margin: 10px 0;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	overflow-y: auto;
+}
+
+.acfw30_popup_contact_form a{
+	text-decoration: underline;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+	font-size: 12px;
+}
+
+.acfw30_popup_contact_form a:link{
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}
+
+.acfw30_popup_contact_form a:hover{
+	text-decoration: none;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}
+
+.acfw30_popup_contact_form .title_h3 {
+	display: block;
+	font-size: 30px;
+	font-weight: 300;
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+}
+
+.acfw30_popup_contact_form .title_h4 {
+	margin-bottom: 15px;
+	padding: 0px;
+	display: block;
+	font-size: 15px;
+	font-weight: 400;
+	font-family: Arial;
+}
+
+.acfw30_popup_contact_form .msg_ok{
+	text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.acfw30_popup_contact_form input[type="text"],
+.acfw30_popup_contact_form input[type="email"],
+.acfw30_popup_contact_form input[type="number"],
+.acfw30_popup_contact_form input[type="tel"],
+.acfw30_popup_contact_form input[type="url"],
+.acfw30_popup_contact_form textarea {
+	width: 100%;
+	background: #FFF;
+    background-color: #FFF;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 0px 10px 5px;
+	line-height: normal;
+	box-shadow: none!important;
+	text-shadow: none!important;
+	letter-spacing: 0px;
+	border-radius: unset;
+	height: auto;
+	display: block;
+	border: solid 1px;
+}
+
+.acfw30_popup_contact_form input[type="text"]:hover,
+.acfw30_popup_contact_form input[type="email"]:hover,
+.acfw30_popup_contact_form input[type="tel"]:hover,
+.acfw30_popup_contact_form input[type="url"]:hover,
+.acfw30_popup_contact_form textarea:hover {
+	-webkit-transition: border-color 0.3s ease-in-out;
+	-moz-transition: border-color 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
+	border: 1px solid #aaa;
+}
+
+.acfw30_popup_contact_form textarea {
+	height: 100px;
+	max-width: 100%;
+	resize: none;
+}
+
+.acfw30_popup_contact_form button[type="submit"] {
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	background: #4CAF50;
+	color: #FFF;
+	margin: 0 0 5px;
+	padding: 10px;
+	font-size: 15px;
+	text-transform: none;
+	border-radius: unset;
+	margin-top: 10px;
+}
+
+.acfw30_popup_contact_form button[type="submit"]:hover {
+	background: #43A047;
+	-webkit-transition: background 0.3s ease-in-out;
+	-moz-transition: background 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.acfw30_popup_contact_form button[type="submit"]:active {
+ 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.acfw30_popup_contact_form input:focus,
+.acfw30_popup_contact_form textarea:focus {
+	outline: 0;
+	border: 1px solid #aaa;
+}
+
+/*contact form*/
+.acfw30_contact_form input::-webkit-input-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1; 
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_contact_form input:-moz-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_contact_form input::-moz-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1; 
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_contact_form input:-ms-input-placeholder {
+	color: #888;
+	text-overflow: ellipsis;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+
+.acfw30_contact_form p,
+.acfw30_contact_form a,
+.acfw30_contact_form input[type="text"],
+.acfw30_contact_form input[type="number"],
+.acfw30_contact_form input[type="email"],
+.acfw30_contact_form input[type="tel"],
+.acfw30_contact_form input[type="url"],
+.acfw30_contact_form textarea,
+.acfw30_contact_form button[type="submit"] {
+  	font-weight: 400;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: Arial;
+    letter-spacing: normal;
+    margin: 0px;
+    padding: 0px;
+}
+
+.acfw30_contact_form .acfw30_close_modal_min{
+	display: none!important;
+}
+
+.acfw30_contact_form {
+	margin: 10px 0;
+	padding: 30px 20px 20px 20px;
+    width: 100%;
+}
+
+.acfw30_contact_form a{
+	text-decoration: underline;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+	font-size: 12px;
+}
+
+.acfw30_contact_form a:link{
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}
+
+.acfw30_contact_form a:hover{
+	text-decoration: none;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}
+
+.acfw30_contact_form .title_h3 {
+	display: block;
+	font-size: 30px;
+	font-weight: 300;
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+}
+
+.acfw30_contact_form .title_h4 {
+	margin-bottom: 15px;
+	padding: 0px;
+	display: block;
+	font-size: 15px;
+	font-weight: 400;
+	font-family: Arial;
+}
+.acfw30_contact_form p, .acfw30_contact_form a {
+    font-size: 15px!important
+}    
+
+.acfw30_contact_form .msg_ok{
+	text-align: center;
+    font-size: 16px!important;
+    margin-bottom: 20px;
+}
+
+.acfw30_contact_form input[type="text"],
+.acfw30_contact_form input[type="email"],
+.acfw30_contact_form input[type="number"],
+.acfw30_contact_form input[type="tel"],
+.acfw30_contact_form input[type="url"],
+.acfw30_contact_form textarea {
+	width: 100%;
+	background: #FFF;
+    background-color: #FFF;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 0px 10px 5px;
+	line-height: normal;
+	box-shadow: none!important;
+	text-shadow: none!important;
+	letter-spacing: 0px;
+	border-radius: unset;
+	height: auto;
+	display: block;
+	border: solid 1px;
+}
+
+.acfw30_contact_form input[type="text"]:hover,
+.acfw30_contact_form input[type="email"]:hover,
+.acfw30_contact_form input[type="tel"]:hover,
+.acfw30_contact_form input[type="url"]:hover,
+.acfw30_contact_form textarea:hover {
+	-webkit-transition: border-color 0.3s ease-in-out;
+	-moz-transition: border-color 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
+	border: 1px solid #aaa;
+}
+
+.acfw30_contact_form textarea {
+	height: 100px;
+	max-width: 100%;
+	resize: none;
+}
+
+.acfw30_contact_form button[type="submit"] {
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	background: #4CAF50;
+	color: #FFF;
+	margin: 0 0 5px;
+	padding: 10px;
+	font-size: 15px;
+	text-transform: none;
+	border-radius: unset;
+	margin-top: 10px;
+}
+
+.acfw30_contact_form button[type="submit"]:hover {
+	background: #43A047;
+	-webkit-transition: background 0.3s ease-in-out;
+	-moz-transition: background 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.acfw30_contact_form button[type="submit"]:active {
+ 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.acfw30_contact_form input:focus,
+.acfw30_contact_form textarea:focus {
+	outline: 0;
+	border: 1px solid #aaa;
+}
+
+/*button*/
+.acfw30_button{
+	padding: 5px 11px 5px 11px!important;
+	margin: 3px!important;
+	outline:none!important;
+	text-decoration: none!important;
+	border:none!important;
+	box-shadow: none!important;
+	font-size: 16px!important;
+	border-radius: 5px!important;
+	position: relative!important;
+	line-height: normal!important;
+	opacity: 0.9;
+	position: fixed!important;
+	font-family: Arial;
+	z-index: 999;
+}
+
+.acfw30_button:hover{
+	text-decoration: none!important;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+	opacity: 1;
+} 
+
+.acfw30_button:focus{
+	text-decoration: none!important;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}   
+
+.acfw30_button:link{
+	text-decoration: none!important;
+	outline:none!important;
+	border:none!important;
+	box-shadow: none!important;
+}
+
+/*mobile*/
+@media only screen and (max-width: 430px){
+	.acfw30_container {
+		width: 315px;
+	}
+
+	.acfw30_popup_contact_form{
+		margin: 20px 0;
+	}
+
+	.acfw30_popup_contact_form .title_h3 {
+		font-size: 25px;
+		margin:0px;
+	}
+
+	.acfw30_popup_contact_form .title_h4 {
+		margin:0px;
+	}
+
+	.acfw30_close_modal_min {
+		left: 275px;
+	}
+
+	.acfw30_button {
+		font-size: 14px!important;
+	}
+}
+
+@media only screen and (max-width: 315px){
+	.acfw30_container {
+		display: none;
+	}
+
+	.acfw30_button {
+		font-size: 10px!important;
+	}
+
+	.acfw30_button {
+		display: none!important;
+	}
+}
