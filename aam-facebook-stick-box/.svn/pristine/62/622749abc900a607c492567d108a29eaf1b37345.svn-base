@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){	jQuery(".aam_fb_stick").hover(function() {		jQuery(this).stop().animate({right: "0"}, "medium");	},function(){		jQuery(this).stop().animate({right: "-250"}, "medium");	}, 500);});
