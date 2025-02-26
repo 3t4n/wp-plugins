@@ -1,0 +1,32 @@
+.agp__birthdayType {
+    &__buttonContainer {
+        margin-top: 32px;
+        text-align: center;
+    }
+
+    &__dateContainer {
+
+        @media screen and (min-width: $s) {
+            display: flex;
+            justify-content: center;
+        }
+
+        select {
+
+            @media screen and (max-width: $s - 1px) {
+                display: block;
+                margin-bottom: 0.25rem;
+                &:last-child {
+                    margin-bottom: 0px;
+                }    
+            }
+
+            @media screen and (min-width: $s) {
+                margin-right: 0.5rem;
+                &:last-child {
+                    margin-right: 0px;
+                }    
+            }
+        }
+    }
+}

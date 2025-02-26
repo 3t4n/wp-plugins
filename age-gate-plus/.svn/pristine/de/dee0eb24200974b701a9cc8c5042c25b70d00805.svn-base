@@ -1,0 +1,47 @@
+{
+  "name": "age-gator",
+  "version": "1.0.0",
+  "description": "age-gator",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-in-band": "jest --runInBand",
+    "test-sees-age-gate": "npm test -- -t \"Sees age gate\"",
+    "install-wp-tests": "bin/install-wp-tests.sh age-gator-test root root 127.0.0.1",
+    "build": "webpack --mode production && gulp",
+    "dev": "gulp watch & webpack --mode development --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-sass": "^4.11.0",
+    "terser-webpack-plugin": "^1.2.0",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.28.2",
+    "webpack-bundle-analyzer": "^3.0.4",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "debounce": "^1.2.0",
+    "normalize.css": "^8.0.1",
+    "terser": "^3.14.1",
+    "vue": "^2.5.21",
+    "vuex": "^3.0.1"
+  }
+}
