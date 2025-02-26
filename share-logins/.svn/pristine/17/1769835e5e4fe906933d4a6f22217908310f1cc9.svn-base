@@ -1,0 +1,136 @@
+.cx-wizard-body-panel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	overflow: hidden;
+	background: #dfdfdf;
+}
+.cx-wizard-container {
+	width: 700px;
+	background: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 50px 35px 10px 35px;
+}
+.cx-wizard-container .cx-wizard-content{
+  width: 100%;
+  overflow: hidden;
+}
+.cx-wizard-container .cx-wizard-content form {
+  display: flex;
+  width: 400%;
+}
+.cx-wizard-content form .cx-wizard-page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.cx-wizard-content form .cx-wizard-page .title{
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+.cx-wizard-content form .cx-wizard-page .field {
+	width: 100%;
+	height: 35px;
+	margin: 45px 0;
+	display: flex;
+	position: relative;
+}
+.cx-wizard-container form .cx-wizard-page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+.cx-wizard-container form .cx-wizard-page .field input{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+.cx-wizard-container form .cx-wizard-page .field select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.cx-wizard-container .cx-wizard-btn {
+	width: 100%;
+	height: 42px;
+	border: none;
+	background: #55b776;
+	margin-top: -20px;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: 0.5s ease;
+	text-decoration: none;
+	line-height: 45px;
+	margin-right: 15px;
+	font-weight: bold;
+	font-family: inherit;
+}
+.cx-wizard-container .cx-wizard-btn:hover {
+	background: #349153;
+}
+.cx-wizard-container .cx-wizard-btn:last-child {
+	margin-right: 0;
+}
+.cx-wizard-btn.prev.disabled {
+	display: none;
+}
+.cx-wizard-container .cx-wizard-progress-bar{
+  display: flex;
+  margin: 40px 0;}
+.cx-wizard-container .cx-wizard-progress-bar .step {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.cx-wizard-container .cx-wizard-progress-bar .step p a {
+	font-size: 14px;
+	color: #000;
+	text-decoration: none;
+}
+.cx-wizard-progress-bar .step .bullet {
+	height: 35px;
+	width: 35px;
+	border: 2px solid #7d7d7d;
+	display: inline-block;
+	border-radius: 50%;
+	position: relative;
+	transition: 0.2s;
+	font-weight: 500;
+	font-size: 17px;
+	line-height: 35px;
+	color: #7d7d7d;
+}
+.cx-wizard-progress-bar .step.passed-step .bullet {
+	color: #55b776;
+	border-color: #55b776;
+}
+.cx-wizard-progress-bar .step:last-child .bullet:before,
+.cx-wizard-progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.cx-wizard-progress-bar .step .bullet::after {
+	position: absolute;
+	content: '';
+	bottom: 15px;
+	right: -135px;
+	height: 3px;
+	width: 130px;
+	background: #7d7d7d;
+}
+.cx-wizard-progress-bar .step.passed-step .bullet::after {
+	background: #55b776;
+}
+.cx-wizard-progress-bar .step.current-step.passed-step .bullet::after {
+	background: #7d7d7d;
+}
