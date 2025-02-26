@@ -1,0 +1,263 @@
+.arrowD071377382_api_txtbox{
+	margin-left: auto;
+	margin-right:10%;
+	width:50%;
+}
+.arrowD071377382_api_lbl{
+	color:black;
+	font-weight:bold;
+	font-size:14px;
+}
+.arrowD071377382_api_Benefits_div{
+	margin-left: 2%;
+	width: 30%;
+	background-color: #f0f5ef;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	border-radius: 20px;
+}
+.arrowD071377382_api_Benefits_txt{
+	font-size:20px;
+	color:black;
+	margin-right:10%;
+}
+.arrowD071377382_api_Credentials_div{
+	margin-left: 2%;
+	width:50%;
+	background-color: #f0f5ef;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	border-radius: 20px;
+}
+.arrowD071377382_api_ValiTickSpanCorrect{
+	margin-right:8%;
+	font-size:30px;
+	font-weight:bold;
+	color:green;
+}
+
+.arrowD071377382_api_ValiTickSpanInCorrect{
+	margin-right:8%;
+	font-size:30px;
+	font-weight:bold;
+	color:red;
+}
+
+.arrowD07137738loadingOverlay {
+    position: fixed; /* Overlay takes up the whole screen */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 9999; /* Make sure the overlay is on top */
+    display: flex; /* Use flexbox to center the loader */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.arrowD07137738OverlayLoaderSpinner {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: arrowD07137738OverlayLoaderSpinner_spin 1s linear infinite;
+}
+
+@keyframes arrowD07137738OverlayLoaderSpinner_spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.arrowD07137738OverlayLoaderText{
+	color:#ffffff;
+	display:none;
+}
+
+.arrowD7137738_API_allPageDiv {
+    display: inline-flex;
+    width: 70vw; /* Adjusted to a single correct width declaration */
+    background-color: #ffffff;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: relative; 
+}
+
+.arrowD7137738_closeIcon {
+    position: absolute;
+    top: 0; /* Aligns the button to the top edge of the parent */
+    right: 0; /* Aligns the button to the left edge of the parent */
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.arrowD071377382_additionalEmailNav_Cls{
+	
+}
+
+.arrowD071377382_emailLogDivAll {
+    display: inline-flex;
+    width: 84vw;
+    background-color: #ffffff;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+	padding-left: 2vw;
+    position: relative; 
+}
+/* Style for the single email display popup */
+/* Style for the single email display popup */
+.arrowD07137738SingleEmailDisplay {
+    display: none; /* Initially hide the popup */
+    position: fixed; /* Position the popup relative to the viewport */
+    top: 50%; /* Center the popup vertically */
+    left: 50%; /* Center the popup horizontally */
+    transform: translate(-50%, -50%); /* Center the popup exactly */
+    background-color: #fff; /* Background color of the popup */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle elevation effect */
+    padding: 20px; /* Padding inside the popup */
+    width: 80%; /* Set the width to 80% of the viewport width */
+    height: 80%; /* Set the height to 80% of the viewport height */
+    max-width: 800px; /* Maximum width of the popup */
+    max-height: 600px; /* Maximum height of the popup */
+    overflow-y: auto; /* Enable vertical scrolling if the content overflows */
+    z-index: 9999; /* Ensure the popup appears above other elements */
+}
+
+/* Style for the close button */
+.arrowD07137738SingleEmailDisplay .close-button {
+    position: absolute; /* Position the close button relative to the popup */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    cursor: pointer; /* Show pointer cursor on hover */
+    color: #666; /* Color of the close button */
+    font-size: 20px; /* Font size of the close button */
+}
+
+.arrowD07137738SingleEmailDisplay-overlay {
+    position: fixed; /* Position the overlay relative to the viewport */
+    top: 0; /* Cover the entire viewport from the top */
+    left: 0; /* Cover the entire viewport from the left */
+    width: 100%; /* Cover the entire viewport width */
+    height: 100%; /* Cover the entire viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 9998; /* Ensure the overlay appears below the popup */
+}
+
+
+/* EMAIL SETTINS - TEMPLATES - MOVE TO ITS OWN ENQUEUE --START--  */
+
+.arrowD7137738_wrapper {
+    padding: 0;
+    background-color: #f7f7f7;
+    -webkit-text-size-adjust: none;
+}
+
+.arrowD7137738_template_container {
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.arrowD7137738_template_header {
+    background-color: #96588a;
+    color: #ffffff;
+    border-bottom: 0;
+    font-weight: bold;
+    line-height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    border-radius: 3px 3px 0 0;
+}
+
+.arrowD7137738_template_header h1 {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 150%;
+    margin: 0;
+    text-align: left;
+    color: #ffffff;
+    background-color: inherit;
+    padding: 36px 48px;
+}
+
+.arrowD7137738_template_body {
+    background-color: #ffffff;
+}
+
+.arrowD7137738_body_content {
+    color: #636363;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: left;
+    padding: 48px 48px 32px;
+}
+
+.arrowD7137738_mail_details {
+    margin-bottom: 40px;
+}
+
+.arrowD7137738_mail_table {
+    color: #636363;
+    border: 1px solid #e5e5e5;
+    width: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+}
+
+.arrowD7137738_mail_table th,
+.arrowD7137738_mail_table td {
+    color: #636363;
+    border: 1px solid #e5e5e5;
+    padding: 12px;
+    text-align: left;
+}
+
+.arrowD7137738_mail_table th {
+    font-weight: bold;
+}
+
+.arrowD7137738_mail_price {
+    color: #636363;
+}
+
+.arrowD7137738_mail_address_section {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.arrowD7137738_mail_billing_address_section {
+    padding: 12px;
+    color: #636363;
+    border: 1px solid #e5e5e5;
+}
+
+.arrowD7137738_mail_template_footer {
+    border-radius: 6px;
+}
+
+.arrowD7137738_mail_footer_content {
+    border-radius: 6px;
+    border: 0;
+    color: #8a8a8a;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    padding: 24px 0;
+}
+
+/* EMAIL SETTINS - TEMPLATES - MOVE TO ITS OWN ENQUEUE --END--  */
