@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Creates the "info" icon, 
+   styles the instruction text as a tooltip, and 
+   creates the hover functionality for showing the tooltip.
+   ========================================================================== */
+
+.acf-repeater .acf-th.jp-simple-acf-tooltip-has-instruction:after,
+.acf-field .acf-label.jp-simple-acf-tooltip-has-instruction label:after {
+    content: "\f348";
+    color: #737373;
+    display: block;
+    float: right;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    margin: 0 4px;
+    line-height: 1;
+    font-family: dashicons;
+    text-decoration: inherit;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: top;
+    text-align: center;
+    transition: color .1s ease-in 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.acf-repeater .acf-th.jp-simple-acf-tooltip-has-instruction:hover,
+.acf-field .acf-label.jp-simple-acf-tooltip-has-instruction label:hover {
+    cursor: context-menu;
+}
+
+.acf-repeater .acf-th.jp-simple-acf-tooltip-has-instruction:hover p.description,
+.acf-field .acf-label.jp-simple-acf-tooltip-has-instruction label:hover + p.description,
+.acf-repeater .acf-th.jp-simple-acf-tooltip-has-instruction p.description:hover,
+.acf-field .acf-label.jp-simple-acf-tooltip-has-instruction label + p.description:hover {
+    font-size: 12px;
+    cursor: context-menu;
+    position: absolute;
+    z-index: 1000;
+    background: #eee;
+    padding: 4px 6px;
+    min-width: 200px;
+    border-radius: 5px;
+}
+
+.acf-repeater .acf-th.jp-simple-acf-tooltip-has-instruction:not(:hover) p.description br,
+.acf-field .acf-label.jp-simple-acf-tooltip-has-instruction label:not(:hover) + p.description br {
+    display: none; /* hide the br elements when not showing tooltip */
+}
+
+.acf-repeater .acf-th.jp-simple-acf-tooltip-has-instruction p.description:hover br,
+.acf-field .acf-label.jp-simple-acf-tooltip-has-instruction label + p.description:hover br {
+    display: block; /* show the br elements when showing tooltip */
+}
+
+.acf-repeater .acf-th p.description,
+.acf-field .acf-label p.description {
+    font-size: 0px;
+    display: inline;
+    line-height: 1.4em;
+    font-style: normal; /* override the default style to italicize */
+}
+
+.acf-field > .acf-label:after {
+    content: "";
+    clear: both;
+    display: table;
+    overflow: auto;
+}
+
+.acf-field > .acf-label > label[for] {
+    margin-bottom: 0;
+    display: inline-block;
+    float: left;
+}
