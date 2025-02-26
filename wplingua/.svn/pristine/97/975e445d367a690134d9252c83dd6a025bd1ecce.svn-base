@@ -1,0 +1,17 @@
+/*!*
+ **                 _     _                         
+ ** __      ___ __ | |   (_)_ __   __ _ _   _  __ _ 
+ ** \ \ /\ / / '_ \| |   | | '_ \ / _` | | | |/ _` |
+ **  \ V  V /| |_) | |___| | | | | (_| | |_| | (_| |
+ **   \_/\_/ | .__/|_____|_|_| |_|\__, |\__,_|\__,_|
+ **          |_|                  |___/             
+ **
+ **        -- wpLingua | WordPress plugin --
+ **   Translate and make your website multilingual
+ **
+ **     https://github.com/julien-jacob/wplingua
+ **      https://wordpress.org/plugins/wplingua/
+ **              https://wplingua.com/
+ **
+ **/
+jQuery(document).ready(function(c){let r=JSON.parse(c("#wplng_link_media_entries").val());c("#wplng-new-rule-button").click(function(){c("#wplng-section-entries-all").hide(),c("#wplng_new_mode_exactly").prop("checked",!0),c("#wplng-section-entry-new").show(),window.scrollTo(0,0)}),c("#wplng-new-add-button").click(function(){var e=c("#wplng-new-source").val();let l="exactly";var t=c("input[type='radio'][name='wplng_new_mode']:checked");let n={};null!=e&&""!=e.trim()&&("partially"!==(l=0<t.length?t.val():l)&&"regex"!==l&&(l="exactly"),c(".wplng-new-rule").each(function(){var e=c(this).attr("wplng-rule"),l=c('input[type="text"]',this).val();null!=l&&""!=l.trim()&&(n[e]=l.trim())}),0!=Object.keys(n).length)&&(r.push({source:e,mode:l,rules:n}),c("#wplng_link_media_entries").val(JSON.stringify(r)),c("#submit").click())}),c("#wplng-new-cancel-button").click(function(){c("#wplng-section-entries-all").show(),c("#wplng-section-entry-new").hide(),window.scrollTo(0,0)}),c(".wplng-rule-link-remove").click(function(){let l=c(this).attr("wplng-rule"),t=[],n=0;r.forEach(e=>{n!=l&&t.push(e),n++}),c("#wplng_link_media_entries").val(JSON.stringify(t)),c("#submit").click()}),c(".wplng-rule-link-edit").click(function(){var e=c(this).attr("wplng-rule"),l=r[e];switch(c("#wplng-section-entries-all").hide(),c("#wplng-section-entry-edit").show(),c("#wplng-edit-source").val(l.source),l.mode){case"exactly":c("#wplng_edit_mode_exactly").prop("checked",!0),c("#wplng_edit_mode_partially").prop("checked",!1),c("#wplng_edit_mode_regex").prop("checked",!1);break;case"partially":c("#wplng_edit_mode_exactly").prop("checked",!1),c("#wplng_edit_mode_partially").prop("checked",!0),c("#wplng_edit_mode_regex").prop("checked",!1);break;case"regex":c("#wplng_edit_mode_exactly").prop("checked",!1),c("#wplng_edit_mode_partially").prop("checked",!1),c("#wplng_edit_mode_regex").prop("checked",!0)}c("#wplng-edit-save-button").prop("wplng-rule",e),c('#wplng-edit-rules input[type="text"]').val(""),c.each(l.rules,function(e,l){c("#wplng-edit-always-translate-"+e).val(l)}),window.scrollTo(0,0)}),c("#wplng-edit-save-button").click(function(){var e=c("#wplng-edit-source").val();let l="exactly";var t=c("input[type='radio'][name='wplng_edit_mode']:checked");let n={};var i=c(this).prop("wplng-rule");null!=e&&""!=e.trim()&&("partially"!==(l=0<t.length?t.val():l)&&"regex"!==l&&(l="exactly"),c(".wplng-edit-rule").each(function(){var e=c(this).attr("wplng-rule"),l=c('input[type="text"]',this).val();null!=l&&""!=l.trim()&&(n[e]=l.trim())}),r.splice(i,1),0!=Object.keys(n).length)&&(r.push({source:e,mode:l,rules:n}),c("#wplng_link_media_entries").val(JSON.stringify(r)),c("#submit").click())}),c("#wplng-edit-cancel-button").click(function(){c("#wplng-section-entries-all").show(),c("#wplng-section-entry-edit").hide(),window.scrollTo(0,0)})});//# sourceMappingURL=option-page-link-media.js.map
