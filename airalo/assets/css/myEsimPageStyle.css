@@ -1,0 +1,447 @@
+body {
+    --wp--airalo--my--esim--card--background: #CECECE;
+    --wp--airalo--my--esim--title--color: #000;
+    --wp--airalo--my--esim--left-menu-active--color: #fff;
+    --wp--airalo--my--esim--left-menu-active--background: #EE434E;
+    --wp--airalo--my--esim--carousel--background: #B1B1B1;
+
+    --wp--airalo--my--esim--text--title--negative: #C81E1E;
+    --wp--airalo--my--esim--text--body--normal: #374151;
+    --wp--airalo--my--esim--text--title--highlight: #1A56DB;
+    --wp--airalo--my--esim--border-color--normal: #D1D5DB;
+    --wp--airalo--my--esim--text--title--normal: #111928;
+}
+.text-color-title-negative {
+    color: var(--wp--airalo--my--esim--text--title--negative);
+}
+.text-color-title-normal {
+    color: var(--wp--airalo--my--esim--text--title--normal);
+}
+.text-color-body-normal {
+    color: var(--wp--airalo--my--esim--text--body--normal);
+}
+.text-color-title-highlight {
+    color: var(--wp--airalo--my--esim--text--title--highlight);
+}
+@media only screen and (max-width: 768px) {
+    .my-esim-page-wrapper {
+        width: 768px;
+        grid-template-columns: 100% !important;
+    }
+    .installation-manual-wrapper,
+    .qr-code-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .installation-manual-wrapper,
+    .qr-code-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+    .vertical-divider {
+        height: 1px !important;
+        width: 100% !important;
+    }
+}
+.my-esim-page-wrapper {
+    font-family: inherit;
+    max-width: fit-content !important;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-auto-rows: minmax(100px, auto);
+}
+.my-esim-page-wrapper p {
+    margin: 0;
+}
+.link-clear {
+    text-decoration: none !important;
+}
+.link-clear:focus {
+    color: transparent !important;
+}
+.my-esims-left-menu {
+    border: 1px solid var(--wp--airalo--my--esim--carousel--background);
+}
+.my-esims-left-menu-title {
+    color: var(--wp--airalo--my--esim--title--color);
+    background-color: var(--wp--airalo--my--esim--carousel--background);
+    border-bottom: 1px solid var(--wp--airalo--my--esim--carousel--background);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.016px;
+    padding: 16px;
+}
+
+.esims-list {
+    display: grid;
+    max-height: 450px;
+    overflow-x: scroll;
+}
+.esim-list-title {
+    padding: 16px;
+    color: var(--wp--airalo--my--esim--title--color);
+    background-color: var(--wp--airalo--my--esim--left-menu-active--color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.016px;
+    cursor: pointer;
+    user-select: none;
+}
+.esim-list-title:hover,
+.esim-list-title.active {
+    color: var(--wp--airalo--my--esim--left-menu-active--color);
+    background-color: var(--wp--airalo--my--esim--left-menu-active--background);
+}
+
+.my-esims-page-content-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.my-esims-page-content-list > li {
+    padding: 0 !important;
+}
+.my-esims-page-content-list-checkbox {
+    display: none !important;
+}
+.my-esims-page-list-title {
+    padding: 16px;
+    margin: 0;
+    border: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    border-left: 0!important;
+    outline-width: 1px;
+    cursor: pointer;
+    display: block;
+    color: var(--wp--airalo--my--esim--title--color);
+    background-color: var(--wp--airalo--my--esim--carousel--background);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.016px;
+    position: relative;
+    user-select: none;
+}
+.my-esims-page-list-title:after {
+    content: url('../images/icon-chevron-close.svg');
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: rotate(-45deg) translate(-50%, -50%);
+    display: inline-block;
+    vertical-align: top;
+    width: 14px;
+    height: 14px;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    border-color: var(--wp--airalo--my--esim--title--color);
+}
+.my-esims-page-content-list-checkbox:checked + .my-esims-page-list-title:after {
+    transform: rotate(135deg) translate(0%, 100%);
+}
+.my-esims-page-list-desc {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    border-right: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    border-bottom: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    background-color: var(--wp--airalo--my--esim--card--background);
+}
+.my-esims-page-list-desc > div {
+    margin: 16px;
+}
+.my-esims-page-content-list-checkbox:checked + .my-esims-page-list-title + .my-esims-page-list-desc {
+    max-height: 100%;
+}
+
+.usage-wrapper-items {
+    display: grid;
+    gap: 16px;
+    margin: 16px 8px;
+    padding: 16px;
+    border: 1px solid var(--wp--airalo--my--esim--carousel--background);
+}
+
+.qr-code-wrapper,
+.installation-manual-wrapper {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1px 1fr;
+}
+.qr-code-second-layer {
+    max-width: 250px;
+    height: fit-content;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    background: #F9FAFB;
+    display: grid;
+    align-self: center;
+    justify-self: center;
+}
+.qr-code-first-layer {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #D1D5DB;
+    background: #FFF;
+    text-align: center;
+}
+.qr-code-right {
+    display: grid;
+    gap: 16px;
+    align-content: flex-start;
+}
+.qr-code-right-item {
+    display: grid;
+    gap: 12px;
+}
+.qr-code-installation-instructions {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    background-color: var(--wp--airalo--my--esim--left-menu-active--color);
+}
+.installation-instruction-card-title {
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    padding-bottom: 16px;
+}
+
+.installation-manual-left-content {
+    display: grid;
+    gap: 16px;
+    width: 280px;
+    height: 200px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 16px;
+    border: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+    justify-self: center;
+    align-self: center;
+    background-color: var(--wp--airalo--my--esim--left-menu-active--color);
+}
+.installation-manual-left-content * {
+    word-break: break-all;
+}
+.installation-manual-smdp-activation {
+    display: grid;
+    gap: 16px;
+}
+.installation-instruction-card-list {
+    margin: 0;
+    padding: 0;
+    list-style: none !important;
+}
+.select-wrapper {
+    position: relative;
+}
+.select {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #D1D5DB;
+    appearance: none;
+}
+.select-wrapper:after {
+    content: url('../images/icon-chevron-close.svg');
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: rotate(135deg) translate(0%, 100%);
+    display: inline-block;
+    vertical-align: top;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    border-color: #111928;
+}
+.qr-and-manual-wrapper {
+    padding: 16px;
+}
+
+.data-usage-packages-wrapper {
+    display: grid;
+    gap: 24px;
+    margin: 16px 8px;
+    padding: 16px;
+    border: 1px solid var(--wp--airalo--my--esim--carousel--background);
+}
+.data-usage-package-title {
+    display: flex;
+    justify-content: space-between;
+}
+.data-usage-package-title p{
+    color: var(--wp--airalo--my--esim--title--color);
+}
+.data-usage-package-title-badge {
+    background: #EDEBFE;
+    color: #6C2BD9 !important;
+}
+.data-usage-package-date-status {
+    background-color: var(--wp--airalo--my--esim--left-menu-active--background);
+    color: var(--wp--airalo--my--esim--left-menu-active--color);
+    border: 1px solid var(--wp--airalo--my--esim--carousel--background);
+}
+.data-usage-packages-date-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.data-usage-package-date-right,
+.data-usage-package-date-left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.data-usage-package-date {
+    display: grid;
+}
+.data-usage-package-remaining-data {
+    display: grid;
+    gap: 4px;
+}
+.data-usage-package-remaining-data-title {
+    display: flex;
+    justify-content: space-between;
+}
+.data-usage-previous-packages-title {
+    margin: 16px 8px;
+    padding: 16px;
+    border: 1px solid #B1B1B1 !important;
+    background: transparent;
+}
+.my-esims-page-content-list-checkbox:checked + .data-usage-previous-packages-title  {
+    margin-bottom: -16px !important;
+    border-bottom: 0 !important;
+}
+.data-usage-previous-packages-desc {
+    transition: 0.1s;
+}
+.data-usage-previous-packages-desc .data-usage-packages-wrapper {
+    border-top: 0 !important;
+}
+.data-usage-previous-packages-date-wrapper {
+    display: grid;
+    gap: 48px;
+    margin: 16px 8px;
+    padding: 16px;
+    border: 1px solid var(--wp--airalo--my--esim--border-color--normal);
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: var(--wp--airalo--my--esim--left-menu-active--color);
+    padding: 0;
+    border-radius: 3px;
+}
+
+.progress-bar-fill {
+    display: block;
+    height: 6px;
+    background-color: var(--wp--airalo--my--esim--left-menu-active--background);
+    border-radius: 3px;
+    transition: width 500ms ease-in-out;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 448px;
+    background-color: var(--wp--airalo--my--esim--border-color--normal);
+}
+
+.trail-title-4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.trail-title-5 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.trail-body-2 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.trail-body-3 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.trail-caption {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.trail-badge {
+    display: flex;
+    padding: 8px;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+}
+
+.my-esim-page-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}
+
+.my-esim-page-tabs_label {
+    padding: 16px;
+    cursor: pointer;
+    user-select: none !important;
+    color: var(--wp--airalo--my--esim--title--color);
+}
+
+.my-esim-page-tabs-radio {
+    display: none !important;
+}
+
+.my-esim-page-tabs_content {
+    order: 1;
+    margin: 16px;
+    width: 100%;
+    display: none;
+}
+
+.my-esim-page-tabs-radio:checked + .my-esim-page-tabs_label {
+    font-weight: bold;
+    color: var(--wp--airalo--my--esim--text--title--negative);
+    border-bottom: 2px solid var(--wp--airalo--my--esim--text--title--negative);
+}
+
+.my-esim-page-tabs-radio:checked + .my-esim-page-tabs_label + .my-esim-page-tabs_content {
+    display: initial;
+}
+
+.none {
+    display: none !important;
+}
