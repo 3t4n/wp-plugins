@@ -1,0 +1,311 @@
+.gw_gift {
+    width: 100%;
+    display: none;
+    float: left;
+    margin: 30px 0px;
+}
+.gw_gift .gw_gift_product {
+    text-align: center;
+}
+.gw_gift .gw_gift_product a {
+    text-decoration: none !important;
+}
+.gw_gift .item.gw_gift_product img {
+    max-width: 100%;
+}
+.gw_gift .item.gw_gift_product {
+    border: 1px solid #ccc;
+}
+.gw_gift .gw_title {
+    padding: 5px 0px;
+}
+.gw_gift.ocgw_gift_div.gift_open {
+    display: block;
+}
+.current_giftwrapper .select_wrapper {
+    border: 2px solid #000;
+}
+.single-product span.woocommerce-Price-amount.amount {
+    font-size: 10px;
+}
+.gw_gift_atc_btn input.single_add_to_cart_button {
+    padding: 10px 20px!important;
+    border: none;
+}
+.single-product .ocgw_gift_btn {
+    margin-bottom: 15px;
+}
+a.ocgw_gift_btn {
+    text-decoration: none!important;
+}
+.gw_gift.ocgw_gift_div {
+    background: #fff;
+    border: 1px solid #fff;
+    padding: 10px;
+    box-shadow: inset 0 -3em 3em rgb(255 255 255 / 10%), 0 0 0 2px rgb(255 255 255), 0.3em 0.3em 15px rgb(126 126 126 / 30%);
+}
+.single-product .select_wrapper {
+    min-height: 60px;
+     padding-top: 0px; 
+}
+input.single_add_to_cart_button.gift_add_single {
+    display: none;
+}
+.ocgw_prod {
+    display: none;
+}
+.gw_gift p {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.gw_gift_atc_btn {
+    margin: 10px 0;
+}
+.gw_gift_atc_btn a {
+    font-size: 14px;
+    cursor: pointer;
+}
+.ocgw_elgbmsg_main {
+    display: inline-block;
+    width: 100%;
+   
+}
+.ocgw_elgbmsg_txt {
+    display: inline-block;
+    width: 75%;
+    float: left;
+}
+.ocgw_elgbmsg_link {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: right;
+    margin-top: 4px;
+}
+.ocgw_elgbmsg_txt p {
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+}
+.ocgw_elgbmsg_link a {
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 15px;
+}
+.ocgw_elgbmsg_link a:visited {
+    outline: none;
+}
+/* Gift Popup Start */
+.ocgw_gifts_popup_main {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: -webkit-fill-available;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.ocgw_gifts_popup_main .modal-content {
+  position: relative;
+  z-index: 99999;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.ocgw_gifts_popup_main .ocgw_gifts_popup_close {
+    position: absolute;
+    right: -13px;
+    top: -12px;
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    z-index: 9999999;
+    background-color: black;
+    border-radius: 100%;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.ocgw_gifts_popup_main .ocgw_gifts_popup_close:hover {
+    background-color: #696969;
+}
+.ocgw_gifts_popup_close svg {
+    width: 15px;
+    height: 15px !important;
+    text-align: center;
+    line-height: 25px;
+    display: flex;
+    align-content: center;
+    margin: 0 auto;
+}
+.ocgw_gifts_popup_close svg path {
+    fill: #fff;
+}
+
+.ocgw_gifts_popup_main .ocgw_gifts_popup_close:hover,
+.ocgw_gifts_popup_main .ocgw_gifts_popup_close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ocgw_gifts_popup_main .modal-header {
+  padding: 2px 16px;
+}
+
+.ocgw_gifts_popup_main .modal-body {
+  padding: 10px 16px;
+}
+/* Gift Popup End */
+.ocgw_body_gift {
+    overflow: hidden;
+    position: relative;
+}
+.ocgw_body_gift:after {
+    position: absolute;
+    content: "";
+    background-color: rgba(0,0,0,0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+.ocgw_loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999999;
+}
+.ocgw_gifts_popup_overlay {
+    display: none;
+    background: transparent;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.ocgw_gifts_popup_main .gw_gift {
+    float: none;
+    margin: 0;
+}
+.ocgw_disable {
+  pointer-events: none;
+  opacity: 0.7;
+}
+.gw_gift_slider.owl-theme .owl-nav [class*=owl-]:hover {
+  background: none;
+}
+.ocgw_body_gift .owl-theme .owl-nav [class*=owl-]:hover {
+  background: none;
+}
+.ocgw_giftcrpr_msg {
+    font-weight: bold;
+    margin: 5px 0 20px;
+}
+.ocgw_gift_div {
+    direction: initial;
+}
+.ocgw_gift_btn span.name{
+    display: block;
+}
+.ocgw_gift_btn span.name2{
+    display: none;
+}
+
+.active span.name {
+    display: none;
+}
+.active span.name2 {
+    display: block;
+}
+.gift_wrapper_message_main textarea {
+    width: 70%;
+    padding: 10px;
+}
+.gift_wrapper_message_main label {
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+}
+.gw_gift_slider {
+    padding: 10px 0;
+}
+.select_wrapper {
+    min-height: 60px;
+    padding-top: 10px;
+}
+.wg_gift {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+input.single_add_to_cart_button {
+    background-color: #1e83a8 !important;
+    font-size: 20px !important;
+    padding: 15px 50px !important;
+    cursor: pointer;
+}
+label.gw_title {
+    cursor: pointer;
+}
+ul.wc-item-meta {
+    padding: 0;
+}
+
+
+
+@media only screen and (max-width: 767px){
+    .ocgw_elgbmsg_main {
+        width: auto;
+    }
+    .ocgw_elgbmsg_txt {
+        width: auto;
+    }
+    .ocgw_elgbmsg_link {
+        width: auto;
+    }
+    .gift_wrapper_message_main textarea {
+        width: auto;
+    }
+    input.single_add_to_cart_button {
+        padding: 20px 10px !important;
+        margin-top: 10px;
+    }
+}
