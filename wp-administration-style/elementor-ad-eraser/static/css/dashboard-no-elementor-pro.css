@@ -1,0 +1,25 @@
+/* When Elementor Pro is not active:
+- Hide "Elementor" > ("Custom Code" & "Custom Icons" & "Custom Fonts" & "Submissions" & "Get Help") menu item.
+because they are paid features. */
+.wp-submenu li:has([href*='admin.php?page=elementor_custom_code']),
+.wp-submenu li:has([href*='admin.php?page=elementor_custom_icons']),
+.wp-submenu li:has([href*='admin.php?page=e-form-submissions']),
+.wp-submenu li:has([href*='admin.php?page=elementor_custom_fonts']),
+.wp-submenu li:has([href*='admin.php?page=go_knowledge_base_site']) {
+    display: none !important;
+}
+
+/* Header in "/wp-admin/admin.php?page=elementor" */
+.e-admin-top-bar__heading {
+    display: none !important;
+}
+
+#menu-posts-elementor_library .elementor-app-link,
+a[href='edit.php?post_type=elementor_library&page=popup_templates'],
+#menu-posts-elementor_library ul li:has(a[href*='/wp-admin/admin.php?page=elementor-app']) {
+    display: none !important;
+}
+
+#e-admin-top-bar-root a[href*='/wp-admin/admin.php?page=elementor-connect'] {
+    display: none !important;
+}

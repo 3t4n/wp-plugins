@@ -1,0 +1,60 @@
+/* in elementor menu on the sidebar */
+.wp-submenu
+/* the "Upgrade" element at the end of the menu */
+li:has([href*='admin.php?page=go_elementor_pro']) {
+    display: none !important;
+}
+
+/* In WordPress sidebar menu > "Elementor" > "Add-ons" */
+.wp-submenu li:has([href*='admin.php?page=elementor-apps']) {
+    display: none !important;
+}
+
+/* In elementor settings pages > top header links - "Upgrade Now" button */
+/* [href="https://go.elementor.com/wp-dash-admin-top-bar-upgrade/"] */
+.e-admin-top-bar__bar-button:has(.eicon-upgrade-crown) {
+    display: none !important;
+}
+
+/* In Elementor/Home page (/wp-admin/admin.php?page=elementor) */
+.toplevel_page_elementor {
+    /* Elementor pro ad on right side of the page */
+    .MuiPaper-root:has([href="https://go.elementor.com/go-pro-home-sidebar-upgrade/"])
+    {
+        display: none !important;
+    }
+
+    /* Paid ad-ons content and link on bottom */
+    .MuiPaper-root:has([href*='admin.php?page=elementor-apps']) {
+        display: none !important;
+    }
+}
+
+/* In media upload page (/wp-admin/upload.php) */
+.upload-php
+/* "Generate with Elementor AI" link */
+#e-image-ai-media-library {
+    display: none !important;
+}
+
+/* Header in "/wp-admin/admin.php?page=elementor" */
+/* "Add-ons", "What's New" links */
+.e-admin-top-bar__bar-button[href*='admin.php?page=elementor-apps'],
+.e-admin-top-bar__bar-button:has(.eicon-speakerphone) {
+    display: none !important;
+}
+
+/* Speed up your website with Image Optimizer by Elementor */
+.notice.e-notice[data-notice_id='plugin_image_optimization'] {
+    display: none !important;
+}
+
+/* /wp-admin/upload.php - Edit with Elementor AI */
+#e-image-ai-attachment-details {
+    display: none !important;
+}
+
+/* /wp-admin/admin.php?page=elementor-role-manager - "Want to give access only to content?" */
+.elementor-role-go-pro {
+    display: none !important;
+}
