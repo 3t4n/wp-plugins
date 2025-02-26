@@ -1,0 +1,39 @@
+{
+  "name": "commercebird/commercebird",
+  "description": "This plugin helps you get the most of commercebird by allowing you to manage product images, integrations and more",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "CommerceBird\\Admin\\": "admin/includes/"
+    },
+    "classmap": [
+      "includes/classes/"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Fawad Tiemoerie",
+      "email": "info@roadmapstudios.com",
+      "role": "Owner"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "filp/whoops": ">=2.15.4",
+    "roots/wordpress-no-content": ">=6.3.2",
+    "symfony/var-dumper": "^5.4",
+    "wp-coding-standards/wpcs": ">=3.0.1"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": false
+    }
+  }
+}
