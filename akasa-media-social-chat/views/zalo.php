@@ -1,0 +1,2 @@
+<div class="zalo-chat-widget" data-oaid="<?=$oaidzalo; ?>" data-welcome-message="<?=$messagezalo; ?>" data-autopopup="<?=$autopopupzalo;?>" data-width="<?=$widthzalo; ?>" data-height="<?=$heightzalo; ?>"></div>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
