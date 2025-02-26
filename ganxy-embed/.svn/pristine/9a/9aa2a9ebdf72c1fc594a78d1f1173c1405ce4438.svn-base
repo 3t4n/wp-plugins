@@ -1,0 +1,1 @@
+!function(e){e(document).on("click",".nav-tab-wrapper a",function(n){return n.preventDefault(),e("#ganxy-help-sections section").hide(),e(".nav-tab").removeClass("nav-tab-active"),e(this).addClass("nav-tab-active"),e("#ganxy-help-sections section").eq(e(this).index()).show(),!1})}(jQuery);

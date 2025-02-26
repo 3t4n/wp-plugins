@@ -1,0 +1,1 @@
+!function(e){e(".ganxy-book").is("*")&&!function(e,n,t){var a,s=e.getElementsByTagName(n)[0];e.getElementById(t)||(a=e.createElement(n),a.id=t,a.async=!0,a.src="https://ganxy.com/b.js",s.parentNode.insertBefore(a,s))}(document,"script","ganxy-js-2")}(jQuery);
