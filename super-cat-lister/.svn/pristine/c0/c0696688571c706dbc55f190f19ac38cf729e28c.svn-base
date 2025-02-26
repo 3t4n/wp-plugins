@@ -1,0 +1,189 @@
+SuperCatLister Directions
+
+OVERVIEW
+
+SuperCatLister greatly extends the abilities of Wordpress as a content management system.  It does this by giving site designers the ability to insert links or content from posts in specified categories into other posts.  
+
+SuperCatLister differs from other category listing solutions because it gives enormous control over the formatting of the included content.  
+
+Its power is further extended by allowing global defaults, which are set in the plugin's administration screen, to be overridden in specific posts by shortcodes.  This allows ease of use combined with enormous flexibility of design. 
+
+Multiple options can be set for each list. Lists can be inserted anywhere in posts and multiple lists can be inserted into posts.  
+
+CHOOSING CATEGORIES  
+
+[cat_lister cat=92  ]
+
+To use SuperCatLister, insert shortcodes into the body of the posts in which its output to be inserted.
+
+The shortcode uses one of the following formats:
+
+[cat_lister cat={category numbers separated by commas} {options} ]
+
+Or
+
+[cat_lister cat_name='{category name}' {options} ]
+
+When viewing the post, text between (and including) the brackets will be replaced by SuperCatLister's output.
+
+SuperCatLister's output can be used anywhere in posts.  SuperCatLister can be used in more than one place in the same post.  (So you can list content in one category near the top of a post and list content in another category near the bottom of the same post.
+
+Categories to be included can be specified either by category number or category name.  When using category numbers, more than one category can be included.
+
+Here are examples of specifying by category number:
+
+This will replace the bracketed text with content from category 15:
+
+
+[cat_lister cat=15]
+
+This will replace the bracketed text with mixed content from categories 3, 11 and 14:
+
+[cat_lister cat=3,11,14]
+
+(Category numbers can be found in the Wordpress Admin Panel Category Screen.  Mouse over a category name.  The URL for the chosen category should be listed in the bottom left part of your browser.  The rightmost part of the URL should be 'Cat_ID=' followed by a number.  That will be the number for the category.)
+
+Here is an example of specifying by category name:
+
+[cat_lister cat_name="My Favorite Plugins" ]
+
+This will replace the bracket text with content from the category named "My Favorite Plugins".  Note that the plugin name should be spelled exactly as it is specified in Wordpress, including spaces.
+
+When using category names, only one category can be included.
+
+PAGE LISTER
+Page listing is an unsupported bonus feature of Super Cat Lister.  It's purpose is to list child pages of a selected page.
+
+To use enter the following into the body of a page:
+
+[page_lister {option}]
+
+The bracketed text will be replaced with a list of child pages.  Most of the 'cat_lister' formatting options will work, but most of the sortation options will not.
+
+OPTIONS
+Super Cat Lister provides many options to control both what posts are selected and how they are displayed.  Options are enumerated in the Super Cat Lister Admin Panel, which can be found in the Settings sections of wp-admin (the Wordpress Administration Screens).
+
+Default options are set in the Super Cat Lister Admin Panel.
+
+Default options can be overridden in particular cat lists by setting options individually within the brackets that set that cat list.  
+
+Options control many aspects of the cat list:
+
+Some control what posts are selected. For instance, how many posts.
+
+Some control sortation order.  For instance, by title, by date, by author and ascending or descending.
+
+Some control what parts of posts are included.  For instance, the date or time the post was created and the author of the post.  Is the content of each post included or just the title?
+
+Some control the appearance of different aspects of included posts.  For instance, the background of the entire list, the titles of posts, the content of included posts, etc.  In most cases, options that control appearance use standard CSS.  So, for example, to make the text listing the author of each included post red, and very large, you would set 'author_style' (either in the admin screen or within a post) as follows:   
+
+color: red; font-size:xx-large;
+
+SETTING OPTIONS IN THE ADMIN SCREEN
+Options set in the admin screen control defaults for all cat lists.  These options will be used unless overridden as described below.
+
+To set a default option, choose or type the value you would like to use and click the 'Set' button for that particular option.  To restore the original default, click 'Restore Default' for that option.  
+
+SETTING OPTIONS IN INDIVIDUAL CAT LISTS
+Options for particular cat lists are set with the following 'shortcode' format:
+
+shortcode="value"
+
+To find the shortcode for a particular option, look for the option in the admin screen.  The shortcode will be listed there.  Note, spelling and formatting must be exact.
+
+For instance, lets say you wish to display all posts in category 100, and you wish the background color of the entire list to be red.  To achieve this, you would use the following code in the body of the post where you wish the cat list to appear:
+
+[cat_lister cat=100 container_style="red"]
+
+Multiple options can be set for each cat list.  For instance, in the example above, if you would also like the title of each listed post to appear larger, you can use the following:
+
+[cat_lister cat=100 container_style="red" title_style="font-size:large"]
+
+OPTIONS
+----------------------------------------------------------------
+Here are the options currently available for Super Cat List.  These options can also be found, with their short codes listed, in the admin screen.
+
+SORT CONTROLS.
+The following options control what posts are selected and how they are sorted
+Number of Posts
+
+numberposts: The number of posts to list. -1 means list all posts.
+What are posted sorted by?
+
+orderby: How the posts are sorted. (Author, date, title, modified, menu_order, parent, ID, rand, meta_value ).
+
+meta_key: The meta key to sort by. (This is only used if "orderby" is set to "meta_value".
+
+order: The order in which posts appear. Set to "asc" for First-To-Last or "desc" for Last-To-First.
+
+include_self: Include current post? (True or False)
+
+GLOBAL STYLE CONTROLS
+The following options apply to the entire list generated by Supercatlister.
+
+container_style: The CSS style for the Div holding the entire list of entries.
+This can be used, for instance, to set a background color for the whole list.
+
+entry_style: The CSS style for the Div holding each entry in the list of posts.
+Styles set here apply to complete entries in the list, including titles and content.
+
+BULLET CONTROLS
+The following options control how the bullet for each post is displayed.
+
+include_bullet: Do we include a bullet before each post in the list? (True or False)
+
+bullet: The bullet before each entry.
+
+bullet_style: The CSS style for the bullet.
+
+TITLE CONTROLS
+The following options control how the titles of included posts look and behave.
+
+include_post_title: Do we include the post title lines in the post lists? (You might perfer to just include the post content). (True or False)
+
+post_title_a_link: Do we make the post title lines links to the posts? (You might perfer to just make them text). (True or False)
+
+title_style: The CSS style for each post or page title listed.
+
+DATE AND TIME CONTROLS
+The following options control how the date and time of each post is displayed.
+
+include_date: Do we include the date posted in the post lists? (True or False)
+
+date_style: The CSS style for the date.
+
+date_prefix: Text that appears before the date.
+
+date_php_format: The PHP format for the date. 
+
+include_time: Do we include the time posted in the post lists? (True or False)
+
+time_style: The CSS style for the time.
+
+time_prefix: Text that appears before the time.
+
+time_php_format:  The PHP format for the time. (This is explained here http://us3.php.net/manual/en/function.date.php , under "Parameters".)
+
+AUTHOR CONTROLS
+The following options control how the author of each post is displayed.
+
+include_author:  Do we include the author in the post lists? (True or False)
+
+author_style: The CSS style for the author.
+
+author_prefix: The prefix written before post author name.
+
+ENTRY CONTENT CONTROLS
+The following options control the content of included entries.
+
+include_content: Do we include content of posts? (True or False)
+
+content_style:  The CSS style for the Div holding the content of posts (if they are included).
+
+PAGE LIST CONTROLS
+The following options apply to page lists, not category lists.
+
+child_indent: Pixels count for left indent for child pages. (This applies to pages only, not categories.)
+
+
+
