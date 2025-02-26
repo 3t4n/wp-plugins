@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * Plugin Name: ATOL PAY Gateway
+ * Description: Плагин WooCommerce для проведения платежей через АТОЛ Pay.
+ * Version: 1.0.21
+ * Author: Atol group
+ * Author URI: https://atol.ru/
+ * Requires at least: 6.0
+ * Requires PHP: 7.0
+ * Tested up to: 6.4.0
+ * WC requires at least: 6.2
+ * WC tested up to: 8.0
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+if (!defined('ATOL_MAIN_PATH')) {
+    define('ATOL_MAIN_PATH', plugin_dir_path(__FILE__));
+}
+
+if (!defined('ATOL_PLUGIN_NAME')) {
+    define('ATOL_PLUGIN_NAME', 'wp-kamet-atol-gateway');
+}
+
+if (!defined('ATOL_PLUGIN_VERSION')) {
+    define('ATOL_PLUGIN_VERSION', '1.0.21');
+}
+
+if (!defined('ATOL_PLUGIN_DEV_MODE')) {
+    define('ATOL_PLUGIN_DEV_MODE', false);
+}
+
+
+add_filter('woocommerce_payment_gateways', 'eh_kamet_atol_ecom_add_gateway_class');
+function eh_kamet_atol_ecom_add_gateway_class($gateways)
+{
+    $gateways[] = 'Eh_Atol_Checkout';
+    return $gateways;
+}
+
+add_action('plugins_loaded', 'eh_kamet_atol_gateway_init_gateway_class');
+
+
+function eh_kamet_atol_gateway_init_gateway_class()
+{
+    if (class_exists('WooCommerce')) {
+
+        include(ATOL_MAIN_PATH . "includes/class-atol-checkout.php");
+        include(ATOL_MAIN_PATH . "includes/class-atol-payment.php");
+        include(ATOL_MAIN_PATH . "includes/class-atol-api.php");
+        include(ATOL_MAIN_PATH . "includes/class-atol-env.php");
+        include(ATOL_MAIN_PATH . "includes/class-atol-receipt.php");
+        include(ATOL_MAIN_PATH . "includes/class-atol-receipt-item.php");
+        include(ATOL_MAIN_PATH . "includes/requests/class-atol-request.php");
+        include(ATOL_MAIN_PATH . "includes/requests/class-atol-request-create-payment.php");
+        include(ATOL_MAIN_PATH . "includes/requests/class-atol-request-status-payment.php");
+        include(ATOL_MAIN_PATH . "includes/responses/class-atol-response.php");
+    }
+}
+
+//Declare compatibility with HPOS table
+add_action( 'before_woocommerce_init', function() {
+    if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+    }
+} );
+
