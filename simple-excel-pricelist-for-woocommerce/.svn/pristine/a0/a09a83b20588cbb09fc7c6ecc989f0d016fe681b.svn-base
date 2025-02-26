@@ -1,0 +1,93 @@
+<?php
+
+namespace OnestExcelWriter;
+
+use PhpOffice\PhpSpreadsheet\Style;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+
+class ImageCell extends TextCell
+{
+    /**
+     * @var string
+     */
+    protected $tmp = '';
+
+
+    /**
+     * @param $sheet
+     * @param int $col
+     * @param int $row
+     * @param string $path
+     */
+    public function write($sheet, $col, $row, $path)
+    {
+        $cell = $sheet->getCellByColumnAndRow($col, $row);
+        $coord = $cell->getCoordinate();
+
+        $id = uniqid();
+
+        if (file_exists($path) && $this->isUnicode($path)) {
+            $path = $this->copyToFileWithSimpleName($path, $id);
+        }
+
+        if (file_exists($path)) {
+            $drawing = new Drawing();
+            $drawing->setName($id);
+            $drawing->setDescription($id);
+            $drawing->setPath($path);
+            $drawing->setResizeProportional(true);
+            $drawing->setHeight(120);
+            $drawing->setWorksheet($sheet);
+            $drawing->setCoordinates($coord);
+
+            $sheet->getRowDimension($row)->setRowHeight(90);
+        } else {
+            $cell->setValue('File «' . $path . '» not found.');
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isUnicode($s)
+    {
+        return (mb_strlen($s) != strlen($s));
+    }
+
+    /**
+     * @param string $thumb_path — utf-8 filename
+     * @param string $name — new simple filename
+     * @return string
+     */
+    protected function copyToFileWithSimpleName($thumb_path, $name)
+    {
+        $info = pathinfo($thumb_path);
+        $thumb_path_2 = $this->tmp . '/' . $name . '.' . $info['extension'];
+        copy($thumb_path, $thumb_path_2);
+        return $thumb_path_2;
+    }
+
+    /**
+     * Get the value of tmp
+     *
+     * @return  string
+     */ 
+    public function getTmp()
+    {
+        return $this->tmp;
+    }
+
+    /**
+     * Set the value of tmp
+     *
+     * @param  string  $tmp
+     *
+     * @return  self
+     */ 
+    public function setTmp(string $tmp)
+    {
+        $this->tmp = $tmp;
+
+        return $this;
+    }
+}

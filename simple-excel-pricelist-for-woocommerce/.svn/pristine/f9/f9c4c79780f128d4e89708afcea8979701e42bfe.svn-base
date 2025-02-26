@@ -1,0 +1,20 @@
+<?php
+
+namespace OnestExcelWriter;
+
+interface CellInterface
+{
+    /**
+     * @param string $slug
+     * @return bool
+     */
+    public function fits($slug);
+
+    /**
+     * @param $sheet
+     * @param int $col
+     * @param int $row
+     * @param $data
+     */
+    public function write($sheet, $col, $row, $data);
+}

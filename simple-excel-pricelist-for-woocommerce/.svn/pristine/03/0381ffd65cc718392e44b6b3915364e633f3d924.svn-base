@@ -1,0 +1,43 @@
+<?php
+
+namespace OnestExcelWriter;
+
+use PhpOffice\PhpSpreadsheet\Style;
+
+class TextCell implements CellInterface
+{
+    protected $slug;
+
+    /**
+     * @param string
+     */
+    public function __construct($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return bool
+     */
+    public function fits($slug)
+    {
+        return $slug == $this->slug;
+    }
+
+    /**
+     * @param $sheet
+     * @param int $col
+     * @param int $row
+     * @param string $slug
+     * @param $data is the text to write
+     */
+    public function write($sheet, $col, $row, $data)
+    {
+        $cell = $sheet->getCellByColumnAndRow($col, $row);
+        $coord = $cell->getCoordinate();
+        $cell->setValue($data);
+        $sheet->getStyle($coord)->getAlignment()->setHorizontal(Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle($coord)->getAlignment()->setVertical(Style\Alignment::VERTICAL_CENTER);
+    }
+}

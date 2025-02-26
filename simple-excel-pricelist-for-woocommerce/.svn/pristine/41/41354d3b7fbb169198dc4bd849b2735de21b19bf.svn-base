@@ -1,0 +1,72 @@
+<?php
+
+namespace OnestExcelWriter;
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
+
+class Worker
+{
+    /**
+     * @var string
+     */
+    private $output_path;
+
+    /**
+     * @var string
+     */
+    private $tmp_path;
+
+    /**
+     * @var Spreadsheet
+     */
+    private $spreadsheet;
+
+    /**
+     * @param string $dir
+     */
+    public function __construct($dir)
+    {
+        $this->output_path = $dir . '/out';
+        if ( ! file_exists($this->output_path)) {
+            mkdir($this->output_path, 0755, true);
+        }
+
+        $this->tmp_path = $dir . '/tmp';
+        if ( ! file_exists($this->tmp_path)) {
+            mkdir($this->tmp_path, 0755, true);
+        }
+    }
+
+    public function sheet()
+    {
+        $this->spreadsheet = new Spreadsheet();
+        return $this->spreadsheet->getActiveSheet();
+    }
+
+    /**
+     * @param string
+     */
+    public function save($fname)
+    {
+        $writer = new Xlsx($this->spreadsheet);
+        $writer->save($this->output_path . '/' . $fname);
+        $this->clearTmp();
+    }
+
+    /**
+     * @return string
+     */
+    public function getTmp()
+    {
+        return $this->tmp_path;
+    }
+
+
+    private function clearTmp()
+    {
+        array_map('unlink', array_filter((array) glob($this->tmp_path . "/*")));
+    }
+}
