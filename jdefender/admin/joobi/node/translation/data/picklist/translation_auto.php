@@ -1,0 +1,112 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_translation_translation_auto_picklist extends WDataPicklist{
+var $wid='#translation.node';
+var $outype=6;
+var $type=1;
+var $did=1063;
+var $namekey='translation_auto';
+var $first_all='0';
+var $lib_ext='0';
+var $rolid='#allusers';
+var $alias='Translation type';
+var $name='1470784876PAPA';
+var $description='';
+var $valuesA=array(
+array(
+'vid'=>1270,
+'publish'=>1,
+'params'=>'',
+'ordering'=>1,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>-2,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'translation_auto_-2',
+'core'=>1,
+'color'=>1,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1474036033KRSE' ),
+array(
+'vid'=>748,
+'publish'=>1,
+'params'=>'',
+'ordering'=>2,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>-1,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'translation_auto_-1',
+'core'=>1,
+'color'=>'',
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1219769913SSNZ' ),
+array(
+'vid'=>746,
+'publish'=>1,
+'params'=>'',
+'ordering'=>3,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>1,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'translation_auto_1',
+'core'=>1,
+'color'=>'',
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1414850054FLWV' ),
+array(
+'vid'=>747,
+'publish'=>1,
+'params'=>'',
+'ordering'=>4,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>2,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'translation_auto_2',
+'core'=>1,
+'color'=>'',
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1414850054FLWW' ),
+array(
+'vid'=>749,
+'publish'=>1,
+'params'=>'',
+'ordering'=>5,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>3,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'translation_auto_3',
+'core'=>1,
+'color'=>'',
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1414850054FLWX' ),
+array(
+'vid'=>750,
+'publish'=>1,
+'params'=>'',
+'ordering'=>6,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>5,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'translation_auto_5',
+'core'=>1,
+'color'=>'',
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1206732400OWXQ' )
+);
+}

@@ -1,0 +1,123 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_email_email_mailing_events_email_view extends WDataView{
+var $yid=501903;
+var $wid='#email.node';
+var $type=51;
+var $params='autosave=1
+subtitle=1
+phpfile=1';
+var $namekey='email_mailing_events_email';
+var $menu=13;
+var $form=1;
+var $rolid='#manager';
+var $alias='Events Email';
+var $useredit=1;
+var $name='1408411561BHMS';
+var $description='';
+var $wname='';
+var $wdescription='';
+var $seotitle='';
+var $seodescription='';
+var $seokeywords='';
+var $formsA=array(
+array(
+'type'=>'output.customized',
+'sid'=>'#campaign.event',
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'filef=selectemail
+notitle=1
+spantit=1',
+'ordering'=>3,
+'map'=>'p[mailingid]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2467555,
+'core'=>1,
+'did'=>'#mailing#mailing_template_emails',
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'ref_wid'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'events_email_mailingid',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1405139701GDAK',
+'description'=>'1408502558BRSM' ),
+array(
+'type'=>'output.select',
+'sid'=>'#campaign.event',
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'exepicklist=1
+exepicklisttask=apply',
+'ordering'=>4,
+'map'=>'p[receivertype]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2467556,
+'core'=>1,
+'did'=>'#campaign#campaign_actions_emailreceivedby',
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'ref_wid'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'events_email_received_by',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1405633022KSMK',
+'description'=>'1409189893EOTI' ),
+array(
+'type'=>'output.text',
+'sid'=>'#campaign.event',
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'width=40',
+'ordering'=>5,
+'map'=>'p[emailaddresses]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2467557,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'ref_wid'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'events_email_email',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206732411EGRU',
+'description'=>'1408411560JOAF' )
+);
+}

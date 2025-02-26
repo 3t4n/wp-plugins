@@ -1,0 +1,192 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_library_sesion_node_table extends WDataTable{
+var $name='sesion_node';
+var $namekey='sesion.node';
+var $dbtid=715;
+var $rolid='#allusers';
+var $type=1;
+var $pkey='sessid';
+var $suffix='node';
+var $group='sesion';
+var $domain=51;
+var $export=2;
+var $engine=5;
+var $node='library';
+var $columnsA=array(
+array(
+'dbcid'=>6889,
+'name'=>'sessid',
+'pkey'=>1,
+'checkval'=>0,
+'type'=>14,
+'attributes'=>0,
+'mandatory'=>1,
+'default'=>'',
+'ordering'=>1,
+'level'=>0,
+'rolid'=>0,
+'extra'=>1,
+'size'=>250.0,
+'export'=>1,
+'namekey'=>'715sessid',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>6890,
+'name'=>'uid',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>4,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>2,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'uid715',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'userID',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>6891,
+'name'=>'modified',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>4,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>3,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'modified715',
+'core'=>1,
+'columntype'=>1,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>6892,
+'name'=>'data',
+'pkey'=>0,
+'checkval'=>1,
+'type'=>19,
+'attributes'=>0,
+'mandatory'=>1,
+'default'=>'',
+'ordering'=>6,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'data715',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>7415,
+'name'=>'created',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>4,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>4,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'created715',
+'core'=>1,
+'columntype'=>1,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>7416,
+'name'=>'ip',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>7,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>5,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'ip715',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>10811,
+'name'=>'framework',
+'pkey'=>0,
+'checkval'=>1,
+'type'=>1,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>7,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'framework715',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' )
+);
+
+var $foreignsA=array(
+array(
+'dbtid'=>715,
+'ref_dbtid'=>232,
+'name'=>'uid',
+'name2'=>'uid',
+'namekey'=>'FK_sesion_node_uid',
+'onupdate'=>1,
+'ondelete'=>1,
+'ordering'=>1,
+'ref_table'=>'#users#members_node' )
+);
+
+var $contraintsA=array(
+array(
+'ctid'=>65638,
+'type'=>3,
+'namekey'=>'PK_sesion_node' ),
+array(
+'ctid'=>65714,
+'type'=>2,
+'namekey'=>'IX_sesion_node_uid' ),
+array(
+'ctid'=>65715,
+'type'=>2,
+'namekey'=>'IX_sesion_node_modified' )
+);
+}

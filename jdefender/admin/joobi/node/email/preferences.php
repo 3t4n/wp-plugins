@@ -1,0 +1,108 @@
+<?php 
+/** @copyright Copyright (c) 2007-2017 Joobi. All rights reserved.
+
+* @license GNU GPLv3 */
+defined('JOOBI_SECURE') or die('J....');
+class Default_email_preferences {
+var $enable=1;
+var $unconfirmed=1;
+var $adminnotif='';
+var $allowbyurl=0;
+var $allowbyurlpwd='';
+var $charset='utf-8';
+var $displayname=1;
+var $dkimkeyloc='';
+var $dkimpassphrase='';
+var $dkimselector='';
+var $embedimages=0;
+var $encoding='8bit';
+var $fromemail='';var $fromname='';
+var $hostname='';
+var $keep_email=1;
+var $mailer='phpmail';
+var $mailerdkimyesno=0;
+var $multiplepart=1;
+var $process_last='';
+var $process_next='';
+var $queue_max_email=60;
+var $replyemail='';
+var $replyname='';
+var $senderemail='';
+var $sendmailpath='/usr/sbin/sendmail';
+var $smsenable=0;
+var $smssplit=0;
+var $smtp_auth_required=0;
+var $smtp_host='localhost';
+var $smtp_password='';
+var $smtp_port=25;
+var $smtp_secure='';
+var $smtp_username='';
+var $statistics_clean=91;
+var $statistics_link=0;
+var $statistics_logfail=0;
+var $statistics_peruser=0;
+var $statistics_read=0;
+var $statistics_sent=0;
+var $statistics_inactive=182;
+var $usecms=0;
+var $usenotification=1;
+var $wordwrap=200;
+var $type='html';
+var $emailfail=2;
+var $attachement='attached';
+var $queue_max_freq=5;
+var $nextcron=0;
+var $themedefault='mail.default';
+}
+class Role_email_preferences {
+var $enable='sadmin';
+var $unconfirmed='admin';
+var $adminnotif='sadmin';
+var $allowbyurl='sadmin';
+var $allowbyurlpwd='sadmin';
+var $charset='admin';
+var $displayname='admin';
+var $dkimkeyloc='admin';
+var $dkimpassphrase='admin';
+var $dkimselector='admin';
+var $embedimages='admin';
+var $encoding='admin';
+var $fromemail='admin';
+var $fromname='admin';
+var $hostname='admin';
+var $keep_email='listmanager';
+var $mailer='admin';
+var $mailerdkimyesno='admin';
+var $multiplepart='admin';
+var $process_last='allusers';
+var $process_next='allusers';
+var $queue_max_email='listmanager';
+var $replyemail='admin';
+var $replyname='admin';
+var $senderemail='admin';
+var $sendmailpath='admin';
+var $smsenable='sadmin';
+var $smssplit='admin';
+var $smtp_auth_required='admin';
+var $smtp_host='admin';
+var $smtp_password='admin';
+var $smtp_port='admin';
+var $smtp_secure='admin';
+var $smtp_username='admin';
+var $statistics_clean='admin';
+var $statistics_link='admin';
+var $statistics_logfail='admin';
+var $statistics_peruser='admin';
+var $statistics_read='admin';
+var $statistics_sent='admin';
+var $statistics_inactive='admin';
+var $usecms='admin';
+var $usenotification='sadmin';
+var $wordwrap='admin';
+var $type='admin';
+var $emailfail='mailmanager';
+var $attachement='admin';
+var $queue_max_freq='listmanager';
+var $nextcron='allusers';
+var $themedefault='allusers';
+}

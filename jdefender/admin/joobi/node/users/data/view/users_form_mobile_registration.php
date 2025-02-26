@@ -1,0 +1,119 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_users_users_form_mobile_registration_view extends WDataView{
+var $yid=502399;
+var $wid='#users.node';
+var $type=51;
+var $params='tydiv=1';
+var $namekey='users_form_mobile_registration';
+var $menu=1;
+var $frontend=1;
+var $form=1;
+var $icon='members';
+var $rolid='#allusers';
+var $alias='User form after mobile registration';
+var $name='1208359284QWNS';
+var $description='';
+var $wname='';
+var $wdescription='';
+var $seotitle='';
+var $seodescription='';
+var $seokeywords='';
+var $formsA=array(
+array(
+'type'=>'output.text',
+'sid'=>0,
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'dftimg=userx',
+'ordering'=>1,
+'map'=>'x[code]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2471643,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'users_form_mobile_registration_code',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206961912MJQB',
+'description'=>'1484827024MHCA' ),
+array(
+'type'=>'main.submit',
+'sid'=>0,
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'num=1
+color=success
+width=30',
+'ordering'=>2,
+'map'=>'x[verifymobile]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2471644,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'users_form_mobile_registration_verify',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1484827024MHBY',
+'description'=>'' ),
+array(
+'type'=>'output.text',
+'sid'=>0,
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'onlynew=1
+width=30',
+'ordering'=>3,
+'map'=>'x[uid]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>1,
+'fid'=>2471645,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'users_form_mobile_registration_uid',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206961869IGND',
+'description'=>'' )
+);
+}

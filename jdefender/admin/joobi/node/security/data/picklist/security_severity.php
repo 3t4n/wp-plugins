@@ -1,0 +1,114 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_security_security_severity_picklist extends WDataPicklist{
+var $wid='#security.node';
+var $outype=6;
+var $map='severity';
+var $type=1;
+var $did=1151;
+var $namekey='security_severity';
+var $first_all='0';
+var $lib_ext='0';
+var $sid='#security.incident';
+var $rolid='#allusers';
+var $alias='';
+var $name='1470801675JQZZ';
+var $description='';
+var $valuesA=array(
+array(
+'vid'=>1097,
+'publish'=>1,
+'params'=>'',
+'ordering'=>1,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>0,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'security_severity_any',
+'core'=>1,
+'color'=>1,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1454276770IWNL' ),
+array(
+'vid'=>1096,
+'publish'=>1,
+'params'=>'',
+'ordering'=>2,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>1,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'security_severity_info',
+'core'=>1,
+'color'=>1,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1215507792MTRQ' ),
+array(
+'vid'=>1095,
+'publish'=>1,
+'params'=>'',
+'ordering'=>3,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>3,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'security_severity_low',
+'core'=>1,
+'color'=>5,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1227581114PJBW' ),
+array(
+'vid'=>1094,
+'publish'=>1,
+'params'=>'',
+'ordering'=>4,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>5,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'security_severity_medium',
+'core'=>1,
+'color'=>4,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1227581114PJBX' ),
+array(
+'vid'=>1093,
+'publish'=>1,
+'params'=>'',
+'ordering'=>5,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>7,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'security_severity_high',
+'core'=>1,
+'color'=>8,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1227581114PJBY' ),
+array(
+'vid'=>1086,
+'publish'=>1,
+'params'=>'',
+'ordering'=>6,
+'level'=>0,
+'rolid'=>'#allusers',
+'value'=>9,
+'valuetxt'=>'',
+'premium'=>0,
+'namekey'=>'security_severity_critical',
+'core'=>1,
+'color'=>9,
+'parent'=>'',
+'inputbox'=>0,
+'name'=>'1454276770IWNK' )
+);
+}

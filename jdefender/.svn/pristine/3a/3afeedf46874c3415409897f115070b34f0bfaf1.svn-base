@@ -1,0 +1,2748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="uri:webservice.subscribenet.intraware.com" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:fns="uri:fault.webservice.subscribenet.intraware.com" xmlns:snet="uri:subscribenet.intraware.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="uri:webservice.subscribenet.intraware.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="uri:fault.webservice.subscribenet.intraware.com">
+            <xs:complexType name="GenericFault">
+                <xs:sequence>
+                    <xs:element name="errorCode" type="xs:string"/>
+                    <xs:element name="errorMessage" type="xs:string"/>
+                    <xs:element name="errorDetails" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TransactionFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="TransactionFault" type="fns:TransactionFault"/>
+            <xs:complexType name="LoginFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LoginFault" type="fns:LoginFault"/>
+            <xs:complexType name="InvalidSessionIDFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="InvalidSessionIDFault" type="fns:InvalidSessionIDFault"/>
+            <xs:complexType name="UnexpectedFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="UnexpectedFault" type="fns:UnexpectedFault"/>
+            <xs:complexType name="GetFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="GetFault" type="fns:GetFault"/>
+            <xs:complexType name="FindFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FindFault" type="fns:FindFault"/>
+            <xs:complexType name="ReturnLicenseFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ReturnLicenseFault" type="fns:ReturnLicenseFault"/>
+            <xs:complexType name="LicenseFault">
+                <xs:complexContent>
+                    <xs:extension base="fns:GenericFault"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseFault" type="fns:LicenseFault"/>
+        </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="uri:subscribenet.intraware.com">
+            <xs:import namespace="uri:fault.webservice.subscribenet.intraware.com"/>
+            <!-- Transaction Objects -->
+            <xs:complexType abstract="true" name="Transaction">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="TransactionID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SharePartnerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ReportEmail" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SuppressEndUserEmail" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="MemberEmailDirective" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="OrderEmailDirective" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SourceIntrawareFileID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SourceFileID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MemberEmailVariation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="OrderEmailVariation" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Transaction" type="snet:Transaction"/>
+            <xs:complexType name="TransactionResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="TransactionID" nillable="true" type="xs:string"/>
+                    <xs:element name="IntrawareTransactionID" type="xs:long"/>
+                    <xs:element name="Successful" type="xs:boolean"/>
+                    <xs:element name="ProcessedTime" type="xs:dateTime"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="TransactionFault" type="fns:TransactionFault"/>
+                    <xs:element minOccurs="0" name="Reference" type="snet:SubscribeNetObjectReference"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+            <xs:complexType name="AddTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AddTransaction" type="snet:AddTransaction"/>
+            <xs:complexType name="UpdateTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="UpdateTransaction" type="snet:UpdateTransaction"/>
+            <xs:complexType name="AddUpdateTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AddUpdateTransaction" type="snet:AddUpdateTransaction"/>
+            <xs:complexType name="ReidentifyTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element name="NewID" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ReidentifyTransaction" type="snet:ReidentifyTransaction"/>
+
+           <xs:complexType name="AssociateTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>            
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AssociateTransaction" type="snet:AssociateTransaction"/>
+            <xs:complexType name="DisassociateTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="DisassociateTransaction" type="snet:DisassociateTransaction"/>
+            <xs:complexType name="RestrictTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="SubscribeNetObjectReferenceRst" type="snet:SubscribeNetObjectReferenceRst"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="RestrictTransaction" type="snet:RestrictTransaction"/>
+            <xs:complexType name="UnrestrictTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="UnrestrictTransaction" type="snet:UnrestrictTransaction"/>
+            <xs:complexType name="ShareTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ShareTransaction" type="snet:ShareTransaction"/>
+
+           <xs:complexType name="MergeTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="MergeTransaction" type="snet:MergeTransaction"/>
+            <xs:complexType name="ReturnDeviceTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ReturnDeviceTransaction" type="snet:ReturnDeviceTransaction"/>
+
+            <!-- move transactions -->
+            <xs:complexType name="MoveDeviceTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="MoveDeviceTransaction" type="snet:MoveDeviceTransaction"/>
+            <xs:complexType name="MoveServerTransaction">
+                <xs:complexContent>
+                    <xs:extension base="snet:Transaction">
+                        <xs:sequence>
+                            <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                            <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="MoveServerTransaction" type="snet:MoveServerTransaction"/>
+
+            <!-- Base type for all references. -->
+            <xs:complexType abstract="true" name="SubscribeNetObjectReference">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IntrawareID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SharePartnerID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <!-- Base type for all objects. -->
+            <xs:complexType abstract="true" name="SubscribeNetObject">
+                <xs:sequence/>
+            </xs:complexType>
+            <!-- Base type for all associate objects. -->
+            <xs:complexType abstract="true" name="SubscribeNetObjectReferenceAss">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IntrawareID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType abstract="true" name="SubscribeNetObjectReferenceRst">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IntrawareID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <!-- Account Objects -->
+            <xs:complexType name="AccountReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AccountReference" type="snet:AccountReference"/>
+            <xs:complexType name="Account">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:AccountReference"/>
+                            <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AccountNote" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                        </xs:sequence>
+                        <!-- NULLABLE OPTIONAL FIELDS -->
+                        <xs:attribute default="false" name="AccountNoteToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="Account" type="snet:Account"/>
+            <xs:complexType name="AccountNoShareIDReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceAss">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AccountNoShareIDReference" type="snet:AccountNoShareIDReference"/>
+
+            <!-- SubscribeNet.find this to get members for an account -->
+            <xs:complexType name="AccountMembersReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element name="ActiveOnly" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AccountMembersReference" type="snet:AccountMembersReference"/>
+
+            <!-- SubscribeNet.find this to get all order references for an account -->
+            <xs:complexType name="AccountOrderReferencesReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AccountOrderReferencesReference" type="snet:AccountOrderReferencesReference"/>
+
+            <!-- Member Objects -->
+            <xs:complexType name="MemberReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AccountReference" type="snet:AccountReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="MemberReference" type="snet:MemberReference"/>
+            <xs:complexType name="Member">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:MemberReference"/>
+                            <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="JobTitle" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AddressLine4" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="State" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AdminPrivilege" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="DownloadPrivilege" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="TransferSplitPrivilege" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="MoveHostDevicePrivilege" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="SendEmailIndicator" nillable="true" type="xs:boolean"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Permission" type="snet:Permission"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Preference" type="snet:Preference"/>
+                            <xs:element minOccurs="0" name="MemberNote" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                        </xs:sequence>
+                        <!-- NULLABLE OPTIONAL FIELDS -->
+                        <xs:attribute default="false" name="JobTitleToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="PhoneToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="FaxToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="AddressLine2ToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="AddressLine3ToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="AddressLine4ToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="StateToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="PostalCodeToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="MemberNoteToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="ExpirationDateToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="Member" type="snet:Member"/>
+            <xs:complexType name="Permission">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PermissionType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PermissionValue" nillable="true" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Preference">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PreferenceType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PreferenceKeyID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IntrawarePreferenceKeyID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PreferenceValue" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <!-- Order Objects -->
+            <xs:complexType name="OrderActivationCodeReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="OrderActivationCodeReference" type="snet:OrderActivationCodeReference"/>
+            <xs:complexType name="OrderReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="OrderReference" type="snet:OrderReference"/>
+            <xs:complexType name="Order">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:OrderReference"/>
+                            <xs:element minOccurs="0" name="Account" type="snet:AccountReference"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Member" type="snet:MemberReference"/>
+                            <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="PurchaseOrderID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="SalesRep" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="InvoiceDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="OrderNote" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="OrderLine" type="snet:OrderLine"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="TO" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="CC" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="BCC" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                        </xs:sequence>
+                        <!-- Optional Fields that can be nulled. -->
+                        <xs:attribute default="false" name="MemberToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="OrderDateToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="PurchaseOrderIDToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="SalesRepToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="InvoiceIDToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="InvoiceDateToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="OrderNoteToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="TOToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="CCToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="BCCToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="Order" type="snet:Order"/>
+            <xs:complexType name="OrderLineReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:long"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="OrderLineReference" type="snet:OrderLineReference"/>
+            <xs:complexType name="OrderLine">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:long"/>
+                    <xs:element minOccurs="0" name="TemporaryOrderLine" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="Price" nillable="true" type="xs:float"/>
+                    <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="EffectiveDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="DownloadLimit" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="LicenseCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="AllocatedAccountId" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="LicenseFileName" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="LicenseFileCode" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="FlexLicenseModel" nillable="true" type="snet:LicenseModelIdentifier"/>
+                    <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                </xs:sequence>
+                <!-- Optional Fields that can be nulled. -->
+                <xs:attribute default="false" name="PriceToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="EffectiveDateToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="ExpirationDateToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="DownloadLimitToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="LicenseCodeToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="LicenseFileNameToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="LicenseFileCodeToNull" type="xs:boolean" use="optional"/>
+            </xs:complexType>
+            <xs:element name="OrderLine" type="snet:OrderLine"/>
+            <xs:complexType name="OrderUdfReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element name="UdfCode" type="xs:string"/>
+                            <xs:element name="UdfValue" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="OrderUdfReference" type="snet:OrderUdfReference"/>
+            <xs:complexType name="OrderLineUdfReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element name="UdfCode" type="xs:string"/>
+                            <xs:element name="UdfValue" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="OrderLineUdfReference" type="snet:OrderLineUdfReference"/>
+
+            <!-- Catalog Item Objects -->
+            <xs:complexType name="CatalogItemReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="CatalogItemReference" type="snet:CatalogItemReference"/>
+            <xs:complexType name="CatalogItem">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:CatalogItemReference"/>
+                            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Subscription" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="Temporary" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="DefaultDurationYear" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="DefaultDurationMonth" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="DefaultDurationDay" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="DefaultMaxDownloadLimit" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="OwnerIndicator" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="CatalogManufacturer" type="snet:ManufacturerReference"/>
+                            <xs:element minOccurs="0" name="CatalogProductLine" type="snet:ProductLineReference"/>
+                            <xs:element minOccurs="0" name="LicenseGroup" type="snet:LicenseGroupReference"/>
+                            <xs:element minOccurs="0" name="SupportAgreement" type="snet:AgreementReference">
+								<xs:annotation>
+									<xs:documentation>DEPRECATED per March 2014</xs:documentation>
+								</xs:annotation>
+							</xs:element>                            
+                            <xs:element minOccurs="0" name="PartnerCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="StatusCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="OwnerPartnerCode" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AlternateLanguage" type="snet:CatalogItemAlternateLanguage"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Product" type="snet:ProductReference"/>
+                        </xs:sequence>
+                        <!-- NULLABLE OPTIONAL FIELDS -->
+                        <xs:attribute default="false" name="DefaultMaxDownloadLimitToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="CataglogItem" type="snet:CatalogItem"/>
+            <xs:complexType name="CatalogItemAlternateLanguage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                </xs:sequence>
+                <!-- Optional Fields that can be nulled. -->
+                <xs:attribute default="false" name="DescriptionToNull" type="xs:boolean" use="optional"/>
+            </xs:complexType>
+            <xs:element name="CatalogItemAlternateLanguage" type="snet:CatalogItemAlternateLanguage"/>
+            <!-- Product in Catalog Objects -->
+            <xs:complexType name="ProductInCatReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceAss">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="ElementCount" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="RightsGroup" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ProductInCatReference" type="snet:ProductInCatReference"/>
+            <!-- Restrict Product Objects -->
+            <xs:complexType name="RestrictProductReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceRst">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="RestrictCode" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="RestrictProductReference" type="snet:RestrictProductReference"/>
+
+            <xs:complexType name="UpsoldCatalogItemReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceAss"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="UpsoldCatalogItemReference" type="snet:UpsoldCatalogItemReference"/>
+
+            <xs:complexType name="ProductReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ProductReference" type="snet:ProductReference"/>
+            <xs:complexType name="Product">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:ProductReference"/>
+                            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="EffectiveDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="ArchiveDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="SortGroup" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ExtendedDescription" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ExportComplianceClassification" type="snet:ExportComplianceClassification"/>
+                            <xs:element minOccurs="0" name="ProductManufacturer" type="snet:ManufacturerReference"/>
+                            <xs:element minOccurs="0" name="ProductLine" type="snet:ProductLineReference"/>
+                            <xs:element minOccurs="0" name="LicenseGroup" type="snet:LicenseGroupReference"/>
+                            <xs:element minOccurs="0" name="EndUserLicenseAgreement" type="snet:AgreementReference"/>
+                            <xs:element minOccurs="0" name="EvaluationEndUserLicenseAgreement" type="snet:AgreementReference"/>
+                            <xs:element minOccurs="0" name="ProductNote" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PhysicalDistributionAvailable" nillable="true" type="xs:boolean"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AlternateLanguage" type="snet:ProductAlternateLanguage"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="File" type="snet:FileReference"/>
+                        </xs:sequence>
+                        <!-- NULLABLE OPTIONAL FIELDS -->
+                        <xs:attribute default="false" name="VersionToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="ProductNoteToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="Product" type="snet:Product"/>
+            <xs:complexType name="ExportComplianceClassification">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="NLR" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ECCNCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ENCCode" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="CCATSCode" nillable="true" type="xs:string"/>
+                </xs:sequence>
+                <!-- Optional Fields that can be nulled. -->
+                <xs:attribute default="false" name="NLRToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="ECCNCodeToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="ENCCodeToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="CCATSCodeToNull" type="xs:boolean" use="optional"/>
+            </xs:complexType>
+            <xs:element name="ExportComplianceClassification" type="snet:ExportComplianceClassification"/>
+            <xs:complexType name="ProductAlternateLanguage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ExtendedDescription" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ProductNote" nillable="true" type="xs:string"/>
+                </xs:sequence>
+                <!-- Optional Fields that can be nulled. -->
+                <xs:attribute default="false" name="DescriptionToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="ProductNoteToNull" type="xs:boolean" use="optional"/>
+            </xs:complexType>
+            <xs:element name="ProductAlternateLanguage" type="snet:ProductAlternateLanguage"/>
+
+            <!-- File in Product  Objects -->
+            <xs:complexType name="FileInProductReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceAss">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="SortOrder" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="IgnoreDownloadLimit" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FileInProductReference" type="snet:FileInProductReference"/>
+
+            <!-- Restrict File Objects -->
+            <xs:complexType name="RestrictFileReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceRst">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="RestrictCode" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="RestrictFileReference" type="snet:RestrictFileReference"/>
+
+            <!-- File Objects -->
+            <xs:complexType name="FileReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FileReference" type="snet:FileReference"/>
+            <xs:complexType name="File">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:FileReference"/>
+                            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ExtendedDescription" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ContentDetail" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="HideIndicator" nillable="true" type="xs:boolean"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AlternateLanguage" type="snet:FileAlternateLanguage"/>
+                        </xs:sequence>
+                        <!-- NULLABLE OPTIONAL FIELDS -->
+                        <xs:attribute default="false" name="FileNameToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="ContentDetailToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="HideIndicatorToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="File" type="snet:File"/>
+            <xs:complexType name="FileAlternateLanguage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ExtendedDescription" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ContentDetail" nillable="true" type="xs:string"/>
+                </xs:sequence>
+                <!-- Optional Fields that can be nulled. -->
+                <xs:attribute default="false" name="DescriptionToNull" type="xs:boolean" use="optional"/>
+                <xs:attribute default="false" name="ContentDetailToNull" type="xs:boolean" use="optional"/>
+            </xs:complexType>
+            <xs:element name="FileAlternateLanguage" type="snet:FileAlternateLanguage"/>
+            <!-- Agreement Objects -->
+            <xs:complexType name="AgreementReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="AgreementName" type="xs:string"/>
+                        </xs:sequence>
+
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AgreementReference" type="snet:AgreementReference"/>
+            <xs:complexType name="SupportAgreement">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:AgreementReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="SupportAgreement" type="snet:SupportAgreement"/>
+            <xs:complexType name="EndUserLicenseAgreement">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:AgreementReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="EndUserLicenseAgreement" type="snet:EndUserLicenseAgreement"/>
+            <xs:complexType name="EvaluationEndUserLicenseAgreement">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:AgreementReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="EvaluationEndUserLicenseAgreement" type="snet:EvaluationEndUserLicenseAgreement"/>
+            <!-- LicenseGroup Objects -->
+            <xs:complexType name="LicenseGroupReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseGroupReference" type="snet:LicenseGroupReference"/>
+            <xs:complexType name="LicenseGroup">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:LicenseGroupReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseGroup" type="snet:LicenseGroup"/>
+            <!-- LicenseToken Objects -->
+
+            <xs:complexType name="LicenseTokenReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseTokenReference" type="snet:LicenseTokenReference"/>
+            <xs:complexType name="LicenseToken">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:LicenseTokenReference"/>
+                            <xs:element minOccurs="0" name="CatalogItem" nillable="true" type="snet:CatalogItemReference"/>
+                            <xs:element minOccurs="0" name="Product" nillable="true" type="snet:ProductReference"/>
+                            <xs:element minOccurs="0" name="EntitlementEffectiveDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="EntitlementExpirationDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="EntitlementQuantity" nillable="true" type="xs:nonNegativeInteger"/>
+                            <xs:element minOccurs="0" name="Register" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AdminPrivilege" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="DownloadPrivilege" nillable="true" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="IntrawareOrderID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="IntrawareOrderLineNumber" nillable="true" type="xs:long"/>
+                            <xs:element maxOccurs="1" minOccurs="0" name="Status" type="xs:string"/>
+                            <xs:element minOccurs="0" name="DownloadLimit" nillable="true" type="xs:integer"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                        </xs:sequence>
+                        <!-- Optional Fields that can be nulled. -->
+                        <xs:attribute default="false" name="ProductToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="EntitlementEffectiveDateToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="EntitlementExpirationDateToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="ExpirationDateToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="DownloadLimitToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="StatusToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseToken" type="snet:LicenseToken"/>
+
+            <!-- Manufacturer Objects -->
+            <xs:complexType name="ManufacturerReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ManufacturerReference" type="snet:ManufacturerReference"/>
+            <xs:complexType name="CatalogManufacturer">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:ManufacturerReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="CatalogManufacturer" type="snet:CatalogManufacturer"/>
+            <xs:complexType name="ProductManufacturer">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:ManufacturerReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ProductManufacturer" type="snet:ProductManufacturer"/>
+            <!-- ProductLine Objects -->
+            <xs:complexType name="ProductLineReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ProductLineReference" type="snet:ProductLineReference"/>
+            <xs:complexType name="CatalogProductLine">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:ProductLineReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="CatalogProductLine" type="snet:CatalogProductLine"/>
+            <!--  Product Line description -->
+            <xs:complexType name="ProductLine">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:ProductLineReference"/>
+                            <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Features" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="SortOrder" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LicenseInformation" nillable="true" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AlternateLanguage" type="snet:ProductLineAlternateLanguage"/>
+                            <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                        <!-- NULLABLE OPTIONAL FIELDS -->
+                        <xs:attribute default="false" name="SortOrderToNull" type="xs:boolean" use="optional"/>
+                        <xs:attribute default="false" name="LicenseInformationToNull" type="xs:boolean" use="optional"/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ProductLine" type="snet:ProductLine"/>
+            <xs:complexType name="ProductLineAlternateLanguage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Features" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="LicenseInformation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                </xs:sequence>
+                <!-- Optional Fields that can be nulled. -->
+                <xs:attribute default="false" name="LicenseInformationToNull" type="xs:boolean" use="optional"/>
+            </xs:complexType>
+            <xs:element name="ProductLineAlternateLanguage" type="snet:ProductLineAlternateLanguage"/>
+            <!--  Manufacturer              -->
+            <xs:complexType name="Manufacturer">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:ManufacturerReference"/>
+                            <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType> 
+            <xs:element name="Manufacturer" type="snet:Manufacturer"/>
+            <!-- User Defined Field Objects -->
+            <xs:complexType name="UserDefinedField">
+                <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                        <xs:attribute name="code" type="xs:string" use="required"/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+            
+            <!-- Catalog Flex Licensing -->
+            <xs:complexType name="FlexFeatureReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element name="FeatureName" type="xs:string"/>
+                            <xs:element name="Version" type="xs:decimal"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FlexFeature">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Reference" type="snet:FlexFeatureReference"/>
+                            <xs:element name="Description" type="xs:string"/>
+                            <xs:element name="Counted" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="Reusable" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="Units" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Scale" type="xs:double"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="CountedFeature">
+                <xs:sequence>
+                    <xs:element name="Feature" type="snet:FlexFeatureReference"/>
+                    <xs:element minOccurs="0" name="Count" type="xs:positiveInteger"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="LicenseModelClassCode">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="DEFAULT_BASE"/>
+                    <xs:enumeration value="DEFAULT_ORDERLINE"/>
+                    <xs:enumeration value="DATABASE"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="LicenseModelIdentifier">
+                <xs:sequence>
+                    <xs:element name="Code" type="snet:LicenseModelClassCode"/>
+                    <xs:element minOccurs="0" name="IntrawareLicenseModelID" type="xs:positiveInteger"/>
+                    <xs:element name="Name" type="xs:string">
+                        <xs:annotation>
+                            <xs:documentation>Populated when this type is returned but not supported for lookups</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="LicenseModelReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:annotation>
+                            <xs:documentation>Pass this to find to find ALL; filtering results is not implemented.</xs:documentation>
+                        </xs:annotation>
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="LicenseModel">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Identifier" type="snet:LicenseModelIdentifier"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="CatalogFlexLicensingReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:CatalogItemReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="CatalogFlexLicensing">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="CatalogItem" type="snet:CatalogItemReference"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="CountedFeature" type="snet:CountedFeature"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="LicenseModel" type="snet:LicenseModelIdentifier"/>
+                            <xs:element maxOccurs="1" minOccurs="0" name="UsageModelID" type="xs:integer"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="CatalogFlexLicensing" type="snet:CatalogFlexLicensing">
+                <xs:annotation>
+                    <xs:documentation>Call update on this type to create or completely overwrite the flex licensing setup for a catalog item.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <!-- FNE Objects -->
+            <xs:complexType name="AddOnCount">
+                <xs:sequence>
+                    <xs:element name="ActivationCode" type="xs:string"/>
+                    <xs:element name="Count" type="xs:nonNegativeInteger"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DateOrPermanent">
+                <xs:sequence>
+                    <xs:element name="Permanent" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="Date" type="xs:date"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AddOn">
+                <xs:complexContent>
+                    <xs:extension base="snet:AddOnCount">
+                        <xs:sequence>
+                            <xs:element name="Description" type="xs:string"/>
+                            <xs:element name="IntrawareOrderID" type="xs:integer"/>
+                            <xs:element name="Expiration" type="snet:DateOrPermanent"/>
+                            <xs:element name="Status" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AddOn" type="snet:AddOn"/>
+            <xs:complexType name="AddOnCounts">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReferenceAss">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AddOn" type="snet:AddOnCount"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="AddOnCounts" type="snet:AddOnCounts">
+                <xs:annotation>
+                    <xs:documentation>Use this as the associated object to an FNEHostReference in an associate transaction to add the counts to existing add-on mappings and in a disassociate transaction to subtract them.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:complexType name="DictionaryEntry">
+                <xs:sequence>
+                    <xs:element name="Key" type="xs:string"/>
+                    <xs:element name="Value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Dictionary">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Entry" type="snet:DictionaryEntry"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType abstract="true" name="FNEHostReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="PublisherName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Alias" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AccountName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AccountID" type="xs:string"/>
+                            <xs:element minOccurs="0" name="IntrawareAccountID" type="xs:string"/>
+                            <xs:element minOccurs="0" name="OrderID" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AddOnSKU" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ActivationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Status" type="snet:FNEHostStatus"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType abstract="true" name="FNEHost">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Owner" nillable="true" type="snet:AccountReference"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="AddOn" type="snet:AddOn"/>
+                            <xs:element name="VendorDictionary" nillable="true" type="snet:Dictionary"/>
+                            <xs:element name="Virtualized" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="VmName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="VmDictionary" type="snet:Dictionary"/>
+                            <xs:element minOccurs="0" name="Status" type="xs:string"/>                    
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEHostAddOnCounts">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Host" type="snet:FNEHostReference"/>
+                            <xs:element name="AddOnCounts" type="snet:AddOnCounts"/>
+                            <xs:element name="Reset" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEHostAddOnCountsReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHostReference"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FNEHostAddOnCountsReference" type="snet:FNEHostAddOnCountsReference"/>
+            <xs:element name="FNEHostAddOnCounts" type="snet:FNEHostAddOnCounts">
+                <xs:annotation>
+                    <xs:documentation>Call update on this type to set exact values for add-on mappings</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:complexType name="FNEServerAddOnCounts">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Host" type="snet:FNEHostReference"/>
+                            <xs:element name="AddOnCounts" type="snet:AddOnCounts"/>
+                            <xs:element name="Reset" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEServerAddOnCountsReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHostReference"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FNEServerAddOnCountsReference" type="snet:FNEServerAddOnCountsReference"/>
+            <xs:element name="FNEServerAddOnCounts" type="snet:FNEServerAddOnCounts">
+                <xs:annotation>
+                    <xs:documentation>Call update on this type to set exact values for add-on mappings on FNE Server</xs:documentation>
+                </xs:annotation>
+            </xs:element>            
+            <xs:complexType name="FNEHostTrustedStorageReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="TrustedStorage" type="xs:base64Binary"/>
+                            <xs:element minOccurs="0" name="HostIDType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PublisherName" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>         
+            </xs:complexType>
+            <xs:complexType name="FNEHostTrustedStorage">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Host" type="snet:FNEHostReference">
+                                <xs:annotation>
+                                    <xs:documentation>Required unless request is present, in which case it is ignored</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element minOccurs="0" name="Request" type="xs:base64Binary">
+                                <xs:annotation>
+                                    <xs:documentation>Optionally, provide an existing capability request binary</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEHostOwnerReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHostReference">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEHostOwner">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Reference" type="snet:FNEHostReference"/>
+                            <xs:element name="Owner" type="snet:AccountReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:simpleType name="FNEHostStatus">
+		        <xs:restriction base="xs:string">
+		            <xs:enumeration value="ACTIVE"/>
+		            <xs:enumeration value="TEST"/>
+		            <xs:enumeration value="OBSOLETE"/>
+		        </xs:restriction>
+		    </xs:simpleType>
+            
+            <xs:complexType name="DeviceModelReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference"/>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="DeviceReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHostReference">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="HostIDType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="DeviceModelID" type="xs:string"/>
+                            <xs:element minOccurs="0" name="DeviceModelDescription" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Returned" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="Device">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHost">
+                        <xs:sequence>
+                            <xs:element name="Reference" type="snet:DeviceReference"/>
+                            <xs:element name="DeviceModel" type="snet:DeviceModelReference"/>
+                            <xs:element minOccurs="0" name="LicenseModel" type="snet:LicenseModelIdentifier"/>
+                            <xs:element name="Returned" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="Device" type="snet:Device"/>
+            <xs:complexType name="DeviceLicenseFileReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:DeviceReference">
+                        <xs:sequence>
+                            <xs:element name="License" type="xs:base64Binary"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="DeviceLicenseFile">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Reference" type="snet:DeviceLicenseFileReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="DeviceLicenseFile" type="snet:DeviceLicenseFile"/>
+            
+            <xs:complexType name="FNEServerReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHostReference">
+                        <xs:sequence>
+                             <xs:element minOccurs="0" name="HostIDType" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEServerHostTypeReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                             <xs:element minOccurs="0" name="HostIDType" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="FNEServerHostType">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                       <xs:sequence>
+                           <xs:element name="Reference" type="snet:FNEServerHostTypeReference"/>
+                           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+                           <xs:element minOccurs="0" name="PublisherName" nillable="true" type="xs:string"/>
+                           <xs:element minOccurs="0" name="IdentityName" nillable="true" type="xs:string"/>
+                       </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FNEServerHostType" type="snet:FNEServerHostType"/>
+            <xs:complexType name="FNEServer">
+                <xs:complexContent>
+                    <xs:extension base="snet:FNEHost">
+                        <xs:sequence>
+                            <xs:element name="Reference" type="snet:FNEServerReference"/>
+                             <xs:element minOccurs="0" name="BackupID" type="xs:string"/>
+                            <xs:element name="FNEServerHostType" type="snet:FNEServerHostType"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FNEServer" type="snet:FNEServer"/>
+            
+            <!-- Hosted license servers -->
+            <xs:complexType name="DefaultHostedServerReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                        <xs:sequence>
+                            <xs:element name="Account" type="snet:AccountReference"/>
+                        </xs:sequence>                      
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="DefaultHostedServerReference" type="snet:DefaultHostedServerReference"/>
+            <xs:complexType name="DefaultHostedServer">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="Account" type="snet:AccountReference"/>
+                            <xs:element name="URL" type="xs:string"/>
+                            <xs:element name="ClientIdentity" type="xs:base64Binary"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="DefaultHostedServer" type="snet:DefaultHostedServer"/>
+            
+            <!-- License Objects -->
+            <xs:complexType name="LicenseReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                      <xs:sequence>
+                            <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ProductLineID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:long"/>
+                            <xs:element minOccurs="0" name="HostID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="CustomerLicenseID" nillable="true" type="xs:string"/>              
+                            <xs:element minOccurs="0" name="IncludeLicenseFile" nillable="true" type="xs:boolean"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseReference" type="snet:LicenseReference"/>
+            <xs:complexType name="License">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence> 
+                            <xs:element minOccurs="0" name="Reference" type="snet:LicenseReference"/>                   
+                            <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="OrderLineNumber" nillable="true" type="xs:long"/>
+                            <xs:element minOccurs="0" name="GeneratedByMember" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="HostID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LicenseQuantity" nillable="true" type="xs:int"/>
+                            <xs:element name="LicenseFileName" type="xs:string"/>
+                            <xs:element name="LicenseKey" type="xs:string"/>
+                            <xs:element name="LicenseByteKey" type="xs:base64Binary"/>
+                            <xs:element minOccurs="0" name="CustomerLicenseID" nillable="true" type="xs:string"/>              
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="UserDefinedField" type="snet:UserDefinedField"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="License" type="snet:License"/>
+
+            <!-- Line Item License Counts Reference -->
+            <xs:complexType name="LineItemLicenseCountsReference">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObjectReference">
+                      <xs:sequence>
+                            <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:long"/>
+                            <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LineItemLicenseCountsReference" type="snet:LineItemLicenseCountsReference"/>
+
+            <!-- Line Item License Counts Object -->
+            <xs:complexType name="LineItemLicenseCounts">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                      <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:LineItemLicenseCountsReference"/>                   
+                            <xs:element minOccurs="0" name="EntitledQuantity" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="ActiveLicenseCount" nillable="true" type="xs:int"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LineItemLicenseCounts" type="snet:LineItemLicenseCounts"/>
+
+            <!-- BEGIN create license -->
+            <xs:complexType name="GenerateLicense">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="1" name="ProductID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="1" name="LicenseQuantity" nillable="false" type="xs:int"/>
+                            <xs:element minOccurs="0" name="OverDraftQuantity" nillable="true" type="xs:int"/>
+                            <xs:element minOccurs="0" name="IssueDate" nillable="true" type="xs:date"/>
+                            <xs:element minOccurs="0" name="FlexTmplServerLicense" type="snet:FlexTmplServerLicense"/>
+                            <xs:element minOccurs="0" name="FlexTmplNodeLicense" type="snet:FlexTmplNodeLicense"/>
+                            <xs:element minOccurs="0" name="LexmarkLicense" type="snet:LexmarkLicense"/>
+                            <xs:element minOccurs="0" name="PaccarLicense" type="snet:PaccarLicense"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="GenerateLicense" type="snet:GenerateLicense"/>
+            <xs:complexType name="FlexTmplServerLicense">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                      <xs:sequence>
+                            <xs:element minOccurs="1" name="ServerHostIdType0" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="ServerHostId0" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="ServerHostDscr0" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="ServerHostName0" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="ServerHostPort0" nillable="false" type="xs:string"/>
+                            <xs:element name="ServerHostIdType1" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostId1" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostDscr1" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostName1" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostPort1" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostIdType2" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostId2" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostDscr2" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostName2" nillable="true" type="xs:string"/>
+                            <xs:element name="ServerHostPort2" nillable="true" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FlexTmplServerLicense" type="snet:FlexTmplServerLicense"/>
+            <xs:complexType name="FlexTmplNodeLicense">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                      <xs:sequence>
+                            <xs:element minOccurs="1" name="NodeHostIdType" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="NodeHostId" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="NodeHostDscr" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="NodeHostName" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="1" name="NodeHostQuantity" nillable="false" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="FlexTmplNodeLicense" type="snet:FlexTmplNodeLicense"/>
+            <xs:complexType name="LexmarkLicense">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                      <xs:sequence>
+                            <xs:element name="requestId" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="1" name="NodeHostId" nillable="false" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LexmarkLicense" type="snet:LexmarkLicense"/>
+            <xs:complexType name="PaccarLicense">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                      <xs:sequence>
+                            <xs:element name="LicenseHostID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="1" name="LicenseHostName" nillable="false" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="PaccarLicense" type="snet:PaccarLicense"/>
+            <!-- END create license -->
+
+           <!-- License Key By Host Object -->
+            <xs:complexType name="LicenseKeyByHost">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                      <xs:sequence>
+                            <xs:element minOccurs="0" name="Reference" type="snet:LicenseReference"/>
+                            <xs:element minOccurs="0" name="LicenseKey" nillable="true" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="LicenseKeyByHost" type="snet:LicenseKeyByHost"/>
+
+            <xs:complexType name="RehostLicense">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element minOccurs="1" name="LicenseID" nillable="false" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ActivationCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="FlexTmplServerLicense" type="snet:FlexTmplServerLicense"/>
+                            <xs:element minOccurs="0" name="FlexTmplNodeLicense" type="snet:FlexTmplNodeLicense"/>
+                            <xs:element minOccurs="0" name="LexmarkLicense" type="snet:LexmarkLicense"/>
+                      </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="RehostLicense" type="snet:RehostLicense"/>
+            <xs:complexType name="ReturnDevice">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="ReturnDeviceReference" type="snet:SubscribeNetObjectReference"/>
+                        	<xs:element minOccurs="0" name="Rma" nillable="true" type="xs:string"/>
+                        	<xs:element name="TargetDeviceReference" nillable="true" type="snet:SubscribeNetObjectReference"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="ReturnDevice" type="snet:ReturnDevice"/>
+
+            <xs:complexType name="MoveDevice">
+                <xs:complexContent>
+                    <xs:extension base="snet:SubscribeNetObject">
+                        <xs:sequence>
+                            <xs:element name="MoveDeviceReference" type="snet:SubscribeNetObjectReference"/>
+                            <xs:element minOccurs="0" name="IntrawareDeviceID" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="MoveDevice" type="snet:MoveDevice"/>
+
+
+         </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="uri:webservice.subscribenet.intraware.com">
+            <xs:import namespace="uri:subscribenet.intraware.com"/>
+            <xs:element name="SessionHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SessionID" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="OptionsHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="TransactionID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SharePartnerID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReportEmail" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SuppressEndUserEmail" nillable="true" type="xs:boolean"/>
+                        <xs:element minOccurs="0" name="MemberEmailDirective" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="OrderEmailDirective" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SourceIntrawareFileID" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SourceFileID" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="MemberEmailVariation" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="OrderEmailVariation" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Login">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Username" type="xs:string"/>
+                        <xs:element name="Password" type="xs:string"/>
+                        <xs:element name="PartnerCode" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="LoginResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SessionID" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Logout">
+                <xs:complexType/>
+            </xs:element>
+            <!--
+            <xs:element name="ExecuteTransactionsAsOne">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Transaction" type="snet:Transaction" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="ExecuteTransactionsAsOneResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            -->
+            <xs:element name="LogoutResponse">
+                <xs:complexType/>
+            </xs:element>
+            <xs:element name="Add">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Update">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UpdateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddUpdate">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddUpdateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Associate">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>            
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AssociateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Disassociate">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DisassociateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Restrict">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                        <xs:element name="SubscribeNetObjectReferenceRst" type="snet:SubscribeNetObjectReferenceRst"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RestrictResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Unrestrict">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnrestrictResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Reidentify">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        <xs:element name="NewID" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ReidentifyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Merge">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MergeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Share">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ShareResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Get">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Find">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="FindResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ReturnLicense">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ReturnLicenseResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GenerateLicense">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GenerateLicenseResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RehostLicense">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RehostLicenseResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ReturnDevice">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ReturnDeviceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MoveDevice">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+	                <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MoveDeviceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MoveServer">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SubscribeNetObject" type="snet:SubscribeNetObject"/>
+                        <xs:element name="SubscribeNetObjectReference" type="snet:SubscribeNetObjectReference"/>
+                        <xs:element name="SubscribeNetObjectReferenceAss" type="snet:SubscribeNetObjectReferenceAss"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MoveServerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionResult" type="snet:TransactionResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+  </types>
+  <message name="AssociateResponse">
+    <part element="tns:AssociateResponse" name="parameters">
+    </part>
+  </message>
+  <message name="FindResponse">
+    <part element="tns:FindResponse" name="parameters">
+    </part>
+  </message>
+  <message name="DisassociateResponse">
+    <part element="tns:DisassociateResponse" name="parameters">
+    </part>
+  </message>
+  <message name="InvalidSessionIDFault">
+    <part element="fns:InvalidSessionIDFault" name="fault">
+    </part>
+  </message>
+  <message name="MoveDevice">
+    <part element="tns:MoveDevice" name="parameters">
+    </part>
+  </message>
+  <message name="Logout">
+    <part element="tns:Logout" name="parameters">
+    </part>
+  </message>
+  <message name="OptionsHeader">
+    <part element="tns:OptionsHeader" name="OptionsHeader">
+    </part>
+  </message>
+  <message name="TransactionFault">
+    <part element="fns:TransactionFault" name="fault">
+    </part>
+  </message>
+  <message name="Add">
+    <part element="tns:Add" name="parameters">
+    </part>
+  </message>
+  <message name="GenerateLicenseResponse">
+    <part element="tns:GenerateLicenseResponse" name="parameters">
+    </part>
+  </message>
+  <message name="UnexpectedFault">
+    <part element="fns:UnexpectedFault" name="fault">
+    </part>
+  </message>
+  <message name="Get">
+    <part element="tns:Get" name="parameters">
+    </part>
+  </message>
+  <message name="ReidentifyResponse">
+    <part element="tns:ReidentifyResponse" name="parameters">
+    </part>
+  </message>
+  <message name="RehostLicenseResponse">
+    <part element="tns:RehostLicenseResponse" name="parameters">
+    </part>
+  </message>
+  <message name="GetFault">
+    <part element="fns:GetFault" name="fault">
+    </part>
+  </message>
+  <message name="Unrestrict">
+    <part element="tns:Unrestrict" name="parameters">
+    </part>
+  </message>
+  <message name="Reidentify">
+    <part element="tns:Reidentify" name="parameters">
+    </part>
+  </message>
+  <message name="UnrestrictResponse">
+    <part element="tns:UnrestrictResponse" name="parameters">
+    </part>
+  </message>
+  <message name="ReturnDeviceResponse">
+    <part element="tns:ReturnDeviceResponse" name="parameters">
+    </part>
+  </message>
+  <message name="Associate">
+    <part element="tns:Associate" name="parameters">
+    </part>
+  </message>
+  <message name="Share">
+    <part element="tns:Share" name="parameters">
+    </part>
+  </message>
+  <message name="MoveServerResponse">
+    <part element="tns:MoveServerResponse" name="parameters">
+    </part>
+  </message>
+  <message name="SessionHeader">
+    <part element="tns:SessionHeader" name="SessionHeader">
+    </part>
+  </message>
+  <message name="LoginResponse">
+    <part element="tns:LoginResponse" name="parameters">
+    </part>
+  </message>
+  <message name="ReturnLicense">
+    <part element="tns:ReturnLicense" name="parameters">
+    </part>
+  </message>
+  <message name="MoveServer">
+    <part element="tns:MoveServer" name="parameters">
+    </part>
+  </message>
+  <message name="ReturnLicenseFault">
+    <part element="fns:ReturnLicenseFault" name="fault">
+    </part>
+  </message>
+  <message name="MergeResponse">
+    <part element="tns:MergeResponse" name="parameters">
+    </part>
+  </message>
+  <message name="LoginFault">
+    <part element="fns:LoginFault" name="fault">
+    </part>
+  </message>
+  <message name="Restrict">
+    <part element="tns:Restrict" name="parameters">
+    </part>
+  </message>
+  <message name="ShareResponse">
+    <part element="tns:ShareResponse" name="parameters">
+    </part>
+  </message>
+  <message name="RestrictResponse">
+    <part element="tns:RestrictResponse" name="parameters">
+    </part>
+  </message>
+  <message name="GenerateLicense">
+    <part element="tns:GenerateLicense" name="parameters">
+    </part>
+  </message>
+  <message name="ReturnLicenseResponse">
+    <part element="tns:ReturnLicenseResponse" name="parameters">
+    </part>
+  </message>
+  <message name="AddUpdate">
+    <part element="tns:AddUpdate" name="parameters">
+    </part>
+  </message>
+  <message name="LicenseFault">
+    <part element="fns:LicenseFault" name="fault">
+    </part>
+  </message>
+  <message name="LogoutResponse">
+    <part element="tns:LogoutResponse" name="parameters">
+    </part>
+  </message>
+  <message name="Disassociate">
+    <part element="tns:Disassociate" name="parameters">
+    </part>
+  </message>
+  <message name="Find">
+    <part element="tns:Find" name="parameters">
+    </part>
+  </message>
+  <message name="RehostLicense">
+    <part element="tns:RehostLicense" name="parameters">
+    </part>
+  </message>
+  <message name="Merge">
+    <part element="tns:Merge" name="parameters">
+    </part>
+  </message>
+  <message name="AddResponse">
+    <part element="tns:AddResponse" name="parameters">
+    </part>
+  </message>
+  <message name="UpdateResponse">
+    <part element="tns:UpdateResponse" name="parameters">
+    </part>
+  </message>
+  <message name="Login">
+    <part element="tns:Login" name="parameters">
+    </part>
+  </message>
+  <message name="FindFault">
+    <part element="fns:FindFault" name="fault">
+    </part>
+  </message>
+  <message name="AddUpdateResponse">
+    <part element="tns:AddUpdateResponse" name="parameters">
+    </part>
+  </message>
+  <message name="MoveDeviceResponse">
+    <part element="tns:MoveDeviceResponse" name="parameters">
+    </part>
+  </message>
+  <message name="ReturnDevice">
+    <part element="tns:ReturnDevice" name="parameters">
+    </part>
+  </message>
+  <message name="GetResponse">
+    <part element="tns:GetResponse" name="parameters">
+    </part>
+  </message>
+  <message name="Update">
+    <part element="tns:Update" name="parameters">
+    </part>
+  </message>
+  <portType name="SubscribeNet">
+    <operation name="Login">
+      <input message="tns:Login">
+    </input>
+      <output message="tns:LoginResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Logout">
+      <input message="tns:Logout">
+    </input>
+      <output message="tns:LogoutResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+    </operation>
+    <operation name="Add">
+      <input message="tns:Add">
+    </input>
+      <output message="tns:AddResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Update">
+      <input message="tns:Update">
+    </input>
+      <output message="tns:UpdateResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="AddUpdate">
+      <input message="tns:AddUpdate">
+    </input>
+      <output message="tns:AddUpdateResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Associate">
+      <input message="tns:Associate">
+    </input>
+      <output message="tns:AssociateResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Disassociate">
+      <input message="tns:Disassociate">
+    </input>
+      <output message="tns:DisassociateResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Restrict">
+      <input message="tns:Restrict">
+    </input>
+      <output message="tns:RestrictResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Unrestrict">
+      <input message="tns:Unrestrict">
+    </input>
+      <output message="tns:UnrestrictResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Reidentify">
+      <input message="tns:Reidentify">
+    </input>
+      <output message="tns:ReidentifyResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Merge">
+      <input message="tns:Merge">
+    </input>
+      <output message="tns:MergeResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Share">
+      <input message="tns:Share">
+    </input>
+      <output message="tns:ShareResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Get">
+      <input message="tns:Get">
+    </input>
+      <output message="tns:GetResponse">
+    </output>
+      <fault message="tns:GetFault" name="GetFault">
+    </fault>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="Find">
+      <input message="tns:Find">
+    </input>
+      <output message="tns:FindResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:FindFault" name="FindFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="ReturnLicense">
+      <input message="tns:ReturnLicense">
+    </input>
+      <output message="tns:ReturnLicenseResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:ReturnLicenseFault" name="ReturnLicenseFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="GenerateLicense">
+      <input message="tns:GenerateLicense">
+    </input>
+      <output message="tns:GenerateLicenseResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LicenseFault" name="LicenseFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="RehostLicense">
+      <input message="tns:RehostLicense">
+    </input>
+      <output message="tns:RehostLicenseResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LicenseFault" name="LicenseFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="ReturnDevice">
+      <input message="tns:ReturnDevice">
+    </input>
+      <output message="tns:ReturnDeviceResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="MoveDevice">
+      <input message="tns:MoveDevice">
+    </input>
+      <output message="tns:MoveDeviceResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+    <operation name="MoveServer">
+      <input message="tns:MoveServer">
+    </input>
+      <output message="tns:MoveServerResponse">
+    </output>
+      <fault message="tns:UnexpectedFault" name="UnexpectedFault">
+    </fault>
+      <fault message="tns:InvalidSessionIDFault" name="InvalidSessionIDFault">
+    </fault>
+      <fault message="tns:LoginFault" name="LoginFault">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="SubscribeNetBinding" type="tns:SubscribeNet">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Login">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Logout">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Add">
+<documentation>Test documenations</documentation>
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Update">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="AddUpdate">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Associate">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Disassociate">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Restrict">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Unrestrict">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Reidentify">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Merge">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Share">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:header message="tns:OptionsHeader" part="OptionsHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Get">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="GetFault">
+        <soap:fault name="GetFault" use="literal"/>
+      </fault>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="Find">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="FindFault">
+        <soap:fault name="FindFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="ReturnLicense">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="ReturnLicenseFault">
+        <soap:fault name="ReturnLicenseFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="GenerateLicense">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LicenseFault">
+        <soap:fault name="LicenseFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="RehostLicense">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LicenseFault">
+        <soap:fault name="LicenseFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="ReturnDevice">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="MoveDevice">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="MoveServer">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header message="tns:SessionHeader" part="SessionHeader" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </input>
+      <output>
+        <soap:body parts="parameters" use="literal"/>
+      </output>
+      <fault name="UnexpectedFault">
+        <soap:fault name="UnexpectedFault" use="literal"/>
+      </fault>
+      <fault name="InvalidSessionIDFault">
+        <soap:fault name="InvalidSessionIDFault" use="literal"/>
+      </fault>
+      <fault name="LoginFault">
+        <soap:fault name="LoginFault" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="SubscribeNetService">
+    <port binding="tns:SubscribeNetBinding" name="SubscribeNet">
+      <soap:address location="https://manager.flexnetoperations.com/service/snetmgr/services/SubscribeNet"/>
+    </port>
+  </service>
+  <!--
+  <service name="SubscribeNetService">
+    <port binding="tns:SubscribeNetBinding" name="SubscribeNetPortUAT">
+    <soap:address location="https://manageruat.flexnetoperations.com/service/snetmgr/services/SubscribeNet"/>
+    </port>
+  </service>
+  --> 
+</definitions>

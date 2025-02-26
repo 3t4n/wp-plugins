@@ -1,0 +1,86 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_main_main_configuration_form_view extends WDataView{
+var $yid=502167;
+var $wid='#main.node';
+var $type=151;
+var $params='pagetitle=3
+phpfile=1';
+var $namekey='main_configuration_form';
+var $frontend=1;
+var $form=1;
+var $rolid='#sadmin';
+var $alias='Configuration';
+var $faicon='fa-cog';
+var $name='1416665748MZJC';
+var $description='';
+var $wname='';
+var $wdescription='';
+var $seotitle='';
+var $seodescription='';
+var $seokeywords='';
+var $formsA=array(
+array(
+'type'=>'output.fieldset',
+'sid'=>0,
+'required'=>0,
+'readonly'=>1,
+'publish'=>1,
+'parent'=>0,
+'params'=>'',
+'ordering'=>2,
+'map'=>'',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2469244,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'main_configuration_form_pane',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1416948599JVQT',
+'description'=>'' ),
+array(
+'type'=>'output.yesno',
+'sid'=>0,
+'required'=>0,
+'readonly'=>1,
+'publish'=>1,
+'parent'=>0,
+'params'=>'',
+'ordering'=>4,
+'map'=>'c[library.node][test]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2469245,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'main_configuration_form_library_node_test',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'parentnamekey'=>'#main_configuration_form_pane',
+'name'=>'1302090354NZFX',
+'description'=>'' )
+);
+}

@@ -1,0 +1,152 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_theme_theme_clone_view extends WDataView{
+var $yid=501042;
+var $wizard=1;
+var $wid='#theme.node';
+var $type=51;
+var $params='autosave=1
+subtitle=1';
+var $namekey='theme_clone';
+var $menu=13;
+var $sid='#theme';
+var $form=1;
+var $icon='theme';
+var $rolid='#sadmin';
+var $alias='Clone Theme';
+var $name='1298350437HNTN';
+var $description='';
+var $wname='1301400668NOSW';
+var $wdescription='1420549280BNHL';
+var $seotitle='';
+var $seodescription='';
+var $seokeywords='';
+var $formsA=array(
+array(
+'type'=>'output.text',
+'sid'=>0,
+'required'=>1,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'cncontain=!@#$%^&*()
+ws=1',
+'ordering'=>1,
+'map'=>'x[foldername]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2455420,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#admin',
+'namekey'=>'clone_theme_foldername',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1298350437HNTL',
+'description'=>'1301400667SKBF' )
+);
+
+var $menusA=array(
+array(
+'type'=>10,
+'publish'=>1,
+'parent'=>0,
+'params'=>'',
+'ordering'=>1,
+'level'=>0,
+'icon'=>'copy',
+'action'=>'duplicate',
+'mid'=>9140,
+'private'=>0,
+'position'=>0,
+'core'=>1,
+'rolid'=>'#admin',
+'namekey'=>'clone_theme_copytheme',
+'faicon'=>'',
+'color'=>'',
+'xsvisible'=>33,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'ph|_|tb',
+'name'=>'1298294078HATF',
+'description'=>'' ),
+array(
+'type'=>5,
+'publish'=>1,
+'parent'=>0,
+'params'=>'refresh=1',
+'ordering'=>2,
+'level'=>0,
+'icon'=>'cancel',
+'action'=>'cancel',
+'mid'=>8177,
+'private'=>0,
+'position'=>0,
+'core'=>1,
+'rolid'=>'#admin',
+'namekey'=>'clone_theme_cancel',
+'faicon'=>'',
+'color'=>'',
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206732393CXVV',
+'description'=>'' ),
+array(
+'type'=>90,
+'publish'=>1,
+'parent'=>0,
+'params'=>'',
+'ordering'=>3,
+'level'=>0,
+'icon'=>'',
+'action'=>'divider',
+'mid'=>8178,
+'private'=>0,
+'position'=>0,
+'core'=>1,
+'rolid'=>'#allusers',
+'namekey'=>'clone_theme_divider',
+'faicon'=>'',
+'color'=>'',
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206732399EINF',
+'description'=>'' ),
+array(
+'type'=>16,
+'publish'=>1,
+'parent'=>0,
+'params'=>'',
+'ordering'=>5,
+'level'=>0,
+'icon'=>'help',
+'action'=>'help',
+'mid'=>8870,
+'private'=>0,
+'position'=>0,
+'core'=>1,
+'rolid'=>'#allusers',
+'namekey'=>'clone_theme_help',
+'faicon'=>'',
+'color'=>'',
+'xsvisible'=>33,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206732392OZUP',
+'description'=>'' )
+);
+}

@@ -1,0 +1,171 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_output_tour_step_trans_table extends WDataTable{
+var $name='tour_step_trans';
+var $namekey='tour.step.trans';
+var $dbtid=3493;
+var $rolid='#allusers';
+var $type=20;
+var $pkey='trstid,lgid';
+var $domain=51;
+var $export='0';
+var $engine=7;
+var $node='output';
+var $columnsA=array(
+array(
+'dbcid'=>11077,
+'name'=>'trstid',
+'pkey'=>1,
+'checkval'=>0,
+'type'=>4,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>1,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'3493trstid',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>11078,
+'name'=>'lgid',
+'pkey'=>1,
+'checkval'=>0,
+'type'=>4,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>2,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'3493lgid',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>11079,
+'name'=>'name',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>14,
+'attributes'=>0,
+'mandatory'=>1,
+'default'=>'',
+'ordering'=>3,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>255.0,
+'export'=>1,
+'namekey'=>'name3493',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>11080,
+'name'=>'description',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>16,
+'attributes'=>0,
+'mandatory'=>1,
+'default'=>'',
+'ordering'=>4,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'description3493',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>11081,
+'name'=>'auto',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>1,
+'attributes'=>0,
+'mandatory'=>1,
+'default'=>2,
+'ordering'=>5,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'auto3493',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' ),
+array(
+'dbcid'=>11082,
+'name'=>'fromlgid',
+'pkey'=>0,
+'checkval'=>0,
+'type'=>1,
+'attributes'=>1,
+'mandatory'=>1,
+'default'=>0,
+'ordering'=>6,
+'level'=>0,
+'rolid'=>0,
+'extra'=>0,
+'size'=>0.0,
+'export'=>1,
+'namekey'=>'fromlgid3493',
+'core'=>1,
+'columntype'=>0,
+'noaudit'=>0,
+'readable'=>'',
+'fieldtype'=>'' )
+);
+
+var $foreignsA=array(
+array(
+'dbtid'=>3493,
+'ref_dbtid'=>3492,
+'name'=>'trstid',
+'name2'=>'trstid',
+'namekey'=>'FK_tour_step_trans_trstid',
+'onupdate'=>3,
+'ondelete'=>3,
+'ordering'=>1,
+'ref_table'=>'#output#tour_step' ),
+array(
+'dbtid'=>3493,
+'ref_dbtid'=>199,
+'name'=>'lgid',
+'name2'=>'lgid',
+'namekey'=>'FK_tour_step_trans_lgid',
+'onupdate'=>3,
+'ondelete'=>3,
+'ordering'=>2,
+'ref_table'=>'#library#language_node' )
+);
+
+var $contraintsA=array(
+array(
+'ctid'=>66343,
+'type'=>3,
+'namekey'=>'PK_tour_step_trans' )
+);
+}

@@ -1,0 +1,117 @@
+<?php defined('JOOBI_SECURE') or die('J....');
+class Data_main_main_params_listing_main_url_view extends WDataView{
+var $yid=501428;
+var $wid='#main.node';
+var $type=51;
+var $params='autosave=1
+subtitle=1';
+var $namekey='main_params_listing_main_url';
+var $frontend=1;
+var $form=1;
+var $icon='about';
+var $rolid='#allusers';
+var $alias='Link Field parameters ( listing )';
+var $name='1206961869IGNO';
+var $description='';
+var $wname='';
+var $wdescription='';
+var $seotitle='';
+var $seodescription='';
+var $seokeywords='';
+var $formsA=array(
+array(
+'type'=>'output.yesno',
+'sid'=>0,
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'num=1
+width=6',
+'ordering'=>1,
+'map'=>'p[urllstclickable]',
+'level'=>0,
+'initial'=>1,
+'hidden'=>0,
+'fid'=>2460891,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'main_params_listing_main.url_clickable',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1356733768PTQV',
+'description'=>'1356733769MICW' ),
+array(
+'type'=>'output.text',
+'sid'=>0,
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'',
+'ordering'=>3,
+'map'=>'p[urllisttext]',
+'level'=>0,
+'initial'=>'',
+'hidden'=>0,
+'fid'=>2460893,
+'core'=>1,
+'did'=>0,
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'main_params_listing_main.url_urltext',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1206732400OWYY',
+'description'=>'1356733769MICY' ),
+array(
+'type'=>'output.select',
+'sid'=>0,
+'required'=>0,
+'readonly'=>0,
+'publish'=>1,
+'parent'=>0,
+'params'=>'num=1',
+'ordering'=>4,
+'map'=>'p[urllsttarget]',
+'level'=>0,
+'initial'=>1,
+'hidden'=>0,
+'fid'=>2460892,
+'core'=>1,
+'did'=>'#main#main_field_link_target',
+'private'=>0,
+'area'=>'',
+'ref_yid'=>0,
+'frame'=>0,
+'rolid'=>'#allusers',
+'namekey'=>'main_params_listing_main.url_urltarget',
+'fdid'=>0,
+'parentdft'=>0,
+'checktype'=>0,
+'xsvisible'=>0,
+'xshidden'=>0,
+'devicevisible'=>'',
+'devicehidden'=>'',
+'name'=>'1356733768PTQW',
+'description'=>'1356733769MICX' )
+);
+}
