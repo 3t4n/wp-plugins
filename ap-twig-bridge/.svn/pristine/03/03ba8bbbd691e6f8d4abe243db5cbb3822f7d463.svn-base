@@ -1,0 +1,73 @@
+{% include 'header.html.twig' %}
+
+	<div id="content" class="narrowcolumn" role="main">
+
+	{% if have_posts() %}
+
+	{% set post = get_posts()[0] %} {# Hack. Set $post so that the_date() works. #}
+	{# If this is a category archive #}
+	{% if is_category() %}
+		<h2 class="pagetitle">Archive for the &#8216;{{ single_cat_title('', false) }}&#8217; Category</h2>
+ 	{# If this is a tag archive #}
+	{% elseif is_tag() %}
+		<h2 class="pagetitle">Posts Tagged &#8216;{{ single_tag_title('', false) }}&#8217;</h2>
+ 	{# If this is a daily archive #}
+	{% elseif is_day() %}
+		<h2 class="pagetitle">Archive for {{ the_time(__('F jS, Y', 'kubrick')) }}</h2>
+	{# If this is a monthly archive #}
+	{% elseif is_month() %}
+		<h2 class="pagetitle">Archive for {{ the_time(__('F, Y', 'kubrick')) }}</h2>
+ 	{# If this is a yearly archive #}
+	{% elseif is_year() %}
+		<h2 class="pagetitle">Archive for {{ the_time(__('Y', 'kubrick')) }}</h2>
+	{# If this is an author archive #}
+	{% elseif is_author() %}
+		<h2 class="pagetitle">{{ __('Author Archive', 'kubrick') }}</h2>
+ 	{# If this is a paged archive #}
+	{% elseif is_paged() %}
+		<h2 class="pagetitle">{{ __('Blog Archives', 'kubrick') }}</h2>
+ 	{% endif %}
+
+
+	<div class="navigation">
+		<div class="alignleft">{{ next_posts_link(__('&laquo; Older Entries', 'kubrick')) }}</div>
+		<div class="alignright">{{ previous_posts_link(__('Newer Entries &raquo;', 'kubrick')) }}</div>
+	</div>
+
+	{% for post in loop %}
+		<div {{ post_class() }}>
+			<h3 id="post-{{ the_ID() }}"><a href="{{ the_permalink() }}" rel="bookmark" title="Permanent Link to {{ the_title_attribute('echo=0') }}">{{ the_title() }}</a></h3>
+			<small>{{ the_time(__('l, F jS, Y', 'kubrick')) }}</small>
+
+			<div class="entry">
+				{{ the_content() }}
+			</div>
+
+			<p class="postmetadata">{{ the_tags(__('Tags:', 'kubrick'), ', ', '<br />') }} Posted in {{ get_the_category_list(', ') }} | {{ edit_post_link(__('Edit', 'kubrick'), '', ' | ') }}  {{ comments_popup_link(__('No Comments &#187;', 'kubrick'), __('1 Comment &#187;', 'kubrick'), __('% Comments &#187;', 'kubrick'), '', __('Comments Closed', 'kubrick')) }}</p>
+		</div>
+	{% endfor %}
+
+	<div class="navigation">
+		<div class="alignleft">{{ next_posts_link(__('&laquo; Older Entries', 'kubrick')) }}</div>
+		<div class="alignright">{{ previous_posts_link(__('Newer Entries &raquo;', 'kubrick')) }}</div>
+	</div>
+	{% else %}
+
+	    {% if is_category() %} {# // If this is a category archive #}
+		<h2 class='center'>Sorry, but there aren't any posts in the {{ single_cat_title('',false) }} category yet.</h2>
+	    {% elseif is_date() %} {# // If this is a date archive #}
+		<h2>{{ __("Sorry, but there aren't any posts with this date.", 'kubrick') }}</h2>
+	    {% elseif is_author() %} {# // If this is a category archive #}
+		<h2 class='center'>Sorry, but there aren't any posts by {{ user_display_name() }} yet.</h2>
+	    {% else %}
+		<h2 class='center'>{{ __('No posts found.', 'kubrick') }}</h2>
+	    {% endif %}
+
+	    {% include 'searchform.html.twig' %}
+
+	{% endif %}
+</div>
+
+{% include 'sidebar.html.twig' %}
+
+{% include 'footer.html.twig' %}

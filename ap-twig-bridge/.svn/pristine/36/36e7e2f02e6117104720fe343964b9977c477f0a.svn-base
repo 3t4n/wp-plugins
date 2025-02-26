@@ -1,0 +1,24 @@
+{% include 'header.html.twig' %}
+
+<div id="content" class="narrowcolumn" role="main">
+
+    {% if have_posts() %}
+	{% for post in loop %}
+		<div class="post" id="post-{{ the_ID() }}">
+		<h2>{{ the_title() }}</h2>
+			<div class="entry">
+				{{ the_content('<p class="serif">' ~ __('Read the rest of this page &raquo;', 'kubrick') ~ '</p>') }}
+
+				{{ wp_link_pages({'before': '<p><strong>' ~ __('Pages:', 'kubrick') ~ '</strong> '}, {'after': '</p>'}, {'next_or_number': 'number'}) }}
+			</div>
+		</div>
+	{% endfor %}
+    {% endif %}
+
+    {{ edit_post_link(__('Edit this entry.', 'kubrick'), '<p>', '</p>') }}
+
+</div>
+
+{% include 'sidebar.html.twig' %}
+
+{% include 'footer.html.twig' %}

@@ -1,0 +1,65 @@
+{% include 'header.html.twig' %}
+
+	<div id="content" class="widecolumn" role="main">
+
+        {% if have_posts() %}
+
+                {% for post in loop %}
+
+		<div class="navigation">
+			<div class="alignleft">{{ previous_post_link('&laquo; %link') }}</div>
+			<div class="alignright">{{ next_post_link('%link &raquo;') }}</div>
+		</div>
+
+		<div {{ post_class() }} id="post-{{ the_ID() }}">
+			<h2>{{ the_title() }}</h2>
+
+			<div class="entry">
+				{{ the_content('<p class="serif">' ~ __('Read the rest of this entry &raquo;', 'kubrick') ~ '</p>') }}
+
+				{{ wp_link_pages([{'before': '<p><strong>' ~ __('Pages:', 'kubrick') ~ '</strong> '}, {'after': '</p>'}, {'next_or_number': 'number'}]) }}
+				{{ the_tags( '<p>' ~ __('Tags:', 'kubrick') ~ ' ', ', ', '</p>') }}
+
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted on {{ the_time(__('l, F jS, Y', 'kubrick')) }} at {{ the_time() }} and is filed under {{ get_the_category_list(', ') }}.
+						You can follow any responses to this entry through the <a href='{{ get_post_comments_feed_link() }}'>RSS 2.0</a> feed.
+
+						{% if comments_open() and pings_open() %}
+							{# Both Comments and Pings are open #}
+							You can <a href="#respond">leave a response</a>, or <a href="{{ trackback_url() }}" rel="trackback">trackback</a> from your own site.
+
+						{% elseif not comments_open() and pings_open() %}
+							{# Only Pings are Open #}
+							Responses are currently closed, but you can <a href="{{ trackback_url() }}" rel="trackback">trackback</a> from your own site.
+
+						{% elseif comments_open() and not pings_open() %}
+							{# Comments are open, Pings are not #}
+							{{ __('You can skip to the end and leave a response. Pinging is currently not allowed.', 'kubrick') }}
+
+						{% elseif not comments_open() and not pings_open() %}
+							{# Neither Comments, nor Pings are open #}
+							{{ __('Both comments and pings are currently closed.', 'kubrick') }}
+
+						{% endif %}
+
+						{{ edit_post_link(__('Edit this entry', 'kubrick'),'','.') }}
+
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+		{% include 'comments.html.twig' %}
+
+		{% endfor %}
+	{% else %}
+
+		<p>{{ __('Sorry, no posts matched your criteria.', 'kubrick') }}</p>
+
+	{% endif %}
+
+	</div>
+
+{% include 'footer.html.twig' %}

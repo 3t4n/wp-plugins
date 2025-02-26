@@ -1,0 +1,19 @@
+{% include 'header.html.twig' %}
+
+<div id="content" class="widecolumn">
+
+{{ get_search_form() }}
+
+<h2>{{ __('Archives by Month:', 'kubrick') }}</h2>
+	<ul>
+		{{ wp_get_archives('type=monthly') }}
+	</ul>
+
+<h2>{{ __('Archives by Subject:', 'kubrick') }}</h2>
+	<ul>
+		 {{ wp_list_categories() }}
+	</ul>
+
+</div>
+
+{% include 'footer.html.twig' %}
