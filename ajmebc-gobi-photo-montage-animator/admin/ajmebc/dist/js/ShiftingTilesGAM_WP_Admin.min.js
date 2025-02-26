@@ -1,0 +1,17 @@
+/*! ShiftingTilesGAM_WP_Admin - v0.1.0 - 2016-04-03
+* https://github.com/jamesa26/ShiftingTilesGAM_WP_Admin
+ * Copyright (c) 2016, AJ & MEBC Ltd;
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+!function(a,b){"use strict";var c,d=function(b){var c=a("<li>",{"data-id":"attch-"+b.id,"class":"attachment save-ready"}).css({clear:"both",display:"inline-block","float":"none"}),d=a("<div>",{"class":"attachment-preview landscape"}),e=a("<div>",{"data-attr":b.url,"class":"thumbnail"}),f=a("<div>",{"class":"centered"}),g=a("<img>",{src:b.url,"class":"icon"}),h=a("<div>",{"class":"ajmebc-attachment-button"}),i=a("<span>",{"data-bind":"click: removeSelectedImage","data-id":b.id,"data-attr":b.url,"class":"ajmebc-attachment-close"});h.append(i),f.append(g),e.append(f),d.append(e),c.append(d),c.append(h),a("#ajmebc-selected-images").append(c)},e=function(){var c=this;this.images=b.observableArray(),this.ajmebcStData=b.pureComputed({read:function(){return JSON.stringify(this.images())},write:function(){},owner:this}),this.removeSelectedImage=function(b,d){var e=d.target.attributes["data-attr"].value,f=d.target.attributes["data-id"].value;this.findMatchedImage(e)&&(c.images.remove(function(a){return a.src===e}),a('li[data-id="attch-'+f+'"]').remove())},this.findMatchedImage=function(a){var d=b.utils.arrayFirst(c.images(),function(b){return a===b.src});return d}},f={applyBindings:function(){var a=jQuery("#ajmebc_gam_post_imgsrc_data").text();if(c=new e,"undefined"!=typeof a&&a.length>0){var f;try{f=JSON.parse(a);for(var g in f)c.images.push(f[g]),d({url:f[g].src,id:f[g].id})}catch(h){console.log(h)}}b.applyBindings(c)},addImage:function(a){c.images.push({src:a.url,id:a.id,description:a.description}),d(a)}};a.fn.clickTab=function(){this.on("click",function(b){if(b.preventDefault(),!a(this).hasClass("nav-tab-active")){a(".nav-tab-active").removeClass("nav-tab-active"),a(this).addClass("nav-tab-active");var c=a("#ajmebc-gam-metabox-gallery"),d=a("#ajmebc-gam-metabox-settings");c.hasClass("hidden")?(c.removeClass("hidden"),d.addClass("hidden")):(c.addClass("hidden"),d.removeClass("hidden"))}})};var g=function(){var a;return void 0!==a?void a.open():(a=wp.media.frames.file_frame=wp.media({frame:"post",state:"insert",multiple:!0}),a.on("insert",function(){var b=a.state().get("selection");b.map(function(a){a=a.toJSON(),f.addImage(a)})}),void a.open())};a(function(){a('a[data-panel-id="ajmebc-gam-metabox-gallery"]').clickTab(),a('a[data-panel-id="ajmebc-gam-metabox-settings"]').clickTab(),a("#ajmebc-gam-select-images").on("click",function(a){a.preventDefault(),g()}),a("#ajmebc-scode-insert-button").click(function(){null!==tinyMCE.activeEditor&&tinyMCE.activeEditor.execCommand("mceInsertContent",!1,"[ajmebc_gobi_pma_scode]")}),f.applyBindings()})}(jQuery,ko);
+//# sourceMappingURL=ajmebc/dist/js/ShiftingTilesGAM_WP_Admin.map
