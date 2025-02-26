@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Generator für WooCommerce - Benutzerhandbuch</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #23282d;
+            margin-top: 30px;
+        }
+        h1 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .note {
+            background: #f8f9fa;
+            border-left: 4px solid #007cba;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background: #fff8e5;
+            border-left: 4px solid #dba617;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        ol li, ul li {
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        .version {
+            background: #f0f0f1;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Content Generator für WooCommerce - Benutzerhandbuch</h1>
+    <p class="version">Version 1.0.0 | Kompatibel mit WordPress 6.7 und WooCommerce 9.5</p>
+
+    <h2>Übersicht</h2>
+    <p>
+        AI Content Generator für WooCommerce ist ein leistungsstarkes Tool, das Ihnen hilft, automatisch hochwertige 
+        Produktinhalte mit der ChatGPT API zu erstellen. Dies umfasst Produktbilder, Beschreibungen und Galeriebilder, 
+        die alle basierend auf Ihren Produktdetails generiert werden.
+    </p>
+
+    <h2>Systemanforderungen</h2>
+    <ul>
+        <li>WordPress 5.0 oder höher</li>
+        <li>WooCommerce 4.0 oder höher</li>
+        <li>PHP 7.2 oder höher</li>
+        <li>Gültiger ChatGPT API-Schlüssel</li>
+    </ul>
+
+    <h2>Erste Schritte</h2>
+    <h3>ChatGPT API-Schlüssel erhalten</h3>
+    <ol>
+        <li>Besuchen Sie die <a href="https://platform.openai.com/signup" target="_blank">OpenAI Platform</a></li>
+        <li>Erstellen Sie ein Konto oder melden Sie sich an</li>
+        <li>Gehen Sie zum <a href="https://platform.openai.com/api-keys" target="_blank">API-Schlüssel Bereich</a></li>
+        <li>Klicken Sie auf "Create new secret key"</li>
+        <li>Kopieren Sie Ihren API-Schlüssel sofort (Sie können ihn später nicht mehr sehen)</li>
+    </ol>
+    <div class="note">
+        <strong>Wichtig:</strong> Die OpenAI API ist ein kostenpflichtiger Service. Sie müssen Zahlungsinformationen zu Ihrem Konto hinzufügen. 
+        Die Kosten basieren auf der Nutzung - siehe <a href="https://openai.com/pricing" target="_blank">OpenAI's Preisseite</a> für aktuelle Tarife.
+    </div>
+
+    <h2>Installation</h2>
+    <ol>
+        <li>Laden Sie die Plugin-Dateien in das Verzeichnis <code>/wp-content/plugins/ai-content-generator-for-woocommerce</code> hoch</li>
+        <li>Aktivieren Sie das Plugin über das 'Plugins'-Menü in WordPress</li>
+        <li>Navigieren Sie zu WooCommerce > Einstellungen > AI Content Generator</li>
+        <li>Geben Sie Ihren ChatGPT API-Schlüssel ein</li>
+    </ol>
+
+    <h2>Funktionen</h2>
+
+    <h3>1. Produktbild-Generierung</h3>
+    <ul>
+        <li><strong>Hauptbilder:</strong>
+            <ul>
+                <li>Klicken Sie auf "Hauptbild generieren" im Produkt-Editor</li>
+                <li>Wählen Sie aus mehreren KI-generierten Optionen</li>
+                <li>Klicken Sie auf "Als Hauptbild verwenden" für Ihr gewähltes Bild</li>
+            </ul>
+        </li>
+        <li><strong>Galeriebilder:</strong>
+            <ul>
+                <li>Verwenden Sie die Schaltfläche "Galeriebilder generieren"</li>
+                <li>Wählen Sie mehrere Bilder mit Kontrollkästchen aus</li>
+                <li>Fügen Sie Bilder stapelweise zur Produktgalerie hinzu</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>2. Produktbeschreibungs-Generierung</h3>
+    <ul>
+        <li><strong>Verfügbare Tonarten:</strong>
+            <ul>
+                <li>Formell & Professionell</li>
+                <li>Locker & Freundlich</li>
+                <li>Überzeugend & Verkaufsorientiert</li>
+                <li>Technisch & Detailliert</li>
+                <li>Luxus & Premium</li>
+                <li>Kreativ & Ansprechend</li>
+            </ul>
+        </li>
+        <li><strong>Generierungsoptionen:</strong>
+            <ul>
+                <li>Vollständige Produktbeschreibungen</li>
+                <li>Kurzbeschreibungen</li>
+                <li>Vorschau vor der Anwendung</li>
+                <li>Bei Bedarf neu generieren</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Verwendung des Plugins</h2>
+
+    <h3>Inhalte generieren</h3>
+    <ol>
+        <li>Bearbeiten oder erstellen Sie ein Produkt in WooCommerce</li>
+        <li>Finden Sie die KI-Generierungstools im Produkt-Editor:
+            <ul>
+                <li>"Hauptbild generieren" Box</li>
+                <li>"Galeriebilder generieren" Box</li>
+                <li>Beschreibungs-Generierungsbuttons neben den Inhaltseditoren</li>
+            </ul>
+        </li>
+        <li>Wählen Sie Ihre bevorzugte Tonart für Beschreibungen</li>
+        <li>Klicken Sie auf Generieren und prüfen Sie die Ergebnisse</li>
+        <li>Übernehmen Sie die gewünschten Inhalte</li>
+    </ol>
+
+    <div class="note">
+        <strong>Profi-Tipp:</strong> Für beste Ergebnisse stellen Sie sicher, dass Ihr Produkt grundlegende 
+        Informationen wie Titel, Kategorien und Tags enthält, bevor Sie Inhalte generieren.
+    </div>
+
+    <h2>Fehlerbehebung</h2>
+
+    <h3>Debug-Modus</h3>
+    <p>
+        Aktivieren Sie den Debug-Modus in den Einstellungen, um API-Antworten zu protokollieren. 
+        Greifen Sie auf die Protokolle unter WooCommerce > Status > Protokolle zu 
+        (suchen Sie nach der Quelle 'webtoffee-ai').
+    </p>
+
+    <div class="warning">
+        <h4>Häufige Probleme:</h4>
+        <ul>
+            <li><strong>API-Schlüssel-Probleme:</strong> Stellen Sie sicher, dass Ihr ChatGPT API-Schlüssel gültig ist und über ausreichend Guthaben verfügt</li>
+            <li><strong>Bildgenerierung schlägt fehl:</strong> Überprüfen Sie, ob Ihre API-Schlüssel-Berechtigungen die Bildgenerierung einschließen</li>
+            <li><strong>Timeout-Fehler:</strong> Versuchen Sie es erneut, wenn die API langsam reagiert</li>
+        </ul>
+    </div>
+
+    <h2>Support</h2>
+    <p>
+        Für zusätzliche Unterstützung:
+        <ul>
+            <li>Prüfen Sie den FAQ-Bereich in den Plugin-Einstellungen</li>
+            <li>Besuchen Sie unser Support-Forum</li>
+            <li>Kontaktieren Sie unser Support-Team bei Bedarf mit Debug-Protokollen</li>
+        </ul>
+    </p>
+
+</body>
+</html> 
