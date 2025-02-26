@@ -1,0 +1,8 @@
+[wordpress-login-unknown]
+enabled = true
+filter = wordpress-login-unknown
+action   = iptables-multiport[name=wordpress-login-unknown, port="http,https"]
+logpath = /var/log/syslog
+maxretry = 1
+findtime = 24h
+bantime = 72h
