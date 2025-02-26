@@ -1,0 +1,58 @@
+Process completed
+
+1. Enqueue styles and scripts
+	a. add ajax url using localize script below enqueue script 
+	 wp_localize_script($this->plugin_name, "socialmediaajaxurl", array("ajaxurl" =>admin_url("admin-ajax.php")));
+
+2. Creating Menu Page
+    Add function 
+    function add_sticky_sm_icon_menu(){
+		add_menu_page(
+			"Sticky Icons", //Page title
+			"Sticky Icons",// Menu title
+			"manage_options", //Admin Level
+			"sticky-icons", //Menu Slug
+			array($this,"add_sticky_icons_cb_function"), //Callback function
+			"dashicons-share", //icon link
+			10);
+	}
+    
+    callback function is to be written below the add_menu_function
+    //calling of a function
+	function add_sticky_icons_cb_function(){
+		echo "This is menu";
+	}
+
+    OPEN FOLDER INCLUDES
+    define action hook inside the file includes folder 
+
+    includes > class-sticky-social-media-icons.php >
+    inside define_admin_hooks() function add this action hook for adding menu page
+
+    //Register menu page using admin_menu
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_sticky_sm_icon_menu' );
+
+3. Creating table in plugin activation
+	write table activation function in file
+	includes > class-sticky-social-media-icons-activator.php
+
+4. Insert valueson table activation
+	write values insert function inside the file...
+	includes > class-sticky-social-media-icons-activator.php
+
+5. Drop table on plugin deactivation
+	write deactivation function in file...
+	class-sticky-social-media-icons-deactivator.php
+
+6. Creating Ajax Request
+	a. Create action hook for handling ajax requests in folder INCLUDES > CLASS-S-S-M-I.PHP
+	 	$this->loader->add_action("wp_ajax_admin_ajax_request", $plugin_admin, "ajax_request_handle");
+	B. create public function in admin file inside folder ADMIN > S-S-M-I-admin.php
+		public function ajax_request_handle(){
+			//WRITE DB INSERT/UPDATE/DELETE CODE HERE
+		}
+
+    
+    
+    
+    
