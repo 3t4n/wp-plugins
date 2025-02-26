@@ -1,0 +1,107 @@
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 140px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	left: 50%;
+	margin-left: -75px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
+
+#gswpgmap_cntid {
+	width: 200px;
+}
+
+#cnt-gen {
+	color: #324f21;
+	background-color: #fff;
+	padding:1.5em 1.5em 1em 1.5em;
+	font-size: 70%;
+	display: inline-block;
+	position: relative;
+}
+
+#cnt-gen .copy {
+	font-size: 1.3em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60px;
+	padding: 2px;
+	background-color: #555;
+	color: #999;
+	text-align: center;
+	cursor: pointer;
+}
+
+#cnt-gen .s1 {
+	color: #294078;
+}
+
+#cnt-gen .s2 {
+	color: #2b4c80
+}
+
+.container {
+	display: table;
+	width: 100%;
+	max-width: 1920px;
+}
+
+.container input, .container select {
+	color: #2e5939;
+}
+
+.container ul {
+	padding-left: 20px;
+}
+
+.container .form-table small {
+	color: #666
+}
+
+.col-50, .col-33, .col-66 {
+	display: block;
+	float: left;
+	padding: 2%;
+}
+
+.col-50 {
+	width: 46%;
+}
+
+.col-33 {
+	width: 28%;
+}
+
+.col-66 {
+	width: 61%;
+}
