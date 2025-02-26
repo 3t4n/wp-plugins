@@ -1,0 +1,84 @@
+.dlhp-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 16px;
+}
+.dlhp-content, .dlhp-settings {
+    flex: 1 1 calc(50% - 20px); /* Adjust width to 50% minus the gap */
+    border: 1px solid #ccc;
+    padding: 16px;
+    box-sizing: border-box;
+    background: white;
+}
+.dlhp-content h3, 
+.dlhp-settings h3 {
+    font-size: 1.5em;
+}
+.dlhp-content div, .dlhp-settings label {
+    margin-bottom: 8px;
+}
+.dlhp-settings label {
+    margin-right: 8px;
+}
+.dlhp-content .dlhp-content-buttons button {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #f4f6fd;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 1px 1px 0px 1px #d4d4d452;
+}
+.dlhp-content button:disabled {
+    background-color: #ffffff;
+    cursor: not-allowed;
+}
+.dlhp-content .dlhp-content-buttons button:not(:disabled):hover {
+    background: #f6f7f8;
+}
+
+/* Draggable items styling */
+.dlhp-dragged-item {
+    padding: 8px;
+    margin: 4px 0px;
+    border: 3px dotted rgb(204, 204, 204);
+    background-color: #f4f4f4;
+    padding: 8px;
+    margin: 8px 0;
+}
+.dlhp-dragged-item-flex, 
+.dlhp-dragged-item-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dlhp-dragged-item-name {
+    font-weight: bold;
+}
+.dlhp-dragged-item-name svg {
+    margin-right: 5px;
+}
+.dlhp-dragged-item-settings button {
+    margin-left: 5px;
+}
+.dlhp-dragged-item-settings svg {
+    cursor: pointer;
+}
+.dlhp-dragged-item-settings svg:hover {
+    opacity: .5;
+}
+.dlhp-wrapper h4 {
+    margin-bottom: 5px;
+}
+.dlhp-small-input {
+    width: 55px;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .dlhp-content, .dlhp-settings {
+        flex: 1 1 100%;
+    }
+}
+

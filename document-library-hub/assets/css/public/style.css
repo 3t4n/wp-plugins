@@ -1,0 +1,184 @@
+/* General */
+.dlhp-document-items.dlhp-center .dlhp-document-item {
+    text-align: center;
+}
+.dlhp-document-cell:not(.dlhp-document-cell-empty) {
+    padding: 8px 10px;
+    overflow-wrap: break-word;
+}
+.dlhp-document-cell.dlhp-document-icon {
+    text-align: center;
+}
+
+/* Search */
+.dlhp-document-search {
+    text-align: right;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.dlhp-search-field-wrap {
+    display: flex;
+    align-items: center;
+}
+.dlhp-search-field {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.dlhp-search-field .dlhp-document-search-icon {
+    position: absolute;
+    right: 2px;
+    cursor: pointer;
+}
+.dlhp-search-field input {
+    width: 250px;
+}
+.dlhp-search-reset {
+    cursor: pointer;
+    margin-left: 10px;
+}
+.dlhp-search-reset:hover {
+    opacity: .6;
+}
+.dlhp-search-not-found {
+    text-align: left;
+    flex: 1 1 100%;
+    margin-top: 10px;
+}
+
+/* Folder layout */
+.dlhp-document-folders div.dlhp-folder-name {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.dlhp-document-folders svg.dlhp-folder-icon {
+    margin-right: 8px;
+}
+.dlhp-document-folders div.dlhp-folder-name.dlhp-folder-name-opened {
+    cursor: default;
+}
+.dlhp-child-folders .dlhp-folder-name::before {
+    content: "- ";
+}
+/* Vertical */
+.dlhp-document-folders.dlhp-document-folders-vertical {
+    display: flex;
+    width: 100%;
+}
+.dlhp-document-folders.dlhp-document-folders-vertical .dlhp-folder {
+    margin-bottom: 20px;
+}
+.dlhp-document-folders.dlhp-document-folders-vertical .dlhp-child-folders {
+    padding-left: 23px;
+    margin-top: 10px;
+}
+.dlhp-document-folders.dlhp-document-folders-vertical .dlhp-documents-container {
+    flex: 1;
+    margin-left: 20px;
+}
+@media (max-width: 500px) {
+    .dlhp-document-folders.dlhp-document-folders-vertical {
+        display: block;
+    }
+    .dlhp-document-folders.dlhp-document-folders-vertical .dlhp-documents-container {
+        margin-left: 0;
+    }
+}
+/* Horizontal */
+.dlhp-document-folders.dlhp-document-folders-horizontal .dlhp-folders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    margin-bottom: 40px;
+}.dlhp-document-folders.dlhp-document-folders-horizontal .dlhp-child-folders {
+    padding-left: 10px;
+}
+
+/* Grid columns */
+.dlhp-document-items .dlhp-document-items-wrap {
+    display: grid;
+}
+.dlhp-document-items-wrap .dlhp-document-item {
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+}
+.dlhp-document-items.dlhp-no-border .dlhp-document-item {
+    border: none;
+}
+.dlhp-document-items .dlhp-document-cell.dlhp-document-img {
+    padding: 0;
+}
+.dlhp-document-items .dlhp-document-cell.dlhp-document-img img {
+    margin: 0 auto;
+}
+.dlhp-document-items:not(.dlhp-document-items-table) .dlhp-document-cell:last-child {
+    padding-bottom: 20px;
+}
+.dlhp-pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Overlay styling */
+.dlhp-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Table layout */
+.dt-layout-row select, 
+.dt-layout-row input {
+    min-width: 56px;
+    width: auto;
+}
+.dlhp-document-items.dlhp-document-items-table .dlhp-document-items-wrap {
+    grid-template-columns: 1fr !important;
+}
+.dlhp-document-items.dlhp-document-items-table .dlhp-document-items-wrap .dlhp-document-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding: 10px;
+}
+.dlhp-document-items.dlhp-document-items-table .dlhp-document-cell.dlhp-document-icon {
+    text-align: left;
+}
+.dlhp-document-items-table .dlhp-document-cell.dlhp-document-img img {
+    height: 70px;
+    width: 70px;
+}
+
+/* Pagination */
+.dlhp-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+.dlhp-pagination .page-numbers {
+    padding: 0 7px 2px;
+    border: 1px solid #ddd;
+    text-decoration: none !important;
+    color: #0073aa;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dlhp-pagination .page-numbers:hover {
+    background-color: #0073aa;
+    color: #fff;
+}
+.dlhp-pagination .current {
+    background-color: #0073aa;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #0073aa;
+}
