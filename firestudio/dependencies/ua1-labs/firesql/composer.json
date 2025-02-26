@@ -1,0 +1,44 @@
+{
+    "name": "ua1-labs/firesql",
+    "version": "3.0.1",
+    "description": "Set your SQL database on fire by making it into a NoSQL database.",
+    "type": "library",
+    "keywords": [
+        "sql",
+        "mongo",
+        "orm",
+        "dbal",
+        "nosql",
+        "firestudio",
+        "fire",
+        "ua1labs",
+        "ua1-labs",
+        "ua1"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "UA1 Labs",
+            "email": "development@ua1.us"
+        }
+    ],
+    "require": {
+        "php": ">7.1.0"
+    },
+    "require-dev": {
+        "ua1-labs/firetest": "2.*",
+        "ua1-labs/firebug": "2.*",
+        "ua1-labs/firedi": "2.*"
+    },
+    "scripts": {
+        "test": "php vendor/ua1-labs/firetest/scripts/runner.php --dir=/UA1Labs --ext=.TestCase.php"
+    },
+    "autoload": {
+        "psr-4": {
+            "UA1Labs\\": "UA1Labs/"
+        },
+        "files": [
+            "init.php"
+        ]
+    }
+}

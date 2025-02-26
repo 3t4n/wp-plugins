@@ -1,0 +1,111 @@
+/**
+ * Admin bar
+ */
+
+#wp-admin-bar-firestudio .firestudio-logo {
+    float: left;
+    margin-right: 2px;
+    height: 32px;
+}
+
+#wp-admin-bar-firestudio .firestudio-logo img {
+    padding: 5px 0;
+    position: relative;
+    width: 22px;
+    height: 22px;
+}
+
+/**
+ * Admin modal
+ */
+
+#firestudio-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 999999;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: "Courier New", Courier, monospace;
+    color: #464646;
+}
+
+#firestudio-modal.firestudio-modal__opened {
+    display: block;
+}
+
+.firestudio-modal_inner {
+    margin: 30px;
+    padding: 20px;
+    background: #ececec;
+    box-shadow: 0 0 20px #444;
+    opacity: 1;
+}
+
+.firestudio-modal_inner_logo {
+    margin-bottom: 30px;
+}
+
+.firestudio-modal_inner_logo .firestudio-logo {
+    float: left;
+}
+
+.firestudio-modal_inner_title {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 0 10px;
+}
+
+.firestudio-modal_inner_title:before,
+.firestudio-modal_inner_title:after {
+    display: none !important;
+}
+
+.firestudio-modal_inner_subtitle {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1;
+    margin: 0 0 10px;
+}
+
+.firestudio-modal_inner_subtitle:before,
+.firestudio-modal_inner_subtitle:after {
+    display: none !important;
+}
+
+.firestudio-modal_inner_hr {
+    background-color: #b4b9be;
+    height: 1px;
+    margin: 20px 0;
+    border: none;
+}
+
+.firestudio-modal_inner__close {
+    text-decoration: none;
+    float: right;
+    color: #464646 !important;
+}
+
+.firestudio-modal_inner__close:after {
+    content: "\f335";
+    font: normal 32px/29px dashicons;
+    -webkit-font-smoothing: antialiased;
+}
+
+.firestudio-model_inner_firebug_info {
+    margin-bottom: 10px;
+}
+
+body.firestudio-modal__opened {
+    overflow: hidden;
+}

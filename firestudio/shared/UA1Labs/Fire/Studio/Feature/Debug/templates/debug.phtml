@@ -1,0 +1,39 @@
+<?php
+
+/**
+ *    __  _____   ___   __          __
+ *   / / / /   | <  /  / /   ____ _/ /_  _____
+ *  / / / / /| | / /  / /   / __ `/ __ `/ ___/
+ * / /_/ / ___ |/ /  / /___/ /_/ / /_/ (__  )
+ * `____/_/  |_/_/  /_____/`__,_/_.___/____/
+ *
+ * @package FireStudio
+ * @author UA1 Labs Developers https://ua1.us
+ * @copyright Copyright (c) UA1 Labs
+ */
+?>
+
+<hr class="firestudio-modal_inner_hr">
+<div class="firestudio-modal_inner_firebug">
+    <h1 class="firestudio-modal_inner_title"><?php echo __('Debug', 'firestudio'); ?></h1>
+    <div class="firestudio-modal_inner_debug-toggles">
+        <div class="firestudio-modal_inner_debug-toggles_title">
+            <?php echo __('Debug Toggles', 'firestudio'); ?>
+        </div>
+        <?php foreach($this->debugToggles as $toggle) { ?>
+            <label class="toggle">
+                <input type="checkbox" name="<?php echo $toggle->id; ?>"<?php if(isset($toggle->enabled) && $toggle->enabled) echo ' checked' ?>>
+                <?php echo $toggle->label; ?>
+            </label>
+        <?php } ?>
+        <a href="#" aria-role="button" aria-label="<?php echo __('applies debug toggles', 'firestudio'); ?>" class="firestudio-modal_inner_debug-toggles_apply"><?php echo __('Apply', 'firestudio'); ?></a>
+    </div>
+    <?php if (isset($this->fireBugPanel)) { ?>
+    <h2 class="firestudio-modal_inner_subtitle"><?php echo __('Current Page', 'firestudio'); ?></h2>
+    <div class="firestudio-model_inner_firebug_info">
+        <div class="info"><strong><?php echo __('Page', 'firestudio'); ?>: </strong> <?php echo $this->page; ?></div>
+        <div class="info"><strong><?php echo __('Method', 'firestudio'); ?>: </strong> <?php echo $this->method; ?></div>
+    </div>
+    <?php echo $this->fireBugPanel; ?>
+    <?php } ?>
+</div>

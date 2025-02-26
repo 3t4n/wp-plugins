@@ -1,0 +1,39 @@
+<?php
+
+/**
+ *    __  _____   ___   __          __
+ *   / / / /   | <  /  / /   ____ _/ /_  _____
+ *  / / / / /| | / /  / /   / __ `/ __ `/ ___/
+ * / /_/ / ___ |/ /  / /___/ /_/ / /_/ (__  )
+ * `____/_/  |_/_/  /_____/`__,_/_.___/____/
+ *
+ * @package FireStudio
+ * @author UA1 Labs Developers https://ua1.us
+ * @copyright Copyright (c) UA1 Labs
+ */
+
+$actions = $this->getActions();
+
+if (!empty($actions)) {
+    foreach ($actions as $action) {
+        $timesExecuted = $action->timesExecuted;
+        $timesLabel = ($timesExecuted === 1) ? __('time', 'firestudio') : __('times', 'firestudio');
+        echo $this->renderLabel(__('Action', 'firestudio') . ': ' . $action->actionName);
+        echo $this->renderLabel(__('Executed', 'firestudio') . ': ' . $timesExecuted . ' ' . $timesLabel);
+        echo $this->renderLabel(__('Callbacks', 'firestudio') . ':');
+        if (!empty($action->functions)) {
+            echo '<table><tbody>';
+            echo '<tr><td><strong>' . $this->escape(__('Callback', 'firestudio')) . '</strong></td><td><strong>' . $this->escape(__('Priority', 'firestudio')) . '</strong></td></tr>';
+            foreach ($action->functions as $fn) {
+                $name = ($fn->function instanceOf \Closure) ? $this->escape(__('Anonymous Function', 'firestudio')) : $this->escape($fn->function) . '()';
+                echo '<tr><td>' . $this->escape($name) . '</td><td>' . $this->escape($fn->priority) . '</td></tr>';
+            }
+            echo '</tbody></table>';
+        } else {
+            echo $this->renderLabel(__('No callbacks executed...', 'firestudio'));
+        }
+        echo $this->renderSeparator();
+    }
+} else {
+    echo $this->renderLabel(__('There was a problem parsing Wordpress actions.', 'firestudio'));
+}

@@ -1,0 +1,31 @@
+<?php
+
+/**
+ *    __  _____   ___   __          __
+ *   / / / /   | <  /  / /   ____ _/ /_  _____
+ *  / / / / /| | / /  / /   / __ `/ __ `/ ___/
+ * / /_/ / ___ |/ /  / /___/ /_/ / /_/ (__  )
+ * `____/_/  |_/_/  /_____/`__,_/_.___/____/
+ *
+ * @package FireStudio
+ * @author UA1 Labs Developers https://ua1.us
+ * @copyright Copyright (c) UA1 Labs
+ */
+
+echo $this->renderLabel($this->escape(__('Features Loaded', 'firestudio')), '', 'font-weight:bold;');
+echo '<ul>';
+$loadedFeatures = $this->getLoadedFeatures();
+foreach ($loadedFeatures as $feature) {
+    echo '<li>' . $this->escape($feature) . '</li>';
+}
+echo '</ul>';
+
+echo $this->renderSeparator();
+
+echo $this->renderLabel($this->escape(__('Injector Cache', 'firestudio')), '', 'font-weight:bold;');
+echo '<ul>';
+$injectorCache = $this->getInjectorCache();
+foreach ($injectorCache as $object) {
+    echo '<li>' . $this->escape($object) . '</li>';
+}
+echo '</ul>';
