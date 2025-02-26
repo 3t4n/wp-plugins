@@ -1,0 +1,83 @@
+;
+;"Es_Custom_Fields_Interface" Ultimo aggiornamento 26/11/2009 Vers. 3.10
+;file di configurazione di esempio
+;config.txt 
+;
+
+;Modificato 29 gennaio 2010
+
+
+[fieldset_articoli_in_evidenza]
+label = Articoli in Evidenza
+type = fieldset
+help = Gli articoli rimangono in evidenza fino alla data di scadenza
+color = red
+style=compact
+
+[cf_expiry]
+label = Data scadenza
+type = datefield
+help = Clicca sul campo e scegli una data
+required = 0
+
+[cf_expiry_flag]
+label = Visualizza Data scadenza
+type = checkbox
+values = 1
+labels = Visualizza data
+default =
+help = Spunta per visualizzare data
+required = 0
+style = extended
+
+[cf_icon]
+label = Icona
+type = imagefield
+size = 48
+help = Scegli una immagine e poi clicca su Inserisci nel campo personalizzato: img tag completo
+required = 0
+
+
+[fieldset_articoli_in_evidenza_close]
+type = fieldset
+
+[fieldset_articoli_correlati]
+label = Articoli Correlati
+type = fieldset
+help = Gli articoli con lo stesso valore Serie sono correlati
+color = green
+
+[cf_serie]
+label = Serie
+type = textfield
+default = Test
+size = 36
+help = Digita un testo
+required = 0
+
+[fieldset_articoli_correlati_close]
+type = fieldset
+
+[fieldset_argomenti_in_evidenza]
+label = Argomenti/Categorie/Tematiche in Evidenza
+type = fieldset
+help = Gli argomenti in Evidenza saranno linkati come desiderato
+color = blue
+
+[textchild_link_to]
+page=post
+label = Link custom
+type = textfield
+size = 16
+help = Digita un link
+required = 0
+parent = custom
+
+[radio_link_to]
+label = Argomenti linkati a
+type = radio
+values = post#category#tag#none#custom
+labels = Articolo: corpo stesso articolo#Categoria con lo stesso nome#Tag con lo stesso nome#Nessuno#Custom: altro articolo, pagina, ... @custom
+help = Seleziona una tipologia  
+required = 0
+style = extended

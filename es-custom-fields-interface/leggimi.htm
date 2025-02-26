@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento senza titolo</title>
+</head>
+<body>
+<p><b>Plugin ES Custom Fields Interface Versione 3.10 10/12/2009</b></p>
+<p>Questo plugin serve per inserire campi personalizzati negli articoli e nelle pagine.</p>
+
+<p>Tramite il file config.txt vengono configurati i campi personalizzati (tipo, nome  e altri parametri).</p>
+
+<div style="width:99%;font-size:76%;">
+
+  <table width="99%" border="1" cellspacing="0" cellpadding="4">
+
+    <tbody>
+
+    <tr>
+
+      <td><strong>type</strong></td>
+
+      <td><strong>fieldset</strong></td>
+
+      <td><strong>checkbox</strong></td>
+
+      <td><strong>radio</strong></td>
+      <td><strong>select</strong>      </td>
+
+      <td><strong>textarea</strong></td>
+
+      <td><strong>textfield<br>datefield</strong>      </td>
+
+      <td><strong>filefield<br>
+
+        </strong><strong>imagefield</strong>      </td>
+    </tr>
+
+    <tr>
+
+      <td><strong>[name]</strong></td>
+
+      <td>[gruppo7]  ; Nome del gruppo di campi, scritto tra parentesi quadre<br>
+
+          [gruppo7close]  ; Chiudi gruppo di campi      </td>
+
+      <td colspan="6">[campo76]  ; Nome del campo, scritto tra parentesi quadre</td>
+      </tr>
+
+    <tr>
+
+      <td><strong>page</strong></td>
+
+      <td colspan="7">page=post  ; campo visibile solo negli articoli<br>
+
+        page=page  ; campo visibile solo nelle pagine<br>
+
+         ; omesso campo visibile negli articoli e nelle pagine      </td>
+      </tr>
+
+    <tr>
+
+      <td><strong>label</strong></td>
+
+      <td>label=Gruppo genio<br>
+
+         ; omesso Chiudi gruppo di campi</td>
+
+      <td colspan="6">label=Campo geniale  76 ; Etichetta visibile del campo</td>
+      </tr>
+
+    <tr>
+
+      <td><strong>help</strong></td>
+
+      <td>help=Questo &egrave; un gruppo speciale<br>
+
+         ; Testo di specificazione</td>
+
+      <td colspan="6">help=Digita un testo<br>
+
+         ; Testo di aiuto      </td>
+      </tr>
+
+    <tr>
+
+      <td><strong>required</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td colspan="6">required=1  ; campo obbligatorio 
+
+        <p>required=0  ; (oppure omesso) campo facoltativo      </td>
+      </tr>
+
+    <tr>
+
+      <td><strong>values</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td colspan="3">vlaues=a#b#c ; valori<br />
+        values=categories ; elenca <strong>categorie</strong> ad albero<br />
+        values=tags ; elenca <strong>tags</strong><br />
+        values=pages ; elenca <strong>pagine</strong><br />
+        values=posts ; elenca ultimi <strong>articoli</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+    </tr>
+
+    <tr>
+      <td rowspan="2"><strong>labels</strong></td>
+      <td rowspan="2" bgcolor="#cccccc">n.a.</td>
+      <td colspan="3">labels=Ananas#Banana#Caki<br /></td>
+      <td rowspan="2" bgcolor="#cccccc">n.a.</td>
+      <td rowspan="2" bgcolor="#cccccc">n.a.</td>
+      <td rowspan="2" bgcolor="#cccccc">n.a.</td>
+    </tr>
+    <tr>
+
+      <td colspan="2"><p>        labels=Ananas#Banana#Altri@rif1<br />
+         ; @rif1 inserisce un campo figlio<br />
+      labels=Pippo#Franco#Altri@nomi ; @nomi inserisce un campo figlio</p>        </td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      </tr>
+
+    <tr>
+      <td><strong>parent</strong></td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td colspan="4">parent=rif1 ; @rif1 deve trovarsi in labels di un checkbox o di un radio<br />
+        parent=nomi ; @nomi  deve trovarsi in labels di un checkbox o di un radio<br /></td>
+      </tr>
+    <tr>
+
+      <td><strong>default</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td>default=a#b<br>
+
+         ; valori predefiniti      </td>
+
+      <td colspan="2">default=b<br>
+
+         ; valore predefinito      </td>
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td>default=Cico<br>
+
+         ; valore predefinito      </td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+    </tr>
+
+    <tr>
+
+      <td><strong>size</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td colspan="2">size=32  ; grandezza<br>
+
+         ; omesso =25      </td>
+    </tr>
+
+    <tr>
+
+      <td><strong>rows</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td>row=8<br />
+
+         ; numero di righe<br />
+
+         ; omesso =5</td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+    </tr>
+
+    <tr>
+
+      <td><strong>cols</strong></td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td>cols=64<br />
+
+         ; numero di colonne<br />
+
+         ; omesso =50</td>
+
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+    </tr>
+
+    <tr>
+      <td><strong>color</strong></td>
+      <td>color=red ; Rosso<br />
+        color=green ; Verde<br />
+        color=bleu ; Blu<br />
+        color=gray ; (oppure omesso) Grigio<br />      </td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+      <td bgcolor="#cccccc">n.a.</td>
+    </tr>
+    <tr>
+
+      <td><strong>style</strong></td>
+
+      <td>style=compact ; Compatto<br /></td>
+
+      <td colspan="3">style=compact ; Compatto<br />
+        style=horizontal ; Orizzontale<br>
+
+        style=vertical ; Verticale<br>
+
+        style=scroll ; Verticale con scroll e altezza predefinita <br>
+
+        style=300 ; (*)Verticale con scroll e altezza 300px<br />        </td>
+
+      <td colspan="3">style=compact ; Compatto<br /></td>
+    </tr>
+
+    <tr>
+
+      <td><strong>type</strong></td>
+      <td><strong>label</strong></td>
+      <td><strong>checkbox</strong></td>
+      <td><strong>radio</strong></td>
+      <td><strong>select</strong></td>
+      <td><strong>textarea</strong></td>
+      <td><strong>textfield<br />datefield</strong></td>
+      <td><strong>filefield<br />imagefield</strong></td>
+    </tr>
+    </tbody>
+  </table>
+
+<table border="0" cellspacing="0" cellpadding="4" width="40%">
+
+<tbody>
+
+<tr>
+
+<td>Legenda</td>
+
+<td>
+
+<table style="height:40px;" border="1" cellspacing="0" cellpadding="4" width="298">
+
+<tbody>
+
+<tr>
+
+<td>Sintassi  ;  Spiegazione</td>
+
+<td bgcolor="#cccccc">n.a.=Non applicabile</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p>Riepilogo <strong>type</strong> / parametri</p>
+
+  <table border="1" cellspacing="0" cellpadding="4">
+
+    <tbody>
+
+<tr>
+
+      <td><strong>fieldset</strong></td>
+
+<td><strong>checkbox</strong></td>
+
+      <td><strong>radio
+
+        </strong>
+        <p><strong> </strong></td>
+
+      <td><strong>select</strong></td>
+      <td><strong>textarea</strong></td>
+
+      <td><strong>textfield<br>
+
+        </strong><strong>datefield</strong>
+
+<p><strong> </strong></td>
+
+      <td><strong>filefield<br>
+
+        </strong><strong>imagefield</strong>
+
+<p><strong> </strong></td>
+</tr>
+
+<tr>
+
+      <td>name<br>
+
+        page<br>
+
+        label<br>
+
+        help<br>
+
+        color      <br />
+        style</td>
+
+      <td>name<br>
+
+        page<br>
+
+        label<br>
+
+        help<br>
+
+        required<br>
+
+        values<br>
+
+        labels<br>
+
+        default<br>
+
+        style</td>
+
+      <td>
+
+        <p>name<br>
+
+        page<br>
+
+        label<br>
+
+        help<br>
+
+        required<br>
+
+        values<br>
+
+        labels<br>
+
+        default<br>
+
+        style      </td>
+
+      <td>name<br />
+page<br />
+label<br />
+help<br />
+required<br />
+values<br />
+labels<br />
+default<br />
+parent<br />
+style</td>
+      <td>name<br>
+
+        page<br>
+
+        label<br>
+
+        help<br>
+
+        required<br>
+
+        rows<br>
+
+        cols<br>
+        parent<br />
+        style</td>
+
+      <td>
+
+        <p>name<br>
+
+        page<br>
+
+        label<br>
+
+        help<br>
+
+        required<br>
+
+          default<br>
+
+          size<br>
+          parent<br />
+          style</p></td>
+
+      <td>
+
+        <p>name<br>
+
+        page<br>
+
+        label<br>
+
+        help<br>
+
+        required<br>
+
+          size<br>
+        parent<br />
+        style</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<p>Note:</p>
+
+<p><strong>radio</strong> e <strong>select</strong> hanno gli stessi parametri<br>
+
+  <strong>filefield</strong> e <strong>imagefield</strong> hanno gli stessi parametri<br>
+
+  <strong>textfield</strong> e <strong>datefield</strong> hanno  parametri simili</p>
+
+<p>Per ulteriori approfondimenti vedere il file config.txt di esempio</p>
+<p>File aggiornato il 09/12/2009<br />
+<a href="mailto:enzo.sforna@gmail.com" title="Email" target="_new">enzo.sforna@gmail.com</a></p>
+</body>
+
+</html>
+
