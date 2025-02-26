@@ -1,0 +1,35 @@
+<div class="nav-tab-row  nav-tab-wrapper row">
+    <div class="col-sm-8">
+        <h2 class="">
+            <a href="?page=vacation-soup-admin-create" class="nav-tab{{ (tab=='create') ? ' nav-tab-active' }}">Create</a>
+            {#<a href="?page=vacation-soup-admin&tab=dash" class="nav-tab{{ (tab=='dash') ? ' nav-tab-active' }}">Dashboard</a>#}
+            {#<a href="?page=vacation-soup-admin&tab=list" class="nav-tab{{ (tab=='list') ? ' nav-tab-active' }}">Lists</a>#}
+            <a href="?page=vacation-soup-admin-owner" class="nav-tab{{ (tab=='owner') ? ' nav-tab-active' }}">Owner</a>
+            <a href="?page=vacation-soup-admin-property" class="nav-tab{{ (tab=='property') ? ' nav-tab-active' }}">Property</a>
+            {% if userType == 'administrator' or soup.multiuser %}
+            <a href="?page=vacation-soup-admin-settings" class="nav-tab{{ (tab=='connect') ? ' nav-tab-active' }}">Connect</a>
+            {% endif %}
+            <a href="?page=vacation-soup-admin-release" class="nav-tab{{ (tab=='release') ? ' nav-tab-active' }}">Release Notes</a>
+        </h2>
+    </div>
+    <div class="soup-logo col-sm-4">
+        <a href="https://vacationsoup.com">
+            <img src="{{ soup.image_url }}/vacation soup logo 300 long.png"
+                 title="Vacation Soup"
+                 alt="Vacation Soup Holiday Rental Marketing">
+        </a>
+    </div>
+</div>
+{% if admin.tab_message %}
+    <div class="error vs">{{ admin.tab_message }}</div>
+    {% if admin.required %}
+        <script>
+            jQuery(function(){
+        {% for req in admin.required %}
+                var req = jQuery('#{{ req }}');
+                if (!req.val()) req.addClass('required');
+        {% endfor %}
+            });
+        </script>
+    {% endif %}
+{% endif %}

@@ -1,0 +1,46 @@
+{% extends 'admin/vacation-soup.twig' %}
+{% block content %}
+    {% embed 'admin/form.twig' %}
+        {% block form_name %}dash{% endblock form_name %}
+        {% block form_content %}
+
+            <div class="vs-content tab-owner row">
+                <div class="col-md-8 col-sm-12">
+                    <div class="vs-panel row">
+                        <div id="title" class="col-sm-12">
+                            <h1>Owner Details</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="field">
+                                <label for="owner_name">
+                                    Friendly Name (shown on posts as author) <span class="required">*</span>
+                                </label>
+                                <input type="text"
+                                       class="persist"
+                                       placeholder="Name"
+                                       name="SoupWaiter.owner_name"
+                                       id="owner_name"
+                                       required value="{{ soup.owner_name }}"/>
+                            </div>
+                            <input type="button" value="done" onClick="
+                            if (document.getElementById('owner_name').validity.valid && !document.unloading)
+                            {
+                                window.location.href = '?page=vacation-soup-admin-create';
+                            }
+                            return false;
+                            "/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="vs-panel row">
+                        <div id="title" class="col-sm-12">
+                            <h1>Information</h1>
+                        </div>
+                        <p>All other owner details are managed <a href="https://vacationsoup.com/profile-page" target="_blank">in The Soup</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endblock form_content %}
+    {% endembed %}
+{% endblock content %}

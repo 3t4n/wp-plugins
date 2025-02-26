@@ -1,0 +1,18 @@
+{% extends 'admin/vacation-soup.twig' %}
+{% block content %}
+    {% embed 'admin/form.twig' %}
+        {% block form_name %}dash{% endblock form_name %}
+        {% block form_content %}
+            <div class="vs-content tab-dash row">
+                <div class="col-lg-8 col-sm-12">
+                    <div class="vs-panel row">
+                        <div id="title" class="col-sm-12 checking">
+                            <h1>Waiter {{ version }} Release Notes</h1>
+                            <iframe src="{{ release_note }}"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock form_content %}
+    {% endembed %}
+{% endblock content %}

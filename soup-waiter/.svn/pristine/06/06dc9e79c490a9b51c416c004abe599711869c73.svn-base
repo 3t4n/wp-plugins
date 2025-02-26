@@ -1,0 +1,975 @@
+{% extends 'admin/vacation-soup.twig' %}
+{% block content %}
+    <input type="hidden" id="nextMOTD" class="persist" name="SoupWaiter.nextMOTD" value="{{ soup.nextMOTD }}">
+    <input type="hidden" id="next_topic" class="persist" name="SoupWaiter.next_topic" value="{{ soup.next_topic }}">
+
+    <script>
+    // Global so they can be accessed when needed (including in pixabay-images)
+    var vs_topics = [];
+    var k_topics = []; // Kitchen retrieved topics
+    var k_tags = []; // Kitchen retrieved tags
+    var vs_title;
+    var vs_query = [];
+    var motdClicked = false;
+    var checkedTag='';
+
+    var autosaveRedirect = null;
+    var doAutosave = function(e){
+
+        jQuery('INPUT[type=submit]').prop('disabled',true);
+        //tinyMCE.triggerSave(); // move editor buffer to post_content
+        if (autosaveRedirect && e) {
+            e.preventDefault();
+            document.unloading = true;
+        }
+        jQuery.post( ajaxurl+'?action=soup_create',
+            jQuery('FORM.tab-create').serialize(),
+            function(data) {
+                jQuery('INPUT[type=submit]').prop('disabled',false);
+                if (data.success) {
+                    jQuery('INPUT[name=post_id]').val(data.ID);
+                    if (autosaveRedirect) {
+                        window.location.search = autosaveRedirect;
+                    }
+                } else {
+                    jQuery('#publish').append('<div class="error">Autosave failed</div>');
+                }
+            },
+            'json' // I expect a JSON response
+        );
+    }
+
+    // Autosubmit form on each field
+    jQuery(function(){
+        tinyMCE.init({
+            selector: "textarea",
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            }
+        });
+        jQuery('FORM.tab-create *')
+            .filter(':input:visible')
+            .filter(':not(#create-or-edit)')
+            .on('change',doAutosave);
+    });
+
+    var getMOTD = function() {
+        {% if new_post.featured_image_img %}
+            jQuery("#motd").html(
+                '<h1>Featured Image</h1>{{ new_post.featured_image_img }}'
+            );
+            return;
+        {% endif %}
+        jQuery('#motd').addClass("checking");
+
+        var offset = jQuery('#nextMOTD');
+        jQuery.ajax({
+            type: "get",
+            dataType: "json",
+            context: this,
+            url: '{{ soup.kitchen_host~'/'~soup.kitchen_api~'/motd/' }}',
+            data: {
+                per_page: 1,
+                offset: offset.val()
+            }
+        }).statusCode({
+            400: function(){ // This means we have gone past the end of the list
+                if (document.unloading) return;
+                if (offset.val() !== 0){ // reset back to the start
+                    offset.val(0).change();
+                    return getMOTD();
+                }
+            }
+        }).done(function (response) {
+            if (document.unloading) return;
+            var motd = jQuery("#motd");
+            if (response.error) {
+                html = '<p>Error: Waiter failed to contact Kitchen</p>' + response.error.message;
+            } else {
+                if (response.length) {
+                    offset.val(parseInt(offset.val()) + 1).change();
+                    var title = '<h1 id="title">'+response[0].title.rendered+'</h1>';
+                    motd.html(title+response[0].content.rendered);
+                } else { // Must have gone past the end
+                    if (offset.val() !== 0){ // reset back to the start
+                        offset.val(0).change();
+                        return getMOTD();
+                    }
+                }
+            }
+        }).always(function (response) {
+            if (document.unloading) return;
+            jQuery("#motd").removeClass("checking");
+        });
+    }
+
+    var topicsPerPage = 5;
+    var topicPageAdvanced = false;
+    var binEndTopics = []; // temporary storage of last few topics when cycling back to start
+    var getTrendingTopics = function(){
+        jQuery('#trending-topics').addClass("checking").html('');
+        jQuery('#topic-refresh').addClass('active');
+        var offset = jQuery('#next_topic');
+        jQuery.ajax({
+            type: "get",
+            dataType: "json",
+            context: this,
+            url: '{{ soup.kitchen_host~'/'~soup.kitchen_api~'/topic/' }}',
+            data: {
+                offset: offset.val(),
+                per_page: topicsPerPage - binEndTopics.length,
+                exclude: {{ recent_topics|json_encode }}
+            }
+        }).statusCode({
+            400: function(){ // Bad Params: normally means we have gone past the end of the list
+                if (document.unloading) return;
+                var offset = jQuery('#next_topic');
+                if (offset.val() !== 0){ // reset back to the start, but only once
+                    offset.val(0);
+                    return getTrendingTopics();
+                }
+            }
+        }).fail(function(jqXHR,status,error) {
+            if (document.unloading) return;
+            jQuery('#publish').append('<div class="error">Error retrieving topics</div>');
+        }).done(function(response) {
+            if (document.unloading) return;
+            var html='';
+            if (response.error) {
+                html = '<p>Error: Waiter failed to contact Kitchen</p>'+response.error.message;
+            } else {
+                // Handle paging of topics from Kitchen
+                if (0 === response.length){ // Past the last page of topics
+                    if (parseInt(offset.val()) !== 0){ // reset back to the start
+                        offset.val(0);
+                        return getTrendingTopics();
+                    } else return null;  // if offset was 0 and no recs returned.
+                } else {
+                    // Only update pageAdvanced marker if we have a full page
+                    if (0===binEndTopics.length){
+                        topicPageAdvanced = parseInt(offset.val());
+                    }
+                    // If less than a full page, and not first page
+                    if (topicsPerPage !== response.length && 0!==parseInt(offset.val())){ // less than a full page
+                        offset.val(0);
+                        binEndTopics = response; // These will be added to the next lot
+                        return getTrendingTopics();
+                    }
+                    var next_topic = parseInt(offset.val())+(topicsPerPage - binEndTopics.length);
+                    offset.val(next_topic).change();
+                    if (binEndTopics.length){
+                        response = binEndTopics.concat(response);
+                        binEndTopics = [];
+                    }
+                }
+
+                // Create k_ (keyed) topics and get the tags for them
+                k_topics=[];
+                k_tags=[];
+                response.forEach(function(topic){ // Create k_topics and k_tags (deduped tag_id list)
+                    k_topics.push(topic);
+                    topic.tags.forEach(function(tag){
+                        if(jQuery.inArray(tag, k_tags) === -1) k_tags.push(tag);
+                    });
+                });
+                jQuery.ajax({
+                    type: "get",
+                    dataType: "json",
+                    context: this,
+                    url: '{{ soup.kitchen_host~'/'~soup.kitchen_api~'/tags/' }}',
+                    data: {
+                        include: k_tags.sort(),
+                        per_page: (k_tags.length)?k_tags.length:1
+                    }
+                }).always(function(jqXHR,status,error) {
+                    if (document.unloading) return;
+                    jQuery("#trending-topics").removeClass("checking");
+                    jQuery('#topic-refresh').removeClass('active');
+                }).fail(function(jqXHR,status,error) {
+                    if (document.unloading) return;
+                    jQuery('#publish').append('<div class="error">Error retrieving tags</div>');
+                }).done(function(response) {
+                    if (document.unloading) return;
+                    var html='';
+                    k_tags = [];
+                    if (response.error) {
+                        html = '<p>Error: Waiter failed to contact Kitchen</p>'+response.error.message;
+                    } else {
+                        response.forEach(function(tag){
+                            k_tags[tag.id] = tag;
+                        });
+                    }
+
+                    var topicText = "I'll write my own";
+                    k_topics.push({"id":0,"tags":[],"title":{"rendered":topicText,"raw":topicText}});
+
+                    // Render the Topics as Radio Buttons & Text
+                    k_topics.forEach(function(topic,i){
+                        var location='';
+                        var elem = document.createElement('textarea');
+                        elem.innerHTML = topic.title.rendered;
+                        topic.title.raw = elem.value;
+                        $input = '<input type="radio" name="trending_topics" id="topic_'+i+'" value="'+i+'" onchange="chooseTopic(jQuery(this).val())"/>';
+                        if (topic.id !== 0){
+                            location = " {{ soup.destination.rendered }}";
+                        }
+                        $label = '<label for="topic_'+i+'">'+topic.title.rendered+location+'</label>';
+                        jQuery("#trending-topics").append('<li>'+$input+$label+'</li>');
+                    });
+
+                    {% if not new_post.post_title  %}
+                        // No prev title/topic so generate one
+                        var randomTopic = Math.floor((Math.random() * (k_topics.length-1)));
+                        jQuery('INPUT[name="trending_topics"]')[randomTopic].checked = true;
+                        chooseTopic(randomTopic);
+                    {%  endif %}
+                });
+            }
+        });
+    }
+
+    var inputFromTag = function (tag, i) {
+        var label = '<label for="tag_' + i + '">' + tag + '</label>';
+        var input = '<input type="checkbox" class="tag" name="tags[]" id="tag_' + i +
+                    '" value="' + tag +
+                    '" title="' + tag + '" '+
+                    checkedTag + '/>';
+        return '<li class="checklist-item">' + label + input + '</li>';
+    }
+    var inputForNewTag = function () {
+        return '<li class="checklist-item"><input type="text" id="new-tag" onchange="newTag(this)" placeholder="New Tag"></li>';
+    }
+
+    var chooseTopic = function(topicId) {
+        var topic = k_topics[topicId];
+
+        if (topic.id) {
+            // global the selected tags for pixabay and the subject
+            setTagsFromTopic(topicId);
+            vs_title = topic.title.raw + ' ' + "{{ soup.destination.rendered }}";
+            jQuery('#post_title').prop('autofocus',false).val(vs_title);
+            doAutosave();
+        } else {
+            // They'll write their own
+            jQuery('#post_title').prop('autofocus',true).focus().val("");
+        }
+        showTags();
+    }
+    var setTagsFromTopic = function(topicId) {
+        var topic = k_topics[topicId];
+        vs_query = [];
+
+        if (topic.id) {
+            // global the selected tags for pixabay and the subject
+            vs_query = topic.tags.map(function (tag) {
+                return k_tags[tag].name
+            });
+            jQuery('INPUT[name="topic"]').val(topic.id);
+        }
+    }
+
+    var fixedTags = ["whatson",
+        "whattodo",
+        "whattosee",
+        "beaches",
+        "foodie",
+        "cycling",
+        "hikers",
+        "golf"];
+    var newTags = [];
+    var permTags = {{ permTags|json_encode|raw }};
+    var postTags = {{ new_post.tags|json_encode|raw }};
+    var showTags = function(){
+        var i = 0;
+        var allTags;
+
+        // Build the complete tag list
+        if (postTags.length) {
+            // remove the magazines
+            allTags = postTags.filter( function( el ) {
+                return !fixedTags.includes( el );
+            } );
+            postTags = [];
+        } else {
+            allTags = newTags.concat(permTags);
+        }
+
+        var html = '';
+        var cleaned_query = vs_query.filter( function( el ) {
+            return !fixedTags.includes( el );
+        } );
+        cleaned_query.forEach(function (tag) {
+            html += inputFromTag(tag, ++i);
+        });
+
+        checkedTag = 'checked';
+        allTags.forEach(function (tag) {
+            html += inputFromTag(tag, ++i);
+        });
+        checkedTag = '';
+        html += inputForNewTag();
+        jQuery('.tags-container').html(html);
+
+        // Prevent spaces in tags
+        jQuery('#new-tag').on({
+            keydown: function(e) {
+                if (e.which === 32)
+                    return false;
+            },
+            change: function() {
+                this.value = this.value.replace(/\s/g, "");
+            }
+        });
+        jQuery('INPUT[type=checkbox].tag')
+            .on('change',doAutosave);
+
+    };
+
+    var newTag = function(elem){
+        newTags.push(jQuery(elem).val());
+        showTags();
+        doAutosave();
+    }
+
+    var postDateElem,postStatusElem;
+    var setPostDate = function(e){
+        var postDate,dateStr,localDate,gmtDate;
+        var when = jQuery('#when').val();
+        postDateElem = jQuery('#post_date');
+        var dayInMsec = 86400000; // 24 * 60 * 60 * 1000 = 1 day in msec
+        var futureDays = 1; // Default to adding one day, for 'tomorrow'
+        var offsetTZ = (new Date).getTimezoneOffset() * 60 * 1000; // adjustment as msec
+
+        switch(when){
+            case 'days':
+                futureDays = jQuery('#days').val();
+                // Fall-through to tomorrow code
+            case 'tomorrow':
+                postDate = new Date(new Date().getTime() + (futureDays * dayInMsec));
+                dateStr = postDate.toISOString();
+                postDateElem.val(dateStr.substr(0,10)+' '+dateStr.substr(11,8));
+                break;
+            case 'date':
+                localDate = new Date(jQuery('#datepicker').val().substr(0,10)+'T'+jQuery('#timepicker').val().substr(0,5)+'Z');
+                gmtDate = new Date(localDate.getTime() + offsetTZ);
+                dateStr = gmtDate.toISOString();
+                postDateElem.val(dateStr.substr(0,10)+' '+dateStr.substr(11,8));
+                break;
+            case '': // Now!
+                postDate = new Date();
+                dateStr = postDate.toISOString();
+                postDateElem.val(dateStr.substr(0,10)+' '+dateStr.substr(11,8));
+                break;
+            default:
+                return false;
+        }
+        return true;
+    };
+    var preparePostDate = function (e){
+        var $this = jQuery(e)[0];
+        var offsetTZ = (new Date).getTimezoneOffset() * 60 * 1000; // adjustment as msec
+
+
+        if ('date' === $this.options[$this.selectedIndex].value){
+            var localDate = new Date(jQuery('#datepicker').val().substr(0,10)+'T'+jQuery('#timepicker').val().substr(0,5)+'Z');
+            var gmtDate = new Date(localDate.getTime() + offsetTZ);
+            var localNow = new Date((new Date()).getTime() - offsetTZ);
+            var gmtNow = new Date();
+            // if before Now reset datepicker/timepicker
+            if (gmtDate < gmtNow){
+                jQuery('#datepicker').val(localNow.toISOString().substr(0,10));
+                jQuery('#timepicker').val(localNow.toISOString().substr(11,5));
+            }
+        }
+        jQuery('.vs-field.hideable').addClass('hidden');
+        jQuery('[autofocus]').removeProp('autofocus');
+        jQuery('.vs-field.vs-'+$this.options[$this.selectedIndex].value).removeClass('hidden'); // e.g. unhide .vs-days input
+        jQuery('.vs-field.vs-'+$this.options[$this.selectedIndex].value+' INPUT').prop('autofocus',true).focus();
+    }
+    /* Fired on publish button
+     *
+     *
+     */
+    var setPublishedStatus = function(){
+        var when = jQuery('#when').val();
+        postStatusElem = jQuery('#post_status');
+
+        switch(when){
+            case 'days':
+            case 'tomorrow':
+            case 'date':
+                postStatusElem.val('future');
+                break;
+            case '': // Now
+                postStatusElem.val('publish');
+                break;
+            default:
+                alert ("Shouldn't be here");
+                return false;
+        }
+        return true;
+    };
+    var setDraftStatus = function(){
+        jQuery('#post_status').val('draft');
+        return true;
+    };
+
+    var haveWarnedOfShortcodes = false;
+    var doDraftValidation = function(e){
+        var $recent_titles = jQuery('.recent_post_title');
+        var $title = jQuery('#post_title');
+        var $notify = jQuery('#publish_error');
+        var retval = true;
+
+        $notify
+            .removeClass('error')
+            .html('');
+
+
+        $recent_titles.each(function (){
+            if (jQuery( this ).text() === $title.val()){
+                retval = false;
+            };
+        });
+
+        if (!retval){
+            $notify
+                .addClass('error')
+                .append("<b>Error:</b> A post with that title already exists");
+        }
+
+        if ( !haveWarnedOfShortcodes &&
+            jQuery('#post_content').val().indexOf("\[") !== -1){
+            haveWarnedOfShortcodes = true;
+            $notify
+                .addClass('error')
+                .append("<b>Warning:</b> Your post may contain shortcodes that fail when syndicated<br />Click draft/publish again to ignore warning.");
+            e.preventDefault();
+            return false;
+        }
+
+        if (retval) {
+            jQuery(e.target).addClass('disabled');
+        } else {
+            e.preventDefault();
+        }
+        return retval;
+    };
+    var haveWarnedOfShortPost = false;
+    var doPublishValidation = function(e){
+        var $title = jQuery('#post_title');
+        var $notify = jQuery('#publish_error');
+        var $image = jQuery('#featured_image');
+
+        $notify
+            .removeClass('error')
+            .html('');
+
+        if (!$title.val()){
+            $notify
+                .addClass('error')
+                .append("<b>Error:</b> Your post needs a title");
+            e.preventDefault();
+            return false;
+        }
+        if (!$image.val()){
+            $notify
+                .addClass('error')
+                .append("<b>Error:</b> Your post needs a featured image");
+            e.preventDefault();
+            return false;
+        }
+        if ( !haveWarnedOfShortPost &&
+            jQuery('#post_content').val().split(' ').length < 100){
+            haveWarnedOfShortPost = true;
+            $notify
+                .addClass('error')
+                .append("<b>Warning:</b> Your post is less than 100 words.<br />Click publish again to ignore warning.");
+            e.preventDefault();
+            return false;
+        }
+        return doDraftValidation(e);
+    };
+    jQuery.fn.isOnScreen = function(){
+
+        var win = jQuery(window);
+
+        var viewport = {
+            top : win.scrollTop(),
+            left : win.scrollLeft()
+        };
+        viewport.right = viewport.left + win.width();
+        viewport.bottom = viewport.top + win.height();
+
+        var bounds = this.offset();
+        bounds.right = bounds.left + this.outerWidth();
+        bounds.bottom = bounds.top + this.outerHeight();
+
+        return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+    };
+    var doRecentTrigger = function(){
+        var trigger = jQuery('.recent_trigger');
+        var page = parseInt(trigger.data('page'));
+        if (page && trigger.isOnScreen()) {
+            trigger.data('page',0);
+            var ajax = {
+                url: ajaxurl,
+                type: "get",
+                dataType: "html",
+                context: trigger,
+                data: {
+                    action: 'soup_recent',
+                    _vs_nonce: jQuery('INPUT[name="_vs_nonce"]').val(),
+                    p: page,
+                    current: {{ new_post.ID }}
+                }
+            }
+            jQuery.ajax(ajax).done(function(response){
+                this.parent().append(response);
+                this.remove();
+                doRecentTrigger();
+            });
+        }
+    }
+    /*
+        Setup the page once it's loaded
+     */
+    jQuery(function(){
+        {% if new_post.post_title  %}
+        showTags();
+        {%  endif  %}
+        getMOTD();
+        getTrendingTopics();
+
+        jQuery(window).scroll(doRecentTrigger);
+        doRecentTrigger();
+
+        jQuery( ".datepicker" ).datepicker({
+            dateFormat : "yy-mm-dd"
+        });
+        jQuery('#motd').click(function(){
+            if (jQuery('#featured_image').val()) { // if they clicked and we have an FI
+                motdClicked = true; // Then tell pixabay we are replacing, not adding
+                jQuery("#-add_media").click();
+            }
+        });
+        jQuery('#alter-destination').change(function(){
+            if (false!==topicPageAdvanced){
+                // Then we need to rewind the topics so they stay as they are now
+                ajaxCall = {
+                    type: "post",
+                    async: false,   // Make sure it completes before we reload this page
+                    dataType: "json",
+                    context: this,
+                    url: ajaxurl,
+                    data: {
+                        action: "soup",
+                        tab: "{{ tab }}",
+                        _vs_nonce: jQuery('INPUT[name="_vs_nonce"]').val(),
+                        name: jQuery('#next_topic').attr("name"),
+                        value: topicPageAdvanced,
+                        id: '#next_topic'
+                    }
+                };
+
+                jQuery.ajax(ajaxCall) // Not Asynchronous so the window.location waits for completion
+                    .fail(function(jqXHR,status,error) {
+                        if (document.unloading) return;
+                        console.log('fail (vacation-soup) '+status+' '+error);
+                        alert('Error: Could rewind topics\n'+status);
+                    });
+                window.location.search += '&destination_id='+this.options[this.selectedIndex].value
+            }
+        });
+        jQuery('#create-or-edit').change(function(){
+            var args = {
+                "_vs_nonce": jQuery('#_vs_nonce').val(),
+                "action": "soup_new_edit"
+            }
+            jQuery.post(ajaxurl,
+                args,
+                function(data) {
+                    window.location.href = "?page=vacation-soup-admin-create";
+                },
+                'json' // I expect a JSON response
+            );
+
+        });
+    });
+    /*
+        If there is no featured image (FI) or if FI was clicked (i.e. to replace it)
+        Find the first <img>, make it the featured image, and remove it (along with it's [caption])
+     */
+    var setFeaturedImage = function(ed){
+            var fi = jQuery('#featured_image');
+            if (fi.val()==0 || motdClicked){
+                var st,st_cap;
+
+                var elem = ed.getContent();
+                motdClicked = false;
+                if (-1 !== (st = elem.indexOf('<img'))){
+                    var image_id = parseInt(elem.substr(9 + elem.indexOf('wp-image-',st)));
+                    var imglen = 1 + elem.indexOf('>',st) - st;
+                    fi.val(image_id);
+                    doAutosave();
+                    jQuery('#motd').html(
+                        '<h1>Featured Image</h1>'+elem.substr(st,imglen)
+                    );
+                    if(-1 !== (st_cap = elem.indexOf('[caption')) && st_cap < st){
+                        imglen = 10 + elem.indexOf('[/caption]') - st_cap;
+                        st = st_cap;
+                    }
+
+                    ed.setContent(elem.substr(0,st)+elem.substr(st+imglen));
+                }
+            }
+    }
+
+    </script>
+<style>
+    .mag-tag {
+        margin-bottom: 10px;
+    }
+    .notice { display: none; } /* Hide system notices, they will have already seen and ignored them */
+    .notice.soup { display: block; } /* Show our notices */
+
+    .tease-post .deface a {
+        text-decoration: unset;
+    }
+    .tease-post .deface I.fa {
+        font-size: 1.2em;
+        color: white;
+        top: 4px;
+        width: inherit;
+        padding: 6px;
+        border-radius: 2px;
+        background: rgba(0,0,0,0.2);
+        text-align: center;
+        display: inline;
+    }
+    .tease-post .deface I.fa:hover {
+        color: #f08237;
+        background: rgba(0,0,0,0.9);
+        transition: all 0.15s ease-in;
+    }
+
+    .tease-post .deface-container {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        padding-left: 19px;
+        width:100%;
+    }
+    .tease-post .deface {
+        position: relative;
+        margin: auto;
+        float: left;
+        display: inline-block;
+        width: 33%;
+    }
+    .tease-post .deface.left {
+    }
+    .tease-post .deface.right {
+        float: right;
+    }
+    .tease-post .deface.centre I {
+        color: #f08237;
+    }
+
+
+    #post-lister-content.to-do-when-designed {
+        height: 700px;
+        overflow: scroll;
+        margin: 0;
+        padding: 0;
+    }
+    #confirm_conceal {
+        height: auto;
+        overflow: hidden;
+        transition: all 0.5s ease-in;
+    }
+    #confirm_conceal.hide {
+        height: 0;
+    }
+    #conceal_checkbox_inverse{
+        display: none;
+    }
+    .soup-submit.margin-top {
+        margin-top: 15px;
+    }
+    .row.actions {
+        overflow: scroll;
+    }
+    .soup-submit {
+        margin: 10px 0 0 0;
+    }
+    #publish_error:empty {
+        display: none;
+    }
+    #publish_error {
+        width: 100%;
+    }
+    DIV.row.actions {
+        justify-content: space-between;
+        margin-top: -10px;
+    }
+</style>
+    {%- set published = new_post.post_status in [ 'publish','future'] -%}
+    {%- set future = new_post.post_status == 'future' or published and "now"|date('Y-m-d H:i:s') < new_post.post_status('Y-m-d H:i:s') -%}
+
+    {% embed 'admin/post-form.twig' %}{% block form_content %}
+    <input type="hidden" id="latitude" name="latitude" value="{{ new_post.latitude }}">
+    <input type="hidden" id="longitude" name="longitude" value="{{ new_post.longitude }}">
+    <input type="hidden" id="destination_id" name="destination_id" value="{{ new_post.destination_id }}">
+    <input type="hidden" id="post_id" name="ID" value="{{ new_post.ID }}">
+
+    <div class="vs-content tab-create row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        <div id="main_panel" class="vs-panel row">
+            <div id="title" class="col-sm-12">
+                {% set action = (new_post.edit_mode == 'edit')?'Edit':'Create'  %}
+                <h1>{{ action }} Post
+                    <select title="Alternative destinations" id="alter-destination">
+                        {% for dest in soup.destinations %}
+                            <option value="{{ dest.id }}" {{ (dest.id == soup.current_destination)?'selected':'' }}>
+                                {{ dest.rendered }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    {% if new_post.edit_mode == 'edit' %}
+                    <select title="Create or Edit" id="create-or-edit" name="create-or-edit">
+                        <option value="edit" selected>using {{ (new_post.post_status == 'publish')?'published':'draft'}}</option>
+                        <option value="create" >from new</option>
+                    </select>
+                    {% endif %}
+                </h1>
+            </div>
+            <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12">
+                <p>Select one of the trending post subjects on the right, or create your own. Ideally post 3 <strong>trending searches</strong> a week to feed the search engines optimally.</p>
+                <div class="vs-panel row">
+                    <div id="motd" class="col-sm-12">
+                        <h1>Message of the day</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 float-right">
+                <h2>Trending searches <i id="topic-refresh" class="fa fa-refresh" onclick="getTrendingTopics()"></i></h2>
+                <ul id="trending-topics" class="hoverable">
+                </ul>
+            </div>
+            <div class="col-sm-12">
+                <div class="subject">
+                    <input type="text" title="Subject" name="post_title" id="post_title" value="{{ new_post.post_title }}"/>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div id="wp-content-editor-container">
+                    {{ fn('wp_editor',new_post.post_content,'post_content',
+                        { tinymce:
+                            {
+                                setup: "function (editor) {
+                                    editor.on('blur', function () {
+                                        editor.save();
+                                    });
+                                }"
+                            }
+                        }
+                    ) }}
+                </div>
+            </div>
+            {#- Layout the tags in a centered column (lg) or on its own (sm) -#}
+            <div id="tagger" class="col-lg-8 col-sm-12">
+                <h2>Tags</h2>
+                <div class="col-sm-12 row">
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/whatson-100.jpeg"
+                             title="WhatsOn"
+                             alt="WhatsOn Travel Guide">
+                        <span class="checklist-item"><label for="tag_a">WhatsOn</label><input type="checkbox" class="tag" name="tags[]" id="tag_a" value="whatson" title="WhatsOn" {{  ('whatson' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/whattodo-100.jpeg"
+                             title="WhatToDo"
+                             alt="WhatToDo Travel Guide">
+                        <span class="checklist-item"><label for="tag_b">WhatToDo</label><input type="checkbox" class="tag" name="tags[]" id="tag_b" value="whattodo" title="WhatToDo" {{  ('whattodo' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/whattosee-100.jpg"
+                             title="WhatToSee"
+                             alt="WhatToSee Travel Guide">
+                        <span class="checklist-item"><label for="tag_c">WhatToSee</label><input type="checkbox" class="tag" name="tags[]" id="tag_c" value="whattosee" title="WhatToSee" {{  ('whattosee' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/beaches-100.jpg"
+                             title="Beaches"
+                             alt="Beaches Travel Guide">
+                        <span class="checklist-item"><label for="tag_d">Beaches</label><input type="checkbox" class="tag" name="tags[]" id="tag_d" value="beaches" title="Beaches" {{  ('beaches' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/foodie-100.jpg"
+                             title="Foodie"
+                             alt="Foodie Travel Guide">
+                        <span class="checklist-item"><label for="tag_e">Foodie</label><input type="checkbox" class="tag" name="tags[]" id="tag_e" value="foodie" title="Foodie" {{  ('foodie' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/cycling-100.jpg"
+                             title="Cycling"
+                             alt="Cycling Travel Guide">
+                        <span class="checklist-item"><label for="tag_f">Cycling</label><input type="checkbox" class="tag" name="tags[]" id="tag_f" value="cycling" title="Cycling" {{  ('cycling' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/hikers-100.jpg"
+                             title="Hikers"
+                             alt="Hikers Travel Guide">
+                        <span class="checklist-item"><label for="tag_g">Hikers</label><input type="checkbox" class="tag" name="tags[]" id="tag_g" value="hikers" title="Hikers" {{  ('hikers' in new_post.tags)?'checked' }}></span>
+                    </div>
+                    <div class="col-sm-3 mag-tag">
+                        <img src="{{ soup.image_url }}/golf-100.jpg"
+                             title="Golf"
+                             alt="Golf Travel Guide">
+                        <span class="checklist-item"><label for="tag_h">Golf</label><input type="checkbox" class="tag" name="tags[]" id="tag_h" value="golf" title="Golf" {{  ('golf' in new_post.tags)?'checked' }}></span>
+                    </div>
+                </div>
+                <ul class="tags-container checklist hoverable">
+                    <li class="checklist-item">{# The contents are replaced by javascript #}
+                        Creating autotags...
+                    </li>
+                </ul>
+            </div>
+            <div id="scheduler" class="col-md-4 col-sm-12">
+                <h2>Categories</h2>
+                <div id="categories">
+                    <ul>
+                        {{ function('wp_category_checklist',new_post.ID) }}
+                    </ul>
+                </div>
+
+                <h2>Post Location</h2>
+                <input type="number" title="Latitude" step="any" min="-85" max="85" placeholder="Latitude" name="latitude_entry" id="latitude_entry" value="{{ new_post.latitude_entry }}"/>
+                <input type="number" title="Longitude" step="any" min="-180" max="180"  placeholder="Longitude" name="longitude_entry" id="longitude_entry" value="{{ new_post.longitude_entry }}"/>
+
+                <h2><label for="when">Actions</label></h2>
+                <div class="row actions">
+                    <div id="publish_error" class=""></div>
+                    <div class="soup-submit">
+                        <a href="{{ fn('get_home_url') }}?p={{ new_post.ID }}&preview=true" target="_blank">
+                        <button type="button"
+                               name="preview"
+                               id="preview"
+                               class="button button-secondary button-large"
+                                value="preview">{{ future or not published ? 'pre' }}view</button>
+                        </a>
+                    </div>
+
+                    {% if published %}
+                    <div class="soup-submit">
+                        <button type="submit"
+                                name="post_status"
+                                id="save-post"
+                                class="button button-secondary button-large"
+                                onclick="return doDraftValidation(event) ;"
+                                value="publish">update</button>
+                    </div>
+                    {% endif %}
+                    <div class="soup-submit">
+                        <button type="submit"
+                                name="post_status"
+                                id="save-post"
+                                class="button button-secondary button-large"
+                                onclick="return setDraftStatus() && doDraftValidation(event) ;"
+                                value="draft">{{ published ? 'unpublish' : 'save draft' }}</button>
+                    </div>
+
+                    <div class="soup-submit">
+                        <button type="button"
+                               name="conceal"
+                               id="conceal"
+                               class="button button-secondary button-large"
+                               onclick="jQuery('#confirm_conceal').toggleClass('hide')"
+                                value="conceal">conceal{{  new_post.conceal ?'ed' }}</button>
+                    </div>
+                </div>
+                <div id="confirm_conceal" class="hide col-sm-12">
+                    <label for="conceal_checkbox">Only check this if you don't want your post to go to Vacation Soup, or if it promotes your property in a way The Soup will not allow</label>
+                    <input type="checkbox" name="conceal" id="conceal_checkbox" value="1"
+                           onchange="
+                           var concealed = jQuery('#conceal_checkbox').prop('checked');
+                           jQuery('#conceal_checkbox_inverse').prop('checked',!concealed);
+                           jQuery('#conceal').html(concealed ? 'concealed':'conceal') ;
+                            " {{ (new_post.conceal)?'checked':'notchecked' }}/>
+                    <input type="checkbox" name="conceal" id="conceal_checkbox_inverse" value="0"/>
+                </div>
+                <h2>Publish</h2>
+
+                {% if published %}
+                    <div>
+                        {% if future %}
+                            Will publish {{ new_post.post_date_gmt|time_ago }} at {{ new_post.post_date|date("H:i") }}
+                        {% else %}
+                            Published {{ new_post.post_date_gmt|time_ago }} at {{ new_post.post_date|date('H:i') }}
+                        {% endif %}
+                    </div>
+                {% endif %}
+                <div class="vs-field">
+                    {% if not published %}
+                        <select id="when" onchange="
+                               preparePostDate(this);
+                            ">
+                            {% if future %}
+                            <option value="date" selected>{{ new_post.post_date_gmt|time_ago }}</option>
+                            {% endif %}
+                            <option value="" {{ not future ? 'selected' }}>Now</option>
+                            <option value="tomorrow">Tomorrow</option>
+                            <option value="days">Wait a number of days</option>
+                            <option value="date">Select date</option>
+                        </select>
+                    {% endif %}
+                </div>
+
+                <div class="vs-field hideable hidden vs-days">
+                    <label for="days">Wait</label>
+                    <input type="number" id="days" value="2" onchange="setPostDate()"/> days before posting
+                </div>
+                <div class="vs-field hideable hidden vs-date margin-top">
+                    <label for="datepicker">on: </label>
+                    <input type="text" class="datepicker" id="datepicker" value="{{ new_post.post_date|date('Y-m-d') }}" onchange="setPostDate()"/>
+                </div>
+                <div class="vs-field hideable hidden vs-date">
+                    <label for="timepicker">at: </label>
+                    <input type="text" class="" id="timepicker" value="{{ new_post.post_date|date('H:i') }}" onchange="setPostDate()"/>
+                </div>
+                <div class="soup-submit margin-top">
+                    <button type="submit"
+                            name="post_status"
+                            id="publish"
+                            class="button button-primary button-large {{ published ? 'hidden' }}"
+                            onclick="return doPublishValidation(event) && setPostDate() && setPublishedStatus();"
+                            value="publish">publish</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="vs-panel row">
+            <div id="post-lister" class="col-sm-12">
+                <h1>Your recent posts</h1>
+                <div id="post-lister-content">
+                    <ul>
+                        <li class="recent_trigger" data-page="1">
+                            <img src="{{ soup.image_url }}/loading.svg"
+                                 title="More Recent Posts"
+                                 alt="More Recent Posts">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock form_content %}{% endembed %}
+{% endblock content %}
