@@ -1,0 +1,138 @@
+.awgt-alert-content-wrap {
+    padding: 20px;
+    width: 100%;
+}
+legend.awgt-alert-icon svg {
+    width: 25px;
+    height: 25px;
+    fill: #007cba;
+}
+fieldset.awgt-alert-box {
+    position: relative;
+    border: 1px solid #007cba;
+    border-radius: 5px;
+    background-color: transparent;
+}
+legend.awgt-alert-icon {
+    margin-bottom: 5px !important;
+    margin-left: 40px;
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.awgt-alert-content {
+    color: #5a5a5a;
+    padding: 0px 15px;
+}
+.awgt-alert-content p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px !important;
+}
+.awgt-alert-content a {
+    text-decoration: none !important;
+}
+/* Alert Close Button */
+.awgt-alert-box > button {
+    padding: 5px;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: -17px;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    font-size: 20px;
+    line-height: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    border: 1px solid rgb(244 67 54 / 10%);
+    transition: .3s;
+    display: none;
+    transition: .3s;
+}
+.awgt-alert-content-wrap:hover .awgt-alert-box > button {
+    display: flex;
+}
+.awgt-alert-box > button > svg {
+    width: 10px;
+    height: 10px;
+    fill: rgb(244 67 54 / 50%);
+    transition: .3s;
+}
+.awgt-alert-box > button:hover {
+    border: 1px solid #f44336;
+}
+.awgt-alert-box > button:hover svg {
+    transform: rotate(180deg);
+    fill: #f44336;
+}
+
+/* Drop Cap */
+.awgt-alert-content.awgt-drop-cap p:first-child:first-letter {
+    font-size: 40px;
+    font-weight: bolder;
+    float: left;
+    line-height: 1;
+    padding-right: 10px;
+}
+
+/* First Bold */
+.awgt-alert-content.awgt-first-bold > p > strong:first-child {
+    color: #000;
+    padding-right: 5px;
+    line-height: 1;
+}
+
+/* On Click Minimize Content */
+fieldset.awgt-alert-box.awgt-minimize .awgt-alert-content {
+    display: none;
+}
+
+/* Layout - 2 */
+fieldset.awgt-alert-box.awgt-alert-lay-2 {
+    overflow: hidden;
+}
+fieldset.awgt-alert-box.awgt-alert-lay-2 legend.awgt-alert-icon {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    transform: translateY(-25%);
+}
+fieldset.awgt-alert-box.awgt-alert-lay-2 legend.awgt-alert-icon svg {
+    opacity: .2;
+}
+
+/* Layout 3 */
+fieldset.awgt-alert-box.awgt-alert-lay-3 legend.awgt-alert-icon {
+    position: relative;
+}
+fieldset.awgt-alert-box.awgt-alert-lay-3 legend.awgt-alert-icon:before {
+    position: absolute;
+    left: -15px;
+    top: -11px;
+    content: "";
+    border-style: solid;
+    border-color: transparent transparent #004668 transparent;
+    border-width: 0 0 23px 13px;
+}
+fieldset.awgt-alert-box.awgt-alert-lay-3 legend.awgt-alert-icon:after {
+    position: absolute;
+    left: -2px;
+    top: -11px;
+    content: "";
+    border: 26px solid #007cba;
+    border-top-width: 50px !important;
+    border-bottom-width: 15px !important;
+    border-bottom-color: transparent !important;
+}
+fieldset.awgt-alert-box.awgt-alert-lay-3 legend.awgt-alert-icon svg {
+    fill: #fff !important;
+    z-index: 9;
+    filter: drop-shadow(0px 1px 1px #222);
+}
+fieldset.awgt-alert-box.awgt-alert-lay-3 .awgt-first-bold.awgt-alert-content {
+    text-align: center;
+}
