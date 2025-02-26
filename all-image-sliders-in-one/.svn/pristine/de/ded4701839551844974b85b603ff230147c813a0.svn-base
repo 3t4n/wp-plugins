@@ -1,0 +1,107 @@
+li.shisp-slides-li {
+    display: inline-block;
+    border: 2px dashed gray;
+    position: relative;
+}
+
+li.shisp-slides-li::after {
+    content: attr(data-content);
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    font-size: 20px;
+    background-color: #000000a8;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    height: 20px;
+    width: 70px;
+    text-align: center;
+    line-height: 10px;
+    cursor: pointer;
+    opacity: 0;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+li.shisp-slides-li:hover::after {
+    opacity: 1;
+}
+
+img.shisp-image-slide {
+    width: 400px;
+    height: 200px;
+}
+
+li.shisp-add-new-slide {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    font-size: 120px;
+    cursor: pointer;
+    color: #808080b8;
+}
+
+li.shisp-add-new-slide:hover {
+    color: black;
+}
+
+/* Lightbox Styles */
+
+div.shisp-lightboxme {
+    display: none;
+}
+
+.shisp-lightboxme {
+    border: 2px solid gray;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.shisp-lightboxme img{
+    width: 400px;
+    height: 200px;
+    border: 2px dashed #80808082;
+    cursor: pointer;
+}
+
+input#shisp-new-slide-title, input#shisp-new-slide-url {
+    width: 100%;
+}
+
+input.shisp-slide-delete.button {
+    background-color: red!important;
+    color: white!important;
+}
+
+
+
+
+
+/* Lightbox In Mobile */
+
+@media screen and (max-width: 480px) {
+    .shisp-lightboxme img{
+        width: 200px;
+        height: 100px;
+    }
+
+    img.shisp-image-slide {
+        width: 200px;
+        height: 100px;
+    }
+
+    li.shisp-add-new-slide {
+        font-size: 90px;
+    }
+
+    li.shisp-slides-li::after {
+        top: 33%;
+        left: 33%;
+    }
+
+}
