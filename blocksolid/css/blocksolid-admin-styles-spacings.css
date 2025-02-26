@@ -1,0 +1,157 @@
+/* WordPress 6 - restore the default column margins in the editor */
+
+/* Hide some of the layout panel - the layout panel appears if your theme uses a theme.json */
+.block-editor-hooks__layout-controls,
+.block-editor-hooks__layout-controls-reset,
+p.block-editor-hooks__layout-controls-helptext {
+	display:none;
+}
+
+/*@media (min-width: 600px) {
+    .editor-styles-wrapper .block-editor-block-list__block.wp-block-column:nth-child(even) {
+        margin-left: var(--wp--style--block-gap, 2em);
+    }
+}
+@media (min-width: 782px) {
+    .editor-styles-wrapper .block-editor-block-list__block.wp-block-column:not(:first-child) {
+        margin-left: var(--wp--style--block-gap, 2em);
+    }
+}*/
+
+/* Block Row and Column margins & Paddings in editor -------------------------------------------- */
+
+.editor-styles-wrapper .wp-block-columns.margin-top-small,
+.editor-styles-wrapper .wp-block-column.margin-top-small {
+    margin-top: 2vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.margin-top-medium,
+.editor-styles-wrapper .wp-block-column.margin-top-medium {
+    margin-top: 5vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.margin-top-large,
+.editor-styles-wrapper .wp-block-column.margin-top-large {
+    margin-top: 9vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.margin-top-none {
+    margin-top: 20px!important;
+}
+
+.editor-styles-wrapper .wp-block-column.margin-top-none {
+    margin-top: 10px!important;
+}
+
+.editor-styles-wrapper .wp-block-columns.margin-bottom-small,
+.editor-styles-wrapper .wp-block-column.margin-bottom-small {
+    margin-bottom: 2vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.margin-bottom-medium,
+.editor-styles-wrapper .wp-block-column.margin-bottom-medium {
+    margin-bottom: 5vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.margin-bottom-large,
+.editor-styles-wrapper .wp-block-column.margin-bottom-large {
+    margin-bottom: 9vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.margin-bottom-none {
+    margin-bottom: 20px!important;
+}
+.editor-styles-wrapper .wp-block-column.margin-bottom-none {
+    margin-bottom: 10px!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-top-small,
+.editor-styles-wrapper .wp-block-column.padding-top-small {
+ 	padding-top: 2vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-top-medium,
+.editor-styles-wrapper .wp-block-column.padding-top-medium {
+ 	padding-top: 5vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-top-large,
+.editor-styles-wrapper .wp-block-column.padding-top-large {
+ 	padding-top: 9vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-top-none {
+ 	padding-top: 0px!important;
+}
+.editor-styles-wrapper .wp-block-column.padding-top-none {
+ 	padding-top: 0!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-bottom-small,
+.editor-styles-wrapper .wp-block-column.padding-bottom-small {
+ 	padding-bottom: 2vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-bottom-medium,
+.editor-styles-wrapper .wp-block-column.padding-bottom-medium {
+ 	padding-bottom: 5vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-bottom-large,
+.editor-styles-wrapper .wp-block-column.padding-bottom-large {
+ 	padding-bottom: 9vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-bottom-none {
+ 	padding-bottom: 0px!important;
+}
+.editor-styles-wrapper .wp-block-column.padding-bottom-none {
+ 	padding-bottom: 0!important;
+}
+
+.editor-styles-wrapper .wp-block-columns.padding-left-small,
+.editor-styles-wrapper .wp-block-column.padding-left-small {
+ 	padding-left: 2vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-left-medium,
+.editor-styles-wrapper .wp-block-column.padding-left-medium {
+ 	padding-left: 5vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-left-large,
+.editor-styles-wrapper .wp-block-column.padding-left-large {
+ 	padding-left: 9vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-left-none {
+ 	padding-left: 10px!important;
+}
+.editor-styles-wrapper .wp-block-column.padding-left-none {
+ 	padding-left: 0!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-right-small,
+.editor-styles-wrapper .wp-block-column.padding-right-small {
+ 	padding-right: 2vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-right-medium,
+.editor-styles-wrapper .wp-block-column.padding-right-medium {
+ 	padding-right: 5vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-right-large,
+.editor-styles-wrapper .wp-block-column.padding-right-large {
+ 	padding-right: 9vh!important;
+}
+.editor-styles-wrapper .wp-block-columns.padding-right-none {
+ 	padding-right: 10px!important;
+}
+.editor-styles-wrapper .wp-block-column.padding-right-none {
+ 	padding-right: 0!important;
+}
+
+@media (max-width: 972px) {
+    .editor-styles-wrapper .wp-block-columns.margin-top-large,
+    .editor-styles-wrapper .wp-block-column.margin-top-large {
+        margin-top: 5vh!important;
+    }
+    .editor-styles-wrapper .wp-block-columns.margin-bottom-large,
+    .editor-styles-wrapper .wp-block-column.margin-bottom-large {
+        margin-bottom: 5vh!important;
+    }
+    .editor-styles-wrapper .wp-block-columns.padding-top-large,
+    .editor-styles-wrapper .wp-block-column.padding-top-large {
+     	padding-top: 5vh!important;
+    }
+    .editor-styles-wrapper .wp-block-columns.padding-bottom-large,
+    .editor-styles-wrapper .wp-block-column.padding-bottom-large {
+     	padding-bottom: 5vh!important;
+    }
+}
+
+/* WP 6 */
+.editor-styles-wrapper .wp-block-columns.no-column-margins > .wp-block-column:not(:first-child) {
+    margin-left: 0;
+}

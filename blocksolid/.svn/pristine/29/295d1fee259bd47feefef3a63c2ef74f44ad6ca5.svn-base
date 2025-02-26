@@ -1,0 +1,142 @@
+/* Settings screen */
+
+.blocksolid_row.first:not(:first-child)  {
+	border-top: 20px solid #ccc;
+}
+
+.blocksolid_row.first.thin:not(:first-child)  {
+	border-top: 2px solid #ccc;
+}
+
+.blocksolid_row.final {
+	border-bottom: 20px solid #ccc;
+}
+
+#blocksolid_options_tick_all,
+#blocksolid_options_untick_all {
+	margin-top: 1.5em;
+	margin-left: 2.0em;
+}
+
+.blocksolid_options_setting_link {
+	font-weight: 600;
+	cursor: pointer;
+	display: inline-block;
+	transition: all 0.3s ease-in-out!important;
+	color: #007cba;
+}
+
+.blocksolid_options_setting_link:hover {
+	color: #606060;
+}
+
+.blocksolid_section_heading {
+	background: #808080;
+	padding: 1em;
+	color: #fff;
+}
+
+.blocksolid_section_heading small {
+	font-weight: normal;
+	color: #ccc;
+}
+
+.blocksolid_fatal_error {
+	color: red;
+	display: block;
+}
+
+.blocksolid_color_block {
+	display: inline-block;
+	background-color: transparent;
+	width: 186px;
+	height: 20px;
+	padding: 4px 8px;
+	color: #606060;
+	border-radius: 5px;
+	margin-top:5px;
+}
+
+.blocksolid-section-divider {
+	border-bottom: 2px solid #ccc;
+    margin: 30px 0 40px 0;
+}
+
+#blocksolid_options .button-primary {
+    float: right;
+    margin-right: 40px;
+}
+
+#blocksolid_file_upload_message {
+    padding: 30px 0 0 0;
+    color: #00f;
+}
+
+/* The bs-switch - the box around the bs-slider */
+.bs-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.bs-switch input {display:none;}
+
+/* The bs-slider */
+.bs-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.bs-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:disabled + .bs-slider {
+    background-color: #f7f7f7;
+    cursor: default;
+}
+
+input:disabled + .bs-slider:before {
+    background-color: #efefef;
+    cursor: default;
+}
+
+input:checked + .bs-slider {
+    background-color: #0085ba;
+}
+
+input:focus + .bs-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .bs-slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* Rounded bs-sliders */
+.bs-slider.bs-round {
+    border-radius: 24px;
+}
+
+.bs-slider.bs-round:before {
+    border-radius: 50%;
+}
