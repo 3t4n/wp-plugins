@@ -1,0 +1,223 @@
+/*css styles*/
+.mx_stripe_wrap {
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(51, 51, 51, 0.91);
+    width: 100%;
+    height: 100%;
+    z-index: 77777;
+	overflow: auto;
+}
+
+.mx_stripe_window {
+	width: 400px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: -200px;
+	background: #fff;
+	padding: 20px;
+	display: block;
+	margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: left;
+}
+#mx_card_button {
+	cursor: pointer;
+	margin: 20px auto;
+	display: block;
+	background: #d13760;
+}
+#card-element {
+	display: inline-block;
+    width: 100%;
+    border: 1px solid #cecdcd;
+    overflow: hidden;
+}
+.mx_cancel {
+	text-align: center;
+}
+#mx_invoice_information table {
+    width: 100%;
+    max-width: 500px;
+	margin: 0px auto;
+}
+#mx_customer_info_form input {
+	width: 100% !important;
+}
+#mx_customer_info_form ul {
+	list-style-type: none;
+	padding: 0;
+}
+#mx_customer_info_form ul li {
+	margin-bottom: 15px;
+}
+.mx-payment-button-wrap {
+    padding: 20px 0px;
+}
+.mx-payment-window-wrap {
+	width: 600px;
+    margin: 0px auto;
+    background: #fff;
+    text-align: center;
+    padding: 20px;
+}
+#iban-element {
+	overflow: hidden;
+}
+#mx_iban_button {
+	cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+#error-message {
+	color: red;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.mx_bank_transfer_section {
+	margin-top: 26px;
+	display: none;
+	margin-bottom: 15px;
+}
+.mx_card_payment_section {
+	margin-top: 26px;
+}
+.mx_payment_method_switcher {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.mx_payment_method_switcher > div {
+	border: 2px solid #ddd;
+	color: #ddd;
+	width: 140px;
+    padding: 0px 10px 0px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.mx_payment_method_switcher > div svg {
+	fill: #ddd;
+}
+
+.mx_payment_method_switcher > div.mx_payment_method_active {
+	border: 2px solid rgb(0, 116, 212);
+	color: rgb(0, 116, 212);
+}
+
+.mx_payment_method_switcher > div.mx_payment_method_active svg {
+	fill: rgb(0, 116, 212);
+}
+.mx_payment_method_switcher > div:hover {
+	border: 2px solid rgb(0, 116, 212);
+	color: rgb(0, 116, 212);
+}
+.mx_payment_method_switcher > div:hover svg {
+	fill: rgb(0, 116, 212);
+}
+.mx_pay_with_h {
+	margin: 0;
+	margin-bottom: 8px;
+}
+.mx_stripe_window *,
+#mx_customer_info_form *,
+#mx_invoice_information *,
+.mx-make-donation-wrap * {
+	font-family: 'Arial';
+	font-size: 16px;
+}
+.mx_stripe_window ul,
+#mx_customer_info_form ul,
+.mx-make-donation-wrap ul {
+	list-style-type: none;
+    margin: 0;
+    margin-bottom: 25px;
+}
+.mx_stripe_window ul li {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+.mx_stripe_window ul li span {
+    font-weight: 300;
+}
+.mx_payment_method_switcher > div {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	padding: 8px 0px;
+}
+
+#mx_customer_info_form input[type="text"],
+#mx_customer_info_form input[type="email"],
+#mx_customer_info_form input[type="number"],
+.mx-make-donation-wrap input[type="text"],
+.mx-make-donation-wrap input[type="email"],
+.mx-make-donation-wrap input[type="number"],
+.mx-make-donation-wrap select {
+	color: #32325d;
+    font-size: 16px;
+    font-family: 'Arial';
+	background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 4px;
+    display: block;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+    height: 40px;
+	padding-left: 8px;
+	box-sizing: border-box;
+}
+.mx-payment-button-wrap button,
+#mx_card_button,
+#mx_iban_button,
+.mx-button {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    background: #cd2653;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.0333em;
+    line-height: 1.25;
+    margin: 0 auto;
+	margin-bottom: 20px;
+    margin-top: 20px;
+    opacity: 1;
+    padding: 1.1em 1.44em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.15s linear;
+    display: block;
+}
+.mx-payment-customer-name {
+    margin: 6rem auto 3rem;
+    font-size: 40px;
+}
+#mx_invoice_information table,
+#mx_invoice_information table *,
+#mx_invoice_information hr {
+    border-color: #dcd7ca;
+}
+.mx_stripe_window h5 {
+    font-size: 18px;
+    text-align: center;
+}
