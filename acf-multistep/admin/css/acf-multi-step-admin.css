@@ -1,0 +1,87 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.acf-field-object-step tr[data-name="name"], 
+.acf-field-object-step tr[data-name="required"],
+.acf-field-object-step tr[data-name="wrapper"],
+.acf-field-object-step tr[data-name="instructions"],
+#acf_fields .fields .field_type-multi_steps tr.field_name, 
+#acf_fields .fields .field_type-multi_steps tr.field_instructions, 
+#acf_fields .fields .field_type-multi_steps tr.required {
+  display: none !important;
+}
+
+/*--------------------------------------------------------------------------
+*
+*	Step Group
+*	
+*-------------------------------------------------------------------------*/
+
+.acf-multi_steps_group-show {
+	display: block;
+}
+tr.acf-multi_steps_group-show {
+	display: table-row;
+}
+.acf-multi_steps_group-hide {
+	display: none;
+}
+
+
+/*--------------------------------------------------------------------------
+*
+*	Conditional Logic
+*	
+*-------------------------------------------------------------------------*/
+
+/* Show */
+.acf-conditional_logic-show {
+	display: block;
+}
+
+tr.acf-conditional_logic-show {
+	display: table-row;
+}
+
+td.acf-conditional_logic-show,
+th.acf-conditional_logic-show {
+    display: table-cell;
+}
+
+
+/* Hide */
+.acf-conditional_logic-hide,
+tr.acf-conditional_logic-hide,
+td.acf-conditional_logic-hide,
+th.acf-conditional_logic-hide {
+    display: none;
+}
+
+
+/* Hide (show blank) */
+td.acf-conditional_logic-hide.acf-show-blank,
+th.acf-conditional_logic-hide.acf-show-blank {
+    display: table-cell;
+}
+
+td.acf-conditional_logic-hide.acf-show-blank .inner,
+th.acf-conditional_logic-hide.acf-show-blank .inner {
+	display: none;
+}
+
+
+/*--------------------------------------------------------------------------
+*
+*	Conditional Logic + Tabs
+*	
+*-------------------------------------------------------------------------*/
+
+.acf-multi_steps_group-hide.acf-conditional_logic-show {
+	display: none;
+}
+
+.hl.acf-multi-strps-group > li.acf-conditional_logic-hide {
+	display: none;
+}
