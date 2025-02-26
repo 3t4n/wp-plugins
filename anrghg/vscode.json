@@ -1,0 +1,101 @@
+/*
+vscode.json
+
+For the Replace Rules extension for VSCode: 'bhughes339.replacerules'.
+
+deriveAmericanEnglishFromPot
+deriveBritishEnglishFromPot
+commitMessageMultiLine
+*/
+
+{
+	"replacerules.rules": {
+		"copyMsgidToMsgstr": {
+			"find": "(msgid \"(.+)\")\\nmsgstr \".*\"",
+			"replace": "$1\nmsgstr \"$2\""
+		},
+		"izToBritish": {
+			"find": "(msgstr \".*)((?:c|d|f|g|m|n|p|r|\\ws|t|v)i|ly)z([^o])",
+			"replace": "$1$2s$3"
+		},
+		"centeredToBritish": {
+			"find": "(msgstr \".*)centered",
+			"replace": "$1centred"
+		},
+		"centerToBritish": {
+			"find": "(msgstr \".*((C|c)en|(L|l)i|(M|m)e))ter",
+			"replace": "$1tre"
+		},
+		"colorToBritish": {
+			"find": "(msgstr .*[^el]((C|c)ol|(F|f)lav|(H|h)on|(H|h)um|(L|l)ab|(N|n)eighb|vig?))or",
+			"replace": "$1our"
+		},
+		"analogToBritish": {
+			"find": "(msgstr \".*alog)([^u])",
+			"replace": "$1ue$2"
+		},
+		"installToBritish": {
+			"find": "(msgstr \".*(I|i)nst(a|i)l)l",
+			"replace": "$1"
+		},
+		"spelledToBritish": {
+			"find": "(msgstr \".*)spelled",
+			"replace": "$1spelt"
+		},
+		"escapeQuotationMarks": {
+			"find": "([\"'])",
+			"replace": "\\$1"
+		},
+		"newlineToEscape": {
+			"find": "\\n",
+			"replace": "\\n"
+		},
+		"removeTrailingNewlineEscapes": {
+			"find": "(\\\\n)+$",
+			"replace": ""
+		},
+		"addCommitSyntax": {
+			"find": "(.+)",
+			"replace": "svn ci -m $$'$1' --username "
+		}
+	},
+	"replacerules.rulesets": {
+		"deriveAmericanEnglishFromPot": {
+			"rules": ["copyMsgidToMsgstr"]
+		},
+		"deriveBritishEnglishFromPot": {
+			"rules": [
+				"copyMsgidToMsgstr",
+				"izToBritish",
+				"izToBritish",
+				"izToBritish",
+				"centeredToBritish",
+				"centeredToBritish",
+				"centeredToBritish",
+				"centerToBritish",
+				"centerToBritish",
+				"centerToBritish",
+				"colorToBritish",
+				"colorToBritish",
+				"colorToBritish",
+				"analogToBritish",
+				"analogToBritish",
+				"analogToBritish",
+				"installToBritish",
+				"installToBritish",
+				"installToBritish",
+				"spelledToBritish",
+				"spelledToBritish",
+				"spelledToBritish"
+			]
+		},
+		"commitMessageMultiLine": {
+			"rules": [
+				"escapeQuotationMarks",
+				"newlineToEscape",
+				"removeTrailingNewlineEscapes",
+				"addCommitSyntax"
+			]
+		}
+	}
+}
