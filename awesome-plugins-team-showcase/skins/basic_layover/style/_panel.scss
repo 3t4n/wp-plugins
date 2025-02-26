@@ -1,0 +1,169 @@
+[data-card-action="layover"]{
+    .panel-layover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+
+        .panel-close-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            cursor: default;
+        }
+        
+        .panel-layover-close {
+            right: 32px;
+        }
+
+        .panel-layover-container {
+            padding: 16px 32px;
+            background-color: $color-white;
+            z-index: 1;
+
+            max-width:800px;
+            position: relative;
+            @media screen and (min-width: 768px) {
+                padding: 32px;
+                flex-basis: 70%;
+            }
+
+            .panel-layover-header {
+                margin-bottom:16px;
+                @media screen and (min-width: 768px) {
+                    margin-bottom:32px;
+                }
+            }
+            .panel-layover-header,
+            .panel-layover-bio {
+                flex-basis: 100%;
+                padding: 0;
+            }
+
+            .panel-layover-bio {
+                display:block;
+                @media screen and (min-width: 900px) {
+                    display: flex;
+                }
+            }
+
+            .aws-member-image {
+                margin-right: 32px;
+            }
+
+            .member-name {
+                margin: 0;
+            }
+        }
+
+        .panel-layover-content,
+        .panel-layover-info {
+            @media screen and (max-width: 900px) {
+                flex-basis: 100%;
+            }
+        }
+
+        .panel-layover-content {
+            position: relative;
+            margin: 0 80px 0 0;
+            white-space: normal;
+
+            @media screen and (min-width: 900px) {
+                flex-basis: 65%;
+                max-height: 250px;
+                overflow: auto;
+            }
+        }
+
+        .panel-layover-info {
+            flex-basis: 35%;
+        }
+        .meta-item {
+            margin-bottom:16px;
+        }
+        .meta-label,
+        .meta-text {
+            margin:0 0 4px 0;
+        }
+        .meta-text {
+            text-transform:none;
+        }
+
+        .panel-layover-social {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .meta-social {
+                display: inline-block;
+                margin: 4px 16px 0px 0;
+            }
+
+            .a {
+                display: block;
+                -webkit-transition: -webkit-transform 0.3s;
+                -moz-transition: -moz-transform 0.3s;
+                transition: transform 0.3s;
+
+                &:hover {
+                    -moz-transform: translateY(-4px);
+                    -webkit-transform: translateY(-4px);
+                    transform: translateY(-4px);
+                }
+            }
+        }
+
+        .panel-layover-button {
+            display: block;
+            background-color: #666;
+            color: white;
+            margin-top: 32px;
+            width: max-content;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        a {
+            color:#999;
+        }
+
+        .meta-item{
+            > span{
+                padding-top: 0;
+            }
+        }
+
+        .panel-layover-close {
+            right: 32px;
+            position: absolute;
+            top: 32px;
+            cursor: pointer;
+        }
+
+        .aws-member-image {
+            width: 120px;
+            height: 120px;
+            margin-right: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .panel-layover-title{
+            flex: 3;
+        }
+    }
+}

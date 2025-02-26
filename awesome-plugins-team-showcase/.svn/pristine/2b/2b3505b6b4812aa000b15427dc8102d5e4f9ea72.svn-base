@@ -1,0 +1,148 @@
+.team-container{
+
+    .team-item{
+        background: #f5f5f5;
+        box-shadow: 0 1px 1px rgba(0,0,0,.04);
+        position: relative;
+        &:first-of-type{
+            border-top-width: 1px;
+        }
+        &.team-opened {
+            .dashicons-arrow-down{
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .team-content{
+        margin: 0;
+        padding: 16px;
+        overflow: hidden;
+        background: #ffffff;
+        border-width: 0 1px 1px 1px;
+        border-style: solid;
+        border-color: #f5f5f5;
+        display: none;
+        label{
+            display: block;
+            margin-bottom: 16px;
+        }
+    }
+
+
+    .dashicons-arrow-down{
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    .team-title{
+        margin: 0;
+        padding: 16px;
+        position: relative;
+        cursor: move;
+        .dashicons-edit{
+            position: absolute;
+            font-size: 14px;
+            top: 20px;
+            left: 44px;
+            pointer-events: none;
+        }
+        .dashicons-trash{
+            position: absolute;
+            display: block;
+            top: 16px;
+            right: 16px;
+            cursor: pointer;
+        }
+        input{
+            border: 1px solid #f5f5f5;
+            background: #f5f5f5;
+            box-shadow: none;
+            padding: 8px 8px 8px 32px;
+            width: 80%;
+            &:focus{
+                border: 1px solid #cccccc;
+                background: #ffffff;
+                box-shadow: initial;
+            }
+        }
+        .drag-icon{
+            cursor: move;
+            &:before{
+                content: '';
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBjbGFzcz0iIj48Zz48Zz4KCTxnPgoJCTxnPgoJCQk8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjY0IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMzMzMzMzMiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIj48L2NpcmNsZT4KCQkJPGNpcmNsZSBjeD0iMjU2IiBjeT0iNDQ4IiByPSI2NCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMzMzMzMzIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9jaXJjbGU+CgkJCTxjaXJjbGUgY3g9IjI1NiIgY3k9IjY0IiByPSI2NCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMzMzMzMzIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9jaXJjbGU+CgkJPC9nPgoJPC9nPgo8L2c+PC9nPiA8L3N2Zz4=);
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 16px;
+                width: 16px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .button-remove{
+        position: absolute;
+        right: 48px;
+        top: 16px;
+        cursor: pointer;
+    }
+
+}
+
+li.team-item iframe{
+    height: 150px !important;
+}
+
+a[href='post-new.php?post_type=aws-showcase-teams']{
+    display: none !important;
+}
+
+.aws-member-meta{
+    tr{
+        display: block;
+        padding: 16px 0;
+        text-align: left;
+    }
+    th{
+        width: 120px;
+        font-weight: normal;
+        vertical-align: top;
+    }
+    td{
+        width: 600px;
+    }
+    select,
+    input[type="number"]{
+        width: 250px;
+    }
+}
+
+#aws-ts-member-meta .aws-member-meta input{
+    width: 100%;
+}
+
+
+.aws-member-meta textarea{
+    width: 100%;
+    min-height: 80px;
+    padding: 8px;
+}
+
+.add-new-member-list option.added{
+    display: none;
+}
+
+#aws-team-showcase-update-general .form-table{
+    th, td{
+        padding: 8px 0;
+        vertical-align: middle;
+    }
+}
+
+// Forcing style reset to remove card styles from wp-admin css
+.wp-admin .awesome-team-showcase .card{
+    margin: 0;
+    border: 0;
+}

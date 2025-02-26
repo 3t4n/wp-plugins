@@ -1,0 +1,82 @@
+.card-showcase-horizontal {
+  padding:16px 8px;
+  background-color:white;
+  width:100%;
+  max-width:800px;
+  @media screen and (min-width: 768px) {
+    padding:32px;
+  }
+
+  .aws-member-image {
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    border-radius: 100%;
+
+    @media screen and (min-width: 768px) {
+      display:inline-block;
+      float:left;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+  .card-body {
+    margin-top:8px;
+    min-height:224px;
+    position:relative;
+
+    @media screen and (min-width: 768px) {
+      margin-left:160px;
+      margin-top:0;
+    }
+
+    .member-name {
+      a {
+        text-decoration:none;
+        color:black;
+        &:hover {
+        text-decoration:underline;
+      }
+      }
+    }
+
+    .member-position {
+      min-height:24px;
+    }
+    .member-telephone,
+    .member-email,
+    .member-bio
+    {
+      margin: 8px 0;
+    }
+
+    .member-details {
+
+      .meta-item {
+        line-height:1;
+
+        .meta-label {
+          margin-right:4px;
+        }
+
+        .social-media-container {
+          display:inline-block;
+          min-width:100px;
+          margin:8px 0;
+        }
+
+        .member-social-channel {
+          display: inline-block;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+

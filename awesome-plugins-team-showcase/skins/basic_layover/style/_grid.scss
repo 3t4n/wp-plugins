@@ -1,0 +1,131 @@
+$max: 10; // max of columns to generate code
+
+*:focus {
+  outline: none;
+}
+@for $i from 1 through $max {
+
+  [data-grid-type="grid"] {
+
+    &[data-columns="#{$i}"] {
+
+      @for $n from 1 through $i {
+        li:nth-of-type(#{$i}n + #{$n} ) .panel-expanded {
+          @media screen and (min-width: 846px) {
+            margin-left: calc((-100% * #{$n} + 100%) - #{$n}px);
+          }
+
+        }
+      }
+      .panel-expanded {
+        @media screen and (min-width: 768px) and (max-width: 845px) {
+          width: 513px;
+        }
+        @media screen and (min-width: 846px) {
+          width: calc((#{$i} * 100%) + (#{$i}px + 1px));
+        }
+      }
+
+      li:nth-of-type(2n) .panel-expanded {
+        @media screen and (min-width: 768px) and (max-width: 845px) {
+          margin-left: calc((-100% * 2 + 100%) - 2px);
+        }
+      }
+      li:nth-of-type(2n + 1) .panel-expanded {
+        @media screen and (min-width: 768px) and (max-width: 845px) {
+          margin-left: -1px;
+        }
+      }
+
+    }
+
+    &[data-columns="#{$i}"] {
+      li {
+        width: 100%;
+      }
+
+      @media screen and (min-width: 768px) {
+        li {
+          width: 255px;
+        }
+      }
+
+
+      @media screen and (min-width: 846px) {
+        li:nth-of-type(#{$i}n + #{$i + 1}) {
+          clear: left;
+
+          .panel-expanded {
+            margin-left: -1px;
+          }
+        }
+      }
+
+    }
+
+  }
+
+}
+
+[data-grid-type="grid"] {
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  li {
+    margin: 0 1px 1px 0;
+    height: fit-content;
+    padding: 0;
+  }
+
+  //when is mobile
+  @media screen and (max-width: 640px) {
+    .panel-expanded {
+      width: calc(100% + 2px);
+      margin-left: -1px;
+    }
+  }
+
+  //when 2 cards in a row
+  @media screen and (min-width: 768px) and (max-width: 845px) {
+
+    li:nth-of-type(2n + 1) .panel-expanded {
+      margin-left: 0;
+    }
+    li:nth-of-type(2n + 2) .panel-expanded {
+      margin-left: -100%;
+    }
+    .panel-expanded {
+      width: 200%;
+    }
+
+  }
+  &[data-columns="2"] {
+    max-width:512px;
+    margin:0 auto;
+  }
+
+  &[data-columns="3"] {
+    max-width:768px;
+    margin:0 auto;
+  }
+
+  &[data-columns="4"] {
+    max-width:1024px;
+    margin:0 auto;
+  }
+
+  &[data-columns="5"] {
+    max-width:1280px;
+    margin:0 auto;
+  }
+
+  &[data-columns="6"] {
+    max-width:1536px;
+    margin:0 auto;
+  }
+
+
+}

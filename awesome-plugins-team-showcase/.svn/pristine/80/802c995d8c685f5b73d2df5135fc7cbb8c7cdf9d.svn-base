@@ -1,0 +1,143 @@
+.awc-team-layover-tinymce {
+  display: none;
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+
+  .awc-team-layover-wrap {
+    position: fixed;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+  }
+
+  .header,
+  .body,
+  .footer {
+    padding: 16px;
+  }
+
+  .header {
+    height: 24px;
+    border-bottom: 1px solid #CACACA;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    display: flex;
+
+    h3, .dashicons {
+      flex: 1;
+      align-self: center;
+      margin: 0;
+    }
+  }
+
+  .footer {
+    height: 24px;
+    border-top: 1px solid #CACACA;
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  .dashicons.right {
+    text-align: right;
+  }
+
+  .aws-team-field {
+    display: block
+  }
+}
+
+.aws-preview-layover {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  flex-wrap: wrap;
+  align-items: center;
+
+  background: rgba(0,0,0,0.8);
+  z-index: 100000;
+
+  &.active {
+    display: flex;
+  }
+
+  .aws-preview-container{
+    position: relative;
+    width: calc(100% - 120px);
+    height: calc(100% - 120px);
+    margin: 0 auto;
+    padding: 32px;
+    background-color: white;
+    overflow: auto;
+
+  }
+
+  .aws-preview-header {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:32px;
+    padding:16px 0;
+    width:100%;
+    background-color:#fcfcfc;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .close-ats-preview {
+    position: fixed;
+    top: 32px;
+    right: 44px;
+    padding: 8px;
+    cursor: pointer;
+    .dashicons{
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .preview-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 128px auto 0;
+  }
+
+}
+.media-frame-title {
+  right:auto;
+}
+
+.team-showcase,
+.team-table,
+.aws-carousel {
+  &.aws-preview-mode {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 999999;
+    overflow: auto;
+    margin-top: 0;
+  }
+}
+
+.aws-carousel.aws-preview-mode{
+  .owl-prev,
+  .owl-next{
+    top: 25%;
+  }
+}
