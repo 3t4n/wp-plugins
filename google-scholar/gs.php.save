@@ -1,0 +1,43 @@
+<?php
+   /*
+   Plugin Name: Wordpress Google Scholar
+   Plugin URI: http://www.sociology.org/gs
+   Description: A plugin to output Google Scholar Metadata
+   Version: .01
+   Author: Dr. MIke Sosteric
+   Author URI: http://www.sociology.org/
+   License: GPL2
+   */
+
+// insert head meta data
+add_action('wp_head', 'head_meta_data');
+function head_meta_data() { 
+	echo hmd_display_content();
+}
+
+function hmd_display_content() {
+	global $hmd_options;
+	$hmd_output = '';
+	$hmd_enable = $hmd_options['hmd_enable']; 
+	$hmd_format = $hmd_options['hmd_format'];
+	if ($hmd_format == false) {
+		$close_tag = '" />' . "\n";
+	} else {
+		$close_tag = '">' . "\n";
+	}
+	if (1 || $hmd_enable == true) {
+		if ($hmd_options['hmd_abstract']   !== '') $hmd_output  = '		<meta name="abstract" content="'       . $hmd_options['hmd_abstract']   . $close_tag;
+		if ($hmd_options['hmd_author']     !== '') $hmd_output .= '		<meta name="citation_title" content="' . $hmd_options['gs_title']       . $close_tag;
+		if ($hmd_options['hmd_author']     !== '') $hmd_output .= '		<meta name="citation_author" content="'. $hmd_options['gs_author']      . $close_tag;
+		if ($hmd_options['hmd_date']       !== '') $hmd_output .= '		<meta name="citation_date" content="'  . $hmd_options['hmd_author']     . $close_tag;
+		if ($hmd_options['hmd_author']     !== '') $hmd_output .= '		<meta name="citation_journal_title" content="'  . $hmd_options['hmd_author']     . $close_tag;
+		if ($hmd_options['hmd_classify']   !== '') $hmd_output .= '		<meta name="classification" content="' . $hmd_options['hmd_classify']   . $close_tag;
+		if ($hmd_options['hmd_copyright']  !== '') $hmd_output .= '		<meta name="copyright" content="'      . $hmd_options['hmd_copyright']  . $close_tag;
+		if ($hmd_options['hmd_designer']   !== '') $hmd_output .= '		<meta name="designer" content="'       . $hmd_options['hmd_designer']   . $close_tag;
+		if ($hmd_options['hmd_distribute'] !== '') $hmd_output .= '		<meta name="distribution" content="'   . $hmd_options['hmd_distribute'] . $close_tag;
+		if ($hmd_options['hmd_language']   !== '') $hmd_output .= '		<meta name="language" content="'       . $hmd_options['hmd_language']   . $close_tag;
+	}
+	return $hmd_output;
+}
+
+?>

@@ -1,0 +1,289 @@
+<?php
+   /*
+   Plugin Name: Wordpress Google Scholar
+   Plugin URI: http://www.sociology.org/gs
+   Description: A plugin to output Google Scholar Metadata
+   Version: .01
+   Author: Dr. MIke Sosteric / Athabasca University (http://www.athabascau.ca)
+   Author URI: http://www.sociology.org/
+   License: GPL2
+   */
+
+
+
+if($_REQUEST['act'] == 'generate_ris'){
+	
+    gs_get_ris($_REQUEST['post_id']);
+}
+
+function gs_add_mime_type($mimes ) { 	return array_merge($mimes,array ('ris' => 'text/ris')); }
+add_filter( 'upload_mimes', 'gs_add_mime_type' );
+
+// insert head meta data
+add_action('wp_head', 'head_meta_data');  
+function head_meta_data() { 
+echo "<!-- GOOGLE SCHOLAR DATA -->\n";
+	echo gs_display_content();
+}
+///////////////////////RIS OUTPUT////////////////
+
+add_action( 'save_post', 'gs_save_bibliographic_files' );
+function gs_save_bibliographic_files() {
+ 	global $post;
+	global $options;
+	
+	$ris 		= gs_get_ris();
+	$outputdir 	= gs_get_output_dir() ;
+	$filename 	= gs_get_ris_filename();
+	$filename 	= sprintf("%s%s",gs_get_output_dir() , gs_get_ris_filename());
+
+	//echo $filename;exit;
+	file_put_contents($filename, $ris);
+}
+
+
+add_filter( 'the_content', 'gs_output_rislink');
+function gs_output_rislink($content) {
+	global $post;
+	$abstract = get_the_excerpt(); 
+	if(is_single() && !is_home()) {
+		
+		$content = "<div class=\"gs_citelink\">" . gs_citelink($post) . "</div>" . '<h2 class="gs-abstract-title">Abstract</h2>' .'  <div 
+class="gs-abstract">' . $abstract . "</div>". $content;
+			
+	}
+	
+	return $content;
+	
+}
+
+//called from the post-edit screen, after clicking the post or update button
+function gs_get_ris($post_id) {
+  global $post;
+	if ($post_id) {
+	  //assign data here	
+
+//		$posttitle		=	$post_info->post_title;
+//		$postexcerpt	=	$post_info->post_excerpt;
+//		$postauthor		=	$post_info->post_author;
+//		$posturl		=	$post_info->guid;
+//		echo $post_info->post_date;
+
+	} else {
+
+		global $authordata;
+		global $post;
+		$posttitle		=	$post->post_title;
+		$postauthor		=	$_POST['post_author'];
+		$postexcerpt	=	get_the_excerpt();
+		$posturl		=	get_permalink();
+		$author = get_the_author_meta('last_name' ,$postauthor) . ',' . get_the_author_meta('first_name',$postauthor);
+
+	}
+	$options = (array) get_option('gs_settings');
+	
+    $ris = sprintf("TY  - JOUR
+PY  - %s
+J2  - %s
+SN  - %s
+T2  - %s
+TI  - %s
+UR  - %s
+PB  - %s
+DA  - %s
+AU  - %s
+LA  - %s
+AB  - %s
+", get_the_date('Y'),get_bloginfo('name'),$options['issn'],get_bloginfo('name'),$posttitle, $posturl, $options['publisher'],get_the_date('F/Y'),$author, $options['language'], $postexcerpt);
+	if ($post_id) {
+		header('Content-Type: text/ris');
+		header('Content-Disposition: attachment; filename="ejs.ris"');
+	    echo $ris;	
+		exit;
+	} else {
+		return $ris;
+	}
+
+}
+// * Output citation data in header on single pages // 
+function gs_display_content() {
+	global $hmd_options;
+   	global $post;
+
+	$hmd_output = '';
+	$hmd_enable = $hmd_options['hmd_enable']; 
+	$hmd_format = $hmd_options['hmd_format'];
+	if ($hmd_format == false) {
+		$close_tag = '" />' . "\n";
+	} else {
+		$close_tag = '">' . "\n";
+	}
+	if (is_single()) {
+				$author_id = get_queried_object()->post_author;
+				$author = get_the_author_meta( 'last_name' ,$author_id) . ',' . get_the_author_meta( 'first_name',$author_id);;
+				$post_title = get_queried_object()->post_title;
+				 //echo $author;
+
+		$hmd_output .= '		<meta name="citation_title" content="' 				. $post_title   		. $close_tag;
+		$hmd_output .= '		<meta name="citation_author" content="'				. $author      			. $close_tag;
+		$hmd_output .= '		<meta name="citation_publication_date" content="'  	. get_the_date('F,Y')	. $close_tag;
+		$hmd_output .= '		<meta name="citation_journal_title" content="'  	. get_bloginfo('name')	. $close_tag;
+	}
+	return $hmd_output;
+}
+add_action('admin_menu', 'gs_admin_menu');
+
+function gs_admin_menu() {
+    $page_title = 'Google Scholar Settings';
+    $menu_title = 'Google Scholar';
+    $capability = 'manage_options';
+    $menu_slug = 'gs-settings';
+    $function = 'gs_settings';
+    add_options_page($page_title, $menu_title, $capability, $menu_slug, $function);
+}
+
+function gs_settings() {
+    if (!current_user_can('manage_options')) {
+        wp_die('You do not have sufficient permissions to access this page.');
+    }
+ echo '<div id="icon-options-general" class="icon32"><br/></div><h2>General Information</h2><p>The Google Scholar plugin takes author and title information from each post or page and outputs it in the document head so that Google Scholar can find it and index it. In order for it to function correctly you must that your authors have a FIRSTNAME and LASTNAME entered into the user profile.<p><ul>
+ <li>Add a link to the *.ris file using the shortcode [gs-citelink].
+ </ul> ' ;
+ ?>
+    <div class="wrap">
+              <form method="post" action="options.php" enctype="multipart/form-data">  
+			  <?php settings_fields('gs_settings'); ?>  
+			  <?php do_settings_sections(__FILE__); ?>  <p class="submit">
+              <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />  </p>
+              </form>
+              <div>
+              
+<?php
+  
+ }
+
+// PLUGIN ACTION LINKS ///////////////////////////////////////////////
+add_filter('plugin_action_links', 'gs_plugin_action_links', 10, 2);
+
+function gs_plugin_action_links($links, $file) {
+    static $this_plugin;
+
+    if (!$this_plugin) {
+        $this_plugin = plugin_basename(__FILE__);
+    }
+
+    if ($file == $this_plugin) {
+        // The "page" query string value must be equal to the slug
+        // of the Settings admin page we defined earlier, which in
+        // this case equals "myplugin-settings".
+        $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gs-settings">Settings</a>';
+        array_unshift($links, $settings_link);
+    }	
+
+    return $links;
+}
+// PLUGIN OPTIONS
+add_action('admin_init', 'gs_options_init' );
+
+function gs_options_init(){
+
+	register_setting( 'gs_settings', 'gs_settings' );
+   
+	add_settings_section('main_section', 'Main Settings', 'section_cb', __FILE__);
+    add_settings_field('issn', 'ISSN:', 'issn_setting', __FILE__, 'main_section');
+    add_settings_field('publisher', 'Publisher:', 'publisher_setting', __FILE__, 'main_section');
+    add_settings_field('language', 'Language:', 'language_setting', __FILE__, 'main_section');
+
+	add_settings_section('options_section', 'Option Settings', 'section_cb', __FILE__);
+    add_settings_field('download_link', 'Download Link:', 'download_link_setting', __FILE__, 'options_section');
+
+}
+function section_cb () {}
+
+function issn_setting() {  
+	$options = (array) get_option('gs_settings');  
+	$issn =  $options['issn'];
+	echo "<input name='gs_settings[issn]' type='text' size=9 maxlength=9 value='{$issn}' />";
+	
+}
+function publisher_setting() {  
+	$options   = (array) get_option('gs_settings');  
+	$publisher =  $options['publisher'];
+	echo "<input name='gs_settings[publisher]' type='text' size=25 value='{$publisher}' />";
+	
+}
+function language_setting() {  
+	$options  = (array) get_option('gs_settings');  
+	$language =  $options['language'];
+	echo "<input name='gs_settings[language]' size=2 maxlength=2 type='text' value='{$language}' />";
+	
+}
+
+function download_link_setting() {  
+	$options  = (array) get_option('gs_settings');  
+	$download_link =  $options['download_link'];
+	echo "<input name='gs_settings[download_link]' type='radio' value='{$download_link}' /> Citation Link </a>";
+	
+}
+
+function gs_get_output_dir() {
+	$upload_dir = wp_upload_dir();
+	$fname = sprintf("%s%s/",$upload_dir['basedir'], $upload_dir['subdir']); 
+	return $fname;
+}
+function gs_get_ris_filename($postid) {
+   global $post;
+	$ris_filename = $post->ID . '.ris';
+	return $ris_filename;
+}
+// SHORTCODES //
+
+add_shortcode("gs-citelink", "gs_citelink");
+
+function gs_citelink($post) {	
+//	$uploads 	= 	wp_upload_dir();
+//	$upload_dir = ( $uploads['url'] );
+//	$upload_dir = ( $uploads['baseurl'] . $uploads['subdir'] );
+//    $upload_dir = "http://www.sociology.org/wp-content/blogs.dir/1/files";    
+//  	$citelink	=	sprintf("<a href=\"%s/%s\">%s</a>",$upload_dir, gs_get_ris_filename($postid),"Download Citation");
+ 
+    $citelink =  sprintf("<A href=\"http://www.sociology.org/wp-admin/options-general.php?page=gs-settings&act=generate_ris&post_id=%s\">Download Citation</a>",$post->post_id);       
+
+//  	$citelink	=	sprintf("<a href=\"http://%s/%s\">%s</a>",$upload_dir, gs_get_ris_filename($postid),"Download Citation");
+    //return $citelink;
+}
+
+function generate_ris_files () {
+	 global $wpdb;
+	 $args = array(
+	 	'post_type'        => 'post'
+		);
+
+		$sql="SELECT id, post_author, post_excerpt,post_title,post_date,guid FROM $wpdb->posts where post_type='post' and post_status='publish'";
+        $posts = $wpdb->get_results($sql);
+	foreach ( $posts as $post ) {
+		$ris = gs_get_ris($post);
+		echo $ris;exit;
+	//	$filename 	= sprintf("%s%s",gs_get_output_dir() , gs_get_ris_filename());
+	//	file_put_contents($filename, $ris);
+		
+	}
+   
+  
+
+	
+}
+//////////////////////////////////////////////////////////////////////////////////
+//
+//          ADMINISTRATION FUNCTIONS
+//
+///////////////////////////////////////////////////
+
+function activate() {
+
+    // Activation code here...
+	//generate_ris_files();
+}
+register_activation_hook( __FILE__, 'myplugin_activate' );
+
+?> 
