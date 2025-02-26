@@ -1,0 +1,220 @@
+.em-element {
+	* {
+		margin: 0;
+		box-sizing: border-box;
+	}
+	position: relative;
+	// overflow: hidden;
+	h1, h2, h3, h4, h5, h6, p {
+		margin: 0 !important;
+		padding: 0;
+	}
+	.em-col-element, .em-icon-list-items, .em-heading-title, .em-text, .em-button-wrapper, .em-image-wrapper {
+		position: relative;
+	}
+	.em-heading-title{
+		a{
+			text-decoration: none !important;
+		}
+	}
+	video, iframe {
+		max-width: 100%;
+		width: 100%;
+		margin: 0;
+		line-height: 1;
+		border: none;
+	}
+	.em-background-video-container {
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+		overflow: hidden;
+		z-index: 0;
+		direction: ltr;
+		-webkit-transition: opacity 1s;
+		-o-transition: opacity 1s;
+		transition: opacity 1s;
+		pointer-events: none;
+		.em-background-video-embed,
+		.em-background-video-hosted {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.em-background-video-embed {
+			max-width: none;
+			width: 1366px;
+			height: 768.375px;
+			object-fit: cover;
+		}
+		.em-background-video-hosted {
+			object-fit: cover;
+		}
+	}
+	.em-background-slideshow, .em-background-slideshow__slide__image {
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+		.splide,
+		.splide__track {
+			position: relative;
+			width: 100%;
+			height: 100% !important;
+			.splide__slide {
+				height: 100% !important;
+				.em-ken-burns {
+					-webkit-transition-property: -webkit-transform;
+					transition-property: -webkit-transform;
+					-o-transition-property: transform;
+					transition-property: transform;
+					transition-property: transform, -webkit-transform;
+					-webkit-transition-duration: 10s;
+					-o-transition-duration: 10s;
+					transition-duration: 10s;
+					-webkit-transition-timing-function: linear;
+					-o-transition-timing-function: linear;
+					transition-timing-function: linear;
+				}
+				.em-ken-burns--out {
+					-webkit-transform: scale(1.3);
+					-ms-transform: scale(1.3);
+					transform: scale(1.3);
+				}
+			}
+		}
+	} 
+	.em-background-overlay {
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		position: absolute; 
+		opacity: 0.43;
+		transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+	} 
+	.em-icon-wrapper {
+		.em-icon {
+			display: inline-block;
+			position: relative;
+			line-height: 1;
+			font-size: 50px;
+			text-align: center;
+			transition: all 0.3s;
+			i,
+			svg {
+				transform: rotate(0deg);
+				width: 1em;
+				height: 1em;
+				position: relative;
+				display: block;
+			}
+		}
+	} 
+	 
+	figure {
+		margin: 0;
+		.em-image {
+			width: 100%;
+		}
+		.em-caption-text {
+			margin: 0.8075em 0;
+		}
+	}
+	.em-slider {
+		.splide__arrow--prev {
+			justify-content: start;
+		}
+		.splide__arrow--next {
+			justify-content: end;
+		}
+		.em-slider-wrapper {
+			text-align: center;
+			.em-image {
+				width: 100%;
+			}
+		}
+	} 
+	.em-button {
+		padding: 12px 24px;
+		display: inline-block;
+		text-align: center;
+		text-decoration: none;
+		border-radius: 3px;
+		line-height: normal;
+		font-size: 15px;
+		.em-button-content {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.em-button-icon {
+				// margin-right: 5px;
+				svg {
+					width: 1em;
+					height: auto;
+					fill: #ffffff;
+				}
+			}
+		}
+	} 
+	.em-video {
+		position: relative;
+		height: 0;
+		background-color: black;
+		iframe {
+			position: absolute;
+			height: 100%;
+			top: 0;
+			left: 0;
+			padding: 0;
+		}
+		video {
+			object-fit: cover;
+		}
+		.em-image-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: 50%;
+			cursor: pointer;
+			text-align: center;
+			> div {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				> i { 
+					opacity: 0.8;
+					transition: all 0.5s;
+					font-style: normal;
+					&:hover {
+						opacity: 1;
+					}
+				}
+				svg { 
+					height: auto; 
+				}
+			}
+		}
+	}
+	@media (max-width: 600px) {
+		.em-hidden-mobile {
+			display: none;
+		}
+	}
+}
+.block-editor-block-icon svg.block-icon {
+	min-width: 35px;
+	min-height: 35px;
+	max-width: 39px;
+	max-height: 39px;
+}

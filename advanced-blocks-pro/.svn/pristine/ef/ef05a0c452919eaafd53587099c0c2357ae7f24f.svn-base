@@ -1,0 +1,80 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "advanced-blocks-pro/star-rating",
+	"version": "0.1.0",
+	"title": "Star Rating",
+	"category": "advanced-blocks-pro",
+	"description": "Elevate your content's credibility with the Advanced Star Rating plugin. Beautifully display ratings, testimonials, and other types of reviews with an elegant and sophisticated star-rating system.",
+	"supports": {
+		"html": false,
+		"advancedBlocksPro": {
+			"title":{
+				"text": {
+					"field": {
+						"responsive": {
+							"desktop": "Star Rating"
+						}
+					}
+				},
+				"_font":true,
+				"font":{
+					"_except":["align","spacing"]
+				}
+			},
+			"wrapper": {
+				"_background": true
+			}
+		}
+	},
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		},
+		"rating": {
+			"type": "number",
+			"default": 100
+		},
+		"rating_icon": {
+			"type": "string",
+			"default": "font_awesome"
+		},
+		"icon_type": {
+			"type": "string",
+			"default": "fill"
+		},
+		"alignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"icon_size": {
+			"type": "number",
+			"default": 15
+		},
+		"icon_spacing": {
+			"type": "number",
+			"default": 0
+		},
+		"color": {
+			"type": "string",
+			"default": "#d8bfa0"
+		},
+		"unmarked_color": {
+			"type": "string",
+			"default": "#da862f"
+		},
+		"title_toggle":{
+			"type":"boolean",
+			"default":false
+		},
+		"title_gap": {
+			"type": "number",
+			"default": 5
+		}
+	},
+	"textdomain": "advanced-blocks-pro",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"script": "file:script.js"
+}

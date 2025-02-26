@@ -1,0 +1,98 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.block-list-appender {
+	width: 100%;
+}
+
+.wp-block-columns.is-not-stacked-on-mobile > .wp-block-column {
+	flex-basis: 0;
+	flex-grow: 1;
+}
+//
+.em-column-wrapper {
+	flex-basis: 0;
+	flex-grow: 1;
+}
+.wp-block-advanced-blocks-pro-section {
+	.em-column-wrapper[style*="flex-basis"] {
+		flex-grow: 0;
+	}
+}
+//
+.wp-block-columns.is-not-stacked-on-mobile
+	> .wp-block-column[style*="flex-basis"] {
+	flex-grow: 0;
+}
+
+@media (min-width: 782px) {
+	.wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+		flex-basis: 0;
+		flex-grow: 1;
+	}
+}
+
+// block-editor-block-list__block wp-block is-layout-constrained has-global-padding block-core-columns is-selected wp-block-column block-editor-block-list__layout
+// block-editor-block-list__block wp-block is-layout-flow block-core-columns is-selected wp-block-column block-editor-block-list__layout
+
+.wp-block-advanced-blocks-pro-section {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	word-break: break-all;
+	transition: background 0.5s, border 0.3s, border-radius 0.3s;
+	padding: 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+	.em-columns-container {
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		.em-column-wrapper {
+			position: relative;
+			min-height: 1px;
+			display: flex;
+			> .em-inner-block,
+			> .block-editor-inner-blocks,
+			> .block-editor-block-list__layout {
+				position: relative;
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				> * {
+					width: 100%;
+				}
+				> .block-editor-inner-blocks {
+                    position: relative;
+						width: 100%;
+						display: flex;
+						flex-wrap: wrap;
+					> .block-editor-block-list__layout {
+						position: relative;
+						width: 100%;
+						display: flex;
+						flex-wrap: wrap;
+						align-content: flex-start;
+						> * {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.em-columns-container {
+		flex-wrap: wrap;
+	}
+	.em-column-wrapper { 
+		flex-basis: 100% !important;
+	}
+}

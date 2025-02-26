@@ -1,0 +1,59 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.em-icon-list-items {
+	list-style-type: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	.em-icon-list-item {
+		display: flex;
+		// justify-content: flex-start;
+		align-items: center;
+		position: relative;
+		line-height: normal;
+		a {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.em-icon-list-icon {
+			display: flex;
+			// display: -webkit-box;
+			text-align: center;
+			i,svg {
+				width: 1.25em;
+			}
+		}
+		.em-icon-list-text {
+			padding-left: 9px;
+		}
+		&:not(:last-child) {
+			&:after {
+				content: "";
+				right: inherit !important;
+				left: inherit !important;
+				bottom: 0 !important;
+				top: inherit !important;
+			}
+		}
+		&:after {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+	}
+}
+.em-icon-list-items.em-inline-items {
+	display: flex;
+	flex-wrap: wrap;
+	.em-icon-list-item {
+		&:after {
+			width: auto;
+			position: relative;
+			height: 100%;
+		}
+	}
+}

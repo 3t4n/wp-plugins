@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "advanced-blocks-pro/form-field-select",
+  "version": "0.1.0",
+  "title": "Form Field Select",
+  "parent": [
+    "advanced-blocks-pro/form-field"
+  ],
+  "category": "advanced-blocks-pro",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "supports": {
+    "html": false,
+    "advancedBlocksPro": {}
+  },
+  "attributes": {
+    "blockId": {
+      "type": "string"
+    },
+    "field_label": {
+      "type": "string",
+      "default": "Label"
+    },
+    "field_value": {
+      "type": "string",
+      "default": "label"
+    },
+    "field_name": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    }
+  },
+  "usesContext": [
+    "field_type",
+    "field_name",
+    "required_toggle"
+  ],
+  "textdomain": "advanced-blocks-pro",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "dynamic": "option_block"
+}

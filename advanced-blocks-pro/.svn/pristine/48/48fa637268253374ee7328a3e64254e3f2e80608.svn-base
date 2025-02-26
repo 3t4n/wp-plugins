@@ -1,0 +1,189 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "advanced-blocks-pro/infobox",
+  "version": "0.1.0",
+  "title": "Info Box",
+  "category": "advanced-blocks-pro",
+  "description": "Transform your information with the Advanced Infobox plugin. Add eye-catching and interactive elements like images, icons, videos, headings, texts, icon lists, call-to-action buttons and more, creating dynamic and engaging information blocks.",
+  "supports": {
+    "html": false,
+    "advancedBlocksPro": {
+      "choose": {
+        "media": {
+          "image": {},
+          "height": {}
+        },
+        "icon": {
+          "all": {}
+        },
+        "video": {
+          "all": {}
+        }
+      },
+      "title": {
+        "text": {
+          "field": {
+            "responsive": {
+              "desktop": "This is the heading​"
+            }
+          },
+          "link": {
+            "responsive": {
+              "desktop": ""
+            }
+          },
+          "tag": {
+            "responsive": {
+              "desktop": "h3"
+            }
+          }
+        },
+        "_font": true,
+        "font": {
+          "_except": [
+            "align"
+          ],
+          "stroke_width": {
+            "responsive": {
+              "all": {}
+            }
+          }
+        }
+      },
+      "subTitle": {
+        "text": {
+          "field": {
+            "responsive": {
+              "desktop": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.​"
+            }
+          },
+          "tag": {
+            "responsive": {
+              "desktop": "p"
+            }
+          }
+        },
+        "_font": true,
+        "font": {
+          "_except": [
+            "align"
+          ],
+          "stroke_width": {
+            "responsive": {
+              "all": {}
+            }
+          }
+        }
+      },
+      "button": {
+        "button": {
+          "_except": [],
+          "background_color": {
+            "responsive": {
+              "all": {}
+            },
+            "hover": {
+              "all": {}
+            }
+          }
+        },
+        "_font": true,
+        "font": {
+          "_except": [
+            "align",
+            "spacing",
+            "blendmode"
+          ],
+          "stroke_width": {
+            "responsive": {
+              "all": {}
+            }
+          },
+          "color": {
+            "hover": {
+              "desktop": ""
+            }
+          }
+        },
+        "shadow": {
+          "_except": [
+            "spread",
+            "type"
+          ]
+        },
+        "spacing": {
+          "padding": {
+            "responsive": {
+              "all": {}
+            }
+          }
+        },
+        "border": {
+          "all": {}
+        }
+      },
+      "wrapper": {
+        "_background": true
+      }
+    }
+  },
+  "attributes": {
+    "blockId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "default": "image"
+    },
+    "img_pos": {
+      "type": "string",
+      "default": "center"
+    },
+    "align": {
+      "type": "string",
+      "default": "center"
+    },
+    "vertical_align": {
+      "type": "string",
+      "default": "flex-start"
+    },
+    "image_spacing": {
+      "type": "number",
+      "default": 5
+    },
+    "icon_list_spacing": {
+      "type": "number",
+      "default": 5
+    },
+    "width": {
+      "type": "number",
+      "default": 30
+    },
+    "media": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "boolean",
+      "default": true
+    },
+    "icon_list": {
+      "type": "boolean",
+      "default": false
+    },
+    "subTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "button": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "advanced-blocks-pro",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "script": "file:script.js"
+}

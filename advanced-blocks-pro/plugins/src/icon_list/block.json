@@ -1,0 +1,94 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "advanced-blocks-pro/icon-list",
+	"version": "0.1.0",
+	"title": "Icon List",
+	"category": "advanced-blocks-pro",
+	"description": "Transform your lists into visually appealing displays with the Advanced Icon List plugin. Showcase unique and attention-grabbing SVG or icon bullets for each item, elevating your content and making it stand out.",
+	"supports": {
+		"html": false,
+		"advancedBlocksPro": {
+			"icon_List": {
+				"list": {
+					"_except": [],
+					"space_between": {
+						"responsive": {
+							"all": {}
+						}
+					},
+					"align": {
+						"responsive": {
+							"all": {}
+						}
+					}
+				},
+				"_font": true,
+				"font": {
+					"_except": ["align", "spacing","stroke_width","stroke_color","blendmode"],
+					"color": {
+						"responsive": {
+							"desktop": "#000000"
+						},
+						"hover": {
+							"desktop": ""
+						}
+					}
+				},
+				"shadow": {
+					"_except": ["type", "spread"]
+				},
+				"icon": {
+					"align": {
+						"responsive": {
+							"all": {}
+						}
+					},
+					"size": {
+						"responsive": {
+							"all": {}
+						}
+					},
+					"color": {
+						"hover": {
+							"desktop": ""
+						}
+					}
+				}
+			},
+			"wrapper": {
+				"_background": true
+			}
+		}
+	},
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		},
+		"form_name": {
+			"type": "string",
+			"default": "New Form"
+		},
+		"input_size": {
+			"type": "string",
+			"default": "sm"
+		},
+		"label_toggle": {
+			"type": "boolean",
+			"default": true
+		},
+		"columns_gap": {
+			"type": "number",
+			"default": 10
+		},
+		"rows_gap": {
+			"type": "number",
+			"default": 10
+		}
+	},
+	"textdomain": "advanced-blocks-pro",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"script": "file:script.js"
+}

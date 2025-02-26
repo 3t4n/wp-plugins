@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "advanced-blocks-pro/slider",
+	"version": "0.1.0",
+	"title": "Slider",
+	"category": "advanced-blocks-pro",
+	"description": "Transform your website with mesmerizing image slideshows. The Image Slider block in the Gutenberg plugin makes it effortless to showcase your photos in an eye-catching and dynamic manner. Personalize your slider with customizable options like navigation controls, transitions, and more",
+	"supports": {
+		"html": false,
+		"advancedBlocksPro": {
+			"slider": {
+				"slides":{
+					"all":{}
+				},
+				"border":{
+					"all":{
+						"responsive":{
+							"all":{}
+						}
+					}
+				},	
+				"_font": true,
+				"font": {
+					"_except": ["spacing"],
+					"align":{
+						"responsive":{
+							"all":{}
+						}
+					},
+					"stroke_width": {
+						"responsive": {
+							"all": {}
+						}
+					}
+				}
+			},  
+			"wrapper": {
+				"_background": true
+			}
+		}
+	},
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		 }
+	},
+	"textdomain": "advanced-blocks-pro",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"script": "file:script.js"
+}

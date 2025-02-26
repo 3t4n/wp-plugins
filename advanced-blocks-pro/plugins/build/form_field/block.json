@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "advanced-blocks-pro/form-field",
+  "version": "0.1.0",
+  "title": "Form Field",
+  "parent": [
+    "advanced-blocks-pro/form"
+  ],
+  "category": "advanced-blocks-pro",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "supports": {
+    "html": false,
+    "advancedBlocksPro": {}
+  },
+  "attributes": {
+    "blockId": {
+      "type": "string"
+    },
+    "field_type": {
+      "type": "string",
+      "default": "text"
+    },
+    "inline_list": {
+      "type": "boolean",
+      "default": true
+    },
+    "field_label": {
+      "type": "string",
+      "default": "Label"
+    },
+    "field_placeholder": {
+      "type": "string",
+      "default": "New Form"
+    },
+    "field_name": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "required_toggle": {
+      "type": "boolean",
+      "default": false
+    },
+    "field_row": {
+      "type": "number",
+      "default": 4
+    },
+    "required_text": {
+      "type": "string",
+      "default": "*"
+    },
+    "column_width": {
+      "type": "string",
+      "default": "100"
+    },
+    "label_toggle": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "providesContext": {
+    "field_type": "field_type",
+    "field_name": "field_name",
+    "required_toggle": "required_toggle"
+  },
+  "textdomain": "advanced-blocks-pro",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

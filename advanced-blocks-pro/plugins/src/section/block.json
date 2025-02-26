@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "advanced-blocks-pro/section",
+	"version": "0.1.0",
+	"title": "Section",
+	"category": "advanced-blocks-pro",
+	"description": "Bring structure to your website building with the Advanced Outer Wrap Section plugin. Easily add and organize blocks within a customizable section, complete with adjustable layout options like background, border, and spacing.",
+	"supports": {
+		"html": false,
+		"advancedBlocksPro": { 
+			"setting":{
+				"section":{
+					"_except":[]
+				}
+			},
+			"wrapper": {
+				"_background": true
+			}
+		}
+	},
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		},
+		"columns": {
+			"type": "number",
+			"default": 2
+		}
+	},
+	"textdomain": "advanced-blocks-pro",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"script": "file:script.js"
+}
