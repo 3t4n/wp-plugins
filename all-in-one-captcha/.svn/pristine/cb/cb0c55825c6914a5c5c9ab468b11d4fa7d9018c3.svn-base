@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'all-in-one-captcha/all-in-one-captcha',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '61cbfab2a0287aae7fdc4ce605cdb8341a051e1f',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'all-in-one-captcha/all-in-one-captcha' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '61cbfab2a0287aae7fdc4ce605cdb8341a051e1f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'ernilambar/wp-admin-notice' => array(
+            'pretty_version' => '2.0.1',
+            'version' => '2.0.1.0',
+            'reference' => '1649810056fe4072ab470973c61c33182ae7c4aa',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ernilambar/wp-admin-notice',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'google/recaptcha' => array(
+            'pretty_version' => '1.2.4',
+            'version' => '1.2.4.0',
+            'reference' => '614f25a9038be4f3f2da7cbfd778dc5b357d2419',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/recaptcha',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
