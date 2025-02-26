@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){for(var t=document.querySelectorAll("pre"),e=0;e<t.length;e++)t[e].classList.add("prettyprint","linenums");PR.prettyPrint()},!1);
