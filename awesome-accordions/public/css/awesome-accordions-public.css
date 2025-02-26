@@ -1,0 +1,166 @@
+/**
+ * Style for the toggle and panel buttons
+ */
+.awesome-accordion,
+.aws-controls {
+  list-style-type: none;
+  padding-left: 0;
+  /**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+  /**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+  /**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */ }
+  .awesome-accordion button,
+  .aws-controls button {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: inherit;
+    margin: 0;
+    border-radius: 0; }
+  .awesome-accordion button,
+  .aws-controls button {
+    overflow: visible; }
+  .awesome-accordion button,
+  .aws-controls button {
+    text-transform: none; }
+  .awesome-accordion button,
+  .awesome-accordion [type="button"],
+  .aws-controls button,
+  .aws-controls [type="button"] {
+    -webkit-appearance: button; }
+  .awesome-accordion [type="button"],
+  .awesome-accordion .awesome-accordion-btn,
+  .aws-controls [type="button"],
+  .aws-controls .awesome-accordion-btn {
+    width: 100%;
+    text-align: left;
+    padding: 16px 16px 16px 48px;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: #cccccc;
+    background: transparent;
+    color: #666666;
+    text-decoration: none; }
+    .awesome-accordion [type="button"]:hover,
+    .awesome-accordion .awesome-accordion-btn:hover,
+    .aws-controls [type="button"]:hover,
+    .aws-controls .awesome-accordion-btn:hover {
+      color: black;
+      text-decoration: underline;
+      border-color: #cccccc;
+      background-color: transparent; }
+    .awesome-accordion [type="button"]:focus,
+    .awesome-accordion .awesome-accordion-btn:focus,
+    .aws-controls [type="button"]:focus,
+    .aws-controls .awesome-accordion-btn:focus {
+      color: black;
+      text-decoration: underline;
+      background: transparent;
+      border-color: #666666; }
+  .awesome-accordion .awesome-accordion-item.closed .awesome-accordion-btn,
+  .aws-controls .awesome-accordion-item.closed .awesome-accordion-btn {
+    border-bottom-width: 0; }
+  .awesome-accordion .awesome-accordion-item.closed:last-of-type .awesome-accordion-btn,
+  .aws-controls .awesome-accordion-item.closed:last-of-type .awesome-accordion-btn {
+    border-bottom-width: 1px; }
+
+.aws-acc-field {
+  margin-top: 16px; }
+  .aws-acc-field table.form-table tr th {
+    width: 110px; }
+
+.aws-controls {
+  text-align: right;
+  margin-bottom: 16px;
+  list-style-type: none; }
+  .aws-controls .control-button {
+    display: inline; }
+  .aws-controls button {
+    padding: 4px 8px;
+    font-size: 0.9em; }
+    .aws-controls button:hover, .aws-controls button:focus {
+      background: #999999; }
+    .aws-controls button:focus {
+      outline: 1px solid #fff;
+      outline-offset: -4px; }
+    .aws-controls button:active {
+      transform: scale(0.99); }
+  .aws-controls [aria-pressed="true"] {
+    background: #333333; }
+
+.entry-content .awesome-accordion {
+  padding-left: 0;
+  list-style-type: none; }
+
+.awesome-accordion .awesome-accordion-item {
+  margin: 0;
+  padding: 0; }
+  .awesome-accordion .awesome-accordion-item .awesome-accordion-heading {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    line-height: inherit; }
+    .awesome-accordion .awesome-accordion-item .awesome-accordion-heading:before {
+      content: '-';
+      font-size: inherit;
+      line-height: inherit;
+      color: black;
+      display: block;
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      pointer-events: none;
+      margin: auto;
+      background: transparent; }
+  .awesome-accordion .awesome-accordion-item.closed .awesome-accordion-heading:before {
+    content: '+';
+    color: #666666; }
+  .awesome-accordion .awesome-accordion-item.closed .awesome-accordion-panel {
+    padding: 0 16px; }
+  .awesome-accordion .awesome-accordion-item.opened .awesome-accordion-panel {
+    max-height: 400px; }
+  .awesome-accordion .awesome-accordion-item .awesome-accordion-panel {
+    transition: 0.15s linear;
+    max-height: 0;
+    overflow: auto;
+    padding: 16px; }
+    .awesome-accordion .awesome-accordion-item .awesome-accordion-panel p {
+      font-size: inherit;
+      line-height: inherit; }
+.awesome-accordion input[type='checkbox'].no-js-action {
+  display: none; }
+
+.awesome-accordion.no-js li.awesome-accordion-item {
+  overflow: hidden; }
+.awesome-accordion.no-js .awesome-accordion-panel {
+  max-height: 400px; }
+.awesome-accordion.no-js input[type='checkbox'].no-js-action {
+  display: block;
+  position: relative;
+  z-index: 1;
+  float: left;
+  width: 100%;
+  height: 50px;
+  margin-bottom: -50px;
+  cursor: pointer;
+  opacity: 0; }
+.awesome-accordion.no-js input[type='checkbox']:checked ~ .awesome-accordion-panel {
+  position: relative;
+  z-index: 0;
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: 0.25s linear;
+  padding: 0; }
+.awesome-accordion.no-js .awesome-accordion-panel h2 {
+  margin-bottom: -65px; }
+
+/*# sourceMappingURL=awesome-accordions-public.css.map */

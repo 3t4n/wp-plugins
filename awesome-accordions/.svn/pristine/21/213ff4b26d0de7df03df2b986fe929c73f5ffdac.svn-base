@@ -1,0 +1,97 @@
+/**
+ * Style for the toggle and panel buttons
+ */
+
+.awesome-accordion,
+.aws-controls {
+
+  list-style-type:none;
+  padding-left:0;
+
+  button  {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: inherit;
+    margin: 0;
+    border-radius: 0;
+
+  }
+
+  /**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+
+  button {
+    overflow: visible;
+  }
+
+  /**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+
+  button {
+    text-transform: none;
+  }
+
+  /**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+
+  button,
+  [type="button"] {
+    -webkit-appearance: button;
+  }
+
+  [type="button"],
+  .awesome-accordion-btn { //style for the panel button, can be overwritten by settings in the plugin
+    width: 100%;
+    text-align: left;
+    padding: 16px 16px 16px 48px;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: $color-gray-20;
+    background: transparent;
+    color: $color-gray-60;
+    text-decoration:none;
+
+    &:hover {
+      color:$color-black;
+      text-decoration:underline;
+      border-color:$color-gray-20;
+      background-color:transparent;
+    }
+
+    &:focus { //helps to make clear which panel is in focus for people navigating by keyboard
+      color:$color-black;
+      text-decoration:underline;
+      background: transparent;
+      border-color: $color-gray-60;
+    }
+
+  }
+  .awesome-accordion-item {
+
+    &.closed {
+
+      .awesome-accordion-btn {
+        border-bottom-width: 0;
+      }
+      &:last-of-type .awesome-accordion-btn { //adds a bottom border for when the panel is closed
+        border-bottom-width: 1px;
+      }
+
+    }
+
+  }
+
+}
+
+.aws-acc-field{
+  margin-top: 16px;
+  table.form-table tr th{
+    width: 110px;
+  }
+}
