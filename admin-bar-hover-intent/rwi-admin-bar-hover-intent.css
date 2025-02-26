@@ -1,0 +1,40 @@
+/**
+ * CSS Stylesheet: RWI Admin Bar Hoverintent 
+ * This stylesheet adds the tweaks needed for hoverintent to work.
+ * @package RWI Admin Bar Hoverintent
+ */
+
+/* Removes the default hover/dropdown behavior */
+body.js-on #wpadminbar .quicklinks li:hover > ul,
+body.js-on #wpadminbar .quicklinks li.hover > ul {
+	display: none;
+}
+/* Returns the default behavior for second level and beyond */
+body.js-on #wpadminbar .quicklinks li:hover li:hover > ul,
+body.js-on #wpadminbar .quicklinks li.hover li.hover > ul {
+	display: block;
+}
+
+/* Adds the new styles for hoverintent to work */
+body.js-on #wpadminbar .quicklinks li.show > ul {
+	display: block;
+}
+
+/* Disables the hover color until hoverIntent says so */
+body.js-on #wpadminbar .quicklinks li:hover,
+#wpadminbar .quicklinks .selected {
+	background: none;
+}
+#wpadminbar .quicklinks > ul > li:hover > a {
+	border-left: 1px solid gray;
+}
+
+/* Brings it back, also adds back default for second level */
+body.js-on #wpadminbar .quicklinks li.show,
+body.js-on #wpadminbar .quicklinks li.show li.hover,
+body.js-on #wpadminbar .quicklinks li.show li:hover {
+	background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#555), to(#3E3E3E));
+}
+#wpadminbar .quicklinks > ul > li.show > a {
+	border-left-color: #707070;
+}
