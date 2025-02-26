@@ -1,0 +1,129 @@
+html, body{
+	margin:0;
+	padding:0;
+	text-align:center;
+	font-family: Tahoma, Verdana, Arial;
+	color: #ccc;
+	/*background-image:url(bg.gif);*/
+	background-color: #FFFFFF;
+	background-repeat:repeat-x;
+	font-size:11px;
+} 
+h1 {
+	font-size: 14px;
+}
+img{
+	border: none;
+}
+img a{text-decoration:none}
+
+#pagewidth{
+	width:1100px;
+	margin-left:auto;
+	margin-right:auto;
+} 
+ 
+#header{
+	position:relative;
+	height:auto;
+	width:1025px;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 0;
+} 
+ 
+#leftcol{
+	width:165px;
+	min-height: 541px;
+	height: auto;
+	float:left;
+	position:relative;
+	margin:0;
+	padding:0;
+ }
+ *html #leftcol {
+ 	height: 400px;
+ }
+
+#twocols{
+	width:910px;
+	min-height: 400px;
+	height: auto;
+	float:right;
+	position:relative;
+	margin:0;
+	padding:0;
+  }
+  
+#rightcol{
+	width:165px; 
+ 	float:right;
+	min-height: 541px;
+	height: auto; 
+	margin:0;
+	padding:0;
+ }
+ 
+ *html #rightcol{
+ 	height: 400px;
+ }
+ 
+#maincol{
+	float: left;
+	width: 735px;
+	margin:0;
+	padding:0;
+ }
+
+#maincol2{
+	width: auto;
+	margin: 0;
+	padding: 0;
+ }
+ #maincol2 img, #maincol img  {
+ 	border: solid thick #ffffff;
+	
+ }
+#footer{
+	height:60px;
+	clear:both;
+	text-align:center;
+	margin:0;
+	padding:0;
+ } 
+ 
+ #footer2 {
+ 	float:left;
+	clear: left;
+ }
+
+ 
+ /* *** Float containers fix:
+ http://www.csscreator.com/attributes/containedfloat.php *** */ 
+.clearfix:after {
+ content: "."; 
+ display: block; 
+ height: 0; 
+ clear: both; 
+ visibility: hidden;
+ }
+ 
+
+.clearfix{display: inline-table;}
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */  
+
+
+ 
+ /*printer styles*/ 
+ @media print{ 
+/*hide the left column when printing*/ 
+#leftcol{display:none;} 
+
+/*hide the right column when printing*/ 
+#rightcol{display:none;} 
+#twocols, #maincol{width:100%; float:none;}
+}
