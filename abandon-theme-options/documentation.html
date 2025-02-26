@@ -1,0 +1,330 @@
+<div id="custom_doc">
+	<h2>Abban's Custom Options Plugin Documentation</h2>
+	<p>Hi, you've just installed Abban's theme options plugin, what you're looking at is the documentation for Web Designers and Web Developers. This documentation will detail exactly how to set it up, its pretty easy to do and you should be up and running in about 10 minutes.</p>
+	
+	<h3>Overview</h3>
+	
+	<p>OK, what does is it lets you easily add the most common template options you use when designing and developing a new theme. The current options is provides for are:</p>
+	
+	<ol id="doc_toc">
+		<li><strong><a href="#style">Theme Style Options</a></strong> <span>What I mean by this is you might want to give the user a choice of multiple colour schemes for the theme. This lets you add as many or as few as you like.</span></li>
+		<li><strong><a href="#layout">Theme Layout Options</a></strong> <span>You might want to let the user choose between a few different layouts such as the sidebar on the left or the sidebar on the right. As with the colour options you can add as many as you like.</span></li>
+		<li><strong><a href="#editor">Custom Editor Styles</a></strong> <span>This is pretty smart, it adds a style dropdown on the WordPress text editor that you can add custom styles to. When the user selects some text and then selects the style they want from the dropdown it wraps that text in a span with the class you specified. NO MORE SHORTCODES!</span></li>
+		<li><strong><a href="#social">Adding &amp; Removing Social Networks</a></strong> <span>On the WordPress user profile page there are a few social network text boxes that let the user enter their details, for some reason they don't include Twitter or facebook in there... what this option does is let you remove the useless ones like AIM and add in new ones. You can add any new ones you want and then you can print them out in as social network icons in your theme.</span></li>
+		<li><strong><a href="#tracking">Site Tracking Code</a></strong> <span>This is just a textbox to let the user enter their Google Analytics code or whatever.</span></li>
+		<li><strong><a href="#favicon">Favicon, Apple Icon &amp; Logo</a></strong> <span>This lets the user upload a custom favicon, an Apple Touch icon and a custom logo to the site.</span></li>
+		<li><strong><a href="#boxes">Checkboxes, Input Boxes, Dropdowns and Textareas</a></strong> <span>These features let you add as many checkboxes, input boxes, dropdowns or textareas as you like. You can use it to add various other options that this plugin doesn't cover.</span></li>
+		<li><strong><a href="#ptypes">Custom Post Types &amp; Taxonomies</a></strong> <span>These features let you add as many checkboxes, input boxes or textareas as you like. You can use it to add various other options that this plugin doesn't cover.</span></li>
+		<li><strong><a href="#docs">Custom Documentation</a></strong> <span>This lets you add custom documentation that will replace this page on the users site.</span></li>
+		<li><strong><a href="#fancy">Fancy Admin</a></strong> <span>A fancier style for the admin menu.</span></li>
+	</ol>
+	
+	<p>To get this plugin to work with your theme all you have to do is create a function in your functions.php file like this:</p>
+	
+	<pre class="doc_code">
+//set up the options for Abbans theme options plugin
+function ab_set_options(){
+	global $ab_options_set;
+    $ab_options_set = array();
+}
+add_filter('init','ab_set_options',9,1);
+	</pre>
+	
+	<p>You can call this function anything you like but make sure you hook it to the WordPress init function and give it priority 9. You must declare the variable as a global and call it '$ab_options_set' though as this is how you turn on the options you want to use. I'm going to go through exactly how you set up each type of option in detail adding the code bit by bit. You will then be able to see exactly how it works. Its very easy.</p>
+	
+	<a name="style"></a>
+	<h3>1. Theme Style Options</h3>
+	<p>To add your theme style options you simply add this to your function:</p>
+<pre class="doc_code">
+$styles = array('lightgreen'=>'Light Green', 'darkblue'=>'Dark Blue');
+</pre>
+	<p>You can see it has 2 styles in there, Light Green and Dark Blue. You can add as many as you like. Then you add this snippet into the $ab_options_set array, like this:</p>
+<pre class="doc_code">
+$ab_options_set = array('template_styles'=>$styles);
+</pre>
+	<p>So your whole function should now look like this:</p>
+<pre class="doc_code">
+//set up the options for Abbans theme options plugin
+function ab_set_options(){
+	$styles = array('lightgreen'=>'Light Green', 'darkblue'=>'Dark Blue');
+	
+    $ab_options_set = array('template_styles'=>$styles);
+}
+add_filter('init','ab_set_options',9,1);
+</pre>
+
+<p>This is more or less the method you need to use to add every option. They do change a little depending on the type of option though. A good way to use this option in your theme would be to attach a different stylesheet to it depending on the option picked. You then need to put this into the header:</p>
+
+<pre class="doc_code">
+&lt;?php if(get_option('ab_template_styles')=='lightgreen'){ ?&gt;
+	//YOUR LIGHT GREEN STYLESHEET CODE
+&lt;?php }elseif(get_option('ab_template_styles')=='darkblue'){ ?&gt;
+	//YOUR DARK BLUE STYLESHEET CODE
+&lt;?php } ?&gt;
+</pre>
+	
+	<a name="layout"></a>
+	<h3>2. Theme Layout Options</h3>
+	<p>This works in almost the same way as the Theme Style Options. You need to add the following array with the options you want into the function:</p>
+
+<pre class="doc_code">
+$layout = array('sidebarleft'=>'Sidebar on the left', 'sidebarright'=>'Sidebar on the right');
+</pre>
+	
+	<p>And into the ab_options_set array:</p>
+
+<pre class="doc_code">
+$ab_options_set = array('layout'=>$layout);
+</pre>
+	
+	<p>Your full function with both the Them Style Options and the Theme LAyout Options would look like this:</p>
+	
+<pre class="doc_code">
+//set up the options for Abbans theme options plugin
+function ab_set_options(){
+    $styles = array('lightgreen'=>'Light Green', 'darkblue'=>'Dark Blue');
+    $layout = array('sidebarleft'=>'Sidebar on the left', 'sidebarright'=>'Sidebar on the right');
+	
+    $ab_options_set = array('template_styles'=>$styles,
+                            'layout'=>$layout);
+}
+add_filter('init','ab_set_options',9,1);
+</pre>
+
+	<p>And to use it in your template you would do this:</p>
+	
+<pre class="doc_code">
+&lt;?php if(get_option('ab_layout')=='sidebarleft'){ ?&gt;
+	//CODE FOR SIDEBAR LEFT
+&lt;?php }elseif(get_option('ab_layout')=='sidebarright'){ ?&gt;
+	//CODE FOR SIDEBAR RIGHT
+&lt;?php } ?&gt;
+</pre>
+	
+	<a name="editor"></a>
+	<h3>3. Custom Editor Styles</h3>
+	<p>The Custom Editor Styles are also easy to set up. What you need to to is declare a variable like this:</p>
+	
+<pre class="doc_code">
+$mce_styles='DROPDOWN_NAME=CLASS_NAME';
+</pre>
+
+	<p>DROPDOWN_NAME is the name you want displayed in the WordPress text editor and CLASS_NAME is the name it will give the class. So:</p>
+
+<pre class="doc_code">
+$mce_styles='Tooltip=tooltip';
+</pre>
+	
+	<p>Would show Tooltip in the dropdown menu and then wrap a span class tooltip around what was selected. To add multiple classes to it you simply declare it like:</p>
+
+<pre class="doc_code">
+$mce_styles='Tooltip=tooltip&Second Style=secondstyle';
+</pre>
+	<p>You then need to add it to your ab_option_set array like this:</p>
+	
+<pre class="doc_code">
+$ab_options_set = array('mce_styles'=>$mce_styles);
+</pre>
+	
+	<p>Then all you have to do is write css classes for the custom styles and add them to the themes stylesheet.</p>
+	
+	<a name="social"></a>
+	<h3>4. Add &amp; Remove Social Networking Widgets</h3>
+	<p>This lets you control what social networking fields are on the user profile page for them to enter. You need to add 2 new variables to the function to get this to work, one for adding new networks, one for removing ones you don't want. You add it like this:</p>
+	
+<pre class="doc_code">
+$custom_contact = array('twitter'=>'Twitter','facebook'=>'Facebook');
+$contact_remove = array('yim','aim','jabber');
+</pre>
+	
+	<p>And the following to the array:</p>
+	
+<pre class="doc_code">
+$ab_options_set = array('custom_contact'=>$custom_contact,
+                        'contact_remove'=>$contact_remove);
+</pre>
+	
+	<p>To add new ones you need to provide an array key for them and a display name. To remove them you just need to specify the WP name for them. You will then see that the extra fields are in the profile page and the ones you wanted to remove are gone. You can print them out in your theme like this:</p>
+
+<pre class="doc_code">
+&lt;?php if(get_the_author_meta('twitter')): ?&gt;
+	//SOME TEXT OR A LINK TO AN IMAGE
+&lt;?php } ?&gt;
+</pre>
+	
+	<a name="tracking"></a>
+	<h3>5. Site Tracking Code</h3>
+	<p>Site tracking code is easy to add. All you need to do is add this to the ab_options_set array:</p>
+	
+<pre class="doc_code">
+$ab_options_set = array('tracking'=>true);
+</pre>
+	
+	<p>And it will add a textarea into your custom options page. It then hooks whatever is put in there to the wp_footer() function.</p>
+	
+	<h3>6. Favicon, Apple Icon &amp; Logo</h3>
+	<p>Favicon works similar to the tracking code except it gives you a custom image upload field on the options page. You turn it on like this:</p>
+
+<pre class="doc_code">
+$ab_options_set = array('favicon'=>true, 'apple_icon'=>true, 'logo'=>true);
+</pre>
+	
+	<p>And apply them to the header and body of your theme by adding something like this:</p>
+
+<pre class="doc_code">
+&lt;head&gt;
+    &lt;?php if(get_option('ab_favicon')): ?&gt;
+        &lt;link rel="shortcut icon" href="&lt;?php echo get_option('ab_favicon'); ?&gt;"&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php if(get_option('ab_apple_icon')): ?&gt;
+        &lt;link rel="apple-touch-icon" href="&lt;?php echo get_option('ab_apple_icon'); ?&gt;"&gt;
+    &lt;?php endif; ?&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;?php if(get_option('ab_logo')): ?&gt;
+        &lt;img src="&lt;?php echo get_option('ab_logo'); ?&gt;"&gt;
+    &lt;?php endif; ?&gt;
+</pre>
+	
+	<a name="boxes"></a>
+	<h3>7. Checkboxes, Input Boxes and Textareas</h3>
+	<p>There is functionality built in for allowing you to add as many checkboxes, input boxes and textareas as you like. This will allow you to add the majority of miscellaneous options you need. Checkboxes to turn stuff on and off and inputs and textareas for any bits of text that you can't fit in using built in WordPress functionality. To turn these features on you need to add this to the ab_options_set variable:</p>
+
+<pre class="doc_code">
+$dropdowns['Portfolio Columns'] = array('1_col'=>'1 Column', '2_cols'=>'2 Columns', '3_cols'=>'3 Columns', '4_cols'=>'4 Columns');
+$checkboxes = array('show_photos'=>'Show Photos on front', 'option_2'=>'Option 2');
+$inputs = array('copyright'=>'Copyright text for footer', 'option_3'=>'Option 3');
+$textareas = array('footer_copy'=>'Footer Copy', 'option_4'=>'Option 4');
+$ab_options_set = array('dropdowns'=>$dropdowns,
+						'checkboxes'=>$checkboxes,
+                        'inputs'=>$inputs,
+                        'textareas'=>$textareas);
+</pre>
+	
+	<p>The keys array being set in the checkboxes, inputs and textareas variables is the input name and the values are what appears as the label when they're printed. For dropboxes you need to specify a separate key name for each dropdown box you want. To print them in your theme you need to add 'ab_' to the key for example the 'show_photos' checkbox one would be printed as:</p>
+	
+<pre class="doc_code">
+&lt;?php if(get_option('ab_show_photos')): ?&gt;
+    //DO SOME SHOW PHOTOS STUFF
+&lt;?php endif; ?&gt;
+</pre>
+	
+	<p>And the inputs and textareas such as copyright would be printed as:</p>
+	
+<pre class="doc_code">
+&lt;?php if(get_option('ab_copyright')): ?&gt;
+    &lt;?php echo get_option('ab_copyright'); ?&gt;
+&lt;?php endif; ?&gt;
+</pre>
+	
+	<h4>Grouping form elements</h4>
+	<p>You can also add groups of these options. If, for example, you wanted to group together some options for the layout of a portfolio page you can add something like the following to the ab_options_set array:</p>
+
+<pre class="doc_code">
+$portfoliodropdowns['Dropdown One'] = array('test_dropdown'=>'Test Dropdown');
+$portfolioinputs = array('test_one'=>'Test One');
+$portfoliotextareas = array('test_2'=>'Test Two');
+$portfoliocheckboxes = array('test_three'=>'Test Three');
+$groups[] = array('name'=>'Portfolio Options', 'description'=>'Here is where you can pick your portfolio options.', 'inputs'=>$portfolioinputs, 'textareas'=>$portfoliotextareas, 'checkboxes' => $portfoliocheckboxes, 'dropdowns' => $portfoliodropdowns);
+</pre>
+
+	<p>And add it to the ab_options_set array like this:</p>
+
+<pre class="doc_code">
+$ab_options_set = array('groups'=>$groups);
+</pre>
+
+	<p>It will then display those options in their own separate section on the theme options page of the admin panel, the name being passed is the name of the section and a description will be displayed too if passed. You can then print them in the theme the same way as normal. Remember that the $groups variable is an array containing arrays, so you can add as many groups to it as you like.</p>
+
+	<a name="ptypes"></a>
+	<h3>8. Custom Post Types &amp; Taxonomies</h3>
+	<p>This is probably the most difficult feature of the plugin to set up. This lets you set up as many custom post types as you like. What you need to do is save an array with the post type name as the key into the ab_otions_set variable. In this array you set up the various options. I'm going to set up a portfolio post type by adding the following code:</p>
+
+<pre class="doc_code">
+$supports = array('title', 'editor', 'custom-fields', 'revisions', 'excerpt', 'thumbnail', 'comments');
+$post_types['Portfolio'] = array('singular'=>'Portfolio','plural'=>'Portfolio Items', 'supports'=>$supports, 'categories'=>TRUE, 'tags'=>TRUE);
+</pre>
+
+	<p>What you need to set up is the singular name, the plural name, the options that the post type supports and if you want it to have its own categories and tags taxonomies. You can find out what options the post type supports <a href="http://codex.wordpress.org/Function_Reference/add_post_type_support">here</a>. You can add multiple post types by adding more items to the $post_types array. Adding both a portfolio post type and a skill feed post type would look like this:</p>
+	
+<pre class="doc_code">
+$supports = array('title', 'editor', 'custom-fields', 'revisions', 'excerpt', 'thumbnail', 'comments');
+$post_types['Portfolio'] = array('singular'=>'Portfolio','plural'=>'Portfolio Items', 'supports'=>$supports, 'categories'=>TRUE, 'tags'=>TRUE);
+$supports = array('title', 'editor');
+$post_types['Skill Feed'] = array('singular'=>'Skill Feed','plural'=>'Feed Items', 'supports'=>$supports, 'categories'=>TRUE, 'tags'=>TRUE);
+</pre>
+
+	<p>You can see that the skill feed only supports the title and editor options. The all you have to do is add it to he ab_options_set array:</p>
+
+<pre class="doc_code">	
+$ab_options_set = array('post_types'=>$post_types);
+</pre>
+
+	<p>To add templates into you theme for these post types you need to add taxonomy-feed-items.php, taxonomy-portfolio-items.php, single-portfolio.php and single-feed-item.php into you theme folder. Take a look at the <a href="http://codex.wordpress.org/Template_Hierarchy">WordPress Template Hierarchy</a> for more info.</p>
+	
+	<a name="docs"></a>
+	<h3>9. Adding Your Custom Documentation</h3>
+	<p>Adding your own documentation is also easy. You just create a page called documentation.html and save it into your theme. It will then appear here instead of this setup guide.</p>
+	
+	<a name="fancy"></a>
+	<h3>10. Fancy Admin Style</h3>
+	<p>There is a fancy version of the admin panel available, this looks a lot nicer than the standard panel but doesn't feel as integrated into WordPress. You can turn it on by adding the following the the ab_options_set array:</p>
+
+<pre class="doc_code">	
+$ab_options_set = array('fancy_admin'=>true);
+</pre>
+
+	<h3>Full Function Printout</h3>
+	<p>If you were to add every single feature I've documented above your function should look something like this:</p>
+	
+<pre class="doc_code">
+//set up the options for Abbans theme options plugin
+function ab_set_options(){
+    global $ab_options_set;
+    $styles = array('lightgreen'=>'Light Green', 'darkblue'=>'Dark Blue');
+    $layout = array('sidebarleft'=>'Sidebar on the left', 'sidebarright'=>'Sidebar on the right');
+    $mce_styles='Tooltip=tooltip';
+    $custom_contact = array('twitter'=>'Twitter','facebook'=>'Facebook');
+    $contact_remove = array('yim','aim','jabber');
+    $checkboxes = array('show_photos'=>'Show Photos on front', 'option_2'=>'Option 2');
+    $inputs = array('copyright'=>'Copyright text for footer', 'option_3'=>'Option 3');
+    $textareas = array('footer_copy'=>'Footer Copy', 'option_4'=>'Option 4');
+    $supports = array('title', 'editor', 'custom-fields', 'revisions', 'excerpt', 'thumbnail', 'comments');
+    $post_types['Portfolio'] = array('singular'=>'Portfolio','plural'=>'Portfolio Items', 'supports'=>$supports, 'categories'=>TRUE, 'tags'=>TRUE);
+    $supports = array('title', 'editor');
+    $post_types['Skill Feed'] = array('singular'=>'Skill Feed','plural'=>'Feed Items', 'supports'=>$supports, 'categories'=>TRUE, 'tags'=>TRUE);
+    $portfoliodropdowns['Dropdown One'] = array('test_dropdown'=>'Test Dropdown');
+    $portfolioinputs = array('test_one'=>'Test One');
+    $portfoliotextareas = array('test_2'=>'Test Two');
+    $portfoliocheckboxes = array('test_three'=>'Test Three');
+    $groups[] = array('name'=>'Portfolio Options', 'description'=>'Here is where you can pick your portfolio options.', 'inputs'=>$portfolioinputs, 'textareas'=>$portfoliotextareas, 'checkboxes' => $portfoliocheckboxes, 'dropdowns' => $portfoliodropdowns);
+    
+    $ab_options_set = array('template_styles'=>$styles,
+                            'layout'=>$layout,
+                            'fancy_admin'=>true,
+                            'tracking'=>true,
+                            'favicon'=>true,
+                            'logo'=>true,
+                            'apple_icon'=>true,
+                            'checkboxes'=>$checkboxes,
+                            'inputs'=>$inputs,
+                            'textareas'=>$textareas,
+                            'mce_styles'=>$mce_styles,
+                            'custom_contact'=>$custom_contact,
+                            'contact_remove'=>$contact_remove,
+                            'post_types'=>$post_types,
+                            'groups'=>$groups);
+}
+add_filter('init','ab_set_options',9,1);
+</pre>	
+	
+	<p>There you have it, that code above is everything you need to set up your own awesome WordPress admin pages. Oh, one last thing, as I'm giving this plugin away for free I've added a donate button. If your theme is a free theme I'd appreciate if you would leave it turned on. But if it's a premium theme or one for a client you can easily hide the box with:</p>
+
+<pre class="doc_code">	
+$ab_options_set = array('remove_donation'=>true);
+</pre>
+	
+	<h3>Feedback &amp; Suggestions</h3>
+	<p>If you have any feedback or would like to suggest a new feature please drop me a mail to <a herf="mailto:himself@abandon.ie">himself@abandon.ie</a> or tweet me at <a href="http://twitter.com/abbandunne">@abbandunne</a>.</p>
+	<p>I will be adding this to the WordPress plugin repo when I have it tested and then I will be adding new features over time. All the current features will be 100% backwards compatible though.</p>
+</div>
