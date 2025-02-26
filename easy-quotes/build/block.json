@@ -1,0 +1,130 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "layart/quotes-block",
+  "version": "1.2.3",
+  "title": "Easy Quotes",
+  "category": "widgets",
+  "icon": "editor-quote",
+  "description": "Add your Easy-Quote.",
+  "keywords": [
+    "quotes",
+    "random",
+    "daily",
+    "lyrics",
+    "reviews"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "easy-quotes",
+  "attributes": {
+    "isCustomTitle": {
+      "type": "boolean",
+      "default": false
+    },
+    "customTitle": {
+      "type": "string",
+      "default": "My Custom Title"
+    },
+    "headerTag": {
+      "type": "string",
+      "default": "h3"
+    },
+    "isShowStars": {
+      "type": "boolean",
+      "default": false
+    },
+    "isShowRating": {
+      "type": "boolean",
+      "default": false
+    },
+    "selectedCategory": {
+      "type": "string",
+      "default": "-1"
+    },
+    "specificQuote": {
+      "type": "object",
+      "default": {
+        "value": -1,
+        "label": "Mode: Random"
+      }
+    },
+    "viewMode": {
+      "type": "string",
+      "default": "single"
+    },
+    "listViewQuotesAmount": {
+      "type": "integer",
+      "default": 0
+    },
+    "rotationSpeed": {
+      "type": "integer",
+      "default": 5
+    },
+    "isRandomViewingOrder": {
+      "type": "boolean",
+      "default": false
+    },
+    "classNameTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "classNameRating": {
+      "type": "string",
+      "default": "la-rating"
+    },
+    "classNameQuote": {
+      "type": "string",
+      "default": "la-quote"
+    },
+    "classNameCitation": {
+      "type": "string",
+      "default": "la-citation"
+    },
+    "selectedFontsCategory": {
+      "type": "string",
+      "default": "-1"
+    },
+    "selectedVariant": {
+      "type": "string",
+      "default": "1"
+    },
+    "fontFamily": {
+      "type": "object",
+      "default": {
+        "family": "Shadows Into Light",
+        "family_slug": "shadowsintolight",
+        "category_id": "4",
+        "version": "v10",
+        "variant": {
+          "id": "1",
+          "file": "UqyNK9UOIntux_czAvDQx_ZcHqZXBNQDcsr4xzSMYA.ttf"
+        }
+      }
+    },
+    "lineHeight": {
+      "type": "string",
+      "default": "1.4"
+    },
+    "fontSize": {
+      "type": "string",
+      "default": "1.5"
+    },
+    "isAvoidCache": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "isShowStars": true,
+      "isShowRating": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": "quotes_block_script",
+  "script": "quotes_star_script",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

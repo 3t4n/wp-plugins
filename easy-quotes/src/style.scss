@@ -1,0 +1,108 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+//////////////
+/* Rotation */
+//////////////
+
+:root {
+	--animation-duration: 950ms;
+	--animation-timing-function: ease-in-out
+}
+
+div.easy-quotes-rotation {
+	display: grid;
+	overflow: hidden;
+}
+
+div.easy-quotes-rotation div.easy-quotes-quote {
+	grid-area: 1/1;
+	opacity: 0;
+}
+
+.la-show {
+	animation-name: rotateInFromRight;
+	animation-duration: var(--animation-duration);
+	animation-timing-function: var(--animation-timing-function);
+	animation-fill-mode: both;
+	animation-delay: 10ms;
+}
+
+.la-hide {
+	animation-name: rotateOutToLeft;
+	animation-duration: var(--animation-duration);
+	animation-timing-function: var(--animation-timing-function);
+	animation-fill-mode: both;
+	animation-delay: 10ms;
+}
+
+@keyframes rotateInFromRight {
+	0% { transform: translate(100%); opacity: 0; }
+	100% { transform: translate(0%); opacity: 1; }
+}
+
+@keyframes rotateOutToLeft {
+	0% { transform: translate(0%); opacity: 1; }
+	100% { transform: translate(-100%); opacity: 0; }
+}
+
+///////////
+/* Quote */
+///////////
+div.easy-quotes-quote p {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.la-quote {
+	animation-name: fadeIn;
+	animation-duration: var(--animation-duration);
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: none;
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.la-quote p {
+	margin: 0;
+}
+
+////////////
+/* Rating */
+////////////
+.la-rating {
+	margin-bottom: 1em;
+}
+
+.la-rating .la-rating-stars {
+	margin-left: -3px;
+	display: block;
+	width: 120px;
+}
+
+.la-rating span {
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+//////////////
+/* Citation */
+//////////////
+.la-citation {
+	margin: 1em 0 0 0;
+	animation-name: fromRight;
+	animation-duration: var(--animation-duration);
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: none;
+}
+
+@keyframes fromRight {
+	0% { transform: translate(100px) rotate(5deg); opacity: 0;}
+	100% { transform: translate(0px) rotate(0); opacity: 1;}
+}
