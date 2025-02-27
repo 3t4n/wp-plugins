@@ -1,0 +1,36 @@
+{{ wp_enqueue_script( 'td/maintenance' ) }}
+
+{% if notice %}
+	{% include "notice/simple.twig" with notice %}
+{% endif %}
+
+<div class="td-card maintenance">
+	<div class="card-title">
+		<div class="text">
+			<h1>{{ title }}</h1>
+			<p class="card-title-subtitle"></p>
+		</div>
+	</div>
+
+	<md-divider></md-divider>
+
+	<div class="card-content">
+		<div class="settings-purging-checkbox">
+			<label for="settings_purging_checkbox">{{ checkbox.label }}</label>
+			<md-checkbox
+					id="settings_purging_checkbox"
+					value="{{ checkbox.value }}"
+					{% if checkbox.enabled %} checked="checked" {% endif %}
+					data-testid="settings_purging_checkbox" 
+					touch-target="wrapper"></md-checkbox>
+		</div>
+
+		{% if dkim_key_rotation %}
+			{% include "settings/maintenance/dkim_key_rotation.twig" with dkim_key_rotation %}
+		{% endif %}
+
+		{% if purge_now_enabled %}
+			{% include "settings/maintenance/purge_now.twig" with purge_now_enabled %}
+		{% endif %}
+	</div>
+</div>

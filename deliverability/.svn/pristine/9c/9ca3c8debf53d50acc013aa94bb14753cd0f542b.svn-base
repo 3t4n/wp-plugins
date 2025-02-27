@@ -1,0 +1,111 @@
+{% extends "_page.twig" %}
+
+{% block content %}
+
+	{% if error %}
+		{% include "notice/simple.twig" with error %}
+	{% else %}
+
+		{{ wp_enqueue_style( 'td/dashboard' ) }}
+		{{ wp_enqueue_script( 'td/dashboard' ) }}
+
+
+{{ wp_enqueue_style( 'td/fontawesome' ) }}
+{{ wp_enqueue_script( 'td/dkim_records' ) }}
+{{ wp_enqueue_style( 'td/common' ) }}
+
+		<div id="td" class="td-card dashboard" data-testid="deliverability_score">
+			<div class="card-title">
+				<div class="title">
+					<div class="score" data="{{ total_score }}"><span>0</span>/100</div>
+					<div data-testid="total" style="display:none;">{{ total_score }}</div>
+					<div>{{ title }}<div class="help">?<span class="tooltip">{{ tooltip }}</span></div></div>
+				</div>
+
+				<div id="gauges">
+					<md-circular-progress id="gauge" max="200"></md-circular-progress>
+					<md-circular-progress id="gauge-background" value="0.5"></md-circular-progress>
+				</div>
+			</div>
+
+			<md-divider></md-divider>
+
+			<div class="card-content">
+				<md-list class="sections">
+				{% for section in sections %}
+					{% set class = section.details ? 'expanded'  : ''%}
+					<md-list-item class="section {{ class }}" data-testid="{{ section.name }}">
+						<div class="numeric-score {{ section.score_class }}" data-testid="score" slot="start">
+							{{ section.numeric_score }}
+						</div>
+
+						<div class="title" slot="headline">
+							<div data-testid="title">{{ section.title }}</div>
+							<div class="help">?<span class="tooltip">{{ section.tooltip }}</span></div>
+							{% if section.coming_soon %}
+								<div class='coming-soon' data-testid='coming_soon'>{{ section.coming_soon }}</div>
+							{% endif %}
+						</div>
+						<div class="supporting-text {{ section.score_class }}" slot="supporting-text">
+							{% if not section.coming_soon %}
+								<div data-testid="textual-score">{{ section.textual_score }}</div>
+							{% endif %}
+
+							<div class="details" data-testid='details'>
+
+								{% for label,details in section.blacklist_details %}
+									{% if loop.first %}
+										<table class="supporting-text {{ section.score_class }}">
+									{% endif %}
+									<tr>
+										<td class="numeric-score {{ section.score_class }}">{{ label }}</td>
+										<td>
+											<table>
+												{% for detail in details %}
+													<tr data-testid="{{ detail.type }}-{{ loop.index0 }}">
+														<td data-testid="value">{{ detail.value }}</td>
+														<td>
+															<a href="{{ detail.url }}" target="_blank" data-testid="name">{{ detail.name }}</a>
+														</td>
+													</tr>
+												{% endfor %}
+											</table>
+										</td>
+									</tr>
+									{% if loop.last %}
+										</table>
+									{% endif %}
+								{% endfor %}
+
+								{% for detail in section.details %}
+									<div class="title" data-testid="title-{{ loop.index0 }}">{{ detail.title }}</div>
+									<div class="description" data-testid="description-{{ loop.index0 }}">{{ detail.description }}</div>
+									{% if detail.link %}
+										<md-outlined-button href="{{ detail.link.url }}">{{ detail.link.title }}</md-outlined-button>
+									{% endif %}
+								{% else %}
+									<div class="title" data-testid="success-title">{{ section.success }}</div>
+									{% if section.image %}
+										<div class="bimi_logo_container">
+											<object class="bimi_logo" data="{{ section.image }}" width="300" height="300" data-testid="image"></object>
+										</div>
+									{% endif %}
+								{% endfor %}
+								{% if section.read_more_link %}
+								<div data-testid="learn_more">
+									<a href="{{ section.read_more_link.url }}" target="_blank">{{ section.read_more_link.title }}</a>
+								</div>
+							{% endif %}
+							</div>
+						</div>
+
+						{% if section.details %}
+							<div class="icon" slot="end">></div>
+						{% endif %}
+					</md-list-item>
+				{% endfor %}
+				</md-list>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

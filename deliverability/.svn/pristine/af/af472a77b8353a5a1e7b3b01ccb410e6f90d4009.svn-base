@@ -1,0 +1,11 @@
+{{ wp_enqueue_script( 'td/plan' ) }}
+
+{% if registration %}
+	{% include "settings/configuration/1_registration.twig" with registration %}
+{% elseif email_verification %}
+	{% include "settings/configuration/2_email_verification.twig" with email_verification %}
+{% elseif dkim_records_publication %}
+	{% include "settings/configuration/3_dkim_records_publication.twig" with dkim_records_publication %}
+{% elseif compliments %}
+	{% include "settings/configuration/4_compliments.twig" with compliments %}
+{% endif %}

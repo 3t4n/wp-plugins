@@ -1,0 +1,82 @@
+<div class="td-card">
+	<div class="card-title">
+		<div class="text">
+			<h1>{{ title }}</h1>
+			<p class="card-title-subtitle"><a href="https://topdeliverability.com/glossary/domainkeys-identified-mail-dkim/" target="_blank">{{ subtitle_part_1 }}</a>&nbsp;{{ subtitle_part_2 }}&nbsp;<a href="https://topdeliverability.com/glossary/authentication/" target="_blank">{{ subtitle_part_3 }}</a>&nbsp;{{ subtitle_part_4 }}&nbsp;<a href="https://topdeliverability.com/glossary/receiver/" target="_blank">{{ subtitle_part_5 }}</a>&nbsp;{{ subtitle_part_6 }}</p>
+		</div>
+		<div class="image"></div>
+	</div>
+
+	<md-divider></md-divider>
+
+	<div class="card-content">
+		{% if notice %}
+			{% include "notice/simple.twig" with notice %}
+		{% endif %}
+
+		<div class="stepper">
+			<div class="steps">
+				<div class="step">
+					<div class="step-number">1</div>{{ registration_title }}
+				</div>
+				<div class="step-connector"></div>
+				<div class="step step-disabled">
+					<div class="step-number step-number-disabled">2</div>{{ email_verification_title }}</div>
+				<div class="step-connector"></div>
+				<div class="step step-disabled">
+					<div class="step-number step-number-disabled">3</div>{{ dkim_records_publication_title }}</div>
+			</div>
+			<div class="step-content">
+				<h2>{{ registration_title }}</h2>
+
+				<p>{{ registration_description }}</p>
+				{% if embedded %}
+					<div class="social-login">
+						<md-elevated-button class="continue-with-google-link" href="{{ continue_with_google_link }}" data-testid="continue_with_google_link"><span class="google" slot="icon"></span>{{ continue_with_google }}</md-elevated-button>
+					</div>
+
+					<div class="divider">
+						<md-divider></md-divider>{{ or }}<md-divider></md-divider>
+					</div>
+				{% endif %}
+				<div class="sign-in">
+						<form id="signup" method="POST" action="{{ admin_post_url }}" data-testid="signup_form">
+							{{ wpnonce(action) }}
+							<input type="hidden" name="action" value="{{ action }}">
+							{% if embedded %}
+								<md-outlined-text-field label="{{ email }}" name="username" placeholder="{{ email_placeholder }}" type="email"></md-outlined-text-field>
+								<md-outlined-text-field label="{{ password }}" name="password" placeholder="{{ password_placeholder }}" type="password"></md-outlined-text-field>
+								<div>
+									{{ password_requirements.description }}
+									<ul>
+										{% for requirements in password_requirements.requirements %}
+												<li>{{ requirements.description }}
+													<ul>
+														{% for details in requirements.details %}
+															<li>{{ details }}</li>
+														{% endfor %}
+													</ul>
+												</li>
+										{% endfor %}
+									</ul>
+								</div>
+								<a id="reset_password_link" class="signup-link">{{ forgot_password }}</a>
+							{% endif %}
+							<p>{{ action_description }}</p>
+							<md-filled-button>{{ action_label }}</md-filled-button>
+						</form>
+					{% if embedded %}
+						<form id="reset_password" method="POST" action="{{ admin_post_url }}" data-testid="reset_password_form" style="display: none">
+							{{ wpnonce(reset_password_action) }}
+							<input type="hidden" name="action" value="{{ reset_password_action }}">
+							<p>{{ reset_password_description }}:</p>
+							<md-outlined-text-field label="{{ email }}" name="username" placeholder="{{ email_placeholder }}" type="email"></md-outlined-text-field>
+							<a id="signup_link" class="signup-link">{{ reset_password_back }}</a>
+							<md-filled-button>{{ action_label }}</md-filled-button>
+						</form>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

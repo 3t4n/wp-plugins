@@ -1,0 +1,72 @@
+{{ wp_enqueue_style( 'td/fontawesome' ) }}
+{{ wp_enqueue_script( 'td/dkim_records' ) }}
+
+<div class="td-card">
+	<div class="card-title">
+		<div class="text">
+			<h1>{{ title }}</h1>
+			<p class="card-title-subtitle">{{ subtitle | raw }}</p>
+		</div>
+		<div class="image"></div>
+	</div>
+
+	<md-divider></md-divider>
+
+	<div class="card-content">
+		<div class="stepper">
+			<div class="steps">
+				<div class="step step-done">
+					<div class="step-number step-number-done">✓</div>{{ registration_title }}
+				</div>
+				<div class="step-connector"></div>
+				<div class="step step-done">
+					<div class="step-number step-number-done">✓</div>{{ email_verification_title }}</div>
+				<div class="step-connector"></div>
+				<div class="step">
+					<div class="step-number">3</div>{{ dkim_records_publication_title }}</div>
+			</div>
+			
+			<div class="step-content">
+				<h2>{{ dkim_records_publication_title }}</h2>
+
+				<p>{{ dkim_records_publication.description_part_1 }}&nbsp;<a href="https://www.google.com/search?q=How+do+I+find+the+DNS+of+my+domain" target="_blank">{{ dkim_records_publication.description_part_2 }}</a></p>
+
+				<div class="dkim-records">
+					{% for dkim_record in dkim_records %}
+						<div class="dkim-record" data-testid="dkim_record_{{ loop.index0 }}">
+							<div class="dkim-record-box">
+								<div>
+									<label for="record-name-{{ loop.index0 }}">{{ name_title }}</label>
+									<div id="record-name-{{ loop.index0 }}" data-testid="record_name">{{ dkim_record.name }}</div>
+								</div>
+								<md-text-button onmouseout="resetTooltip(this)"
+										onclick="copyToClipboard(this, 'record-name-{{ loop.index0 }}')">
+									<i class="fa-solid fa-copy"></i>
+									<span class="tooltip">Copy to clipboard</span>
+								</md-text-button>
+							</div>
+							<div class="dkim-record-box">
+								<div>
+									<label for="record-content-{{ loop.index0 }}">{{ content_title }}</label>
+									<div id="record-content-{{ loop.index0 }}"
+										name="record_content"
+										data-testid="record_content"
+										style="overflow-wrap: anywhere;">{{ dkim_record.content }}
+									</div>
+								</div>
+								<md-text-button onmouseout="resetTooltip(this)"
+										onclick="copyToClipboard(this, 'record-content-{{ loop.index0 }}')">
+									<i class="fa-solid fa-copy"></i>
+									<span class="tooltip">Copy to clipboard</span>
+								</md-text-button>
+							</div>
+						</div>
+					{% else %}
+						{{ no_dkim_records }}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
