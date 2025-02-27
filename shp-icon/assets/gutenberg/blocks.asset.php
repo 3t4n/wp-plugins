@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('regenerator-runtime', 'wp-api-fetch', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-data', 'wp-element', 'wp-i18n', 'wp-server-side-render'), 'version' => 'ada18bc95a2719696d5c');

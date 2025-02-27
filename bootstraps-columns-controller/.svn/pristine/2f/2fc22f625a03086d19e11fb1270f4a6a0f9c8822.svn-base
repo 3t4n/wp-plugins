@@ -1,0 +1,153 @@
+#bcc-media-button span{
+	margin-top: 3px;
+}
+
+.clear{
+	clear: both;
+}
+
+/*Popup window*/
+.bcc-popup{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	overflow-y: auto;
+}
+
+.bcc-popup .bcc-popup-content{
+	position: relative;
+	border-radius: 5px;
+	max-width: 750px;
+	background: #fff;
+	display: block;
+	top: 50%;
+	margin: 0 auto 25px;
+	padding: 20px 20px 50px 20px;
+	transition: all ease .25s;
+	-webkit-transition: all ease .25s;
+}
+
+.bcc-popup .bcc-popup-content .bcc-popup-close{
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	border-radius: 50%;
+	background: #bd3333;
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	transition: all ease .25s;
+	-webkit-transition: all ease .25s;
+}
+
+.bcc-popup .bcc-popup-content .bcc-popup-close:after{
+	content: '+';
+	font-size: 22px;
+	margin-top: -2px;
+	display: block;
+	font-weight: bold;
+	color: #fff;
+}
+
+.bcc-popup .bcc-popup-content .bcc-popup-close:hover{
+	background: #333;
+}
+
+.bcc-popup .bcc-popup-content .bcc-popup-title{
+	margin: 0 0 20px 0;
+}
+
+.bcc-popup .bcc-popup-content .bcc-popup-title p{
+	font-size: 18px;
+	color: #333;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0;
+}
+
+.bcc-popup .bcc-popup-content .bcc-popup-title .info{
+	font-size: 14px;
+	color: #888;
+	text-transform: none;
+	font-weight: normal;
+	margin: 4px 0;
+}
+
+.bcc-popup .bcc-popup-content .bcc-save-bttn{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+/*Choose Columns*/
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm{
+	width: 29%;
+	display: inline-block;
+	padding: 5px;
+	margin: 10px;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #ccc;
+	transition: all ease .25s;
+	-webkit-transition: all ease .25s;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column p{
+	width: 50px;
+	font-size: 18px;
+	color: #333;
+	line-height: 60px;
+	background: #f1f1f1;
+    margin: 0;
+    border: 1px solid #fff;
+    display: inline-block;
+    transition: all ease .25s;
+	-webkit-transition: all ease .25s;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm:hover,
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm.selected{
+	cursor: pointer;
+	background: #bd3333;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm:hover p,
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm.selected p{
+    border: 1px solid #bd3333;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm{
+	position: relative;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm .bcc-get-pro{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 20;
+	text-align: center;
+	opacity: 0;
+	transition: all ease .25s;
+	-webkit-transition: all ease .25s;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm .bcc-get-pro a{
+	font-size: 20px;
+	line-height: 65px;
+	color: #bd3333;
+}
+
+.bcc-popup .bcc-popup-content .bcc-choose-column .bcc-choose-column-itm:hover .bcc-get-pro{
+	opacity: 1;
+}
