@@ -1,0 +1,42 @@
+@import '/src/components/config.scss';
+
+.toggle-setting-container{
+    ul{
+        position: relative;
+        padding: 0.5rem;
+        border: .063rem solid #d4d1d9;
+        border-radius: $border-radius-small;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        overflow: hidden;
+        width: max-content;
+        margin: 0;
+
+        li{
+            list-style-type: none;
+            margin: 0;
+
+            input[type="radio"]{
+                display: none; // for radio button hide
+            }
+
+            input:checked + label{
+                background: $color-active;
+                color: $menu-color;
+                border-color: $color-active;
+            }
+
+            label{
+                color: #181718;
+                font-size: 0.9rem;
+                line-height: 2.2;
+                text-align: center;
+                padding: 0.4rem 0.7rem;
+                border-radius: $border-radius-small;
+                border: .063rem solid #d4d1d9;
+                transition: .1s ease-in-out;
+            }
+        }
+    }
+}
