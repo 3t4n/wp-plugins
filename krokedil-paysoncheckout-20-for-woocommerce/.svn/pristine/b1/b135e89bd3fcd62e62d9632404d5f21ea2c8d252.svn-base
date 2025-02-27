@@ -1,0 +1,53 @@
+/* @todo - remove pco-modal & pco-modal-content? */
+.pco-modal {
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 1s;
+    padding: 20px;
+}
+.pco-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 600px; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+/* Checkout design */
+.payson-checkout-selected textarea[name="order_comments"] { 
+    resize: vertical; 
+}
+
+/* Desktop view / multi columns */
+@media only screen and (min-width : 769px) {
+
+    .payson-checkout-two-column-right #pco-wrapper {
+        display: grid;
+        grid-template-columns: 4fr 6fr;	
+        grid-column-gap: 70px;
+    }
+
+    .payson-checkout-two-column-left #pco-wrapper,
+    .payson-checkout-two-column-left-sf #pco-wrapper {
+        display: grid;
+        grid-template-columns: 6fr 4fr;	
+        grid-column-gap: 70px;
+    }
+
+    .payson-checkout-two-column-left #pco-order-review,
+    .payson-checkout-two-column-left-sf #pco-order-review {
+        order: 2;
+    }
+
+    .payson-checkout-two-column-left #pco-iframe,
+    .payson-checkout-two-column-left-sf #pco-iframe {
+        order: 1;
+    }
+}
