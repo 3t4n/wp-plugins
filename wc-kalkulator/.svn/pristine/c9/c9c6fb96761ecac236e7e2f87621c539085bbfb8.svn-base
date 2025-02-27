@@ -1,0 +1,1 @@
+jQuery(document).ready(function(r){"use strict";var t;function e(e,c=0){clearTimeout(t),t=setTimeout(function(){r(e.target).trigger("change")},500)}r("input.wck-color-picker").wpColorPicker({change:e,clear:e})});

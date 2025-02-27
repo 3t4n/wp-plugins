@@ -1,0 +1,1 @@
+jQuery(document).ready(function(c){Object.keys(wck_date_picker_options).forEach(function(e){c("input.wck-date-picker[name=wck\\["+e+"\\]]").datepicker(wck_date_picker_options[e])})});

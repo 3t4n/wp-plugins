@@ -1,0 +1,1 @@
+!function(){"use strict";jQuery(document).ready(function(n){n(document).on("click",".notice.wck-notice button.notice-dismiss",function(c){c.preventDefault(),n.post(wck_ajax_object.ajax_url,{action:"wck_notice_dismiss",_wck_ajax_nonce:wck_ajax_object._wck_ajax_nonce,_wck_notice_dismiss:!0},function(c){console.log(c)})})})}();
