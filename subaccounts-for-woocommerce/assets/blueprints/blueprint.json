@@ -1,0 +1,31 @@
+{
+    "landingPage": "/wp-admin/admin.php?page=subaccounts",
+    "preferredVersions": {
+        "php": "7.4",
+        "wp": "6.4"
+    },
+    "steps": [
+        {
+            "step": "login",
+            "username": "admin",
+            "password": "password"
+        },
+        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "wordpress.org/plugins",
+                "slug": "woocommerce"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "installTheme",
+            "themeZipFile": {
+                "resource": "wordpress.org/themes",
+                "slug": "storefront"
+            }
+        }
+    ]
+}

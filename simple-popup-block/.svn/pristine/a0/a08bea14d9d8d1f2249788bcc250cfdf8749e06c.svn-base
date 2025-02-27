@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "codemanas/simple-popup-block",
+  "version": "1.0.0",
+  "title": "Simple Popup Block",
+  "category": "codemanas-blocks",
+  "icon": "buddicons-groups",
+  "description": "A simple and easy to use popup block plugin for block editor",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "popupDelay": {
+      "type": "number",
+      "default": 0
+    },
+    "scrollBehavior": {
+      "type": "string",
+      "default": "percentage"
+    },
+    "scrollByPercentage": {
+      "type": "number",
+      "default": 0
+    },
+    "scrollByElement": {
+      "type": "string",
+      "default": ""
+    },
+    "clickByElement": {
+      "type": "string",
+      "default": ""
+    },
+    "delayToggleOn": {
+      "type": "boolean",
+      "default": true
+    },
+    "scrollToggleOn": {
+      "type": "boolean",
+      "default": false
+    },
+    "popupWidthInput": {
+      "type": "string",
+      "default": "30%"
+    },
+    "triggerBehavior": {
+      "type": "string",
+      "default": "time-interval"
+    },
+    "popupHeightInput": {
+      "type": "string",
+      "default": "80vh"
+    },
+    "closeBtnPosition": {
+      "type": "string",
+      "default": "outside"
+    },
+    "closeBtnSize": {
+      "type": "string",
+      "default": "20px"
+    },
+    "closeBtnColor": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "showPopupOnce": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoClosePopup": {
+      "type": "boolean",
+      "default": false
+    },
+    "userLoggedInOut": {
+      "type": "string",
+      "default": "all"
+    },
+    "autoClosePopupInterval": {
+      "type": "number",
+      "default": 5
+    },
+    "isStartedTemplateSelected": {
+      "type": "boolean",
+      "default": ""
+    },
+    "userRoles": {
+      "type": "array",
+      "default": []
+    },
+    "popupBorder": {
+      "type": "object",
+      "default": 0
+    },
+    "closeBtnSvgDisplay": {
+      "type": "string",
+      "default": "default"
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    },
+    "popupBackground": {
+      "type": "string",
+      "default": "#ffffff"
+    }
+  },
+  "textdomain": "simple-popup-block",
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
