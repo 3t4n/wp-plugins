@@ -1,0 +1,83 @@
+
+<link rel="stylesheet" href="{{dir_plugin}}assets/css/motor.css">
+<div class="MrPlanPlugin_MotorContainer" {%if motor.datos.ancho_maximo>0%}style="max-width:{{motor.datos.ancho_maximo}}px;"{%endif%}>
+    {%if motor.datos.tipo_elemento==1%}
+    <!-- Libreria para Widget - MisterPlan  - Powered by RuralGest  -->
+    <script type="text/javascript" src="https://www.mrplan.es/experiencias/modulos/TWidget/lib/TWidgetInc.php"></script>
+    <div>
+        <!-- Capa Buscador - MrPlan  - Powered by RuralGest  -->
+        
+    <div
+    id="TEwsBuscadorB-1-1-578931-"
+    class="TEwsWidgetInc capa_izq ancho_total"
+    BudgetV="2"
+    mini_preview_V="2"
+    url_confirmacion="{{confirmacion}}"
+    TEws_Hash="{{hash}}"
+    TEws_onSearch=""
+    TEws_version="10"
+    TEws_tipo_widget="2"
+    BV7_tipo_inicio="2"
+    BV7_cambio_inicio="1"
+    TEws_quitar_cabecera="0"
+    TEws_iniciar_cerrado="1"
+    TEws_bus_texto="0"
+    TEws_sel_dispo="0"
+    TEws_form_contacto="0"
+    
+    TEws_result_in_esl="0"
+    TEws_result_in_ext="0"
+    TEws_cerrar_buscar="0"
+    TEws_ver_resto_casas="0"
+    TEws_id_elemento="{{motor.datos.id_elemento}}"
+    TEws_tipo_elemento="{{motor.datos.tipo_elemento}}"
+    TEws_activar_mas_menos="1"
+    TEws_posicion="original"
+    TEws_formato="2"
+    TEws_formato_ficha="11"
+    TEws_CoreSearch_V="7"
+    
+    TEws_id_categoria="0"
+    TEws_modo="RES"
+    
+    TEws_fecha_ini=""
+    TEws_n_noches="2"
+    TEws_n_adultos="2"
+    TEws_n_ninos="0"
+    TEws_radio="0"
+    TEsw_filtro_exp=""
+    TEws_filtro_casa=""
+    TEws_autoload="0"
+    TEws_id_destino="{{motor.datos.id_destino}}"
+    TEws_id_puntoventa="{{motor.datos.id_punto_venta}}"
+    TEws_id_idioma="{{motor.datos.id_idioma}}"
+    TEwsResultadoCoreSearch="TEwsResultCoreSearch-1-1-578931-"
+    alt="MisterPlan  - Powered by RuralGest  - http://www.misterplan.es"
+    title_NO="MisterPlan - Powered by RuralGest"></div>
+
+    
+    </div>
+    <div>
+        <!-- Resultado para el CoreSearch de Experiencias / Casas - MisterPlan  - Powered by RuralGest  -->
+        <div id="TEwsResultCoreSearch-1-1-578931-" class="capa_izq TEwsBuscador_Experiencias_evnt" style="width: 100%; margin-top: 20px;" alt_NO="MisterPlan  - Powered by RuralGest  - http://www.misterplan.es" title_NO="MisterPlan  - Powered by RuralGest "></div>
+    </div>
+
+    {%else%}
+    <div id="rpsv_IncWidgetFicha" class="MrPlanPlugin_CapaMotor">
+        <script type="text/javascript" id_elemento="{{motor.datos.id_elemento}}" tipo_elemento="{{motor.datos.tipo_elemento}}" idw="{{motor.datos.id_widget}}" w_type="{%if motor.datos.modo_ficha=='completa'%}ficha{%endif%}"  url_confirmacion="{{confirmacion}}" w_contenido="simple" w_param="getURL" paramHash="{{motor.datos.hash}}" src="https://www.mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?id_experiencia={{motor.datos.id_elemento}}&idw={{motor.datos.id_widget}}&paramHash={{motor.datos.hash}}"></script></div>
+    </div>
+
+    {%endif%}
+</div>
+
+{%if motor.datos.debug==1%}
+<textarea>
+
+    <div id="rpsv_IncWidgetFicha">
+        <script type="text/javascript" w_contenido="{{motor.datos.modo_ficha}}" id_elemento="{{motor.datos.id_elemento}}" tipo_elemento="{{motor.datos.tipo_elemento}}" idw="{{motor.datos.id_widget}}" w_type="ficha" url_confirmacion="{{confirmacion}}" w_contenido="simple" w_param="getURL" paramHash="edfa94e76c666a36e34c479443708a28001fa464" src="https://mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?id_casa=571136&idw=1647&paramHash=edfa94e76c666a36e34c479443708a28001fa464"></script></div>
+    </div>
+</textarea>
+<pre>
+    {{print_r(motor)}}
+</pre>
+{%endif%}

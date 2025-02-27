@@ -1,0 +1,165 @@
+
+{{include('admin_head.html')}}
+<div id="MrPlanPlugin" class="wrap">
+
+    <h3>Datos del motor</h3>
+    <form method="POST" id="MrPlanMotorForm">
+        <div class="row">   
+    
+            <div class="col-3">     
+                <label>
+                    <div>{{__('Booking Engine Type', 'misterplan')}}</div>
+                    <select name="tipo_elemento">
+                        <option value="1" {%if motor.datos.tipo_elemento==1%}selected{%endif%}>{{__('Accommodation', 'misterplan')}}</option>
+                        <option value="2" {%if motor.datos.tipo_elemento==2%}selected{%endif%}>{{__('Activities', 'misterplan')}}</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="col-9">
+                <label>
+                    <div>{{__('Booking engine name', 'misterplan')}}</div>
+                    <input type="text"  name="nombre_motor" placeholder="Identificador del elemento" value="{{motor.datos.nombre_motor}}" style="width:100%;">
+                </label>
+            </div>
+            <div class="col-2">                        
+                <label>
+                    <div>{{__('Element Id', 'misterplan')}}</div>
+                    <input type="number"  name="id_elemento" placeholder="Identificador del elemento" value="{{motor.datos.id_elemento}}" style="width:100%;">
+                </label>
+            </div>
+            <div class="col-2">                        
+                <label>
+                    <div>{{__('Destination Id', 'misterplan')}}</div>
+                    <input type="number"  name="id_destino" placeholder="Identificador del elemento" value="{{motor.datos.id_destino}}" style="width:100%;">
+                </label>
+            </div>
+    
+            <div class="col-2">                        
+                <label>
+                    <div>{{__('Point of Sale Id', 'misterplan')}}</div>
+                    <input type="number"  name="id_punto_venta" placeholder="Identificador del elemento" value="{{motor.datos.id_punto_venta}}" style="width:100%;">
+                </label>
+            </div>
+    
+            <div class="col-2">                        
+                <label>
+                    <div>{{__('Widget Id', 'misterplan')}}</div>
+                    <input type="number"  name="id_widget" placeholder="Identificador del Widget" value="{{motor.datos.id_widget}}"  style="width:100%;">
+                </label>
+            </div>
+            
+    
+            <div class="col-4">                        
+                <label>
+                    <div>{{__('Control Hash', 'misterplan')}}</div>
+                    <input type="text"  name="hash" placeholder="Hash de control" value="{{motor.datos.hash}}"  style="width:100%;">
+                </label>
+            </div>
+    
+            <div class="col-4">     
+                <label>
+                    <div>{{__('Default language', 'misterplan')}}</div>
+                    <select name="id_idioma">
+                        <option value="0" {%if motor.datos.id_idioma==0%}selected{%endif%}>{{__('Spanish', 'misterplan')}}</option>
+                        <option value="1" {%if motor.datos.id_idioma==1%}selected{%endif%}>{{__('English', 'misterplan')}}</option>
+                    </select>
+                </label>
+            </div>
+
+
+            <div class="col-4">     
+                <label>
+                    <div>
+                        <input type="checkbox" name="debug" value="1" {%if motor.datos.debug==1%}checked{%endif%}>
+                        Debug
+                    </div>
+                </label>
+            </div>
+    
+            <div class="col-4">     
+                <label>
+                    <div>Modo ficha</div>
+                    <select name="modo_ficha">
+                        <option value="completa" {%if motor.datos.modo_ficha=='completa'%}selected{%endif%}>Completa</option>
+                        <option value="simple" {%if motor.datos.modo_ficha=='simple'%}selected{%endif%}>Simple</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <hr>
+                <h4>Estilos</h4>
+            </div>
+            <div class="col-2">                        
+                <label>
+                    <div>{{__('Max width', 'misterplan')}} ({{__('en pixeles', 'misterplan')}}</div>
+                    <input type="number"  name="ancho_maximo" placeholder="Identificador del Widget" value="{%if motor.datos.ancho_maximo>300%}{{motor.datos.ancho_maximo}}{%endif%}"  style="width:100%;" min="400">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+    
+            <div class="col-4">
+                <input type="hidden" name="id_motor" value="{{motor.id_motor}}">
+                <input type="hidden" name="accion" value="guardar_motor">
+                {{wp_nonce_field('guardar_motor_'~motor.id_motor, 'nonce_motor')|raw}}
+                <label>
+                    <div>&nbsp;</div>
+                    <button type="submit" class="button button-primary save">
+                        {%if motor is null%}{{__('Create Booking Engine', 'misterplan')}}{%else%}{{__('Update Booking Engine', 'misterplan')}}{%endif%}
+                    </button>
+                </label>
+            </div>
+        </div>
+    </form>
+    
+    {%if motor is not null%}
+    <h3>{{__('Integration instructions', 'misterplan')}}</h3>
+
+    <form method="POST" id="MrPlanMotorForm" target="_blank">
+        <div class="row">   
+            <div class="col-12">
+                <h4>{{__('Option', 'misterplan')}} 1</h4>
+                <div>{{__('Create page with Booking Engine Desc', 'misterplan')}}</div>
+            </div>
+        </div>
+
+        <div class="row">
+    
+            <div class="col-4">
+                <input type="hidden" name="id_motor" value="{{motor.id_motor}}">
+                <input type="hidden" name="accion" value="crear_pagina_motor">
+                {{wp_nonce_field('crear_pagina_motor_'~motor.id_motor, 'crear_pagina_motor')|raw}}
+                <label>
+                    <div>&nbsp;</div>
+                    <button type="submit" class="button button-primary save">
+                        {{__('Create page with Booking Engine', 'misterplan')}}
+                    </button>
+                </label>
+            </div>
+        </div>
+
+
+    </form>
+    <br>
+    <br>
+
+
+    <form method="POST" id="MrPlanMotorForm" target="_blank">
+        <div class="row">   
+            <div class="col-12">
+                <h4>{{__('Option', 'misterplan')}} 2</h4>
+                Inserte el siguiente shortcode en una página o post
+            </div>
+            <div class="col-12">
+                <strong>[misterplan_motor id_motor="{{motor.id_motor}}"]</strong>
+            </div>
+            <div class="col-12">
+                <a href="https://wordpress.com/es/support/editor-wordpress/bloques/bloque-de-shortcodes/" target="_blank">Mas informacion sobre los shortcodes</a>
+            </div>
+        </div>
+    </form>
+    {%endif%}
+</div>

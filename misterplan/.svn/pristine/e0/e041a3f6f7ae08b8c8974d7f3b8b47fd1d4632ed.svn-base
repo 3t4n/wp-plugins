@@ -1,0 +1,37 @@
+
+{%if motor.datos.estilos!=''%}
+<style>{{motor.datos.estilos}}</style>
+{%endif%}
+{%if motor.datos.estilos_extra!=''%}
+<style>{{motor.datos.estilos_extra}}</style>
+{%endif%}
+{%if motor.datos.barra_idiomas==1%}
+    {% include 'motor/idiomas.html'%}
+{%endif%}
+
+<!-- MISTERPLAN PLUGIN {{MRPLAN_PLUGIN_VERSION}}-->
+<!-- MISTERPLAN PLUGIN MOTOR TIPO 4 PANEL {{motor.datos.id_destino}} PV {{motor.datos.id_punto_venta}}-->
+
+<div class="MrPlanPlugin_PanelContainer">
+    <div id="rpsv_IncWidgetDistr" TEwsUrlLoading="alt.php" style="width: 100%; float: left;">
+        <script nowprocket type="text/javascript" 
+        link_epigrafes="add.php"
+            id_panel="{{motor.datos.id_panel}}" 
+            id_epigrafe="0" 
+            id_destino="{{motor.datos.id_destino}}" 
+            id_punto_venta="{{motor.datos.id_punto_venta}}" 
+            id_idioma="{{motor.datos.id_idioma}}" 
+            paramHash="{{motor.datos.hash}}" 
+            src="https://mrplan.io/experiencias/modulos/TExpDistribucion/lib/TExpDistribucionInc.php?paramHash={{motor.datos.hash}}&source_plugin=MrPlanPlugin&web_plugin={{MRPLAN_WORDPRESS_PERMANLINK|url_encode}}"></script>
+    </div>		
+</div>
+{%if motor.datos.debug==1%}
+<pre>
+    Link Landing Page: {{motor.datos.pagina_del_motor_link}}
+
+    {{print_r(motor.datos)}}
+
+    Confirmacion: {{confirmacion}}
+    Version Plugin: {{MRPLAN_PLUGIN_VERSION}}
+</pre>
+{%endif%}   

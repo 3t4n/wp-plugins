@@ -1,0 +1,23 @@
+<!-- MISTERPLAN PLUGIN {{MRPLAN_PLUGIN_VERSION}}-->
+<!-- MISTERPLAN PLUGIN MOTOR TIPO 5 BUSCADOR SIMPLE-->
+<div class="MrPlanPlugin_MotorContainer">
+    {%if motor.datos.v_form==1%}
+    <div class="MrPlanPlugin_SimpleSearch MrPlanPlugin_SimpleSearch_1">
+        <input type="date" id="MrPlanPlugin_DateRangePicker_{{motor.ID}}">
+        <button type="button" class="MrPlanPlugin_SimpleSearchBtnEvnt" id="MrPlanPlugin_SimpleSearchBtn_{{motor.ID}}" motor_id="{{motor.ID}}" version="1" link="{{motor.datos.pagina_del_motor_link}}" id_destino="{{motor.datos.id_destino}}" id_punto_venta="{{motor.datos.id_punto_venta}}" id_elemento="{{motor.datos.id_elemento}}" id_idioma="{{motor.datos.id_idioma}}" css="{{dir_plugin}}assets/css/motor.css">{{motor.datos.texto_boton}}</button>
+    </div>
+    {%elseif motor.datos.v_form==2%}
+    <div class="MrPlanPlugin_SimpleSearch MrPlanPlugin_SimpleSearch_1">
+        <input type="date" id="MrPlanPlugin_DateRangePicker_{{motor.ID}}">
+        <button type="button" class="MrPlanPlugin_SimpleSearchBtnEvnt" id="MrPlanPlugin_SimpleSearchBtn_{{motor.ID}}" motor_id="{{motor.ID}}" version="2" link="{{motor.datos.pagina_del_motor_link}}"  id_destino="{{motor.datos.id_destino}}" id_punto_venta="{{motor.datos.id_punto_venta}}" id_elemento="{{motor.datos.id_elemento}}" id_idioma="{{motor.datos.id_idioma}}" css="{{dir_plugin}}assets/css/motor.css" >{{motor.datos.texto_boton}}</button>
+    </div>
+    {%endif%}
+    {%if motor.datos.debug==1%}
+    <pre>
+        {{print_r(motor.datos)}}
+    
+        Confirmacion: {{confirmacion}}
+        Version Plugin: {{MRPLAN_PLUGIN_VERSION}}
+    </pre>
+    {%endif%}
+</div>

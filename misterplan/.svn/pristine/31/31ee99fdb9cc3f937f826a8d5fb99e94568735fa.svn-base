@@ -1,0 +1,67 @@
+{%if motor.datos.barra_idiomas==1%}
+    {% include 'templates/motor/idiomas.html'%}
+{%endif%}
+{%if motor.datos.estilos!=''%}
+<style>{{motor.datos.estilos}}</style>
+{%endif%}
+{%if motor.datos.estilos_extra!=''%}
+<style>{{motor.datos.estilos_extra}}</style>
+{%endif%}
+<!-- MISTERPLAN PLUGIN {{MRPLAN_PLUGIN_VERSION}}-->
+<!-- MISTERPLAN PLUGIN MOTOR TIPO 3 DESTINO {{motor.datos.id_destino}} PV {{motor.datos.id_punto_venta}}-->
+<div class="MrPlanPlugin_BuscadorContainer">
+    {%if buscador==1%}
+    <div class="MrPlanPlugin_Buscador" id="MrPlanPlugin_Buscador">
+        <div id="TSh_TSearch_ParentDiv_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}" class="MrPlanPlugin_Buscador_Capa TTaq_texto_base" capaMapa="SEn_Mapa_capaPadre_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}">
+            <script nowprocket id="TSh_parent_script_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}" name="TSh_parent_script_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}" src="https://mrplan.io/scr/modulos/TSearch/lib/TSearchInc.php?
+WdgControl=TSh_parent_script_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}
+&id_punto_venta={{motor.datos.id_punto_venta}}
+&id_operador={{motor.datos.id_destino}}
+&id_oficina=undefined
+&id_idioma={{motor.datos.id_idioma}}
+&capa_search=TSh_TSearch_ParentDiv_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}
+&capa_resultados=TSh_TSearch_ResultsDiv_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}
+&autoSearch={{motor.datos.autosearch}}
+&v_results={{motor.datos.v_results}}
+&modo_widget={{motor.datos.modo_widget}}
+&v_form={{motor.datos.v_form}}
+&tipo_buscador={{motor.datos.tipo_buscador}}
+&disableUbicacion={{motor.datos.disableUbicacion}}
+&disableCodAgencia={{motor.datos.disableCodAgencia}}
+&no_bootstrap=0
+&TSn_localidad_comarca=8|0
+&filtroDiscountCode=
+&codificacion_results=ISO-8859-1
+&activarSelectorTipo=1        
+&TEwsScrollToResults=1
+&landing_buscador={{motor.datos.pagina_de_resultados_link}}
+&forzar_landing_ficha={{motor.datos.pagina_del_motor_link}}
+&source_plugin=MrPlanPlugin
+&web_plugin={{MRPLAN_WORDPRESS_PERMANLINK|url_encode}}"></script>
+
+            <div class="TMrPlanPlugin_Loading">
+                <img src="{{dir_plugin}}assets/images/loading.svg">
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    <div id="SEn_Mapa_capaPadre_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}" style="margin-bottom: 40px; width: 100%; height: 450px; display: none;">Loading Map ....</div>
+</div>
+
+
+<div class="MrPlanPlugin_BuscadorContainer">
+    {%if resultados==1%}
+    <div class="MrPlanPlugin_BuscadorResultados" style="{%if motor.datos.ancho_maximo_resultados>0%}max-width:{{motor.datos.ancho_maximo_resultados}}px;{%endif%}">    
+        <div id="TSh_TSearch_ResultsDiv_{{motor.datos.id_destino}}_{{motor.datos.id_punto_venta}}" class="TTaq_texto_base TSearch_bmd">
+        </div>
+    </div>
+    {%endif%}
+</div>
+{%if motor.datos.debug==1%}
+<pre>
+    {{print_r(motor.datos)}}
+
+    Confirmacion: {{confirmacion}}
+    Version Plugin: {{MRPLAN_PLUGIN_VERSION}}
+</pre>
+{%endif%}

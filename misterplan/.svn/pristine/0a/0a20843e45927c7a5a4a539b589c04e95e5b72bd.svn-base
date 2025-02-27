@@ -1,0 +1,103 @@
+
+
+<h3>Datos del motor</h3>
+<form method="POST">
+    <div class="row">
+        <div class="col-12">
+            <label>
+                <div>Nombre del motor</div>
+                <input type="text"  name="nombre_motor" placeholder="Identificador del elemento" value="{{motor.datos.nombre_motor}}" style="width:100%;">
+            </label>
+        </div>
+        <div class="col-2">                        
+            <label>
+                <div>Identificador del elemento</div>
+                <input type="number"  name="id_elemento" placeholder="Identificador del elemento" value="{{motor.datos.id_elemento}}" style="width:100%;">
+            </label>
+        </div>
+        <div class="col-2">                        
+            <label>
+                <div>Identificador del destino</div>
+                <input type="number"  name="id_destino" placeholder="Identificador del elemento" value="{{motor.datos.id_destino}}" style="width:100%;">
+            </label>
+        </div>
+
+        <div class="col-2">                        
+            <label>
+                <div>Identificador del punto de venta</div>
+                <input type="number"  name="id_punto_venta" placeholder="Identificador del elemento" value="{{motor.datos.id_punto_venta}}" style="width:100%;">
+            </label>
+        </div>
+
+        <div class="col-2">                        
+            <label>
+                <div>Identificador del Widget</div>
+                <input type="number"  name="id_widget" placeholder="Identificador del Widget" value="{{motor.datos.id_widget}}"  style="width:100%;">
+            </label>
+        </div>
+
+        <div class="col-4">                        
+            <label>
+                <div>Hash de Control</div>
+                <input type="text"  name="hash" placeholder="Hash de control" value="{{motor.datos.hash}}"  style="width:100%;">
+            </label>
+        </div>
+
+
+        <div class="col-4">     
+            <label>
+                <div>Tipo de motor</div>
+                <select name="tipo_elemento">
+                    <option value="1" {%if motor.datos.tipo_elemento==1%}selected{%endif%}>Alojamientos</option>
+                    <option value="2" {%if motor.datos.tipo_elemento==2%}selected{%endif%}>Actividades</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="col-4">     
+            <label>
+                <div>Idioma por defecto</div>
+                <select name="id_idioma">
+                    <option value="0" {%if motor.datos.id_idioma==0%}selected{%endif%}>Espa&ntilde;ol</option>
+                    <option value="1" {%if motor.datos.id_idioma==1%}selected{%endif%}>Ingl&etilde;s</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="col-4">     
+            <label>
+                <div>Modo ficha</div>
+                <select name="modo_ficha">
+                    <option value="completa" {%if motor.datos.modo_ficha=='completa'%}selected{%endif%}>Completa</option>
+                    <option value="simple" {%if motor.datos.modo_ficha=='simple'%}selected{%endif%}>Simple</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="col-4">
+            <input type="hidden" name="id_motor" value="{{motor.id_motor}}">
+            <input type="hidden" name="accion" value="guardar_motor">
+            <label>
+                <div>&nbsp;</div>
+                <button type="submit" class="button button-primary save">
+                    {%if motor is null%}Crear motor{%else%}Actualizar motor{%endif%}
+                </button>
+            </label>
+        </div>
+    </div>
+</form>
+
+{%if motor is not null%}
+<h3>Instrucciones de integracion</h3>
+<div class="row">
+    <div class="col-12">
+        Inserte el siguiente shortcode en una página o post
+    </div>
+    <div class="col-12">
+        <strong>[misterplan_motor id_motor="{{motor.id_motor}}"]</strong>
+    </div>
+    <div class="col-12">
+        <a href="https://wordpress.com/es/support/editor-wordpress/bloques/bloque-de-shortcodes/" target="_blank">Mas informacion sobre los shortcodes</a>
+    </div>
+</div>
+{%endif%}

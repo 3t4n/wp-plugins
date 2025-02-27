@@ -1,0 +1,7 @@
+<div class="TMrPlanPlugin_BarraIdiomas">
+    {%for i in idiomas%}
+    <a href="{{i.url}}" title="{{i.nombre_idioma}}" id="TMrPlanPlugin_BarraIdiomas_{{i.id_idioma}}">
+        <img class="{%if idioma_marcado is not null and idioma_marcado==i.id_idioma%}TMrPlanPlugin_BarraIdiomas_Check{%endif%}" alt="{{i.nombre_idioma}}" src="{{dir_plugin}}/assets/images/languages/bandera_{{i.id_idioma}}_blanco.png">
+    </a>
+    {%endfor%}
+</div>

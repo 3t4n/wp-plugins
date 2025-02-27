@@ -1,0 +1,39 @@
+
+<link rel="stylesheet" href="{{dir_plugin}}assets/css/motor.css">
+<div class="MrPlanPlugin_MotorContainer" {%if motor.datos.ancho_maximo>0%}style="max-width:{{motor.datos.ancho_maximo}}px;"{%endif%}>
+    <div id="rpsv_IncWidgetFicha" class="MrPlanPlugin_CapaMotor">            
+        <script
+            type="text/javascript"
+            id_elemento="{{motor.datos.id_elemento}}"
+            tipo_elemento="{{motor.datos.tipo_elemento}}"
+            idw="{{motor.datos.id_widget}}"
+            w_type="{%if motor.datos.modo_ficha=='completa'%}ficha{%endif%}"
+            url_confirmacion="{{confirmacion}}"
+            w_contenido="simple"
+            w_param="getURL"
+            autoload="{{motor.datos.autoload}}"
+            paramHash="{{motor.datos.hash}}"
+            src="https://www.mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?{%if motor.datos.tipo_elemento==1%}id_casa{%else%}id_experiencia{%endif%}={{motor.datos.id_elemento}}&idw={{motor.datos.id_widget}}&paramHash={{motor.datos.hash}}">
+        </script>
+    </div>
+</div>
+
+<!--
+
+<div id="rpsv_IncWidgetFicha" style="width: 100%; float: left;">
+    <script 
+    type="text/javascript" 
+    id_elemento="571136" 
+    tipo_elemento="1" 
+    idw="3114" 
+    w_type="ficha" 
+    w_contenido="simple" 
+    url_confirmacion="{{confirmacion}}"
+    w_param="getURL" 
+    paramHash="8dc72185545b078c1f46258c54fba6c25699ed7a" 
+    src="https://www.mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?id_casa=571136&idw=3114&paramHash=8dc72185545b078c1f46258c54fba6c25699ed7a"></script></div>
+
+-->
+{%if motor.datos.debug%}
+    {{include('motor/debug.html')}}
+{%endif%}

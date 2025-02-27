@@ -1,0 +1,73 @@
+{%if motor.datos.mostrar_pasafotos==1 and motor.datos.modo_ficha=='completa'%}
+<div class="MrPlanPlugin_MotorPasafotos mrp_capa_pasafoto_V2_INC elp_ancho_total elp_capa_izq" id_elemento="{{motor.datos.id_elemento}}" tipo_elemento="2" style="text-align: center; vertical-align: middle;margin: 0 auto; {%if motor.datos.ancho_maximo>0%}max-width:{{motor.datos.ancho_maximo}}px;{%endif%}"></div>	
+{%endif%}
+{%if motor.datos.barra_idiomas==1%}
+    {% include 'templates/motor/idiomas.html'%}
+{%endif%}
+{%if motor.datos.estilos!=''%}
+<style>{{motor.datos.estilos}}</style>
+{%endif%}
+{%if motor.datos.estilos_extra!=''%}
+<style>{{motor.datos.estilos_extra}}</style>
+{%endif%}
+
+<!-- MISTERPLAN PLUGIN {{MRPLAN_PLUGIN_VERSION}}-->
+<!-- MISTERPLAN PLUGIN MOTOR TIPO 2 ID ELEMENTO {{motor.datos.id_elemento}} DESTINO {{motor.datos.id_destino}} PV {{motor.datos.id_punto_venta}}-->
+<div class="MrPlanPlugin_MotorContainer MrPlanPlugin_MotorContainer_2" {%if motor.datos.ancho_maximo>0%}style="max-width:{{motor.datos.ancho_maximo}}px;"{%endif%}>
+    <div id="rpsv_IncWidgetFicha" class="MrPlanPlugin_CapaMotor">       
+        
+        {%if motor.datos.tipo_carga==1%}
+        <div id="MrPlanPlugin_MotorScript"></div>
+        <script>
+            window.addEventListener('load', function(){
+                setTimeout(function(){
+
+                    if(typeof jQuery !== 'undefined' && typeof iCl !== 'function'){
+                        var iCl = jQuery.noConflict();
+                    }
+                    
+                    var script = document.createElement('script');
+                    script.src = 'https://www.mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?id_experiencia={{motor.datos.id_elemento}}&idw={{motor.datos.id_widget}}&paramHash={{motor.datos.hash}}&source_plugin=MrPlanPlugin&web_plugin={{MRPLAN_WORDPRESS_PERMANLINK|url_encode}}';
+                    script.setAttribute('y', 'text/javascript');
+                    script.setAttribute('id_elemento', '{{motor.datos.id_elemento}}');
+                    script.setAttribute('tipo_elemento', '{{motor.datos.tipo_elemento}}');
+                    script.setAttribute('idw', '{{motor.datos.id_widget}}');
+                    script.setAttribute('w_type', '{%if motor.datos.modo_ficha=='completa'%}ficha{%endif%}');
+                    script.setAttribute('url_confirmacion', '{{confirmacion}}');
+                    script.setAttribute('id_elemento', '{{motor.datos.id_elemento}}');
+                    script.setAttribute('w_contenido', 'simple');
+                    script.setAttribute('w_param', 'getURL');
+                    script.setAttribute('id_idioma', '{{motor.datos.id_idioma}}');
+                    script.setAttribute('paramHash', '{{motor.datos.hash}}');
+                    document.getElementById('MrPlanPlugin_MotorScript').appendChild(script);
+                }, 1000);
+            });
+        </script>
+
+        {%else%}
+        <script 
+            nowprocket
+            type="text/javascript"
+            id_elemento="{{motor.datos.id_elemento}}"
+            tipo_elemento="{{motor.datos.tipo_elemento}}"
+            idw="{{motor.datos.id_widget}}"
+            w_type="{%if motor.datos.modo_ficha=='completa'%}ficha{%endif%}"
+            TEws_fecha_ini="{{motor.datos.fecha_entrada}}"
+            url_confirmacion="{{confirmacion}}"
+            w_contenido="simple"
+            w_param="getURL"
+            id_idioma="{{motor.datos.id_idioma}}"
+            paramHash="{{motor.datos.hash}}"
+            src="https://www.mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?id_experiencia={{motor.datos.id_elemento}}&idw={{motor.datos.id_widget}}&paramHash={{motor.datos.hash}}&source_plugin=MrPlanPlugin&web_plugin={{MRPLAN_WORDPRESS_PERMANLINK|url_encode}}">
+        </script>
+        {%endif%}
+    </div>
+</div>
+{%if motor.datos.debug==1%}
+<pre>
+    {{print_r(motor.datos)}}
+
+    Confirmacion: {{confirmacion}}
+    Version Plugin: {{MRPLAN_PLUGIN_VERSION}}
+</pre>
+{%endif%}

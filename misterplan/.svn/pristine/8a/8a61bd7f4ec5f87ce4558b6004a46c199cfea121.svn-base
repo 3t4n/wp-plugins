@@ -1,0 +1,105 @@
+
+{%if motor.datos.mostrar_pasafotos==1 or true%}
+<div class="MrPlanPlugin_MotorPasafotos mrp_capa_pasafoto_V2_INC elp_ancho_total elp_capa_izq" id_elemento="{{motor.datos.id_elemento}}" tipo_elemento="1" style="text-align: center; vertical-align: middle;"></div>	
+{%endif%}
+{%if motor.datos.barra_idiomas==1%}
+    {% include 'templates/motor/idiomas.html'%}
+{%endif%}
+{%if motor.datos.estilos!=''%}
+<style>{{motor.datos.estilos}}</style>
+{%endif%}
+<!-- MISTERPLAN PLUGIN {{MRPLAN_PLUGIN_VERSION}}-->
+<!-- MISTERPLAN PLUGIN MOTOR TIPO 1 ID ELEMENTO {{motor.datos.id_elemento}} DESTINO {{motor.datos.id_destino}} PV {{motor.datos.id_punto_venta}}-->
+{%if motor.datos.modo_ficha=='completa'%}
+<div class="MrPlanPlugin_MotorContainer" {%if motor.datos.ancho_maximo>0%}style="max-width:{{motor.datos.ancho_maximo}}px;"{%endif%}>
+    <div id="rpsv_IncWidgetFicha" class="MrPlanPlugin_CapaMotor">            
+        <script async type="text/javascript" 
+            id_elemento="{{motor.datos.id_elemento}}"
+            tipo_elemento="{{motor.datos.tipo_elemento}}"
+            idw="{{motor.datos.id_widget}}"
+            w_type="ficha"
+            url_confirmacion="{{confirmacion}}"
+            w_contenido="simple"
+            w_param="getURL"
+            paramHash="{{motor.datos.hash}}"
+            src="https://www.mrplan.io/experiencias/modulos/TExpReverse/lib/TExpReverseInc.php?id_casa={{motor.datos.id_elemento}}&idw={{motor.datos.id_widget}}&paramHash={{motor.datos.hash}}"></script>
+        </script>
+    </div>
+</div>
+{%else%}
+{%if motor.datos.tipo_carga==1%}
+<script>
+
+    if(typeof jQuery !== 'undefined'){
+        var iCl = jQuery.noConflict();
+    }
+    window.addEventListener('load', function(){
+        setTimeout(function(){
+
+            if(typeof jQuery !== 'undefined' && typeof iCl !== 'function'){
+                var iCl = jQuery.noConflict();
+            }
+            var script = document.createElement('script');
+            script.src = '{{HostServer}}experiencias/modulos/TWidget/lib/TWidgetInc.php';
+            document.getElementById('MrPlanPlugin_MotorScript').appendChild(script);
+        }, 1000);
+       
+    });
+</script>
+{%else%}
+    <script async type="text/javascript" src="{{HostServer}}experiencias/modulos/TWidget/lib/TWidgetInc.php"></script>
+{%endif%}
+<div id="MrPlanPlugin_MotorScript"></div>
+<div class="MrPlanPlugin_MotorContainer" {%if motor.datos.ancho_maximo>0%}style="max-width:{{motor.datos.ancho_maximo}}px;"{%endif%}>
+
+	<div id="TEwsBuscadorB-1-{{motor.datos.tipo_elemento}}-{{motor.datos.id_elemento}}-" 
+		class="TEwsWidgetInc capa_izq ancho_total"
+		TEws_id_idioma="{{motor.datos.id_idioma}}"
+        url_confirmacion="{{confirmacion}}"		
+        TEws_id_elemento="{{motor.datos.id_elemento}}"
+        TEws_tipo_elemento="{{motor.datos.tipo_elemento}}"
+        TEws_Hash="{{hash}}"
+        TEws_id_destino="{{motor.datos.id_destino}}"
+        TEws_id_puntoventa="{{motor.datos.id_punto_venta}}"
+        TEws_autoload="{{motor.datos.autoload}}"
+        TEws_fecha_ini="{{motor.datos.fecha_entrada}}"
+        TEws_n_noches="{{motor.datos.n_noches}}"
+        w_contenido="completa"
+		BudgetV="2" 
+        mini_preview_V="2" 
+        TEws_onSearch="" 
+        TEws_version="10" 
+        TEws_tipo_widget="1" 
+        BV7_tipo_inicio="0" 
+        BV7_cambio_inicio="0" 
+        TEws_quitar_cabecera="0" 
+        TEws_iniciar_cerrado="0" 
+        TEws_bus_texto="0" 
+        TEws_sel_dispo="1" 
+        TEws_form_contacto="0"  
+        TEws_result_in_esl="0" 
+        TEws_result_in_ext="0" 
+        TEws_cerrar_buscar="0" 
+        TEws_ver_resto_casas="0" 
+        TEws_activar_mas_menos="1" 
+        TEws_posicion="original" 
+        TEws_formato="2" 
+        TEws_formato_ficha="10" 
+        TEws_CoreSearch_V="7"  
+        TEws_id_categoria="0" 
+        TEws_modo="RES"  
+        TEws_radio="0"
+        TEsw_filtro_exp="" 
+        TEws_filtro_casa="" 
+        TEwsResultadoCoreSearch="TEwsResultCoreSearch-1-{{motor.datos.tipo_elemento}}-{{motor.datos.id_elemento}}-" 
+        alt="MisterPlan  - Powered by RuralGest  - http://www.misterplan.es" 
+		title_NO="MisterPlan  - Powered by RuralGest "
+	>
+        <div class="TMrPlanPlugin_Loading">
+            <img src="{{dir_plugin}}assets/images/loading.svg">
+        </div>
+    </div>
+    <div id="TEwsResultCoreSearch-1-{{motor.datos.tipo_elemento}}-{{motor.datos.id_elemento}}-" class="capa_izq TEwsBuscador_Experiencias_evnt" style="width: 100%; margin-top: 20px;" ></div> 
+</div>
+
+{%endif%}
