@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "codemanas/icon-list-item",
+  "version": "1.0.0",
+  "title": "Icon List Item",
+  "category": "codemanas-blocks",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" d=\"M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8\"></path></svg>",
+  "description": "List items for Icon List block",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "subIcon": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "default": "List Item"
+    },
+    "link": {
+      "type": "object",
+      "default": {
+        "enabled": false,
+        "url": "",
+        "openInTab": false,
+        "nofollow": false
+      }
+    },
+    "parent": {
+      "type": "object",
+      "default": {
+        "parentIcon": ""
+      }
+    },
+    "iconColorItem": {
+      "type": "object",
+      "default": {
+        "normal": "#000000",
+        "hover": "#000000"
+      }
+    },
+    "textColorItem": {
+      "type": "object",
+      "default": {
+        "normal": "#000000",
+        "hover": "#000000"
+      }
+    }
+  },
+  "usesContext": [
+    "parentIcon",
+    "parentIconColors",
+    "parentTextColors"
+  ],
+  "textdomain": "icon-list-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "parent": [
+    "codemanas/icon-list"
+  ]
+}

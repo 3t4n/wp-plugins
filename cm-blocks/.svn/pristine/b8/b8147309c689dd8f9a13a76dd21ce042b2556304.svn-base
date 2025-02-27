@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/masonry-gallery",
+  "version": "1.0.0",
+  "title": "CM Masonry Gallery",
+  "category": "codemanas-blocks",
+  "description": "masonry-gallery",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "gutter": {
+      "default": "medium",
+      "customDefault": 0.2
+    },
+    "html": false
+  },
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    },
+    "align": {
+      "type": "boolean",
+      "default": false
+    },
+    "childrenOrder ": {
+      "type": "array",
+      "default": []
+    },
+    "enableCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "captionPosition": {
+      "type": "string",
+      "default": "center"
+    },
+    "enableLightbox": {
+      "type": "boolean",
+      "default": false
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize",
+    "align": "align"
+  },
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "icon": "\t<svg className=\"cm-blocks__icon\" width=\"15\" height=\"12\" viewBox=\"0 0 15 12\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t<path fill=\"#e34f08\" fillRule=\"evenodd\" clipRule=\"evenodd\" d=\"M13.1063 0.09375H1.89375C0.899638 0.09375 0.09375 0.899637 0.09375 1.89375V9.825C0.09375 10.8191 0.899637 11.625 1.89375 11.625H13.1063C14.1004 11.625 14.9063 10.8191 14.9063 9.825V1.89375C14.9063 0.899638 14.1004 0.09375 13.1063 0.09375ZM1.59375 1.89375C1.59375 1.72806 1.72806 1.59375 1.89375 1.59375H13.1063C13.2719 1.59375 13.4063 1.72806 13.4063 1.89375V9.825C13.4063 9.99069 13.2719 10.125 13.1063 10.125H1.89375C1.72806 10.125 1.59375 9.99069 1.59375 9.825V1.89375ZM2.39063 2.39063H6.375V6.375H2.39063V2.39063ZM2.39063 7.17188H6.375V9.5625H2.39063V7.17188ZM9.56252 5.57813H7.1719V7.17188H9.56252V5.57813ZM7.1719 7.96875H9.56252V9.5625H7.1719V7.96875ZM12.75 5.57813H10.3594V9.5625H12.75V5.57813ZM7.17188 2.39063H12.75V4.78125H7.17188V2.39063Z\"/>\n\t\t\t</svg>"
+}

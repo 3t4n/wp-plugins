@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/accordion",
+  "version": "1.0.0",
+  "title": "CM Accordion",
+  "category": "codemanas-blocks",
+  "description": "Accordion",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "blockGap": true
+    },
+    "typography": {
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalDefaultControls": {
+        "fontFamily": true
+      }
+    },
+    "html": false
+  },
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "up-down"
+    },
+    "contentBGColor": {
+      "type": "string"
+    },
+    "contentTextColor": {
+      "type": "string"
+    },
+    "headerBGColor": {
+      "type": "string"
+    },
+    "headerTextColor": {
+      "type": "string"
+    },
+    "hoverHeaderBGColor": {
+      "type": "string"
+    },
+    "hoverHeaderTextColor": {
+      "type": "string"
+    },
+    "activeHeaderBGColor": {
+      "type": "string"
+    },
+    "activeHeaderTextColor": {
+      "type": "string"
+    },
+    "accordionBorder": {
+      "type": "object",
+      "default": {
+        "color": "#e3e3e3",
+        "style": "solid",
+        "width": "1px"
+      }
+    },
+    "accordionBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "icon-after"
+    },
+    "openSingleAccordionItem": {
+      "type": "string",
+      "default": "default"
+    },
+    "accordionHeaderFontSize": {
+      "type": "string"
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "hoverIconColor": {
+      "type": "string"
+    },
+    "activeIconColor": {
+      "type": "string"
+    }
+  },
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "dashicons",
+    "file:./style-index.css"
+  ],
+  "viewScript": "file:./view.js",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 18 18\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.28033 3.21967C3.98744 2.92678 3.51256 2.92678 3.21967 3.21967C2.92678 3.51256 2.92678 3.98744 3.21967 4.28033L8.2526 9.31326C8.28921 9.34987 8.32866 9.3819 8.37025 9.40936C8.5015 9.49602 8.65398 9.53709 8.80536 9.53259C8.98976 9.52711 9.17252 9.454 9.31327 9.31326L14.3462 4.28033C14.6391 3.98744 14.6391 3.51257 14.3462 3.21967C14.0533 2.92678 13.5784 2.92678 13.2855 3.21967L8.78293 7.72227L4.28033 3.21967ZM3.21967 8.31326C3.51256 8.02037 3.98744 8.02037 4.28033 8.31326L8.78293 12.8159L13.2855 8.31326C13.5784 8.02037 14.0533 8.02037 14.3462 8.31326C14.6391 8.60616 14.6391 9.08103 14.3462 9.37392L9.31327 14.4068C9.20343 14.5167 9.068 14.5853 8.92617 14.6128C8.68981 14.6585 8.43567 14.5899 8.25261 14.4069C8.25261 14.4069 8.2526 14.4069 8.2526 14.4068L3.21967 9.37392C2.92678 9.08103 2.92678 8.60615 3.21967 8.31326Z\"></path></svg>"
+}

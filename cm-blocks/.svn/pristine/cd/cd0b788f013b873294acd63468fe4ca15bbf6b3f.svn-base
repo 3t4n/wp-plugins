@@ -1,0 +1,164 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/countdown",
+  "version": "1.0.0",
+  "title": "CM Countdown Timer",
+  "category": "codemanas-blocks",
+  "icon": "<svg classname=\"cm-blocks__icon\" width=\"15\" height=\"17\" viewBox=\"0 0 15 17\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t<path fill=\"#e34f08\" fillrule=\"evenodd\" cliprule=\"evenodd\" d=\"M5.93534 0.73913C5.93534 0.33092 6.26626 0 6.67447 0H8.89187C9.30008 0 9.631 0.33092 9.631 0.73913C9.631 1.14734 9.30008 1.47826 8.89187 1.47826H8.5223V2.30338C12.0675 2.84775 14.7826 5.91115 14.7826 9.6087C14.7826 13.6908 11.4734 17 7.3913 17C3.3092 17 0 13.6908 0 9.6087C0 7.82143 0.634357 6.18232 1.6902 4.90425L0.961747 4.19259C0.669753 3.90733 0.664295 3.43937 0.949558 3.14737C1.23482 2.85538 1.70278 2.84992 1.99477 3.13518L2.74049 3.86371C3.92674 2.90219 5.41668 2.30067 7.04403 2.2254V1.47826H6.67447C6.26626 1.47826 5.93534 1.14734 5.93534 0.73913ZM7.3913 15C10.3688 15 12.7826 12.5862 12.7826 9.6087C12.7826 6.63116 10.3688 4.21739 7.3913 4.21739C4.41377 4.21739 2 6.63116 2 9.6087C2 12.5862 4.41377 15 7.3913 15ZM10.7392 6.11844C9.93461 6.50541 8.5113 7.35718 7 8.5C5.98905 9.26446 7.49998 11 8.49996 10C9.39195 8.66206 10.4007 7.04053 10.8589 6.24908C10.9064 6.16708 10.8246 6.07737 10.7392 6.11844Z\"></path>\n\t\t\t</svg>",
+  "description": "Countdown Timer",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "typography": {
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalDefaultControls": {
+        "fontFamily": true
+      }
+    }
+  },
+  "attributes": {
+    "countdownDayText": {
+      "type": "string",
+      "default": " Days "
+    },
+    "countdownHourText": {
+      "type": "string",
+      "default": " Hrs "
+    },
+    "countdownMinuteText": {
+      "type": "string",
+      "default": " Mins "
+    },
+    "countdownSecondText": {
+      "type": "string",
+      "default": " Sec "
+    },
+    "countdownSeparator": {
+      "type": "string",
+      "default": ":"
+    },
+    "countdownTextColor": {
+      "type": "string",
+      "default": "#000"
+    },
+    "countdownDigitColor": {
+      "type": "string",
+      "default": "#000"
+    },
+    "countdownBackgroundColor": {
+      "type": "string"
+    },
+    "countdownSeparatorColor": {
+      "type": "string"
+    },
+    "countdownBlockMargin": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    },
+    "countdownBlockBorder": {
+      "type": "object",
+      "default": {
+        "width": "0px",
+        "style": "solid",
+        "color": "#000"
+      }
+    },
+    "countdownBlockBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    },
+    "countdownBlockPadding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    },
+    "countdownOrientation": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "countdownContentLayout": {
+      "type": "string",
+      "default": "row"
+    },
+    "countdownTextFontSize": {
+      "type": "string"
+    },
+    "countdownDigitFontSize": {
+      "type": "string"
+    },
+    "countdownSeparatorFontSize": {
+      "type": "string"
+    },
+    "countdownDateTime": {
+      "type": "string",
+      "default": ""
+    },
+    "countdownDisplayDateTime": {
+      "type": "string",
+      "default": ""
+    },
+    "countdownAfterActionMessage": {
+      "type": "string",
+      "default": "Expired"
+    },
+    "countdownExpired": {
+      "type": "boolean",
+      "default": false
+    },
+    "countdownAfterAction": {
+      "type": "string",
+      "default": "show-message"
+    },
+    "startFromScratch": {
+      "type": "boolean",
+      "default": false
+    },
+    "separatorMargin": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

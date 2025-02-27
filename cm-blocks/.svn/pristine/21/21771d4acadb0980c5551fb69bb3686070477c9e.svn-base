@@ -1,0 +1,101 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/social-share",
+  "version": "1.0.0",
+  "title": "CM Social Share",
+  "category": "codemanas-blocks",
+  "description": "Social Share Block",
+  "example": {},
+  "allowedBlocks": [
+    "cmblocks/social-share-item"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "layout": {
+      "allowSwitching": false,
+      "allowInheriting": false,
+      "allowVerticalAlignment": false,
+      "default": {
+        "type": "flex"
+      }
+    },
+    "spacing": {
+      "blockGap": [
+        "horizontal"
+      ],
+      "padding": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw"
+      ]
+    }
+  },
+  "attributes": {
+    "size": {
+      "type": "object",
+      "default": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "backgroundSize": {
+      "type": "object",
+      "default": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "iconBackground": {
+      "type": "string"
+    },
+    "iconTextColor": {
+      "type": "string"
+    },
+    "labelColor": {
+      "type": "string"
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "rounded-shape",
+      "label": "Rounded"
+    },
+    {
+      "name": "square-shape",
+      "label": "Squared"
+    },
+    {
+      "name": "circular-shape",
+      "label": "Circular"
+    }
+  ],
+  "providesContext": {
+    "showLabel": "showLabel",
+    "iconSize": "size",
+    "iconBackground": "iconBackground",
+    "iconTextColor": "iconTextColor",
+    "className": "className"
+  },
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" d=\"M17 22q-1.25 0-2.125-.875T14 19q0-.15.075-.7L7.05 14.2q-.4.375-.925.588T5 15q-1.25 0-2.125-.875T2 12t.875-2.125T5 9q.6 0 1.125.213t.925.587l7.025-4.1q-.05-.175-.062-.337T14 5q0-1.25.875-2.125T17 2t2.125.875T20 5t-.875 2.125T17 8q-.6 0-1.125-.213T14.95 7.2l-7.025 4.1q.05.175.063.338T8 12t-.012.363t-.063.337l7.025 4.1q.4-.375.925-.587T17 16q1.25 0 2.125.875T20 19t-.875 2.125T17 22\"></path></svg>"
+}

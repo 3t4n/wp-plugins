@@ -1,0 +1,86 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/timeline",
+  "version": "0.1.0",
+  "title": "CM Timeline",
+  "category": "codemanas-blocks",
+  "description": "Visually represent a series of events or milestones in chronological order. Perfect for showinc company history, key events. Each point on the timeline can include a date, title, and brief description.",
+  "example": {},
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 18 10\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" d=\"M10,2c4.42,0 8,3.58 8,8c0,4.42 -3.58,8 -8,8c-4.42,0 -8,-3.58 -8,-8c0,-4.42 3.58,-8 8,-8zM10,16c3.31,0 6,-2.69 6,-6c0,-3.31 -2.69,-6 -6,-6c-3.31,0 -6,2.69 -6,6c0,3.31 2.69,6 6,6zM9.29,10.71c0.07,0.05 0.14,0.1 0.23,0.15l-0.02,0.02l4.5,2.12l-3.03,-3.19l-0.97,-4.81l-0.97,4.81h0.01c0,0.02 -0.01,0.05 -0.02,0.09c-0.01,0.04 -0.02,0.07 -0.02,0.1c0,0.28 0.1,0.52 0.29,0.71z\"></path></svg>",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": false
+    },
+    "color": {
+      "background": true
+    },
+    "layout": {
+      "default": {
+        "type": "flex",
+        "orientation": "vertical"
+      },
+      "allowVerticalAlignment": false,
+      "allowJustification": false
+    }
+  },
+  "textdomain": "timeline",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "blockGap": {
+      "type": "number",
+      "default": 20
+    },
+    "horizontalHeight": {
+      "type": "number",
+      "default": 600
+    },
+    "layout": {
+      "type": "object",
+      "default": {
+        "type": "flex",
+        "orientation": "vertical"
+      }
+    },
+    "icon": {
+      "type": "string",
+      "default": "calendar-month-outline"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "iconBackgroundColor": {
+      "type": "string",
+      "default": "#cccccc"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ]
+    },
+    "dateFormat": {
+      "type": "string",
+      "default": "MMMM d, yyyy"
+    }
+  },
+  "providesContext": {
+    "cmblocks/timeline-icon": "icon",
+    "cmblocks/timeline-icon-position": "iconPosition",
+    "cmblocks/timeline-dateFormat": "dateFormat",
+    "cmblocks/timeline-layout": "layout"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "cmblocks/slider",
+  "version": "1.0.0",
+  "title": "CM Slider",
+  "category": "codemanas-blocks",
+  "description": "Slider",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "initialInsert": {
+      "type": "boolean",
+      "default": false
+    },
+    "allowTouchMove": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoHeight": {
+      "type": "boolean",
+      "default": true
+    },
+    "effect": {
+      "type": "string",
+      "default": "slide"
+    },
+    "buttons": {
+      "type": "boolean",
+      "default": true
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "pagination": {
+      "type": "boolean",
+      "default": false
+    },
+    "slidesPerView": {
+      "type": "number",
+      "default": 1
+    },
+    "spaceBetween": {
+      "type": "number",
+      "default": 20
+    },
+    "paginationType": {
+      "type": "string",
+      "default": "default"
+    },
+    "navigationColor": {
+      "type": "string",
+      "default": "#D8613C"
+    },
+    "navigationSize": {
+      "type": "string",
+      "default": "24px"
+    },
+    "autoplayDelay": {
+      "type": "number",
+      "default": 2000
+    },
+    "slidesPerGroup": {
+      "type": "number",
+      "default": "1"
+    },
+    "paginationActiveColor": {
+      "type": "string",
+      "default": "#007aff"
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    },
+    "paginationInactiveColor": {
+      "type": "string",
+      "default": "#00000040"
+    },
+    "paginationSize": {
+      "type": "string",
+      "default": "12px"
+    },
+    "speed": {
+      "type": "string",
+      "default": "800",
+      "source": "attribute",
+      "selector": ".swiper",
+      "attribute": "data-speed"
+    },
+    "showNavigationOnHover": {
+      "type": "boolean",
+      "default": false
+    },
+    "navigationPosition": {
+      "type": "string",
+      "default": "center-center"
+    },
+    "swiperPadding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      }
+    }
+  },
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 28 14\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5 2C5 0.89543 5.89543 0 7 0H21C22.1046 0 23 0.89543 23 2V12C23 13.1046 22.1046 14 21 14H7C5.89543 14 5 13.1046 5 12V2ZM9 2H7V4V10V12H9H19H21V10V4V2H19H9ZM2 2.82222C2.7732 2.82222 3.4 3.44902 3.4 4.22222V10.8889C3.4 11.6621 2.7732 12.2889 2 12.2889H0V10.8889H0.6H2V9.48889V5.62222V4.22222H0.6H0V2.82222H2ZM24.6 10.8889C24.6 11.6621 25.2268 12.2889 26 12.2889H28V10.8889H27.4H26V9.48889V5.62222V4.22222H27.4H28V2.82222L26 2.82222C25.2268 2.82222 24.6 3.44902 24.6 4.22222L24.6 10.8889Z\"></path></svg>"
+}

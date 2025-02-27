@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/accordion-item",
+  "version": "1.0.0",
+  "title": "CM Accordion Item",
+  "category": "codemanas-blocks",
+  "description": "Accordion Item",
+  "example": {},
+  "attributes": {
+    "contentBGColor": {
+      "type": "string"
+    },
+    "contentTextColor": {
+      "type": "string"
+    },
+    "globalSettings": {
+      "type": "object",
+      "default": {
+        "headerBGColor": "",
+        "headerTextColor": ""
+      }
+    },
+    "heading": {
+      "type": "string",
+      "default": "FAQ Heading",
+      "source": "html",
+      "selector": ".cmblocks-accordion__item-title"
+    },
+    "headerBGColor": {
+      "type": "string"
+    },
+    "headerTextColor": {
+      "type": "string"
+    },
+    "hoverHeaderBGColor": {
+      "type": "string"
+    },
+    "hoverHeaderTextColor": {
+      "type": "string"
+    },
+    "activeHeaderBGColor": {
+      "type": "string"
+    },
+    "activeHeaderTextColor": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string",
+      "default": null
+    },
+    "initialOpen": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "hoverIconColor": {
+      "type": "string"
+    },
+    "activeIconColor": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ]
+    }
+  },
+  "parent": [
+    "cmblocks/accordion"
+  ],
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 18 13\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path  fill=\"#e34f08\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8.85483 9.52949C8.63969 9.55009 8.41735 9.47802 8.2526 9.31326L3.21967 4.28033C2.92678 3.98744 2.92678 3.51257 3.21967 3.21967C3.51256 2.92678 3.98744 2.92678 4.28033 3.21967L8.78293 7.72227L13.2855 3.21967C13.5784 2.92678 14.0533 2.92678 14.3462 3.21967C14.6391 3.51256 14.6391 3.98744 14.3462 4.28033L9.31327 9.31326C9.30669 9.31983 9.30002 9.32627 9.29326 9.33255C9.16838 9.44865 9.01356 9.5143 8.85483 9.52949Z\"></path></svg>"
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "codemanas/icon-list",
+  "version": "1.0.0",
+  "title": "CM Icon List",
+  "category": "codemanas-blocks",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" d=\"M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8m0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8m0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8M104 228a56 56 0 1 0 112 0a56 56 0 1 0-112 0m0 284a56 56 0 1 0 112 0a56 56 0 1 0-112 0m0 284a56 56 0 1 0 112 0a56 56 0 1 0-112 0\"></path></svg>",
+  "description": "Icon List block that displays icons",
+  "example": {},
+  "supports": {
+    "html": false,
+    "layout": {
+      "allowSwitching": false,
+      "allowInheriting": false,
+      "allowVerticalAlignment": false,
+      "default": {
+        "type": "flex",
+        "orientation": "vertical"
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": true
+    }
+  },
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "before"
+    },
+    "iconSize": {
+      "type": "object",
+      "default": {
+        "value": 20,
+        "unit": "px"
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "default": {
+        "value": 5,
+        "unit": "px"
+      }
+    },
+    "textSize": {
+      "type": "object",
+      "default": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "iconColors": {
+      "type": "object",
+      "default": {
+        "normal": "#000",
+        "hover": "#000"
+      }
+    },
+    "textColors": {
+      "type": "object",
+      "default": {
+        "normal": "#000",
+        "hover": "#000"
+      }
+    }
+  },
+  "providesContext": {
+    "parentIcon": "icon",
+    "parentIconColors": "iconColors",
+    "parentTextColors": "textColors"
+  },
+  "textdomain": "icon-list",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cmblocks/star-rating",
+  "version": "1.1.0",
+  "title": "CM Star Rating",
+  "category": "codemanas-blocks",
+  "description": "Star Rating Block",
+  "example": {},
+  "supports": {
+    "html": false,
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "attributes": {
+    "blockUniqueID": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "enableTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "rating": {
+      "type": "number",
+      "default": 3
+    },
+    "icon": {
+      "type": "string",
+      "default": "star"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "colorMarked": {
+      "type": "string",
+      "default": "#F0AD4E"
+    },
+    "colorUnMarked": {
+      "type": "string",
+      "default": "#CCD6DF"
+    },
+    "icon_size": {
+      "type": "object",
+      "default": {
+        "value": 40,
+        "unit": "px"
+      }
+    },
+    "starPosition": {
+      "type": "string",
+      "default": "after"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000"
+    },
+    "textIconSpacing": {
+      "type": "object",
+      "default": {
+        "value": 2,
+        "unit": "px"
+      }
+    },
+    "iconSpacing": {
+      "type": "object",
+      "default": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
+  },
+  "textdomain": "cm-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" class=\"cm-blocks__icon\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"#e34f08\" d=\"M16.23 18L12 15.45L7.77 18l1.12-4.81l-3.73-3.23l4.92-.42L12 5l1.92 4.53l4.92.42l-3.73 3.23zM12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2\"></path></svg>"
+}
