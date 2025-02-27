@@ -1,0 +1,138 @@
+
+.oxy_create_document,.oxy_create_notice{
+
+    text-align:center!important;
+    text-decoration: none!important;
+    max-height:28px!important;
+    min-height:28px!important;
+    display:block;
+    border-radius:4px;
+    font-size: 13px;
+    line-height: 26px;
+    font-weight: 500;
+}
+
+.oxy_create_notice{
+
+    background-color: white;
+    border:1px solid #A700E3;
+    color: #A700E3;
+    padding: 2px 8px!important;
+
+}
+.oxy_create_notice:hover,
+.oxy_create_notice:active,
+.oxy_create_notice:focus{
+    text-decoration: none!important;
+    background-color: #f2f2f2;
+    color: #A700E3!important;
+}
+
+.oxy_create_document:hover,
+.oxy_create_document:active,
+.oxy_create_document:focus{
+    color:#F2F2F4!important;
+    text-decoration: none!important;
+    background-color: #6C0093;
+
+}
+
+.oxy_create_document:focus,
+.oxy_create_notice:focus{
+    border-color: transparent!important;
+    box-shadow: none !important;
+}
+
+.oxy_create_document{
+    background-color: #A700E3;
+    color: white;
+    padding: 4px 10px!important;
+
+}
+
+.download_pdf_orders{
+
+    background-color: #A700E3;
+    color: white;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    max-width: 108px;
+    margin: 4px 0;
+    position: relative;
+    min-height:26px;
+    cursor:pointer;
+}
+
+.download_pdf_orders:hover,.oxy_create_document:hover{
+    background-color: #6C0093;
+}
+
+.oxygen_links_style{
+    color:#4e5057;
+    font-weight:bold;
+    text-decoration: none!important;
+}
+
+.oxygen_links_style:hover{
+
+    color:#303235;
+}
+
+.oxygen_labels_orders{
+
+    padding: 4px 0;
+    display: inline-block;
+    color:#191615;
+    font-weight:bold;
+    margin: 4px 0;
+}
+
+.oxygen_list_separator{
+    width: 50px;
+    border-bottom: 1px solid #761919;
+    padding: 3px;
+    margin: 0;
+}
+
+
+.loading_pdf_download {
+    position: absolute;
+    top: 6px;
+    left: 40%;
+    width: 16px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: l20-1 0.8s infinite linear alternate, l20-2 1.6s infinite linear;
+}
+
+@keyframes l20-1{
+    0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+    12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+    25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+    50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+    62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+    75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+    100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{
+    0%    {transform:scaleY(1)  rotate(0deg)}
+    49.99%{transform:scaleY(1)  rotate(135deg)}
+    50%   {transform:scaleY(-1) rotate(0deg)}
+    100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+.send_invoice_email{
+
+    width:22px;
+    margin-left: 16px;
+}
+
+.send_invoice_email >svg>path:hover{
+    fill: #4e5057;
+    cursor: pointer;
+}
