@@ -1,0 +1,22 @@
+.hero-trending {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+}
+.hero-trending li {
+    flex: 0 0 auto;
+    position: relative;
+}
+.hero-trending li:before {
+    content: attr(data-num);
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    box-sizing: content-box;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}

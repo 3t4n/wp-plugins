@@ -1,0 +1,32 @@
+.ne-heading-2.one .ne-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+.ne-heading-2.one .ne-label:after {
+    display: inline-flex;
+    flex-grow: 1;
+    content: '';
+    border-bottom: 1px solid;
+}
+.ne-heading-2.two{
+    position: relative;
+    display: inline-flex;  
+}
+.ne-heading-2.two .ne-label{
+  position: relative;
+  z-index: 1;
+}
+.ne-heading-2.two:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    border-right: 3px solid ;
+    border-left: 3px solid ;
+}

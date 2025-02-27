@@ -1,0 +1,32 @@
+<?php
+	use News_Element\Khobish_Helper;
+
+		$per_page = $settings['post_perpage']['size'];
+        $template = 'magazine-8/'.$settings['tmpl'].'';
+ 
+        $metaf = Khobish_Helper::king_buildermeta_to_string($settings['metaf']);
+        $metar = Khobish_Helper::king_buildermeta_to_string($settings['metar']);
+
+        $imgf = $settings['imgf'];
+        $imgr = $settings['imgr'];
+ 
+        $excerptf = $settings['excerptf']['size'];
+        $excerptr = $settings['excerptr']['size'];
+		global $wp_query;
+		$query_args = $wp_query->query_vars;
+		if($per_page){
+			$query_args['posts_per_page'] = $per_page;
+		}
+        $i = 0;
+		$wp_query = new WP_Query($query_args);
+		$post_count = $wp_query->post_count;
+		$post_found = $wp_query->found_posts;
+		$cls = $settings['tmpl'];
+			echo'<div class="mag8 '.$cls.'">';
+			echo '<div class="khobish-ajax-wrap ne-d-flex ne-gutter ne-mobile-block">'; 
+			if (in_array($settings['tmpl'], ['style_one', 'style_two'])) {
+				require NEWS_ELM_PATH . 'includes/loops/magazine-8/' . $settings['tmpl'] . '.php';
+			} 
+			echo '</div>';
+			echo Khobish_Helper::khobish_theme_pagination();
+		echo '</div>';?>  
