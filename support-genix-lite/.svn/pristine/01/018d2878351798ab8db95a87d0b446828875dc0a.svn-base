@@ -1,0 +1,1 @@
+import{j as e}from"../main.WyXjDOeh.1738820436135.js";import{w as i,R as n}from"./withEditorConfig.C4RT6U2f.1738820436135.js";const t=(window==null?void 0:window.support_genix_config)||{},s=(t==null?void 0:t.weekend_notice)||"",d=s||"",r=i(n,!0,[]),a=o=>e.jsx(r,{...o});export{a as T,d as w};
