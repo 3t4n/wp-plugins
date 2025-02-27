@@ -1,0 +1,1 @@
+jQuery(document).on("click","#edd-enhanced-sales-reports-review .notice-dismiss",function(){jQuery.post(ajaxurl,{action:"edd_enhanced_sales_reports_review_notice"},function(e){})});

@@ -1,0 +1,124 @@
+.edd-enhanced-sales-reports-summary-widget {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.edd-enhanced-sales-reports-summary-widget table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+	margin-bottom: 15px;
+	font-weight: 500;
+	font-size: 12px;
+}
+
+.edd-enhanced-sales-reports-summary-widget table th,
+.edd-enhanced-sales-reports-summary-widget table td {
+	padding: 2px 5px;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+
+.edd-enhanced-sales-reports-summary-widget table th {
+	border: none;
+}
+
+.edd-enhanced-sales-reports-summary-widget .edd-esr-align-right,
+.edd-enhanced-sales-reports-summary-widget th ~ th:last-child {
+	text-align: right;
+}
+
+.edd-enhanced-sales-reports-summary-widget tr:nth-child(2n) {
+	background: #f3f3f3;
+}
+
+.edd-enhanced-sales-reports-summary-widget table th {
+	background: #376EA2;
+	color: #fff;
+}
+
+.edd-enhanced-sales-reports-summary-widget-lower {
+	width: 100%;
+}
+
+.edd-enhanced-sales-reports-summary-widget-lower table {
+	width: 100%;
+}
+
+.edd-enhanced-sales-reports-summary-widget a {
+	text-decoration: none;
+}
+
+.edd-enhanced-sales-reports-summary-widget-buttons {
+	margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.edd-enhanced-sales-reports-summary-widget-buttons .button {
+	padding: 5px;
+	width: 19.5%;
+	line-height: 1.2;
+	white-space: pre-wrap;
+	text-align: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.edd-enhanced-sales-reports-date-switcher {
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.edd-enhanced-sales-reports-summary-widget-lower .edd-enhanced-sales-reports-date-switcher h4 {
+	margin-bottom: 0;
+}
+
+.edd-enhanced-sales-reports-summary-widget-lower.ajaxing {
+	position: relative;
+}
+
+.edd-esr-ajaxing:before,
+.edd-enhanced-sales-reports-summary-widget-lower.ajaxing:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+}
+
+.edd-esr-ajaxing {
+	position: relative;
+}
+
+.edd-esr-ajaxing:after,
+.edd-enhanced-sales-reports-summary-widget-lower.ajaxing:after {
+	content: '';
+	display: block;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	border-right-color: transparent;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -8px;
+	margin-left: -8px;
+	animation: edd_esr_ajaxing 1s infinite linear;
+}
+
+@keyframes edd_esr_ajaxing {
+	to {
+		transform: rotate(360deg);
+	}
+}
