@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'codeixer/jvm-woocommerce-wishlist',
+        'pretty_version' => '2.0.5.x-dev',
+        'version' => '2.0.5.9999999-dev',
+        'reference' => 'dc2a595507378db92f14112021f74ce2f19d421f',
+        'type' => 'woocommerce-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'codeixer/jvm-woocommerce-wishlist' => array(
+            'pretty_version' => '2.0.5.x-dev',
+            'version' => '2.0.5.9999999-dev',
+            'reference' => 'dc2a595507378db92f14112021f74ce2f19d421f',
+            'type' => 'woocommerce-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'codesvault/howdy-qb' => array(
+            'pretty_version' => '1.6.4',
+            'version' => '1.6.4.0',
+            'reference' => '0481918ef28c5fc96d7c83edb3487a5a7df919fc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../codesvault/howdy-qb',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'collizo4sky/persist-admin-notices-dismissal' => array(
+            'pretty_version' => '1.4.5',
+            'version' => '1.4.5.0',
+            'reference' => '163b868c98cf97ea15b4d7e1305e2d52c9242e7e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../collizo4sky/persist-admin-notices-dismissal',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
