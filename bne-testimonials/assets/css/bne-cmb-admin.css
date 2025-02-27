@@ -1,0 +1,294 @@
+/*
+ * 	BNE WP Admin CSS
+ *	Used to add menu icons, Theme Option Styles, CMB2 Styles and TinyMCE Button Style
+ *
+ * 	@author		Kerry Kline
+ * 	@copyright	Copyright (c) Kerry Kline
+ * 	@link		http://www.bnecreative.com
+ *
+ * 	@updated:	Feb 14, 2020
+ *
+*/
+
+
+
+/* ===========================================================
+ *	CMB - Resets
+ * ======================================================== */
+
+.bne-cmb-wrapper.cmb2-wrap * { }
+.bne-cmb-wrapper .hide { display: none; }
+.bne-cmb-wrapper.cmb2-wrap {
+	margin: -6px -12px -12px -12px;
+	padding: 0;
+	width: calc(100% + 24px);
+}
+
+/* == Layouts == */
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row {
+	background: #FBFBFB;
+	padding: 0;
+	margin: 0;
+}
+
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row > .cmb-th,
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row > .cmb-td {
+	padding: 20px 15px;
+	box-sizing: border-box;
+}
+
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row > .cmb-td {
+	background: white;
+	border-left: 1px solid #E1E1E1;
+}
+
+/* == Main == */
+#normal-sortables .bne-cmb-wrapper.cmb2-wrap .cmb-row > .cmb-th,
+#normal-sortables .bne-cmb-wrapper.cmb2-wrap .cmb-row > .cmb-td { min-height: 50px; }
+#normal-sortables .bne-cmb-wrapper.cmb2-wrap .cmb-th label { padding: 0; }
+#normal-sortables .bne-cmb-wrapper.cmb2-wrap .cmb-row .cmb2-metabox-description { padding-bottom: 0; }
+
+
+/* == Sidebar == */
+#side-sortables .bne-cmb-wrapper.cmb2-wrap label { font-weight: 600; }
+#side-sortables .bne-cmb-wrapper.cmb2-wrap label:after { border-bottom: none; }
+#side-sortables .bne-cmb-wrapper.cmb2-wrap .cmb-row .cmb2-metabox-description { padding-bottom: 0; }
+#side-sortables .bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row { background: white; }
+#side-sortables .bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-td,
+#side-sortables .bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-th { padding: 0 15px; border: none; }
+#side-sortables .bne-cmb-wrapper.cmb2-wrap select { width: 100%; }
+
+/* ===========================================================
+ *	CMB - Defualt Fields
+ * ======================================================== */
+
+/* == Image Preview/Embeds == */
+.bne-cmb-wrapper .cmb2-media-status .img-status img { width: 100%; height: auto; box-sizing: border-box; }
+.bne-cmb-wrapper .cmb2-media-status .embed-status .cmb2-remove-file-button,
+.bne-cmb-wrapper .cmb2-media-status .img-status .cmb2-remove-file-button { background-image: none; cursor: pointer !important; }
+.bne-cmb-wrapper .cmb2-media-status .embed-status .cmb2-remove-file-button:before,
+.bne-cmb-wrapper .cmb2-media-status .img-status .cmb2-remove-file-button:before {
+	content: '\f158';
+	color: #d54e21;
+	font-family: 'dashicons';
+	font-size: 30px;
+	line-height: 1em;
+	text-indent: 0;
+	position: absolute;
+	left: -5px;
+	top: -5px;
+}
+
+/* == Upload == */
+.bne-cmb-wrapper.cmb2-wrap .cmb2-upload-button { float: none; }
+
+/* == Groups == */
+.bne-cmb-wrapper.cmb2-wrap .cmb-group-description { background: none !important; border: none !important; }
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-group-description .cmb-th { padding: 0; }
+.bne-cmb-wrapper.cmb2-wrap .cmb-repeat-group-wrap > .cmb-td { border-left: none !important; }
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row.cmb-repeatable-grouping { margin-bottom: 20px; padding: 0; }
+.bne-cmb-wrapper.cmb2-wrap .cmb-group-title {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	background: #FBFBFB !important;
+	border-bottom: 1px solid #E1E1E1;
+	cursor: pointer;
+}
+.bne-cmb-wrapper.cmb2-wrap .cmbhandle:before { right: 24px; }
+.bne-cmb-wrapper.cmb2-wrap button.cmb-remove-group-row { top: 4px !important; }
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-repeatable-group > .cmb-row:last-of-type .cmb-td,
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-repeat-group-wrap .cmb-row > .inside.cmb-td {
+    margin: 0 !important;
+    padding: 0;
+    border-left: 0;
+}
+.bne-cmb-wrapper.cmb2-wrap .cmb-row.cmb-remove-field-row {
+	margin-bottom:0;
+	padding: 12px !important;
+	background: #FBFBFB !important;
+	border-top: 1px solid #E1E1E1;
+}
+
+/* == Repeater == */
+.bne-cmb-wrapper.cmb2-wrap .cmb2-metabox .cmb-row.cmb-repeat-row { background: none; }
+.bne-cmb-wrapper.cmb2-wrap .cmb-repeat-row,
+.bne-cmb-wrapper.cmb2-wrap .cmb-repeat-row .cmb-td {
+    border: none !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+}
+
+.bne-cmb-wrapper.cmb2-wrap .cmb-add-row { margin-top: 0; }
+.bne-cmb-wrapper.cmb2-wrap .cmb-repeat-table { background: none; border: none; }
+.bne-cmb-wrapper.cmb2-wrap .cmb-repeat-table .cmb-row.cmb-repeat-row:before,
+.bne-cmb-wrapper.cmb2-wrap .cmb-repeat-table + .cmb-add-row:before { 
+	display: none;
+}
+
+/* == OEMBED Field == */
+.bne-cmb-wrapper .cmb2-media-status .embed-status { width: 97%; }
+.bne-cmb-wrapper .bne-video-wrapper, .bne-cmb-wrapper .wp-video { position: relative; width: 100% !important; }
+.bne-cmb-wrapper .bne-video-wrapper .video-inner { padding-bottom: 56.25%; padding-top: 25px; height: 0; }
+.bne-cmb-wrapper .bne-video-wrapper iframe,
+.bne-cmb-wrapper .bne-video-wrapper embed,
+.bne-cmb-wrapper .bne-video-wrapper object { position: absolute; top: 0; left: 0; height: 100%; width: 100%; }
+.bne-cmb-wrapper .wp-video, .bne-cmb-wrapper video { width: 100% !important; }
+
+
+/* == Radio Image Field == */
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list { display: block; clear: both; overflow: hidden; }
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list input[type="radio"] { display: none; }
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list li { display: inline-block; margin-bottom: 0; width: 68px; }
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list input[type="radio"] + label { border: 3px solid transparent; display: block; }
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list input[type="radio"] + label:hover,
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list input[type="radio"]:checked + label { border-color: #ccc; }
+.bne-cmb-wrapper .cmb-type-radio-image .cmb2-radio-list li label img { display: block; width: 100%; height: auto; }
+
+/* ===========================================================
+ *	CMB - Custom Field Types (BNE CMB Field Type Class)
+ * ======================================================== */
+
+/* == Input Append/Prepend Wrapper == */
+.bne-input-wrap {  position: relative; overflow: hidden; }
+.bne-input-wrap input { width: calc( 100% - 1px ) !important; }
+.bne-input-prepend,
+.bne-input-append {
+	margin: 0px -4px 0px 0px;
+	padding: 0px 10px;
+	float: left;
+	min-height: 30px;
+	background: #F4F4F4;
+	border-radius: 0;
+	border: #7e8993 solid 1px;
+	font-size: 13px;
+	line-height: 28px;
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
+}
+.bne-input-append { 
+	float: right;
+	border-radius: 0;
+	margin: 0px 0px 0px -5px;
+}
+
+.bne-input-prepend + .bne-input-wrap input,
+.bne-input-prepend + input {
+	padding-left: 10px;
+}
+.bne-input-append + .bne-input-wrap input,
+.bne-input-append + input {
+	padding-right: 10px;
+}
+
+.bne-input-prepend > .dashicons,
+.bne-input-append > .dashicons {
+	line-height: 28px;
+}
+
+/* == BNE CMB Field Type Class == */
+.bne-cmb-field { margin-bottom: 10px; }
+.bne-cmb-field label.field_label { 
+	display: block; 
+	margin-bottom 3px; 
+	color: #999; 
+	font-size: 12px; 
+	text-transform: uppercase; 
+}
+.bne-cmb-field label.field_label.label-below { margin-top: 3px; margin-bottom: 0; }
+.bne-field-description { padding-bottom: 1.8rem; }
+.bne-cmb-field input[type="text"],
+.bne-cmb-field input[type="email"],
+.bne-cmb-field input[type="url"],
+.bne-cmb-field input[type="number"] { width: 99%; }
+.bne-cmb-field select { width: 100%; max-width: 250px; }
+.bne-cmb-field textarea { width: 100%; }
+.bne-cmb-field:not(.bne-cmb-col-1) .bne-fancy-select,
+.bne-cmb-field:not(.bne-cmb-col-1) .bne-fancy-select select {
+	/*height: 28px;*/
+	min-width: auto;
+	max-width: 100%;
+}
+.cmb-repeat-row .cmb-td:first-of-type { width: calc(100% - 25px ); }
+
+/* Old Browsers Grid */
+.bne-cmb-field-group { position: relative; margin: 0 -1%; padding: 0; width :102%; }
+.bne-cmb-field-group:after { content:""; display:table; clear:both; }
+.bne-cmb-field-group [class*="bne-cmb-col"] { float:left; margin:1%; margin-top:0; padding:0; min-height:.125rem; width:98%; }
+@media (min-width:768px) {
+	.bne-cmb-field-group .bne-cmb-col-1-2 { width:48%; }
+	.bne-cmb-field-group .bne-cmb-col-1-3 { width:31.33%; }
+	.bne-cmb-field-group .bne-cmb-col-1-4 { width:23%; }
+}
+
+/* CSS Grid Support */
+@supports (grid-area: auto) {
+	.bne-cmb-field-group {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-column-gap: 20px;
+		width: auto;
+		margin: 0;
+	}
+	.bne-cmb-field-group [class*="bne-cmb-col-"] { grid-column: span 12; width: auto; margin: 0 0 10px 0;  }
+	@media (min-width: 768px ) {
+		.bne-cmb-field-group .bne-cmb-col-1-2 { grid-column: span 6; }
+		.bne-cmb-field-group .bne-cmb-col-1-3 { grid-column: span 4; }
+		.bne-cmb-field-group .bne-cmb-col-1-4 { grid-column: span 3; }
+	}
+}
+
+/* legacy field types (Pre BNE CMB Field Type Class) */
+.cmb-sub-options { padding: 10px 0px; }
+.cmb-sub-options > .cmb-td { padding-bottom: 5px; }
+.cmb-sub-options label { margin-top: 10px; font-weight: 600; display: block; }
+.bne-field-option { margin-bottom: 5px; position: relative; }
+.bne-field-option .bne-fancy-select { margin-bottom: 0; }
+
+
+/* == Mobile == */
+@media only screen and (max-width: 600px) {
+	.bne-cmb-wrapper .embed_wrap { display: none; }
+	.bne-cmb-wrapper.cmb2-wrap > .cmb-field-list > .cmb-row > .cmb-td,
+	.bne-cmb-wrapper.cmb2-wrap > .cmb-field-list > .cmb-row > .cmb-th {
+		width: 100%;
+	}
+}
+
+
+/* == RTL Support == */
+body.wp-admin.rtl .bne-cmb-wrapper .cmb-repeat-group-wrap .cmb-th + .cmb-td,
+body.wp-admin.rtl .postbox-container .bne-cmb-wrapper .cmb-th + .cmb-td {
+	border-left: 0px;
+	border-right: 1px solid #E1E1E1;
+}
+body.wp-admin.rtl .bne-cmb-wrapper .cmb2-metabox .cmbhandle { left: 30px; }
+body.wp-admin.rtl #poststuff .repeatable .cmb-group-title { padding-right: 2.2em; }
+body.wp-admin.rtl .bne-cmb-wrapper .cmb-remove-group-row { right: 0; left: auto; }
+
+
+/* ===========================================================
+ *	CMB - Gutenberg
+ * ======================================================== */
+
+.block-editor-page #side-sortables .bne-cmb-wrapper.cmb2-wrap .cmb-row:not(:last-of-type) {
+	border-bottom: none;
+	padding-bottom: 0 !important;
+}
+.block-editor-page #side-sortables .bne-cmb-wrapper.cmb2-wrap label {
+	font-size: 13px;
+}
+
+
+/* == Upload Btn == */
+.bne-upload-btn { margin: 10px 0px !important; }
+
+/* == Mini Field == */
+@media only screen and (min-width: 768px) {
+	.featured-area-background-options .cmb-td { clear: both; }
+	.bne-field-option.mini { width: 46%; margin: 0 4% 20px 0; float: left; }
+	.bne-field-option.thirds { width: 31.33%; margin: 0 2% 20px 0; float: left; }
+}
+
+/* == Address Field == */
+.bne-field-option.address .field-label { margin-top: 10px; }
