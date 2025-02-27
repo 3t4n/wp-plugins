@@ -1,0 +1,156 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "walker-core/slider-carousel",
+  "title": "Slider/Carousel Builder",
+  "description": "Immerse yourself in an engaging browsing journey using our 'Carousel' block, showcasing visually stunning and interactive featured content for effortless exploration.",
+  "category": "walker-core",
+  "supports": {
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalTextTransform": true,
+      "__experimentalFontFamily": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalSkipSerialization": [
+        "textDecoration"
+      ],
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "color": {
+      "background": true,
+      "gradients": true,
+      "link": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    },
+    "interactivity": {
+      "clientNavigation": false
+    }
+  },
+  "attributes": {
+    "cover": {
+      "type": "string",
+      "default": ""
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    },
+    "layout": {
+      "type": "string",
+      "default": "carousel"
+    },
+    "height": {
+      "type": "number",
+      "default": 430
+    },
+    "gridOptions": {
+      "type": "object",
+      "default": {
+        "masonry": false,
+        "columnCount": 3,
+        "gap": 30
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "default": {
+          "width": 10,
+          "height": 10,
+          "borderRadius": 10,
+          "color": "#000",
+          "colorHover": ""
+        },
+        "active": {
+          "width": "",
+          "height": "",
+          "borderRadius": "",
+          "offset": 0,
+          "border": {
+            "width": "",
+            "style": "",
+            "color": ""
+          },
+          "color": "#f49805",
+          "borderColorHover": "",
+          "colorHover": ""
+        },
+        "verticalPosition": -26,
+        "gap": 4
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "hoverShow": true,
+        "size": 16,
+        "boxWidth": 35,
+        "boxHeight": 35,
+        "borderRadius": 50,
+        "border": {
+          "width": "",
+          "style": "",
+          "color": ""
+        },
+        "boxColor": "#5566ca",
+        "color": "#fff",
+        "boxColorHover": "",
+        "borderColorHover": "",
+        "colorHover": ""
+      }
+    },
+    "sliderOptions": {
+      "type": "object",
+      "default": {
+        "direction": "horizontal",
+        "autoplay": {
+          "enabled": true,
+          "pauseOnMouseEnter": true,
+          "delay": 2500
+        },
+        "loop": true,
+        "centeredSlides": false,
+        "slidesPerView": 1,
+        "spaceBetween": 0,
+        "speed": 1500,
+        "effect": "none"
+      }
+    }
+  },
+  "editorScript": [
+    "walker-core--slider-carousel"
+  ],
+  "editorStyle": [
+    "walker-core--slider-carousel--editor"
+  ],
+  "script": [
+    "walker-core--swiper-bundle"
+  ],
+  "style": [
+    "walker-core--slider-carousel--frontend",
+    "walker-core--swiper-bundle"
+  ],
+  "viewScript": [
+    "walker-core--block-scripts"
+  ],
+  "render": "file:./render.php"
+}

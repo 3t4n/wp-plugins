@@ -1,0 +1,112 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "walker-core/accordion",
+  "title": "Accordion",
+  "description": "Immerse yourself in an engaging browsing journey using our 'Accordion' block, showcasing visually stunning and interactive featured content for effortless exploration.",
+  "category": "walker-core",
+  "supports": {
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalTextTransform": true,
+      "__experimentalFontFamily": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalSkipSerialization": [
+        "textDecoration"
+      ],
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "color": {
+      "background": true,
+      "gradients": true,
+      "link": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    },
+    "interactivity": {
+      "clientNavigation": false
+    }
+  },
+  "attributes": {
+    "cover": {
+      "type": "string",
+      "default": ""
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h4"
+    },
+    "gap": {
+      "type": "number",
+      "default": "16"
+    },
+    "accordionStyles": {
+      "type": "object",
+      "default": {
+        "fontSize": "16",
+        "iconSize": "24",
+        "fontWeight": "600",
+        "default": {
+          "color": "#000",
+          "iconColor": "#000"
+        },
+        "active": {
+          "color": "#5566ca",
+          "iconColor": "#5566ca"
+        }
+      }
+    }
+  },
+  "providesContext": {
+    "walker-core/titleTag": "titleTag"
+  },
+  "editorScript": [
+    "walker-core--accordion"
+  ],
+  "editorStyle": [
+    "walker-core--accordion--editor"
+  ],
+  "script": [
+    "walker-core--swiper-bundle"
+  ],
+  "style": [
+    "walker-core--accordion--frontend",
+    "walker-core--swiper-bundle"
+  ],
+  "viewScript": [
+    "walker-core--block-scripts"
+  ],
+  "render": "file:./render.php"
+}
