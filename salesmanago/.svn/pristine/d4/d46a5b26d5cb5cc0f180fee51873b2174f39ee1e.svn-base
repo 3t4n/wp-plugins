@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+        <testsuite name="FeatureApiV2">
+            <directory suffix="Test.php">./tests/Feature/Controller</directory>
+            <directory suffix="Test.php">./tests/Feature/Event</directory>
+            <directory suffix="Test.php">./tests/Feature/Export</directory>
+            <directory suffix="Test.php">./tests/Feature/Report</directory>
+            <file>tests/Feature/Services/CouponTransferServiceTest.php</file>
+            <file>tests/Feature/Services/ReportServiceTest.php</file>
+            <directory suffix="Test.php">./tests/Feature/User</directory>
+        </testsuite>
+        <testsuite name="FeatureApiV3">
+            <directory suffix="Test.php">./tests/Feature/Services/Api/V3</directory>
+            <directory suffix="Test.php">./tests/Feature/ProductCatalogs</directory>
+            <directory suffix="Test.php">./tests/Feature/ProductCollection</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="userEmail" value=""/>
+        <env name="userPass" value=""/>
+        <env name="appEndpoint" value=""/>
+        <env name="emailId" value=""/>
+        <env name="ApiV3Endpoint" value=""/>
+        <env name="ApiV3Key" value=""/>
+    </php>
+</phpunit>

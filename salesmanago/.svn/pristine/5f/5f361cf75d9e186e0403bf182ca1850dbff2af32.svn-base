@@ -1,0 +1,67 @@
+image: webdevops/php-apache-dev:7.4
+
+featureTestsSuite: &featureTestsSuite
+  step:
+    name: Tests Feature Testsuite
+    caches:
+      - composer
+    script:
+      - composer install
+      - userEmail=$userEmail userPass=$userPass appEndpoint=$appEndpoint ApiV3Key=$ApiV3Key ApiV3Endpoint=$ApiV3Endpoint emailId=$emailId ./vendor/bin/phpunit --no-coverage --testsuite Feature
+
+unitTestsSuite: &unitTestsSuite
+  step:
+    name: Tests Unit Testsuite
+    caches:
+      - composer
+    script:
+      - composer install
+      - userEmail=$userEmail userPass=$userPass appEndpoint=$appEndpoint ApiV3Key=$ApiV3Key ApiV3Endpoint=$ApiV3Endpoint emailId=$emailId ./vendor/bin/phpunit --no-coverage --testsuite Unit
+
+featuresApiV2TestsSuite: &featuresApiV2TestsSuite
+  step:
+    name: Tests Feature Api V2 Testsuite
+    caches:
+      - composer
+    script:
+      - composer install
+      - userEmail=$userEmail userPass=$userPass appEndpoint=$appEndpoint ApiV3Key=$ApiV3Key ApiV3Endpoint=$ApiV3Endpoint emailId=$emailId ./vendor/bin/phpunit --no-coverage --testsuite FeatureApiV2
+
+featuresApiV3TestsSuite: &featuresApiV3TestsSuite
+  step:
+    name: Tests Feature Api V3 Testsuite
+    caches:
+      - composer
+    script:
+      - composer install
+      - userEmail=$userEmail userPass=$userPass appEndpoint=$appEndpoint ApiV3Key=$ApiV3Key ApiV3Endpoint=$ApiV3Endpoint emailId=$emailId ./vendor/bin/phpunit --no-coverage --testsuite FeatureApiV3
+
+phpStanAnalyse: &phpStanAnalyse
+  step:
+    name: PHPStan analyse
+    caches:
+      - composer
+    script:
+      - composer install
+      - vendor/bin/phpstan analyse -l 0 src/ tests/
+
+pipelines:
+  custom:
+    Run all tests:
+      - <<: *featureTestsSuite
+    Run api v2 tests:
+      - <<: *featuresApiV2TestsSuite
+    Run api v3 tests:
+      - <<: *featuresApiV3TestsSuite
+    Run PHPStan:
+      - <<: *phpStanAnalyse
+    Run unit tests:
+        - <<: *unitTestsSuite
+
+  pull-requests:
+    '**':
+      - parallel:
+          steps:
+            - <<: *phpStanAnalyse
+            - <<: *featureTestsSuite
+            - <<: *unitTestsSuite
