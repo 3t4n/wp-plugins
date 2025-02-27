@@ -1,0 +1,36 @@
+.vdp-datepicker {
+    position: relative;
+    .vdp-datepicker__clear-button {
+        position: absolute;
+        top: 50%;
+        right: 9px;
+        z-index: 2;
+        transform: translateY(-50%);
+        &:hover {
+            i {
+                color:red;
+            }
+        }
+    }
+    > div {
+        &:nth-child(1) {
+            position: relative;
+            &::before {
+                content: "\f073";
+                position: absolute;
+                display: inline-block;
+                color: #7E7E7E;
+                z-index: 4;
+                font-family: 'FontAwesome';
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+        }
+        
+    }
+    .dateInput {
+        padding-left:40px;
+    }
+}

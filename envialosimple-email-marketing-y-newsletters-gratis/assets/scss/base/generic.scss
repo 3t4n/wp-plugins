@@ -1,0 +1,220 @@
+.mt1 { margin-top: 1px; }
+.mt2 { margin-top: 2px; }
+.mt3 { margin-top: 3px; }
+.mt4 { margin-top: 4px; }
+.mt5 { margin-top: 5px; }
+.mt6 { margin-top: 6px; }
+.mt8 { margin-top: 8px; }
+.mt10 { margin-top: 10px; }
+.mb0 { margin-bottom:0px; }
+.mb1 { margin-bottom:1px; }
+.mb2 { margin-bottom:2px; }
+.mb3 { margin-bottom:3px; }
+.mb4 { margin-bottom:4px; }
+.mb5 { margin-bottom:5px; }
+.mb10 { margin-bottom:10px; }
+.mb20 { margin-bottom:20px; }
+.mb25 { margin-bottom:25px; }
+.mb30 { margin-bottom:30px; }
+.mb37 { margin-bottom:37px; }
+.mb40 { margin-bottom:40px; }
+.mt20 { margin-top:20px; }
+.ml10 { margin-left: 10px; }
+.ml15 { margin-left: 15px; }
+.ml20 { margin-left: 20px; }
+.ml30 { margin-left: 30px; }
+.ml40 { margin-left: 40px; }
+.ml50 { margin-left: 50px; }
+.mr10 { margin-right: 10px; }
+.mr20 { margin-right: 20px; }
+.mr30 { margin-right: 30px; }
+.mr40 { margin-right: 40px; }
+
+.p10 { padding:10px; }
+.p15 { padding:15px; }
+.p20 { padding:20px; }
+.pl0 { padding-left: 0px; }
+.pl1 { padding-left: 1px; }
+.pr0 { padding-right: 0px;}
+.pr1 { padding-right: 1px;}
+
+.text-right { text-align: right;}
+.text-left { text-align: left;}
+.text-center { text-align: center;}
+
+.fright { float:right; }
+
+.w1p {width:1px;}
+.w100 {width:100%;}
+.w60p {width:60px;}
+.mw100i {max-width: 100% !important;}
+.error-message {
+    background-color: #fce4e4;
+    border: 1px solid #fcc2c3;
+    padding: 10px 20px;
+}
+
+.error-text {
+    color: #cc0033;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    text-shadow: 1px 1px rgba(250, 250, 250, .3);
+}
+.error-text::first-letter {
+    text-transform: uppercase;
+}
+.error-list {
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-left: 30px;
+    list-style: disc;
+    margin-bottom: 0px;
+}
+
+
+//logoTop
+.logoBlock {
+    margin-top:31px;
+    .logo {
+        max-width: 345px;
+        width:100%;
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+//fonts
+p {
+    font-size:14px;
+    line-height: 19px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color:$txt-primary;
+}
+h1 {
+    font-size:30px;
+    line-height: 40px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding-top:0px;
+    &.withBtnRight {
+        display: flex;
+        align-content: space-around;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        > .btn {
+            margin-left:auto;
+        }
+    }
+}
+h6 {
+    font-size:24px;
+    font-weight: normal;
+    line-height: 32px;
+    margin-bottom:44px;
+}
+
+label {
+    font-size:14px;
+    font-weight: bold;
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+
+
+.card {
+    padding:0px;
+}
+.bgBlock {
+    background-color: #f7f6f6;
+}
+
+.fieldDate {
+    &.is-invalid {
+        .form-control {
+            @extend .is-invalid;
+        }
+    }
+}
+li {
+    &.disabled {
+        pointer-events: none;
+    }
+}
+table {
+    th,
+    td {
+        vertical-align: middle;
+    }
+    tbody {
+        td {
+            &:first-child {
+                line-height: 50px;
+                font-weight: bold;
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: top;
+                    min-height: 50px;
+                }
+            }
+        }
+    }
+}
+.paginationBlock {
+    .rightBlock {
+        text-align: right;
+        
+        .pagination {
+            justify-content: flex-end !important;
+            @media (max-width:991px) {
+                justify-content: center !important;
+            }
+            .page-link {
+                color:$txt-primary;
+            }
+            .active {
+                .page-link {
+                    font-weight: bold;
+                    color:#fff;
+                }
+            }
+            .disabled {
+                .page-link {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
+
+.popDelete {
+    position: static;
+    width: auto;
+    h3 {
+        font-size: 14px;
+    }
+    .btn-sm {
+        padding: .25rem .5rem;
+        font-size: .875rem;
+        border-radius: 0;
+    }
+}
+.form-check {
+    .form-check-input {
+        margin-top: 3px;
+    }
+    input[type=radio]{
+        &:checked{
+            &::before {
+                background-color:#fff;
+            }
+        }
+    }
+}
+
+

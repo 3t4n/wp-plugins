@@ -1,0 +1,9 @@
+<?php
+    //components
+    include_once(dirname(__FILE__).'./../../components/all.php');
+    //services
+    include_once(dirname(__FILE__).'./../../services/all.php');
+    //html
+    getTemplate(dirname(__FILE__).'/edit/html.php');
+    //js
+    getTemplate(dirname(__FILE__).'/edit/js.php');

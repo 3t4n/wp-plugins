@@ -1,0 +1,40 @@
+.btngroupComponent {
+    .dropdown-menu {
+        &.show {
+            top:100%;
+            right: 0px;
+            padding:0px;
+        }
+        .dropdown-item {
+            cursor: pointer;
+        }
+    }
+    &.listTop {
+        .dropdown-menu {
+            &.show {
+                min-width: inherit;
+                bottom: 100%;
+                top: inherit;
+            }
+        }
+
+    }
+}
+
+//fix
+.table-responsive {
+    tbody {
+        tr {
+            &:last-child {
+                .btngroupComponent {
+                    .dropdown-menu {
+                        &.show {
+                            bottom: 100%;
+                            top: inherit;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

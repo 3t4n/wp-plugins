@@ -1,0 +1,137 @@
+.dualListComponent,
+.singlelistComponent {
+    .label {
+        font-weight: bold;
+        font-size:14px;
+        display:block;
+        margin-bottom:10px;
+        line-height: 19px;
+    }
+
+    .optionsBlock {
+        > input {
+            margin-bottom: 10px;
+        }
+        .btnBlock {
+            display:flex;
+            justify-content: space-between;
+        }
+    }
+    
+    .action {
+        position: absolute;
+        right: 15px;
+        top:50%;
+        transform: translateY(-50%);
+        cursor:pointer;
+        &::before {
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+        &.add {
+            &::before {
+                content:"\f055";
+                font-family: $font-awesome;
+                color: $primary;
+                font-size:18px;
+            }
+        }
+        &.remove {
+            &::before {
+                content:"\f056";
+                font-family: $font-awesome;
+                color:$error;
+                font-size:18px;
+            }
+        }
+    }
+    .listBlock {
+        min-height: 200px;
+        max-height: 200px;
+        overflow: auto;
+        padding:0px;
+        margin-bottom: 0px;
+        border-radius: 4px 4px 0px 0px;
+        li {
+            padding:15px 10px;
+            line-height: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 0px;
+            &:hover {
+                background-color:$primary;
+                color:#fff;
+                .action {
+                    &.add,
+                    &.remove {
+                        &::before {
+                            color:#fff;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    .selectedBlock {
+        > input {
+            margin-bottom: 10px;
+        }
+        .searchInput {
+            position: relative;
+        }
+    }
+    .btnBlock {
+        span {
+            width: 50%;
+            padding: 0.5rem 0.6rem;
+            &:nth-child(1) {
+                border-radius: 0px 0px 0px 5px;
+                border-right: none;
+            }
+            &:nth-child(2) { 
+                border-radius: 0px 0px 5px 0px;
+            }
+        }
+    }
+    .is-invalid {
+        border-color:#f04124;
+    }
+    .addBlock,
+    .removeBlock {
+        margin-top:24px;
+        margin-bottom:10px;
+        line-height: 1;
+        font-size:14px;
+        font-weight: bold;
+        color:$txt-primary;
+        > span {
+            cursor: pointer;
+        }
+        i {
+            margin-right: 10px;
+            font-size:23px;
+            vertical-align: middle;
+        }
+    }
+    .addBlock {
+        i {
+            color:$primary;
+        }
+    }
+    .removeBlock {
+        i {
+            color:$error;
+        }
+    }
+}
+
+.singlelistComponent  {
+    .is-invalid {
+        background:none;
+    }
+}

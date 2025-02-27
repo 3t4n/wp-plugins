@@ -1,0 +1,95 @@
+.toastBlock {
+    position: fixed;
+    top: 32px;
+    left: 160px;
+    z-index: 3;
+    display:none;
+    width: calc( 100% - 160px);
+    height: auto;
+    &.show {
+        display:block;
+    }
+    .toast {
+        width: 100%;
+        position: relative;
+        box-shadow: 0px 4px 4px #d3d3d3;
+        border: none;
+        padding:24px 64px 24px 46px;
+        background-color:#fff;
+        
+        //default style
+        color:$error;
+        border-left:16px solid $error;
+
+        &.success {
+            color:$success;
+            border-left:16px solid $success;
+        }
+
+        &.warning {
+            color:$warning;
+            border-left:16px solid $warning;
+        }
+
+        .btn-close {
+            position: absolute;
+            right: 36px;
+            top: 50%;
+            padding: 0px;
+            background: none;
+            width: auto;
+            height: auto;
+            opacity: 1;
+            transform: translateY(-50%);
+            i {
+                color:#7E7E7E;
+                font-size:20px;
+            }
+        }
+
+        //animation
+        animation-name: showToast;
+        animation-duration: 1s;
+
+        .toast-body {
+            padding: 0px;
+            .content {
+                font-size:18px;
+                line-height: 32px;
+                p {
+                    font-size:16px;
+                    margin-bottom:5px;
+                }
+                > p {
+                    &:first-child {
+                        font-size:18px;
+                        border-bottom:1px solid #fff;
+                        padding-bottom: 5px;
+                    }
+                }
+                ul {
+                    list-style: disc;
+                    li {
+                        p {
+                            line-height: 1.2;
+                            margin-bottom:0px;
+                        }
+                    }
+                }
+                > ul {
+                    padding-left:0px;
+                    list-style: none;
+                    > li {
+                        p {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @keyframes showToast {
+        0%   { transform: translateY(-100%); }
+        100% { transform: translateY(0%); }
+    }
+}

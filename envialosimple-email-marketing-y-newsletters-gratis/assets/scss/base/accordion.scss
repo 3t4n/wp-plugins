@@ -1,0 +1,47 @@
+.accordion {
+    .accordion-item {
+        border: 1px solid #5C5F69;
+        border-radius: 4px;
+        input[type="checkbox"]:checked ~ div {
+            display:block;
+        }
+        input[type="checkbox"]:checked + h2 .accordion-button::after {
+            transform: rotate(-180deg);
+        }
+        .accordion-collapse {
+            display:none;
+        }
+        .accordion-header {
+            .accordion-button {
+                background-color:transparent;
+                color:#222222;
+                font-weight: normal;
+                padding:11px 23px;
+                margin-bottom: 0px;
+                box-shadow: none;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 19px;
+                &:after {
+                    content: "\f078";
+                    font: normal normal normal 18px/1 FontAwesome;
+                    background: none;
+                    color:$txt-primary;
+                    transform: none;
+                }
+            }
+        }
+        .accordion-body {
+            padding:15px;
+            .label {
+                font-size:14px;
+                font-weight: bold;
+                line-height: 19px;
+                margin-bottom: 5px;
+            }
+            p {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
