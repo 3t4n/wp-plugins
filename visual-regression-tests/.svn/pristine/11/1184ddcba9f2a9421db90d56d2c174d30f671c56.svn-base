@@ -1,0 +1,113 @@
+@import "@wordpress/base-styles/colors.native"; // stylelint-disable-line scss/at-import-partial-extension
+@import "./styles/admin-color-scheme";
+@import "./styles/animations";
+
+.vrts_post_options_metabox {
+
+	figcaption {
+
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.figure {
+		margin: 0;
+
+		&-link {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&-title {
+			margin-bottom: 0.5rem;
+		}
+
+		&-image {
+			aspect-ratio: 16/9;
+			border: solid 1px #bfbfbf;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center top;
+		}
+
+		.howto {
+			margin-top: 0.5rem;
+		}
+	}
+
+	.settings {
+		margin: 1.5rem 0;
+
+		&-title {
+			margin-bottom: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		label {
+			text-transform: none;
+			color: rgb(117, 117, 117);
+			font-size: 12px;
+		}
+
+		textarea {
+			width: 100%;
+			margin-top: 0.5rem;
+		}
+	}
+}
+
+.vrts-testing-status {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 0;
+
+	&--paused {
+		color: $alert-red;
+	}
+
+	&--waiting {
+		color: #f97b06;
+	}
+
+	&--running {
+		color: $alert-green;
+	}
+
+	&-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		margin: 1.5rem 0;
+
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		.dashicons {
+			display: none;
+		}
+	}
+
+	&-info {
+		display: flex;
+		justify-content: space-between;
+		gap: 5px;
+		font-size: 0.75rem;
+		color: $gray-700;
+	}
+}
