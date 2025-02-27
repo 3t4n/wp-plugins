@@ -1,0 +1,42 @@
+{{startup this}}
+{{#if this.config.header}}
+    {{#if this.config.include_weekday_button}}
+        <div class="bmlt-button-container"><a id="day" tabindex=0 class="btn btn-primary btn-sm">{{getWord 'weekday'}}</a></div>
+    {{/if}}
+    {{#each this.config.button_filters}}
+        <div class="bmlt-button-container"><a id="filterButton_{{this.field}}" tabindex=0 data-field="{{this.field}}" class="filterButton filterButtonLogic btn btn-primary btn-sm">{{getWord this.title}}</a></div>
+    {{/each}}
+    {{#each this.config.button_format_filters}}
+        <div class="bmlt-button-container"><a id="filterButton_{{this.field}}"tabindex=0 data-field="{{this.field}}" class="filterButton filterButtonLogic btn btn-primary btn-sm">{{this.title}}</a></div>
+    {{/each}}
+    {{#if this.config.map_page}}
+        <div class="bmlt-button-container"><a id="filterButton_embeddedMapPage" tabindex=0 data-field="embeddedMapPage" class="filterButton displayTypeLogic btn btn-primary btn-sm">{{getWord 'map'}}</a></div>
+        <div class="bmlt-button-container"><a id="displayTypeButton_tablePages" tabindex=0 data-field="tablePages" class="filterButton displayTypeLogic btn btn-primary btn-sm hide">{{getWord 'tabular'}}</a></div>
+    {{/if}}
+
+    {{#each this.dropdownData}}
+	<div class="bmlt-dropdown-container">
+		<select class="crouton-select filter-dropdown" style="width:{{../this.config.dropdown_width}};" data-placeholder="{{placeholder}}" data-pointer="{{pointer}}" id={{elementId}}>
+		    <option value="a-">{{getWord 'all'}} {{placeholder}}</option>
+		    {{#each (call uniqueData ../meetings.meetingData)}}
+			    <option value="a-{{call ../objectPointer this}}">{{call ../optionName this}}</option>
+		    {{/each}}
+		</select>
+	</div>
+    {{/each}}
+    </div>
+{{/if}}
+
+{{#if this.config.has_tabs}}
+    {{#ifEquals this.config.view_by "weekdays"}}
+        <div class="bmlt-page {{getWord 'css-direction'}} show" id="nav-days">
+    {{else}}
+        <div class="bmlt-page {{getWord 'css-direction'}} hide" id="nav-days">
+    {{/ifEquals}}
+        <ul class="nav nav-tabs">
+            {{#each this.config.day_sequence}}
+                <li><a href="#tab{{this}}" data-toggle="tab">{{getDayOfTheWeek this}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

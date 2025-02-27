@@ -1,0 +1,64 @@
+{
+  "apiVersion": 2,
+  "name": "smb/sticky",
+  "title": "Sticky Content",
+  "description": "Stick element to top when reached at top.",
+  "category": "widgets",
+  "keywords": [
+    "sticky content",
+    "sticky menu",
+    "sticky element"
+  ],
+  "textdomain": "sticky-menu-block",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "topPosition": {
+      "type": "number",
+      "default": 0
+    },
+    "minScreenWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "maxScreenWidth": {
+      "type": "number",
+      "default": 99999
+    },
+    "background": {
+      "type": "object",
+      "default": {
+        "color": "#333"
+      }
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "vertical": "10px",
+        "horizontal": "20px"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": [
+    "file:./view.js",
+    "stickyAnything"
+  ]
+}
