@@ -1,0 +1,86 @@
+//Prefix
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+//Box Shadow
+@mixin box-shadow($h, $v, $blur, $spread, $color) {
+	@include css3-prefix('box-shadow', $h $v $blur $spread $color);
+}
+
+@mixin border-radius($size){
+    @include css3-prefix('border-radius', $size); 
+}
+
+//Transform
+@mixin transform($transforms) {
+	@include css3-prefix('transform', $transforms); 
+}
+
+//Transform - Rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}));
+}
+ 
+//Transform - Scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+
+//Transform - Translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+
+//Transform - 3dTranslate
+@mixin translate3d ($x, $y, $z) {
+   @include transform(translate3d($x, $y, $z));
+}
+
+//Transform - 3dScale
+@mixin scale3d ($x, $y, $z) {
+   @include transform(scale3d($x, $y, $z));
+}
+
+//Transition
+@mixin transition($transition) {
+    @include css3-prefix('transition', $transition); 
+}
+
+@mixin transition-duration($duration) {
+    @include css3-prefix('transition-duration', $duration); 
+}
+
+@mixin transition-delay($delay) {
+    @include css3-prefix('transition-delay', $delay); 
+}
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: 16px;
+@mixin rem($property, $px-values) {
+// Convert the baseline into rems
+	$baseline-rem: $baseline-px / 1rem;
+// Print the first line in pixel values
+	#{$property}: $px-values;
+// If there is only one (numeric) value, return the property/value line for it.
+	@if type-of($px-values) == "number" {
+		#{$property}: $px-values / $baseline-rem; }
+	@else {
+	// Create an empty list that we can dump values into
+		$rem-values: unquote("");
+		@each $value in $px-values {
+		// If the value is zero or a string or a color, return unchanged input
+			@if $value == 0 or type-of($value) == "string" or type-of($value) == "color" {
+				$rem-values: append($rem-values, $value); }
+			@else {
+				$rem-values: append($rem-values, $value / $baseline-rem); } }
+	// Return the property and its list of converted values
+		#{$property}: $rem-values; } }
