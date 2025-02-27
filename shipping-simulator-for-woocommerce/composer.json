@@ -1,0 +1,36 @@
+{
+    "require": {
+        "php": ">=7.4",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "szepeviktor/phpstan-wordpress": "^1.1",
+        "php-stubs/woocommerce-stubs": "^7.4",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shipping_Simulator\\": [
+                "classes/"
+            ],
+            "Shipping_Simulator\\Core\\": [
+                "core/"
+            ]
+        }
+    },
+    "config": {
+        "platform-check": false
+    },
+    "scripts": {
+        "build": "./scripts/build",
+        "deploy": "./scripts/svn-push",
+        "update-trunk": "./scripts/svn-push --only-trunk",
+        "make-pot": "wp i18n make-pot . languages/wc-shipping-simulator.pot",
+        "upgrade-core": "./scripts/upgrade-core",
+        "check": "phpstan"
+    },
+    "wp-plugin-base": {
+        "namespace": "Shipping_Simulator",
+        "text-domain": "wc-shipping-simulator"
+    }
+}
