@@ -1,0 +1,929 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.dpe *, .ges * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	line-height: 24px;
+}
+.dpe-ges-inline > div, .dpeges-inline {
+display: inline-block;
+}
+.dpe-ges-inline > div.dpe, .dpe.dpeges-inline {
+margin-right: 50px;
+}
+.dpe .dpe-title, .ges .ges-title {
+font-size: 17px;
+text-align: left;
+text-transform: uppercase;
+display: inline-block;
+max-width: 270px;
+}
+.dpe .diagnostic, .ges .emission {
+margin: 0;
+}
+.dpe figure.diagnostic, .ges figure.emission {
+position: relative;
+display: block;
+float: none;
+width: 270px;
+font-size: 12px;
+}
+.dpe .diagnostic-title, .ges .emission-title {
+font-family: Arial,sans-serif;
+font-weight: 400;
+line-height: 1.1;
+color: inherit;
+margin-top: 22px;
+margin-bottom: 11px;
+font-size: 19px;
+color: #f26521;
+text-transform: uppercase;
+}
+.dpe .hidden, .ges .hidden {
+position: absolute;
+width: 1px;
+height: 1px;
+margin: -1px;
+padding: 0;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+border: 0;
+}
+.dpe .diagnostic-container, .ges .emission-container {
+border-top: 0;
+padding-top: 10px;
+padding-bottom: 10px;
+padding: 10px 10px;
+}
+.dpe abbr[title], .dpe abbr[data-original-title], .ges abbr[title], .ges abbr[data-original-title] {
+cursor: help;
+border-bottom: 1px dotted #777;
+}
+.dpe .diagnostic-legend span:first-child, .ges .emission-legend span:first-child {
+float: left;
+}
+.dpe .diagnostic-legend span:last-child, .ges .emission-legend span:last-child {
+float: right;
+}
+.dpe .diagnostic-diagram, .ges .emission-diagram {
+display: table-cell;
+padding-right: 70px;
+color: #000;
+}
+.dpe .diagnostic-line, .ges .emission-line {
+margin-bottom: 1px;
+font-size: 11px;
+}
+.dpe .diagnostic-value, .ges .emission-value {
+width: 70px;
+height: 24px;
+padding: 0 0 0 5px;
+display: inline-block;
+vertical-align: top;
+}
+.dpe .diagnostic-letter, .ges .emission-letter {
+display: inline-block;
+text-align: right;
+position: relative;
+vertical-align: top;
+padding: 0;
+height: 24px;
+}
+.dpe .diagnostic-letter:after, .ges .emission-letter:after {
+display: inline-block;
+content: "";
+top: 0;
+left: 100%;
+position: absolute;
+border-left: 12px solid #fff;
+border-top: 12px solid rgba(0,0,0,0);
+border-bottom: 12px solid rgba(0,0,0,0);
+}
+.dpe .diagnostic-dpe .line-a .diagnostic-letter {
+width: 1em;
+background: #339a33;
+}
+.dpe .diagnostic-dpe .line-a .diagnostic-letter:after {
+border-left-color: #339a33;
+}
+.dpe .diagnostic-dpe .line-b .diagnostic-letter {
+width: 2em;
+background: #32cb32;
+}
+.dpe .diagnostic-dpe .line-b .diagnostic-letter:after {
+border-left-color: #32cb32;
+}
+.dpe .diagnostic-dpe .line-c .diagnostic-letter {
+width: 3em;
+background: #ccfe32;
+}
+.dpe .diagnostic-dpe .line-c .diagnostic-letter:after {
+border-left-color: #ccfe32;
+}
+.dpe .diagnostic-dpe .line-d .diagnostic-letter {
+width: 4em;
+background: #fefd00;
+}
+.dpe .diagnostic-dpe .line-d .diagnostic-letter:after {
+border-left-color: #fefd00;
+}
+.dpe .diagnostic-dpe .line-e .diagnostic-letter {
+width: 5em;
+background: #fecb00;
+}
+.dpe .diagnostic-dpe .line-e .diagnostic-letter:after {
+border-left-color: #fecb00;
+}
+.dpe .diagnostic-dpe .line-f .diagnostic-letter {
+width: 6em;
+background: #fe9932;
+}
+.dpe .diagnostic-dpe .line-f .diagnostic-letter:after {
+border-left-color: #fe9932;
+}
+.dpe .diagnostic-dpe .line-g .diagnostic-letter {
+width: 7em;
+background: #ff0000;
+}
+.dpe .diagnostic-dpe .line-g .diagnostic-letter:after {
+border-left-color: #ff0000;
+}
+.dpe .diagnostic-dpe .line-a .diagnostic-value {
+background: #339a33;
+}
+.dpe .diagnostic-dpe .line-b .diagnostic-value {
+background: #32cb32;
+}
+.dpe .diagnostic-dpe .line-c .diagnostic-value {
+background: #ccfe32;
+}
+.dpe .diagnostic-dpe .line-d .diagnostic-value {
+background: #fefd00;
+}
+.dpe .diagnostic-dpe .line-e .diagnostic-value {
+background: #fecb00;
+}
+.dpe .diagnostic-dpe .line-f .diagnostic-value {
+background: #fe9932;
+}
+.dpe .diagnostic-dpe .line-g .diagnostic-value {
+background: #ff0000;
+}
+.dpe .diagnostic-scale, .ges .emission-scale {
+display: table-cell;
+position: relative;
+height: 100%;
+width: 30px;
+padding-right: 20px;
+}
+.dpe .diagnostic-scale:after, .ges .emission-scale:after {
+background: #DCDCDC;
+height: 100%;
+display: inline-block;
+content: "";
+position: absolute;
+z-index: 0;
+width: 10px;
+}
+.dpe .diagnostic-number-container, .ges .emission-number-container {
+position: absolute;
+top: 0;
+right: 0;
+z-index: 1;
+}
+.dpe .diagnostic-number, .ges .emission-number {
+position: relative;
+display: inline-block;
+color: #000;
+text-align: center;
+font-size: 11px;
+width: 45px;
+height: 24px;
+padding: 0;
+}
+.dpe .diagnostic-number:before, .ges .emission-number:before {
+content: "";
+position: absolute;
+background: #dcdcdc;
+right: 100%;
+top: 50%;
+height: 2px;
+margin-right: 16px;
+}
+.dpe .diagnostic-number:after, .ges .emission-number:after {
+display: inline-block;
+content: "";
+top: 0;
+right: 100%;
+position: absolute;
+border-right: 12px solid white;
+border-top: 12px solid rgba(0,0,0,0);
+border-bottom: 12px solid rgba(0,0,0,0);
+}
+.dpe .diagnostic-dpe .numberA {
+top: -2px;
+}
+.dpe .diagnostic-dpe .numberB {
+top: 24px;
+}
+.dpe .diagnostic-dpe .numberC {
+top: 49px;
+}
+.dpe .diagnostic-dpe .numberD {
+top: 73px;
+}
+.dpe .diagnostic-dpe .numberE {
+top: 100px;
+}
+.dpe .diagnostic-dpe .numberF {
+top: 123px;
+}
+.dpe .diagnostic-dpe .numberG {
+top: 150px;
+}
+.dpe .diagnostic-dpe .numberA .diagnostic-number {
+background: #339a33;
+}
+.dpe .diagnostic-dpe .numberB .diagnostic-number {
+background: #32cb32;
+}
+.dpe .diagnostic-dpe .numberC .diagnostic-number {
+background: #ccfe32;
+}
+.dpe .diagnostic-dpe .numberD .diagnostic-number {
+background: #fefd00;
+}
+.dpe .diagnostic-dpe .numberE .diagnostic-number {
+background: #fecb00;
+}
+.dpe .diagnostic-dpe .numberF .diagnostic-number {
+background: #fe9932;
+}
+.dpe .diagnostic-dpe .numberG .diagnostic-number {
+background: #ff0000;
+}
+.dpe .diagnostic-dpe .numberA .diagnostic-number:before {
+width: 8em;
+}
+.dpe .diagnostic-dpe .numberB .diagnostic-number:before {
+width: 7em;
+}
+.dpe .diagnostic-dpe .numberC .diagnostic-number:before {
+width: 6em;
+}
+.dpe .diagnostic-dpe .numberD .diagnostic-number:before {
+width: 5em;
+}
+.dpe .diagnostic-dpe .numberE .diagnostic-number:before {
+width: 4em;
+}
+.dpe .diagnostic-dpe .numberF .diagnostic-number:before {
+width: 3em;
+}
+.dpe .diagnostic-dpe .numberG .diagnostic-number:before {
+width: 2em;
+}
+.dpe .diagnostic-dpe .numberA .diagnostic-number:after {
+border-right-color: #339a33;
+}
+.dpe .diagnostic-dpe .numberB .diagnostic-number:after {
+border-right-color: #32cb32;
+}
+.dpe .diagnostic-dpe .numberC .diagnostic-number:after {
+border-right-color: #ccfe32;
+}
+.dpe .diagnostic-dpe .numberD .diagnostic-number:after {
+border-right-color: #fefd00;
+}
+.dpe .diagnostic-dpe .numberE .diagnostic-number:after {
+border-right-color: #fecb00;
+}
+.dpe .diagnostic-dpe .numberF .diagnostic-number:after {
+border-right-color: #fe9932;
+}
+.dpe .diagnostic-dpe .numberG .diagnostic-number:after {
+border-right-color: #ff0000;
+}
+
+.ges .emission-ges .numberA {
+top: -2px;
+}
+.ges .emission-ges .numberB {
+top: 24px;
+}
+.ges .emission-ges .numberC {
+top: 49px;
+}
+.ges .emission-ges .numberD {
+top: 73px;
+}
+.ges .emission-ges .numberE {
+top: 100px;
+}
+.ges .emission-ges .numberF {
+top: 123px;
+}
+.ges .emission-ges .numberG {
+top: 150px;
+}
+
+.ges .emission-ges .line-a .emission-value {
+background: #f6ecfd;
+}
+.ges .emission-ges .line-b .emission-value {
+background: #e1c2f9;
+}
+.ges .emission-ges .line-c .emission-value {
+background: #d4a9f6;
+}
+.ges .emission-ges .line-d .emission-value {
+background: #cc95f4;
+}
+.ges .emission-ges .line-e .emission-value {
+background: #b971ee;
+}
+.ges .emission-ges .line-f .emission-value {
+background: #a74dec;
+}
+.ges .emission-ges .line-g .emission-value {
+background: #8918de;
+}
+.ges .emission-ges .line-a .emission-letter {
+width: 1em;
+background: #f6ecfd;
+}
+.ges .emission-ges .line-b .emission-letter {
+width: 2em;
+background: #e1c2f9;
+}
+.ges .emission-ges .line-c .emission-letter {
+width: 3em;
+background: #d4a9f6;
+}
+.ges .emission-ges .line-d .emission-letter {
+width: 4em;
+background: #cc95f4;
+}
+.ges .emission-ges .line-e .emission-letter {
+width: 5em;
+background: #b971ee;
+}
+.ges .emission-ges .line-f .emission-letter {
+width: 6em;
+background: #a74dec;
+}
+.ges .emission-ges .line-g .emission-letter {
+width: 7em;
+background: #8918de;
+}
+.ges .emission-ges .line-a .emission-letter:after {
+border-left-color: #f6ecfd;
+}
+.ges .emission-ges .line-b .emission-letter:after {
+border-left-color: #e1c2f9;
+}
+.ges .emission-ges .line-c .emission-letter:after {
+border-left-color: #d4a9f6;
+}
+.ges .emission-ges .line-d .emission-letter:after {
+border-left-color: #cc95f4;
+}
+.ges .emission-ges .line-e .emission-letter:after {
+border-left-color: #b971ee;
+}
+.ges .emission-ges .line-f .emission-letter:after {
+border-left-color: #a74dec;
+}
+.ges .emission-ges .line-g .emission-letter:after {
+border-left-color: #8918de;
+}
+.ges .emission-ges .numberA {
+top: 0;
+}
+.ges .emission-ges .numberA .emission-number {
+background: #f6ecfd;
+}
+.ges .emission-ges .numberB .emission-number {
+background: #e1c2f9;
+}
+.ges .emission-ges .numberC .emission-number {
+background: #d4a9f6;
+}
+.ges .emission-ges .numberD .emission-number {
+background: #cc95f4;
+}
+.ges .emission-ges .numberE .emission-number {
+background: #b971ee;
+}
+.ges .emission-ges .numberF .emission-number {
+background: #a74dec;
+}
+.ges .emission-ges .numberG .emission-number {
+background: #8918de;
+}
+.ges .emission-ges .numberA .emission-number:before {
+width: 8em;
+}
+.ges .emission-ges .numberB .emission-number:before {
+width: 7em;
+}
+.ges .emission-ges .numberC .emission-number:before {
+width: 6em;
+}
+.ges .emission-ges .numberD .emission-number:before {
+width: 5em;
+}
+.ges .emission-ges .numberE .emission-number:before {
+width: 4em;
+}
+.ges .emission-ges .numberF .emission-number:before {
+width: 3em;
+}
+.ges .emission-ges .numberG .emission-number:before {
+width: 2em;
+}
+.ges .emission-ges .numberA .emission-number:after {
+border-right-color: #f6ecfd;
+}
+.ges .emission-ges .numberB .emission-number:after {
+border-right-color: #e1c2f9;
+}
+.ges .emission-ges .numberC .emission-number:after {
+border-right-color: #d4a9f6;
+}
+.ges .emission-ges .numberD .emission-number:after {
+border-right-color: #cc95f4;
+}
+.ges .emission-ges .numberE .emission-number:after {
+border-right-color: #b971ee;
+}
+.ges .emission-ges .numberF .emission-number:after {
+border-right-color: #a74dec;
+}
+.ges .emission-ges .numberG .emission-number:after {
+border-right-color: #8918de;
+}
+.dpe-blank, .ges-blank, .dpe-not-subject {
+display: none;
+}
+.dpe-blank-active .diagnostic-scale, .ges-blank-active .emission-scale {
+display: none;
+}
+.dpe-blank-active .dpe-blank, .ges-blank-active .ges-blank,
+.dpeges-not-subject-active .dpe-not-subject, .dpeges-not-subject-active .ges-not-subject {
+display: flex;
+position: absolute;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: #fff;
+z-index: 1;
+opacity: 0.9;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.dpe-blank-title, .ges-blank-title, .dpe-not-subject-title, .ges-not-subject-title {
+font-size: 20px;
+font-weight: bold;
+}
+.dpe-blank-legend, .ges-blank-legend {
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+}
+.dpeges-not-subject-active .dpe-blank, 
+.dpeges-not-subject-active .ges-blank,
+.dpeges-not-subject-active.newges {
+  display: none;
+}
+
+/****************************************************************
+ NEW DPE-GES Presentation 
+*****************************************************************/
+.diagnostic *, .diagnostic *::before, .diagnostic *::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.energyDiagnosticContainer_inline *, .energyDiagnosticContainer_inline *::before, .energyDiagnosticContainer_inline *::after,
+.energyDiagnosticContainer *, .energyDiagnosticContainer *::before, .energyDiagnosticContainer *::after {
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.newdpe .dpe-title {
+  display: inline-block;
+  line-height: 1;
+  font-size: 17px;
+}
+.energyDiagnosticContainer_inline, .energyDiagnosticContainer {
+  font-size: 20px;
+  line-height: 20px;
+}
+.energyDiagnosticContainer_inline {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.energyDiagnosticContainer .newges {
+  margin-top: 25px;
+}
+.newdpe .diagnostic.diagnostic-dpe {
+  position: relative;
+  margin: 0 40px 0 0;
+  width: fit-content;
+}
+.newdpe .diagnostic-container {
+  display: flex;
+  flex-direction: row;
+}
+.newdpe .diagnostic-scale {
+  display: inline-flex;
+  flex-direction: row;
+  height: 50px;
+  border: 2px solid #000;
+  border-radius: 5px 0px 0px 5px;
+  padding: 5px;
+}
+.newdpe .diagnostic-number-container, .newdpe .emission-number-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.newdpe .diagnostic-number-container{
+  padding: 0 5px;
+  border-right: 2px solid #000;
+}
+.newdpe .emission-number-container {
+  padding: 0 5px;
+}
+.newdpe .diagnostic-number, .newdpe .emission-number {
+  font-size: 26px;
+  line-height: 28px;
+  font-weight: bold;
+}
+.newdpe .diagnostic-number-container abbr, .newdpe .emission-number-container abbr {
+  font-size: 8px;
+  line-height: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.newdpe .diagnostic-legend-top {
+  font-size: 12px;
+  line-height: 20px;
+  color: #339a33;
+}
+.newdpe .diagnostic-legend-bottom {
+  font-size: 12px;
+  color: #ff0000;
+}
+
+.newdpe .diagnostic-scale.number  {visibility: hidden;}
+.newdpe .diagnostic-scale.numberA {margin-top: 20px;}
+.newdpe .diagnostic-scale.numberB {margin-top: 50px;}
+.newdpe .diagnostic-scale.numberC {margin-top: 80px;}
+.newdpe .diagnostic-scale.numberD {margin-top: 110px;}
+.newdpe .diagnostic-scale.numberE {margin-top: 140px;}
+.newdpe .diagnostic-scale.numberF {margin-top: 170px;}
+.newdpe .diagnostic-scale.numberG {margin-top: 200px;}
+
+.newdpe .diagnostic-line {
+  position: relative;
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: 5px;
+}
+.newdpe .diagnostic-letter {
+  position: relative;
+  height: inherit;
+  padding: 0 0 0 10px;
+  margin: 0 10px 0 0;
+  display: block;
+  font-size: 18px;
+  line-height: inherit;
+  font-weight: bold;
+  color: #fff;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.newdpe .diagnostic-letter:after {
+  display: inline-block;
+  content: "";
+  top: 0;
+  left: 100%;
+  position: absolute;
+  border-left: 10px solid #fff;
+  border-top: 12.5px solid rgba(0, 0, 0, 0);
+  border-bottom: 12.5px solid rgba(0, 0, 0, 0);
+}
+
+.newdpe .diagnostic-letter.letter-a {
+  background: #339a33;
+  width: 40px;
+}
+.newdpe .diagnostic-letter.letter-b {
+  width: 55px;
+  background: #32cb32;
+}
+.newdpe .diagnostic-letter.letter-c {
+  width: 70px;
+  background: #ccfe32;
+}
+.newdpe .diagnostic-letter.letter-d {
+  width: 85px;
+  background: #fefd00;
+}
+.newdpe .diagnostic-letter.letter-e {
+  width: 100px;
+  background: #fecb00;
+}
+.newdpe .diagnostic-letter.letter-f {
+  width: 115px;
+  background: #fe9932;
+}
+.newdpe .diagnostic-letter.letter-g {
+  width: 130px;
+  background: #ff0000;
+}
+
+.newdpe .diagnostic-letter.letter-a:after {
+  border-left-color: #339a33;
+}
+.newdpe .diagnostic-letter.letter-b:after {
+  border-left-color: #32cb32;
+}
+.newdpe .diagnostic-letter.letter-c:after {
+  border-left-color: #ccfe32;
+}
+.newdpe .diagnostic-letter.letter-d:after {
+  border-left-color: #fefd00;
+}
+.newdpe .diagnostic-letter.letter-e:after {
+  border-left-color: #fecb00;
+}
+.newdpe .diagnostic-letter.letter-f:after {
+  border-left-color: #fe9932;
+}
+.newdpe .diagnostic-letter.letter-g:after {
+  border-left-color: #ff0000;
+}
+
+.newdpe .diagnostic-diagram.numberA .diagnostic-line.line-a,
+.newdpe .diagnostic-diagram.numberB .diagnostic-line.line-b,
+.newdpe .diagnostic-diagram.numberC .diagnostic-line.line-c,
+.newdpe .diagnostic-diagram.numberD .diagnostic-line.line-d,
+.newdpe .diagnostic-diagram.numberE .diagnostic-line.line-e,
+.newdpe .diagnostic-diagram.numberF .diagnostic-line.line-f,
+.newdpe .diagnostic-diagram.numberG .diagnostic-line.line-g {
+  height: 50px;
+  line-height: 46px;
+}
+.newdpe .diagnostic-diagram.numberA .diagnostic-letter.letter-a,
+.newdpe .diagnostic-diagram.numberB .diagnostic-letter.letter-b,
+.newdpe .diagnostic-diagram.numberC .diagnostic-letter.letter-c,
+.newdpe .diagnostic-diagram.numberD .diagnostic-letter.letter-d,
+.newdpe .diagnostic-diagram.numberE .diagnostic-letter.letter-e,
+.newdpe .diagnostic-diagram.numberF .diagnostic-letter.letter-f,
+.newdpe .diagnostic-diagram.numberG .diagnostic-letter.letter-g {
+  border-style: solid;
+  border-color: #000;
+  border-width: 2px 1px 2px 0;
+  font-size: 36px;
+  -webkit-text-stroke: 2px black;
+}
+
+.newdpe .diagnostic-diagram.numberA .diagnostic-letter.letter-a:before,
+.newdpe .diagnostic-diagram.numberB .diagnostic-letter.letter-b:before,
+.newdpe .diagnostic-diagram.numberC .diagnostic-letter.letter-c:before,
+.newdpe .diagnostic-diagram.numberD .diagnostic-letter.letter-d:before,
+.newdpe .diagnostic-diagram.numberE .diagnostic-letter.letter-e:before,
+.newdpe .diagnostic-diagram.numberF .diagnostic-letter.letter-f:before,
+.newdpe .diagnostic-diagram.numberG .diagnostic-letter.letter-g:before {
+  display: inline-block;
+  content: "";
+  top: -2px;
+  left: 0px;
+  position: absolute;
+  border-left: 16px solid #000;
+  border-top: 25px solid rgba(0, 0, 0, 0);
+  border-bottom: 25px solid rgba(0, 0, 0, 0);
+}
+.newdpe .diagnostic-diagram.numberA .diagnostic-letter.letter-a:before {left: 40px;}
+.newdpe .diagnostic-diagram.numberB .diagnostic-letter.letter-b:before {left: 55px;}
+.newdpe .diagnostic-diagram.numberC .diagnostic-letter.letter-c:before {left: 70px;}
+.newdpe .diagnostic-diagram.numberD .diagnostic-letter.letter-d:before {left: 85px;}
+.newdpe .diagnostic-diagram.numberE .diagnostic-letter.letter-e:before {left: 100px;}
+.newdpe .diagnostic-diagram.numberF .diagnostic-letter.letter-f:before {left: 115px;}
+.newdpe .diagnostic-diagram.numberG .diagnostic-letter.letter-g:before {left: 130px;}
+
+.newdpe .diagnostic-diagram.numberA .diagnostic-letter.letter-a:after,
+.newdpe .diagnostic-diagram.numberB .diagnostic-letter.letter-b:after,
+.newdpe .diagnostic-diagram.numberC .diagnostic-letter.letter-c:after,
+.newdpe .diagnostic-diagram.numberD .diagnostic-letter.letter-d:after,
+.newdpe .diagnostic-diagram.numberE .diagnostic-letter.letter-e:after,
+.newdpe .diagnostic-diagram.numberF .diagnostic-letter.letter-f:after,
+.newdpe .diagnostic-diagram.numberG .diagnostic-letter.letter-g:after {
+  border-left-width: 14px;
+  border-top-width: 23px;
+  border-bottom-width: 23px;
+}
+/* NEW GES */
+.newges {
+  border: 3px solid #A3DBFC;
+  border-radius: 12px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: fit-content;
+}
+.newges .ges-title {
+  display: inline-block;
+  line-height: 1;
+  font-size: 17px;
+}
+.newges .emission-ges {
+  position: relative;
+  margin: 0;
+}
+.newges .emission-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.newges .emission-scale {
+  display: inline-flex;
+  flex-direction: row;
+  height: 50px;
+}
+.newges .emission-number-container {
+  font-size: 18px;
+}
+.newges .emission-number-container abbr {
+  font-size: 8px;
+  line-height: 8px;
+  width: max-content;
+  display: block;
+  font-weight: bold;
+}
+.newges .emission-legend-top {
+  font-size: 12px;
+  color: #A3DBFC;
+}
+.newges .emission-legend-bottom {
+  font-size: 12px;
+  color: #291b35;
+}
+.newges .emission-line {
+  position: relative;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+
+.newges .emission-scale.numberA {margin-top: 20px;}
+.newges .emission-scale.numberB {margin-top: 45px;}
+.newges .emission-scale.numberC {margin-top: 65px;}
+.newges .emission-scale.numberD {margin-top: 90px;}
+.newges .emission-scale.numberE {margin-top: 115px;}
+.newges .emission-scale.numberF {margin-top: 140px;}
+.newges .emission-scale.numberG {margin-top: 165px;}
+
+.newges .emission-letter {
+  position: relative;
+  height: inherit;
+  padding: 0 0 0 10px;
+  margin-right: 10px;
+  display: block;
+  font-size: 15px;
+  line-height: inherit;
+  font-weight: bold;
+  color: #fff;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.newges .emission-letter:before {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: calc( 100% + 5px);
+  transform: translateY(-50%);
+}
+.newges .emission-diagram.numberA .emission-letter.letter-a:before {
+  width: 110px;
+}
+.newges .emission-diagram.numberB .emission-letter.letter-b:before {
+  width: 95px;
+}
+.newges .emission-diagram.numberC .emission-letter.letter-c:before {
+  width: 80px;
+}
+.newges .emission-diagram.numberD .emission-letter.letter-d:before {
+  width: 65px;
+}
+.newges .emission-diagram.numberE .emission-letter.letter-e:before {
+  width: 50px;
+}
+.newges .emission-diagram.numberF .emission-letter.letter-f:before {
+  width: 35px;
+}
+.newges .emission-diagram.numberG .emission-letter.letter-g:before {
+  width: 20px;
+}
+
+.newges .emission-letter.letter-a {
+  background: #A3DBFC;
+  width: 50px;
+}
+.newges .emission-letter.letter-b {
+  width: 65px;
+  background: #8ab5d2;
+}
+.newges .emission-letter.letter-c {
+  width: 80px;
+  background: #7692B1;
+}
+.newges .emission-letter.letter-d {
+  width: 95px;
+  background: #5e708d;
+}
+.newges .emission-letter.letter-e {
+  width: 110px;
+  background: #4d5272;
+}
+.newges .emission-letter.letter-f {
+  width: 125px;
+  background: #393550;
+}
+.newges .emission-letter.letter-g {
+  width: 140px;
+  background: #291b35;
+}
+
+.newges .emission-letter.letter-a:after {
+  background-color: #A3DBFC;
+}
+.newges .emission-letter.letter-b:after {
+  background-color: #8ab5d2;
+}
+.newges .emission-letter.letter-c:after {
+  background-color: #7692B1;
+}
+.newges .emission-letter.letter-d:after {
+  background-color: #5e708d;
+}
+.newges .emission-letter.letter-e:after {
+  background-color: #4d5272;
+}
+.newges .emission-letter.letter-f:after {
+  background-color: #393550;
+}
+.newges .emission-letter.letter-g:after {
+  background-color: #291b35;
+}
+
+.newges .emission-diagram.numberA .emission-line.line-a,
+.newges .emission-diagram.numberB .emission-line.line-b,
+.newges .emission-diagram.numberC .emission-line.line-c,
+.newges .emission-diagram.numberD .emission-line.line-d,
+.newges .emission-diagram.numberE .emission-line.line-e,
+.newges .emission-diagram.numberF .emission-line.line-f,
+.newges .emission-diagram.numberG .emission-line.line-g {
+  height: 40px;
+  line-height: 36px;
+}
+.newges .emission-diagram.numberA .emission-letter.letter-a, 
+.newges .emission-diagram.numberB .emission-letter.letter-b, 
+.newges .emission-diagram.numberC .emission-letter.letter-c, 
+.newges .emission-diagram.numberD .emission-letter.letter-d, 
+.newges .emission-diagram.numberE .emission-letter.letter-e, 
+.newges .emission-diagram.numberF .emission-letter.letter-f, 
+.newges .emission-diagram.numberG .emission-letter.letter-g {
+  font-size: 33px;
+  line-height: 38px;
+  border-style: solid;
+  border-color: #000;
+  border-width: 2px 2px 2px 2px;
+  -webkit-text-stroke: 1.5px black;
+}
+/* Responsive breakpoints */
+@media screen and (max-width: 767px) {
+  .energyDiagnosticContainer_inline {
+    flex-direction: column;
+  }
+  .energyDiagnosticContainer_inline .newges {
+    margin-top: 25px;
+  }
+}
