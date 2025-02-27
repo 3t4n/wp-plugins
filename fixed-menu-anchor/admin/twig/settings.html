@@ -1,0 +1,207 @@
+<div class="card fma-card">
+
+    <h1>Fixed Menu Header</h1>
+    <em>by <a href="https://plugins-first.io">Plugins First</a></em>
+
+    {% if freshlyUnlocked %}
+        <div style="font-size: 140%; margin-top: 50px; margin-bottom: 50px;">
+            <hr/>
+            You successfully upgraded the plugin to pro-version. <strong>Thank you!</strong>
+            <hr/>
+        </div>
+    {% endif %}
+
+    <br/>
+    <br/>
+
+    <form method="post">
+
+        <div style="margin-top: 90px;">
+            <div style="float: left; width: auto; padding-top: 25px; padding-left: 25px;">
+                <img src="{{image_dir_url}}laptop.png" style="width: 320px;" />
+            </div>
+            <div style="float: left; margin-left: 70px; width: 45%; padding-top: 0px; padding-left: 15px; padding-right: 10px;">
+                <h2>Standard distance</h2>
+                Set the <strong>standard distance</strong> between anchor target and browser's top border:
+
+                <br/>
+                <input type="text"
+                    name="fixedMenuAnchor_userdefineddistance"
+                    value="{{ userDefinedDistance }}"
+                    placeholder="50"
+                    class="fma-input"
+                    style="margin-top: 30px;"> px
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+
+        <div style="margin-top: 120px;">
+            <div style="float: left; width: auto; padding-top: 25px; padding-left: 25px;">
+                <img src="{{image_dir_url}}ignore-click-event.png" style="width: 320px;" />
+            </div>
+            <div style="float: left; margin-left: 70px; width: 45%; padding-top: 5px; padding-left: 15px; padding-right: 10px;">
+                <h2>Ignore click events</h2>
+                Ignore click events on DOM elements which have the CSS class:
+
+                <br/>
+                <br/>
+
+                <input type="text"
+                    name="fixedMenuAnchor_cssClassesToBeIgnored"
+                    value="{{ cssClassesToBeIgnored }}"
+                    placeholder="no_anchor"
+                    class="fma-input"
+                    style="margin-top: 25px;">
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+
+        <div style="margin-top: 120px; {% if false == pluginIsUnlocked %}background-color: #D3E9ED;{% endif %}">
+            <div style="float: left; width: auto; padding-top: 60px; height: 374px; padding-left: 30px; padding-right: 80px;">
+                <img src="{{image_dir_url}}phone.png" style="width: 300px;" />
+            </div>
+            <div style="float: left; padding-left: 70px; width: 50%; padding: 15px;">
+                <h2>Mobile first</h2>
+
+                <div>
+                    If <strong>viewport</strong> width is lower than:
+
+                    <br/>
+
+                    <input type="text"
+                        name="fixedMenuAnchor_maximumViewportWidth"
+                        value="{{ maximumViewportWidth }}"
+                        placeholder="769"
+                        class="fma-input"
+                        {% if false == pluginIsUnlocked %}disabled="true"{% endif %}
+                        style="margin-top: 30px;"> px
+                </div>
+
+                <div style="margin-top: 60px;">
+                    Use the <strong>mobile distance</strong> between anchor target and browser's top border:
+
+                    <br/>
+
+                    <input type="text"
+                        name="fixedMenuAnchor_maximumViewportWidthDistance"
+                        value="{{ maximumViewportWidthDistance }}"
+                        placeholder="50"
+                        class="fma-input"
+                        {% if false == pluginIsUnlocked %}disabled="true"{% endif %}
+                        style="margin-top: 30px;"> px
+                </div>
+
+                <br/>
+                <br/>
+
+                This distance overrides the standard distance, if the viewport width matches.
+
+                <br/>
+                {% if false == pluginIsUnlocked %}
+                    <div style="margin-top: 80px;">
+                        <div style="font-size: 130%; font-weight: bold;">Need the Mobile First feature and Premium Support?</div>
+                        <br/>
+                        <br/>
+                        <a href="https://plugins-first.io/en/shop/" class="fma-button-secondary" target="_blank">Get the PRO-version</a>
+                    </div>
+                    <br/>
+                {% endif %}
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <input type="hidden" name="fixedMenuAnchor_updateValues" value="true">
+        <div style="margin-top: 80px;">
+            <input class="fma-button" type="submit" name="name" value="Save all settings">
+        </div>
+    </form>
+
+    <br/>
+    <br/>
+</div>
+
+{% if pluginIsUnlocked %}
+
+    <div class="card fma-card">
+
+        <h2>Pro version running</h2>
+
+        <div style="width: 70%;">
+            <strong>Thank you for using the PRO-version.</strong> You helped us funding our time and invested
+            in the future of this plugin.
+        </div>
+    </div>
+
+{% else %}
+
+    <div class="card fma-card" style="background-color: #D9D9D9; border-radius: 20px;">
+
+        <h2>Limited version running</h2>
+
+        {% if curlEnabled %}
+            <p>
+                <ol>
+                    <li>Buy <a href="https://plugins-first.io/en/shop/"target="_blank">
+                            <strong>PRO-version</strong></a>
+                        with <strong>Mobile First</strong> feature and <strong>Premium Support</strong>.
+                        <br/>
+                        <br/>
+                    </li>
+                    <li>
+                        <form method="post">
+                            After your order was paid, you will receive the serial key(s) via mail. <br/>
+                            <br/>
+                            <span style="font-size: 120%; font-weight: bold;">Enter 1 serial key:</span>
+                            <br/>
+                            <br/>
+                            <input type="text" name="fixedMenuAnchor_unlockCode"
+                                placeholder="Insert serial key you got per email."
+                                class="fma-input"
+                                style="width: 500px;"> &nbsp;
+                            <button class="fma-button" type="submit" name="button">Unlock</button>
+                        </form>
+                    </li>
+                </ol>
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <strong>Have a question or found a problem?</strong>
+                <a href="https://wordpress.org/support/plugin/fixed-menu-anchor">Get Help!</a>
+            </p>
+
+        {% else %}
+
+            Unfortunately, the CURL extension is <strong>not installed or loaded</strong> on your server.
+
+            <br/>
+            <br/>
+            <br/>
+
+            <strong>To get the pro-version, finish the following steps:</strong>
+            <br/>
+            <br/>
+            <ol>
+                <li>Buy <a href="https://plugins-first.io/en/shop/"target="_blank">
+                        <strong>PRO-version</strong></a>
+                    with <strong>Mobile First</strong> feature and <strong>Premium Support</strong>.
+                    <br/>
+                    <br/>
+                </li>
+                <li>
+                    After your order was paid, send us an
+                    <a href="mailto:issue@plugins-first.io?subject=Please send me the PRO-version of Fixed Menu Anchor via email">
+                        <strong>email</strong></a> and ask for the PRO-version.
+                    <br/>
+                    <br/>
+                </li>
+                <li>You will receive an email with a ZIP-archive containing the PRO-version.<br/></li>
+            </ol>
+
+        {% endif %}
+
+    </div>
+
+{% endif %}
