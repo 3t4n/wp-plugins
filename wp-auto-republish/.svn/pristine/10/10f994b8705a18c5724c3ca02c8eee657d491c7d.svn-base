@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'iamsayan/wp-auto-republish',
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => '9b5b5d2bf573baebf8e26dec185bb5caaf59dca9',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'freemius/wordpress-sdk' => array(
+            'pretty_version' => '2.10.1',
+            'version' => '2.10.1.0',
+            'reference' => '5f57de9d7504b37b0ee9f5da44b6699c99854dd2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'iamsayan/wp-auto-republish' => array(
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => '9b5b5d2bf573baebf8e26dec185bb5caaf59dca9',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'woocommerce/action-scheduler' => array(
+            'pretty_version' => '3.9.0',
+            'version' => '3.9.0.0',
+            'reference' => '90b98e6fe97d455679b1d288f050cad8f6f79771',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../woocommerce/action-scheduler',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
