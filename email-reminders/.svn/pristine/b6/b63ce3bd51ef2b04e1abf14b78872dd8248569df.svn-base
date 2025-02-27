@@ -1,0 +1,180 @@
+/* UI Toolbar  *************************************************************************************************/
+/* To Compile file: Alt + F12   and run command:  "gulp oper"  */
+
+/* Help  section  *****************************************************************************************************/
+.oper-help-container .oper-header-h {
+	margin:20px 0 -10px;
+}
+.oper-header-h-premium{
+	color:#a36749;
+	font-size: 1.2em;
+}
+
+.oper-help-container .oper-help-columns {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.oper-help-container .oper-help-columns .oper-help-col {
+	flex: 1 1 50%;
+}
+@media (max-width: 782px) {
+	.oper-help-container .oper-help-columns .oper-help-col {
+		flex: 1 1 auto;
+	}
+}
+
+/**********************************************************************************************************************/
+
+.oper_ui__rules_modify_container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+
+	margin: 0;
+	padding:0 0 3px;
+	box-shadow: none;
+	border: 1px solid #ccc;
+	background: #f5f5f5;
+}
+																														/* Several Conditions Rows */
+.ui__rules__rows{
+	flex: 1 1 640px;				/* Using here 640px for setting Conditionl Rows from  new row,  when resizing*/
+	width:100%;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+																														/* Group  for elements */
+.oper_ui__rules_modify_container .ui__rules__group {
+	flex: 0 1 auto;
+	padding: 0 0 0 1em;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+																														/* In  ROWS (conditions) - center for "buttons & select" -  'pixel 2 pixel view' */
+.oper_ui__rules_modify_container .ui__rules__rows .ui__rules__group{
+	align-items: center;
+}
+.oper_ui__rules_modify_container .ui__rules__group.group_nowrap {
+	flex-flow: row nowrap;
+}
+.oper_ui__rules_modify_container .ui__rules__group label,
+.oper_ui__rules_modify_container .ui__rules__group a,
+.oper_ui__rules_modify_container .ui__rules__group input,
+.oper_ui__rules_modify_container .ui__rules__group select{
+	flex: 0 1 auto;
+	margin:4px 1em 4px 0;
+}
+.oper_ui__rules_modify_container .ui__rules__group input[type='radio'],
+.oper_ui__rules_modify_container .ui__rules__group input[type='checkbox']{
+	align-self: center;
+	margin-top:0.5em;
+}
+.oper_ui__rules_modify_container .ui__rules__group label {
+	/* Vertical center*/
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+
+	align-self: center;
+	word-break: normal;
+
+	font-size: 14px;																									/* Its the same size as in select or text  fields */
+}
+@media (max-width: 399px) {
+	.oper_ui__rules_modify_container .ui__rules__group{
+		flex: 1 1 auto;
+	}
+	.oper_ui__rules_modify_container .ui__rules__group input[type='text'],
+	.oper_ui__rules_modify_container .ui__rules__group select {
+		min-width: 0;
+		width: 100% !important;
+	}
+}
+@media screen and (max-width: 782px) {
+	.oper_ui__rules_modify_container .ui__rules__group label {
+		font-size: 16px;
+	}
+}
+																														/* Buttons Grey Color */
+.oper_ui__rules_modify_container .ui__rules__rows a.button,
+.oper_ui__rules_modify_container .ui__rules__rows a.button:hover {
+	color: #555;
+	border-color: #d8d8d8;
+}
+																														/* Fields Widths */
+.oper_ui__rules_modify_container .oper_rules_email_template_select,
+.oper_ui__rules_modify_container .oper_rules_condition_field_select{
+	width:10em;
+}
+.oper_ui__rules_modify_container .oper_rules_condition_field_label {
+	min-width: 4em;
+	text-align: right;
+}
+																														/* Set  label  near emails align as baseline - at  top (and not center) */
+.oper_ui__rules_modify_container label.oper_rules_email_template_label {
+	align-self: baseline;
+}
+																														/* Right border - | */
+.oper_ui__rules_modify_container 					.ui__rules__group__emailtemplate{
+	border-right: 1px solid #ccc;
+}
+																														/* Condition Row set  FULL Width */
+.oper_ui__rules_modify_container .ui__rules__rows .ui__rules__group__conditions {
+	flex:1 1 auto;
+}
+																														/* Set  Text field of condition 100% width */
+.oper_ui__rules_modify_container .ui__rules__rows .ui__rules__group__conditions .oper_rules_condition_value_text {
+	flex:1 1 0;
+}
+
+.oper_ui__rules_modify_container .ui__rules__rows .ui__rules__group__append {
+	min-width: 100%;
+	justify-content: flex-end;
+	padding: 0;
+}
+
+.ui__rules__save {
+	flex:1 1 0;
+	margin:0.5em 1em;
+	min-width: 100%;
+}
+.ui__rules__save .button {
+	margin:0 0.5em 0 0 ;
+}
+
+.ui__rules__other_params {
+	flex: 1 1 auto;				/* Using here 640px for setting Conditionl Rows from  new row,  when resizing*/
+	width:100%;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	border-top:1px solid #ccc;
+
+	margin: 0;
+	padding: 0.5em 0;
+}
+
+.ui__rules__header{
+/*background: #e4e4e4;			//FixIn: 2.0.3.1  9.5.4.5 */
+	width: 100%;
+	padding: 0 1em;
+	background: #fff;
+	border-bottom: 1px solid #dfdfdf;
+	border-radius: 0;
+	color: #606060;
+	font-size: 15px;
+	font-weight: 600;
+	text-shadow: none;
+	line-height: 2.5em;
+	overflow: hidden;
+}
+.clear + .ui__rules__header {
+	border-top: 1px solid #dfdfdf;
+}

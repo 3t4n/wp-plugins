@@ -1,0 +1,587 @@
+/**
+ * @version 1.0
+ * @package: Admin Panel
+ * @category: Admin UI
+ * @author wpdevelop
+ *
+ * @web-site http://oplugins.com/
+ * @email info@oplugins.com 
+ * 
+ * @modified 2015-04-11
+ */
+/* Admin Content Pages */
+/* Top Header at  the page */
+.oper_page h2.oper_header {
+  color: #595959;
+  font-size: 2em;
+  line-height: 2em;
+  padding: 0;
+  text-shadow: 0 0 1px #aaaaaa;
+  margin-bottom: 10px;
+}
+
+.oper_page .wpdevelop label {
+  font-weight: 400;
+}
+
+.oper_page .wpdevelop label.oper-required {
+  font-weight: 600;
+}
+
+.oper_page .wpdevelop optgroup {
+  font-weight: 600;
+}
+
+.oper_page .wpdevelop .visibility_container {
+  display: none;
+}
+
+.oper_page .wpdevelop .oper-no-margin {
+  margin: 0;
+}
+
+.oper_page .wpdevelop .oper-no-padding {
+  padding: 0;
+}
+
+.wpdevelop a.button:focus,
+.wpdevelop a.button:hover {
+  text-decoration: none;
+}
+
+/* Support CSS Classes **/
+.wpdevelop .visible_items,
+.visible_items {
+  display: block;
+}
+
+.wpdevelop .hidden_items,
+.hidden_items {
+  display: none;
+}
+
+/* M E S S A G E S  -  Backward compatibility - For showing correctly  messages in WP 4.0 */
+.oper_page .notice {
+  background: #fff;
+  border-left: 4px solid #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  margin: 5px 15px 2px;
+  padding: 1px 12px;
+}
+
+.oper_page .notice-success,
+.oper_page div.updated {
+  border-left-color: #46b450;
+}
+
+.oper_page div.notice-warning {
+  border-left-color: #ffb900;
+}
+
+.oper_page .notice-error,
+.oper_page div.error {
+  border-left-color: #dc3232;
+}
+
+.oper_page .notice-info {
+  border-left-color: #00a0d2;
+}
+
+/* Messages that show at top  of admin panel pages */
+.oper_page div.oper_inner_message {
+  padding: 10px;
+  /* Overide position and style of Updated Message. If in new WP updates this meesage showing incorrectly, remove this code */
+  position: absolute;
+  display: inline;
+  z-index: 10000;
+  width: 98%;
+  margin: 3px 0 0;
+  top: 5px;
+  left: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  min-height: 1em;
+  height: auto;
+  /* From WordPress 4.4.1 */
+  /*
+    border-left: 4px solid #fff;
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    */
+}
+
+/* From WordPress 4.4.1 */
+.oper_page div.oper_inner_message a.close,
+.oper_page div.oper_inner_message a.close:hover,
+.oper_page div.oper_inner_message a.close:focus {
+  font-size: 18px;
+  float: right;
+  text-decoration: none;
+}
+
+/* Form Messages */
+.wpdevelop .alert.oper-near-field-message {
+  height: auto;
+  font-size: 0.9em;
+  background-image: none;
+}
+
+/* Alerts & Help messages */
+.oper-info-message,
+.oper-error-message,
+.oper-success-message,
+.oper-help-message {
+  display: block;
+  margin: 10px 0;
+  padding: 5px 10px;
+  font-weight: 400;
+  text-align: center;
+  color: #777;
+  background-color: #faf8f8;
+  /*    border: 1px solid #E6DB55;*/
+  /*    border: 2px dashed #bbb;*/
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  line-height: 1.9em;
+  font-size: 1em;
+  padding: 5px 10px !important;
+  width: auto !important;
+  box-sizing: padding-box;
+  -moz-box-sizing: padding-box;
+  -webkit-box-sizing: padding-box;
+}
+
+.oper-help-message {
+  background-color: #FFFDFD;
+  text-align: left;
+}
+
+.oper-error-message {
+  background-color: #FFEEEE;
+  border-color: #FFBBBB;
+}
+
+.oper-success-message {
+  background-color: #F5FFF0;
+  border-color: #AAEEAA;
+}
+
+.oper-demo-alert-not-allow {
+  color: #AA4400;
+  font-size: 1.1em;
+  font-weight: 400;
+  text-shadow: 0 -1px 0 #FFEEEE;
+}
+
+.oper_inner_message {
+  margin-bottom: 25px !important;
+}
+
+.oper_inner_message .close {
+  float: right;
+  font-size: 18px;
+}
+
+.oper_page div.oper_outer_message {
+  position: relative;
+  display: block;
+  margin: 5px 0 15px !important;
+}
+
+.alert.alert-block {
+  border: 2px dashed;
+}
+
+.message {
+  border-left-width: 3px;
+  clear: both;
+  display: block;
+  position: relative;
+  text-align: left;
+}
+
+/* Internal Settings Message */
+.oper-settings-notice {
+  background: #ffffff;
+  border-left: 4px solid #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  margin: 5px 0 2px 0;
+  padding: 1px 12px;
+  line-height: 2.5em;
+  text-align: left;
+}
+
+.oper-settings-notice.notice-success {
+  border-left-color: #46b450;
+}
+
+.oper-settings-notice.notice-success.notice-alt {
+  background-color: #ecf7ed;
+}
+
+.oper-settings-notice.notice-warning {
+  border-left-color: #ffb900;
+}
+
+.oper-settings-notice.notice-warning.notice-alt {
+  background-color: #fff8e5;
+}
+
+.oper-settings-notice.notice-error {
+  border-left-color: #dc3232;
+}
+
+.oper-settings-notice.notice-error.notice-alt {
+  background-color: #fbeaea;
+}
+
+.oper-settings-notice.notice-info {
+  border-left-color: #00a0d2;
+}
+
+.oper-settings-notice.notice-info.notice-alt {
+  background-color: #e5f5fa;
+}
+
+/* Modal Content for popup windows ********************************************/
+.oper_popup_modal {
+  display: none;
+}
+
+/* Sort Table */
+table.oper_sort_table {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.oper_sort_table thead th {
+  padding: 8px 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1em;
+  color: #555 !important;
+}
+
+.oper_sort_table tfoot th {
+  padding: 10px;
+}
+
+.oper_sort_table .widefat th.sort,
+.oper_sort_table .widefat td.sort {
+  width: 30px;
+  padding-top: 4px;
+  padding-left: 4px;
+}
+
+.oper_sort_table .widefat td.sort::before {
+  color: #aaa;
+  content: "\f333";
+  display: inline-block;
+  font-family: dashicons;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  height: 20px;
+  line-height: 1;
+  text-align: center;
+  -webkit-text-decoration-color: inherit;
+          text-decoration-color: inherit;
+  -webkit-text-decoration-line: inherit;
+          text-decoration-line: inherit;
+  -webkit-text-decoration-style: inherit;
+          text-decoration-style: inherit;
+  vertical-align: top;
+  width: 20px;
+  padding: 4px 0 0 2px;
+}
+
+.oper_sort_table .widefat td.sort span.glyphicon {
+  vertical-align: middle;
+}
+
+.oper_sort_table .widefat td {
+  padding: 0;
+}
+
+.oper_sort_table .widefat th input[type=text],
+.oper_sort_table .widefat td input[type=text] {
+  width: 100%;
+  margin: 0;
+  padding-left: 5px;
+  height: 36px;
+}
+
+.oper_sortable_table.widefat {
+  background: #FAFAFA;
+}
+
+.oper_sortable_table.widefat td.border_bottom {
+  border-bottom: 1px solid #ddd;
+}
+
+.oper_sortable_table td input[type=text] {
+  border-radius: 0;
+}
+
+/* Color Picker */
+.oper_page .wpdevelop .wp-picker-container .wp-color-result,
+.oper_sortable_table td .wp-picker-container .wp-color-result {
+  height: 24px;
+  clear: both;
+}
+
+.oper_sortable_table td .oper-field-colors {
+  padding: 2px 10px 2px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* Settings table customization */
+.oper_page .form-table th,
+.oper_page .form-table td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.form-table th label {
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+/* SORTED Support Styles and Tricks *******************************************/
+.oper_mobile_legend {
+  display: none;
+}
+
+/* Align blocks */
+.oper-align-right {
+  float: right !important;
+}
+
+.oper-align-left {
+  float: left !important;
+}
+
+/* Align text */
+.oper-text-right {
+  text-align: right !important;
+}
+
+.oper-text-left {
+  text-align: left !important;
+}
+
+.oper-text-center {
+  text-align: center !important;
+}
+
+.oper-text-justify {
+  text-align: justify !important;
+}
+
+.clear-line {
+  clear: both;
+  width: 100%;
+}
+
+/* Trick - Fix HEIGHT for the container with FLOAT elements inside */
+.clearfix-height:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix-height {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix-height {
+  display: block;
+}
+
+html[xmlns] .clearfix-height.hidden_items {
+  display: none;
+}
+
+* html .clearfix-height {
+  height: 1%;
+}
+
+/* Sortable table */
+.oper_sortable_table thead th {
+  padding: 10px 0;
+  font-weight: 600;
+}
+
+.oper_sortable_table tfoot th {
+  padding: 10px;
+}
+
+.oper_sortable_table .widefat th.sort,
+.oper_sortable_table .widefat td.sort {
+  width: 30px;
+}
+
+.oper_sortable_table .widefat td.sort::before {
+  color: #aaa;
+  content: "\f333";
+  display: inline-block;
+  font-family: dashicons;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  height: 20px;
+  line-height: 1;
+  text-align: center;
+  -webkit-text-decoration-color: inherit;
+          text-decoration-color: inherit;
+  -webkit-text-decoration-line: inherit;
+          text-decoration-line: inherit;
+  -webkit-text-decoration-style: inherit;
+          text-decoration-style: inherit;
+  vertical-align: top;
+  width: 20px;
+  padding: 4px 0 0 2px;
+}
+
+.branch-3-5 .oper_sortable_table .widefat td.sort::before,
+.branch-3-6 .oper_sortable_table .widefat td.sort::before,
+.branch-3-7 .oper_sortable_table .widefat td.sort::before {
+  content: "=";
+}
+
+.oper_sortable_table .widefat td {
+  padding: 0;
+}
+
+.oper_sortable_table .widefat th input[type=text],
+.oper_sortable_table .widefat td input[type=text] {
+  width: 100%;
+  margin: 0;
+  padding-left: 5px;
+}
+
+/* Hack  to fix checkbox height in  Firefox,  otherwise sometimes, there exist weird artefact */
+@-moz-document url-prefix() {
+  .oper_page input[type='checkbox'] {
+    /*height: auto;*/
+  }
+  .oper_page input[type='radio'] {
+    /*height: auto;*/
+    /*height: 32px;*/
+  }
+}
+
+/* Ajax loading icon */
+.oper_ajax_icon {
+  font-size: 9px;
+  margin: 0px 5px 5px 5px;
+  line-height: 1em;
+  vertical-align: middle;
+}
+
+/*  Rotate Icons  for Loading   ***********************************************/
+.oper_spin {
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.oper_rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.oper_rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.oper_rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.oper_flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.oper_flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/******************************************************************************/
+/* iPad mini and all iPhones  and other Mobile Devices */
+@media (max-width: 782px) {
+  .oper_mobile_legend {
+    display: inline;
+    font-size: 14px;
+    font-weight: 400;
+    float: left;
+    line-height: 1.3em;
+  }
+  .oper_mobile_legend.clear {
+    float: none;
+    display: block;
+  }
+  .wpdevelop .hide-sm {
+    display: none;
+  }
+  /* Messages that show at top  of admin panel pages */
+  .oper_page div.oper_inner_message {
+    /* Overide position and style of Updated Message. If in new WP updates this meesage showing incorrectly, remove this code */
+    margin: 20px 0 25px 10px;
+    position: fixed;
+    top: 32px;
+    width: 96%;
+    padding: 10px 12px;
+    min-height: 1em;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .wpdevelop .hide-xs {
+    display: none;
+  }
+}
+
+/* Support new fonts in WP 4.6 */
+/* FixIn: 6.2.2.4 */
+.wpdevelop .label,
+.wpdevelop strong {
+  font-weight: 600;
+}
+
+.wpdevelop [class^="icon-"] {
+  margin-top: 2px;
+}
+
+.wpdevelop .button [class^="icon-"] {
+  margin-top: 3px;
+}

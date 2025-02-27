@@ -1,0 +1,269 @@
+/**  C O N T A I N E R   **/
+.oper_listing_container {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+
+	margin: 15px 0;
+}
+.oper_listing_container .oper_listing_usual_row {
+	flex: 1 1 auto;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.oper_listing_container .oper_listing_usual_row.oper_list_header {
+	flex-flow: row nowrap;
+}
+.oper_listing_container .oper_listing_usual_row .oper_listing_col{
+	flex: 2 1 0;
+	word-wrap: break-word;
+	min-width: 150px;
+}
+/* Checkbox */
+.oper_listing_container .oper_listing_usual_row .oper_listing_col:first-child{
+	flex: 40px 0 0;
+	min-width: 40px;
+}
+.oper_listing_container .oper_listing_usual_row .oper_listing_col.oper_col_data{
+	flex: 10;
+}
+@media (max-width: 782px) {
+	.oper_listing_container .oper_listing_usual_row.oper_list_row .oper_listing_col.oper_col_data {
+		flex: auto;
+	}
+}
+/**  R O W  - Colors | Fonts **/
+.oper_listing_container .oper_listing_usual_row{
+	border: 1px solid #dfdfdf;
+	border-top:none;
+}
+.oper_listing_container .oper_listing_usual_row:nth-of-type(2n+1) {
+    background: #F7F7F7;
+}
+.oper_listing_container .oper_listing_usual_row div.content_text {
+	padding: 8px 1em;
+	line-height: 1.8em;
+}
+/**  H E A D E R  - Colors | Fonts **/
+.oper_listing_container div.oper_listing_usual_row.oper_list_header{
+	/*background: #e4e4e4;			//FixIn: 2.0.3.1  9.5.4.5 */
+	background: #fff;
+	border: 1px solid #dfdfdf;
+	border-radius: 4px 4px 0 0;
+	/*color: #333;*/
+	color: #606060;
+	/*font-size: 12px;*/
+	font-size: 15px;
+	font-weight: 600;
+	/*text-shadow: 0 1px 1px #F5F5F5;*/
+	text-shadow:none;
+	text-align: center;
+	line-height: 2.5em;
+	overflow: hidden;
+}
+.oper_listing_container div.oper_listing_usual_row.oper_list_header .oper_listing_col .content_text{
+	padding:8px 1em;
+}
+.oper_listing_container .oper_listing_usual_row.oper_list_header > div:last-child{
+	text-align: center;
+}
+.oper_listing_container .oper_listing_usual_row.oper_list_header:first-child input[type="checkbox"] {
+	margin-left:1px;
+}
+/**********************************************************************************************************************/
+/** Content of fields data **/
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue {
+	background: #FFF7D8;
+	margin: 0px 5px 0 4px;
+	padding: 1px 5px;
+}
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue.fieldsearchvalue {
+	background: #ff9900;
+}
+/**********************************************************************************************************************/
+/**  Labels  **/
+.oper_listing_container .oper_listing_usual_row .oper_col_labels div.content_text{
+	overflow: hidden;
+}
+.oper_col_labels .content_text {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+.oper_col_labels .content_text .oper_label{
+	flex: 0 1 auto;
+	padding: 0 10px;
+	line-height: 2.1em;
+	margin: 0 1em 1em 0;
+	word-wrap: break-word;
+	min-width: 0px;
+}
+.oper_label{
+	white-space: pre-wrap;
+	border: 0;
+	box-shadow: 0 0 1px #ddd;
+	padding: 4px 10px 4px;
+	line-height: 2.5em;
+	margin-right: 10px;
+	font-size: 0.92em;
+	border-radius: .2em;
+	font-weight: 600;
+	background-color: #5bc0de;
+	display: inline;
+	color: #ffffff;
+	text-align: center;
+	vertical-align: baseline;
+}
+.oper_label.reminders_label__init {
+
+}
+.oper_label.reminders_label__sent {
+	background-color: #F08c9f;
+}
+.oper_label.reminders_label__email_template {
+	background-color: #808c9f;
+}
+
+.oper_label.rules_label__expired{
+	background-color: #5fac60;
+}
+.oper_label.rules_label__paused{
+	background-color: #9cbd61;
+}
+.oper_label.rules_label__not_started{
+	background-color: #5f9aac;
+}
+.oper_label.rules_label__finished{
+	background-color: #ac5f5f;
+}
+.oper_label.contact_label__refund {
+	background-color: #ee6f48;
+}
+.oper_label.oper_label_cron_run,
+.oper_label.oper_label_cron_reset{
+	overflow: hidden;
+	padding: 5px 10px;
+	display: inline;
+	line-height: 2.6em;
+	text-align: left;
+	white-space: nowrap;
+	word-wrap: normal;
+	font-size: 11px;
+	background-color: #84a862;
+}
+.oper_label.oper_label_cron_reset {
+	background-color: #a87662;
+}
+.oper_listing_col .oper_label{
+	padding: 4px 5px;
+	line-height: 2.5em;
+}
+/**********************************************************************************************************************/
+/** Colors inside of the data fields in CONTENT DATA AREA **/
+/**********************************************************************************************************************/
+/* Refund */
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue._refund{
+	color: #cc0202;
+}
+/* Order Number */
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue._order_num:not(.fieldsearchvalue){
+	font-weight: 600;
+	background: #9d9d9d;
+	color: #fff;
+	border-radius: 2px;
+	display:none;
+}
+/** Selected order in input //FixIn: 2.0.2.2 **/
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue_input {
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: auto;
+}
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue_input.fieldvalue_input__order_num{
+	display:inline-flex !important;
+}
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue_input input[type="text"].oper-put-in {
+	flex: 0 1 auto;
+	width: 175px;
+	min-width: 1px;
+	cursor: pointer;
+	font-weight: 600;
+	background: #E9E9E9;
+	border: 0px solid #878787;
+	padding: 0 5px;
+	line-height: 1.625em;
+	height: 1.625em;
+	min-height: 1.625em;
+}
+.oper_listing_container .oper_list_row .oper_col_data .fieldvalue_input input[type="text"].oper-put-in:focus{
+	box-shadow: 0 0 0 0 #cee9ff;
+	outline: 2px solid #9a9a9a;
+	border: none !important;
+}
+/**********************************************************************************************************************/
+/** Selected row **/
+.oper_selectable_body .row_selected_color {
+	/*background: #f9f9e7;*/
+	/*background: #ffffeb;*/
+	/*border-color: #d2d2d2 !important;*/
+    background: transparent;
+    border-color: #d2d2d2 !important;
+    border-left: 4px solid #08a !important;
+}
+/** Actions row with buttons **/
+.oper_item_actions {
+	flex: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+
+	padding: 0 1em;
+}
+.oper_item_actions a.button,
+.oper_item_actions a.button:hover {
+	flex: 0 0 auto;
+
+	margin: 0 0.25em 10px;
+
+	color: #555;
+	border-color: #d8d8d8;
+	margin-right: 1em;
+}
+
+.oper_item_actions .oper_actions_buttons{
+	flex:  1 1 auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+
+}
+.oper_item_actions .oper_actions_sysinfo{
+	flex: 0 1 auto;
+	margin-left:auto;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+
+	align-items: stretch;
+	line-height: 4em;
+	font-size: 0.8em;
+}
+/**********************************************************************************************************************/
+/* Terminal log screen section */
+.oper_log_screen {
+	display: none;
+	margin: 0;
+	padding: 0.5em 1em;
+	line-height: 1.7em;
+	color: #fff;
+	background: #5b5b5b;
+	border-radius: 3px;
+	border: 1px solid;
+	text-shadow:none;
+}

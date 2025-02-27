@@ -1,0 +1,85 @@
+/* UI Toolbar  *************************************************************************************************/
+/* To Compile file: Alt + F12   and run command:  "gulp oper"  */
+.oper_ui_flex_toolbar_container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  margin: 0 0 20px;
+  padding: 3px 0;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #f5f5f5;
+}
+
+.oper_ui_flex_toolbar_container .ui_toolbar_group {
+  -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+  padding: 0 0 0 1em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: baseline;
+      align-items: baseline;
+  border-right: 1px solid #ccc;
+}
+
+.oper_ui_flex_toolbar_container .ui_toolbar_group.group_nowrap {
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+}
+
+.oper_ui_flex_toolbar_container .ui_toolbar_group:last-child {
+  border: none;
+}
+
+.oper_ui_flex_toolbar_container .ui_toolbar_group label,
+.oper_ui_flex_toolbar_container .ui_toolbar_group a,
+.oper_ui_flex_toolbar_container .ui_toolbar_group input,
+.oper_ui_flex_toolbar_container .ui_toolbar_group select {
+  -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+  margin: 4px 1em 4px 0;
+}
+
+.oper_ui_flex_toolbar_container .ui_toolbar_group label {
+  /* Vertical center*/
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  word-break: normal;
+}
+
+@media (max-width: 399px) {
+  .oper_ui_flex_toolbar_container .ui_toolbar_group {
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+  }
+  .oper_ui_flex_toolbar_container .ui_toolbar_group input,
+  .oper_ui_flex_toolbar_container .ui_toolbar_group select {
+    min-width: 0;
+    width: 100% !important;
+  }
+}
+
+/* Its the same size as in select or text  fields */
+.oper_ui_flex_toolbar_container .ui_toolbar_group label {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 782px) {
+  .oper_ui_flex_toolbar_container .ui_toolbar_group label {
+    font-size: 16px;
+  }
+}

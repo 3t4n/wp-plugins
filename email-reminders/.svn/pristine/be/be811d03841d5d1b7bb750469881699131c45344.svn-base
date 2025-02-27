@@ -1,0 +1,77 @@
+/* Pagination *********************************************************************************************************/
+.oper-bottom-pagination,
+.oper-ajax-pagination {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  /*! height: 38px; */
+}
+
+.oper-ajax-pagination a {
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+  margin: 10px;
+}
+
+.oper-bottom-pagination label,
+.oper-bottom-pagination select {
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+}
+
+.oper-ajax-pagination .button {
+  line-height: 2.4;
+  padding: 0 1em;
+  color: #555;
+  border-color: #ccc;
+}
+
+.oper-ajax-pagination a.button.active {
+  background-color: #eee;
+  box-shadow: inset 0 2px 5px -3px #444;
+  color: #555;
+}
+
+.oper-ajax-pagination .button,
+.oper-bottom-pagination label,
+.oper-bottom-pagination select {
+  box-shadow: none;
+  /*height: 32px;*/
+  /*line-height: 30px;*/
+  margin: 1px 2px 5px;
+  /*padding: 0 15px;*/
+}
+
+.oper-bottom-pagination select {
+  margin-left: 2em;
+  /*	padding-left: 0.25em;*/
+  /*	padding-right: 0.5em;*/
+}
+
+.oper-bottom-pagination label {
+  /*! padding: 0; */
+  /*! vertical-align: middle; */
+  /*! display: flex; */
+  /*! flex-flow: row nowrap; */
+  /*! justify-content: center; */
+  -ms-flex-align: baseline;
+      align-items: baseline;
+  line-height: 2.4;
+}
+
+.oper-ajax-pagination a.button.active,
+.oper-ajax-pagination a.button.active:hover {
+  -ms-transform: translateY(0);
+      transform: translateY(0);
+  border-color: #c9c9c9;
+}
+
+@media (max-width: 782px) {
+  .oper-bottom-pagination label,
+  .oper-ajax-pagination .button {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,49 @@
+/* Inline Form 		(default) */
+.oper-contact-form{
+	width: 90%;
+	margin:auto;
+}
+.contact-form_field_group {
+	display:flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.contact-form_field {
+	flex:1 1 0;
+	display:flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+.contact-form_field .edit_contact_text_keys,
+.contact-form_field label,
+.contact-form_field .edit_contact_text_values {
+	flex:0 1 auto;
+	margin-right:2em;
+	margin-bottom:1em;
+}
+.contact-form_field label{
+	display:flex;
+	flex-flow:column nowrap;
+	justify-content:center;
+	width:200px;
+	font-weight: 600;
+}
+.contact-form_field .edit_contact_text_values {
+	flex:1 1 auto;
+	max-width:100%;
+}
+
+/* Standard Form 	(labels and fields in 2 rows */
+.contact-form_standard .contact-form_field {
+	flex-flow: column wrap;
+	margin: 0 1em;
+}
+.contact-form_standard .contact-form_field .edit_contact_text_values {
+	width: 100%;
+}
+
+/* Placeholders Form */
+.contact-form_placeholders label{
+	display: none;
+}

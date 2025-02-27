@@ -1,0 +1,395 @@
+/* 
+    Document   : admin-oper-listing
+    Created on : 09.02.2014, 11:38:06
+    Author     : wpdevelop
+    Description: Listing Table CSS 
+*/
+/* Header */
+.oper-listing-header {
+  background: #e4e4e4;
+  /* for non-css3 browsers */
+  border: 1px solid #C6C6C6;
+  border-bottom-color: #CCC;
+  border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  color: #333;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  padding: 2px 0px;
+  text-shadow: 0 1px 1px #F5F5F5;
+}
+
+/* Row */
+.oper-listing-row {
+  border: 1px solid #C6C6C6;
+  border-top: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.oper-listing-row.row_alternative_color.row,
+.oper-listing-row.row_alternative_color {
+  background: #F7F7F7;
+}
+
+.oper-listing-row.row.row_selected_color {
+  background: #9cf;
+  border-color: #aaa !important;
+}
+
+.oper-listing-row.oper-listing-last_row {
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+}
+
+/* Columns */
+.oper-listing-collumn {
+  margin: 5px 0px 2px;
+}
+
+.oper-listing-collumn .field-id {
+  color: #999;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: right;
+  /*    background-color: #777;
+    border: 1px solid #FFF;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 2px #888;
+    color: #EEE;    
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 4px;
+    text-shadow: 0 0 3px #333;*/
+}
+
+.oper-listing-collumn .field-id span.label {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background: #bbb;
+  color: #fff;
+  margin: 0;
+  padding: 2px 5px;
+  background: #888;
+  border: none;
+  line-height: 2.8em;
+}
+
+.oper-listing-collumn.field-system-info {
+  font-size: 9px;
+  font-style: italic;
+  line-height: 1.2em;
+  text-align: left;
+  text-shadow: 0 -1px 0 #eee;
+  white-space: nowrap;
+  padding: 2em 5px 0;
+  text-align: right;
+  color: #777;
+}
+
+.oper-listing-collumn.field-system-info .field-creation-date {
+  font-weight: 600;
+}
+
+/* Checkbox */
+.oper-listing-collumn .field-checkbox {
+  vertical-align: middle;
+}
+
+/* Main Content */
+.oper-listing-collumn.field-content,
+.oper-listing-collumn .standard-content-form {
+  text-align: left;
+  word-wrap: break-word;
+  line-height: 1.7em;
+}
+
+/* Data Titles style - Yellow Values*/
+.oper-listing-collumn .fieldvalue {
+  background: #FE9;
+  color: #333;
+  font-size: 0.9em;
+  font-weight: 400;
+  margin: 0 3px 0 0;
+  padding: 2px 3px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  /*    text-shadow: 0 1px 1px #EEE;*/
+}
+
+/* Labels Colors */
+.oper-listing-collumn .label {
+  border: 1px solid #EEEEEE;
+  box-shadow: 0 0 1px #ddd;
+  padding: 2px 5px;
+  white-space: nowrap;
+  line-height: 2.4em;
+}
+
+.oper-listing-collumn .label span,
+.oper-listing-collumn .label a,
+.oper-listing-collumn .label a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.oper-listing-collumn .label-pending {
+  background: #FFBB45;
+}
+
+.oper-listing-collumn .label-approved {
+  background: #9BE;
+}
+
+.oper-listing-collumn .label-trash {
+  background: #D94A48;
+  color: #fff;
+  text-shadow: 0 0 1px #E00;
+}
+
+.oper-listing-collumn .label-unknown {
+  background-color: #999 !important;
+}
+
+.oper-listing-collumn .label-error {
+  background-color: #FA773D !important;
+}
+
+.oper-listing-collumn .payment-label-success {
+  background-color: #468847 !important;
+}
+
+.oper-listing-collumn .payment-label-pending {
+  background-color: #992 !important;
+}
+
+.oper-listing-collumn .payment-label-unknown {
+  background-color: #999 !important;
+}
+
+.oper-listing-collumn .payment-label-error {
+  background-color: #FA773D !important;
+}
+
+/* Pagination */
+.oper-pagination .button {
+  box-shadow: none;
+  height: 32px;
+  line-height: 30px;
+  margin: 0 0 5px;
+  padding: 0 15px;
+}
+
+.wpdevelop.oper-pagination .container-fluid .row .btn-toolbar .btn-group > .button.disabled {
+  box-shadow: none !important;
+}
+
+.wpdevelop.oper-pagination .btn-toolbar .btn-group > .button.active {
+  box-shadow: 0 1px 5px -4px rgba(0, 0, 0, 0.5) inset;
+  font-weight: 600;
+}
+
+@media (max-width: 782px) {
+  .oper-listing-header .oper-listing-collumn {
+    font-size: 1.2em;
+    line-height: 2.2em;
+    margin: 0;
+  }
+  .oper-listing-header .oper-listing-collumn input[type=checkbox] {
+    margin: -4px 0 0;
+  }
+  .oper-listing-collumn.field-system-info {
+    padding: 0 5px;
+  }
+  /* Pagination */
+  .oper-pagination .button {
+    font-size: 14px;
+    height: 36px;
+    line-height: 34px;
+    margin: 0 0 5px;
+    padding: 0 16px;
+  }
+}
+
+/* C U S T O M ****************************************************************/
+/* New Label */
+.oper-listing-collumn.new-label {
+  margin: 5px 0 0 -32px;
+  position: absolute !important;
+}
+
+.oper-listing-collumn.new-label a {
+  font-size: 13px;
+}
+
+.oper-listing-collumn.new-label a i.glyphicon {
+  color: #8ac;
+}
+
+/* Dates */
+.oper-listing-collumn.field-dates .field-opl_pluginname-date,
+.oper-listing-collumn.field-dates .field-opl_pluginname-date:hover {
+  background: none repeat scroll 0 0 #FFBB45;
+  border: 1px solid #EEE;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0 0 1px #CCC;
+  color: #FFF;
+  font-weight: 600;
+  padding: 4px 10px 4px;
+  text-decoration: none;
+  text-shadow: 0 0px 0 #CCC;
+  white-space: nowrap;
+  font-size: 0.85em;
+  line-height: 2.5em;
+}
+
+.oper-listing-collumn.field-dates .field-opl_pluginname-date.approved,
+.oper-listing-collumn.field-dates .field-opl_pluginname-date.approved:hover {
+  background: none repeat scroll 0 0 #9BE;
+}
+
+.oper-listing-collumn.field-dates .field-opl_pluginname-time {
+  color: #555;
+  text-decoration: none;
+  text-shadow: 0 0 1px #AAA;
+}
+
+.oper-listing-collumn.field-dates .date_tire {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.oper-listing-collumn.field-dates .opl_pluginname_dates_small,
+.oper-listing-collumn.field-dates .opl_pluginname_dates_full {
+  line-height: 24px;
+}
+
+.oper-listing-collumn.field-dates .date_from_dif_type {
+  color: #FFF;
+  text-shadow: 0 -1px 0 #BBB;
+}
+
+/* Actions buttons */
+.oper-listing-collumn.field-action-buttons {
+  padding-right: 2px;
+}
+
+.oper-listing-collumn.field-action-buttons a.button {
+  margin: 0 5px 5px 0;
+}
+
+.oper-listing-collumn .glyphicon.red_icon_color {
+  color: #d54e21;
+}
+
+.oper-listing-collumn .oper-buttons-separator {
+  margin-right: 15px;
+}
+
+.oper_free .oper-listing-collumn .oper-buttons-separator {
+  margin-right: 0px;
+}
+
+/* Cost Group */
+.oper-listing-collumn.field-action-buttons .cost-fields-group {
+  float: left;
+}
+
+.oper-listing-collumn.field-action-buttons .cost-fields-group .field-currency {
+  color: #444;
+  display: inline;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 26px;
+  height: 26px;
+  padding: 0;
+  vertical-align: top;
+}
+
+.oper-listing-collumn.field-action-buttons .cost-fields-group.control-group .btn-toolbar .input-group > input[type="text"].field-opl_pluginname-cost {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  width: 75px;
+  font-weight: 600;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.oper-listing-collumn.field-action-buttons select.oper-select-locale {
+  display: none;
+  margin: 0 5px 5px 0;
+}
+
+.oper_free .oper-listing-collumn.field-system-info {
+  padding: 0 5px;
+  margin-top: -0.5em;
+}
+
+/* Columns customizations - labels header */
+#listing_visible_oper .oper-listing-header .oper_column_3 {
+  white-space: nowrap;
+}
+
+.label_resource_not_exist {
+  color: #000;
+  font-weight: 600;
+  text-shadow: 0 1px 0 #59D;
+  text-transform: none;
+}
+
+.oper-listing-row .opl_pluginname_row_modification_element {
+  display: none;
+  clear: both;
+  width: 100%;
+}
+
+.oper-listing-row .opl_pluginname_row_modification_element_changing_resource {
+  height: auto;
+}
+
+.oper-listing-row .opl_pluginname_row_modification_element .btn-save-cost,
+.oper-listing-row .opl_pluginname_row_modification_element.opl_pluginname_edit_note a,
+.oper-listing-row .opl_pluginname_row_modification_element select {
+  float: left;
+  margin: 0 0 5px 5px;
+}
+
+#hided_boking_modifications_elements,
+.hided_boking_modifications_elements {
+  /* FixIn:5.4.5.1 */
+  display: none;
+}
+
+@media (max-width: 782px) {
+  /* New Label */
+  .oper-listing-collumn.new-label {
+    margin: 7px 0 0 -26px;
+    position: absolute !important;
+  }
+  /* Dates */
+  .oper-listing-collumn .field-id.text-center,
+  .oper-listing-collumn .opl_pluginname-labels.text-center,
+  .oper-listing-collumn.opl_pluginname-dates.text-center {
+    text-align: left;
+  }
+  .oper-listing-collumn.field-action-buttons .control-group a.button {
+    height: 34px;
+  }
+  /* Cost Group */
+  .oper-listing-collumn.field-action-buttons .cost-fields-group .field-currency {
+    line-height: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+  .oper-listing-collumn.field-action-buttons .cost-fields-group.control-group .btn-toolbar .input-group > input[type="text"].field-opl_pluginname-cost {
+    padding: 2px 5px;
+  }
+}
