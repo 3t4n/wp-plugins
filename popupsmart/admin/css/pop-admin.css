@@ -1,0 +1,252 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+.container * {
+	font-family: Inter, sans-serif;
+	font-weight: 400;
+}
+
+.container {
+	--primary: #1c86fa;
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 25px);
+	margin-top: 0px;
+	margin-left: 3px;
+}
+
+.container .header {
+	display: flex;
+	width: calc(100% - 75px);
+	background: #fff;
+	padding-bottom: 1rem;
+	padding: 30px;
+	margin-bottom: 1rem;
+	margin-top: 1.5rem;
+	justify-content: space-between;
+	padding-left: 45px;
+}
+
+.info-container {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: .82;
+	transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.video-container {
+	margin-top: 1rem;
+	position: relative;
+	max-width: fit-content;
+	transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.video-container .poster {
+	position: absolute;
+	transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+	inset: 0;
+}
+
+.video-container.actived-video .play-icon,
+.video-container.actived-video .poster {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.video-container .play-icon {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.video-container .play-icon img {
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.video-container .play-icon img:hover {
+	scale: 1.1;
+
+}
+
+.video-container iframe {
+	border-radius: .5rem;
+}
+
+.info-container:hover {
+	scale: 1.2;
+	opacity: 1;
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	text-decoration: none;
+	color: black;
+}
+
+
+.logo-container span {
+	font-size: 1.2rem;
+	font-weight: 500;
+
+}
+
+.container .header img {
+	display: block;
+	width: 52px;
+
+}
+
+.container .content {
+	display: flex;
+	flex-direction: row;
+	background: #fff;
+	margin-top: 20px;
+	padding: 30px;
+	flex-wrap: wrap;
+}
+
+
+.container .content .userForm {
+	display: flex;
+	flex: 1;
+	margin-bottom: 2rem;
+}
+
+.container .content .userHelp {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.container .content .userHelp h4 {
+	margin-bottom: 0;
+}
+
+.container .content .userHelp ul {
+	padding-left: 30px;
+}
+
+.container .content .userHelp ul li {
+	list-style-type: decimal;
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+.installation-step-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.installation-step-container h4 {
+	font-size: 1.5rem;
+	font-weight: 900;
+	margin-bottom: 0;
+
+}
+
+.installation-step-container ul {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	counter-reset: section;
+}
+
+.installation-step-container li {
+
+	font-size: .9rem;
+	position: relative;
+	margin-left: 1rem;
+	white-space: nowrap;
+
+}
+
+.installation-step-container li::before {
+	counter-increment: section;
+	content: "" counter(section)".";
+	position: absolute;
+	left: -17px;
+	font-weight: 400;
+	font-size: 1rem;
+	top: 0px;
+	color: var(--primary);
+	border-radius: 1rem;
+
+}
+
+
+.settings-container {
+	width: calc(100% - 22px * 2);
+	display: flex;
+	flex-direction: column;
+	padding: 22px;
+	background-color: white;
+	padding-top: 0;
+}
+
+.settings-container form {
+	max-width: 450px;
+}
+
+.settings-container form input {
+	height: 2.5rem;
+}
+
+.settings-container form input::placeholder {
+	font-family: 'Inter', sans-serif;
+}
+
+.settings-container form input:focus {
+	outline: 1px solid #1c87fa4c;
+	box-shadow: 0 0 0 4px #1c87fa1b;
+}
+
+.settings-container form input:focus::before {
+	outline: 1px solid var(--primary);
+}
+
+.settings-container form th:nth-child(1) {
+	max-width: 130px;
+
+}
+
+.settings-container form td:nth-child(2) {
+	max-width: 104px;
+}
+
+@media screen and (max-width: 1280px) {
+	.settings-container form td:nth-child(2) {
+		max-width: 281px;
+	}
+}
+
+.settings-container form input[type="submit"] {
+	background-color: var(--primary);
+	font-size: 1rem;
+	font-weight: 500;
+	outline: none;
+	border: none;
+	border-radius: .3rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.settings-container form input[type="submit"]:hover {
+	background-color: var(--primary);
+	opacity: .92;
+}
