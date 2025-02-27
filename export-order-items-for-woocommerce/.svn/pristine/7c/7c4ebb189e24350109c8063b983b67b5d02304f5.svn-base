@@ -1,0 +1,50 @@
+/*
+ * 11.1 - Settings Tabs
+ */
+
+#ags-xoiwc-settings-tabs {
+  margin           : 0;
+  background-color : $dsMediumPurple;
+  overflow         : hidden;
+  border-top: 1px solid $wpz_secondary;
+
+  li {
+    margin      : 0;
+    float       : left;
+    display     : inline-block;
+    font-weight : 500;
+
+    font-size   : 12px;
+
+    @media (max-width : 600px) {
+      float     : none;
+      display   : block;
+      font-size : 12px;
+      }
+
+    a {
+      background-color   : transparent;
+      color              : rgba(255, 255, 255, 0.9);
+      cursor             : pointer;
+      padding            : 13px 16px !important;
+      outline            : none;
+      text-decoration    : none;
+      -webkit-transition : all ease-in 0.3s;
+      transition         : all ease-in 0.3s;
+      box-shadow         : none;
+      display            : block;
+      letter-spacing     : 0.29px;
+
+      &:hover {
+        color            : #FFF;
+        background-color : $dsMediumPurple;
+        }
+      }
+
+    &.ags-xoiwc-settings-active a {
+      opacity          : 1;
+      background-color : $wpz_secondary ;
+      color            : #FFF;
+      }
+    }
+  }

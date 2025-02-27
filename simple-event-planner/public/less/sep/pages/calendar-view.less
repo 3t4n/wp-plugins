@@ -1,0 +1,467 @@
+.sep-page {
+    .sep-calendar {
+        margin: (@padding-base-vertical + 15) 0 0;
+        overflow:hidden;
+
+        .search {
+            margin-bottom: 30px;
+            float: left;
+            width: 100%;
+            position: relative;
+            input{
+                width: 100%;
+
+            }
+            button{
+                width: 50px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: @brand-primary;
+                color: #fff;
+                border: none;
+                padding: 25px 0;
+                i{
+                    position: absolute;
+                    right: 15px;
+                    top: 13px;
+                    font-size: 16px;
+                }
+            }
+
+        }
+        .simple-event-calendar {
+            border: 1px solid #ececec;
+            float: left;
+            width: 100%;
+
+            .sep-calendar{
+                margin: 0;
+                .simple-event-calendar{
+                    border: none;
+                }
+            }
+
+        }
+        .hidden {
+            display: none;
+        }
+        .eventCalendar-wrap {
+            position: relative;
+            overflow: hidden;
+            box-shadow: none;
+            border-radius: 0;
+            color: #333;
+            float: left;
+            width: 100%;
+
+            .eventCalendar-arrow {
+                position: absolute;
+                z-index: 5;
+                top: 3px;
+                border: 1px solid #fff;
+                border-radius: 100%;
+                color: #fff;
+                line-height: 28px;
+                height: 16px;
+                width: 16px;
+                line-height: 16px;
+                text-decoration: none;
+                top: 15px;
+                text-align: center;
+                &:hover {
+                    color: #fff;
+                    opacity:0.7;
+                }
+                &:focus {
+                    color: #fff;
+                }
+                span {
+                    height: 0;
+                    width: 0;
+                    line-height: 0;
+                    position: relative;
+                    float: left;
+                    text-indent: -5000px;
+                }
+                &.eventCalendar-prev{
+                    span {
+                        position: relative;
+                        display: block;
+                        &:before{
+                            content: "\f104";
+                            font-family: FontAwesome;
+                            left:-5px;
+                            position:absolute;
+                            top:0;
+                            color: #000
+                        }
+                    }
+
+                }
+
+            }
+            .eventCalendar-prev {
+                left: 10px;
+                background: url(../images/left-arrow.jpg) no-repeat center center;
+
+            }
+            .eventCalendar-next {
+                right: 10px;
+                background: url(../images/right-arrow.jpg) no-repeat center center;
+
+            }
+            .eventCalendar-slider {
+                height: 80px;
+                .eventCalendar-monthWrap{
+                    border-radius: 0;
+                    top: 0;
+                    left: 0;
+                    .eventCalendar-currentTitle {
+                        line-height: 25px;
+                        padding: 10px 0;
+                        width: 100%;
+                        text-align: center;
+                        .eventCalendar-monthTitle {
+                            font-size: 22px;
+                            font-family: 'Roboto',sans-serif;
+                            text-transform: uppercase;
+                            float: none;
+                            text-decoration: none;
+                            padding: 0 10px;
+                            box-shadow: none;
+                        }
+                    }
+                    &.eventCalendar-oldMonth{
+                        display:none;
+                    }
+                    &.eventCalendar-currentMonth{
+                        border-bottom: 1px solid #ececec;
+                        float: left;
+                        width: 100%;
+                        z-index: 1;
+                    }
+                    .eventCalendar-daysList{
+                        display: table;
+                        width: 100%;
+                        zoom: 1;
+                        padding: 0;
+                        width: 100%;
+                        .eventCalendar-day-header {
+                            border-bottom: 1px solid #f3f3f3;
+                            color: #fff;
+                            background-color: @brand-primary;
+                            font-family: 'Roboto',sans-serif;
+                            font-size: 16px;
+                            text-align: center;
+                            text-transform: uppercase;
+                            padding: 6px 0;
+                        }
+                        .eventCalendar-day{
+                            &.eventCalendar-dayWithEvents{
+                                background-color: #ccc;
+                            }
+                            a  {
+                                color: #424242;
+                                font-size: 16px;
+                                text-decoration: none;
+                                border: 0;
+                                box-shadow: none;
+                                margin: 10px 0;
+                            }
+                            li{
+                                &.current{
+                                    a {
+                                        color: #fff;
+                                    }
+                                }
+                                .eventCalendar-day{
+                                    &.dayWithEvents {
+                                        a{
+                                            &:hover {
+                                                background-color: #424242;
+                                            }
+                                        }
+                                    }
+                                }
+                                &.dayWithEvents {
+                                    a {
+                                        color: #fff;
+                                        background: #fe4918;
+                                        font-weight: 700;
+                                        position: relative;
+                                        text-decoration: none;
+                                    }
+                                }
+                                &.today {
+                                    background-color: @brand-primary;
+                                    a {
+                                        color: #fff;
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:before{
+                            content: "";
+                            display: table;
+                        }
+                        &:after{
+                            content: "";
+                            display: table;
+                            clear: both;
+                        }
+                        &.eventCalendar-showAsWeek {
+                            display: block;
+                            margin: 0;
+                            width: auto;
+                            border-radius: 0;
+
+                            .eventCalendar-day{
+                                border-left: solid 1px #ececec;
+                                border-bottom: solid 1px #ececec;
+
+                                &:last-child{
+                                    border-right: solid 1px #ececec;
+                                    border-bottom: solid 0px #ececec;
+                                }
+                                &:nth-child(7n+1){
+                                    border-left: solid 0px #ececec;
+                                }
+                                &.today{
+                                    background: @brand-primary;
+                                    a{
+                                        color: #fff;
+                                    }
+                                }
+
+                                &:hover {
+                                    background-color: #424242;
+                                    a{
+                                        color: #fff;
+                                    }
+
+                                }
+
+                                &.eventCalendar-empty{
+                                    height: 66px;
+                                }
+                            }
+
+                            li {
+                                display: block;
+                                float: left;
+                                width: 14.28%;
+                                width: calc(100% / 7);
+                                height: 20px;
+                                text-align: center;
+                                height: auto;
+                                margin: 0;
+                                .eventCalendar-empty {
+                                    min-height: 66px;
+                                }
+
+                            }
+                        }
+                        li {
+                            display: table-cell;
+                            &.dayWithEvents
+                            {
+                                a{
+                                    color: #fff;
+                                }
+                                background-color: #3399fe;
+                            }
+                            &.current {
+                                background: none;
+                            }
+                            a {
+                                padding: 0;
+                                display: inline-block;
+                                width: auto;
+                                height: 45px;
+                                line-height: 40px;
+                                border-radius: 0;
+                                text-align: center;
+                                font-size: 16px;
+                                font-family: 'Roboto',sans-serif;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+            }
+            .eventsCalendar-loading {
+                display: block;
+                min-width: 100px;
+                height: 40px;
+                line-height: 40px;
+                margin: 5px auto;
+                padding: 0 10px;
+                color: #000;
+                text-align: center;
+                font-weight: bold;
+                &.error {
+                    background-color: #fe4918;
+                }
+            }
+            .eventCalendar-loading {
+                position: relative;
+                z-index: 1;
+
+                li {
+                    margin:20px 0;
+                    border-bottom: solid 1px @gray-light;
+                    &:last-child{
+                        border-bottom: none;
+                    }
+
+                    time{
+
+                        em{
+                            font-size: 16px;
+                            font-family: @font-family-sans-serif;
+                            font-style: normal;
+                            display: block;
+                            padding: 2.5px 0;
+                        }
+                        small{
+                            display: block;
+                            font-size: 14px;
+                            font-family: @font-family-sans-serif;
+                            font-style: normal;
+                            padding: 2.5px 0;
+                        }
+                    }
+                    a{
+                        display: block;
+                        font-size: 18px;
+                        font-weight: bold;
+                        font-family: @font-family-sans-serif;
+                        padding: 10px 0;
+                        line-height: 1.1;
+
+                        &:hover{
+                            text-decoration: none;
+                            border-bottom: none;
+                        }
+                    }                    
+                    p {
+                        font-size: 16px;
+                        font-family: @font-family-sans-serif;
+                        font-style: normal;
+                        display: block;
+                        padding: 2.5px 0;
+                    }
+
+                    time em,
+                    time small,
+                    p, a {
+                        @media (max-width: 640px) {
+                            display: block;
+                        }
+                    }
+                }
+                .oldEventList {
+                    z-index: 2;
+                }
+            }
+            ul.eventCalendar-list {
+                list-style: none !important;
+                padding: 0 37px;
+            }
+            .eventCalendar-subtitle,.eventCalendar-loading {
+                font-size: 18px;
+                font-weight: 700;
+                margin: 15px 0 -2px 0;
+                padding-left: 15px;
+                display: block;
+            }
+            .eventCalendar-list-content{
+                .eventCalendar-list{
+                    padding-left: 15px;
+                    li{
+                        margin: 15px 0;
+                        font-family: @font-family-sans-serif;
+                        &:before{
+                            content: "";
+                            padding: 0;
+                        }
+                        time{
+                            display: inherit;
+                            em{
+                                font-size: 13px;
+                                font-style: normal;
+                                padding: 2.5px 0;
+                                margin-right: 10px;
+                                &:before{
+                                    content: "\f073";
+                                    font-family: FontAwesome;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    text-decoration: inherit;
+                                    margin-right: 10px;
+                                }
+                            }
+                            small {
+                                font-size: 13px;
+                                font-style: normal;
+                                padding: 2.5px 0;
+                                margin-right: 10px;
+                                &:before{
+                                    content: "\f017";
+                                    font-family: FontAwesome;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    text-decoration: inherit;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                        a{
+                            color: #3297fa;
+                            display: inline;
+                            font-size: 16px;
+                            font-weight: bold;
+                            padding: 2.5px 0;
+                            margin-right: 10px;
+                            &:before{
+                                content: "\f02d";
+                                font-family: FontAwesome;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: inherit;
+                                margin-right: 10px;
+                            }
+                        }                                                
+                        p {
+                            font-size: 14px;
+                            padding: 2.5px 0;
+                            margin-right: 10px;
+                            display: inline;  
+
+                            &:before {
+                                content: "\f124";
+                                font-family: FontAwesome;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: inherit;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .form-control{
+            padding: 10px;
+            height: 42px;
+            border-radius: none;
+        }
+        .form-group{
+            overflow: hidden;
+            position: relative;
+        }
+    }
+}

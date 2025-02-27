@@ -1,0 +1,772 @@
+.sep-page {
+        .sep-detail {
+                margin: 60px 0;
+                overflow: visible;
+                padding: 0 15px;
+                .main-digit-wrapp{
+                        display: inline-block;
+
+                        .digit-wrapp{
+                                margin: 0 2px;
+                                display: block;
+                                font-size: 18px;
+                                color: #fff;
+                                font-weight: bold;
+                                border: 1px solid #fff;
+                                letter-spacing: -1px;
+                                padding: 2px 10px;
+                                background: rgba(255, 255, 255, 0.2);
+                        }
+
+                        .cs-digit{
+                                margin: 0;
+                                padding: 0;
+                        }
+                        .countdown-period{
+                                font-size: 12px;
+                                color: #fff;
+                                margin-left: 0;
+                                text-align: center;
+                                display: block;
+                                width: 100%;
+                        }
+                }
+
+                .left-column{
+                        border-right: 1px solid @gray-light;
+                        border-top: 1px solid @gray-light;
+                        float: left;
+                        width: 100%;
+                        .single-segments{
+                                padding: 20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 5px 0;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .segments-style{
+                                        padding-left: 0;
+                                        position: relative;
+                                        margin: 10px 0;
+                                        .timeline{
+                                                background: @brand-primary;
+                                                height: 100%;
+                                                list-style-type: none;
+                                                left: 4px;
+                                                position: absolute;
+                                                top: 0;
+                                                width: 2px;
+                                        }
+                                        .item{
+                                                color: @gray;
+                                                list-style-type: disc;
+                                                margin-bottom: 5px;
+                                                font-size: 16px;
+                                                list-style-type: none;
+                                                &:before{
+                                                        padding-left: 1.5px;
+                                                        content: "\2022";
+                                                        color:@brand-primary;
+                                                        font-size: 24px;
+                                                        font-weight: bold;
+                                                        line-height: 20px;
+                                                        vertical-align: middle;
+                                                        padding-right: 10px;
+                                                }
+                                                &:last-child{
+                                                        margin: 0;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .event-schedule{
+                                border-bottom: 1px solid @gray-light;
+                                float: left;
+                                width: 100%;
+                                .single-date{
+                                        padding: 20px 0;
+                                        font-weight: bold;
+                                        font-size: 24px;
+                                        color: #363e40;
+                                }
+                        }
+
+                        .event-organizer{
+                                padding: 20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                strong{
+                                        font-size: @font-size-base;
+                                        font-weight: 500;
+                                        margin: 0;
+                                        display: block;
+                                        color: @gray-dark;
+                                }
+                                span{
+                                        font-size: @font-size-large;
+                                        color: @gray;
+                                        margin-bottom: 15px;
+                                        display: block;
+                                        a{
+                                                color: @brand-primary;
+                                        }
+                                        &:last-child{
+                                                margin-bottom: 0;
+                                        }
+                                }
+                        }
+
+                        .single-event-description{
+                                padding: 20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                width: 100%;
+                                float: left;
+                                p{
+                                        font-weight: 400;
+                                        line-height: 1.25;
+                                        margin-right: 20px;
+                                        text-align: left;
+                                        font-size: @font-size-large;
+                                        color: @gray;
+                                }
+                        }
+
+                        .single-event-image{
+                                position: relative;
+                                float: left;
+                                width: 100%;
+                                padding:  20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                .countdown.no-image{
+                                        position: relative;
+                                        text-align: center;
+                                }
+                                .countdown{
+                                        position: absolute;
+                                        bottom: 20px;
+                                        right: 0;
+                                        left: 0;
+                                        z-index: 222;
+                                        text-align: center;
+                                }
+                                #countdownwrapp{
+                                        padding: 2px 15px;
+                                        .is-countdown{
+                                                margin-top: 5px;
+                                        }
+                                }
+                                .overlay-counter{
+                                        background: @brand-primary;
+                                        opacity: 0.5;
+                                        padding: 37px 10px;
+                                        position: absolute;
+                                        bottom: 20px;
+                                        width: 100%;
+                                        z-index: 000;
+                                }
+                        }
+
+                        .google-calendar-ical{
+                                width: 100%;
+                                float:left;
+                                padding:  20px 20px;
+                                border-bottom: 1px solid @gray-light;
+                                @media (max-width: @screen-sm){margin: 15px 0;}
+
+                                a{
+                                        display: inline;
+                                        color: @brand-primary;
+                                        &:after{
+                                                content: "|";
+                                                color: black;
+                                                margin: 0px 5px;
+                                        }
+                                        &:last-child{
+                                                &:after{
+                                                        content: "";
+                                                        color: black;
+                                                        margin: 0;
+                                                }
+                                        }
+
+                                }
+                        }
+
+                        .single-event-time{
+                                padding:  20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .event-date-time{
+
+                                        strong{
+                                                font-size: @font-size-base;
+                                                font-weight: 500;
+                                                margin: 0;
+                                                display: block;
+                                                color: @gray-dark;
+                                        }
+                                        time{
+                                                font-size: @font-size-large;
+                                                color: @gray;
+                                                margin-bottom: 15px;
+                                                display: block;
+                                        }
+                                        &:nth-child(3){
+                                                time{
+                                                        margin: 0;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .event-title{
+                                float: left;
+                                width: 100%;
+                                padding:  20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                h2{
+                                        font-size: (@font-size-large + 4);
+                                        color: @gray-dark;
+                                        margin: @padding-base-vertical 0;
+                                }
+                        }
+
+                        .event-venue{
+                                padding:  20px 0;
+                                border-bottom: 1px solid @gray-light;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .event-info{
+                                        i{
+                                                color: @brand-primary;
+                                                float: left;
+                                                margin-top: 5px;
+                                                margin-right: 5px;
+
+                                        }
+                                        span{
+                                                font-size: 16px;
+                                                margin-bottom: 10px;
+                                                display: block;
+                                                float: left;
+                                        }
+                                }
+                                .map{
+                                        float: left;
+                                        width: 100%;
+                                }
+                        }
+
+                }                
+
+                .right-column{
+                        
+                        .single-segments{
+                                padding: 10px 0;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 5px 0;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .segments-style{
+                                        padding-left: 0;
+                                        position: relative;
+                                        margin: 10px 0;
+                                        .timeline{
+                                                background: @brand-primary;
+                                                height: 100%;
+                                                list-style-type: none;
+                                                left: 4px;
+                                                position: absolute;
+                                                top: 0;
+                                                width: 2px;
+                                        }
+                                        .item{
+                                                color: @gray;
+                                                list-style-type: disc;
+                                                margin-bottom: 5px;
+                                                font-size: 16px;
+                                                list-style-type: none;
+                                                &:before{
+                                                        padding-left: 1.5px;
+                                                        content: "\2022";
+                                                        color:@brand-primary;
+                                                        font-size: 24px;
+                                                        font-weight: bold;
+                                                        line-height: 20px;
+                                                        vertical-align: middle;
+                                                        padding-right: 10px;
+                                                }
+                                                &:last-child{
+                                                        margin: 0;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .event-schedule{
+
+                                .single-date{
+                                        padding: 10px 0;
+                                        font-weight: bold;
+                                        font-size: 24px;
+                                        color: #363e40;
+                                }
+                        }
+
+                        .event-organizer{
+                                padding: 10px 0;
+
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                strong{
+                                        font-size: @font-size-base;
+                                        font-weight: 500;
+                                        margin: 0;
+                                        display: block;
+                                        color: @gray-dark;
+                                }
+                                span{
+                                        font-size: @font-size-large;
+                                        color: @gray;
+                                        margin-bottom: 15px;
+                                        display: block;
+                                        a{
+                                                color: @brand-primary;
+                                        }
+                                        &:last-child{
+                                                margin-bottom: 0;
+                                        }
+                                }
+                        }
+
+                        .single-event-description{
+                                padding: 10px 0;
+                                p{
+                                        font-weight: 400;
+                                        line-height: 1.25;
+                                        margin: 0 0 17px;
+                                        text-align: left;
+                                        font-size: @font-size-large;
+                                        color: @gray;
+                                }
+                        }
+
+                        .single-event-image{
+                                position: relative;
+                                float: left;
+                                width: 100%;
+                                padding:  10px 0;
+                                .countdown.no-image{
+                                        position: relative;
+                                        text-align: center;
+                                }
+                                .countdown{
+                                        position: absolute;
+                                        bottom: 10px;
+                                        right: 0;
+                                        left: 0;
+                                        z-index: 222;
+                                        text-align: center;
+                                }
+                                #countdownwrapp{
+                                        padding: 2px 15px;
+                                        .is-countdown{
+                                                margin-top: 5px;
+                                        }
+                                }
+                                .overlay-counter{
+                                        background: @brand-primary;
+                                        opacity: 0.5;
+                                        padding: 37px 10px;
+                                        position: absolute;
+                                        bottom: 10px;
+                                        width: 100%;
+                                        z-index: 000;
+                                }
+                        }
+
+                        .google-calendar-ical{
+                                width: 100%;
+                                float:left;
+                                padding:  10px 20px;
+                                @media (max-width: @screen-sm){margin: 15px 0;}
+
+                                a{
+                                        display: inline;
+                                        color: @brand-primary;
+                                        &:after{
+                                                content: "|";
+                                                color: black;
+                                                margin: 0px 5px;
+                                        }
+                                        &:last-child{
+                                                &:after{
+                                                        content: "";
+                                                        color: black;
+                                                        margin: 0;
+                                                }
+                                        }
+
+                                }
+                        }
+
+                        .single-event-time{
+                                padding:  10px 0;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .event-date-time{
+
+                                        strong{
+                                                font-size: @font-size-base;
+                                                font-weight: 500;
+                                                margin: 0;
+                                                display: block;
+                                                color: @gray-dark;
+                                        }
+                                        time{
+                                                font-size: @font-size-large;
+                                                color: @gray;
+                                                margin-bottom: 15px;
+                                                display: block;
+                                        }
+                                        &:nth-child(3){
+                                                time{
+                                                        margin: 0;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .event-title{
+                                float: left;
+                                width: 100%;
+                                padding: 10px 0;
+                                *border-bottom: 1px solid @gray-light;
+                                h2{
+                                        font-size: (@font-size-large + 4);
+                                        color: @gray-dark;
+                                        margin: @padding-base-vertical 0;
+                                }
+                        }
+
+                        .event-venue{
+                                padding:  10px 0;
+                                width: 100%;
+                                float: left;
+                                *border-bottom: 1px solid @gray-light;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .event-info{
+                                        i{
+                                                color: @brand-primary;
+                                                float: left;
+                                                margin-top: 5px;
+                                                margin-right: 5px;
+
+                                        }
+                                        span{
+                                                font-size: 16px;
+                                                margin-bottom: 10px;
+                                                display: block;
+                                                float: left;
+                                        }
+                                }
+                                .map{
+                                        float: left;
+                                        width: 100%;
+                                }
+                        }
+                }
+                .full-column{
+                        float: left;
+                        .single-segments{
+                                padding: 10px 0;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 5px 0;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .segments-style{
+                                        padding-left: 0;
+                                        position: relative;
+                                        margin: 10px 0;
+                                        .timeline{
+                                                background: @brand-primary;
+                                                height: 100%;
+                                                list-style-type: none;
+                                                left: 4px;
+                                                position: absolute;
+                                                top: 0;
+                                                width: 2px;
+                                        }
+                                        .item{
+                                                color: @gray;
+                                                list-style-type: disc;
+                                                margin-bottom: 5px;
+                                                font-size: 16px;
+                                                list-style-type: none;
+                                                &:before{
+                                                        padding-left: 1.5px;
+                                                        content: "\2022";
+                                                        color:@brand-primary;
+                                                        font-size: 24px;
+                                                        font-weight: bold;
+                                                        line-height: 20px;
+                                                        vertical-align: middle;
+                                                        padding-right: 10px;
+                                                }
+                                                &:last-child{
+                                                        margin: 0;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .event-schedule{
+
+                                .single-date{
+                                        padding: 10px 0;
+                                        font-weight: bold;
+                                        font-size: 24px;
+                                        color: #363e40;
+                                }
+                        }
+
+                        .event-organizer{
+                                padding: 10px 0;
+
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                strong{
+                                        font-size: @font-size-base;
+                                        font-weight: 500;
+                                        margin: 0;
+                                        display: block;
+                                        color: @gray-dark;
+                                }
+                                span{
+                                        font-size: @font-size-large;
+                                        color: @gray;
+                                        margin-bottom: 15px;
+                                        display: block;
+                                        a{
+                                                color: @brand-primary;
+                                        }
+                                        &:last-child{
+                                                margin-bottom: 0;
+                                        }
+                                }
+                        }
+
+                        .single-event-description{
+                                padding: 10px 0;
+                                p{
+                                        font-weight: 400;
+                                        line-height: 1.25;
+                                        margin: 0 0 17px;
+                                        text-align: left;
+                                        font-size: @font-size-large;
+                                        color: @gray;
+                                }
+                        }
+
+                        .single-event-image{
+                                position: relative;
+                                float: left;
+                                width: 100%;
+                                padding:  10px 0;
+                                .countdown.no-image{
+                                        position: relative;
+                                        text-align: center;
+                                }
+                                .countdown{
+                                        position: absolute;
+                                        bottom: 10px;
+                                        right: 0;
+                                        left: 0;
+                                        z-index: 222;
+                                        text-align: center;
+                                }
+                                #countdownwrapp{
+                                        padding: 2px 15px;
+                                        .is-countdown{
+                                                margin-top: 5px;
+                                        }
+                                }
+                                .overlay-counter{
+                                        background: @brand-primary;
+                                        opacity: 0.5;
+                                        padding: 37px 10px;
+                                        position: absolute;
+                                        bottom: 10px;
+                                        width: 100%;
+                                        z-index: 000;
+                                }
+                        }
+
+                        .google-calendar-ical{
+                                width: 100%;
+                                float:left;
+                                padding:  10px 20px;
+                                @media (max-width: @screen-sm){margin: 15px 0;}
+
+                                a{
+                                        display: inline;
+                                        color: @brand-primary;
+                                        &:after{
+                                                content: "|";
+                                                color: black;
+                                                margin: 0px 5px;
+                                        }
+                                        &:last-child{
+                                                &:after{
+                                                        content: "";
+                                                        color: black;
+                                                        margin: 0;
+                                                }
+                                        }
+
+                                }
+                        }
+
+                        .single-event-time{
+                                padding:  10px 0;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .event-date-time{
+
+                                        strong{
+                                                font-size: @font-size-base;
+                                                font-weight: 500;
+                                                margin: 0;
+                                                display: block;
+                                                color: @gray-dark;
+                                        }
+                                        time{
+                                                font-size: @font-size-large;
+                                                color: @gray;
+                                                margin-bottom: 15px;
+                                                display: block;
+                                        }
+                                        &:nth-child(3){
+                                                time{
+                                                        margin: 0;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .event-title{
+                                float: left;
+                                width: 100%;
+                                padding: 10px 0;
+                                *border-bottom: 1px solid @gray-light;
+                                h2{
+                                        font-size: (@font-size-large + 4);
+                                        color: @gray-dark;
+                                        margin: @padding-base-vertical 0;
+                                }
+                        }
+
+                        .event-venue{
+                                padding:  10px 0;
+                                *border-bottom: 1px solid @gray-light;
+                                float: left;
+                                width: 100%;
+                                h3{
+                                        font-size: @font-size-large;
+                                        margin: 0 0 10px;
+                                        text-transform: uppercase;
+                                        color: @gray-dark;
+                                }
+                                .event-info{
+                                        i{
+                                                color: @brand-primary;
+                                                float: left;
+                                                margin-top: 5px;
+                                                margin-right: 5px;
+
+                                        }
+                                        span{
+                                                font-size: 16px;
+                                                margin-bottom: 10px;
+                                                display: block;
+                                                float: left;
+                                        }
+                                }
+                                .map{
+                                        float: left;
+                                        width: 100%;
+                                }
+                        }
+                }
+        }
+
+}
+.sep {
+        .sep-container {
+                @media (min-width: 992px){
+                        width: 100%;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                }
+                @media (min-width: 1200px){
+                        width: 1170px;
+                        margin-left: auto;
+                        margin-right: auto;
+                }
+        }
+}

@@ -1,0 +1,75 @@
+/*  Settings container */
+#ags-xoiwc-settings-container {
+  width  : 98%;
+  margin : 20px auto;
+
+  @media (max-width : $breakSmall) {
+    width : 90%;
+    }
+  }
+
+/*  Settings window */
+#ags-xoiwc-settings {
+  color                   : $fontColor;
+  font-family             : $fontGeneral;
+  font-weight             : $fontWeight;
+  line-height             : $lineHeight;
+  font-size               : $fontSize;
+  -webkit-font-smoothing  : antialiased;
+  -moz-osx-font-smoothing : grayscale;
+
+  h1, h2, h3, h4, h5, h6 {
+    @include heading;
+    }
+  h1 {
+    @include headingH1;
+    }
+  h2 {
+    @include headingH2;
+    }
+
+  h3 {
+    @include headingH3;
+    }
+
+  h4 {
+    @include headingH4;
+    }
+
+  h5 {
+    @include headingH5;
+    }
+
+
+  p {
+    margin-top     : 0;
+    margin-bottom  : 1em;
+    padding-bottom : 0;
+    font-weight    : $fontWeight;
+    font-size      : $fontSize;
+    line-height    : 2em;
+    }
+
+  a {
+    color           : $mainColor;
+    text-decoration : none;
+    box-shadow      : none;
+    outline         : none;
+
+    &:focus {
+      outline    : none;
+      box-shadow : none;
+      }
+
+    &:hover, &:focus {
+      color : $mainHoverColor;
+      }
+    }
+
+
+
+  form > input[type=submit] {
+    @include button;
+    @include sizeButtonMixin(medium);
+    }
+  }

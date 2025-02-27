@@ -1,0 +1,122 @@
+.sep-page {
+    // Pagination
+    .pagination {
+        .border-radius(0);
+        float: left;
+        margin: 15px 0;
+        padding: 0;
+        width: 100%;
+        box-shadow: none;
+        position: relative;
+        border: none;
+
+        &:before,&:after{
+            background-color: transparent;
+        }
+
+        li {
+            background-color: @gray-light;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 20px;
+            margin-right: 2px;
+            
+            .next,.prev{
+                height: auto;
+                width: auto;
+                content: none;
+                position: static;
+                margin-top: 0;
+                padding: 8px 16px;
+                line-height: 23px;
+                vertical-align: middle;
+            }
+            a {
+                background-color: @gray-light;
+                .border-radius(0);
+                color: @gray-dark;
+                font-weight: 300;
+                margin: 0;
+                padding: 8px 16px;
+                text-align: center;
+                line-height: 23px;
+                text-decoration: none;
+
+                &:before,&:after{
+                    line-height: 23px;
+                    height: auto;
+                    width: auto;
+                    content: none;
+                    display: block;
+                    vertical-align: middle;
+                }
+
+                @media (max-width: @screen-xs-max) {
+                    margin: 0 3px;
+                    text-align: center;
+                }
+                &:hover {
+                    background-color: @brand-primary;
+                    color: @white;
+
+                }
+                &:focus {
+                    background-color: @white;
+                    color: @gray-dark;
+                }
+            }
+            span{
+                border: none;
+                .border-radius(0);
+                color: @gray-dark;
+                font-weight: normal;
+                margin: 0;
+                padding: 8px 16px;
+                text-align: center;
+                line-height: 23px;
+
+                &:before,&:after{
+                    line-height: normal;
+                    height: auto;
+                    width: auto;
+                    content: none;
+                    display: block;
+                }
+
+                @media (max-width: @screen-xs-max) {
+                    margin: 0 3px;
+                    text-align: center;
+                }
+                &:hover {
+                    color: @white;
+                    background-color: @brand-primary;
+                }
+                &.current {
+                    color: @white;
+                    background-color: @brand-primary;
+                    &:hover {
+                        color: @white;
+                        background-color: @brand-primary;
+                    }
+                }
+            }
+            &:first-child {
+                a, span {
+                    .border-radius(0);
+                    margin-left: 0;
+                }
+            }
+            &:last-child {
+                a, span {
+                    .border-radius(0);
+                    margin-right: 0;
+                }
+            }
+            &:before{
+                content: none;
+            }
+        }
+    }
+}
+
+
