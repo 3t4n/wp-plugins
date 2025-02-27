@@ -1,0 +1,34 @@
+.wp-block-makeiteasy-back-to-top {
+	visibility: visible;
+	bottom: auto;
+	right: auto;
+	z-index: auto;
+	display: flex;
+	justify-content: flex-end;
+
+	&.wp-block-makeiteasy-back-to-top {
+		opacity: var(--makeiteasy-back-to-top-opacity, 0.75);
+	}
+
+	> .block-editor-block-list__block {
+		right: var(--makeiteasy-back-to-top-right);
+		margin-right: 0;
+	}
+
+	.wp-block-button__link img {
+		display: inline-block;
+	}
+
+	@at-root .editor-styles-wrapper & .wp-block-button__link {
+		line-height: 1;
+		padding: calc(0.667em + 2px) calc(0.7em + 2px);
+	}
+}
+
+.makeiteasy-shorter-input-box {
+	.components-input-control__container {
+		width: 13ch;
+	}
+
+
+}
