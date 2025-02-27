@@ -1,0 +1,649 @@
+﻿/***********************************************************************************
+  
+Normalization
+  
+************************************************************************************/
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/***********************************************************************************
+  
+Setup
+  
+************************************************************************************/
+
+html,
+body, #body-background {
+    width: 100%;
+    height: auto;
+    
+    overflow: visible;
+}
+
+.mce_inline_error,
+#mce-responses  {
+	padding-top:10px;
+	font-weight:bold;
+}
+
+
+
+
+
+/***********************************************************************************
+  
+Typography
+  
+************************************************************************************/
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    background-position: center ;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 38px;
+    
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 28px;
+    
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    
+    margin-bottom: 5px;
+}
+
+h1 a,
+h2 a,
+h3 a {
+    border-bottom: 1px solid;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.4;
+    
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    
+    transition-duration: 0.25s;
+}
+
+p a,
+strong {
+    font-weight: 700;
+}
+
+p a {
+    border-bottom: 1px solid;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+/***********************************************************************************
+  
+Icons
+  
+************************************************************************************/
+
+.icon { 
+
+}
+
+/***********************************************************************************
+  
+Containers
+  
+************************************************************************************/
+
+.row {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+.content {
+    width: 500px;
+    
+    margin-left: 200px;
+}
+
+/***********************************************************************************
+  
+Body
+  
+************************************************************************************/
+
+body {
+}
+
+body::after {
+    border-right: 1px dashed;
+    
+    width: 1px;
+    height: 100%;
+    
+    position: fixed;
+    top: 0;
+    left: 100px;
+    z-index: -1;
+    
+    content: "";
+}
+
+/***********************************************************************************
+  
+Header
+  
+************************************************************************************/
+
+#header {
+    border-bottom: 1px dashed;
+    
+    line-height: 200px;
+    
+    display: none;
+}
+
+#header .content span.logo {
+    display: block;
+}
+
+#header .content span.logo img {
+	max-width:100%;
+	position:relative;
+	top:40px;
+}
+
+#header .status {
+    height: 1px;
+    
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+#header .status span {
+    border-left: 1px solid;
+    
+    font-size: 12px;
+    line-height: 20px;
+    
+    width: 1px;
+    height: 21px;
+    
+    padding-left: 5px;
+    
+    position: absolute;
+    top: -10px;
+    right: -6px;
+}
+
+/***********************************************************************************
+  
+Intro
+  
+************************************************************************************/
+
+#intro {
+    padding: 83px 0 100px;
+    
+    display: none;
+}
+
+/***********************************************************************************
+  
+Post Subscribe
+  
+************************************************************************************/
+
+#post-subscribe h1 {
+    margin-bottom: 32px;
+}
+
+/***********************************************************************************
+  
+Subscribe
+  
+************************************************************************************/
+
+#subscribe {
+    margin: 15px 0 40px;
+}
+
+input[type="text"],
+input[type="email"] {
+    background: none;
+    outline: none;
+    
+    border-radius: 20px 0 0 20px;
+    border: none;
+    border: 1px solid;
+    
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 38px;
+    
+    width: 200px;
+    height: 38px;
+    
+    padding: 0 20px;
+    
+    -webkit-appearance: none;
+}
+
+input:focus {
+    outline: 0;
+}
+
+.button {
+    outline: none;
+    
+    border-radius: 50%;
+    border: none;
+    
+    font-size: 17px;
+    line-height: 19px;
+    text-align: center;
+    
+    width: 40px;
+    height: 40px;
+    
+    padding: 0;
+    
+    position: absolute;
+    top: 0;
+    left: 221px;
+    
+    cursor: pointer;
+    
+    transition-duration: 0.25s;
+}
+
+#post-subscribe {
+    display: none;
+}
+
+/***********************************************************************************
+  
+Social
+  
+************************************************************************************/
+
+#social a.icon {
+    border-radius: 50%;
+    
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    
+    width: 40px;
+    height: 40px;
+    
+    float: left;
+    margin-right: -5px;
+}
+
+/***********************************************************************************
+  
+Status
+  
+************************************************************************************/
+
+#loading {
+    width: 100%;
+    height: 100%;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    
+    display: none;
+}
+
+#loading .status {
+    border-radius: 50%;
+    
+    font-size: 80px;
+    line-height: 120px;
+    text-align: center;
+    
+    width: 120px;
+    height: 120px;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 200;
+    
+    margin: -60px 0 0 -60px;
+    
+    display: none;
+}
+
+
+
+/***************************************************************************************
+  
+Containers
+  
+****************************************************************************************/
+
+@media (max-width: 800px) {
+    .content {
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        width: 80%;
+        
+        margin-left: 10%;
+    }
+}
+
+/***************************************************************************************
+  
+Body
+  
+****************************************************************************************/
+
+@media (max-width: 800px) {
+    body::after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    body::after {
+        display: none;
+    }
+}
+
+/***************************************************************************************
+  
+Subscribe
+  
+****************************************************************************************/
+
+@media (max-width: 300px) {
+    input[type="text"],
+    input[type="email"] {
+        width: 180px;
+    }
+    
+    .button {
+        left: 201px;
+    }
+}
+
+
+/***********************************************************************************
+  
+Typography
+  
+************************************************************************************/
+
+body {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.body-color-dark {
+    color: rgba( 0, 0, 0, 0.85 );
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+.body-color-dark h1,
+.body-color-dark h2,
+.body-color-dark h3 {
+    color: #000;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.body-color-dark a {
+    color: rgba( 0, 0, 0, 0.85 );
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.body-color-dark a:hover {
+    color: #000;
+}
+
+p a {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.body-color-dark p a {
+    border-color: rgba( 0, 0, 0, 0.25 );
+}
+
+/***********************************************************************************
+  
+Body
+  
+************************************************************************************/
+
+body::after {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/***********************************************************************************
+  
+Header
+  
+************************************************************************************/
+
+#header {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+.body-color-dark #header {
+    border-color: rgba( 0, 0, 0, 0.25 );
+}
+
+#header .status {
+    background-color: #ffffff;
+}
+
+.body-color-dark #header .status {
+    background-color: #000;
+}
+
+#header .status span {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.body-color-dark #header .status span {
+    border-color: #000;
+    color: #000;
+}
+
+/***********************************************************************************
+  
+Forms
+  
+************************************************************************************/
+
+input[type="text"],
+input[type="email"] {
+    border-color: #ffffff;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+body.body-color-dark input[type="text"],
+body.body-color-dark input[type="email"] {
+    border-color: #000;
+    color: rgba( 0, 0, 0, 0.85 );
+}
+
+::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 0.85);
+}
+
+:-moz-placeholder { 
+   color: rgba(255, 255, 255, 0.85); 
+}
+
+::-moz-placeholder {
+   color: rgba(255, 255, 255, 0.85);  
+}
+
+:-ms-input-placeholder {  
+   color: rgba(255, 255, 255, 0.85); 
+}
+
+body.body-color-dark ::-webkit-input-placeholder {
+    color: rgba( 0, 0, 0, 0.85 );
+}
+ 
+body.body-color-dark :-moz-placeholder { 
+    color: rgba( 0, 0, 0, 0.85 );
+}
+ 
+body.body-color-dark ::-moz-placeholder {
+    color: rgba( 0, 0, 0, 0.85 );
+}
+ 
+body.body-color-dark :-ms-input-placeholder {  
+    color: rgba( 0, 0, 0, 0.85 );
+}
+
+.button {
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.body-color-dark .button {
+    background: #000;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #49b266;
+    color: #ffffff;
+}
+
+/***********************************************************************************
+  
+Social
+  
+************************************************************************************/
+
+#social a.icon {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+#social a.icon:nth-child(2n) {
+    background-color: #ddd;
+}
+
+#social a.icon:nth-child(2n+1) {
+    background-color: #eee;
+}
+
+#social a.icon:hover {
+    color: #ffffff;
+}
+
+#social a.icon.twitter:hover {
+    background-color: #55acee;
+}
+
+#social a.icon.facebook:hover {
+    background-color: #4e69a2;
+}
+
+#social a.icon.email:hover {
+    background-color: #49b266;
+}
+
+#social a.icon.instagram:hover {
+    background-color: #c13584;
+}
+
+#social a.icon.whatsapp:hover {
+    background-color: #128c7e;
+}
+
+/***********************************************************************************
+  
+Status
+  
+************************************************************************************/
+
+#loading {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.body-color-dark #loading {
+    background-color: rgba( 0, 0, 0, 0.75 );
+}
+
+.status {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.body-color-dark .status {
+    color: rgba( 0, 0, 0, 0.75 );
+}
+
+.status.icon.error {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.status.icon.success {
+    background-color: #49b266;
+}
+
+/***********************************************************************************
+  
+Admin note
+  
+************************************************************************************/
+
+.admin-note {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-size: 13px;
+    background: #fff;
+    color: #000;
+}
+
+    .admin-note strong {
+        font-weight: 600;
+    }
