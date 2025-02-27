@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wsi/iframe-block",
+  "version": "0.1.1",
+  "title": "iFrame Block",
+  "category": "embed",
+  "icon": "admin-page",
+  "description": "iFrame Block lets you insert iframes in the block editor.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "iframe-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "iframeBlockSrc": {
+      "type": "string",
+      "default": "https://www.example.com/"
+    },
+    "iframeBlockResponsiveWidth": {
+      "type": "boolean",
+      "default": true
+    },
+    "iframeBlockResponsiveHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "iframeBlockWidth": {
+      "type": "string",
+      "default": "100"
+    },
+    "iframeBlockHeight": {
+      "type": "string",
+      "default": "350"
+    },
+    "iframeBlockBorder": {
+      "type": "boolean",
+      "default": false
+    },
+    "iframeBlockBorderSize": {
+      "type": "boolean",
+      "default": false
+    },
+    "iframeBlockBorderColor": {
+      "type": "boolean",
+      "default": false
+    },
+    "iframeBlockFullScreen": {
+      "type": "boolean",
+      "default": true
+    },
+    "iframeBlockLoading": {
+      "type": "boolean",
+      "default": false
+    },
+    "iframeBlockScrolling": {
+      "type": "boolean",
+      "default": true
+    },
+    "iframeBlockHideFrame": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
