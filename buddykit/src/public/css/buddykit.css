@@ -1,0 +1,305 @@
+ul#buddykit-filelist {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    margin: -1.25px -2.5px;
+}
+ul#buddykit-filelist li.buddykit-filelist-item {
+    list-style: none;
+    float: left;
+    position: relative;
+    height: 90px;
+    width: 90px;
+    overflow: hidden;
+    background: #cecece;
+    margin: 0 2.5px 1.25px 0;
+
+}
+#buddykit-filelist-wrap{
+    padding: 15px 15px;
+}
+a#buddykit-flush-temporary-files-btn.button {
+    background: transparent;
+    padding: 0;
+    margin: 10px 0 0 0;
+    border: 0 none;
+    border-radius: 0;
+    color: red;
+}
+a#buddykit-flush-temporary-files-btn.button:hover {
+    box-shadow: none;
+}
+ul#buddykit-filelist li.buddykit-filelist-item.error{
+    border: 2px solid #ef4343;
+    color: #ef4343;
+    text-align: center;
+    padding-top: 18px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+ul#buddykit-filelist li.buddykit-filelist-item.error.done {
+    opacity: 0;
+    display: none;
+}
+ul#buddykit-filelist li.buddykit-filelist-item.loading {
+    opacity: 0.5;
+}
+ul#buddykit-filelist li.buddykit-filelist-item > a.buddykit-filelist-item-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 16px;
+    color: #fff;
+    opacity: 0.75;
+    text-shadow: 0px 1px 5px black;
+    display: none;
+}
+
+ul#buddykit-filelist li.buddykit-filelist-item:hover
+     > a.buddykit-filelist-item-delete {
+        display: block;
+    }
+
+ul#buddykit-filelist li.buddykit-filelist-item > a.buddykit-filelist-item-delete:hover {
+    opacity: 1;
+}
+.buddykit-info {
+    display: none;
+}
+
+/*========== Activity Stream Start========== */
+.buddypress ul.buddykit-activity-media-gallery {
+    display: flex;
+    flex-wrap: wrap-reverse;;
+    padding: 0;
+    margin: 0;
+}
+
+.buddypress ul.buddykit-activity-media-gallery.items-4 li.buddykit-activity-media-gallery-item {
+    flex-basis: 50%;
+}
+._disable_buddypress ul.buddykit-activity-media-gallery.items-4 li.buddykit-activity-media-gallery-item.type-video {
+    flex-basis: 100%;
+}
+
+.buddypress li.buddykit-activity-media-gallery-item {
+    flex-basis: 33.3%;
+    flex-grow: 1;
+    background: #fff;
+    padding: 1px;
+    margin: 0;
+}
+    ._disable_buddypress li.buddykit-activity-media-gallery-item.type-video {
+        flex-basis: 100%;
+    }
+.buddypress ul.buddykit-activity-media-gallery.items-7 li.buddykit-activity-media-gallery-item{
+    flex-basis: 25%;
+}
+    ._disable_buddypress ul.buddykit-activity-media-gallery.items-7 li.buddykit-activity-media-gallery-item.type-video {
+        flex-basis: 100%;
+    }
+.buddypress ul.buddykit-activity-media-gallery.items-8 li.buddykit-activity-media-gallery-item {
+    flex-basis: 20%;
+}
+    ._disable_buddypress ul.buddykit-activity-media-gallery.items-8 li.buddykit-activity-media-gallery-item.type-video {
+        flex-basis: 100%;
+    }
+.buddypress li.buddykit-activity-media-gallery-item img {
+    width: 100%;
+}
+
+.activity-inner p + ul.buddykit-activity-media-gallery {
+    margin-top: 1em;
+}
+/*========== Activity Stream End========== */
+
+/*========== What's new activity form ==== */
+input#aw-whats-new-submit[disabled=disabled] {
+    cursor: not-allowed;
+}
+/*Upload photo/video button*/
+#buddykit-container {
+    padding: 10px 15px 0;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+}
+#buddykit-browse{
+    border-radius: 20px;
+    background: #f6f7f9!important;
+    padding: 5px 7.5px;
+    margin: 0 10px 0 0;
+}
+#buddykit-browse:before {
+    content: "\f233";
+    color: #87be49;
+    font-family: 'dashicons';
+    position: relative;
+    top: 2px;
+}
+/*== Spinner *==*/
+.buddykit-filelist-item.loading:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: url(../images/spinner.gif);
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+/**
+ * Video Player (Plyr)
+ * Needs .buddypress .buddypress-wrap, some themes overwrite bp buttons through 
+ * this selector so we need to overwrite them.
+ */
+
+li.buddykit-activity-media-gallery-item.type-video {
+    background: linear-gradient(#ababab, #000);
+    cursor: pointer;
+}
+.buddykit-activity-media-gallery.items-1 li.buddykit-activity-media-gallery-item.type-video {
+    background: none;
+    cursor: pointer;
+}
+
+.buddykit-media-video {
+    cursor: pointer;
+}
+.plyr__menu__container ul li {
+    margin: 0;
+}
+.plyr button.plyr__control,
+.buddypress .buddypress-wrap .plyr button.plyr__control {
+    border: 0 none;
+    box-shadow: none;
+}
+.buddypress .buddypress-wrap .plyr button.plyr__control:hover,
+.buddypress .buddypress-wrap .plyr button.plyr__control:focus {
+    box-shadow: none;
+}
+/* Center play button */
+.buddypress .buddypress-wrap .plyr button.plyr__control.plyr__control--overlaid {
+    background: rgba(255, 255, 255, 0.10);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    padding: 2%;
+}
+.buddypress .buddypress-wrap .plyr button.plyr__control.plyr__control--overlaid:hover {
+    background: rgba(255, 255, 255, 0.50);
+    position: absolute;
+}
+
+.buddypress .buddypress-wrap .plyr .plyr__controls {
+    opacity: 0;
+}
+
+.buddykit-media-wrap {
+    position: relative;
+    height: 100%;
+}
+.buddykit-media-wrap p {
+    height: 100%;
+    margin: 0;
+}
+.buddykit-media-button-play-wrap {
+   position: absolute;
+    background: #ffffff80;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    z-index: 20;
+}
+
+.buddykit-media-button-play {
+    width: auto;
+    height: 15px;
+    border-style: solid;
+    border-width: 7.5px 0px 7.5px 15px;
+    border-color: #0000 #0000 #0000 rgba(255,255,255,0.75);
+    margin: 0 auto 0 5px;
+    display: inline-block;
+}
+
+.buddykit-media-button-play-wrap:hover {
+    background: #212121;
+    cursor: pointer;
+}
+.buddykit-media-wrap:hover .buddykit-media-button-play {
+    border-color: #0000 #0000 #0000 #fff;
+}
+
+.buddykit-video-popup {
+    max-width: 840px;
+    margin: 35px auto;
+    position: relative;
+}
+
+/**
+ * Profile Tabs Content
+ */
+ul#buddykit-profile-tabs-media-tab {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-bottom: 20px;
+}
+ul#buddykit-profile-tabs-media-tab li {
+    padding: 0;
+    margin: 0 15px 0 0;
+    list-style: none;
+}
+ul#buddykit-profile-tabs-media-tab li.active a {
+    font-weight: bold;
+}
+ul#buddykit-profile-tab-list-videos,
+ul#buddykit-profile-tab-list-photos {
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+}
+ul#buddykit-profile-tab-list-videos li,
+ul#buddykit-profile-tab-list-photos li {
+    flex-basis: 33.3%;
+    flex-grow: 1;
+    padding: 5px;
+    list-style: none;
+    margin: 0;
+}
+ul#buddykit-profile-tab-list-videos li {
+    flex-basis: 50%;
+}
+ul#buddykit-profile-tab-list-videos li.buddykit-profile-tab-list-videos-item video {
+    background: #212121;
+}
+.buddykit-profile-tab-list-videos-item-wrap {
+    position: relative;
+}
+li.buddykit-profile-tab-list-media-item  { position: relative; }
+
+li.buddykit-profile-tab-list-media-item a.buddykit-profile-tabs-media-delete {
+    position: absolute;
+    right: 0;
+    background: #fff;
+    color: #444;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    display: none;
+    z-index: 2000;
+}
+li.buddykit-profile-tab-list-media-item:hover a.buddykit-profile-tabs-media-delete {
+    display: block;
+}
+
