@@ -1,0 +1,1 @@
+<p class="mwpcopyright">Desenvolvido por <a href="http://www.mestresdowp.com.br" target="blank">Mestres do WP</a></p>
