@@ -1,0 +1,50 @@
+/* Stylesheet for Double opt-in for CF7 plugin
+*  version: 1.0
+*/
+html {
+  scroll-behavior: smooth;
+}
+.wpcf7-form-control.wpcf7-submit {
+    cursor: pointer;
+}
+.wpcf7-form input:invalid {
+	outline: 1px red solid;
+}
+.file-upload {
+    display: inline-block;
+    padding: 10px 10px;
+    border: 1px solid;
+    margin-right: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    word-wrap: break-word;
+	max-width:20em;
+}
+.file-upload:hover {
+    background-color: #ececec;
+}
+
+
+.wpcf7-form input[type="file"].overwritten {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+/* style used for screenreaders - same as bootstrap */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
