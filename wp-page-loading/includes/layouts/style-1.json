@@ -1,0 +1,11 @@
+{
+	"var": {
+		"bg": "#505ed8",
+		"color_1": "#ff756f",
+		"color_2": "#ffde6f",
+		"color_3": "#01de6f",
+		"color_4": "#ffffff"
+	},
+	"css": ".loader-wrap.available {\n    animation: loaderHide;\n    -webkit-animation-duration: 1s;\n    animation-duration: 1s;\n    -webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n}\n\n.loader-wrap {\n    display: flex;\n    padding: 24px;\n    background-color: #{{bg}};\n    align-items: center;\n    justify-content: center;\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 9999;\n    transition: .3s ease-in-out;\n}\n\n.loader {\n    border-radius: 50%;\n    position: relative;\n    margin: 50px;\n    display: inline-block;\n    height: 0px;\n    width: 0px;\n}\n\n.loader span {\n    position: absolute;\n    display: block;\n    background: #ddd;\n    height: 20px;\n    width: 20px;\n    border-radius: 50%;\n    top: -20px;\n    perspective: 100000px;\n}\n\n.loader span:nth-child(1) {\n    left: 60px;\n    animation: bounce2 1s cubic-bezier(0.04, 0.35, 0, 1) infinite;\n    animation-delay: 0s;\n    background: #{{color_1}};\n}\n\n.loader span:nth-child(2) {\n    left: 20px;\n    animation: bounce2 1s cubic-bezier(0.04, 0.35, 0, 1) infinite;\n    animation-delay: .2s;\n    background: #{{color_2}};\n}\n\n.loader span:nth-child(3) {\n    left: -20px;\n    animation: bounce2 1s cubic-bezier(0.04, 0.35, 0, 1) infinite;\n    animation-delay: .4s;\n    background: #{{color_3}};\n}\n\n.loader span:nth-child(4) {\n    left: -60px;\n    animation: bounce2 1s cubic-bezier(0.04, 0.35, 0, 1) infinite;\n    animation-delay: .6s;\n    background: #{{color_4}};\n}\n\n@keyframes bounce2 {\n    0%, 75%, 100% {\n        transform: translateY(0px);\n    }\n    25% {\n        transform: translateY(-30px);\n    }\n}\n\n\n@keyframes loaderHide {\n    0% {\n        opacity: 1;\n        visibility: visible;\n    }\n    100% {\n        opacity: 0;\n        visibility: hidden;\n    }\n}\n",
+	"html": "<div id=\"wp-page-loader\" class=\"loader-wrap\">\n  <div class=\"loader\">\n    <span></span>\n    <span></span>\n    <span></span>\n    <span></span>\n  </div>\n</div>\n"
+}
