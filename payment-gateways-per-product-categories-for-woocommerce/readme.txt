@@ -1,0 +1,371 @@
+=== Payment Methods by Product & Country for WooCommerce ===
+Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
+Tags: woocommerce, payment gateway, conditional payments, payment by product, payment by country
+Requires at least: 4.4
+Tested up to: 6.7
+Stable tag: 1.8.1
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Use products and countries conditional rules to show/hide gateways, increase profit margins & optimize operations for your products by restricting payment methods in WooCommerce checkout page
+
+== Description ==
+
+> “Works great, WPML compatible!: Great plugin! Glad it supports many languages (I use WPML)” – ⭐⭐⭐⭐⭐  [alexio101](https://wordpress.org/support/topic/works-great-wpml-compatible/)
+
+[Main Page](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Main Page") | [Demo](https://paymentbyproduct.instawp.xyz/ "Demo") | [Support Forum](https://wpfactory.com/support/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Support Forum") | [Documentation & How to](https://wpfactory.com/docs/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Documentation & How to")
+
+Every payment gateway has its own advantages/disadvantages, they are not equal when it comes to fees, adaptability from customers, regional popularity, and even in security as some gateways are known for larger fraud cases than others.
+
+Using conditional/custom payment methods for your store to restrict what gateways appear for specific products comes handy here, where you will be able to show/hide payment gateways based on what's in the cart.
+
+For most stores, PayPal is considered an expensive payment gateway, and when you're selling expensive products (hundreds or probably thousands), you want to prevent users from checking out using PayPal and instead, use wire transfers or even local payment gateways that offer competitive rates, where you can keep your profit margins higher.
+
+In a nutshell, this is what you can expect to get with this plugin:
+
+1. Control what payment gateways are available/unavailable based on product category.
+2. Control what payment gateways are available/unavailable based on product tag.
+3. Control what payment gateways are available/unavailable by product level (Pro).
+4. Control what payment gateways are available/unavailable by Country (Pro).
+5. Show a fallback gateway in the case of gateways allow & disallow conflict (Pro).
+
+Let's get into more details and see what features the plugin offers.
+
+
+## 🤝 Recommended By##
+* [PPWP Pro: How to Restrict WooCommerce Payment Methods Based on Product Types](https://passwordprotectwp.com/restrict-woocommerce-payment-methods-product-types/ "PPWP Pro: How to Restrict WooCommerce Payment Methods Based on Product Types")
+* [SKT Themes: Top Payment Gateways Plugins You MUST Have](https://www.sktthemes.org/wordpress-plugins/wordpress-payment-gateway-plugins/ "SKT Themes: Top Payment Gateways Plugins You MUST Have")
+* [Web Programacion: How to Specify Payment Gateways to Each Product in WooCommerce](https://webprogramacion.com/especifica-con-que-pasarela-pagar-cada-producto-en-woocommerce/ "Web Programacion: How to Specify with which gateway to pay each product in WooCommerce")
+
+## 🚀 Main Features: FREE Version ##
+
+== The plugin works in 2 modes: ==
+
+It lets you select what payment gateways to show if a product category or tag is added (meaning hide all other gateways in this case).
+Second, lets you select what gateways to hide when a selected product category or product is in the cart (i.e. all other gateways will appear).
+
+=== Examples: ===
+
+Category A is sold using all payment gateways, no restrictions.
+
+Category B is sold using all gateways except PayPal.
+
+Category C is sold only using wire transfer (very high price).
+
+You can configure the plugin to reflect the above 3 cases like the following:
+
+Category A: untouched, won't be included/excluded from the plugin settings.
+
+Category B: Under PayPal gateway, we insert category B on the "Excluded" section.
+
+Category C: Add it to the "Excluded" section of all other gateways.
+
+Note: Adding category C to the "Included" section of wire transfer will hide this gateway from all other categories, so you have to be either "allow all except" or "hide all except"
+
+### 🚀 Restrict Payment Gateway Visibility by Product Category ###
+
+This feature allows you to control which payment gateways are available for specific product categories.
+For instance, if you have products in Category C that should only be purchased via wire transfer due to their high price, you can set this category to be exclusively associated with the wire transfer payment gateway.
+Similarly, for Category B, you can exclude PayPal as a payment option, while Category A remains unrestricted, compatible with all payment gateways.
+
+### 🚀 Restrict Payment Gateway Visibility by Product Tag ###
+
+Similar to the category-based control, this mode lets you specify payment gateways based on product tags.
+This means you can have even finer control by tagging specific products and associating them with certain payment methods. For example, if a product is tagged with a particular label indicating a special payment condition, the plugin will automatically adjust the available payment gateways for that product in the cart.
+
+### 🚀 Intuitive & easy to use interface ###
+
+By default, the plugin doesn't change anything on installation & activation, once you decide what gateways to show/hide for product categories or tags, go to WooCommerce >> Settings >> Payment Gateways per Products" and under desired tab (category or tag), start including/excluding categories on respective gateways you've set.
+
+### 🚀 Global Support For All Gateways ###
+
+The plugin supports any gateway (standard or customized), all gateways that are installed & enabled on WooCommerce >> Settings >> Payments will be supported, and appear on plugin settings, where you will be able to conditionally control what product categories or tags appear on each gateway.
+
+### 🚀 Plugin Use Cases ###
+
+1. Expensive products: This might be the most use case for this plugin, you want to restrict customers buying expensive items to pay using wire transfer only.
+
+2. Cheap products: Imagine you have to deal with a wire transfer or cash on delivery for an $7 item, does that make sense to your business operations? The plugin can restrict gateways based on products of your choice.
+
+3. Subscription products: when you sell products that need monthly/yearly renewal, you can't/shouldn't allow checking out on gateways that don't support automatic renewals (like CoD), instead, here you can restrict users to checkout using PayPal for example.
+
+4. Products with very low margins: Some products (even sold at good price points) might have low margins (couple of dollars) because of the competition, in such conditions, you might want to limit the allowed payment methods to those who offer very low fees.
+
+> “I wanted to make the payment method for cheap products different than for the more expensive products.
+This plugin is doing the job very good!” – ⭐⭐⭐⭐⭐ [phdhont](https://wordpress.org/support/topic/works-very-good-82/)
+
+> “Works great for tags: Great free resource, I also appreciate the test area, thanks guys, you deserve 5 stars.” – ⭐⭐⭐⭐⭐ [SeaLuke](https://wordpress.org/support/topic/works-great-for-tags/)
+
+## 🏆 Pro Version ##
+
+Our **[Plugin Pro version](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Plugin Pro version")** features further expands the capabilities of our plugin so you can have more control on product & gateways restrictions, like:
+
+### 🏆 Payment Method Control at Product and Variation Level ###
+
+This functionality extends your control beyond categories and tags, allowing you to specify payment gateways for individual products and even their variations.
+
+This granular level of customization is perfect for unique items or specific variations that require special payment handling.
+
+For example, you could set a high-end product variation to only be purchasable through credit card transactions, while a standard version of the product might be available for purchase through multiple payment methods
+
+### 🏆 Fallback Payment Method Selection ###
+
+In scenarios where your cart contains mixed products from different rules, potentially leading to a conflict where no payment method is available, this feature comes into play.
+
+It allows you to designate a fallback payment gateway for such cases. This ensures that there's always an available payment option for customers, even when their cart contains a complex mix of products with different payment gateway rules.
+
+### 🏆 Payment Gateway Restriction by Country ###
+
+This feature allows you to tailor the availability of payment gateways based on the customer's billing country.
+
+This is particularly useful for businesses that operate internationally and need to comply with various regional financial regulations or want to offer localized payment options.
+
+For instance, you might restrict certain payment methods to customers in the EU while offering different options to those in the US.
+
+Additionally, it can be used to limit expensive international transaction fees for certain regions by offering local payment solutions, or to comply with regional restrictions on certain payment services.
+
+## 💯 Why WPFactory? ##
+
+* **Experience You Can Trust:** Over a decade in the business
+* **Wide Plugin Selection:** Offering 65+ unique and powerful plugins
+* **Highly-Rated Support:** Backed by hundreds of 5-star reviews
+* **Expert Team:** Dedicated developers and technical support at your service
+
+
+## What's Next? Discover More Plugins by WPFactory ##
+
+WPFactory has a diverse range of plugins tailored to enhance your experience, some of our top-selling plugins are:
+
+* [**Min Max Step Quantity**](https://wpfactory.com/item/product-quantity-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Min Max Step Quantity**"): Set minimum, maximum, step, and default product quantities, including dropdowns and decimal options on WooCommerce (**[Free version](https://wordpress.org/plugins/product-quantity-for-woocommerce/ "Free version")**)
+
+* [**Cost of Goods for WooCommerce**](https://wpfactory.com/item/cost-of-goods-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Cost of Goods WooCommerce**"): Enhance profit maximization and financial management by accurately calculating your WooCommerce store's COGS (**[Free version](https://wordpress.org/plugins/cost-of-goods-for-woocommerce/ "Free version")**)
+
+* [**Maximum Products per User**](https://wpfactory.com/item/maximum-products-per-user-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Maximum Products per User**"): Impose personalized purchase limits based on user roles and date ranges to manage customer buying behavior (**[Free version](https://wordpress.org/plugins/maximum-products-per-user-for-woocommerce/ "Free version")**)
+
+* [**Order Minimum/Maximum Amount**](https://wpfactory.com/item/order-minimum-maximum-amount-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Order Minimum/Maximum Amount**"): Customize order limits by amount, quantity, weight, or volume, including user role, category, and more (**[Free version](https://wordpress.org/plugins/order-minimum-amount-for-woocommerce/ "Free version")**)
+
+* [**EU/UK VAT Manager for WooCommerce**](https://wpfactory.com/item/eu-vat-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**EU/UK VAT Manager for WooCommerce**"): Automate VAT compliance for your WooCommerce store, including settings and VIES validation for a seamless experience (**[Free version](https://wordpress.org/plugins/eu-vat-for-woocommerce/ "Free version")**)
+
+* [**Email Verification for WooCommerce**](https://wpfactory.com/item/email-verification-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Email Verification for WooCommerce**"): Boost security and credibility by verifying customer emails, reducing spam, and improving email marketing (**[Free version](https://wordpress.org/plugins/maximum-products-per-user-for-woocommerce/ "Free version")**)
+
+* [**Free Shipping Over Amount for WooCommerce**](https://wpfactory.com/item/amount-left-free-shipping-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Free Shipping Over Amount for WooCommerce**"): Encourage higher spending by offering free shipping based on amount, with a progress bar for customers (**[Free version](https://wordpress.org/plugins/amount-left-free-shipping-woocommerce/ "Free version")**)
+
+* [**Dynamic Pricing & Bulk Quantity Discounts**](https://wpfactory.com/item/product-price-by-quantity-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Dynamic Pricing & Bulk Quantity Discounts**"): Advanced dynamic pricing and discount rules for WooCommerce, encouraging bulk purchases and driving more sales (**[Free version](https://wordpress.org/plugins/wholesale-pricing-woocommerce/ "Free version")**)
+
+
+###❤️ USER TESTIMONIALS: SEE WHAT OTHERS ARE SAYING! ###
+
+> “If you need granularity on payment gateways related to products, categories or tags - this is your plugin.
+Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
+
+> “Thank you for the quick and professional support! Good job!” – ⭐⭐⭐⭐⭐ [Iryna](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
+
+> “Excellent work. I bought the plugin because I needed to regulate my payment method on a particular product with variations and also on a particular category. It works great.” – ⭐⭐⭐⭐⭐ [Peter Domaracky](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
+
+> “Great plugin – It works flawlessly: Great plugin! It works flawlessly. I use this plugin in combination with All in One Product Quantity for WooCommerce – by the same author. I am sincerely delighted. I do not understand the ratings and support questions in which some users say that the plugin does not work?! The plugin works exactly as described. The settings are very simple.” – ⭐⭐⭐⭐⭐ [vipteam](https://wordpress.org/support/topic/great-plugin-it-works-flawlessly/)
+
+
+== Screenshots ==
+
+1. Main Page
+2. Specify settings per category
+3. Specify settings per tag
+
+== Installation ==
+
+**Follow these simplified steps to get your plugin up and running:**
+
+**From the WordPress Admin Panel:**
+1. Navigate to “Plugins” > “Add New”.
+2. Use the search bar and find the plugin using the exact name.
+3. Click “Install Now” for the desired plugin.
+4. Once the installation is finished, and click “Activate”.
+
+**Manual Installation Using FTP:**
+1. Download the desired plugin from WordPress.org.
+2. Using your preferred FTP client, upload the entire plugin folder to the /wp-content/plugins/ directory of your WordPress installation.
+3. Go to “Plugins” > “Installed Plugins” in your dashboard and click “Activate”.
+
+**Manual download & upload from the WordPress Admin Panel:**
+1. Download the desired plugin in a ZIP format.
+2. On your site, navigate to “Plugins” > “Add New” and click the “Upload Plugin” button.
+3. Choose the downloaded plugin file and click “Install Now.”
+4. After the installation is complete, click “Activate”.
+
+**Post-Activation:**
+Once activated, access the plugin's settings by navigating to “WooCommerce > Settings” and look for the relevant tab.
+
+== Changelog ==
+
+= 1.8.1 - 03/12/2024 =
+* Fix - Resolved warning "Function _load_textdomain_just_in_time was called incorrectly".
+* Dev - Key Manager - Library updated.
+
+= 1.8.0 - 20/11/2024 =
+* Dev - Plugin settings moved to the "WPFactory" menu.
+* Dev - "Recommendations" added.
+* Dev - "Key Manager" added.
+* Dev - PHP 8.2 compatibility - "Creation of dynamic property is deprecated" notice fixed.
+* Dev - The plugin initialized on the `plugins_loaded` action.
+* Dev - Code refactoring.
+* Tested up to: 6.7.
+* WC tested up to: 9.4.
+
+= 1.7.16 - 10/09/2024 =
+* Add - Countries - Combine conditions from other sections.
+
+= 1.7.16 - 05/09/2024 =
+* WC tested up to: 9.2.
+
+= 1.7.15 - 06/08/2024 =
+* Fix - Alg_WC_PGPP::$core declaration.
+
+= 1.7.14 - 30/07/2024 =
+* Tested up to: 6.6.
+* WC tested up to: 9.1.
+
+= 1.7.13 - 06/06/2024 =
+* Alg_WC_PGPP::$core declaration.
+
+= 1.7.12 - 04/04/2024 =
+* Update - readme.txt
+* Tested up to: 6.5.
+* WC tested up to: 8.7.
+
+= 1.7.11 - 21/03/2024 =
+* Add - Add filter > On "wp_loaded" action.
+
+= 1.7.10 - 20/03/2024 =
+* Update readme.txt
+
+= 1.7.9 - 12/02/2024 =
+* WC tested up to: 8.5.
+* Tested up to: 6.4.
+* New - multiple payment by country restrictions.
+
+= 1.7.8 - 09/11/2023 =
+* Declare HPOS compatibility.
+* WC tested up to: 8.1.
+
+= 1.7.7 - 21/09/2023 =
+* Update logo.
+
+= 1.7.6 - 21/09/2023 =
+* WC tested up to: 8.1.
+* Tested up to: 6.3.
+
+= 1.7.5 - 18/06/2023 =
+* WC tested up to: 7.8.
+* Tested up to: 6.2.
+
+= 1.7.4 - 31/03/2023 =
+* Fix plugin name.
+* Move to WPFactory.
+
+= 1.7.3.1 - 15/02/2023 =
+* Bug fix appeared in version 1.7.3 causing PHP fatal error
+* Verified compatibility with WooCommerce 7.4
+
+= 1.7.3 - 13/02/2023 =
+* New feature (Pro): enable/disable payment method by country
+* Verified compatibility with WooCommerce 7.3
+
+= 1.7.2 - 04/11/2022 =
+* Verified compatibily with WordPress 6.1 & WooCommerce 7.0
+
+= 1.7.1 - 12/06/2022 =
+* Verified compatibily with WordPress 6.0 & WooCommerce 6.5
+
+= 1.7 - 18/04/2022 =
+* Fixed an uncaught error related to a JS file (select2)
+* Fixed a bug in client area where gateways were hidden without products in cart
+* Verified compatibily with WooCommerce 6.4
+
+= 1.6.4 - 28/01/2022 =
+* Allowed mixing includes/excludes while giving priority to product-defined settings over category/attribute
+* Verified compatibily with WooCommerce 6.2
+
+= 1.6.3 - 28/01/2022 =
+* Verified compatibily with WordPress 5.9 & WooCommerce 6.1
+
+= 1.6.2 - 10/11/2021 =
+* Fixed a bug in WPML compatibility when switching between languages settings were lost
+* Verified compatibility with WooCommerce 5.9
+
+= 1.6.1 - 29/10/2021 =
+* Fixed a bug in showing category IDs instead of names for some users after 1.4.5
+
+= 1.6 - 26/10/2021 =
+* Fixed a bug in 1.4.5 preventing Pro users from using Pro features
+* Verified compatibility with WooCommerce 5.8
+
+= 1.4.5 - 19/10/2021 =
+* Fixed a bug showing category IDs instead of category names
+* Allowed choosing payment method from product edit page directly
+
+= 1.4.4 - 16/10/2021 =
+* Fixed multiple issues (error 500) for stores with thousands of products
+* Verified compatibility with WooCommerce 5.7
+
+= 1.4.3 - 30/08/2021 =
+* Checked & verified compatibility with WooCommerce 5.6
+
+= 1.4.2 - 16/08/2021 =
+* Fixed a bug not showing specific custom gateways
+* Added an integration to manually added orders emails to show/hide gateways as in store
+
+= 1.4.1 - 25/07/2021 =
+* Tested compatibilty with WC 5.5 & WP 5.8
+
+= 1.4 - 16/05/2021 =
+* New feature: Fallback gateway to show a selected gateway if mixed products (with different gateways) are in cart.
+* Verified compatibility with WooCommerce 5.3
+
+= 1.3.4 - 20/04/2021 =
+* Tested compatibilty with WC 5.1 & WP 5.7
+
+= 1.3.3 - 28/02/2021 =
+* Tested compatibilty with WC 5.0
+
+= 1.3.2 - 27/01/2021 =
+* Tested compatibility with WP 5.6 & WC 4.9
+
+= 1.3.1 - 21/11/2020 =
+* Tested compatibility with WC 4.7
+
+= 1.3 - 15/08/2020 =
+* Tested compatibility with WP 5.5
+* Tested compatibility with WC 4.3
+
+= 1.2.1 - 20/11/2019 =
+* Dev - Code refactoring.
+* WC tested up to: 3.8.
+* Tested up to: 5.3.
+* Plugin author changed.
+
+= 1.2.0 - 12/07/2019 =
+* Dev - Advanced Options - Add filter - Default value set to `On "init" action`.
+* Dev - Per Products - Adding product ID to the list of products in settings.
+* Dev - Code refactoring.
+
+= 1.1.1 - 24/05/2019 =
+* Dev - Admin Settings - "Your settings have been reset" notice added.
+* Tested up to: 5.2.
+* WC tested up to: 3.6.
+
+= 1.1.0 - 29/11/2018 =
+* Fix - Text domain fixed.
+* Dev - Products - "Add variations" option added.
+* Dev - Admin settings restyled: divided into separate ("Categories", "Tags" and "Products") sections (and "Enable section" options added).
+* Dev - Plugin renamed from "Payment Gateways per Product Categories for WooCommerce" to "Payment Gateways per Products for WooCommerce".
+* Dev - Advanced Options - "Add filter" option added.
+* Dev - Code refactoring.
+* Dev - Plugin URI updated.
+
+= 1.0.0 - 28/08/2017 =
+* Initial Release.
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+This is the first release of the plugin.
