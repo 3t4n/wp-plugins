@@ -1,0 +1,86 @@
+#tag-generator-list button[data-target=tag-generator-panel-cf7-recordset],
+#tag-generator-list a.button[href*=tag-generator-panel-cf7-recordset]{background:rgb(136, 111, 97, .9);border:0;color:#ffff;}
+#tag-generator-list button[data-target=tag-generator-panel-cf7-recordset]:hover,
+#tag-generator-list a.button[href*=tag-generator-panel-cf7-recordset]:hover{background:rgb(136, 111, 97);}
+#tag-generator-list button[data-target=tag-generator-panel-cf7-link-field],
+#tag-generator-list a.button[href*=tag-generator-panel-cf7-link-field]{background:rgb(201, 120, 120, .9);border:0;color:#ffff;}
+#tag-generator-list button[data-target=tag-generator-panel-cf7-link-field]:hover,
+#tag-generator-list a.button[href*=tag-generator-panel-cf7-link-field]:hover{background:rgb(201, 120, 120);}
+
+[name="cf7-recordset"]{width:auto !important; flex-grow: 1 !important;}
+
+.tag-generator-dialog .tag-generator-panel[data-id="cf7-recordset"]{height:auto;}
+.tag-generator-panel[data-id="cf7-recordset"] .submitbox *{float:none !important;}
+.tag-generator-dialog#tag-generator-panel-cf7-recordset,
+.tag-generator-dialog#tag-generator-panel-cf7-link-field{min-height:auto;}
+
+.tag-generator-dialog#tag-generator-panel-cf7-recordset:has(.close-button) .tag-generator-panel,
+.tag-generator-dialog#tag-generator-panel-cf7-link-field:has(.close-button) .tag-generator-panel {
+margin-top: 20px;
+}
+
+.tag-generator-dialog .cf7-datasource-recordset,
+.tag-generator-dialog .cf7-datasource-link{
+overflow:initial !important;
+min-height:fit-content !important;
+}
+
+.tag-generator-dialog .cf7-datasource-recordset .form-table td,
+.tag-generator-dialog .cf7-datasource-recordset .form-table th,
+.tag-generator-dialog .cf7-datasource-link .form-table td,
+.tag-generator-dialog .cf7-datasource-link .form-table th{
+padding-top:10px; padding-bottom:10px;
+}
+
+.tag-generator-dialog .insert-box [name="cf7-link-field"]{flex-grow:1;}
+
+.tag-generator-dialog .cf7-datasource-recordset fieldset,
+.tag-generator-dialog .cf7-datasource-link fieldset{margin-inline-start:0 !important;}
+.tag-generator-dialog .cf7-datasource-recordset fieldset legend,
+.tag-generator-dialog .cf7-datasource-link fieldset legend{margin-inline-start:0 !important;}
+
+.cf7-datasource-link input[type="text"],
+.cf7-datasource-link select,
+.cf7-datasource-recordset input[type="text"],
+.cf7-datasource-recordset input[type="email"],
+.cf7-datasource-recordset textarea,
+.cf7-datasource-recordset select{width:100%;max-width:100%; min-width:100%; box-sizing: border-box;}
+.cf7-datasource-recordset textarea{resize:vertical;}
+.cf7-datasource-user,
+.cf7-datasource-post,
+.cf7-datasource-acf,
+.cf7-datasource-taxonomy,
+.cf7-datasource-database,
+.cf7-datasource-csv,
+.cf7-datasource-json{display:none;}
+
+.cf7-recordset-test-frame{z-index:999999;position:fixed;top:0; left:0; right:0; bottom:0;background:rgba(0, 0, 0, .5);}
+.cf-recordset-test-variables-container{background:white;padding:0;position:fixed;width:100%;max-width:600px;top:50%;left:50%;transform: translate(-50%,-50%);}
+.cf-recordset-test-variables-container h3{font-size:14px;margin:0 0 10px 0;padding:10px;border-bottom:1px solid rgba(0,0,0,.1)}
+.cf-recordset-test-variables-container table{padding:10px;}
+.cf-recordset-test-variables-container table th{text-align:left;}
+.cf-recordset-test-variables-container table input{width:100%;}
+.cf-recordset-test-variables-container table button{margin:5px 0 0 5px !important;}
+
+.cf7-datasource-notice{border:1px solid #c3c4c7; background:#fff; border-left-width:4px;box-shadow:0 1px 1px rgb(0 0 0 / 4%);margin:10px 0; padding:10px;}
+.cf7-datasource-notice-error{border-left-color:#d63638;}
+
+.cf7-datasource-database .CodeMirror{height: 120px;border: 1px solid #8c8f94;border-radius: 5px;overflow: hidden;}
+
+.cf7-ds-predefined-container{display:flex;box-sizing:border-box;}
+.cf7-ds-predefined-container [name="cf7-database-predefined-query"]{margin-right:5px;min-width:initial;flex-grow:1;}
+.cf7-database-predefined-query-description{margin:10px 0;padding:10px;border:2px dashed #dcdcde; font-style:italic;}
+
+/* Tags edition */
+#cf7ds_edit_container{display:flex;flex-direction:column;align-items:flex-end;position:absolute;right:25px;top:5px;opacity:.5;}
+#cf7ds_edit_container:hover{opacity:1;}
+#cf7ds_edit_icon{display:block;width:32px;height:32px;background:url("edit.png");background-size:cover;cursor:pointer;}
+#cf7ds_recordsets_menu{max-width:200px;margin:0;display:none;}
+#cf7ds_recordsets_menu li{display:block;border:1px solid white;padding:5px 10px;margin:0;background:rgb(136, 111, 97);color:white;cursor:pointer;text-align:center;word-break:break-all;}
+#cf7ds_recordsets_menu li:hover{background:rgb(86 78 73);}
+#cf7ds_recordsets_menu li:first-child{border-top-left-radius:7px;border-top-right-radius:7px;}
+#cf7ds_recordsets_menu li:last-child{border-bottom-left-radius:7px;border-bottom-right-radius:7px;}
+
+.cf7-ds-error-message{display:inline-block !important;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);visibility:visible!important;width:500px;max-width:90%;box-sizing:border-box;padding:20px;height:auto;max-height:80%;overflow-y:auto;color:#a94442;border:1px solid transparent;border-radius:4px;background-color:#f2dede;border-color:#ebccd1;font-family:Arial, Helvetica, sans-serif;cursor:pointer;z-index:99999;}
+.cf7-ds-error-message:before{content:'X';position:absolute;right:5px;top:5px;opacity:0.5;}
+.cf7-ds-error-message:hover:before{opacity:1;}
