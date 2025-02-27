@@ -1,0 +1,139 @@
+/******************************
+ * empty block
+ *****************************/
+.parrotposter-empty-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 70px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.parrotposter-empty-block:before {
+	content: "";
+	background-image: url(../images/stuff-zero-items.png);
+	background-size: auto 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 260px;
+	width: 100%;
+	display: block;
+}
+
+.parrotposter-empty-block.parrotposter-empty-block--in-development:before {
+	background-image: url(../images/stuff-in-development.png);
+}
+
+.parrotposter-empty-block__title {
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 600;
+	color: #101517;
+	margin-top: 30px;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+.parrotposter-empty-block__note {
+	font-size: 16px;
+	margin: 8px auto;
+	line-height: 30px;
+	text-align: center;
+}
+
+.parrotposter-empty-block__connect {
+	margin-top: 30px;
+}
+
+/******************************
+ * block
+ *****************************/
+.parrotposter-block {
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 24px;
+	margin: 24px 0;
+	max-width: calc(100% - 10px - 24px * 2);
+	background-color: #FFFFFF;
+}
+
+.parrotposter-block--horizontal {
+	flex-direction: row;
+	gap: 24px;
+}
+
+@media screen and (max-width: 768px) {
+	.parrotposter-block--column-mobile {
+		flex-direction: column;
+		gap: 12px;
+	}
+}
+
+.parrotposter-block--min {
+	width: 300px;
+}
+
+.parrotposter-block--min2 {
+	width: 600px;
+}
+
+.parrotposter-block--scheduler-edit {
+	width: 600px;
+}
+
+.parrotposter-block--success:before,
+.parrotposter-block--fail:before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: -5px;
+	right: -5px;
+	top: -5px;
+	bottom: -5px;
+	border: 1px solid #20E2AC;
+	border-radius: 2px;
+	z-index: -1;
+}
+
+.parrotposter-block--fail:before {
+	border: 1px solid #FF52A1;
+}
+
+.parrotposter-block__title {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	color: #000;
+}
+
+.parrotposter-block__title:first-child {
+	margin-top: 0px;
+}
+
+.parrotposter-block__group {
+}
+
+.parrotposter-block h2 {
+	margin-top: 16px;
+	margin-bottom: 30px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.parrotposter-block__label {
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.parrotposter-block__value {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+}
+

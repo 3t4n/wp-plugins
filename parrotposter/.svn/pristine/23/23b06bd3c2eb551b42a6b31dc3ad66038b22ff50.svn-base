@@ -1,0 +1,241 @@
+@import url(loading.css);
+
+.parrotposter-accounts__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: calc(100% - 20px);
+}
+@media screen and (max-width: 768px) {
+	.parrotposter-accounts__header {
+		flex-wrap: wrap;
+	}
+}
+.parrotposter-accounts__badge {
+	display: inline-block;
+	border-radius: 16px;
+	background-color: #20E2AC;
+	color: #FFFFFF;
+	line-height: 16px;
+	font-weight: 600;
+	padding: 4px 16px;
+}
+.parrotposter-accounts__badge.over {
+	background-color: #FF52A1;
+}
+.parrotposter-accounts__badge a {
+	color: #FFFFFF;
+}
+
+
+.parrotposter-accounts__no-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 358px;
+	max-width: 100%;
+	border: 1px solid #F0F0F1;
+	box-sizing: border-box;
+	border-radius: 2px;
+	padding: 16px;
+}
+
+.parrotposter-accounts__no-list-pic {
+	background-image: url(../images/stuff-zero-items.png);
+	background-size: auto 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 55px;
+	width: 100%;
+	display: block;
+}
+
+.parrotposter-accounts__no-list-title {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+	color: #101517;
+}
+
+.parrotposter-accounts__no-list-subtitle {
+	font-size: 11px;
+	line-height: 16px;
+	color: #101517;
+}
+
+
+.parrotposter-accounts__list {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.parrotposter-accounts__list--inputs {
+	gap: 8px;
+}
+
+.parrotposter-accounts__list--results {
+}
+
+.parrotposter-accounts__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #FFF;
+	padding: 24px;
+	gap: 12px;
+	width: 188px;
+	position: relative;
+	transition: opacity 0.3s;
+}
+
+@media screen and (max-width: 460px) {
+	.parrotposter-accounts__item {
+		width: calc(100% - 60px);
+	}
+}
+
+.parrotposter-accounts__item--input {
+	border: 1px solid #F0F0F1;
+	border-radius: 2px;
+	padding: 18px;
+	width: 100px;
+	cursor: pointer;
+}
+
+.parrotposter-accounts__item--selected {
+	background-color: rgba(0, 124, 186, 0.12);
+	border-color: #007CBA;
+}
+
+.parrotposter-accounts__item--input input[type=checkbox] {
+	display: none;
+}
+
+.parrotposter-accounts__list--results .parrotposter-accounts__item {
+	flex-direction: row;
+	align-items: start;
+	padding: 0;
+	width: 270px;
+}
+
+.parrotposter-accounts__delete {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/trash.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	opacity: 0;
+	transition: opacity 0.3s;
+	cursor: pointer;
+}
+.parrotposter-accounts__item:hover .parrotposter-accounts__delete {
+	opacity: 1;
+}
+
+
+
+.parrotposter-accounts__photo {
+	position: relative;
+	width: 56px;
+	height: 56px;
+	flex-shrink: 0;
+}
+
+.parrotposter-accounts__list--results .parrotposter-accounts__photo {
+	width: 32px;
+	height: 32px;
+}
+
+.parrotposter-accounts__photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.parrotposter-accounts__name {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 600;
+	text-align: center;
+	max-height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.parrotposter-accounts__item--input .parrotposter-accounts__name {
+	font-size: 11px;
+	line-height: 16px;
+}
+
+.parrotposter-accounts__list--results .parrotposter-accounts__name {
+	font-size: 11px;
+	line-height: 16px;
+	color: #101517;
+	text-align: left;
+}
+
+.parrotposter-accounts__link {
+	line-height: 16px;
+	color: #007CBA;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 100%;
+	text-decoration: none;
+}
+
+.parrotposter-accounts__type {
+	width: 24px;
+	height: 24px;
+	background-color: transparent;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.parrotposter-accounts__list--results .parrotposter-accounts__type {
+	width: 16px;
+	height: 16px;
+	right: -2px;
+	bottom: -2px;
+}
+
+.parrotposter-accounts__type.vk {
+	background-image: url(../images/vk.svg);
+}
+.parrotposter-accounts__type.fb {
+	background-image: url(../images/fb.svg);
+}
+.parrotposter-accounts__type.ok {
+	background-image: url(../images/ok.svg);
+}
+.parrotposter-accounts__type.tg {
+	background-image: url(../images/tg.svg);
+}
+.parrotposter-accounts__type.insta {
+	background-image: url(../images/insta.svg);
+}
+
+.parrotposter-accounts__result a {
+	text-decoration: none;
+	font-size: 11px;
+	line-height: 16px;
+}
+
+.parrotposter-accounts__result span {
+	font-size: 11px;
+	line-height: 16px;
+	color: #787C82;
+}
