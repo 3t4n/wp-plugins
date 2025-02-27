@@ -1,0 +1,109 @@
+#wpwc-clipboard{
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: white;
+  background: rgba(255, 255, 255, 0.777);
+}
+
+#wpwc-clipboard > *{
+  font-family: 
+    -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,
+    Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+#wpwc-clipboard .header{
+  margin-top: 0;
+  margin-left: 9px;
+  margin-bottom: 12px;
+}
+
+#wpwc-clipboard .header h2{
+  margin-top: 0;
+  margin-left: 6px;
+}
+
+#wpwc-clipboard ul{
+  width: 100%;
+  display: flex;
+  margin-bottom: 0;
+}
+
+#wpwc-clipboard ul li{
+  position: relative;
+  width: 100%;
+  padding: 0 8px;
+  margin-bottom: 0;
+}
+
+#wpwc-clipboard .upgrade,
+#wpwc-clipboard .donate{
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  font-weight: bold;
+}
+
+.wpwc-ui_helper{
+  width: 100% !important
+}
+
+@media only screen and (max-width: 1250px){
+  #wpwc-clipboard{
+    max-width: 450px;
+  }
+  #wpwc-clipboard ul{
+    max-width: 450px;
+    flex-wrap:wrap;
+  } 
+}
+
+
+/*#wpwc-wc_area1, #wpwc-wc_area2{
+  position: relative;
+}*/
+
+#wpwc-wc_area1 h3, #wpwc-wc_area2 h3{
+  background: white;
+}
+
+.wpwc-copied_widgets{
+  cursor: move;
+}
+
+.wpwc-wc_area2_inner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  min-width: 200px;
+}
+
+.wpwc-usage_exp{
+  text-align: center;
+  font-weight: bold;
+  color: #757d86;
+}
+
+@media only screen and (max-width: 1250px){
+  .wpwc-wc_area2_inner{
+    position: relative;
+    left: auto;
+    top: auto;
+    -webkit-transform: none;
+    -transform: none;
+  }
+  .wpwc-usage_exp{
+    padding-top: 15px;
+  }
+}
+
+
+/** Widget border line when hover over */
+.wpwc-copied_widgets .widget-top:hover, 
+.wpwc-favo_widget .widget-top:hover{
+  background: white;
+  border-color: #999;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
