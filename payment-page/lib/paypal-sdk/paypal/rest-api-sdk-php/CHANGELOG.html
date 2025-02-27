@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="paypalphpsdkreleasenotes">PayPal PHP SDK release notes</h1>
+
+<h2 id="1.14.0">1.14.0</h2>
+
+<ul>
+<li>Update sdk_config.ini log.LogLevel comments <a href="#cn:1" id="cnref:1" title="see citation" class="citation">(1)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/983).</li>
+<li>Update RefundCapture.php <a href="#cn:2" id="cnref:2" title="see citation" class="citation">(2)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/998).</li>
+<li>update readme for direct credit card restriction <a href="#cn:3" id="cnref:3" title="see citation" class="citation">(3)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1019).</li>
+<li>Add PHP 7.1 and 7.2 in travis build <a href="#cn:4" id="cnref:4" title="see citation" class="citation">(4)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1061).</li>
+<li>Custom cache directory line was not written <a href="#cn:5" id="cnref:5" title="see citation" class="citation">(5)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1062).</li>
+<li>Re-Order the array keys so that JSON will be an array, not an object <a href="#cn:6" id="cnref:6" title="see citation" class="citation">(6)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1034).</li>
+<li>Refactoring tests <a href="#cn:7" id="cnref:7" title="see citation" class="citation">(7)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1011).</li>
+<li>Added condition to ignore extra header <a href="#cn:8" id="cnref:8" title="see citation" class="citation">(8)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1060).</li>
+<li>Fix links to Developer API Reference <a href="#cn:9" id="cnref:9" title="see citation" class="citation">(9)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/1095).</li>
+<li>adding target subject to the generate access token call.</li>
+</ul>
+
+<h2 id="1.13.0">1.13.0</h2>
+
+<ul>
+<li>Add HUF as a non-decimal currency <a href="#cn:10" id="cnref:10" title="see citation" class="citation">(10)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/974).</li>
+<li>Add <code>purchaseOrder</code> in <code>CartBase</code> <a href="#cn:11" id="cnref:11" title="see citation" class="citation">(11)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/939).</li>
+<li>Fixed annotation bug <a href="#cn:12" id="cnref:12" title="see citation" class="citation">(12)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/872).</li>
+<li>Update PHPUnit <a href="#cn:13" id="cnref:13" title="see citation" class="citation">(13)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/979).</li>
+</ul>
+
+<h2 id="1.12.0">1.12.0</h2>
+
+<ul>
+<li>Add <code>getToken</code> method to <code>Payment</code> class to retrieve EC token from approval URL.</li>
+<li>Add TLSv1.2 to cipher list <a href="#cn:14" id="cnref:14" title="see citation" class="citation">(14)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/844).</li>
+<li>Use restCall object for function that makes REST requests <a href="#cn:15" id="cnref:15" title="see citation" class="citation">(15)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/841).</li>
+<li>Minor bugfixes <a href="#cn:16" id="cnref:16" title="see citation" class="citation">(16)</a>(https://github.com/paypal/PayPal-PHP-SDK/issues/766), <a href="#cn:17" id="cnref:17" title="see citation" class="citation">(17)</a>(https://github.com/paypal/PayPal-PHP-SDK/issues/798), <a href="#cn:18" id="cnref:18" title="see citation" class="citation">(18)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/845).</li>
+<li>Updated samples.</li>
+</ul>
+
+<h2 id="1.11.0">1.11.0</h2>
+
+<ul>
+<li>Update third party payment sample with PayPal payment.</li>
+<li>Prevent error in SSL version check if curl is not available <a href="#cn:19" id="cnref:19" title="see citation" class="citation">(19)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/706).</li>
+<li>Stop auto-generating PayPal-Request-Id header values and allow SDK users to optionally set the value <a href="#cn:20" id="cnref:20" title="see citation" class="citation">(20)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/747).</li>
+<li>Remove automatic retries on failed requests <a href="#cn:21" id="cnref:21" title="see citation" class="citation">(21)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/747).</li>
+</ul>
+
+<h2 id="1.10.0">1.10.0</h2>
+
+<ul>
+<li>Updated Payments APIs <a href="#cn:22" id="cnref:22" title="see citation" class="citation">(22)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/700).</li>
+<li>Minor bug fixes.</li>
+</ul>
+
+<h2 id="1.9.0">1.9.0</h2>
+
+<ul>
+<li>Updated Payouts APIs <a href="#cn:23" id="cnref:23" title="see citation" class="citation">(23)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/692).</li>
+<li>Updated Payment Experience APIs <a href="#cn:24" id="cnref:24" title="see citation" class="citation">(24)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/682).</li>
+<li>Updated Payments API to use Payment Card instead of credit card <a href="#cn:25" id="cnref:25" title="see citation" class="citation">(25)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/696).</li>
+<li>Fixed bug on failed Access token call. <a href="#cn:26" id="cnref:26" title="see citation" class="citation">(26)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/665).</li>
+</ul>
+
+<h2 id="1.8.0">1.8.0</h2>
+
+<ul>
+<li>Updated Webhooks APIs <a href="#cn:27" id="cnref:27" title="see citation" class="citation">(27)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/653).</li>
+<li>Updated Invoicing APIs <a href="#cn:28" id="cnref:28" title="see citation" class="citation">(28)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/657).</li>
+<li>UTF-8 encoding bug fix <a href="#cn:29" id="cnref:29" title="see citation" class="citation">(29)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/655).</li>
+<li>Updated PSR log <a href="#cn:30" id="cnref:30" title="see citation" class="citation">(30)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/654).</li>
+</ul>
+
+<h2 id="1.7.4">1.7.4</h2>
+
+<ul>
+<li>Fixed Duplicate conditional expression in PayPalCredentialManager.php <a href="#cn:31" id="cnref:31" title="see citation" class="citation">(31)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/594).</li>
+<li>Updated Invoicing APIs <a href="#cn:32" id="cnref:32" title="see citation" class="citation">(32)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/605).</li>
+<li>Fixed PSR code style errors <a href="#cn:33" id="cnref:33" title="see citation" class="citation">(33)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/607).</li>
+</ul>
+
+<h2 id="1.7.3">1.7.3</h2>
+
+<ul>
+<li>Enabled Third Party Invoicing <a href="#cn:34" id="cnref:34" title="see citation" class="citation">(34)</a>(https://github.com/paypal/PayPal-PHP-SDK/pull/581).</li>
+</ul>
+
+<h2 id="1.7.2">1.7.2</h2>
+
+<ul>
+<li>Vault API updates.</li>
+<li>Fixes #575.</li>
+</ul>
+
+<h2 id="1.7.1">1.7.1</h2>
+
+<ul>
+<li>Fixes #559.</li>
+</ul>
+
+<h2 id="1.7.0">1.7.0</h2>
+
+<ul>
+<li>Enable custom logger injection.</li>
+<li>Minor bug fixes.</li>
+</ul>
+
+<h2 id="1.6.4">1.6.4</h2>
+
+<ul>
+<li>SSL Connect Error Fix.</li>
+<li>Fixes #474.</li>
+</ul>
+
+<h2 id="1.6.3">1.6.3</h2>
+
+<ul>
+<li>Fixes Continue 100 Header.</li>
+<li>Minor Bug Fixes #452.</li>
+</ul>
+
+<h2 id="1.6.2">1.6.2</h2>
+
+<ul>
+<li>TLS Check Sample Added.</li>
+<li>Updated README.</li>
+</ul>
+
+<h2 id="1.6.1">1.6.1</h2>
+
+<ul>
+<li>User Agent Changes.</li>
+<li>SDK Version Fix.</li>
+</ul>
+
+<h2 id="1.6.0">1.6.0</h2>
+
+<ul>
+<li>Updated Payments API to latest version.</li>
+<li>Removed ModelAccessValidator.</li>
+<li>Minor Bug Fixes #399.</li>
+</ul>
+
+<h2 id="1.5.1">1.5.1</h2>
+
+<ul>
+<li>Fixed a bug #343 in Future Payment.</li>
+<li>Minor Improvements.</li>
+<li>Updates to Sample Docs.</li>
+</ul>
+
+<h2 id="1.5.0">1.5.0</h2>
+
+<ul>
+<li>Enabled Vault List API.</li>
+<li>Added More Fields to Vault Credit Card Object.</li>
+<li>Minor Fixes.</li>
+</ul>
+
+<h2 id="1.4.0">1.4.0</h2>
+
+<ul>
+<li>Ability to validate Webhook.</li>
+<li>Fixes to Logging Manager to skip if mode is not set.</li>
+<li>SDK updates and fixes.</li>
+</ul>
+
+<h2 id="1.3.2">1.3.2</h2>
+
+<ul>
+<li>Minor Fix for Agreement Details.</li>
+</ul>
+
+<h2 id="1.3.1">1.3.1</h2>
+
+<ul>
+<li>PayPalModel to differentiate between empty objects and array.</li>
+<li>Fixed CURLINFO_HEADER_SIZE miscalculations if Proxy Enabled.</li>
+</ul>
+
+<h2 id="1.3.0">1.3.0</h2>
+
+<ul>
+<li>Updated Payment APIs.</li>
+<li>Updating ModelAccessValidator to be disabled if not set explicitly.</li>
+</ul>
+
+<h2 id="1.2.1">1.2.1</h2>
+
+<ul>
+<li>Ability to handle missing accessors for unknown objects in json.</li>
+</ul>
+
+<h2 id="1.2.0">1.2.0</h2>
+
+<ul>
+<li>Order API Support.</li>
+<li>Introduced DEBUG mode in Logging. Deprecated FINE.</li>
+<li>Ability to not Log on DEBUG, while on live environment.</li>
+<li>Vault APIs Update API Support.</li>
+<li>Transaction Fee Added in Sale Object.</li>
+<li>Fixed #237, #234, #233, #215.</li>
+</ul>
+
+<h2 id="1.1.1">1.1.1</h2>
+
+<ul>
+<li>Fix to Cipher Encryption (Critical).</li>
+</ul>
+
+<h2 id="1.1.0">1.1.0</h2>
+
+<ul>
+<li>Enabled Payouts Cancel API Support for Unclaimed Payouts.</li>
+<li>Encrypting Access Token in Cached Storage.</li>
+<li>Updated Billing Agreement Search Transaction code to pass start_date and end_date.</li>
+<li>Updated OAuthToken to throw proper error on not receiving access token.</li>
+<li>Minor Bug Fixes and Documentation Updates.</li>
+</ul>
+
+<h2 id="1.0.0">1.0.0</h2>
+
+<ul>
+<li>Enabled Payouts API Support.</li>
+<li>Authorization Cache Custom Path Directory Configuration.</li>
+<li>Helper Functions to retrieve specific HATEOS Links.</li>
+<li>Default Mode set to Sandbox.</li>
+<li>Enabled Rest SDK to work nicely with Classic SDKs.</li>
+<li>If missing annotation of return type in Getters, it throws a proper exception.</li>
+<li><code>echo</code> on PayPalModel Objects will print nice looking JSON.</li>
+<li>Updated Invoice Object to retrieve payments and refunds.</li>
+</ul>
+
+<blockquote>
+<h2 id="breakingchanges">Breaking Changes</h2>
+</blockquote>
+
+<ul>
+<li>Removed Deprecated Getter Setters from all Model Classes.</li>
+<li> All Camelcase getters and setters are removed. Please use first letter uppercase syntax.</li>
+<li> E.g. instead of using get_notify_url(), use getNotifyUrl() instead.</li>
+<li>Renamed Classes.</li>
+<li> PayPal\Common\PPModel =&gt; PayPal\Common\PayPalModel.</li>
+<li> PayPal\Common\ResourceModel =&gt; PayPal\Common\PayPalResourceModel.</li>
+<li> PayPal\Common\PPUserAgent =&gt; PayPal\Common\PayPalUserAgent.</li>
+<li> PayPal\Core\PPConfigManager =&gt; PayPal\Core\PayPalConfigManager.</li>
+<li> PayPal\Core\PPConstants =&gt; PayPal\Core\PayPalConstants.</li>
+<li> PayPal\Core\PPCredentialManager =&gt; PayPal\Core\PayPalCredentialManager.</li>
+<li> PayPal\Core\PPHttpConfig =&gt; PayPal\Core\PayPalHttpConfig.</li>
+<li> PayPal\Core\PPHttpConnection =&gt; PayPal\Core\PayPalHttpConnection.</li>
+<li> PayPal\Core\PPLoggingLevel =&gt; PayPal\Core\PayPalLoggingLevel.</li>
+<li> PayPal\Core\PPLoggingManager =&gt; PayPal\Core\PayPalLoggingManager.</li>
+<li> PayPal\Exception\PPConfigurationException =&gt; PayPal\Exception\PayPalConfigurationException.</li>
+<li> PayPal\Exception\PPConnectionException =&gt; PayPal\Exception\PayPalConnectionException.</li>
+<li> PayPal\Exception\PPInvalidCredentialException =&gt; PayPal\Exception\PayPalInvalidCredentialException.</li>
+<li> PayPal\Exception\PPMissingCredentialException =&gt; PayPal\Exception\PayPalMissingCredentialException.</li>
+<li> PayPal\Handler\IPPHandler =&gt; PayPal\Handler\IPayPalHandler.</li>
+<li> PayPal\Transport\PPRestCall =&gt; PayPal\Transport\PayPalRestCall.</li>
+<li>Namespace Changes and Class Naming Convention.</li>
+<li> PayPal\Common\FormatConverter =&gt; PayPal\Converter\FormatConverter.</li>
+<li> PayPal\Rest\RestHandler =&gt; PayPal\Handler\RestHandler.</li>
+<li> PayPal\Rest\OauthHandler =&gt; PayPal\Handler\OauthHandler.</li>
+<li>Fixes to Methods.</li>
+<li> PayPal\Api\Invoice-&gt;getPaymentDetails() was renamed to getPayments().</li>
+<li> PayPal\Api\Invoice-&gt;getRefundDetails() was renamed to getRefunds().</li>
+</ul>
+
+<h2 id="1.0.0-beta">1.0.0-beta</h2>
+
+<ul>
+<li>Namespace Changes and Class Naming Convention.</li>
+<li>Helper Functions to retrieve specific HATEOS Links.</li>
+<li>Default Mode set to Sandbox.</li>
+</ul>
+
+<h2 id="0.16.1">0.16.1</h2>
+
+<ul>
+<li>Configurable Headers for all requests to PayPal.</li>
+<li>Allows adding additional headers to every call to PayPal APIs.</li>
+<li>SDK Config to add headers with http.headers.* syntax.</li>
+</ul>
+
+<h2 id="0.16.0">0.16.0</h2>
+
+<ul>
+<li>Enabled Webhook Management Capabilities.</li>
+<li>Enabled Caching Abilities for Access Tokens.</li>
+</ul>
+
+<h2 id="0.15.1">0.15.1</h2>
+
+<ul>
+<li>Enabled Deleting Billing Plans.</li>
+<li>Updated Samples.</li>
+</ul>
+
+<h2 id="0.15.0">0.15.0</h2>
+
+<ul>
+<li>Extended Invoicing Capabilities.</li>
+<li>Allows QR Code Generation for Invoices.</li>
+<li>Updated Formatter to work with multiple locales.</li>
+<li>Removed Future Payments mandate on Correlation Id.</li>
+</ul>
+
+<h2 id="0.14.2">0.14.2</h2>
+
+<ul>
+<li>Quick Patch to Unset Cipher List for NSS.</li>
+</ul>
+
+<h2 id="0.14.1">0.14.1</h2>
+
+<ul>
+<li>Updated HttpConfig to use TLSv1 as Cipher List.</li>
+<li>Added resetRequestId in ApiContext to enable multiple create calls in succession.</li>
+<li>Sanitize Input for Price Variables.</li>
+<li>Made samples look better and work best.</li>
+</ul>
+
+<h2 id="0.14.0">0.14.0</h2>
+
+<ul>
+<li>Enabled Billing Plans and Agreements APIs.</li>
+<li>Renamed SDK name to PayPal-PHP-SDK.</li>
+</ul>
+
+<h2 id="0.13.2">0.13.2</h2>
+
+<ul>
+<li>Updated Future Payments and LIPP Support.</li>
+<li>Updated Logging Syntax.</li>
+</ul>
+
+<h2 id="0.13.1">0.13.1</h2>
+
+<ul>
+<li>Enabled TLS version 1.x for SSL Negotiation.</li>
+<li>Updated Identity Support from SDK Core.</li>
+<li>Fixed Backward Compatibility changes.</li>
+</ul>
+
+<h2 id="0.13.0">0.13.0</h2>
+
+<ul>
+<li>Enabled Payment Experience.</li>
+</ul>
+
+<h2 id="0.12.0">0.12.0</h2>
+
+<ul>
+<li>Enabled EC Parameters Support for Payment APIs.</li>
+<li>Enabled Validation for Missing Accessors.</li>
+</ul>
+
+<h2 id="0.11.1">0.11.1</h2>
+
+<ul>
+<li>Removed Dependency from SDK Core Project.</li>
+<li>Enabled Future Payments.</li>
+</ul>
+
+<h2 id="0.11.0">0.11.0</h2>
+
+<ul>
+<li>Ability for PUT and PATCH requests.</li>
+<li>Invoice number, custom and soft descriptor.</li>
+<li>Order API and tests, more Authorization tests.</li>
+<li>remove references to sdk-packages.</li>
+<li>patch for retrieving paid invoices.</li>
+<li>Shipping address docs patch.</li>
+<li>Remove @array annotation.</li>
+<li>Validate return cancel url.</li>
+<li>type hinting, comment cleaning, and getters and setters for Shipping.</li>
+</ul>
+
+<h2 id="0.10.0">0.10.0</h2>
+
+<ul>
+<li>N/A.</li>
+</ul>
+
+<h2 id="0.9.0">0.9.0</h2>
+
+<ul>
+<li>N/A.</li>
+</ul>
+
+<h2 id="0.8.0">0.8.0</h2>
+
+<ul>
+<li>Invoicing API support added.</li>
+</ul>
+
+<h2 id="0.7.1">0.7.1</h2>
+
+<ul>
+<li>Added support for Reauthorization.</li>
+</ul>
+
+<h2 id="0.7.0">0.7.0</h2>
+
+<ul>
+<li>Added support for Auth and Capture APIs.</li>
+<li>Types modified to match the API Spec.</li>
+<li>Updated SDK to use namespace supported core library.</li>
+</ul>
+
+<h2 id="0.6.0">0.6.0</h2>
+
+<ul>
+<li>Adding support for dynamic configuration of SDK (Upgrading sdk-core-php dependency to V1.4.0).</li>
+<li>Deprecating the setCredential method and changing resource class methods to take an ApiContext argument instead of a OauthTokenCredential argument.</li>
+</ul>
+
+<h2 id="0.5.0">0.5.0</h2>
+
+<ul>
+<li>Initial Release.</li>
+</ul>
+
+<div class="citations">
+<hr />
+<ol>
+
+<li id="cn:1">
+<p>983 <a href="#cnref:1" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:2">
+<p>998 <a href="#cnref:2" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:3">
+<p>1019 <a href="#cnref:3" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:4">
+<p>1061 <a href="#cnref:4" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:5">
+<p>1062 <a href="#cnref:5" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:6">
+<p>1034 <a href="#cnref:6" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:7">
+<p>1011 <a href="#cnref:7" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:8">
+<p>1060 <a href="#cnref:8" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:9">
+<p>1095 <a href="#cnref:9" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:10">
+<p>974 <a href="#cnref:10" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:11">
+<p>939 <a href="#cnref:11" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:12">
+<p>872 <a href="#cnref:12" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:13">
+<p>979 <a href="#cnref:13" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:14">
+<p>844 <a href="#cnref:14" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:15">
+<p>841 <a href="#cnref:15" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:16">
+<p>766 <a href="#cnref:16" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:17">
+<p>798 <a href="#cnref:17" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:18">
+<p>845 <a href="#cnref:18" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:19">
+<p>706 <a href="#cnref:19" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:20">
+<p>747 <a href="#cnref:20" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:21">
+<p>747 <a href="#cnref:21" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:22">
+<p>700 <a href="#cnref:22" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:23">
+<p>692 <a href="#cnref:23" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:24">
+<p>682 <a href="#cnref:24" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:25">
+<p>696 <a href="#cnref:25" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:26">
+<p>665 <a href="#cnref:26" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:27">
+<p>653 <a href="#cnref:27" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:28">
+<p>657 <a href="#cnref:28" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:29">
+<p>655 <a href="#cnref:29" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:30">
+<p>654 <a href="#cnref:30" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:31">
+<p>594 <a href="#cnref:31" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:32">
+<p>605 <a href="#cnref:32" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:33">
+<p>607 <a href="#cnref:33" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+<li id="cn:34">
+<p>581 <a href="#cnref:34" title="return to body" class="reversecitation">&#160;&#8617;&#xfe0e;</a></p>
+</li>
+
+</ol>
+</div>
+
+</body>
+</html>
+

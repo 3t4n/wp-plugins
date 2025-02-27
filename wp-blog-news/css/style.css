@@ -1,0 +1,255 @@
+/*====================
+ Base CSS 
+ =====================*/
+
+@import url('https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800');
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 400;
+    color: #373737;
+}
+
+body {
+    font-family: 'Khula', sans-serif;
+    font-size: 16px;
+    color: #999;
+}
+
+a:hover {
+    text-decoration: none
+}
+
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+    padding: 10px 15px;
+    border: 1px solid #EFEFEF;
+}
+
+input[type="submit"],
+button[type="submit"] {
+    padding: 11px 25px;
+    border: none;
+    border-radius: 2px;
+    font-weight: 400;
+}
+
+.boxed-btn,
+input[type='submit'],
+button[type='submit'] {
+    display: inline-block;
+    background: #EF476F;
+    color: #fff;
+    font-size: 16px;
+    padding: 13px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin: 30px 10px;
+}
+
+.boxed-btn:hover,
+.boxed-btn:focus {
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 37px;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+
+/*-----------------------
+* single news post gird showcase
+-----------------------*/
+
+.news-showcase{
+    padding: 100px 0;
+}
+
+.single-news-post {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.single-news-post .post-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+.single-news-post .post-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+.single-news-post .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.6);
+    transition: all 0.30s ease;
+}
+.single-news-post:hover .hover {
+    opacity: 1;
+}
+.single-news-post .post-link {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 45%;
+    text-align: center;
+}
+.single-news-post .post-link li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 20px;
+}
+.single-news-post .post-link li a {
+    color: #fff;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
+.single-news-post .post-link li a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2df116;
+    border-color: #2df116;
+}
+
+.single-news-post .post-date {
+    position: absolute;
+    top: 10%;
+    left: 4%;
+}
+
+.single-news-post .date {
+    display: block;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: #333;
+    width: 100%;
+    padding-top: 7px;
+}
+
+.single-news-post .month {
+    display: block;
+    padding: 5px 13px;
+    color: #111;
+    font-size: 20px;
+    font-weight: bold;
+    background: #2df116;
+    height: 35px;
+}
+
+.single-news-post .post-content {
+    padding: 30px;
+}
+
+.single-news-post .post-title {
+    margin: 0 0 15px 0;
+}
+
+.single-news-post .post-title a {
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+}
+
+.single-news-post .post-title a:hover {
+    text-decoration: none;
+    color: #277b1d;
+}
+
+.single-news-post .post-description {
+    font-size: 16xp;
+    line-height: 26px;
+    color: #505050;
+}
+
+.single-news-post .read-more {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.20s linear;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.single-news-post .read-more:hover {
+    text-decoration: none;
+    color: #277b1d;
+}
+
+.single-news-post .read-more:after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    display: block;
+    border: 1px solid #277b1d;
+    transition: all 0.30s ease;
+}
+
+.single-news-post .read-more:hover:after {
+    width: 100%;
+}
+
+@media only screen and (max-width: 479px) {
+    .single-news-post .month {
+        font-size: 14px;
+    }
+    .single-news-post .date {
+        font-size: 14px;
+    }
+}
