@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "geounit-maps-block/geounit-maps-block",
+  "version": "0.1.0",
+  "title": "GeoUNIT Map",
+  "category": "embed",
+  "description": "Block to display GeoUNIT Map.",
+  "keywords": [
+    "geounit",
+    "map",
+    "maps"
+  ],
+  "attributes": {
+    "lat": {
+      "type": "number",
+      "default": 48.8934784
+    },
+    "lng": {
+      "type": "number",
+      "default": 8.6994072
+    },
+    "zoom": {
+      "type": "number",
+      "default": 15
+    },
+    "height": {
+      "type": "number",
+      "default": 220
+    },
+    "themeid": {
+      "type": "number",
+      "default": 0
+    },
+    "themeurl": {
+      "type": "string",
+      "default": "?rest_route=/geounit-map/v1/{z}/{x}/{y}{r}.png&geounitsrv={s}"
+    },
+    "themeattribution": {
+      "type": "string",
+      "default": "<a target=\"_blank\" href=\"https://wordpress.org/plugins/geounit-maps/\">GeoUNIT</a> | <a target=\"_blank\" href=\"https://www.maptiler.com/copyright/\">&copy; MapTiler</a> | <a target=\"_blank\" href=\"https://www.openstreetmap.org/copyright\">&copy; OpenStreetMap contributors</a>"
+    },
+    "disablescrollzoom": {
+      "type": "boolean",
+      "default": true
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "infocontent": {
+      "type": "string",
+      "default": ""
+    },
+    "infoposition": {
+      "type": "string",
+      "default": "bottomleft"
+    },
+    "iconsize": {
+      "type": "number",
+      "default": "40"
+    },
+    "markercolor": {
+      "type": "string",
+      "default": "#2F6D99"
+    },
+    "disablemarker": {
+      "type": "boolean",
+      "default": false
+    },
+    "disablezoom": {
+      "type": "boolean",
+      "default": false
+    },
+    "styles": {
+      "type": "array",
+      "default": [
+        {
+          "name": "osm-bright-gl-style",
+          "id": 0,
+          "url": "?rest_route=/geounit-map/v1/{z}/{x}/{y}{r}.png&geounitsrv={s}",
+          "attribution": "<a target='_blank' href='https://geounit.de'>GEOunit</a> | <a target='_blank' href='https://www.maptiler.com/copyright/'>&copy; MapTiler</a> | <a target='_blank' href='https://www.openstreetmap.org/copyright'>&copy; OpenStreetMap contributors</a>",
+          "maxZoom": 18,
+          "image": "osm-bright-gl-style.png"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "alignWide": true
+  },
+  "textdomain": "geounit-maps-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "style": "lib-css-geounit-maps-block-lf",
+  "viewScript": "lib-js-geounit-maps-block-lf"
+}
