@@ -1,0 +1,60 @@
+<!-- BEGIN: main -->
+<div class="wrap">
+    <img class="integrationsTitleImage" src="../wp-content/plugins/postaffiliatepro/resources/img/surecart.png" alt="SureCart logo" />
+    <h2>SureCart integration configuration</h2>
+    <br/ >
+    <p><span class="alert">Before this integration can work you need to add papvisitorid custom field to your SureCart checkout forms. <a href="https://www.postaffiliatepro.com/integration-methods/surecart/" target="_blank">Read more here</a>.</p>
+        {form.head}
+        {settings}
+        <table class="form-table">
+          <tr valign="top">
+              <td scope="row" class="heading">Track coupon codes</td>
+              <td>{surecart-coupons-tracking}</td>
+              <td class="greyNote">enable to send the used coupon code to PAP for affiliate recognition.</td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Product info</td>
+              <td>{surecart-product-id}</td>
+              <td class="greyNote">choose which value will be used for product ID tracking</td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Force campaign</td>
+              <td>{surecart-campaign}</td>
+              <td class="greyNote">you can specify a campaign which will be used for all orders instead of automatic campaign recognition (by cookie, product ID, ...)</td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Data 1</td>
+              <td>{surecart-data1}</td>
+              <td class="greyNote"></td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Data 2</td>
+              <td>{surecart-data2}</td>
+              <td class="greyNote"></td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Data 3</td>
+              <td>{surecart-data3}</td>
+              <td class="greyNote"></td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Data 4</td>
+              <td>{surecart-data4}</td>
+              <td class="greyNote"></td>
+          </tr>
+          <tr valign="top">
+              <td scope="row" class="heading">Data 5</td>
+              <td>{surecart-data5}</td>
+              <td class="greyNote"></td>
+          </tr>
+
+          <!-- tr>
+              <td colspan="3" class="formBottomNote"></td>
+          </tr -->
+        </table>
+        <p class="submit">
+            {submit}
+        </p>
+        {form.tail}
+</div>
+<!-- END: main -->
