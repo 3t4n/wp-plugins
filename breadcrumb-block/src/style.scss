@@ -1,0 +1,55 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-boldblocks-breadcrumb-block {
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bb--crumb-gap, .4em);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      .sep  {
+        display: flex;
+        margin-left: var(--bb--crumb-gap, .4em);
+        line-height: 1;
+      }
+
+      // Conflict with bootstrap style
+      &::before {
+        display: none;
+      }
+
+      &.breadcrumb-item {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  .breadcrumb-item-name {
+    word-break: break-word;
+  }
+
+  &.hide-home-page {
+    .breadcrumb-item--home {
+      display: none;
+    }
+  }
+
+  &.hide-current-page {
+    .breadcrumb-item--parent .sep,
+    .breadcrumb-item--current {
+      display: none;
+    }
+  }
+}
