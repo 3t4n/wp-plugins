@@ -1,0 +1,249 @@
+// UIkit Fixes
+@modal-z-index: 999999999999;
+// @button-large-line-height: 1.6em;
+@button-hover-background: darken(@button-background, 10%);
+@button-primary-hover-background: darken(@button-primary-background, 10%);
+@button-success-hover-background: darken(@button-success-background, 10%);
+@button-danger-hover-background: darken(@button-danger-background, 10%);
+
+// Snackbar
+.snackbar-container.snackbar-fullwidth {
+	margin: 0;
+	width: 100.1% !important;
+	border-radius: 0;
+	box-sizing: border-box;
+}
+
+// Modal
+#surbma-gpga-modal {
+
+	section,
+	header,
+	footer {
+		display: block;
+	}
+
+	.uk-modal-header h2 {
+		font-size: 20px;
+		font-weight: normal;
+		margin: 0;
+	}
+
+	.uk-modal-header a:focus {
+		outline: none;
+	}
+
+	.uk-modal-content {
+		font-size: 14px;
+	}
+
+	.uk-modal-header > :last-child,
+	.uk-modal-footer > :last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	.uk-modal-content a {
+		border-bottom: 1px dashed #666;
+	}
+
+	&.surbma-gpga-dark .uk-modal-content a {
+		color: #fff;
+		border-bottom: 1px dashed #fff;
+	}
+
+	.uk-modal-content a:hover {
+		border-bottom: none;
+	}
+
+	.uk-modal-content .cookie-policy {
+		margin-top: 1em;
+	}
+
+	.uk-modal-footer.surbma-gpga-button-left {
+		text-align: left;
+	}
+
+	.uk-modal-footer.surbma-gpga-button-center {
+		text-align: center;
+	}
+
+	.uk-modal-footer.surbma-gpga-button-right {
+		text-align: right;
+	}
+
+	&.surbma-gpga-text-center .uk-modal-dialog {
+		text-align: center;
+	}
+
+	&.surbma-gpga-full-page {
+		background: rgba(256, 256, 256, .95);
+	}
+
+	&.surbma-gpga-full-page.surbma-gpga-dark,
+	&.surbma-gpga-normal.surbma-gpga-dark .uk-modal-dialog {
+		background: rgba(0, 0, 0, .9);
+	}
+
+	&.surbma-gpga-full-page .uk-modal-header,
+	&.surbma-gpga-full-page .uk-modal-dialog,
+	&.surbma-gpga-full-page .uk-modal-footer {
+		background: transparent;
+		box-shadow: none;
+		border: none;
+	}
+
+	&.surbma-gpga-dark .uk-modal-header h2,
+	&.surbma-gpga-dark .uk-modal-dialog {
+		color: #fff;
+	}
+
+	.uk-close {
+		text-decoration: none !important;
+	}
+
+	.uk-close:after {
+		content: "\00d7";
+		font-family: inherit;
+		font-size: 20px;
+	}
+
+	.surbma-gpga-cookie-categories {
+		overflow: hidden;
+		margin: 2em 0;
+		font-size: 12px;
+	}
+
+	.disabled label,
+	.disabled .uk-form-label,
+	.disabled .slider,
+	.disabled input,
+	.disabled textarea,
+	.disabled select {
+		cursor: not-allowed;
+	}
+
+	.switch-wrap {
+		overflow: hidden;
+		line-height: 20px;
+		margin: 0 0 5px;
+		/*float: left;*/
+	}
+
+	.surbma-gpga-cookie-category-description {
+		margin: 0 0 15px 55px;
+	}
+
+	/* The switch - the box around the slider */
+
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 35px;
+		height: 20px;
+		float: left;
+		margin: 0 5px 0 15px;
+	}
+
+	/* Hide default HTML checkbox */
+
+	.switch input {
+		display: none;
+	}
+
+	/* The slider */
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 12px;
+		width: 12px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	input:checked+.slider {
+		background-color: #1e87f0;
+	}
+
+	.disabled input+.slider {
+		background-color: #eee;
+	}
+
+	.disabled input:checked+.slider {
+		background-color: #adcdee;
+	}
+
+	input:focus+.slider {
+		box-shadow: 0 0 1px #1e87f0;
+	}
+
+	input:checked+.slider:before {
+		-webkit-transform: translateX(15px);
+		-ms-transform: translateX(15px);
+		transform: translateX(15px);
+	}
+
+	/* Rounded sliders */
+
+	.slider.round {
+		border-radius: 10px;
+	}
+
+	.slider.round:before {
+		border-radius: 50%;
+	}
+
+	.uk-overflow-container {
+		padding-right: 1em;
+	}
+
+}
+
+.surbma-gpga-cookie-popup-link {
+	cursor: pointer;
+}
+
+.surbma-gpga-cookie-list {
+	word-break: break-word;
+	font-size: smaller;
+	margin: 1em 0;
+}
+
+.surbma-gpga-cookie-list dl {
+	margin: 0 0 .5em;
+	overflow: hidden;
+}
+
+.surbma-gpga-cookie-list > dl:nth-child(n+2) {
+	margin-top: .5em;
+	padding-top: .5em;
+	border-top: 1px solid #e5e5e5;
+}
+
+.surbma-gpga-cookie-list dt {
+	font-weight: bold;
+	width: 120px;
+	float: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.surbma-gpga-cookie-list dd {
+	margin: 0 0 0 130px;
+}
