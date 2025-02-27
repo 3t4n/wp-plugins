@@ -1,0 +1,14 @@
+[data-accordion] [data-content] {overflow: hidden; max-height: 0;}
+[data-accordion] {line-height: auto;}
+[data-control],
+[data-content] > * {padding: 5px;}
+[data-content] [data-accordion] {border: 0; padding: 0;}
+[data-accordion] [data-control] {position: relative;}
+[data-accordion] > [data-control]:after {content: ""; position: absolute; right: 10px; top: 0; bottom: 0; color: #444; width: 24px; background: url('../images/down.png') center center no-repeat; background-size: 50%;}
+[data-accordion].open > [data-control]:after {-webkit-transform: rotate(-180deg); -ms-transform: rotate(-180deg); transform: rotate(-180deg);}
+
+.faq-title{cursor:pointer; padding:15px 30px 15px 15px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+.faq-title h4{margin:0px !important; font-size:20px !important; line-height:22px !important; padding: 0 !important;}
+.faq-accordion .faq-main{border:1px solid #d9d9d9; margin-bottom:15px; background:#f4f4f4; -webkit-transition: all 0.5s ease 0s; transition: all 0.5s ease 0s;}
+.faq-accordion .faq-main.open{background:#fff;}
+.faq-accordion .faq-main.open h4{color:#333}
