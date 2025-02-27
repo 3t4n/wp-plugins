@@ -1,0 +1,138 @@
+/*----------------------------------------*/
+/*  Generic Elements Testimonial CSS
+/*----------------------------------------*/
+.bdevs-generic-el {
+    .bd-testimonial-item {
+        .bd-testimonial-icon {
+            i {
+                font-size: 50px;
+                line-height: 1;
+                display: inline-block;
+                color: var(--clr-gen-theme-1);
+            }
+        }
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            font-style: italic;
+            @media #{$xs} {
+                font-size: 18px;
+            }
+        }
+        .bd-testimonial-title {
+            font-size: 36px;
+            line-height: 1.12;
+            font-weight: 600;
+            @media #{$md,$xs} {
+                font-size: 28px;
+            }
+        }
+        span {
+            font-size: 16px;
+            display: block;
+        }
+    }
+    .testimonial-nav {
+        width: 320px;
+        margin: 0 auto;
+        @media #{$xxs} {
+            width: 300px;
+        }
+        .swiper-slide {
+            width: 90px;
+            text-align: center;
+            .bd-testimonial-img {
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 6px solid var(--clr-gen-common-white);
+                display: inline-block;
+                img {
+                    cursor: pointer;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+            &.swiper-slide-active {
+                margin-right: 28px !important;
+                margin-left: -3px !important;
+                .bd-testimonial-img {
+                    height: 105px;
+                    width: 105px;
+                    border: 8px solid var(--clr-gen-common-white);
+                }
+            }
+            &.swiper-slide-prev,
+            &.swiper-slide-next {
+                .bd-testimonial-img {
+                    margin-top: 13px;
+                }
+            }
+        }
+    }
+
+    // Testimonial Navigation
+    .generic-testimonial-nav {
+        background: transparent;
+        border: 1px solid #ddd;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        position: absolute;
+        content: "";
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+    }
+    .generic-testimonial-nav:hover {
+        background-color: #EF0454;
+        color: #fff;
+        border-color: #EF0454;
+    }
+    .generic-testimonial-nav.slider-button-prev {
+        left: 5%;
+        right: auto;
+    }
+    .generic-testimonial-nav.slider-button-next {
+        right: 5%;
+        left: auto;
+    }
+
+    // Testimonial Dots Style
+    .generic-el-testimonial-slider-paginations {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        bottom: 0;
+        z-index: 1;
+    }
+    .generic-el-testimonial-slider-paginations span {
+        margin: 0 10px;
+    }
+    .generic-el-testimonial-dots-wrap {
+        margin-top: 30px;
+    }
+    .generic-el-testimonial-dots-wrap .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background: #EF0454;
+    }
+    .generic-el-testimonial-dots-wrap .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+        background-color: #ddd;
+    }
+    .generic-slider-nav {
+        @media #{$xs, $md}{
+            display: none;
+        }
+    }
+}

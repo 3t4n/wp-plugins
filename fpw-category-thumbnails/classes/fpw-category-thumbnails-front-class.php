@@ -1,0 +1,171 @@
+<?php
+//	prevent direct access
+if ( ! defined( 'ABSPATH' ) )  
+	die( 'Direct access to this script is not allowed!' );
+
+//	front end class
+class fpwCategoryThumbnails {
+	public	$fctOptions;
+	public	$fctPath;
+	public	$fctUrl;
+	public	$fctVersion;
+	public	$fctPage;
+	public	$wpVersion;
+
+	//	constructor
+	public	function __construct( $path, $version, $hideThePostThumbnail ) {
+		global $wp_version;
+
+		//	set plugin's path
+		$this->fctPath = $path;
+
+		//	set plugin's url
+		$this->fctUrl = WP_PLUGIN_URL . '/fpw-category-thumbnails';
+
+		//	set version
+		$this->fctVersion = $version;
+
+		//	set WP version
+		$this->wpVersion = $wp_version;
+
+		//	read plugin's options
+		$this->fctOptions = $this->getOptions();
+
+		//	hook main action
+		add_action( 'save_post', array( $this, 'addThumbnailToPost' ), 10, 2 );
+		
+		//	hook hide thumbnails action if required
+		if ( $hideThePostThumbnail )
+			add_action( 'after_setup_theme', array( $this, 'fpwModifyPostThumbnailHTML' ) ); 
+	}
+	
+	/*	-------------------------------------------------------------------
+	Hide thumbnails action - hides current themes the_post_thumbnail output
+	-------------------------------------------------------------------- */
+	function fpwModifyPostThumbnailHTML() {
+		add_filter( 'post_thumbnail_html', array( $this, 'fpw_post_thumbnail_html' ), 99, 5 );
+	}
+
+    function fpw_post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+		$count = 1;
+		if ( !substr_count( $html, 'style="display:none"' ) ) 
+			$html = str_replace( ' ', ' style="display:none" ', $html, $count );
+    	return $html;
+	}
+	
+	/*	------------------------------------------------------------------
+	Main action - sets the value of post's _thumbnail_id based on category
+	assignments
+	------------------------------------------------------------------- */
+	function addThumbnailToPost( $post_id, $post = NULL ) {
+		if ( NULL === $post ) 
+			return;
+
+		//	we don't want to apply changes to post's revision or drafts
+		if ( ( 'revision' == $post->post_type ) || ( 'draft' == $post->post_status ) || ( 'auto-draft' == $post->post_status ) ) 
+			return;
+
+		//	this is actual post
+		$thumb_id = get_post_meta( $post_id, '_thumbnail_id', TRUE );
+		$map = get_option( 'fpw_category_thumb_map' );
+		if ( $map ) {
+			$cat = get_the_category( $post_id );
+
+			foreach ( $cat as $c ) {
+				if ( array_key_exists( $c->cat_ID, $map ) ) 
+					if ( !$this->fctOptions[ 'donotover' ] ) {
+						if ( $map[ $c->cat_ID ] === 'Author' ) {
+							$auth_pic_id = self::getAuthorsPictureID( $post->post_author );
+							if ( '0' != $auth_pic_id )
+								 update_post_meta( $post_id, '_thumbnail_id', $auth_pic_id );
+						} else {
+							update_post_meta( $post_id, '_thumbnail_id', $map[ $c->cat_ID ] );
+						}
+					} else {
+						if ( '' == $thumb_id )
+							if ( $map[ $c->cat_ID ] === 'Author' ) {
+								 $auth_pic_id = self::getAuthorsPictureID( $post->post_author );
+								 if ( '0' != $auth_pic_id )
+								 	update_post_meta( $post_id, '_thumbnail_id', $auth_pic_id );
+							} else {
+								update_post_meta( $post_id, '_thumbnail_id', $map[ $c->cat_ID ] );
+							}
+						}
+  			}
+
+		}
+	}
+
+	//	get author's picture id - helper function
+	private static function getAuthorsPictureID( $author_id ) {
+		global $wpdb;
+
+		$pic_id = 0;
+		$all_media = $wpdb->get_results( "SELECT DISTINCT * FROM " . $wpdb->prefix . "posts " .
+			"WHERE post_type = 'attachment' AND guid LIKE '%author_" . $author_id . ".jpg%' ORDER " .
+			"BY post_date DESC" );
+		if ( 0 < count( $all_media ) ) {
+			$obj = $all_media[0];
+			$pic_id	= $obj->ID;
+		} else {
+			$active_plugins = get_option( 'active_plugins' );
+			$length = count( $active_plugins );
+			$nextGenActive = FALSE;
+			$i = 0;
+
+			while ( $i < $length ) {
+				if ( 0 < strpos( $active_plugins[ $i ], 'nggallery.php' ) ) {
+					$nextGenActive = TRUE;
+					$i = $length;
+				}
+				$i++;
+			}
+
+			if ( $nextGenActive ) {
+				$tmp = $wpdb->get_results( "SELECT DISTINCT * FROM " . $wpdb->prefix . "ngg_gallery WHERE slug = 'authors'" );
+				if ( 0 < count( $tmp ) ) {
+					$obj = $tmp[0];
+					$galleryID = $obj->gid;
+					$tmp = $wpdb->get_results( "SELECT DISTINCT * FROM " . $wpdb->prefix . "ngg_pictures " .
+						"WHERE galleryid = " . $galleryID . " AND filename LIKE '%" . $author_id . ".jpg%'" );
+					if ( 0 < count( $tmp ) ) {
+						$obj = $tmp[0];
+						$pic_id = 'ngg-' . $obj->pid;
+					}
+				}
+			}
+		}	
+		return $pic_id;
+	}	
+
+	//	get plugin's options ( build if not exists )
+	function getOptions() {
+	
+		$needs_update = FALSE;
+		$opt = get_option( 'fpw_category_thumb_opt' );
+	
+		if ( !is_array( $opt ) ) {
+			$needs_update = TRUE;
+			$opt = array( 
+				'clean'		=> FALSE,
+				'donotover' => FALSE,
+				'fpt'		=> FALSE );
+		} else {
+			if ( !array_key_exists( 'clean', $opt ) || !is_bool( $opt[ 'clean' ] ) ) { 
+				$needs_update = TRUE;
+				$opt[ 'clean' ] = FALSE;
+			}
+			if ( !array_key_exists( 'donotover', $opt ) || !is_bool( $opt[ 'donotover' ] ) ) { 
+				$needs_update = TRUE;
+				$opt[ 'donotover' ] = FALSE;
+			}
+			if ( !array_key_exists( 'fpt', $opt ) || !is_bool( $opt[ 'fpt' ] ) ) { 
+				$needs_update = TRUE;
+				$opt[ 'fpt' ] = FALSE;
+			}
+			if ( $needs_update ) 
+				update_option( 'fpw_category_thumb_opt', $opt );
+		}
+		return $opt;
+	}
+}
