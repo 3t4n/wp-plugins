@@ -1,0 +1,221 @@
+.extended-simple-history-beaver-builder-diff {
+	margin: 1em 0;
+
+	.extended-simple-history-beaver-builder-diff-label {
+		font-size: 1.2em;
+		font-weight: 700;
+	}
+
+	.extended-simple-history-beaver-builder-diff-section-label {
+		font-size: 1.1em;
+		font-weight: 700;
+		margin: 0.5em 0 0;
+	}
+
+	.extended-simple-history-beaver-builder-diff-label-setting {
+		font-size: 1em;
+		margin: 0.5em 0 0;
+		font-weight: 700;
+	}
+
+	.node-position-graphic {
+
+		&.node-page {
+			margin: 0;
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+			min-height: 100px;
+
+			&,
+			div {
+				border: #ccc 1px solid;
+				padding: 1%;
+				margin: 1%;
+				border-radius: 4px;
+				flex: auto;
+				display: flex;
+				background: rgba(0, 0, 0, 0.1);
+			}
+
+			.level-0 {
+				background: #0073aa;
+				padding: 5%;
+
+				&.type-sibling {
+					background: rgba(0, 0, 0, 0.1);
+					padding: 2%;
+				}
+			}
+		}
+
+		&.node-page,
+		.type-column {
+			flex-direction: column;
+		}
+
+		.type-column-group,
+		.type-row {
+			flex-direction: row;
+		}
+	}
+
+	.SimpleHistory__diff { /* stylelint-disable-line selector-class-pattern -- Classname from Simple History. */
+
+		.diff-addedline,
+		.diff-deletedline,
+		.diff-context {
+
+			&,
+			&:first-child {
+				padding-left: 2em;
+			}
+
+			.dashicons {
+				top: 0.4em;
+			}
+		}
+	}
+
+	&.diff-type-delete {
+
+		.node-position-graphic {
+
+			&.node-page {
+
+				.level-0 {
+					background: #ca4a1f;
+					padding: 2.5%;
+
+					&.type-sibling {
+						background: rgba(0, 0, 0, 0.1);
+						padding: 5%;
+					}
+				}
+
+				.level-1 {
+
+					&.child-count-1 {
+
+						flex-grow: 0.25;
+
+						.level-0 {
+							padding: 10%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.node-moved-diff {
+		width: 100%;
+
+		tr {
+			display: flex;
+		}
+
+		td {
+			width: 50%;
+		}
+
+		.node-position-graphic {
+
+			&.node-page {
+
+				/* stylelint-disable no-descending-specificity */
+				// Does not conflict with diff-type-delete block.
+				.level-0 {
+
+					&,
+					&.type-sibling {
+						padding: 5%;
+					}
+				}
+				/* stylelint-enable no-descending-specificity */
+			}
+		}
+
+		.node-position-old {
+
+			.node-position-graphic {
+
+				&.node-page {
+
+					/* stylelint-disable no-descending-specificity */
+					// Does not conflict with diff-type-delete block.
+					.level-0 {
+
+						background: #ca4a1f;
+
+						&.type-sibling {
+							background: rgba(0, 0, 0, 0.1);
+						}
+					}
+					/* stylelint-enable no-descending-specificity */
+				}
+			}
+		}
+	}
+}
+
+.extended-simple-history-beaver-builder-graphic-diff {
+	display: flex;
+
+	.extended-simple-history-beaver-builder-graphic-diff-old,
+	.extended-simple-history-beaver-builder-graphic-diff-new {
+		display: flex;
+		width: 100%;
+		height: 50px;
+		margin: 0.25rem;
+		background: #fff;
+	}
+
+	.extended-simple-history-beaver-builder-graphic-diff-inner {
+		position: relative;
+		width: 100%;
+	}
+
+	.extended-simple-history-beaver-builder-graphic-diff-inner-overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+
+button.extended-simple-history-beaver-builder-diff-label {
+	display: block;
+	position: relative;
+	padding: 0;
+	border: none;
+	background: none;
+
+	&::before {
+		content: "+";
+		position: absolute;
+		left: -0.85em;
+		font-size: 1.25em;
+		line-height: 0.85;
+	}
+
+	&.active {
+
+		&::before {
+			content: "-";
+		}
+	}
+}
+
+.extended-simple-history-beaver-builder-diff-container {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	button.extended-simple-history-beaver-builder-diff-label {
+		margin-left: 1.5em;
+	}
+}
