@@ -1,0 +1,67 @@
+.gpsr-field {
+    display: flex;
+    align-items: center;
+}
+
+.gpsr-field .form-field {
+    flex: 1;
+}
+
+.woocommerce_options_panel .gpsr-field,  label{
+    margin-right: 10px;
+}
+
+label.gpsr-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px !important;
+    height: 24px;
+}
+
+.gpsr-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.gpsr-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.gpsr-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: .4s;
+}
+
+input:checked + .gpsr-slider {
+    background-color: #2271b1;
+}
+
+input:focus + .gpsr-slider {
+    box-shadow: 0 0 1px #2271b1;
+}
+
+input:checked + .gpsr-slider:before {
+    transform: translateX(16px);
+}
+
+.gpsr-round {
+    border-radius: 24px;
+}
+
+.gpsr-round:before {
+    border-radius: 50%;
+}

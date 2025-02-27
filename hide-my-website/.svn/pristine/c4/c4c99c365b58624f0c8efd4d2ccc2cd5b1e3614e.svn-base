@@ -1,0 +1,44 @@
+
+/*hmw style sheet for admin */
+
+.wrap.hmw-div td p {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+
+#faq-accordion .faq-answer {
+
+    max-height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, box-shadow 0.3s ease;
+    padding: 5px 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow by default */
+}
+
+#faq-accordion .faq-answer.expanded {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow when expanded */
+}
+
+#faq-accordion .faq-question.active {
+    background: #e0e0e0;
+}
+#faq-accordion .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 10px;
+  
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+
