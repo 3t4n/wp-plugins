@@ -1,0 +1,1 @@
+<?php // Silence is like the cold of the river.
