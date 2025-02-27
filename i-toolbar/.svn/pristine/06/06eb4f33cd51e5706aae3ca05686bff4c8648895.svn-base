@@ -1,0 +1,63 @@
+/* Toolbar */
+
+.block-editor-block-toolbar .i-toolbar {
+	position: relative;
+	color: transparent;
+	overflow: hidden;
+}
+.block-editor-block-toolbar .i-toolbar:hover::before {
+	background-color: var(
+		--wp-components-color-accent,
+		var(--wp-admin-theme-color, #3858e9)
+	);
+}
+
+.block-editor-block-toolbar .i-toolbar::before {
+	content: "<i>";
+	background-color: var(--wp-components-color-foreground, #1e1e1e);
+	color: #fff;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+}
+
+#i-toolbar-search {
+	background-color: #fff;
+	width: 100%;
+	min-width: 190px;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	display: inline-flex;
+	align-items: center;
+	padding: 7px 10px;
+	border-bottom: 1px solid;
+}
+#i-toolbar-search input {
+	margin: 0 10px;
+	width: 100%;
+}
+
+#i-toolbar-menu button {
+	text-align: left;
+	padding: 0 6px;
+	margin: 6px 0;
+}
+#i-toolbar-menu button i {
+	font-size: 22px;
+	margin-right: 12px;
+	transition: font-size 0.12s;
+}
+#i-toolbar-menu:hover button {
+	opacity: 0.66;
+}
+#i-toolbar-menu button:hover {
+	opacity: 1;
+	color: transparent;
+}
+#i-toolbar-menu button:hover i {
+	color: initial;
+	font-size: 36px;
+}
