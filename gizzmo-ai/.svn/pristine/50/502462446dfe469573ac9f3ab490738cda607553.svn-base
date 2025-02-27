@@ -1,0 +1,3 @@
+function callSaveDealPost() {
+    alert('callSaveDealPost');
+} 
