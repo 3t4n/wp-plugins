@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+	:root{
+		--wbox-main-radius: 20px;
+
+        --wpbox-starting-amount: rgb(47, 126, 216);
+        --wpbox-interest-earned:orange;
+        --wpbox-contribution: rgb(139, 188, 33);
+
+	}
+	.wpbox-sic-main{
+    margin: auto;   
+    width: 98%;
+    min-width: 500px;
+        max-width: 1200px;
+    min-height: 400px;
+    background-color: white;
+    font-family: Karla;
+
+	}
+
+    .wpbox-sic-card{
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.05);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 12px;
+    border-radius: 20px;
+    }
+
+/*====================================*/
+
+	input.wpbox-fieldset-input[type=text],select.wpbox-fieldset-input{
+		border: 0;
+		width: 100%;
+		background-color: transparent;
+		text-align: left;
+		padding: 20px 0px 0 33px;
+		color: #778187;
+		outline: none;
+
+		font-size: 18px;
+		font-family:Karla ;
+	}
+
+	input.wpbox-fieldset-input[type=text]::placeholder{
+             font-family: Karla;
+             letter-spacing: 0px;
+             color: #778187;
+
+	}
+
+.wpbox-input-container {
+    border: 0.125rem solid orange;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    padding: 4px 0;
+    margin: 30px 0;
+}    
+
+.wpbox-input-label {
+    display: block;
+    position: absolute;
+    background-color: white;
+    margin-top: -16px;
+    margin-left: 15px;
+    padding: 0 16px;
+    font-family: Karla;
+    color: #778187;
+    font-size: 14px;
+}
+
+.wpbox-flexer-1{display: flex;}
+.wpbox-flexer-1 > div:nth-child(1){width: 40%;border: 0px solid red;}
+.wpbox-flexer-1 > div:nth-child(2){width: 60%;border: 0px solid black;}
+
+.wpbox-colchart-main-container{margin: auto;width: 95%;}
+    .wpbox-summ-div{
+      margin: auto;
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .wpbox-summ-tb{border-collapse: separate;font-size: 14px;}
+    .wpbox-summ-tb tr td{border: 0}
+    .wpbox-summ-tb thead{background-color: whitesmoke;}
+    .wpbox-summ-tb tbody tr:nth-child(even){background-color: #efa41c21;}
+
+
+.wpbox-spacer{
+    background-color:var(--wpbox-interest-earned);
+    border: 1px solid var(--wpbox-interest-earned);
+    color: var(--wpbox-interest-earned);
+}
+
+#WPBOX_INV_WORHT{color: var(--wpbox-interest-earned);font-weight: bold;}
+
+    .wpbox-inv-calc {
+    text-align: center;
+    padding: 20px 6px;
+    border: 0px solid var(--wpbox-interest-earned);
+    border-radius: 4px;
+    max-width: 500px;
+    margin: auto;
+    font-size: bold;
+}
+
+.wpbox-btn-container{border: 0}
+
+button.wpbox-btn, button.wpbox-btn:not(:hover):not(:active):not(.has-background) {
+    font-family: Century Gothic;
+    background-color: #efa41c;
+    border: 0px solid black;
+    /* border-radius: 10px; */
+    color: white;
+    padding: 8px 8px;
+    font-size: 14px;
+    width: 200px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+/* Darker background on mouse-over */
+button.wpbox-btn:hover,.wpbox-btn:focus {
+  background-color: white;
+  color:  #efa41c;
+  border:1px solid  #efa41c;
+  transition: 0.2s;
+  outline: none;
+}
+
+@media screen and (max-width: 600px) {
+.wpbox-flexer-1{flex-direction: column;}
+.wpbox-flexer-1 > div:nth-child(1){width: 100%;}
+.wpbox-flexer-1 > div:nth-child(2){width: 100%;}
+
+.wpbox-sic-main{min-width: 98%;}
+
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+.first-col-sticky_app{overflow-x: auto;}
+
+       .first-col-sticky_app thead td:first-child {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 2; 
+  background-color: white;
+ 
+}
+
+.first-col-sticky_app tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1; 
+  background-color: white;
+  color: black;
+}
+
+}

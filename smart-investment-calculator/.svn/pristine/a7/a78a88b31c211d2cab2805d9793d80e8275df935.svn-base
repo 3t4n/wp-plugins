@@ -1,0 +1,3 @@
+var host_url = btoa(window.location.href);
+var embed = '<style>iframe{width: 100%;min-width: 601px;border:none;}@media only screen and (max-width: 600px) {iframe { display: block; width:100%;min-width:280px; }</style><center><iframe id="myIframe" src="https://wppluginbox.com/API-X/packages/index.php?key='+host_url+'" scrolling="no" border="no" onload="iFrameResize()"></iframe></center>';
+document.getElementById('WPBOX-PACKAGES').innerHTML = embed;
