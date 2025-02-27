@@ -1,0 +1,3 @@
+<?php
+
+// Slilence is golden
