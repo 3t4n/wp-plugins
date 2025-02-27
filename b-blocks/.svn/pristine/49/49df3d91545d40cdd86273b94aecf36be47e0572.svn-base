@@ -1,0 +1,90 @@
+{
+  "apiVersion": 2,
+  "name": "b-blocks/row",
+  "title": "Row",
+  "description": "Implement row and column layout.",
+  "category": "bBlocks",
+  "keywords": [
+    "row",
+    "columns",
+    "multi columns"
+  ],
+  "textdomain": "b-blocks",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "number"
+    },
+    "columnGap": {
+      "type": "string",
+      "default": "0px"
+    },
+    "heightType": {
+      "type": "string",
+      "default": "auto"
+    },
+    "height": {
+      "type": "string",
+      "default": "0px"
+    },
+    "columnPositionY": {
+      "type": "string",
+      "default": "center"
+    },
+    "columnPositionX": {
+      "type": "string",
+      "default": "center"
+    },
+    "overflow": {
+      "type": "string",
+      "default": "hidden"
+    },
+    "background": {
+      "type": "object",
+      "default": {
+        "color": "#0000"
+      }
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "vertical": "50px",
+        "horizontal": "0px"
+      }
+    },
+    "border": {
+      "type": "object",
+      "default": {}
+    },
+    "shadow": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "providesContext": {
+    "b-blocks/rowColumns": "columns",
+    "b-blocks/rowColumnGap": "columnGap"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "interactivity": {
+      "clientNavigation": true
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "editorScript": "file:../index.js",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

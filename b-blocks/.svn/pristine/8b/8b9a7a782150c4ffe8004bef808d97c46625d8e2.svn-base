@@ -1,0 +1,142 @@
+{
+  "apiVersion": 2,
+  "name": "b-blocks/container",
+  "title": "Container",
+  "description": "A versatile block for grouping and styling multiple blocks.",
+  "category": "bBlocks",
+  "keywords": [
+    "container",
+    "wrapper",
+    "gutenberg-wrapper",
+    "container-block"
+  ],
+  "textdomain": "b-blocks",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "layout": {
+      "type": "object",
+      "default": {
+        "type": "constrained"
+      }
+    },
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "minHeight": ""
+      }
+    },
+    "content": {
+      "type": "object",
+      "default": {
+        "isFullWidth": true,
+        "width": {
+          "desktop": "100%",
+          "tablet": "",
+          "mobile": ""
+        },
+        "height": "initial",
+        "verticalAlign": "center",
+        "horizontalAlign": "center"
+      }
+    },
+    "shape": {
+      "type": "object",
+      "default": {
+        "top": {
+          "isUpload": false,
+          "uploadSvg": {
+            "url": ""
+          },
+          "type": "none",
+          "color": "#000",
+          "isFlip": false,
+          "isFront": false,
+          "width": {
+            "desktop": "100%",
+            "tablet": "",
+            "mobile": ""
+          },
+          "height": {
+            "desktop": "",
+            "tablet": "",
+            "mobile": ""
+          }
+        },
+        "bottom": {
+          "isUpload": false,
+          "uploadSvg": {
+            "url": ""
+          },
+          "type": "none",
+          "color": "#000",
+          "isFlip": false,
+          "isFront": false,
+          "width": {
+            "desktop": "100%",
+            "tablet": "",
+            "mobile": ""
+          },
+          "height": {
+            "desktop": "",
+            "tablet": "",
+            "mobile": ""
+          }
+        }
+      }
+    },
+    "advanced": {
+      "type": "object",
+      "default": {
+        "dimension": {
+          "padding": {
+            "desktop": {
+              "top": "10px",
+              "right": "10px",
+              "bottom": "10px",
+              "left": "10px"
+            }
+          }
+        },
+        "borderShadow": {
+          "normal": {
+            "border": {
+              "width": "",
+              "style": "",
+              "color": ""
+            },
+            "radius": {
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": ""
+            },
+            "shadow": []
+          }
+        }
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "layout": {
+      "allowSizingOnChildren": true
+    }
+  },
+  "editorScript": "file:../index.js",
+  "style": [
+    "file:./view.css",
+    "aos"
+  ],
+  "render": "file:./render.php",
+  "viewScript": [
+    "file:./view.js",
+    "aos"
+  ]
+}
