@@ -1,0 +1,82 @@
+<?php
+
+declare (strict_types=1);
+namespace Paysera\Scoped\Paysera\CheckoutSdk\Provider\WebToPay;
+
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Collection\PaymentMethodCountryCollection;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\PaymentMethodCountry;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Request\PaymentMethodsRequest;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Request\PaymentRedirectRequest;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Request\PaymentCallbackValidationRequest;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\PaymentCallbackValidationResponse;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\PaymentRedirectResponse;
+use Paysera\Scoped\Paysera\CheckoutSdk\Exception\InvalidTypeException;
+use Paysera\Scoped\Paysera\CheckoutSdk\Exception\ProviderException;
+use Paysera\Scoped\Paysera\CheckoutSdk\Provider\ProviderInterface;
+use Paysera\Scoped\Paysera\CheckoutSdk\Provider\WebToPay\Adapter\PaymentCallbackValidationRequestNormalizer;
+use Paysera\Scoped\Paysera\CheckoutSdk\Provider\WebToPay\Adapter\PaymentMethodCountryAdapter;
+use Paysera\Scoped\Paysera\CheckoutSdk\Provider\WebToPay\Adapter\PaymentRedirectRequestNormalizer;
+use Paysera\Scoped\Paysera\CheckoutSdk\Provider\WebToPay\Adapter\PaymentValidationResponseNormalizer;
+use Paysera\Scoped\WebToPay;
+use Paysera\Scoped\WebToPay_Factory;
+use Paysera\Scoped\WebToPayException;
+class WebToPayProvider implements ProviderInterface
+{
+    protected PaymentMethodCountryAdapter $paymentMethodCountryAdapter;
+    protected PaymentValidationResponseNormalizer $paymentValidationResponseNormalizer;
+    protected PaymentRedirectRequestNormalizer $paymentRedirectRequestNormalizer;
+    protected PaymentCallbackValidationRequestNormalizer $callbackValidationRequestNormalizer;
+    public function __construct(PaymentMethodCountryAdapter $paymentMethodCountryAdapter, PaymentValidationResponseNormalizer $paymentValidationResponseNormalizer, PaymentRedirectRequestNormalizer $paymentRedirectRequestNormalizer, PaymentCallbackValidationRequestNormalizer $callbackValidationRequestNormalizer)
+    {
+        $this->paymentMethodCountryAdapter = $paymentMethodCountryAdapter;
+        $this->paymentValidationResponseNormalizer = $paymentValidationResponseNormalizer;
+        $this->paymentRedirectRequestNormalizer = $paymentRedirectRequestNormalizer;
+        $this->callbackValidationRequestNormalizer = $callbackValidationRequestNormalizer;
+    }
+    /**
+     * @param PaymentMethodsRequest $request
+     * @return PaymentMethodCountryCollection<PaymentMethodCountry>
+     * @throws ProviderException|InvalidTypeException
+     */
+    public function getPaymentMethods(PaymentMethodsRequest $request) : PaymentMethodCountryCollection
+    {
+        $countryCollection = new PaymentMethodCountryCollection();
+        try {
+            $countries = WebToPay::getPaymentMethodList($request->getProjectId(), $request->getAmount(), $request->getCurrency())->getCountries();
+            \ksort($countries);
+        } catch (WebToPayException $exception) {
+            throw new ProviderException($exception);
+        }
+        foreach ($countries as $country) {
+            $adaptedPaymentMethodCountry = $this->paymentMethodCountryAdapter->convert($country);
+            $countryCollection->append($adaptedPaymentMethodCountry);
+        }
+        return $countryCollection;
+    }
+    /**
+     * @throws ProviderException
+     */
+    public function getPaymentRedirect(PaymentRedirectRequest $request) : PaymentRedirectResponse
+    {
+        $paymentData = $this->paymentRedirectRequestNormalizer->normalize($request);
+        try {
+            $factory = new WebToPay_Factory(['projectId' => $request->getProjectId(), 'password' => $request->getProjectPassword()]);
+            $builder = $factory->getRequestBuilder();
+            $redirectRequest = $builder->buildRequest($paymentData);
+            $redirectUrl = $factory->getUrlBuilder()->buildForRequest($redirectRequest);
+            return new PaymentRedirectResponse($redirectUrl, $redirectRequest['data']);
+        } catch (WebToPayException $exception) {
+            throw new ProviderException($exception);
+        }
+    }
+    public function getPaymentCallbackValidatedData(PaymentCallbackValidationRequest $request) : PaymentCallbackValidationResponse
+    {
+        $validatePaymentData = $this->callbackValidationRequestNormalizer->normalize($request);
+        try {
+            $response = WebToPay::validateAndParseData($validatePaymentData, $request->getProjectId(), $request->getProjectPassword());
+            return $this->paymentValidationResponseNormalizer->denormalize($response);
+        } catch (WebToPayException $exception) {
+            throw new ProviderException($exception);
+        }
+    }
+}

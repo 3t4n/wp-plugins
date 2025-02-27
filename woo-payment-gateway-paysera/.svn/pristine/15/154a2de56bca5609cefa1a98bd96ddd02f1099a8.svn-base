@@ -1,0 +1,22 @@
+<?php
+
+declare (strict_types=1);
+namespace Paysera\Scoped\Paysera\CheckoutSdk;
+
+use Paysera\Scoped\Paysera\CheckoutSdk\Provider\WebToPay\WebToPayProvider;
+use Paysera\Scoped\Paysera\CheckoutSdk\Util\Container;
+use Paysera\Scoped\Paysera\CheckoutSdk\Validator\RequestValidator;
+use Paysera\Scoped\Psr\Container\ContainerExceptionInterface;
+use Paysera\Scoped\Psr\Container\NotFoundExceptionInterface;
+class CheckoutFacadeFactory
+{
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function create() : CheckoutFacade
+    {
+        $container = new Container();
+        return new CheckoutFacade($container->get(WebToPayProvider::class), $container->get(RequestValidator::class));
+    }
+}

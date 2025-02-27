@@ -1,0 +1,11 @@
+<?php
+
+declare (strict_types=1);
+namespace Paysera\Scoped\Paysera\CheckoutSdk\Service;
+
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Collection\TranslationCollection;
+interface TranslatableTitleInterface
+{
+    public function getTitleTranslations() : TranslationCollection;
+    public function getFallbackTitle() : string;
+}

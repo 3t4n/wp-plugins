@@ -1,0 +1,22 @@
+<?php
+
+declare (strict_types=1);
+namespace Paysera\Scoped\Paysera\CheckoutSdk\Provider;
+
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Collection\PaymentMethodCountryCollection;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\PaymentMethodCountry;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Request\PaymentMethodsRequest;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Request\PaymentRedirectRequest;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\Request\PaymentCallbackValidationRequest;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\PaymentCallbackValidationResponse;
+use Paysera\Scoped\Paysera\CheckoutSdk\Entity\PaymentRedirectResponse;
+interface ProviderInterface
+{
+    /**
+     * @param PaymentMethodsRequest $request
+     * @return PaymentMethodCountryCollection<PaymentMethodCountry>
+     */
+    public function getPaymentMethods(PaymentMethodsRequest $request) : PaymentMethodCountryCollection;
+    public function getPaymentRedirect(PaymentRedirectRequest $request) : PaymentRedirectResponse;
+    public function getPaymentCallbackValidatedData(PaymentCallbackValidationRequest $request) : PaymentCallbackValidationResponse;
+}

@@ -1,0 +1,27 @@
+<?php
+
+declare (strict_types=1);
+namespace Paysera\Scoped\Paysera\DeliverySdk;
+
+use Paysera\Scoped\Paysera\DeliverySdk\Service\DeliveryOrderCallbackService;
+use Paysera\Scoped\Paysera\DeliverySdk\Service\DeliveryOrderService;
+use Paysera\Scoped\Psr\Container\ContainerExceptionInterface;
+use Paysera\Scoped\Psr\Container\ContainerInterface;
+use Paysera\Scoped\Psr\Container\NotFoundExceptionInterface;
+class DeliveryFacadeFactory
+{
+    private ContainerInterface $container;
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+    /**
+     * @return DeliveryFacade
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function create() : DeliveryFacade
+    {
+        return new DeliveryFacade($this->container->get(DeliveryOrderService::class), $this->container->get(DeliveryOrderCallbackService::class));
+    }
+}

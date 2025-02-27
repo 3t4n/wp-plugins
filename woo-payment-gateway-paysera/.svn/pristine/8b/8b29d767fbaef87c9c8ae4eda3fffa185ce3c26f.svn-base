@@ -1,0 +1,28 @@
+<?php
+
+declare (strict_types=1);
+namespace Paysera\Scoped\Paysera\DeliverySdk\Collection;
+
+use ArrayAccess;
+use Iterator;
+use Paysera\Scoped\Paysera\DeliverySdk\Entity\MerchantOrderItemInterface;
+/**
+ * @phpstan-consistent-constructor
+ * @template MerchantOrderItemInterface
+ * @extends Collection<MerchantOrderItemInterface>
+ */
+class OrderItemsCollection extends Collection
+{
+    public function isCompatible(object $item) : bool
+    {
+        return $item instanceof MerchantOrderItemInterface;
+    }
+    public function current() : MerchantOrderItemInterface
+    {
+        return parent::current();
+    }
+    public function getItemType() : string
+    {
+        return MerchantOrderItemInterface::class;
+    }
+}
