@@ -1,0 +1,1 @@
+jQuery(document).ready(function(m){($blogPost=m(".premium-blog-post-outer-container")).each(function(e,r){var o=m(r).first().find(".premium-blog-meta-separtor"),t=m(r).find(".premium-blog-post-author");1===o.length?t.length||m(r).find(".premium-blog-meta-separtor").remove():t.length||m(r).find(".premium-blog-meta-separtor").first().remove()})});
