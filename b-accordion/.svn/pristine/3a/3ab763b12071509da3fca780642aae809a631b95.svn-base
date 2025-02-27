@@ -1,0 +1,149 @@
+{
+  "apiVersion": 2,
+  "name": "bab/accordion",
+  "title": "Accordion",
+  "description": "Display customizable accordion in beautiful way.",
+  "category": "widgets",
+  "keywords": [
+    "accordion",
+    "horizontal accordion",
+    "vertical accordion"
+  ],
+  "textdomain": "b-accordion",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "accordions": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Demo Accordion Title 1",
+          "content": "This is demo accordion data, you can change it from the right sidebar settings panel."
+        },
+        {
+          "title": "Demo Accordion Title 2",
+          "content": "This is demo accordion data, you can change it from the right sidebar settings panel."
+        },
+        {
+          "title": "Demo Accordion Title 3",
+          "content": "This is demo accordion data, you can change it from the right sidebar settings panel."
+        },
+        {
+          "title": "Demo Accordion Title 4",
+          "content": "This is demo accordion data, you can change it from the right sidebar settings panel."
+        },
+        {
+          "title": "Demo Accordion Title 5",
+          "content": "This is demo accordion data, you can change it from the right sidebar settings panel."
+        }
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "background": {
+      "type": "object",
+      "default": {
+        "color": "#0000"
+      }
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 16,
+          "tablet": 16,
+          "mobile": 16
+        },
+        "fontWeight": 700
+      }
+    },
+    "titleColors": {
+      "type": "object",
+      "default": {
+        "color": "#fff",
+        "bg": "#4527a4"
+      }
+    },
+    "titleActiveColors": {
+      "type": "object",
+      "default": {
+        "color": "#fff",
+        "bg": "#8344c5"
+      }
+    },
+    "titleBorder": {
+      "type": "object",
+      "default": {
+        "normal": {
+          "color": "",
+          "style": "solid",
+          "width": "0px"
+        },
+        "active": {
+          "color": "",
+          "style": "solid",
+          "width": "0px"
+        }
+      }
+    },
+    "contentTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 15,
+          "tablet": 15,
+          "mobile": 15
+        }
+      }
+    },
+    "contentColors": {
+      "type": "object",
+      "default": {
+        "color": "#333",
+        "bg": "#ecf0f1"
+      }
+    },
+    "accordionIcon": {
+      "type": "object",
+      "default": {
+        "isIcon": false,
+        "iconPosition": "right",
+        "upIcon": "up",
+        "downIcon": "down",
+        "iconSize": "14px",
+        "iconColor": "#fff"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "editorScript": [
+    "file:./index.js",
+    "zebra_accordion"
+  ],
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": [
+    "file:./view.js",
+    "zebra_accordion"
+  ]
+}
