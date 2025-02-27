@@ -1,0 +1,59 @@
+.pv_wrap {
+	position: relative;
+	display: inline-block;
+}
+
+#pv_draft {
+	height:28px;
+}
+
+#save-action .pv_wrap {
+	float: left;
+}
+
+#pv_publish {
+	height:30px;
+}
+#pv_publish, #pv_draft  {
+	text-shadow: none;
+	box-shadow: none;
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:30px;
+	padding:0;
+	margin:0px;
+	overflow:hidden;
+	display:none;
+	border-radius: 0px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	font: normal 16px/1 'dashicons', 'FontAwesome';
+	text-align:center;
+	color:#333;
+}
+
+/* This hides the button until the javascript has added the button */
+.pv_wrap #publish, .pv_wrap #save-post{
+	padding-right:42px;
+}
+.pv_wrap #pv_draft, .pv_wrap #pv_publish{
+	display: block;
+}
+
+.pv_wrap:hover #pv_draft {
+	border-left-color: #999;
+}
+
+@media screen and (max-width:782px) {
+	#pv_publish {
+		top:6px;
+	}
+	#pv_publish, #pv_draft {
+		height:34px;
+		width:34px;
+	}
+	input#publish {
+		padding-right:46px;
+	}
+}

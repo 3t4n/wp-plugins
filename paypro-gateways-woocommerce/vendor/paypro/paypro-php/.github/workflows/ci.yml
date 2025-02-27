@@ -1,0 +1,73 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  php-stan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run phpstan
+        run: ./vendor/bin/phpstan --no-progress analyse lib tests
+
+  php-cs-fixer:
+    name: PHP CS Fixer
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run PHP CS Fixer
+        uses: docker://oskarstark/php-cs-fixer-ga
+        with:
+          args: --format=txt --diff --dry-run --using-cache=no --verbose
+
+  tests:
+    name: Test (${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: [7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: curl, json
+          tools: composer:v2
+          coverage: none
+
+      # Remove dev dependencies that are not compatible with lower PHP versions we still support
+      - name: Remove incompatible dev dependencies
+        run: composer remove --dev --no-update friendsofphp/php-cs-fixer phpstan/phpstan
+
+      - name: Validate composer.json
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run tests
+        run: vendor/bin/phpunit --verbose
