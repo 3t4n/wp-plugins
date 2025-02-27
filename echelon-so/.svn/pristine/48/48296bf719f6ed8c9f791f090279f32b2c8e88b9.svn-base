@@ -1,0 +1,22 @@
+@import "mixins";
+.widget-function('import_button_font');
+@button_text_color: default;
+@button_font_size: default;
+@button_letter_spacing: default;
+
+@button_font: default;
+@button_font_weight: default;
+
+.eso-button {
+    .uk-button {
+        .font(@button_font, @button_font_weight);
+        transition: all 0.3s;
+        color: @button_text_color !important;
+        font-size: @button_font_size;
+        white-space: nowrap;
+        letter-spacing: @button_letter_spacing;
+    }
+    .uk-button-text {
+        text-decoration: none;
+    }
+}

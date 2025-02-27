@@ -1,0 +1,23 @@
+@radial_width: 100px;
+@rotation: -90deg;
+@line_width: 10px;
+@track_color: #ececec;
+@line_color: #252525;
+
+.eso-radial {
+    svg.radial-progress {
+        height: auto;
+        max-width: @radial_width;
+        transform: @rotation;
+        width: 100%;
+    }
+    svg.radial-progress circle {
+        fill: rgba(0,0,0,0);
+        stroke: #fff;
+        stroke-dashoffset: 219.91148575129;
+        stroke-width: @line_width;
+    }
+    svg.radial-progress circle.complete { stroke-dasharray: 219.91148575129; }
+    svg.radial-progress circle.incomplete { stroke: @track_color; }
+    svg.radial-progress circle { stroke: @line_color; }
+}

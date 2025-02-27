@@ -1,0 +1,44 @@
+@title_color: default;
+@sub_title_color: default;
+@price_color: default;
+
+@label_color: default;
+@label_background: default;
+@label_padding: default;
+
+@button_color: default;
+@button_hover_color: default;
+@button_background: default;
+@button_hover_background: default;
+@button_padding: default;
+
+.eso-pricing {
+    .eso-pricing-label {
+        color: @label_color;
+        background: @label_background;
+        padding: @label_padding;
+        line-height: 1;
+    }
+    .eso-pricing-inner {
+        .eso-pricing-title {
+            color: @title_color;
+        }
+        .eso-pricing-price {
+            color: @price_color;
+        }
+        .eso-pricing-sub-title {
+            color: @sub_title_color;
+        }
+    }
+    .eso-pricing-button {
+        color: @button_color;
+        padding: @button_padding;
+        background: @button_background;
+        transition: all 0.3s;
+        line-height: 1;
+        &:hover, &:focus {
+            color: @button_hover_color;
+            background: @button_hover_background;
+        }
+    }
+}

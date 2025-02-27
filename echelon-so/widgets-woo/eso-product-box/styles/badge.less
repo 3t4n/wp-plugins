@@ -1,0 +1,79 @@
+@name_color: default;
+@category_color: default;
+@price_color: default;
+
+@badge_hover_text_color: default;
+@badge_background_color: transparent;
+@badge_hover_background_color: transparent;
+
+@discount_color: #ffffff;
+@discount_background_color: transparent;
+@discount_padding: 5px 15px 5px 15px;
+
+@arrow_background_color: default;
+@arrow_color: default;
+@arrow_hover_color: default;
+@arrow_padding: default;
+
+@name_margin: default;
+@category_margin: default;
+@price_margin: default;
+
+.eso-product-box-wrap {
+    .eso-badge-wrap {
+        background-color: @badge_background_color;
+        transition: background-color 0.3s;
+        padding: 5px;
+        .eso-product-box-name {
+            color: @name_color;
+            transition: color 0.3s;
+            line-height: 1.5;
+            margin: @name_margin;
+        }
+        .eso-product-box-category {
+            color: @category_color;
+            transition: color 0.3s;
+            line-height: 1.5;
+            margin: @category_margin;
+        }
+        .eso-product-box-price {
+            color: @price_color;
+            transition: color 0.3s;
+            line-height: 1.5;
+            margin: @price_margin;
+        }
+    }
+    .eso-product-box-discount {
+        color: @discount_color;
+        background-color: @discount_background_color;
+        padding: @discount_padding;
+        line-height: 1;
+    }
+    &:hover {
+        .eso-badge-wrap {
+            background-color: @badge_hover_background_color;
+        }
+        .eso-product-box-name {
+            color: @badge_hover_text_color;
+        }
+        .eso-product-box-category {
+            color: @badge_hover_text_color;
+        }
+        .eso-product-box-price {
+            color: @badge_hover_text_color;
+        }
+    }
+    .uk-slidenav-container {
+        background: @arrow_background_color;
+        .eso-slidenav-previous, .eso-slidenav-next {
+            color: @arrow_color;
+            padding: @arrow_padding;
+            &:hover {
+                color: @arrow_hover_color;
+            }
+            &:active {
+                color: @arrow_color;
+            }
+        }
+    }
+}

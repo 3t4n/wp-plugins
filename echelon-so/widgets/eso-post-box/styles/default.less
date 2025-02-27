@@ -1,0 +1,113 @@
+@import "mixins";
+.widget-function('import_google_font');
+@date_color: default;
+@date_background_color: default;
+@date_padding: default;
+
+@day_letter_spacing: default;
+@month_letter_spacing: default;
+
+@categories_color: default;
+@categories_hover_color: default;
+@categories_background_color: default;
+@categories_padding: default;
+
+@title_color: default;
+@title_hover_color: defalut;
+@excerpt_color: default;
+
+@overlay_color: default;
+@overlay_hover_color: default;
+@overlay_wrap_color: default;
+
+@ac_color: default;
+@author_link_color: default;
+@author_link_hover_color: default;
+@comment_link_color: default;
+@comment_link_hover_color: default;
+
+@button_color: default;
+@column_height: default;
+
+@title_font: default;
+@title_font_weight: normal;
+
+.eso-post-box {
+    .eso-post-box-overlay {
+        transition: all 0.3s;
+        background-color: @overlay_color;
+    }
+    .eso-post-box-overlay-wrap {
+        background-color: @overlay_wrap_color;
+    }
+    .eso-post-box-date {
+        background-color: @date_background_color;
+        color: @date_color;
+        padding: @date_padding;
+        .eso-post-box-day {
+            letter-spacing: @day_letter_spacing;
+            text-indent: @day_letter_spacing;
+        }
+        .eso-post-box-month {
+            letter-spacing: @month_letter_spacing;
+            text-indent: @month_letter_spacing;
+        }
+    }
+    .eso-post-box-categories {
+        background-color: @categories_background_color;
+        padding: @categories_padding;
+        color: @categories_color;
+        a {
+            transition: all 0.3s;
+            color: @categories_color;
+            line-height: 1;
+            &:hover, &:focus {
+                line-height: 1;
+                color: @categories_hover_color;
+            }
+        }
+    }
+    .eso-post-box-title {
+        a {
+            .font(@title_font, @title_font_weight);
+            color: @title_color;
+            &:hover, &:focus {
+                color: @title_hover_color;
+            }
+        }
+    }
+    .eso-post-box-author-comment {
+        color: @ac_color;
+        a {
+            transition: 0.3s;
+        }
+        .eso-post-box-author {
+            color: @author_link_color;
+            &:hover, &:focus {
+                color: @author_link_hover_color;
+            }
+        }
+        .eso-post-box-comment {
+            color: @comment_link_color;
+            &:hover, &:focus {
+                color: @comment_link_hover_color;
+            }
+        }
+    }
+    .eso-post-box-excerpt {
+        color: @excerpt_color;
+    }
+    .eso-post-box-link {
+        .uk-button-text {
+            color: @button_color !important;
+        }
+    }
+    .eso-post-box-column {
+        height: @column_height;
+    }
+    &:hover, &:focus {
+        .eso-post-box-overlay {
+            background-color: @overlay_hover_color;
+        }
+    }
+}

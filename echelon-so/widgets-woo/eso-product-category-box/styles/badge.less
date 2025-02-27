@@ -1,0 +1,43 @@
+@name_color: default;
+@count_color: default;
+
+@badge_hover_text_color: default;
+@badge_background_color: default;
+@badge_hover_background_color: default;
+
+@name_padding: default;
+@count_padding: default;
+
+.eso-category-box-wrap {
+    .eso-category-box-image {
+
+    }
+    .eso-badge-wrap {
+        background-color: @badge_background_color;
+        transition: background-color 0.3s;
+        padding: 5px;
+        .eso-category-box-name {
+            color: @name_color;
+            transition: color 0.3s;
+            line-height: 1;
+            padding: @name_padding;
+        }
+        .eso-category-box-count {
+            color: @count_color;
+            transition: color 0.3s;
+            line-height: 1;
+            padding: @count_padding;
+        }
+    }
+    &:hover {
+        .eso-badge-wrap {
+            background-color: @badge_hover_background_color;
+        }
+        .eso-category-box-name {
+            color: @badge_hover_text_color;
+        }
+        .eso-category-box-count {
+            color: @badge_hover_text_color;
+        }
+    }
+}

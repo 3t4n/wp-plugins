@@ -1,0 +1,74 @@
+@inner_border: default;
+@text_color: default;
+@link_color: default;
+@posted_color: default;
+
+@arrow_color: default;
+@arrow_hover_color: default;
+@arrow_active_color: default;
+
+@dotnav_border: default;
+@dotnav_active_background: default;
+@dotnav_hover_background: default;
+@dotnav_background: transparent;
+@dotnav_onclick_background: default;
+@dotnav_size: default;
+
+.eso-twitter-feed-item {
+    border-bottom: 1px solid @inner_border;
+    &:last-child {
+        border: none;
+        padding: 0;
+    }
+    .eso-tweet {
+        word-break: break-word;
+        color: @text_color;
+        a {
+            color: @link_color;
+            &:hover, &:focus {
+                color: @link_color;
+            }
+        }
+    }
+    .eso-tweet-posted {
+        color: @posted_color;
+    }
+}
+
+.eso-slidenav-previous, .eso-slidenav-next {
+    color: @arrow_color;
+    &:hover {
+        color: @arrow_hover_color;
+    }
+    &:active {
+        color: @arrow_active_color;
+    }
+}
+
+.uk-slider-nav.uk-dotnav {
+    li {
+        a {
+            width: @dotnav_size;
+            height: @dotnav_size;
+            background: @dotnav_background;
+            border-color: @dotnav_border;
+            &:hover {
+                background-color: @dotnav_hover_background;
+                border-color: transparent;
+            }
+            &:active {
+                background-color: @dotnav_onclick_background;
+                border-color: transparent;
+            }
+        }
+        &.uk-active {
+            a {
+                background-color: @dotnav_active_background;
+                border-color: transparent;
+                &:hover {
+                    background-color: @dotnav_hover_background;
+                }
+            }
+        }
+    }
+}

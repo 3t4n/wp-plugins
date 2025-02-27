@@ -1,0 +1,63 @@
+@import "mixins";
+.widget-function('import_button_font');
+.widget-function('import_label_font');
+@button_background_color: default;
+@button_background_hover_color: default;
+@button_text_color: default;
+@button_text_hover_color: default;
+@button_border_color: default;
+@button_border_hover_color: default;
+@button_border_width: default;
+@button_letter_spacing: default;
+
+@label_background_color: default;
+@label_background_hover_color: default;
+@label_text_color: default;
+@label_text_hover_color: default;
+@label_border_color: default;
+@label_border_hover_color: default;
+@label_font_size: default;
+@label_inner_padding: default;
+@label_letter_spacing: default;
+
+@button_font: default;
+@button_font_weight: default;
+@label_font: default;
+@label_font_weight: default;
+
+
+.eso-button {
+    .uk-button {
+        .font(@button_font, @button_font_weight);
+        transition: all 0.3s;
+        background-color: @button_background_color;
+        color: @button_text_color;
+        border: @button_border_width solid @button_border_color;
+        white-space: nowrap;
+        letter-spacing: @button_letter_spacing;
+    }
+    span {
+        .font(@label_font, @label_font_weight);
+        transform: translate(50%,-35%);
+        display: inline-block;
+        background-color: @label_background_color;
+        color: @label_text_color;
+        border: 1px solid @label_border_color;
+        font-size: @label_font_size;
+        padding: @label_inner_padding;
+        letter-spacing: @label_letter_spacing;
+        line-height: 1;
+    }
+    &:hover, &:focus {
+        .uk-button {
+            background-color: @button_background_hover_color;
+            color: @button_text_hover_color;
+            border-color: @button_border_hover_color;
+        }
+        span {
+            background-color: @label_background_hover_color;
+            color: @label_text_hover_color;
+            border-color: @label_border_hover_color;
+        }
+    }
+}

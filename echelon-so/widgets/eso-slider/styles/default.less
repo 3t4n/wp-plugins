@@ -1,0 +1,58 @@
+@arrow_color: default;
+@arrow_hover_color: default;
+@arrow_background_color: default;
+@arrow_previous_padding: default;
+@arrow_next_padding: default;
+
+@dotnav_border: default;
+@dotnav_active_background: default;
+@dotnav_hover_background: default;
+@dotnav_background: transparent;
+@dotnav_onclick_background: default;
+@dotnav_size: default;
+
+.eso-slidenav-previous, .eso-slidenav-next {
+    background: @arrow_background_color;
+    color: @arrow_color;
+    &:hover {
+        color: @arrow_hover_color;
+    }
+    &:active {
+        color: @arrow_color;
+    }
+}
+
+.eso-slidenav-previous {
+    padding: @arrow_previous_padding;
+}
+.eso-slidenav-next {
+    padding: @arrow_next_padding;
+}
+
+.uk-slider-nav.uk-dotnav {
+    li {
+        a {
+            width: @dotnav_size;
+            height: @dotnav_size;
+            background: @dotnav_background;
+            border-color: @dotnav_border;
+            &:hover {
+                background-color: @dotnav_hover_background;
+                border-color: transparent;
+            }
+            &:active {
+                background-color: @dotnav_onclick_background;
+                border-color: transparent;
+            }
+        }
+        &.uk-active {
+            a {
+                background-color: @dotnav_active_background;
+                border-color: transparent;
+                &:hover {
+                    background-color: @dotnav_hover_background;
+                }
+            }
+        }
+    }
+}

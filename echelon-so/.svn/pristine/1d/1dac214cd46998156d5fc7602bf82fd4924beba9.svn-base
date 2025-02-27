@@ -1,0 +1,52 @@
+@line_color: default;
+@title_padding: default;
+@title_margin: default;
+
+@active_color: default;
+@inactive_color: default;
+@hover_color: default;
+
+@icon_active_color: default;
+@icon_inactive_color: default;
+@icon_hover_color: default;
+@icon_size: default;
+
+.uk-tab {
+    > .uk-active {
+        > a {
+            outline: none;
+            border-color: @line_color;
+            color: @active_color;
+            &:hover {
+                color: @active_color;
+            }
+            .eso-tab-icon {
+                color: @icon_active_color;
+            }
+            &:hover .eso-tab-icon {
+                color: @icon_active_color;
+            }
+        }
+    }
+}
+
+.uk-tab {
+    > * {
+        > a {
+            padding: @title_padding;
+            margin: @title_margin;
+            color: @inactive_color;
+            &:hover {
+                color: @hover_color;
+
+            }
+            .eso-tab-icon {
+                transition: all 0.3s;
+                color: @icon_inactive_color;
+            }
+            &:hover .eso-tab-icon {
+                color: @icon_hover_color;
+            }
+        }
+    }
+}

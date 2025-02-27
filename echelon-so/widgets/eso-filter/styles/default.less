@@ -1,0 +1,38 @@
+@padding: default;
+@active_background: default;
+@active_text: default;
+@inactive_background: transparent;
+@inactive_hover_background: transparent;
+@inactive_text: default;
+@inactive_hover_text: default;
+@font_size: default;
+@letter_spacing: default;
+
+.eso-filter {
+    .uk-subnav {
+        li {
+            &.uk-active {
+                a {
+                    background-color: @active_background;
+                    color: @active_text;
+                    &:hover, &:focus {
+                        background-color: @active_background;
+                        color: @active_text;
+                    }
+                }
+            }
+            a {
+                padding: @padding;
+                font-size: @font_size;
+                letter-spacing: @letter_spacing;
+                background-color: @inactive_background;
+                color: @inactive_text;
+                line-height: 1;
+                &:hover, &:focus {
+                    background-color: @inactive_hover_background;
+                    color: @inactive_hover_text;
+                }
+            }
+        }
+    }
+}
