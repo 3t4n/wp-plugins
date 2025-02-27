@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('lodash', 'quillforms-block-editor', 'quillforms-document-editor', 'quillforms-messages-editor', 'quillforms-notifications-editor', 'quillforms-theme-editor', 'wp-data', 'wp-hooks'), 'version' => '132d4928822a441df91d');
