@@ -1,0 +1,571 @@
+.ppm-wrap{
+	position: relative
+}
+.ppm-wrap .page-head{
+	position: relative;
+	padding-right: 250px;
+}
+.ppm-wrap .page-head .action{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 236px;
+}
+.ppm-wrap .page-head h2{
+	font-size: 23px;
+  font-weight: 400;
+}
+.ppm-wrap .short-message{
+	font-style: italic;
+}
+
+td.col-indented {
+	padding: 0 50px 15px;;
+	box-sizing: border-box;
+}
+
+td .small-input {
+	max-width: 155px;
+}
+
+ul#ppm-exempted-list {
+	width: 250px;
+}
+
+li.ppm-exempted-list-item {
+	float: left;
+	display: inline-block;
+	margin: 2px 3px;
+	padding: 3px 5px 3px 5px;
+	background: #fff;
+	border-radius: 16px;
+	position: relative;
+}
+
+li.ppm-exempted-list-item.ppm-exempted-roles {
+    background: #e0e0e0;
+}
+
+li.ppm-exempted-list-item a.remove {
+	float: right;
+	text-align: center;
+	text-decoration: none;
+	margin-left: 3px;
+}
+
+li.ppm-exempted-list-item a.remove::before {
+	content: "\f335";
+	color: #fff;
+	font: 400 14px/15px dashicons;
+	display: inline-block;
+}
+
+li.ppm-exempted-list-item a.remove:hover::before{
+	color: #fff;
+}
+
+.user-btn {
+    margin-right: 10px !important;
+		margin-bottom: 10px !important;
+}
+
+.user-btn .remove-item {
+    background: red;
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    color: #fff;
+    border-radius: 7px;
+    line-height: 11px;
+    text-align: center;
+    font-size: 10px;
+    display: block;
+    right: -7px;
+    top: -5px;
+}
+
+div#reset-container {
+    display: inline-block;
+    margin-bottom: -6px;
+}
+
+.mls-last-global-reset-time {
+    position: relative;
+    top: 6px;
+    right: 5px;
+}
+
+div#reset-container input#_mls_global_reset_button {
+    background: #2271b1;
+    border-color: #2271b1;
+    font-size: 14px;
+    height: 30px;
+    padding: 0 12px;
+    line-height: 28px;
+    color: #fff;
+}
+
+.mls-settings{
+    display: inline-block;
+}
+
+.mls-settings p.description{
+    clear:both;
+    max-width:570px;
+    margin-top: 10px;
+}
+
+.mls-settings.disabled,
+.disabled th,
+.disabled p.description,
+.disabled label, .mls-settings.disabled *,
+.mls-settings .disabled {
+	color: #bbbbbb;
+}
+
+.disabled a {
+	opacity: 0.5;
+}
+
+.mls-settings .disabled {
+	opacity: 0.5;
+    pointer-events: none;
+}
+
+#roles_sortable.disabled {
+	height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* HIDE/DISPLAY SETTINGS */
+.mls-settings.disabled {
+    height: 0;
+    overflow: hidden;
+}
+
+.nav-tab-wrapper.disabled .nav-tab {
+	display: none;    
+}
+
+.nav-tab:focus, .nav-tab:hover {
+    box-shadow: none;
+}
+
+/**
+ * Disable arrow for password history input
+ */
+#ppm-history::-webkit-inner-spin-button, #ppm-history::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+#ppm-history {
+	-moz-appearance: textfield;
+}
+
+/**
+ * InactiveUsersTable styles
+ */
+.tablenav.top #mls_inactive_check_now:not(:first-child) {
+	margin-left: -10px;
+}
+
+#ppm-expiry-unit {
+	position: relative;
+	top: -2px;
+}
+
+/* Fix icon positioning */
+.ppm-wrap .nav-tab .dashicons, .ppm-wrap .nav-tab.dashicons-before:before {
+    font-size: 18px;
+    line-height: 25px;
+    position: relative;
+    left: -3px;
+}
+
+#roles_sortable li {
+    display: block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px 0 0;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    color: #2271b1;
+    border-color: #2271b1;
+    background: #f6f7f7;
+}
+
+#roles_sortable li .dashicons {
+    transform: rotate( 90deg );
+    font-size: 17px;
+    opacity: 0.5;
+    position: relative;
+    top: 4px;
+}
+
+
+#ppmwp-role_tab_link_wrapper {
+    float: left;
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+    width: 242px;
+}
+
+#ppmwp-role_tab_link_wrapper:hover, #ppmwp-role_tab_link_wrapper:hover #ppmwp_links-inner-wrapper {
+    overflow: visible;
+}
+#ppmwp-role_tab_link_wrapper a, #ppmwp-role_tab_link_wrapper .dummy {display: block;clear: both;width: 180px;}
+
+#ppmwp_links-inner-wrapper {
+    position: absolute;
+    overflow: hidden;
+    width: auto;
+    max-width: 242px;
+    z-index: 100;
+    background: #eee;;
+}
+
+#ppmwp-role_tab_link_wrapper > span.dashicons {
+    position: absolute;
+    right: 40px;
+    z-index: 500;
+    top: 8px;
+}
+
+#ppm-failed-login-reset-attempts {
+    min-width: 60px;
+}
+
+.setting-heading th {
+    width: auto;
+    padding: 0;
+}
+
+.setting-heading h3 {
+    margin-top: 0;
+}
+
+.setting-heading h3.mt-40 {
+    margin-top: 40px;;
+}
+
+.upgrade-sidebar {
+    width: 280px;
+    position: relative;
+    top: 90px;
+}
+
+.sidebar-present {
+    width: calc( 100% - 295px );
+    float: left;
+    padding-right: 15px;
+}
+
+.premium-link {
+    background: #dd2b0f;
+    color: #fff !important;
+    padding: 8px 12px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: inline-block;¢
+}
+
+.c4wp-pro-features-ul li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+ul.c4wp-pro-features-ul li.dashicons-yes-alt:before {
+    color:#dd2b0f;
+    position: absolute;
+    left: -2px;
+    top: 1px;
+}
+
+.mls-reset-all-wrapper {
+    float: right;
+}
+
+@media all and (max-width: 900px) {
+    .mls-reset-all-wrapper {
+        position: relative;
+    }  
+    .sidebar-present {
+        width: 100%;
+        float: none;
+    }
+}
+
+.inactiveusers th.column-actions {
+    text-align: right;
+}
+
+.day-span {
+    min-width: 100px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    bottom: 1px;
+}
+
+.timed-login-select {
+    min-width: 60px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    bottom: 1px;  
+}
+
+#TB_title {
+    background: #fff;
+    border-bottom: none;
+    height: 32px;
+    padding: 5px;
+}
+
+#TB_window {
+    position: fixed;
+    background-color: #fff;
+    z-index: 100050;
+    visibility: hidden;
+    text-align: left;
+    top: 50%;
+    left: 50%;
+    -webkit-box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 );
+    box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 );
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#TB_ajaxContent p {
+    margin-top: 0 !important;
+}
+
+#TB_ajaxContent {
+    clear: both;
+    padding: 2px 15px 15px 15px;
+}
+
+#TB_closeWindowButton {
+    position: absolute;
+    left: auto;
+    right: 2px;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: color .1s ease-in-out, background .1s ease-in-out;
+    transition: color .1s ease-in-out, background .1s ease-in-out;
+    top: 4px;
+}
+
+#import-from-email {
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+.user-import-result {
+    background-color: green;
+    margin-left: 5px;
+    color: #fff;
+    border-radius: 25px;
+    padding: 3px 10px 4px;
+    font-size: 10px;
+    width: auto;
+    min-width: 0 !important;
+    position: relative;
+    bottom: 1px;
+    line-height: 13px;
+    float: right;
+}
+.user-import-result a {
+    color: #fff;
+    margin-left: 10px;
+}
+.user-import-result.error {
+    background-color: red;
+}
+#csv-examples pre {
+    white-space: pre-line !important;
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+}
+
+.mls-modal-main-wrapper {
+    position: fixed;
+    z-index: -9999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    display: flex;
+    transition: all 0.2s ease-in-out;
+}
+
+.mls-modal-main-wrapper.show {
+    z-index: 9999;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+.mls-modal-content {
+    align-self: center;
+    max-width: 600px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.mls-modal-content h3 {
+    margin-top: 0;
+}
+
+@media all and (min-width: 1400px) {
+    .mls-modal-content {
+        min-width: 600px;;
+    }  
+}
+.c4wp-buttony-list {
+	display: inline-block;
+	border-width: 1px;
+	border-style: solid;
+	padding: 0 10px;
+	margin: 2px 0 0 2px;
+	border-radius: 3px;
+	cursor: default;
+	color: #2271b1;
+    border-color: #2271b1;
+    background: #f6f7f7;
+    position: relative;
+    font-size: 13px;
+    line-height: 2.15384615 !important;
+    min-height: 30px;
+}
+.c4wp-buttony-list + .c4wp-buttony-list {
+    margin-left: 15px;
+}
+.c4wp-buttony-list span {
+    background: red;
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    color: #fff;
+    border-radius: 7px;
+    line-height: 14px;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    right: -7px;
+    top: -5px;
+}
+
+#ppm-wp-settings textarea {
+    min-height: 120px;
+}
+#reset-role-select {
+    position: relative;
+    top: -1px;
+}
+.question-list-item {
+    display: flex;
+    background: #fefefe;
+    padding: 8px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    color: #646970;
+}
+
+.question-list-item span {
+    font-size: 17px;
+    margin: 1px;
+}
+
+.question-list-item a {
+    margin: 3px;
+}
+
+.form-table td fieldset .question-list-item label {
+    flex: auto;
+    margin: 3px 0 0 6px !important;
+}
+
+.question-list-item.disabled-question {
+    background: rgba(254, 254, 254, 0.64);
+    color: #898d93;
+}
+
+.question-list-item [type="checkbox"] {
+    display: none;
+}
+
+#c4wp-prompt-wrapper {
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#c4wp-prompt {
+    background-color: #fff;
+    min-width: 400px;
+    padding: 20px;
+}
+
+#c4wp-prompt input[type="text"] {
+    width: 100%;
+}
+.timed-login-option {
+    margin-bottom: 10px;
+}
+
+.has-sticky-bar {
+    max-width: 780px;
+}
+
+.neaten-tr th, .neaten-tr td {
+    padding-bottom: 0;
+}
+
+.neaten-tr .col-indented {
+    padding-left: 30px;
+}
+
+#ppm-expiry-notice-unit {
+    position: relative;
+    top: -1px;
+}
+
+.no-items .colspanchange {
+    display: inline-block;
+    clear: both;
+    width: 330px;
+    margin: 0 auto;
+    background: #fff;
+}
