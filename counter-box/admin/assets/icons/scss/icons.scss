@@ -1,0 +1,109 @@
+/*--------------------------------
+
+PopupBox icon font
+Generated using nucleoapp.com
+
+-------------------------------- */
+
+$pb-icon-font-path: "../fonts" !default;
+
+@font-face {
+  font-family: 'PopupBox';
+  src: url('#{$pb-icon-font-path}/PopupBox.eot');
+  src: url('#{$pb-icon-font-path}/PopupBox.eot') format('embedded-opentype'),
+       url('#{$pb-icon-font-path}/PopupBox.woff2') format('woff2'),
+       url('#{$pb-icon-font-path}/PopupBox.woff') format('woff'),
+       url('#{$pb-icon-font-path}/PopupBox.ttf') format('truetype'),
+       url('#{$pb-icon-font-path}/PopupBox.svg') format('svg');
+}
+
+/* base class */
+.pb-icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'PopupBox';
+  color: inherit;
+  flex-shrink: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* size examples - relative units */
+.pb-icon-sm {
+  font-size: 0.8em;
+}
+
+.pb-icon-lg {
+  font-size: 1.2em;
+}
+
+/* size examples - absolute units */
+.pb-icon-16 {
+  font-size: 16px;
+}
+
+.pb-icon-32 {
+  font-size: 32px;
+}
+
+/* rotate the icon infinitely */
+.pb-icon-is-spinning {
+  animation: pb-icon-spin 1s infinite linear;
+}
+
+@keyframes pb-icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* transform */
+.pb-icon-rotate-90  {
+	transform: rotate(90deg);
+}
+
+.pb-icon-rotate-180 {
+	transform: rotate(180deg);
+}
+
+.pb-icon-rotate-270 {
+	transform: rotate(270deg);
+}
+
+.pb-icon-flip-y {
+	transform: scaleY(-1);
+}
+
+.pb-icon-flip-x {
+	transform: scaleX(-1);
+}
+
+/* icons */
+$icons: (
+  'web-design': 'ea02',
+  'drop-cap': 'ea03',
+  'e-remove': 'ea04',
+  'tablet-mobile': 'ea05',
+  'webpage': 'ea06',
+  'responsive': 'ea07',
+  'users-check': 'ea08',
+  'edit-levels': 'ea09',
+  'event-confirm': 'ea0a',
+  'license-key': 'ea0b',
+  'button-2': 'ea0c',
+  'window-delete': 'ea0d',
+  'video-gallery-2': 'ea0e',
+  'style': 'ea0f',
+);
+
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+@each $name, $code in $icons {
+  .pb-icon-#{""+$name}::before {
+    content: unicode($code);
+  }
+}
