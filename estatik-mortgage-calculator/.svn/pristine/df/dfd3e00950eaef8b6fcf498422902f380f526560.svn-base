@@ -1,0 +1,68 @@
+.emc-calculator {
+  .rangeslider,
+  .rangeslider__fill {
+    display: block;
+  }
+
+  .rangeslider {
+    background: #f0f0f0;
+    position: relative;
+  }
+
+  .rangeslider--horizontal {
+    height: 2px;
+    width: 100%;
+  }
+
+  .rangeslider--vertical {
+    width: 20px;
+    min-height: 150px;
+    max-height: 100%;
+  }
+
+  .rangeslider--disabled {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    opacity: 0.4;
+  }
+
+  .rangeslider__fill {
+    position: absolute;
+  }
+  .rangeslider--horizontal .rangeslider__fill {
+    top: 0;
+    height: 100%;
+    max-width: initial !important;
+  }
+  .rangeslider--vertical .rangeslider__fill {
+    bottom: 0;
+    width: 100%;
+  }
+
+  .rangeslider__handle {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 13.9px 8px;
+    line-height: 0;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+  }
+
+  .rangeslider--horizontal .rangeslider__handle {
+    top: 2px;
+    touch-action: pan-y;
+    -ms-touch-action: pan-y;
+  }
+}
+
+.emc-calculator--circle .rangeslider__handle {
+  border: 0;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
