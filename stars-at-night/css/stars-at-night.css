@@ -1,0 +1,84 @@
+/* NightSky Styles */
+
+/*
+MIT License
+
+Copyright (c) 2016 Sean Leary
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.*/
+
+
+/* Standard table settings apply to the entire table.
+* For now, all stars-at-night tables use this style
+*/
+table.ngc2244_stars_at_night_standardTable { 
+    font-family: verdana,arial,helvetica,sans-serif; 
+    color: black; 
+    background-color: White;
+    border-color: Gray;
+    border-width: 2px;
+    border-style: solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: auto;
+    table-layout:auto;
+}
+
+/* Some header settings may have to be set again, lest they be overridden */
+.ngc2244_stars_at_night_standardTable thead td {
+    font-family: verdana,arial,helvetica,sans-serif; 
+    background-color: #C0C0FF;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* keep images aligned with however many rows are displayed */
+.ngc2244_stars_at_night_standardTable tbody td {
+    vertical-align:middle;
+}
+
+/* table row alternating background colors */
+.ngc2244_stars_at_night_standardTable tbody tr:nth-child(odd)   {color: black; background-color: white;}
+.ngc2244_stars_at_night_standardTable tbody tr:nth-child(even)    {color: black; background-color: #E0E0E0;}
+
+/* table row content style*/ 
+.ngc2244_stars_at_night_standardTable td {
+    padding: 6px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+/* Lunar images stack into a table cell, side by side with sun/moon table */
+/* A table will have between 1 and 3 images, depending on the number of rows */
+.ngc2244_stars_at_night_lunar {
+    width: 100px;
+}
+
+/* ISS and Iridium images must be centered */
+.ngc2244_stars_at_night_satellite {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+/* planets must be small and centered */
+.ngc2244_stars_at_night_planet {
+    display: block;
+    margin: auto;
+    width: 65px;
+}
