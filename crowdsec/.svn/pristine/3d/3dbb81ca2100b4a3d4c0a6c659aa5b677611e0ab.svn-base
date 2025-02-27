@@ -1,0 +1,95 @@
+name: Unit & integration tests
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+    inputs:
+      unit_tests:
+        type: boolean
+        description: Run Unit tests
+        default: true
+      integration_tests:
+        type: boolean
+        description: Run Integration tests
+        default: true
+  schedule:
+    - cron: '15 3 * * 4'
+
+permissions:
+  contents: read
+
+jobs:
+  test-suite:
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['7.2','7.3','7.4','8.0','8.1','8.2','8.3', '8.4']
+
+    name: Unit and integration test
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, 'chore(') }}
+    env:
+      EXTENSION_PATH: "my-code/capi-client"
+
+    steps:
+      - name: Install DDEV
+        run: |
+          # @see https://ddev.readthedocs.io/en/stable/#installationupgrade-script-linux-and-macos-armarm64-and-amd64-architectures
+          curl -fsSL https://apt.fury.io/drud/gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/ddev.gpg > /dev/null
+          echo "deb [signed-by=/etc/apt/trusted.gpg.d/ddev.gpg] https://apt.fury.io/drud/ * *" | sudo tee /etc/apt/sources.list.d/ddev.list
+          sudo apt-get -q update
+          sudo apt-get -q -y install libnss3-tools ddev
+          mkcert -install
+          ddev config global --instrumentation-opt-in=false --omit-containers=ddev-ssh-agent
+
+      - name: Create empty PHP DDEV project
+        run: ddev config --project-type=php --project-name=crowdsec-capi-client  --php-version=${{ matrix.php-version }}
+
+      - name: Add-ons install
+        run: ddev get julienloizelet/ddev-tools
+
+
+      - name: Start DDEV  with PHP ${{ matrix.php-version }}
+        run: ddev start
+
+      - name: Some DEBUG information
+        run: |
+          ddev --version
+          ddev exec php -v
+
+      - name: Clone sources
+        uses: actions/checkout@v4
+        with:
+          path: ${{env.EXTENSION_PATH}}
+
+      - name: Validate composer.json
+        run: | 
+          ddev composer validate --strict --working-dir ./${{env.EXTENSION_PATH}}
+
+      - name: Install CrowdSec lib dependencies
+        run: |
+          ddev composer update --working-dir ./${{env.EXTENSION_PATH}}
+
+      - name: Run Unit tests
+        if: |
+          github.event.inputs.unit_tests == 'true' ||
+          github.event_name == 'push'
+        run:  ddev php ./${{env.EXTENSION_PATH}}/vendor/bin/phpunit --debug ./${{env.EXTENSION_PATH}}/tests/Unit --testdox
+
+      - name: Prepare integration tests
+        if: |
+          github.event.inputs.integration_tests == 'true' ||
+          github.event_name == 'push'
+        run: | 
+          echo -n ${{ secrets.ENROLLMENT_KEY }} > ${{env.EXTENSION_PATH}}/tests/Integration/.enrollment_key.txt
+          echo -n "{\"machine_id\":\"${{ secrets.TEST_MACHINE_ID }}\"}" > ${{env.EXTENSION_PATH}}/src/Storage/dev-machine-id.json
+          echo -n "{\"password\":\"${{ secrets.TEST_MACHINE_PWD }}\"}" > ${{env.EXTENSION_PATH}}/src/Storage/dev-password.json
+
+      - name: Run Integration tests
+        if: |
+          github.event.inputs.integration_tests == 'true' ||
+          github.event_name == 'push'
+        run: ddev php  ./${{env.EXTENSION_PATH}}/vendor/bin/phpunit  ./${{env.EXTENSION_PATH}}/tests/Integration --testdox
