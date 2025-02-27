@@ -1,0 +1,39 @@
+%%SELECTOR%% {
+  --fontScale: {{ design.text.scale.number }};
+  --defaultTextXoffset: {{ design.text.horizontal_offset.default_text.number}};
+  --textYoffset: {{ design.text.vertical_offset.number}};
+  --hoverTextXoffset: {{ design.text.horizontal_offset.hover_text.number}};
+  width: {{ design.container.width.style }};
+  {% if content.content.link is empty %} cursor: default; {% endif %}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%%,
+%%SELECTOR%% .eh-gooey-link__text,
+%%SELECTOR%% .eh-gooey-link__text-hover {
+  {{ macros.typography(design.typography, globalSettings)  }}
+  fill: {{design.typography.color}};
+  font-size: calc( 16px * var(--fontScale, 1.8) );
+}
+
+%%SELECTOR%%:hover {
+  {{ macros.typographyWithHoverableEverything(design.typography) }}
+  font-size: calc( 16px * var(--fontScale, 1.8) );
+}
+
+{{ macros.atomV1LightboxCss(design.lightbox) }}
+
+{% if content.content.link|json_encode is empty %}
+	%%SELECTOR%%:hover {
+      cursor: default;
+	}
+{% endif %}
+
+%%SELECTOR%% .eh-gooey-link__text,
+%%SELECTOR%% .eh-gooey-link__text-hover {
+  fill: {{design.typography.color}};
+}
+
+%%SELECTOR%%:hover .eh-gooey-link__svg {
+  fill: {{design.typography.color_hover}};
+}

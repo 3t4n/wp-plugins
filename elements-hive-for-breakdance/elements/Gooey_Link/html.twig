@@ -1,0 +1,29 @@
+{% set prevent_whitespace_output %}
+{{ macros.linkMaybeEnqueueLightboxStyles(content.content.link) }}
+{{ macros.linkMaybeEnqueueLinkActions(content.content.link) }}
+{% endset %}
+
+{% if content.content.tag %}
+	<{{content.content.tag}}>
+	{% endif %}
+	<svg class="eh-gooey-link__svg" viewbox="0 0 100 {{ design.container.height.number|default(30) }}" preserveaspectratio="xMinYMid meet">
+		<defs>
+			<filter id="eh-gooey-link__filter-%%ID%%" x="-50%" width="200%" y="-50%" height="200%">
+				<feGaussianBlur stddeviation="1" in="SourceGraphic" edgemode="none" result="blur"/>
+				<feColorMatrix type="matrix" values="1 0 0 0 0
+															                                           0 1 0 0 0
+															                                           0 0 1 0 0
+															                                           0 0 0 15 -5" in="blur" result="colormatrix"/>
+				<feComposite in="SourceGraphic" in2="colormatrix" operator="atop" result="composite"/>
+			</filter>
+		</defs>
+		<g class="eh-gooey-link__text-group">
+			<text class="eh-gooey-link__text" x="0" y="25">{{ content.content.text }}</text>
+			<text class="eh-gooey-link__text-hover" x="0" y="25">{{ content.content.text_on_hover }}</text>
+		</g>
+	</svg>
+	<span class="eh-gooey-link__dom-text">{{ content.content.text }}</span>
+	<span class="eh-gooey-link__dom-text">{{ content.content.text_on_hover }}</span>
+	{% if content.content.tag %}
+	</{{content.content.tag}}>
+{% endif %}

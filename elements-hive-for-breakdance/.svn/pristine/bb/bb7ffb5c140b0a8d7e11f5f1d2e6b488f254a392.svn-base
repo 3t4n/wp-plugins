@@ -1,0 +1,23 @@
+%%SELECTOR%% {
+	{{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%%.eh-marquee-container {
+  --gap: {{ design.container.gap.style }};
+  --speed: {{ design.animation.speed }};
+  --fadeout-size: {{ design.container.fade_size.style }};
+  flex-direction: {{ design.container.layout}};
+   width: {{ design.container.width.style }};
+   height: {{ design.container.height.style }};
+  justify-content: {{design.animation.direction}};
+  {{ macros.spacing_padding_all(design.padding) }}
+}
+
+%%SELECTOR%% .eh-marquee-container__track {
+  justify-content: {{design.container.align}};
+  align-items: {{design.container.align}};
+}
+
+%%SELECTOR%%.breakdance--empty-container {
+	justify-content: center;
+}

@@ -1,0 +1,37 @@
+%%SELECTOR%% {
+{{ macros.spacing_margin_y(design.spacing) }}
+{% if design.link.full_width %}
+	width: 100%;
+{% endif %}
+{% if content.content.link is empty %}
+	cursor: default;
+{% endif %}
+}
+
+%%SELECTOR%%,
+%%SELECTOR%% .eh-link-media-reveal__text {
+{{ macros.typography(design.typography, globalSettings)  }}
+}
+
+%%SELECTOR%%:hover,
+%%SELECTOR%% .eh-link-media-reveal__text:hover {
+{{ macros.typographyWithHoverableEverything(design.typography) }}
+}
+
+%%SELECTOR%%  .eh-link-media-reveal__outer {
+  width: {{design.media.width.style}};
+  height: {{ design.media.height.style}};
+{% if ( content.reveal_effects.style == 'style4') or ( content.reveal_effects.style == 'style5') %}
+	perspective: 1000px;
+{% endif %}
+}
+
+%%SELECTOR%%  .eh-link-media-reveal__media {
+  height: {{ design.media.height.style}};
+}
+
+%%SELECTOR%%  .eh-link-media-reveal__outer,
+%%SELECTOR%%  .eh-link-media-reveal__inner,
+%%SELECTOR%%  .eh-link-media-reveal__media {
+{{ macros.border_radius(design.media.border_radius) }}
+}

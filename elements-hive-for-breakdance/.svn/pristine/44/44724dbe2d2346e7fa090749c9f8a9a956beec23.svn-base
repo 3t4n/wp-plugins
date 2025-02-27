@@ -1,0 +1,27 @@
+.eh-gooey-link {
+  --defaultTextXoffset: 0;
+  --textYoffset: 25;
+  --hoverTextXoffset: 0;
+}
+
+.eh-gooey-link,
+.breakdance-menu-list>.breakdance-link.eh-gooey-link {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.eh-gooey-link .eh-gooey-link__svg,
+.eh-gooey-link .eh-gooey-link__dom-text {
+  grid-area: 1/1;
+}
+
+.eh-gooey-link .eh-gooey-link__text-hover,
+.eh-gooey-link .eh-gooey-link__dom-text {
+  opacity: 0;
+}
+
+.eh-gooey-link .eh-gooey-link__text,
+.eh-gooey-link .eh-gooey-link__text-hover {
+  transform-origin: 50% 50%;
+  transform-box: view-box;
+}

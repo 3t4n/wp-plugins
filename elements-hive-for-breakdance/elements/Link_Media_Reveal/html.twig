@@ -1,0 +1,20 @@
+{% set prevent_whitespace_output %}
+{{ macros.linkMaybeEnqueueLightboxStyles(content.content.link) }}
+{{ macros.linkMaybeEnqueueLinkActions(content.content.link) }}
+{% endset %}
+{% if content.content.tag %}
+	<{{content.content.tag}}>
+	{% endif %}
+	<span class="eh-link-media-reveal__text">{{ content.content.text|default('Text Link') }}</span>
+	<div class="eh-link-media-reveal__outer">
+		<div class="eh-link-media-reveal__inner">
+			{% if content.media.media.type == 'video' %}
+				<video autoplay muted loop playsinline class="eh-link-media-reveal__media" data-eh-src="{{content.media.media.url}}" ></video>
+			{% elseif content.media.media.type == 'image' %}
+				<img class="eh-link-media-reveal__media" data-eh-src="{{content.media.media.url}}" alt="content.media.media.alt"/>
+			{% endif %}
+		</div>
+	</div>
+	{% if content.content.tag %}
+	</{{content.content.tag}}>
+{% endif %}

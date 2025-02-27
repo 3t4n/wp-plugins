@@ -1,0 +1,21 @@
+{% if content.images.images[0].image is defined %}
+	{% set sizerImage = content.images.images[0].image.url %}
+{% else %}
+	{% set sizerImage = content.images.images[0].url %}
+{% endif %}
+<div class="eh-webgl-slideshow__wrapper">
+  <img class="eh-webgl-slideshow__image" src="{{sizerImage}}" />
+  <canvas class="eh-webgl-slideshow__canvas"></canvas>
+  {% if isBuilder %}
+  	<div class="eh-webgl-slideshow_builder-images">
+  		{% for image in content.images.images %}
+          {% if image.image is defined %}
+              <img src="{{image.image.url}}" />
+          {% else %}
+              <img src="{{image.url}}" />
+           {% endif %}
+    	{% endfor %}
+  	</div>
+  {% endif %}
+</div>
+

@@ -1,0 +1,104 @@
+.eh-marquee-container {
+  display: flex;
+  width: 100%;
+  overflow: clip;
+}
+
+.eh-marquee-container__track {
+  display: flex;
+  flex-direction: inherit;
+  height: 100%;
+  gap: var(--gap);
+  flex: none;
+}
+
+.eh-marquee-container[data-layout="row"] .eh-marquee-container__track {
+  width: max-content;
+  padding-right: var(--gap);
+}
+
+.eh-marquee-container[data-layout="column"] .eh-marquee-container__track {
+  height: max-content;
+  padding-bottom: var(--gap);
+}
+
+.eh-marquee-container[data-layout="column"][data-fade-edges="true"],
+.eh-marquee-container[data-layout="column"][data-fade-edges="1"] {
+	mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black var(--fadeout-size, 50px),
+      black calc(100% - var(--fadeout-size, 50px)),
+      transparent
+    );
+}
+
+.eh-marquee-container[data-layout="row"][data-fade-edges="true"],
+.eh-marquee-container[data-layout="row"][data-fade-edges="1"]{
+	mask-image: linear-gradient(
+      to right,
+      transparent,
+      black var(--fadeout-size, 50px),
+      black calc(100% - var(--fadeout-size, 50px)),
+      transparent
+    );
+}
+
+
+.eh-marquee-container[data-layout="column"] {
+  width: max-content;
+}
+
+
+/*
+.eh-marquee-container:has(.eh-marquee-
+container__track[data-layout="column"]) {
+  width: max-content;
+}
+*/
+
+/*
+.eh-marquee-container:has(.eh-marquee-container__track[data-layout="column"][data-fade-edges="true"]),
+.eh-marquee-container:has(.eh-marquee-container__track[data-layout="column"][data-fade-edges="1"]) {
+	mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black var(--fadeout-size, 50px),
+      black calc(100% - var(--fadeout-size, 50px)),
+      transparent
+    );
+}
+
+.eh-marquee-container:has(.eh-marquee-container__track[data-layout="row"][data-fade-edges="true"]),
+.eh-marquee-container:has(.eh-marquee-container__track[data-layout="row"][data-fade-edges="1"]){
+	mask-image: linear-gradient(
+      to right,
+      transparent,
+      black var(--fadeout-size, 50px),
+      black calc(100% - var(--fadeout-size, 50px)),
+      transparent
+    );
+}
+
+*/
+
+
+/*
+.eh-marquee-container__track {
+ flex: none;
+}
+*/
+
+
+
+
+/*
+.eh-marquee-container__track[data-layout="row"] {
+  padding-right: var(--gap);
+}
+
+.eh-marquee-container__track[data-layout="column"] {
+  height: max-content;
+  padding-bottom: var(--gap);
+}
+*/

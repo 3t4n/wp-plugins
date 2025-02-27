@@ -1,0 +1,22 @@
+%%SELECTOR%% {
+  {% if not design.container.width.style %}
+  	width: 100%;
+  {% else %}
+  	width: {{ design.container.width.style }};
+  {% endif %}
+}
+
+%%SELECTOR%% .eh-webgl-slideshow__image {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  {{ macros.border_radius(design.container.border_radius) }}
+  {% if not design.container.height.style %}
+  	height: auto;
+  {% else %}
+  	height: {{ design.container.height.style }};
+  {% endif %}
+}
+
+%%SELECTOR%% .eh-webgl-slideshow__wrapper,
+%%SELECTOR%% .eh-webgl-slideshow__canvas {
+	{{ macros.border_radius(design.container.border_radius) }}
+}
