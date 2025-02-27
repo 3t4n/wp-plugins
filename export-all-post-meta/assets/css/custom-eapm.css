@@ -1,0 +1,188 @@
+.export-post-meta-form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+    border: 1px solid darkgray;
+    margin: 40px 40px 40px 20px;
+    border-radius: 8px;
+}
+
+.export-post-meta-form *{
+    margin: 0;
+}
+.export-post-meta-form p{
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+.export-post-meta-form ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.export-post-meta-form .select-post-type-wrap, .export-post-meta-form .select-post-status-wrap{
+    width: calc(50% - 20px);
+}
+.export-post-meta-form .select-fields-wrap, .export-post-meta-form .save-settings-btn{
+    width: 100%;
+}
+
+.export-post-meta-form .select-fields-wrap .select-dropdowns-wrap{
+    margin-top: 16px;
+    display: flex;
+    gap: 40px;
+}
+
+.export-post-meta-form .select-fields-wrap .select-dropdowns-wrap .post-field-dropbox, .export-post-meta-form .select-fields-wrap .select-dropdowns-wrap .post-meta-dropbox{
+    padding: 0;
+    max-height: 150px;
+    min-width: 180px;
+}
+
+.export-post-meta-form .select-fields-wrap .select-dropdowns-wrap .post-field-dropbox option, .export-post-meta-form .select-fields-wrap .select-dropdowns-wrap .post-meta-dropbox option{
+    padding: 4px 8px;
+}
+
+.export-post-meta-form .select-fields-wrap .select-dropdowns-wrap  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .export-post-meta-form .select-fields-wrap .select-dropdowns-wrap  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 2px;
+  }
+   
+
+  .export-post-meta-form .select-fields-wrap .select-dropdowns-wrap  ::-webkit-scrollbar-thumb {
+    background: darkgray; 
+    border-radius: 2px;
+  }
+  
+
+  .export-post-meta-form .select-fields-wrap .select-dropdowns-wrap  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(143, 143, 143); 
+  }
+
+.export-post-meta-form .save-settings-btn{
+    margin-bottom: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.export-post-meta-form .save-settings-btn p{
+    margin: 0;
+    color: #3c434a;
+}
+
+.export-post-meta-form .save-settings-btn input[type=submit]{
+    margin: 0;
+}
+
+.export-post-meta-form .save-settings-btn input[type=submit], .generate-csv-btn  .button{
+    background-color: #2271b1;
+    color: #ffffff;
+}
+
+.export-post-meta-form .save-settings-btn input[type=submit]:hover, .generate-csv-btn .button:hover{
+    background-color: #ffffff;
+    color: #2271b1;
+}
+.generate-csv-btn {
+    margin: 30px 40px 30px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-data-table{
+    border-radius: 8px;
+    margin: 0 40px 0 20px;
+    width: calc(100% - 60px);
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-data-table tr{
+    display: flex;
+}
+
+.post-data-table thead th, .post-data-table tbody td{
+    min-width: 180px;
+    max-width: 180px;
+    text-align: center;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-data-table tbody tr:nth-child(odd), .post-data-table tbody tr:nth-child(odd) td{
+    background-color: rgb(230, 230, 230);
+}
+
+.export-post-meta-pagination{
+    margin: 30px 40px 30px 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.export-post-meta-pagination .page-numbers{
+    min-width: 20px;
+    height: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #2271b1;
+    font-weight: bold;
+    text-decoration: none;
+}
+.export-post-meta-pagination .page-numbers:focus{
+    box-shadow: none;
+}
+.export-post-meta-pagination .page-numbers:hover{
+    background-color: rgb(230, 230, 230);
+}
+.export-post-meta-pagination .page-numbers.current{
+    color: #ffffff;
+    background-color: #2271b1;
+}
+
+.export-post-meta-pagination .page-numbers:not(:first-child){
+    border-left-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .select-dropdowns-wrap{
+        flex-direction: column;
+    }
+    .export-post-meta-form{
+        margin: 20px 20px 20px 10px;    
+    }
+
+    .generate-csv-btn {
+        margin-right: 20px;
+    }
+
+    .post-data-table{
+        margin: 0 20px 0 10px;
+        width: calc(100% - 30px);
+    }
+
+    .export-post-meta-pagination{
+        margin: 30px 20px 30px 0;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .export-post-meta-form .select-post-type-wrap, .export-post-meta-form .select-post-status-wrap{
+        width: 100%;
+    }
+
+    .export-post-meta-form .save-settings-btn{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
