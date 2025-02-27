@@ -1,0 +1,102 @@
+.tainacan-albums-container {
+    min-height: 50vh;
+    padding: 30px 4.166666667%;
+    -moz-perspective: 100px;
+    -moz-transform-style: preserve-3d;
+}
+.tainacan-albums-container .row { justify-content: center; }
+.tainacan-albums-container .col { 
+    display: flex; 
+    justify-content: center;
+    flex-basis: auto;
+    margin: 0px;
+    align-items: center;
+}
+
+.tainacan-albums-container .tainacan-album {
+    width: 276px;
+    padding: 24px;
+    text-align: center;
+    -o-transform: rotate(0deg) scale(1.0);
+    -ms-transform: rotate(0deg) scale(1.0);
+    -moz-transform: rotate(0deg) scale(1.0);
+    -webkit-transform: rotate(0deg) scale(1.0);
+    transform: rotate(0deg) scale(1.0);
+    transition: -moz-transform 0.2s ease, -webkit-transform 0.2s ease, transform 0.3s ease;
+}
+.tainacan-albums-container .tainacan-album:hover {
+    -o-transform: rotate(-2deg) scale(1.05);
+    -ms-transform: rotate(-2deg) scale(1.05);
+    -moz-transform: rotate(-2deg) scale(1.05);
+    -webkit-transform: rotate(-2deg) scale(1.05);
+    transform: rotate(-2deg) scale(1.05);
+}
+.tainacan-albums-container .tainacan-album:hover .metadata-title {
+    opacity: 1;
+} 
+.tainacan-albums-container .tainacan-album:hover .cd {
+    -webkit-transform:  translateX(60px) rotate(185deg);
+    -moz-transform:  translateX(60px) rotate(185deg);
+    -ms-transform:  translateX(60px) rotate(185deg);
+    -o-transform:  translateX(60px) rotate(185deg);
+    transform:  translateX(60px) rotate(185deg);
+    box-shadow: 2px 0px 15px -6px #111;
+}
+.tainacan-albums-container .tainacan-album:hover img {
+    box-shadow: 3px 5px 22px -10px #000;
+}
+
+.tainacan-albums-container .tainacan-album img {
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 15px -8px #111;
+    z-index: 9;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+    background-color: #ccc;
+}
+.tainacan-albums-container .tainacan-album .cd {
+    position:absolute;
+    width: 172px;
+    height: 172px;
+    z-index: 0;
+    display: block;
+    -webkit-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+    background-size: cover;
+    border-radius: 150px;
+    margin: 16px;
+    background-blend-mode: multiply;
+    background-color: #ccc;
+    box-shadow: 0px 0px 0px 0px #111;
+}
+
+.tainacan-albums-container .tainacan-album .metadata-title {
+    flex-shrink: 0;
+    border-radius: 5px;
+    font-size: 0.875em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0.5em;
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    background-color: rgba(255,255,255,0.45);
+    transition: opacity 0.5s;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    margin: 10px 24px;
+    border: 1px solid #e3e3e3;
+}  
+
+
+
+
+

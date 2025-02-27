@@ -1,0 +1,205 @@
+.tainacan-document-container {
+    min-height: 50vh;
+    padding: 30px 4.166666667%;
+}
+.tainacan-document-container .tainacan-document {
+    padding: 12px;
+    margin: 16px;
+    border-radius: 5px;
+}
+
+.tainacan-document-container .tainacan-document:hover .media .media-body .metadata-title,
+.tainacan-document-container .tainacan-document:hover .media .media-bod .metadata-label,
+.tainacan-document-container .tainacan-document:hover .media .media-bod .metadata-value {
+    white-space: normal;
+}
+
+.tainacan-document-container .tainacan-document:hover .media .paper::before {
+    right: 6px;
+    top: 0;
+    transform: rotate(-1deg);
+}        
+.tainacan-document-container .tainacan-document:hover .media .paper::after {
+    top: 5px;
+    right: -5px;
+    transform: rotate(1deg);
+}
+
+.tainacan-document-container .tainacan-document img {
+    width: 130px;
+    height: auto;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+    border: 1px solid #bbb;
+    position: relative;
+    z-index: 3;
+}
+.tainacan-document-container .tainacan-document .media .paper {
+    background: #fff;
+    position: relative;
+    float: left;
+}
+    
+.tainacan-document-container .tainacan-document .media .paper::before,
+.tainacan-document-container .tainacan-document .media .paper::after {
+    content: "";
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+    border: 1px solid #bbb;
+    position: absolute;
+    height: 96%;
+    width: 99%;
+    background-color: #eee;
+    transition: top 0.2s, right 0.2s, transform 0.2s;
+}
+    
+.tainacan-document-container .tainacan-document .media .paper::before {
+    right: 3px;
+    top: -1;
+    transform: rotate(-2.5deg);
+    z-index: 1;
+}
+    
+.tainacan-document-container .tainacan-document .media .paper::after {
+    top: 4px;
+    right: -4px;
+    transform: rotate(2.0deg);
+    z-index: 0;
+}
+        
+.tainacan-document-container .tainacan-document .media .media-body {
+        flex: 1;
+        color: gray;
+        overflow: hidden;
+}
+.tainacan-document-container .tainacan-document .media .media-body .metadata-title {
+    flex-shrink: 0;
+    font-size: 0.875em;
+    margin-bottom: 0.875em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+    
+.tainacan-document-container .tainacan-document .media .media-body .metadata-label {
+    font-size: 0.75em;
+    line-height: 1.0;
+    margin-bottom: 0.2em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tainacan-document-container .tainacan-document .media .media-body .metadata-value {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+}
+
+.tainacan-document-container .tainacan-document .media .media-body .metadata-value .multivalue-separator {
+    color: #a5a5a5;
+    margin: 0 8px;    
+}
+.tainacan-document-container .tainacan-document .media .media-body .metadata-value .hierarchy-separator {
+    color: #a5a5a5;  
+}
+.tainacan-document-container .tainacan-document .media .media-body .metadata-value .metadata-type-compound .multivalue-separator,
+.tainacan-document-container .tainacan-document .media .media-body .metadata-value .metadata-type-textarea .multivalue-separator {
+    display: block;
+    max-height: 1px;
+    width: 35px;
+    background: #a5a5a5;
+    content: none;
+    color: transparent;
+    margin: 0.875em auto;
+}
+.tainacan-document-container .tainacan-document .media .media-body .metadata-value .tainacan-compound-group {
+    padding-left: 1.5em;
+    border-left: 1px solid #f2f2f2;
+}
+
+
+.tainacan-document-container .tainacan-document .metadata-title {
+    flex-shrink: 0;
+    font-size: 0.875em;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 1.0em;
+    text-align: center;
+}   
+.tainacan-document-container .tainacan-document .list-metadata {
+    flex: 1;
+    color: gray;
+    overflow: hidden;
+    display: grid;
+}
+.tainacan-document-container .tainacan-document .list-metadata .metadata-label {
+    font-size: 0.75em;
+    font-weight: bold;
+    line-height: 1.0;
+    margin-bottom: 0.2em;
+}
+
+.tainacan-document-container .tainacan-document .list-metadata .metadata-value {
+    font-size: 0.75em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 260px;
+}
+
+.tainacan-document-container .metadata-value .tainacan-compound-group {
+    margin-left: 2px;
+    padding-left: 0.875em;
+    border-left: 1px solid var(--tainacan-gray2);
+}
+.tainacan-document-container .metadata-value .tainacan-compound-group .tainacan-compound-metadatum .label {
+    margin-bottom: 0.25em;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--tainacan-info-color);
+}
+.tainacan-document-container .metadata-value .tainacan-compound-group .tainacan-compound-metadatum p {
+    margin-bottom: 0.75em;
+    font-size: 0.75em;
+}
+.tainacan-document-container .metadata-value .tainacan-compound-group .multivalue-separator {
+    display: block;
+    max-height: 1px;
+    width: 80px;
+    background: var(--tainacan-gray2);
+    content: none;
+    color: transparent;
+    margin: 1em auto 1em -0.875em;
+}
+.tainacan-document-container .metadata-type-textarea .multivalue-separator ,
+.tainacan-document-container .metadata-type-compound .multivalue-separator {
+    display: block;
+    max-height: 1px;
+    width: 80px;
+    background: var(--tainacan-gray3);
+    content: none;
+    color: transparent;
+    margin: 1em auto;
+}
+.tainacan-document-container .metadata-type-compound {
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: 1px solid var(--tainacan-gray2);
+}
+.tainacan-document-container .metadata-type-compound .tainacan-metadatum {
+    margin-bottom: 0.75em;
+}
+.tainacan-document-container .metadata-type-compound .tainacan-metadatum>.label, 
+.tainacan-document-container .metadata-type-compound .tainacan-metadatum>p {
+    font-size: 0.75em;
+}
+.tainacan-document-container .metadata-type-compound .tainacan-metadatum .label:not(:last-child) {
+    font-size: 0.75em;
+    margin-bottom: 0.3em;
+    color: var(--tainacan-info-color);
+    font-weight: bold;
+}
+.tainacan-document-container .metadata-type-compound .tainacan-metadatum p:not(:last-child) {
+    margin-bottom: 0.75em;
+}
