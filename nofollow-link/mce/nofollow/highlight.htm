@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Highlight Section</title>
+<script type="text/javascript" src="/wp-content/themes/firststeps/scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../../tiny_mce_popup.js?v=3211"></script>
+<script type="text/javascript">
+ 
+var HighlightDialog = {
+    local_ed : 'ed',
+    init : function(ed) {
+        HighlightDialog.local_ed = ed;
+        tinyMCEPopup.resizeToInnerSize();
+    },
+    insert : function insertHighlightSection(ed) {
+ 
+        // Try and remove existing style / blockquote
+        tinyMCEPopup.execCommand('mceRemoveNode', false, null);
+ 
+        // Get Properties
+        var style = jQuery('#highlight-dialog input[name=quote-style]:checked').val();
+        var position = jQuery('#highlight-dialog input[name=position]:checked').val();
+        var width = jQuery('#highlight-dialog select#quote-width').val();
+ 
+        // parse styles
+        var borderColor = style.split(';')[1];
+        var bgColor = style.split(';')[0];
+ 
+        if (width == "") width = "100";
+ 
+        var output = '';
+        // Apply
+        if (bgColor == 'quote') {
+            output = '<div class="blockquote quote" style="width: ' + width + '%; ';
+            if (position == 'left' || position == 'right') {
+                output += 'float: ' + position + '; ';
+                if (position == 'left')
+                    output += 'margin-right: 10px; ';
+                else
+                    output += 'margin-left: 10px; ';
+            }
+            output += '">'+HighlightDialog.local_ed.selection.getContent()+'</div>';
+        }
+    else {
+            output = '<div class="blockquote" style="width: ' + width + '%; ';
+            output += 'background-color:#'+bgColor+'; border-top: 2px solid #'+borderColor+'; ';
+            output += 'border-bottom: 2px solid #'+borderColor+'; ';
+            if (position == 'left' || position == 'right') {
+                output += 'float: ' + position + '; ';
+                if (position == 'left')
+                    output += 'margin-right: 10px; ';
+                else
+                    output += 'margin-left: 10px; ';
+            }
+            output += '">'+HighlightDialog.local_ed.selection.getContent()+'</div>';
+        }
+ 
+        tinyMCEPopup.execCommand('mceReplaceContent', false, output);
+ 
+        // Return
+        tinyMCEPopup.close();
+    }
+};
+tinyMCEPopup.onInit.add(HighlightDialog.init, HighlightDialog);
+ 
+document.write('<base href="'+tinymce.baseURL+'" />');
+</script>
+<style>
+#highlight-dialog table tr td {
+    padding: 5px;
+}
+.align {
+    padding: 0 0 0 25px;
+}
+.image-align-left-label {
+    background: transparent url(/wp-content/plugins/tinymce-custom/mce/highlight/align-left.png) no-repeat scroll left;
+}
+.image-align-right-label {
+    background: transparent url(/wp-content/plugins/tinymce-custom/mce/highlight/align-right.png) no-repeat scroll left;
+}
+.image-align-none-label {
+    background: transparent url(/wp-content/plugins/tinymce-custom/mce/highlight/align-none.png) no-repeat scroll left;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+ 
+</style>
+<base target="_self" />
+</head>
+<body>
+    <div align="center" id="highlight-dialog">
+        <div class="title">Highlight Section:<br /></div>
+        <form action="/" method="get" accept-charset="utf-8">
+            <p>
+                <table border="0" cellspacing="0" width="200" cellpadding="5">
+                    <tr><td style="background-color:#EDF5D6; border-top: solid 1px #69bd4b; border-bottom: solid 1px #69bd4b;">
+                        <label for="quote-style-1">Green Quote Callout</label>
+                        </td><td style="background-color:#EDF5D6; border-top: solid 1px #69bd4b; border-bottom: solid 1px #69bd4b;">
+                        <input type="radio" name="quote-style" value="quote;;" id="quote-style-1" checked="checked">
+                    </td></tr>
+                    <tr><td colspan="2"><div></div></td></tr>
+                    <tr><td style="background-color:#FFC2BF; border-top: solid 1px #EE352A; border-bottom: solid 1px #EE352A;">
+                        <label for="quote-style-1">Red Callout</label>
+                        </td><td style="background-color:#FFC2BF; border-top: solid 1px #EE352A; border-bottom: solid 1px #EE352A;">
+                        <input type="radio" name="quote-style" value="FFC2BF;EE352A;" id="quote-style-2">
+                    </td></tr>
+                        <tr><td colspan="2"><div></div></td></tr>
+                    <tr><td style="background-color:#CFEEFF; border-top: solid 1px #0077BE; border-bottom: solid 1px #0077BE;">
+                        <label for="quote-style-1">Blue Callout</label>
+                        </td><td style="background-color:#CFEEFF; border-top: solid 1px #0077BE; border-bottom: solid 1px #0077BE;">
+                        <input type="radio" name="quote-style" value="CFEEFF;0077BE;" id="quote-style-3">
+                    </td></tr>
+                        <tr><td colspan="2"><div></div></td></tr>
+                    <tr><td style="background-color:#EDF5D6; border-top: solid 1px #69bd4b; border-bottom: solid 1px #69bd4b;">
+                        <label for="quote-style-1">Green Callout</label>
+                        </td><td style="background-color:#EDF5D6; border-top: solid 1px #69bd4b; border-bottom: solid 1px #69bd4b;">
+                        <input type="radio" name="quote-style" value="EDF5D6;69bd4b;" id="quote-style-4">
+                    </td></tr>
+                </table>
+                <br />
+                <label for="quote-width">Width</label>
+                <select name="quote-width" id="quote-width" size="1">
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
+                    <option value="100" selected="selected">100%</option>
+                </select>
+                <br /><br />
+                <input id="position-none" type="radio" checked="checked" value="none" name="position"/>
+                <label class="align image-align-none-label" for="position-none">None</label>
+                <input id="position-left" type="radio" value="left" name="position"/>
+                <label class="align image-align-left-label" for="position-left">Left</label>
+                <input id="position-right" type="radio" value="right" name="position"/>
+                <label class="align image-align-right-label" for="position-right">Right</label>
+                <br /><br />
+                <a href="javascript:HighlightDialog.insert(HighlightDialog.local_ed)">Insert &rarr;</a>
+        </form>
+    </div>
+</body>
+</html>
