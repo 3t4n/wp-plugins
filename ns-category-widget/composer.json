@@ -1,0 +1,51 @@
+{
+	"name": "ernilambar/ns-category-widget",
+	"description": "NS Category Widget",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Nilambar Sharma",
+			"email": "nilambar@outlook.com",
+			"homepage": "https://www.nilambar.net/",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=7.2.24",
+		"ernilambar/optioner": "^3.0",
+		"ernilambar/wp-admin-notice": "^2.0"
+	},
+	"require-dev": {
+		"php-parallel-lint/php-parallel-lint": "^1.4",
+		"phpcompatibility/php-compatibility": "dev-develop#02835e45d27f5d0ed1642d5c8a5e8bfd2c7d7796",
+		"slevomat/coding-standard": "^8.15",
+		"wp-coding-standards/wpcs": "^3.1"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"autoload": {
+		"psr-4": {
+			"NSCW\\": "app/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"ergebnis/composer-normalize": true
+		},
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "7.2.24"
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"format": "@php ./vendor/bin/phpcbf --report-full --report-summary",
+		"lint": [
+			"@lint-php",
+			"@phpcs"
+		],
+		"lint-php": "@php ./vendor/bin/parallel-lint --colors --exclude .git --exclude vendor --exclude node_modules --exclude deploy .",
+		"phpcs": "@php ./vendor/bin/phpcs --report-full --report-summary"
+	}
+}
