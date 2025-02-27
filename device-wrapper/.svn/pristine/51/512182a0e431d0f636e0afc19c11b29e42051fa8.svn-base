@@ -1,0 +1,565 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+.device-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+
+    &__out {
+        display: table;
+    }
+
+    &__in {
+        padding: 50% 0;
+        height: 0;
+    }
+
+    &__rotate {
+        transform-origin: top left;
+        //transform: rotate(-90deg) translate(-100%);
+        transform: rotate(90deg) translate(0, -100%);
+        margin-top: -50%;
+
+        /* Not vital, but possibly a good idea if the element you're rotating contains
+     text and you want a single long vertical line of text and the pre-rotation
+     width of your element is small enough that the text wraps: */
+        white-space: nowrap;
+    }
+
+    & &__inner {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        margin: 0;
+        z-index: 1;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translate3d(0, 0, 0); // KEEP IT!!! https://stackoverflow.com/questions/22932818/overflow-hidden-on-video-element-in-safari
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            background-color: var(--device-wrapper--bg-color, 'transparent');
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        img,
+        video,
+        iframe {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        video {
+            cursor: pointer;
+
+            &.is-playing {
+                &+.device-wrapper__play-button {
+                    opacity: 0;
+                }
+            }
+
+            &:not(.is-playing) {
+                &:hover+.device-wrapper__play-button {
+                    opacity: 1;
+                }
+            }
+        }
+
+        //*
+        &_iphone_15_pro {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_15_pro_max {
+            left: 4%;
+            top: 1%;
+            right: 4%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 4%;
+                left: 1%;
+                bottom: 4%;
+                right: 1%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_se {
+            left: 6%;
+            top: 11%;
+            right: 6%;
+            bottom: 11%;
+            border-radius: 0;
+
+            &-ls {
+                top: 6%;
+                left: 11%;
+                bottom: 6%;
+                right: 11%;
+                border-radius: 0;
+            }
+        }
+
+        &_iphone_11_pro {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_12 {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_12_pro_max {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_13 {
+            left: 5%;
+            top: 1.75%;
+            right: 5%;
+            bottom: 1.75%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 1.75%;
+                bottom: 5%;
+                right: 1.75%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_13_pro_max {
+            left: 5%;
+            top: 1.75%;
+            right: 5%;
+            bottom: 1.75%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 1.75%;
+                bottom: 5%;
+                right: 1.75%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_14_pro {
+            left: 4.25%;
+            top: 1.75%;
+            right: 4.25%;
+            bottom: 1.75%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 4.25%;
+                left: 1.75%;
+                bottom: 4.25%;
+                right: 1.75%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_14_pro_v2 {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_14_pro_max {
+            left: 5%;
+            top: 1.5%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 1.5%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_14 {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_iphone_14_plus {
+            left: 5%;
+            top: 2%;
+            right: 5%;
+            bottom: 2%;
+            border-radius: 6%;
+
+            &-ls {
+                top: 5%;
+                left: 2%;
+                bottom: 5%;
+                right: 2%;
+                border-radius: 6%;
+            }
+        }
+
+        &_ipad_pro_11 {
+            left: 5%;
+            top: 3.5%;
+            right: 5%;
+            bottom: 3.5%;
+            border-radius: 3%;
+
+            &-ls {
+                top: 5%;
+                left: 3.5%;
+                bottom: 5%;
+                right: 3.5%;
+                border-radius: 3%;
+            }
+        }
+
+        &_ipad {
+            left: 4%;
+            top: 6.5%;
+            right: 4%;
+            bottom: 7.75%;
+            border-radius: 0%;
+
+            &-ls {
+                top: 4%;
+                left: 6.5%;
+                bottom: 4%;
+                right: 7.75%;
+                border-radius: 0%;
+            }
+        }
+
+        // */
+        &_macbook_pro {
+            left: 11%;
+            top: 4.5%;
+            right: 11%;
+            bottom: 11.75%;
+            border-radius: 0%;
+        }
+
+        //*
+        &_macbook_pro_2023 {
+            left: 10%;
+            top: 2%;
+            right: 10%;
+            bottom: 10.75%;
+            border-radius: 0%;
+        }
+
+        &_apple_studio {
+            left: 2%;
+            top: 2%;
+            right: 2%;
+            bottom: 27%;
+            border-radius: 0%;
+        }
+
+        &_google_pixel_4 {
+            left: 3%;
+            top: 5.5%;
+            right: 4%;
+            bottom: 2.75%;
+            border-radius: 3%;
+
+            &-ls {
+                top: 3%;
+                left: 5.5%;
+                bottom: 3%;
+                right: 2.75%;
+                border-radius: 3%;
+            }
+        }
+
+        &_google_pixel_7_pro {
+            left: 3%;
+            top: 1.5%;
+            right: 4%;
+            bottom: 2%;
+            border-radius: 3%;
+
+            &-ls {
+                top: 3%;
+                left: 1.5%;
+                bottom: 3%;
+                right: 2%;
+                border-radius: 3%;
+            }
+        }
+
+        &_samsung_galaxy_s23 {
+            left: 4%;
+            top: 1.75%;
+            right: 6%;
+            bottom: 2%;
+            border-radius: 4%;
+
+            &-ls {
+                top: 4%;
+                left: 1.75%;
+                bottom: 4%;
+                right: 2%;
+                border-radius: 4%;
+            }
+        }
+
+        &_iwatch_7 {
+            left: 3%;
+            top: 17.75%;
+            right: 7%;
+            bottom: 18.5%;
+            border-radius: 19%;
+        }
+
+        // */
+
+        &__scroll {
+            height: 100%;
+        }
+
+        &_cover {
+
+            img,
+            video,
+            iframe {
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+        }
+
+        &_contain {
+
+            img,
+            video {
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+
+            &.device-wrapper__inner_iframe {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &_overflow {
+
+            img,
+            video,
+            iframe {
+                width: auto;
+                max-width: none;
+                max-height: none;
+            }
+
+            .device-wrapper__inner__scroll {
+                overflow: auto;
+            }
+        }
+
+        &_overflow-x {
+            .simplebar-content {
+                height: 100%;
+                width: auto;
+            }
+
+            img,
+            video,
+            iframe {
+                width: auto;
+                max-width: none;
+                max-height: 100%;
+                height: 100%;
+            }
+
+            .device-wrapper__inner__scroll {
+                overflow: hidden;
+                overflow-x: auto;
+            }
+        }
+
+        &_overflow-y {
+            .device-wrapper__inner__scroll {
+                overflow: hidden;
+                overflow-y: auto;
+            }
+        }
+    }
+
+    & &__device {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            max-width: 100%;
+            display: block;
+        }
+    }
+
+    & button.device-wrapper__play-button {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        padding: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 0;
+        border-radius: 0;
+        cursor: pointer;
+        background-color: transparent;
+        background-image: url(../src/images/play-button.svg);
+        background-size: clamp(50px, 5vw, 50%);
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 300ms ease-in;
+        opacity: .5;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .simplebar-track {
+        &.simplebar-horizontal {
+            bottom: 10px;
+        }
+    }
+
+    &-admin {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1600px;
+        gap: 1em;
+    }
+
+    &-admin-description {
+        background-color: #fff;
+        border-radius: 1rem;
+        padding: 1em 1.5em;
+        position: relative;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.15);
+        max-width: 40rem;
+        flex: 1;
+        word-break: break-word;
+    }
+    &-admin-screenshot {
+        flex: 1 1 25rem;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
