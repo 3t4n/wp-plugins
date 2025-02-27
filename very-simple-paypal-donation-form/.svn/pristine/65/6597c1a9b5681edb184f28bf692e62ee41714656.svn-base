@@ -1,0 +1,266 @@
+#vsdf_form #errors {
+    padding: 10px 20px;
+    color: #c72411;
+    background: #ffd6d6;
+    border: 3px solid #ffbfbf;
+    font-size: 1em;
+    font-family: 'Geometria-Bold', helvetica;
+    font-weight: 500;
+    border-radius: .3em;
+    margin-bottom: 20px;
+}
+
+#vsdf_form {
+	width: 100%;
+	margin: 15px auto;
+}
+
+#vsdf_form #one-or-monthly {
+	text-align: center;
+}
+
+#vsdf_form #types {
+	display: inline-block;
+	margin-top: 10px;
+}
+
+#vsdf_form .type_text {
+	float: left;
+	display: inline-block;
+	text-align: right;
+	padding-top: 23px;
+	font-size: 1em;
+}
+#vsdf_form .type_dropdown {
+	float: right;
+	display: inline-block;
+}
+@media (max-width: 630px) {
+	#vsdf_form .type_text {
+		float: none;
+		width: 100%;
+		text-align: center;
+	}
+	#vsdf_form .type_dropdown {
+		float: none;
+		width: 100%;
+	}
+
+	#vsdf_form .dropdown-el {
+	  min-width: 12em;
+	  width: 100%;
+	  margin-right: 1em;
+	  min-height: 2.9em;
+	  max-height: 2.9em;
+	}
+}
+
+#vsdf_form #amount-typed {
+	display: inline-block;
+	padding: 1em 1.2em;
+	margin: 0.5em;
+	border-radius: 0.25em;
+	background: #efefef;
+	font-size: 1em;
+	font-family: 'Geometria-Bold', helvetica;
+	font-weight: 900;
+	margin: 0;
+	width: 100px;
+    height: 49px;
+}
+
+#vsdf_form .pre_dollar {
+    position: relative;
+    display: none;
+}
+
+#vsdf_form .pre_dollar:before {
+    content: '$';
+	position: absolute;
+    color: #909090;
+	font-family: 'Geometria-Bold', helvetica;
+	font-size: 1em;
+	font-weight: 900;
+    top: -2px;
+    left: 9px;
+    z-index: 1;
+}
+
+#vsdf_form #submit-row {
+	clear: both;
+	padding-top: 10px;
+	text-align: center;
+}
+
+#vsdf_form #submit-row #go {
+	display: inline-block;
+	padding: .9em 1.8em;
+	margin: 0.5em;
+	cursor: pointer;
+	color: #fff;
+	font-size: 1em;
+	font-family: Geometria-Bold, helvetica;
+	font-weight: 900;
+	border-radius: 0.25em;
+	background: #ea922e;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.22);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#vsdf_form #submit-row #go:hover {
+  	background: #da811c;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 0px 0 rgba(0, 0, 0, 0.22);
+}
+
+/* special radio buttons - inspired by https://codepen.io/mblode/pen/gGIAm */
+
+#vsdf_form .button-wrap {
+	text-align: center;
+}
+
+#vsdf_form .button-label {
+  display: inline-block;
+  cursor: pointer;
+  color: #292929;
+  border-radius: 0.25em;
+  background: #efefef;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+	width: 10%;
+	min-width: 60px;
+    padding: 1em 0;
+    text-align: center;
+    margin: 5px 1%;
+}
+#vsdf_form .button-label h1 {
+	font-size: 1em;
+	font-family: Geometria-Bold, helvetica;
+	font-weight: 900;
+	margin: 0;
+	color: inherit;
+}
+#vsdf_form .button-label:hover {
+  background: #d6d6d6;
+  color: #101010;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+}
+#vsdf_form .button-label:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+}
+@media (max-width: 630px) {
+  #vsdf_form {
+	  width: 100% !important;
+  }
+}
+
+#vsdf_form #amount-other:checked + .button-label {
+  background: #0bd451;
+  color: #efefef;
+}
+#vsdf_form #amount-other:checked + .button-label:hover {
+  background: #05ae40;
+  color: #e2e2e2;
+}
+#vsdf_form #amount-other:checked + .button-label + .pre_dollar {
+	display: inline;
+}
+
+#vsdf_form .hidden {
+  display: none;
+}
+
+/* special "select" menu - Inspired by https://codepen.io/j0be/pen/jWGVvV */
+
+#vsdf_form .dropdown-el {
+  margin-top: 10px;
+  min-width: 12em;
+  position: relative;
+  display: inline-block;
+  margin-right: 1em;
+  min-height: 2em;
+  max-height: 2em;
+  overflow: hidden;
+  top: .5em;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  color: #9056a8;
+  outline: none;
+  border: .06em solid #9056a8;
+  border-radius: .2em;
+  background-color: #fff;
+  transition: 0.3s all ease-in-out;
+}
+#vsdf_form .dropdown-el input {
+  display: none;
+}
+#vsdf_form .dropdown-el label {
+  border-top: .06em solid #d9d9d9;
+  display: block;
+  height: 2em;
+  line-height: 2em;
+  padding-left: .5em;
+  padding-right: 2em;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s color ease-in-out;
+  color: #9056a8;
+	font-size: 1em;
+	letter-spacing: -0.01em;
+}
+#vsdf_form .dropdown-el label:nth-child(2) {
+  margin-top: 2em;
+  border-top: .06em solid #d9d9d9;
+}
+#vsdf_form .dropdown-el input:checked + label {
+  display: block;
+  border-top: none;
+  position: absolute;
+  top: 0;
+}
+#vsdf_form .dropdown-el input:checked + label:nth-child(2) {
+  margin-top: 0;
+  position: relative;
+}
+#vsdf_form .dropdown-el::after {
+  content: "";
+  position: absolute;
+  right: 0.6em;
+  top: 0.8em;
+  border: 0.4em solid #9056a8;
+  border-color: #9056a8 transparent transparent transparent;
+  transition: .4s all ease-in-out;
+}
+#vsdf_form .dropdown-el.expanded {
+  border: 0.06em solid #9056a8;
+  background: #fff;
+  border-radius: .25em;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
+  max-height: 15em;
+}
+#vsdf_form .dropdown-el.expanded label {
+  border-top: .06em solid #d9d9d9;
+}
+#vsdf_form .dropdown-el.expanded label:hover {
+  color: #b358da;
+}
+#vsdf_form .dropdown-el.expanded input:checked + label {
+  color: #b358da;
+}
+#vsdf_form .dropdown-el.expanded::after {
+  transform: rotate(-180deg);
+  top: .55em;
+}
