@@ -1,0 +1,56 @@
+.managerforicomoon-toast--container {
+    position: fixed;
+    top : 50px;
+    right: 20px;
+    width: 90%;
+    max-width: 500px;
+    z-index:100;
+    margin:0;
+    padding:0;
+}
+.managerforicomoon-toast {
+    transition: none ;
+    position:relative;
+    box-shadow: $box-shadow;
+    color: #fff ;
+    padding: 15px 20px 15px 15px;
+    margin-bottom: 10px;
+    
+    &--info {
+        background-color: $color_info;
+    }
+    &--error {
+        background-color: $color_error;
+    }
+}
+.managerforicomoon-toast--close {
+    position: absolute; 
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+.managerforicomoon-toast--autohide {
+    padding: 10px 15px 20px 10px;
+    &::before {
+        position: absolute;
+        bottom: 0 ;
+        right:0;
+        display: block;
+        content:'';
+        height:8px;
+        width:100%;
+        background-color: darken($color_info,20%);
+        animation: managerforicomoon-toast--timer 4s linear;
+    }
+}
+.managerforicomoon-icon {
+    height: 1rem;
+}
+@keyframes managerforicomoon-toast--timer { 
+    from {
+        width: 100%; 
+    }
+    to {
+        width: 0% ;
+    }
+}

@@ -1,0 +1,177 @@
+@import '../vars' ;
+
+.managerforicomoon {
+    font-size: 1rem;
+    margin-left: -20px;
+    color: #616161;
+    position: relative;
+
+    * {
+        @extend %transition;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .button-primary {
+        background-color: $color-main ;
+        border-color: $color-main ;
+        box-shadow: none;
+        text-shadow: none;
+
+        &:hover,&:focus{
+            background-color: darken($color-main,10%) ;
+            border-color: darken($color-main,10%);
+            box-shadow: none;
+            text-shadow: none;
+        }
+    }
+}
+
+.managerforicomoon-header {
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 12;
+    background-color: #fff ; 
+    border-bottom: 2px solid $color-main;   
+    box-shadow: $box-shadow;
+
+    div {
+        padding-left: 90px;
+        height: 75px;
+        background-color: red;
+        background: url('../img/logo-manager-for-icomoon.png') no-repeat 10px ;
+        background-size: 70px;
+    }
+
+    h1 {
+        color: $color-main ;
+        font-weight: normal;
+        margin:0;
+        padding: 0;
+        line-height:80px;
+        font-size: 25px;
+    }
+    
+    .logo-header {
+        position: absolute;
+        right: 30px;
+        top: -10px; 
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: url('../img/logo.png') no-repeat ;
+        box-shadow: $box-shadow;
+        border-radius: 50px;
+    } 
+}  
+
+.managerforicomoon-page {
+    padding: 1rem 2rem;
+}
+
+.managerforicomoon-content {
+    background-color: #ffffff ;
+    padding: 30px;
+    min-height: 400px;
+    box-shadow: $box-shadow;
+
+    
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: normal;
+        margin: 3em 0 1em;
+        padding: 0 0 0.8em 2em;
+        border-bottom: 1px solid $color-main-light ;
+        color: $color-main ;
+        position: relative;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        &::before, &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            
+        }
+        &::before {
+            left: 0;
+            top: -0.2em;
+            width: 1.2em;
+            height: 1.2em;
+            border-radius: 50%;
+            background-color: $color-main ;
+        }
+        &::after {
+            z-index: 3;
+            top: .5em;
+            left: .6em;
+            width: .75em;
+            height: .75em;
+            border-radius: 50%;
+            background-color: $color4 ;
+        }
+    }
+
+    ol.managerforicomoon-start {
+        counter-reset: start;
+        list-style-type: none;
+        li {
+            counter-increment: start;
+            margin: 1rem;
+            &::before {
+                content: counter(start);
+                display: inline-block;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 0.75rem;
+                line-height: 1.5rem;
+                font-size: 0.9em;
+                text-align: center;
+                background-color: $color-main;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.managerforicomoon-donate {
+    margin: 10px 20px ;
+    text-align: center ;
+
+    .logo-footer {
+        display: none;
+        width: 100px;
+        height: 100px;
+        margin: 1rem auto;
+        background: url('../img/logo.png') no-repeat ;
+        box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7); 
+        border-radius: 50px;
+    }
+}
+
+
+@media screen and (max-width: 600px) { 
+    .managerforicomoon-header .logo-header {
+        display: none;
+    }
+    .managerforicomoon-donate .logo-footer {
+        display: block;
+    }
+}
+@media screen and (min-width: 600px) { 
+    .managerforicomoon-header {
+        top: 46px;
+    }
+}
+@media screen and (min-width: 783px) {
+    .managerforicomoon-header {
+        top: 32px;
+    }
+}

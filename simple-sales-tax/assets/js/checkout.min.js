@@ -1,0 +1,1 @@
+jQuery(function(e){e(document).on("change","#certificate_id",function(){e("#exempt_certificate_form").toggle("new"===e("#certificate_id").val()),e(document.body).trigger("update_checkout")}),e("#certificate_id").trigger("change")});

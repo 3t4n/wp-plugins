@@ -1,0 +1,134 @@
+/**
+* Foglio di stile personalizzato con cui personalizzo lo stile del popup di disattivazione
+* incluso in src/admin_scripts.php schermata taxes
+*/
+
+.widefat thead tr th {
+    padding-left: 1%;
+}
+
+.widefat tfoot tr th {
+    padding-left: 1%;
+}
+
+.wp-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.wp-list-table th,
+.wp-list-table td {
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+    /*white-space: nowrap;*/
+}
+
+.wp-list-table th {
+    background-color: #f9f9f9;
+}
+
+.wp-list-table .column-id {
+    width: 20%;
+}
+
+.wp-list-table .column-tax_id {
+    width: 20%;
+}
+
+.wp-list-table .column-name {
+    width: 25%;
+}
+
+.wp-list-table .column-natura {
+    width: 30%;
+}
+
+.wp-list-table .column-used_for_shipping {
+    width: 20%;
+    text-align: center;
+}
+
+.wp-list-table .column-actions {
+    width: 10%;
+    text-align: center;
+}
+
+.wp-list-table .column-actions > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-list-table select {
+    width: 100%;
+    padding: 6px 24px 6px 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    background-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wp-list-table select option {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wp-list-table .button.apply-natura {
+    padding: 4px 10px;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .wp-list-table,
+    .wp-list-table thead,
+    .wp-list-table tbody,
+    .wp-list-table th,
+    .wp-list-table td,
+    .wp-list-table tr {
+        display: block;
+    }
+
+    .wp-list-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .wp-list-table tr {
+        margin-bottom: 15px;
+    }
+
+    .wp-list-table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        white-space: normal;
+    }
+
+    .wp-list-table td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-title);
+        font-weight: bold;
+    }
+
+    .wp-list-table .column-actions {
+        text-align: left;
+    }
+}

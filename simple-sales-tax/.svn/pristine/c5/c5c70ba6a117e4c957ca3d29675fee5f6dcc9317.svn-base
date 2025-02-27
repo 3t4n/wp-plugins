@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'simplesalestax/simplesalestax',
+        'pretty_version' => '8.2.1',
+        'version' => '8.2.1.0',
+        'reference' => '508c89b51b5ddece0da3c0454a8baa9f2329df03',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'bporcelli/php-taxcloud' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => 'c4a6ec2511b9a444e306923f8dc23389b48a1a1a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bporcelli/php-taxcloud',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'simplesalestax/simplesalestax' => array(
+            'pretty_version' => '8.2.1',
+            'version' => '8.2.1.0',
+            'reference' => '508c89b51b5ddece0da3c0454a8baa9f2329df03',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'woocommerce/woocommerce' => array(
+            'pretty_version' => 'dev-trunk',
+            'version' => 'dev-trunk',
+            'reference' => null,
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../woocommerce/woocommerce',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+    ),
+);
