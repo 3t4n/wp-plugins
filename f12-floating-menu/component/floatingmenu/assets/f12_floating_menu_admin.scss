@@ -1,0 +1,206 @@
+.post-type-floating_menu {
+  .forge12-plugin {
+    .forge12-plugin-content {
+      .forge12-plugin-content-main {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+/**
+ * Edit admin css which is only available for this plugin
+ */
+#menu-settings .forge12-plugin,
+#menu-items .forge12-plugin {
+  padding-top: 0;
+  padding-right: 0;
+}
+
+#menu-settings .forge12-plugin-content,
+#menu-items .forge12-plugin-content {
+  margin-top: 6px;
+}
+
+#menu-settings .forge12-plugin-content .forge12-plugin-content-main,
+#menu-items .forge12-plugin-content .forge12-plugin-content-main {
+  padding-right: 0;
+}
+
+/**
+ * Design the image wrapper
+ */
+.f12-floating-menu-image-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.f12-floating-menu-image-wrapper .f12-floating-menu-image-wrapper--inner {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.f12-floating-menu-image-wrapper .label {
+  padding-top: 0 !important;
+  padding-bottom: 15px;
+}
+
+.f12-floating-menu-image-wrapper .preview {
+  display: block;
+  flex-flow: unset;
+  float: none;
+  text-align: center;
+}
+
+/**
+ * Adjust the icon / image box to be displayed next to each other instead
+ * of below each other
+ */
+#menu-items .input .col-6 {
+  max-width: 50%;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+#menu-items .input .col-4 {
+  max-width: 33.33%;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+#menu-items .input .col-4.floating-menu-image,
+#menu-items .input .col-6.floating-menu-image {
+  border-radius: 3px 0px 0px 3px;
+}
+
+#menu-items .input .col-4.floating-menu-icon {
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}
+
+#menu-items .input .col-4.floating-menu-image-url,
+#menu-items .input .col-6.floating-menu-image-url {
+  border-radius: 0 3px 3px 0;
+}
+
+#menu-items .input .col-4.floating-menu-icon,
+#menu-items .input .col-6.floating-menu-icon,
+#menu-items .input .col-4.floating-menu-image,
+#menu-items .input .col-4.floating-menu-image-url,
+#menu-items .input .col-6.floating-menu-image {
+  background-color: #f8f9fa;
+  overflow: hidden;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border: 1px solid #edeaea;
+  flex: 1 1 auto;
+  min-height: 300px;
+}
+
+#menu-items .input-flex {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+/**
+ * Adjust the toggle container
+ */
+.tab-container .tab-container-header button {
+  float: right;
+  margin-top: -5px;
+}
+
+.tab-container .tab-container-header button i {
+  text-align: center;
+  padding-right: 0 !important;
+}
+
+/**
+ * Box adjustments
+ */
+#menu-items .forge12-plugin-content .box {
+  padding: 0;
+}
+
+/**
+ * Customizer Settings
+ */
+.customize-control-menu {
+  .section {
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+
+      .item{
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        max-width:95%;
+        overflow:hidden;
+      }
+    }
+
+    .row{
+      display:flex;
+      flex-flow:row wrap;
+      align-items:center;
+      padding:0 0 10px 0;
+
+      label{
+        padding:5px 0px;
+      }
+
+    }
+
+    .icon-box{
+      .icon-box-search{
+          input{
+            border-radius:0!important;
+          }
+      }
+
+      .icon-box-content{
+        border-radius:0!important;
+      }
+    }
+
+    .menu-item.menu-item-edit-active,
+    &.menu-item-edit-active {
+      > .menu-item-bar {
+        > .menu-item-handle {
+          border-color: #8c8f94 !important;
+        }
+      }
+
+      > .menu-item-settings {
+        display: block !important;
+      }
+    }
+
+    .menu-item-handle {
+      border-color: #dcdcde !important;
+    }
+  }
+
+  .f12-floating-menu-image-wrapper {
+    .f12-floating-menu-image-wrapper--inner {
+      display:flex;
+      background-color: #ccc;
+      height: 100px;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.post-type-floating_menu #pages+.select2 .select2-selection__rendered{
+  display:inline-block!important;
+}
