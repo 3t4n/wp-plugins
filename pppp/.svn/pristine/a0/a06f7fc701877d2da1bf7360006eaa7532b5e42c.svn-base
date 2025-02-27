@@ -1,0 +1,30 @@
+{
+  "name": "torounit/pppp",
+  "description": "Posts per page for custom post types and taxonomies.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Hiroshi Urabe",
+      "email": "mail@torounit.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.4.2",
+    "wp-coding-standards/wpcs": "^2.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "phpcs -i"
+    ],
+    "fix": [
+      "phpcs -p -s -v -n --standard=./codesniffer.ruleset.xml --extensions=php --report-diff=changes.diff; patch -p0 -ui changes.diff; rm changes.diff"
+    ],
+    "phpcs": [
+      "phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php"
+    ]
+  }
+}
