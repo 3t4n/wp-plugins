@@ -1,0 +1,21 @@
+<?php
+
+$handle = mysql_connect ('DB_HOST', 'DB_USER', 'DB_PASSWORD') or die('crap');
+mysql_select_db ('DB_NAME', $handle); 
+
+foreach ($_POST as $dummy => $id) {
+	// get the existing number of views
+	$result = mysql_query("SELECT meta_value FROM TABLE_PREFIXpostmeta WHERE post_id = $id AND meta_key = 'pvc_views' LIMIT 1", $handle);
+	if ($result && mysql_num_rows($result)) {
+		$row = mysql_fetch_row($result);
+		$views = $row[0];
+		mysql_free_result($result);
+		$views++;
+		mysql_query("UPDATE TABLE_PREFIXpostmeta SET meta_value = '$views' WHERE post_id = $id AND meta_key = 'pvc_views' ", $handle);	
+	} else {
+		// no entry so create new one
+		mysql_query("INSERT INTO TABLE_PREFIXpostmeta (post_id, meta_key, meta_value) VALUES ('$id', 'pvc_views', '1')", $handle);
+	}
+}
+
+?>

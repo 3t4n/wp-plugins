@@ -1,0 +1,19 @@
+jQuery(document).ready(function(){  
+	var post_ids = [];
+	jQuery("span[class^='pvc_count_me']").each(function (i) {
+        post_ids.push(this.className.substring(12));
+	});
+	
+	var num_posts = post_ids.length;
+	if (num_posts > 0) 
+	{
+		var par = '({ ';
+		for (var i = 0; i < num_posts; i++) 
+		{
+			par = par + '"n' + i +'": "' + post_ids[i] +'", ' ;
+		}
+		par = par.substring(0, par.lastIndexOf(','));
+		par = par + ' })';
+		jQuery.post("WP_PLUGIN_URL/popular-posts-plugin/pvctracker.php", eval(par) );
+	}
+});  
