@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '10up/publisher-media-kit',
+        'pretty_version' => '1.3.6',
+        'version' => '1.3.6.0',
+        'reference' => '14bf0b2a0d3c731d8fb907586ab4494c8b41b179',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        '10up/publisher-media-kit' => array(
+            'pretty_version' => '1.3.6',
+            'version' => '1.3.6.0',
+            'reference' => '14bf0b2a0d3c731d8fb907586ab4494c8b41b179',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        '10up/wp-compat-validation-tool' => array(
+            'pretty_version' => 'dev-trunk',
+            'version' => 'dev-trunk',
+            'reference' => '19a8c7c1d39d3a4c896aeeac8d42edd20b8d2317',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../10up-lib/wp-compat-validation-tool',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'composer/installers' => array(
+            'pretty_version' => 'v2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => '12fb2dfe5e16183de69e784a7b84046c43d97e8e',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/./installers',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

@@ -1,0 +1,145 @@
+=== Publisher Media Kit ===
+Contributors:      10up, jeffpaul, faisal03
+Tags:              media kit, audience profiles, digital ad specs, ad rates
+Tested up to:      6.7
+Stable tag:        1.3.6
+License:           GPLv2 or later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+
+Pre-configured Media Kit Page using Gutenberg Block Patterns.
+
+== Description ==
+
+Publisher Media Kit provides a quick and easy option for small to medium sized publishers to digitize their media kit.  If you are a publisher hoping for a page like the [NY Times' Advertising Standard Units](https://nytmediakit.com/standard-units), but do not have a designer or developer on staff?  Then this plugin is for you.  If you are still using a print or PDF version of your media kit to sell space on your website, but want show advertisers looking to buy digital real estate that you are a digital-forward partner?  Then this plugin is for you.
+
+The plugin adds a new "Media Kit" page, block patterns, and placeholder content that can then be customized to fit your need (e.g., text, links, colors, images, adding page link to site footer).
+
+== Theme Compatibility ==
+
+We have tested the plugin with the following WordPress themes and have validated that the resulting `Media Kit` page renders as expected on the front-end and within the block editor.  Please [open an issue](https://github.com/10up/publisher-media-kit/issues/new/choose) if you find an issue with any of these themes or have an alternate, public theme with a conflict that we can help resolve.
+
+1. [Twenty Twenty-One](https://wordpress.org/themes/twentytwentyone/)
+1. [Newspack base theme](https://github.com/Automattic/newspack-theme)
+1. [Newspack: Joseph](https://github.com/Automattic/newspack-theme)
+1. [Newspack: Katharine](https://github.com/Automattic/newspack-theme)
+1. [Newspack: Nelson](https://github.com/Automattic/newspack-theme)
+1. [Newspack: Sacha](https://github.com/Automattic/newspack-theme)
+1. [Newspack: Scott](https://github.com/Automattic/newspack-theme)
+
+## Installation
+
+1. Install the plugin via the plugin installer, either by searching for it or uploading a .ZIP file.
+1. Activate the plugin.
+1. Open the "Media Kit" page, edit the content to your needs, and hit publish!
+
+== Frequently Asked Questions ==
+
+= I accidentally deleted a block from my `Media Kit` page, how do I add it back? =
+
+Click the block inserter (`+` button) in the top left of the block editor, click the `Patterns` tab, select `Publisher Media Kit` in the dropdown, and select the specific Block Pattern that you want to add back to your page.
+
+= I want to add block from my `Media Kit` page on a different post/page, how do I add it outside the `Media Kit` page? =
+
+Click the block inserter (`+` button) in the top left of the block editor, click the `Patterns` tab, select `Publisher Media Kit` in the dropdown, and select the specific Block Pattern that you want to add to your post/page.
+
+= If I rename the page title (e.g. to 'Advertising') and then deactivate and subsequently reactivate the plugin, would the plugin generate a new 'Media Kit' page? =
+
+The plugin specifically checks for the page slug `media-kit`, meaning that even if you modify the page name, the plugin will not generate a new page unless the page slug is altered or the page is moved to the trash.
+
+== Screenshots ==
+
+1. View of block patterns and placeholder content within the block editor running the Twenty Twenty One default theme.
+2. Media Kit page on frontend of site running the Twenty Twenty One default theme.
+3. View of block patterns and placeholder content within the block editor running the Newspack base theme.
+4. Media Kit page on frontend of site running the Newspack base theme.
+
+== Changelog ==
+
+= 1.3.6 - 2025-02-03 =
+
+**Note that this release bumps the minimum required version of WordPress from 6.4 to 6.5.**
+
+* **Changed:** Bump WordPress "tested up to" version 6.7 (props [@severine-pozzo](https://github.com/severine-pozzo), [@jeffpaul](https://github.com/jeffpaul), [@faisal-alvi](https://github.com/faisal-alvi) via [#212](https://github.com/10up/publisher-media-kit/pull/212)).
+* **Changed:** Bump WordPress minimum to version 6.5 (props [@severine-pozzo](https://github.com/severine-pozzo), [@jeffpaul](https://github.com/jeffpaul), [@faisal-alvi](https://github.com/faisal-alvi) via [#212](https://github.com/10up/publisher-media-kit/pull/212)).
+* **Security:** Bump `axios` from 1.7.2 to 1.7.4 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#205](https://github.com/10up/publisher-media-kit/pull/205)).
+* **Security:** Bump `webpack` from 5.92.1 to 5.94.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#206](https://github.com/10up/publisher-media-kit/pull/206)).
+* **Security:** Bump `serve-static` from 1.15.0 to 1.16.2 and `express` from 4.19.2 to 4.21.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#209](https://github.com/10up/publisher-media-kit/pull/209)).
+* **Security:** Bump `cookie` from 0.4.2 to 0.7.1, `express` from 4.21.0 to 4.21.2 and `@wordpress/scripts` from 27.9.0 to 30.7.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#213](https://github.com/10up/publisher-media-kit/pull/213)).
+
+= 1.3.5 - 2024-07-31 =
+
+**Note that this release bumps the minimum required version of WordPress from 6.2 to 6.4.**
+
+* **Changed:** Bump WordPress minimum to version 6.4 and "tested up to" version 6.6 (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter), [@sudip-md](https://github.com/sudip-md) via [#195](https://github.com/10up/publisher-media-kit/pull/195)).
+* **Fixed:** Fatal error caused by redeclared functions (props [@claudiulodro](https://github.com/claudiulodro), [@Sidsector9](https://github.com/Sidsector9), [@shelb-elliott](https://github.com/shelb-elliott), [@iamdharmesh](https://github.com/iamdharmesh) via [#197](https://github.com/10up/publisher-media-kit/pull/197)).
+
+= 1.3.4 - 2024-07-08 =
+
+**Note that this release bumps the minimum required version of WordPress from 5.7 to 6.2.**
+
+* **Added:** PHP version check to ensure >= 7.4 support (props [@bmarshall511](https://github.com/bmarshall511), [@faisal-alvi](https://github.com/faisal-alvi), [@ankitguptaindia](https://github.com/ankitguptaindia) via [#165](https://github.com/10up/publisher-media-kit/pull/165)).
+* **Added:** Margin to the top of Why Digital Group, Padding to Why Digital Group, and Background and text color to even table rows (props [@claytoncollie](https://github.com/claytoncollie), [@faisal-alvi](https://github.com/faisal-alvi) via [#187](https://github.com/10up/publisher-media-kit/pull/187)).
+* **Changed:** Bump WordPress minimum to version 6.2 and "tested up to" version 6.5 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi), [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul), [@qasumitbagthariya](https://github.com/qasumitbagthariya), [@sudip-md](https://github.com/sudip-md) via [#166](https://github.com/10up/publisher-media-kit/pull/166), [#188](https://github.com/10up/publisher-media-kit/pull/188)).
+* **Fixed:** Build editor-style entrypoint (props [@davisshaver](https://github.com/davisshaver), [@dkotter](https://github.com/dkotter) via [#178](https://github.com/10up/publisher-media-kit/pull/178)).
+* **Security:** Bump `@cypress/request` from 2.88.12 to 3.0.1 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi), [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#166](https://github.com/10up/publisher-media-kit/pull/166)).
+* **Security:** Bump `cypress` from 11.2.0 to 13.3.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi), [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#166](https://github.com/10up/publisher-media-kit/pull/166)).
+* **Security:** Bump `follow-redirects` from 1.15.3 to 1.15.4 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#177](https://github.com/10up/publisher-media-kit/pull/177)).
+
+= 1.3.3 - 2023-10-24 =
+
+* **Added:** FAQ on the Media Kit page rename action (props [@kelvinballoo](https://github.com/kelvinballoo), [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul) via [#162](https://github.com/10up/publisher-media-kit/pull/162)).
+* **Changed:** Bump WordPress "tested up to" version to 6.3 (props [@jeffpaul](https://github.com/jeffpaul), [@faisal-alvi](https://github.com/faisal-alvi) via [#158](https://github.com/10up/publisher-media-kit/pull/158)).
+* **Changed:** Updated repo automator workflow (props [@iamdharmesh](https://github.com/iamdharmesh), [@faisal-alvi](https://github.com/faisal-alvi) via [#163](https://github.com/10up/publisher-media-kit/pull/163)).
+* **Security:** Bump `tough-cookie` from 4.0.0 to 4.1.3 and `@cypress/request` from 2.88.10 to 2.88.12 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#156](https://github.com/10up/publisher-media-kit/pull/156)).
+
+= 1.3.2 - 2023-05-15 =
+
+* **Added:** Run E2E tests on the zip generated by "Build release zip" action (props [@iamdharmesh](https://github.com/iamdharmesh), [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul) via [#128](https://github.com/10up/publisher-media-kit/pull/128)).
+* **Added:** GitHub Action Summary for Cypress e2e checks (props [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul) via [#129](https://github.com/10up/publisher-media-kit/pull/129)).
+* **Changed:** WordPress "tested up to" version 6.2 (props [@jayedul](https://github.com/jayedul), [@faisal-alvi](https://github.com/faisal-alvi) via [#142](https://github.com/10up/publisher-media-kit/pull/142)).
+* **Security:** Bump `simple-git` from 3.15.1 to 3.16.0 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#130](https://github.com/10up/publisher-media-kit/pull/130)).
+* **Security:** Bump `http-cache-semantics` from 4.1.0 to 4.1.1 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#131](https://github.com/10up/publisher-media-kit/pull/131)).
+* **Security:** Bump `dns-packet` from 5.3.1 to 5.4.0 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#133](https://github.com/10up/publisher-media-kit/pull/133)).
+* **Security:** Bump `webpack` from 5.73.0 to 5.76.1 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#134](https://github.com/10up/publisher-media-kit/pull/134)).
+
+= 1.3.1 - 2023-01-13 =
+
+* **Added:** PR Helper GH Action (props [@iamdharmesh](https://github.com/iamdharmesh), [@faisal-alvi](https://github.com/faisal-alvi) via [#101](https://github.com/10up/publisher-media-kit/pull/101)).
+* **Added:** Added "Build release zip" GitHub Action (props [@faisal-alvi](https://github.com/faisal-alvi), [@peterwilsoncc](https://github.com/peterwilsoncc) via [#114](https://github.com/10up/publisher-media-kit/pull/114)).
+* **Changed:** Update Support Level from Active to Stable (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#103](https://github.com/10up/publisher-media-kit/pull/103)).
+* **Changed:** Renamed PR Helper GitHub action to PR Automator (props [@iamdharmesh](https://github.com/iamdharmesh), [@jeffpaul](https://github.com/jeffpaul) via [#104](https://github.com/10up/publisher-media-kit/pull/104)).
+* **Changed:** Bump WP tested up to version to 6.1 (props [@faisal-alvi](https://github.com/faisal-alvi), [@cadic](https://github.com/cadic) via [#110](https://github.com/10up/publisher-media-kit/pull/110)).
+* **Changed:** Included images losslessly compressed to reduce file size (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@faisal-alvi](https://github.com/faisal-alvi), [@dkotter](https://github.com/dkotter) via [#117](https://github.com/10up/publisher-media-kit/pull/117)).
+* **Changed:** Cypress integration migrated from 9.5.4 to 11.2.0 (props [@jayedul](https://github.com/jayedul), [@iamdharmesh](https://github.com/iamdharmesh), [@faisal-alvi](https://github.com/faisal-alvi) via [#121](https://github.com/10up/publisher-media-kit/pull/121)).
+* **Fixed:** Image display on WordPress installs with non-standard content paths (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@dkotter](https://github.com/dkotter), [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul) via [#115](https://github.com/10up/publisher-media-kit/pull/115)).
+* **Fixed:** PHPCS Workflow errors (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@faisal-alvi](https://github.com/faisal-alvi) via [#120](https://github.com/10up/publisher-media-kit/pull/120)).
+* **Fixed:** PSR-4 Autoloading (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@faisal-alvi](https://github.com/faisal-alvi) via [#125](https://github.com/10up/publisher-media-kit/pull/125)).
+* **Security:** Bump `got` from 10.7.0 to 11.8.5 and `@wordpress/env` from 4.8.0 to 5.2.0 (props [@dependabot](https://github.com/dependabot) via [#100](https://github.com/10up/publisher-media-kit/pull/100)).
+* **Security:** Bump `loader-utils` from 2.0.2 to 2.0.4 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul) via [#106](https://github.com/10up/publisher-media-kit/pull/106), [#109](https://github.com/10up/publisher-media-kit/pull/109)).
+* **Security:** Bump `minimatch` from 3.0.4 to 3.1.2 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul) via [#107](https://github.com/10up/publisher-media-kit/pull/107)).
+* **Security:** Bump `simple-git` from 3.14.0 to 3.15.1 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#124](https://github.com/10up/publisher-media-kit/pull/124)).
+* **Security:** Bump `json5` from 1.0.1 to 1.0.2 (props [@dependabot](https://github.com/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#127](https://github.com/10up/publisher-media-kit/pull/127)).
+
+= 1.3.0 - 2022-09-14 =
+
+**Note that this release bumps the minimum required version of WordPress from 5.5 to 5.7 and PHP from 7.0 to 7.4.**
+
+* **Changed:** Bump minimum required version of WordPress from 5.5 to 5.7 (props [@vikrampm1](https://github.com/vikrampm1), [@faisal-alvi](https://github.com/faisal-alvi), [@Sidsector9](https://github.com/Sidsector9) via [#96](https://github.com/10up/publisher-media-kit/pull/96)).
+* **Changed:** Bump minimum required version of PHP from 7.0 to 7.4 (props [@vikrampm1](https://github.com/vikrampm1), [@faisal-alvi](https://github.com/faisal-alvi), [@Sidsector9](https://github.com/Sidsector9) via [#96](https://github.com/10up/publisher-media-kit/pull/96)).
+* **Security:** Bump `terser` from 5.14.0 to 5.14.2 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#95](https://github.com/10up/publisher-media-kit/pull/95)).
+
+Further changelog entries can be found in the [CHANGELOG.md](https://github.com/10up/publisher-media-kit/blob/trunk/CHANGELOG.md) file.
+
+== Upgrade Notice ==
+
+= 1.3.6 =
+Note that this release bumps the minimum required version of WordPress from 6.4 to 6.5.
+
+= 1.3.5 =
+Note that this release bumps the minimum required version of WordPress from 6.2 to 6.4.
+
+= 1.3.4 =
+Note that this release bumps the minimum required version of WordPress from 5.7 to 6.2.
+
+= 1.3.0 =
+Note that this release bumps the minimum required version of WordPress from 5.5 to 5.7 and PHP from 7.0 to 7.4.
