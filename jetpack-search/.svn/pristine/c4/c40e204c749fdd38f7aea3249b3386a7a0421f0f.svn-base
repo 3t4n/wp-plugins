@@ -1,0 +1,78 @@
+{
+	"name": "automattic/jetpack-search",
+	"description": "Tools to assist with enabling cloud search for Jetpack sites.",
+	"type": "jetpack-library",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=7.2",
+		"automattic/jetpack-connection": "^6.2.2",
+		"automattic/jetpack-assets": "^4.0.2",
+		"automattic/jetpack-constants": "^3.0.1",
+		"automattic/jetpack-status": "^5.0.1",
+		"automattic/jetpack-config": "^3.0.0",
+		"automattic/jetpack-my-jetpack": "^5.3.0",
+		"automattic/jetpack-sync": "^4.2.0"
+	},
+	"require-dev": {
+		"automattic/jetpack-changelogger": "^5.1.0",
+		"yoast/phpunit-polyfills": "^1.1.1",
+		"automattic/wordbless": "^0.4.2"
+	},
+	"suggest": {
+		"automattic/jetpack-autoloader": "Allow for better interoperability with other plugins that use this package."
+	},
+	"autoload": {
+		"classmap": [
+			"src/"
+		]
+	},
+	"scripts": {
+		"build": [
+			"Composer\\Config::disableProcessTimeout",
+			"pnpm run build"
+		],
+		"build-development": [
+			"pnpm run build-development"
+		],
+		"build-production": [
+			"pnpm run build-production"
+		],
+		"phpunit": [
+			"./vendor/phpunit/phpunit/phpunit --colors=always"
+		],
+		"test-coverage": "pnpm concurrently --names php,js 'php -dpcov.directory=. ./vendor/bin/phpunit --coverage-php \"$COVERAGE_DIR/php.cov\"' 'pnpm:test-coverage'",
+		"test-js": [
+			"pnpm run test"
+		],
+		"test-php": [
+			"@composer phpunit"
+		],
+		"post-install-cmd": "WorDBless\\Composer\\InstallDropin::copy",
+		"post-update-cmd": "WorDBless\\Composer\\InstallDropin::copy",
+		"watch": [
+			"Composer\\Config::disableProcessTimeout",
+			"pnpm run watch"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"extra": {
+		"autotagger": true,
+		"mirror-repo": "Automattic/jetpack-search",
+		"textdomain": "jetpack-search-pkg",
+		"changelogger": {
+			"link-template": "https://github.com/Automattic/jetpack-search/compare/v${old}...v${new}"
+		},
+		"branch-alias": {
+			"dev-trunk": "0.47.x-dev"
+		},
+		"version-constants": {
+			"::VERSION": "src/class-package.php"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"roots/wordpress-core-installer": true
+		}
+	}
+}
