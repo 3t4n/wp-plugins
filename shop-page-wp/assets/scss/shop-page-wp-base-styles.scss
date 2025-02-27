@@ -1,0 +1,85 @@
+// import resources
+@import "shop-page-wp-mixins";
+// grid styles
+.shop-page-wp-grid {
+  a.shop-page-wp-item {
+    text-decoration: none !important;
+    padding: 25px 30px !important;
+		font-weight: normal;
+    //display: block;
+    @include link_styles;
+    &:focus {
+      outline: none;
+    }
+		.shop-page-wp-description {
+			text-transform: none;
+    }
+  }
+  .shop-page-wp-item {
+    padding: 25px 30px;
+    text-align: center;
+    display: block;
+    &.spwp-has-link {
+      &:hover {
+        cursor: pointer;
+        .shop-page-wp-link {
+          background-color: #333;
+          .buy-link {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .shop-page-wp-title {
+      h3 {
+        font-size: 16px;
+        margin: 15px 0 17px;
+        padding-bottom: 0;
+      }
+    }
+    .shop-page-wp-image {
+      margin: 0 auto;
+      display: inline-block;
+    }
+    .shop-page-wp-description {
+      font-size: 13px;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+    // affiliate link styles
+    .shop-page-wp-link {
+      border: 2px solid #444;
+      padding: 3px 13px 3px;
+      max-width: 200px;
+      margin: 5px auto 0;
+      display: inline-block;
+      a.buy-link {
+        @include link_styles;
+
+        // &:hover {
+        //   text-decoration: none;
+        //   color: #fff;
+        //   background-color: #333;
+        // }
+        // &.disabled {
+        //   color: #aaa;
+        //   border-color: #aaa;
+        //   opacity: 0.7;
+
+        //   &:hover {
+        //     color: #aaa;
+        //     background-color: transparent;
+        //   }
+        // }
+      }
+      a.buy-link,
+      span.buy-link {
+        &.disabled {
+          color: #aaa;
+          border-color: #aaa;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
