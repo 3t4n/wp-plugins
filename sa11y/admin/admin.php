@@ -1,0 +1,626 @@
+<?php
+
+// Exit if accessed directly.
+if (!defined('ABSPATH')) exit;
+
+/* ************************************************************** */
+/*  Sets up the settings page and registers the plugin settings.  */
+/* ************************************************************** */
+function sa11y_admin_menu()
+{
+  $settings = add_options_page(
+    esc_html__(SA11Y_LABEL["SA11Y_ADVANCED"]),
+    esc_html__('Sa11y', 'sa11y-i18n'),
+    'manage_options',
+    'sa11y',
+    'sa11y_settings_render_page'
+  );
+
+  if (!$settings) {
+    return;
+  }
+  // Provided hook_suffix that's returned to add scripts only on settings page.
+  add_action('load-' . $settings, 'sa11y_styles_scripts');
+}
+add_action('admin_menu', 'sa11y_admin_menu');
+
+/* ************************************************************ */
+/*  Enqueue custom styles & scripts for plugin usage.           */
+/* ************************************************************ */
+function sa11y_styles_scripts()
+{
+  wp_enqueue_style('sa11y-wp', trailingslashit(SA11Y_ASSETS) . 'css/sa11y-wp-admin.css', null);
+}
+
+/* ************************************************************ */
+/*  Register all settings.                                      */
+/* ************************************************************ */
+function sa11y_register_settings()
+{
+  register_setting(
+    'sa11y_all_settings',
+    'sa11y_settings',
+    'sa11y_settings_validate'
+  );
+}
+add_action('admin_init', 'sa11y_register_settings');
+
+/* ************************************************************ */
+/*  Add sections and fields.                                    */
+/* ************************************************************ */
+function sa11y_setting_sections_fields()
+{
+  /* ********** */
+  /*  Sections  */
+  /* ********** */
+
+  // Section: General.
+  add_settings_section(
+    'sa11y_general_settings',
+    esc_html__(SA11Y_SECTION["GENERAL"]),
+    '__return_false',
+    'sa11y'
+  );
+
+  // Section: Readability.
+  add_settings_section(
+    'sa11y_readability_settings',
+    esc_html__(SA11Y_SECTION["READABILITY"]),
+    '__return_false',
+    'sa11y'
+  );
+
+  // Section: Exclusions.
+  add_settings_section(
+    'sa11y_exclusions_settings',
+    esc_html__(SA11Y_SECTION["EXCLUSIONS"]),
+    'exclusions_callback',
+    'sa11y'
+  );
+
+  // Section: Advanced section.
+  add_settings_section(
+    'sa11y_advanced_settings',
+    esc_html__(SA11Y_SECTION["ADVANCED"]),
+    '__return_false',
+    'sa11y'
+  );
+
+  /* ****** */
+  /* Fields */
+  /* ****** */
+
+  // Field: Add enable/disable checkbox setting field.
+  add_settings_field(
+    'sa11y_enable',
+    esc_html__(SA11Y_LABEL["ENABLE"]),
+    'sa11y_enable_field',
+    'sa11y',
+    'sa11y_general_settings',
+    ['label_for' => 'sa11y_enable']
+  );
+
+  // Field: Add 'Target' input setting field.
+  add_settings_field(
+    'sa11y_target',
+    esc_html__(SA11Y_LABEL["TARGET"]),
+    'sa11y_target_field',
+    'sa11y',
+    'sa11y_general_settings',
+    ['label_for' => 'sa11y_target']
+  );
+
+  // Field: Developer checks on by default
+  add_settings_field(
+    'sa11y_developer_checks',
+    esc_html__(SA11Y_LABEL["DEVELOPER_CHECKS"]),
+    'sa11y_developer_checks_field',
+    'sa11y',
+    'sa11y_general_settings',
+    ['label_for' => 'sa11y_developer_checks']
+  );
+
+  // Field: Show "Edit" link in Images panel.
+  add_settings_field(
+    'sa11y_edit_image_link',
+    esc_html__(SA11Y_LABEL["EDIT_IMAGE_LINK"]),
+    'sa11y_edit_image_link_field',
+    'sa11y',
+    'sa11y_general_settings',
+    ['label_for' => 'sa11y_edit_image_link']
+  );
+
+  // Field: Add Readability checkbox setting.
+  add_settings_field(
+    'sa11y_readability',
+    esc_html__(SA11Y_LABEL["READABILITY"]),
+    'sa11y_readability_field',
+    'sa11y',
+    'sa11y_readability_settings',
+    ['label_for' => 'sa11y_readability']
+  );
+
+  // Field: Add readability target input setting field.
+  add_settings_field(
+    'sa11y_readability_target',
+    esc_html__(SA11Y_LABEL["READABILITY_TARGET"]),
+    'sa11y_readability_target_field',
+    'sa11y',
+    'sa11y_readability_settings',
+    ['label_for' => 'sa11y_readability_target']
+  );
+
+  // Field: Add readability ignore field.
+  add_settings_field(
+    'sa11y_readability_ignore',
+    esc_html__(SA11Y_LABEL["READABILITY_EXCLUSIONS"]),
+    'sa11y_readability_ignore_field',
+    'sa11y',
+    'sa11y_readability_settings',
+    ['label_for' => 'sa11y_readability_ignore']
+  );
+
+  // Field: Add container ignore field.
+  add_settings_field(
+    'sa11y_container_ignore',
+    esc_html__(SA11Y_LABEL["REGION_IGNORE"]),
+    'sa11y_container_ignore_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_container_ignore']
+  );
+
+  // Field: Add contrast ignore field.
+  add_settings_field(
+    'sa11y_contrast_ignore',
+    esc_html__(SA11Y_LABEL["CONTRAST_IGNORE"]),
+    'sa11y_contrast_ignore_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_contrast_ignore']
+  );
+
+  // Field: Add outline ignore field.
+  add_settings_field(
+    'sa11y_outline_ignore',
+    esc_html__(SA11Y_LABEL["OUTLINE_IGNORE"]),
+    'sa11y_outline_ignore_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_outline_ignore']
+  );
+
+  // Field: Add heading ignore field.
+  add_settings_field(
+    'sa11y_header_ignore',
+    esc_html__(SA11Y_LABEL["HEADING_IGNORE"]),
+    'sa11y_header_ignore_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_header_ignore']
+  );
+
+  // Field: Add image ignore field.
+  add_settings_field(
+    'sa11y_image_ignore',
+    esc_html__(SA11Y_LABEL["IMAGE_IGNORE"]),
+    'sa11y_image_ignore_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_image_ignore']
+  );
+
+  // Field: Add link ignore field.
+  add_settings_field(
+    'sa11y_link_ignore',
+    esc_html__(SA11Y_LABEL["LINK_IGNORE"]),
+    'sa11y_link_ignore_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_link_ignore']
+  );
+
+  // Field: Add link span ignore field.
+  add_settings_field(
+    'sa11y_link_ignore_span',
+    esc_html__(SA11Y_LABEL["LINK_IGNORE_SPAN"]),
+    'sa11y_link_ignore_span_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_link_ignore_span']
+  );
+
+  // Field: Add link span ignore field.
+  add_settings_field(
+    'sa11y_links_to_flag',
+    esc_html__(SA11Y_LABEL["FLAG_LINKS"]),
+    'sa11y_links_to_flag_field',
+    'sa11y',
+    'sa11y_exclusions_settings',
+    ['label_for' => 'sa11y_links_to_flag']
+  );
+
+  // Field: Add exports feature.
+  add_settings_field(
+    'sa11y_export_results',
+    esc_html__(SA11Y_LABEL["EXPORT_RESULTS"]),
+    'sa11y_export_results_field',
+    'sa11y',
+    'sa11y_advanced_settings',
+    ['label_for' => 'sa11y_export_results']
+  );
+
+  // Field: Don't run sa11y if these elements exist.
+  add_settings_field(
+    'sa11y_no_run',
+    esc_html__(SA11Y_LABEL["TURN_OFF"]),
+    'sa11y_no_run_field',
+    'sa11y',
+    'sa11y_advanced_settings',
+    ['label_for' => 'sa11y_no_run']
+  );
+
+  // Field: Shadow components.
+  add_settings_field(
+    'sa11y_shadow_components',
+    esc_html__(SA11Y_LABEL["SHADOW"]),
+    'sa11y_shadow_components_field',
+    'sa11y',
+    'sa11y_advanced_settings',
+    ['label_for' => 'sa11y_shadow_components']
+  );
+
+  // Field: Add 'Extra Props' textarea setting field.
+  add_settings_field(
+    'sa11y_extra_props',
+    esc_html__(SA11Y_LABEL["PROPS"]),
+    'sa11y_extra_props_field',
+    'sa11y',
+    'sa11y_advanced_settings',
+    ['label_for' => 'sa11y_extra_props']
+  );
+}
+add_action('admin_init', 'sa11y_setting_sections_fields');
+
+/* ************************************************************ */
+/*  Options                                                     */
+/* ************************************************************ */
+
+// Option: Enable/disable field.
+function sa11y_enable_field()
+{
+  $settings = sa11y_get_settings('sa11y_enable');
+?>
+  <input type="checkbox" id="sa11y_enable" name="sa11y_settings[sa11y_enable]" value="1" <?php checked(1, $settings); ?> aria-describedby="enable_desc" />
+  <p id="enable_desc">
+    <?php echo wp_kses(SA11Y_DESC["ENABLE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Target field
+function sa11y_target_field()
+{
+  $settings = sa11y_get_settings('sa11y_target');
+?>
+  <input <?php echo SA11Y_TARGET_FIELD ?> name="sa11y_settings[sa11y_target]" id="sa11y_target" value="<?php echo esc_attr($settings); ?>" aria-describedby="target_desc" />
+  <p id="target_desc">
+    <?php echo wp_kses(SA11Y_DESC["CHECK_ROOT"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: developer checks field.
+function sa11y_developer_checks_field()
+{
+  $settings = sa11y_get_settings('sa11y_developer_checks');
+?>
+  <input type="checkbox" id="sa11y_developer_checks" name="sa11y_settings[sa11y_developer_checks]" value="1" <?php checked(1, $settings); ?> aria-describedby="developer_checks_desc" />
+  <p id="developer_checks_desc">
+    <?php echo wp_kses(SA11Y_DESC["DEVELOPER_CHECKS"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Show "Edit" link within the Images panel.
+function sa11y_edit_image_link_field()
+{
+  $settings = sa11y_get_settings('sa11y_edit_image_link');
+?>
+  <input type="checkbox" id="sa11y_developer_checks" name="sa11y_settings[sa11y_edit_image_link]" value="1" <?php checked(1, $settings); ?> aria-describedby="edit_image_link_desc" />
+  <p id="edit_image_link_desc">
+    <?php echo wp_kses(SA11Y_DESC["EDIT_IMAGE_LINK"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Readability enable/disable field.
+function sa11y_readability_field()
+{
+  $settings = sa11y_get_settings('sa11y_readability');
+?>
+  <input type="checkbox" id="sa11y_readability" name="sa11y_settings[sa11y_readability]" value="1" <?php checked(1, $settings); ?> aria-labelledby="read_desc" />
+  <p id="read_desc">
+    <?php echo wp_kses(SA11Y_DESC["READABILITY"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Readability target field.
+function sa11y_readability_target_field()
+{
+  $settings = sa11y_get_settings('sa11y_readability_target');
+?>
+  <input <?php echo SA11Y_TARGET_FIELD ?> name="sa11y_settings[sa11y_readability_target]" id="sa11y_readability_target" value="<?php echo esc_attr($settings); ?>" aria-describedby="read_target_desc" />
+  <p id="read_target_desc">
+    <?php echo wp_kses(SA11Y_DESC["READABILITY_TARGET"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Readability ignore field.
+function sa11y_readability_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_readability_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_readability_ignore" name="sa11y_settings[sa11y_readability_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="read_ignore_desc" />
+  <p id="read_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["READABILITY_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Section: Exclusions section description.
+function exclusions_callback()
+{
+  $link = 'https://www.w3schools.com/cssref/css_selectors.asp';
+?>
+  <p>
+    <?php echo wp_kses(sprintf(SA11Y_DESC["EXCLUSIONS"], esc_url($link)), ['a' => ['href' => []]]); ?>
+  </p>
+<?php
+}
+
+// Option: Container ignore field.
+function sa11y_container_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_container_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_container_ignore" name="sa11y_settings[sa11y_container_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="region_ignore_desc" />
+  <p id="region_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["CONTAINER_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Contrast ignore field.
+function sa11y_contrast_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_contrast_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_contrast_ignore" name="sa11y_settings[sa11y_contrast_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="contrast_ignore_desc" />
+  <p id="contrast_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["CONTRAST_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Outline ignore field.
+function sa11y_outline_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_outline_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_outline_ignore" name="sa11y_settings[sa11y_outline_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="outline_ignore_desc" />
+  <p id="outline_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["OUTLINE_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Heading ignore field.
+function sa11y_header_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_header_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_header_ignore" name="sa11y_settings[sa11y_header_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="head_ignore_desc" />
+  <p id="head_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["HEADER_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Image ignore field.
+function sa11y_image_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_image_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_image_ignore" name="sa11y_settings[sa11y_image_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="image_ignore_desc" />
+  <p id="image_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["IMAGE_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Link ignore field.
+function sa11y_link_ignore_field()
+{
+  $settings = sa11y_get_settings('sa11y_link_ignore');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_link_ignore" name="sa11y_settings[sa11y_link_ignore]" value="<?php echo esc_attr($settings); ?>" aria-describedby="link_ignore_desc" />
+  <p id="link_ignore_desc">
+    <?php echo wp_kses(SA11Y_DESC["LINK_IGNORE"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Link span ignore field.
+function sa11y_link_ignore_span_field()
+{
+  $settings = sa11y_get_settings('sa11y_link_ignore_span');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_link_ignore_span" name="sa11y_settings[sa11y_link_ignore_span]" value="<?php echo esc_attr($settings); ?>" aria-describedby="link_span_desc" />
+  <p id="link_span_desc">
+    <?php echo wp_kses(SA11Y_DESC["LINK_IGNORE_SPAN"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Links to flag as error field.
+function sa11y_links_to_flag_field()
+{
+  $settings = sa11y_get_settings('sa11y_links_to_flag');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_links_to_flag" name="sa11y_settings[sa11y_links_to_flag]" value="<?php echo esc_attr($settings); ?>" aria-describedby="link_flag_desc" />
+  <p id="link_flag_desc">
+    <?php echo wp_kses(SA11Y_DESC["LINK_TO_FLAG"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Export results option.
+function sa11y_export_results_field()
+{
+  $settings = sa11y_get_settings('sa11y_export_results');
+?>
+  <input type="checkbox" id="sa11y_export_results" name="sa11y_settings[sa11y_export_results]" value="1" <?php checked(1, $settings); ?> aria-describedby="export_desc" />
+  <p id="export_desc">
+    <?php echo wp_kses(SA11Y_DESC["EXPORT_RESULTS_DESC"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Turn off Sa11y if these elements are detected.
+function sa11y_no_run_field()
+{
+  $settings = sa11y_get_settings('sa11y_no_run');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD ?> id="sa11y_no_run" name="sa11y_settings[sa11y_no_run]" value="<?php echo esc_attr($settings); ?>" aria-describedby="norun_desc" />
+  <p id="norun_desc">
+    <?php echo wp_kses(SA11Y_DESC["NO_RUN"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Web components field.
+function sa11y_shadow_components_field()
+{
+  $settings = sa11y_get_settings('sa11y_shadow_components');
+?>
+  <input <?php echo SA11Y_TEXT_FIELD_EXTRA ?> id="sa11y_shadow_components" name="sa11y_settings[sa11y_shadow_components]" value="<?php echo esc_attr($settings); ?>" aria-describedby="shadow_desc" />
+  <p id="shadow_desc">
+    <?php echo wp_kses(SA11Y_DESC["SHADOW"], SA11Y_ALLOWED_HTML); ?>
+  </p>
+<?php
+}
+
+// Option: Extra props.
+function sa11y_extra_props_field()
+{
+  $settings = sa11y_get_settings('sa11y_extra_props');
+?>
+  <textarea <?php echo SA11Y_TEXTAREA ?> name="sa11y_settings[sa11y_extra_props]" id="sa11y_extra_props" aria-describedby="props_desc"><?php echo esc_textarea($settings); ?></textarea>
+  <p id="props_desc">
+    <?php
+    $link = 'https://sa11y.netlify.app/developers/props/';
+    $string = sprintf(SA11Y_DESC["PROPS"], $link);
+    echo wp_kses($string, [
+      'a' => [
+        'href' => [],
+        'target' => [],
+        'rel' => [],
+      ],
+      'span' => [
+        'class' => [],
+        'aria-hidden' => [],
+      ],
+    ]);
+    ?>
+  </p>
+<?php
+}
+
+/* ************************************************************ */
+/*  Render the plugin settings page.                            */
+/* ************************************************************ */
+function sa11y_settings_render_page()
+{
+?>
+  <div class="wrap">
+    <h1><?php esc_html_e(SA11Y_LABEL["SA11Y_ADVANCED"]); ?></h1>
+    <div id="poststuff">
+      <div id="post-body" class="metabox-holder columns-2">
+        <div id="post-body-content">
+          <?php include SA11Y_PARTIALS . 'intro.php'; ?>
+          <form method="post" action="options.php" autocomplete="off" class="sa11y-form-admin">
+            <?php settings_fields('sa11y_all_settings'); ?>
+            <?php do_settings_sections('sa11y'); ?>
+            <?php submit_button(esc_html__(SA11Y_DESC["SAVE"])); ?>
+          </form>
+        </div><!-- .post-body-content -->
+        <?php include SA11Y_PARTIALS . 'sidebar.php'; ?>
+      </div><!-- #post-body -->
+      <br class="clear">
+    </div><!-- #poststuff -->
+  </div><!-- .wrap -->
+<?php
+}
+
+/* ************************************************************ */
+/*  Sanitize and validate settings                              */
+/* ************************************************************ */
+function sa11y_settings_validate($settings)
+{
+  /* Validate: Checkboxes */
+  $checkboxes = [
+    'sa11y_enable',
+    'sa11y_developer_checks',
+    'sa11y_edit_image_link',
+    'sa11y_readability',
+    'sa11y_export_results',
+  ];
+  foreach ($checkboxes as $key) {
+    if (isset($settings[$key])) {
+      $settings[$key] = sa11y_sanitize_checkboxes($settings[$key]);
+    } else {
+      $settings[$key] = 0;
+    }
+  }
+
+  /* Sanitize: Target fields */
+  $targetKeys = [
+    'sa11y_target',
+    'sa11y_readability_target',
+    'sa11y_no_run',
+  ];
+  foreach ($targetKeys as $key) {
+    $settings[$key] = sa11y_sanitize_target_fields($settings[$key]);
+  }
+
+  /* Sanitize: Text fields */
+  $textfields = [
+    'sa11y_readability_ignore',
+    'sa11y_container_ignore',
+    'sa11y_contrast_ignore',
+    'sa11y_outline_ignore',
+    'sa11y_header_ignore',
+    'sa11y_image_ignore',
+    'sa11y_link_ignore',
+    'sa11y_link_ignore_span',
+    'sa11y_links_to_flag',
+    'sa11y_shadow_components',
+  ];
+  foreach ($textfields as $key) {
+    $settings[$key] = sa11y_sanitize_text_fields($settings[$key]);
+  }
+
+  /* Sanitize: textareas */
+  $textareaKeys = [
+    'sa11y_extra_props',
+  ];
+  foreach ($textareaKeys as $key) {
+    $settings[$key] = sa11y_sanitize_textarea_fields($settings[$key]);
+  }
+
+  /* Return all settings. */
+  return $settings;
+}

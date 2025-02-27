@@ -1,0 +1,329 @@
+.g-smtp-input-admin-textarea {
+    width: 100%;
+}
+
+.g-smtp-input-admin-input {
+    width: 100%;
+    max-width: 450px;
+}
+
+.g-smtp-input-admin-select {
+    width: 100%;
+    max-width: 450px;
+}
+
+.g-smtp-help-page-wrapper {
+    li {
+        margin-left: 29px;
+        list-style: initial;
+    }
+}
+
+#side-sortables .form-table.g-smtp-metabox-table {
+    th {
+        display: block;
+        padding: 10px 0 5px;
+
+        &+td {
+            display: block;
+            padding: 0 0 10px;
+        }
+    }
+}
+
+.form-table.g-smtp-metabox-table {
+    >tbody>tr {
+        border-top: 1px solid #eee;
+
+        &:first-child {
+            border: 0;
+        }
+    }
+
+    td {
+        padding-left: 0;
+
+        &>label {
+            display: block;
+            padding-bottom: 5px;
+            font-weight: 600;
+        }
+
+        &.g-smtp-metabox-field {
+            padding-right: 0;
+
+            >label {
+                display: block;
+                padding-bottom: 0.5em;
+                font-size: 1.25em;
+            }
+        }
+
+        .g-smtp-tooltip {
+            position: relative;
+            display: inline-block;
+
+            i {
+                &:hover {
+                    cursor: help;
+                }
+
+                &:hover+.tooltip {
+                    visibility: visible;
+                }
+            }
+
+            .tooltip {
+                position: absolute;
+                top: 27px;
+                left: 0;
+                min-width: 150px;
+                padding: 10px;
+                text-align: center;
+                visibility: hidden;
+                background-color: #333;
+                transform: translate(-50%);
+
+                &::before {
+                    position: absolute;
+                    top: -5px;
+                    width: 10px;
+                    height: 10px;
+                    content: '';
+                    background-color: #333;
+                    transform: rotate(45deg);
+                }
+
+                p {
+                    font-size: 10px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    fieldset {
+        max-height: 200px;
+        padding: 10px;
+        overflow: auto;
+        border: 1px solid #eee;
+    }
+}
+
+.g-smtp-input-admin-checkbox+.description {
+    display: inline-block;
+}
+
+.g-smtp-input-admin-wp-editor {
+    width: 100%;
+}
+
+.g-smtp-input-admin-repeatable {
+    margin-top: 0;
+
+    th {
+        padding: 0 0 5px;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    tbody tr {
+        border-top: 1px solid #eee;
+
+        &:first-child {
+            border: 0;
+        }
+
+        &:first-child .g-smtp-input-admin-repeatable-column {
+            padding-top: 0;
+        }
+
+        .g-smtp-input-admin-repeatable-column {
+            +td {
+                vertical-align: middle;
+            }
+
+            table {
+                margin-top: 0;
+
+                th {
+                    padding-top: 20px;
+                }
+
+                tr:first-child th,
+                tr:first-child td {
+                    padding-top: 0;
+                }
+            }
+        }
+
+        .g-smtp-input-admin-repeatable-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .g-smtp-input-admin-repeatable-move-buttons {
+            button {
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.g-smtp-input-admin-media-wrapper {
+    td {
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .g-smtp-input-admin-media-preview {
+        position: relative;
+        display: none;
+        padding: 2px;
+        margin-left: 15px;
+        border: 2px dashed #ccc;
+
+        &.has-file {
+            display: inline-block;
+        }
+
+        img {
+            display: block;
+            width: auto;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        &.is-icon img {
+            width: 40px;
+            height: auto;
+            margin: 10px auto;
+        }
+
+        .g-smtp-input-admin-media-file-name {
+            display: inline-block;
+            padding: 0 10px 10px;
+            font-size: 14px;
+        }
+
+        .g-smtp-input-admin-media-remove {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+    }
+}
+
+.g-smtp-connection-test {
+    &.g-smtp-success {
+        color: #00a32a;
+    }
+
+    &.g-smtp-error {
+        color: #d63638;
+    }
+}
+
+.g-smtp-config-generator {
+    display: flex;
+    align-items: flex-start;
+}
+
+.g-smtp-config-fields {
+    width: 40%;
+    padding-right: 40px;
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+    }
+}
+
+.g-smtp-code-block-wrapper {
+    position: relative;
+    width: 60%;
+    margin-bottom: 24px;
+
+    .g-smtp-code-block-copy {
+        padding: 4px 10px;
+        font-size: 12px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #000;
+        transition: all .2s ease;
+
+        &:hover {
+            background-color: lighten(#000, 20%);
+        }
+    }
+}
+
+.g-smtp-code-block {
+    padding: 22px;
+    margin: 0;
+    font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #32373c;
+    text-align: left;
+    background-color: rgb(220 220 222);
+}
+
+.g-smtp-config-field {
+    padding-bottom: 20px;
+
+    label {
+        display: block;
+        padding-bottom: 4px;
+        font-weight: 700;
+    }
+}
+
+.g-smtp-code-block-copy-wrapper {
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+
+.g-smtp-code-block-copy-notice {
+    position: absolute;
+    bottom: 100%;
+	left: 50%;
+    padding: 4px 6px;
+    font-size: 10px;
+    color: #fff;
+	white-space: nowrap;
+    pointer-events: none;
+    background-color: rgb(33 113 177);
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgb(0 0 0 / 20%);
+    animation: g-smtp-copy-notice-animation 1s ease forwards;
+}
+
+@keyframes g-smtp-copy-notice-animation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 10px) scale(.8);
+    }
+
+    35% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+	50% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+}
