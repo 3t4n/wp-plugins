@@ -1,0 +1,476 @@
+.elementor-widget-container:has(.pte-pricing-table-container) {
+  height: 100%;
+}
+
+.elementor-widget-wrap:has(
+    .elementor-element .elementor-widget-container .pte-pricing-table-container
+  ) {
+  flex-direction: column;
+}
+
+.elementor-widget-pricing_table:has(.elementor-widget-container .full-height) {
+  flex: 1 1 auto;
+}
+
+.pte-pricing-table-container {
+  display: flex;
+  justify-content: start;
+  height: auto;
+}
+
+.pte-pricing-table-container.full-height {
+  height: 100%;
+}
+
+.pricing-table-elementor-widget {
+  max-width: 100%;
+  width: 100%;
+  font-family: "Inter", Sans-serif;
+}
+
+.pricing-table-elementor-widget.style-1 {
+  background-color: #fff;
+  border: 1px solid rgba(47, 43, 67, 0.1);
+  border-radius: 24px;
+  box-shadow: inset 0 -1px #2f2b431a, 0 1px 3px #2f2b431a;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pricing-table-elementor-widget.style-2 {
+  --box-shadow-color: 255 255 255;
+  background-color: #000;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgb(var(--box-shadow-color) / 7%),
+    0 2px 4px rgb(var(--box-shadow-color) / 5%),
+    0 12px 24px rgb(var(--box-shadow-color) / 5%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pricing-table-elementor-widget.style-3 {
+  background-color: #fff;
+  border-radius: 16px;
+  /* border: 1px solid rgba(47, 43, 67, 0.1); */
+  box-shadow: inset 0 -1px #2f2b431a, 0 1px 3px #2f2b431a;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+
+.pricing-table-elementor-widget.style-3 .inner-wrapper {
+  padding: 24px;
+}
+
+.pricing-table-elementor-widget.style-1 .badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: #2a2a2a;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 4px 12px;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-2 .badge-wrapper {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  top: -15%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-table-elementor-widget.style-2 .badge {
+  display: inline-block;
+  background-color: #efefef;
+  border-radius: 100px;
+  padding: 14px 22px;
+  color: #000;
+  box-shadow: 0 8px 30px hsla(0, 0%, 100%, 0.1);
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 700;
+}
+
+.pricing-table-elementor-widget.style-3 .badge-wrapper {
+  background-color: #8BAAAD;
+  min-height: 12px;
+}
+
+.pricing-table-elementor-widget.style-3 .badge-wrapper:has(.badge) {
+  background-color: transparent;
+}
+
+.pricing-table-elementor-widget.style-3 .badge {
+  background-color: #8BAAAD;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 160%;
+  padding: 6px 15px;
+}
+
+.pricing-table-elementor-widget.style-1 .main-icon {
+  margin-bottom: 16px;
+}
+
+.pricing-table-elementor-widget.style-1 .main-icon span {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #2f2b431a;
+  border-radius: 100%;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  background-color: #fff;
+  color: #000;
+}
+
+.pricing-table-elementor-widget.style-1 .main-icon span svg {
+  height: 20px;
+  fill: currentColor;
+}
+
+.pricing-table-elementor-widget.style-1 .package {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  letter-spacing: -0.3px;
+  color: rgb(47, 43, 67);
+  margin-bottom: 8px;
+}
+
+.pricing-table-elementor-widget.style-2 .package {
+  color: #ededed;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .package {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  color: rgb(47, 43, 67);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.pricing-table-elementor-widget.style-1 > .description,
+.pricing-table-elementor-widget.style-1 .pricing .duration {
+  font-weight: 400;
+  color: rgba(47, 43, 67, 0.6);
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.3px;
+}
+
+.pricing-table-elementor-widget.style-2 > .description,
+.pricing-table-elementor-widget.style-2 .included .item .text .description,
+.pricing-table-elementor-widget.style-3 .included .item .text .description,
+.pricing-table-elementor-widget.style-3 .excluded .item .text .description {
+  color: #888888;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded .item .text .description {
+  text-decoration: line-through;
+  color: #88888888;
+}
+
+.pricing-table-elementor-widget.style-3 .inner-wrapper > .description {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: rgb(47, 43, 67);
+  margin-bottom: 20px;
+}
+
+.pricing-table-elementor-widget.style-2 .included .item .text .heading {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .included .item .text .heading,
+.pricing-table-elementor-widget.style-3 .excluded .item .text .heading {
+  color: rgb(47, 43, 67);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded .item .text .heading {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: #88888888;
+}
+
+.pricing-table-elementor-widget.style-2 .pricing .duration {
+  color: #ededed;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-1 > .description,
+.pricing-table-elementor-widget.style-1 .pricing {
+  margin-bottom: 16px;
+}
+
+.pricing-table-elementor-widget.style-3 .pricing {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.pricing-table-elementor-widget.style-1 .pricing .price {
+  font-weight: 600;
+  color: rgb(47, 43, 67);
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -0.8px;
+}
+
+.pricing-table-elementor-widget.style-2 .pricing .price {
+  color: #ededed;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .pricing .price {
+  font-weight: 700;
+  color: rgb(47, 43, 67);
+  font-size: 48px;
+} 
+
+.pricing-table-elementor-widget.style-3 .pricing .duration {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 160%;
+  color: #8BAAAD;
+}
+
+.pricing-table-elementor-widget.style-1 .features {
+  border: 1px solid #2f2b431a;
+  border-left: none;
+  border-right: none;
+  padding: 20px 0;
+}
+
+.pricing-table-elementor-widget.style-2 .features {
+  padding: 24px 0;
+}
+
+.pricing-table-elementor-widget.style-3 .features {
+  border-top: 1px solid #2f2b432f;
+  padding: 25px 0;
+}
+
+.pricing-table-elementor-widget .included,
+.pricing-table-elementor-widget .excluded {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pricing-table-elementor-widget.style-3 .included,
+.pricing-table-elementor-widget.style-3 .excluded {
+  gap: 18px;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded {
+  margin-top: 18px;
+}
+
+.pricing-table-elementor-widget .included .item,
+.pricing-table-elementor-widget .excluded .item {
+  display: flex;
+  gap: 15px;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .icon span {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #2f2b431a;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .icon span svg {
+  height: 20px;
+  fill: currentColor;
+}
+
+.pricing-table-elementor-widget.style-2 .included .item .icon span {
+  font-size: 10px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+
+.pricing-table-elementor-widget.style-2 .included .item .icon span svg {
+  height: 10px;
+  fill: currentColor;
+}
+
+.pricing-table-elementor-widget.style-3 .included .item .icon span,
+.pricing-table-elementor-widget.style-3 .excluded .item .icon span {
+  font-size: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: #8BAAAD;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded .item .icon span {
+  background-color: #88888888;
+}
+
+.pricing-table-elementor-widget.style-3 .included .item .icon span svg,
+.pricing-table-elementor-widget.style-3 .excluded .item .icon span svg {
+  height: 10px;
+  fill: currentColor;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .text .heading {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .text .description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #2f2b4399;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget .included .item .text .description p,
+.pricing-table-elementor-widget .excluded .item .text .description p {
+  margin-bottom: 0;
+}
+
+.pricing-table-elementor-widget .button-wrapper {
+  margin-top: auto;
+}
+
+.pricing-table-elementor-widget .button-wrapper.flex {
+  display: flex;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper .button-link {
+  display: flex;
+  justify-content: center;
+  padding: 12px 32px;
+  background-color: #2a2a2a;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  border-radius: 12px;
+  margin-top: 20px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper .button-link:hover {
+  background-color: #000;
+}
+
+.pricing-table-elementor-widget.style-2 .button-wrapper .button-link {
+  display: flex;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background-color: #000;
+  margin-top: 12px;
+  transition-property: border-color, background, color, transform, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+  text-decoration: none;
+}
+
+.pricing-table-elementor-widget.style-2 .button-wrapper .button-link:hover {
+  background-color: #fff;
+}
+
+.pricing-table-elementor-widget.style-3 .button-wrapper .button-link {
+  display: flex;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: #8BAAAD;
+  border-radius: 100px;
+  transition: all 0.3s;
+  margin-bottom: 25px;
+  text-decoration: none;
+}
+
+.pricing-table-elementor-widget.style-3 .button-wrapper .button-link:hover {
+  background-color: #839ea0;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper .button-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 150%;
+  text-align: center;
+}
+
+.pricing-table-elementor-widget.style-2 .button-wrapper .button-text {
+  color: #fff;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 500;
+  text-align: center;
+}
+
+.pricing-table-elementor-widget.style-2
+  .button-wrapper
+  .button-link:hover
+  .button-text {
+  color: #000;
+}
+
+.pricing-table-elementor-widget.style-3 .button-wrapper .button-text {
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s;
+  font-weight: 500;
+  text-align: center;
+}
