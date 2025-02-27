@@ -1,0 +1,7 @@
+/*
+ * Loginstyle Admin Login Customizer & Styler
+ * http://archtheme.com/loginstyle
+ *
+ * Beautify, brand and customize your WordPress Admin login page.
+ */
+jQuery(document).ready(function(b){function a(){var f=jQuery("#loginstyle_yt"),e=jQuery("#loginstyle_yt_container").outerWidth(),c=jQuery("#loginstyle_yt_container").outerHeight(),d=parseFloat(loginstyle_vars.iframe_ratio);if(e/c<=d){f.css({height:c,width:c*d})}else{f.css({width:e,height:e/d})}}a();jQuery(window).resize(function(){a()})});var tag=document.createElement("script");tag.src="https://www.youtube.com/iframe_api";var firstScriptTag=document.getElementsByTagName("script")[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);var player;function onYouTubeIframeAPIReady(){player=new YT.Player("loginstyle_yt",{playerVars:{autoplay:1,showinfo:0,controls:0,modestbranding:1,rel:0,loop:1,div_load_policy:3,playlist:document.getElementById("loginstyle_yt").getAttribute("data-videoid"),wmode:"transparent",origin:document.location.origin},allowfullscreen:0,videoId:document.getElementById("loginstyle_yt").getAttribute("data-videoid"),events:{onReady:onPlayerReady}})}function onPlayerReady(a){a.target.mute();a.target.playVideo()};
