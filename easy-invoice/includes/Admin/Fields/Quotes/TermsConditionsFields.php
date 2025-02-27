@@ -1,0 +1,31 @@
+<?php
+
+namespace MatrixAddons\EasyInvoice\Admin\Fields\Quotes;
+
+use MatrixAddons\EasyInvoice\Admin\Fields\Base;
+
+class TermsConditionsFields extends Base
+{
+	public function get_settings()
+	{
+		return [
+			'terms_and_conditions' => [
+				'type' => 'textarea',
+				'title' => __('Terms & Conditions', 'easy-invoice'),
+				'default' => get_option('easy_invoice_quote_terms_conditions', 'This quote has a fixed price. Upon acceptance, we kindly ask for a 25% deposit prior to initiating the work.')
+			],
+
+		];
+	}
+
+	public function render()
+	{
+		$this->output();
+	}
+
+	public function nonce_id()
+	{
+		return 'easy_invoice_terms_conditions_fields';
+	}
+
+}
