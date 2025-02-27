@@ -1,0 +1,1105 @@
+# ShopMagic Changelog
+
+## [4.3.15] - 2025-02-03
+### Fixed
+* When customer email changes after purchase, update the email so automation can be sent correctly.
+* Add clear distinction to recipes, which cannot be used on missing PRO plugins.
+
+## [4.3.14] - 2024-12-21
+### Added
+- Support for WooCommerce 9.6
+
+## [4.3.13] - 2024-12-18
+### Fixed
+- Fixed email styling shift when email tracking is enabled.
+- On admin page view fixed pagination for the tracked emails. Now you can properly view all of your leads and their performance.
+
+## [4.3.12] - 2024-11-21
+### Added
+- Support for WooCommerce 9.5
+
+## [4.3.11] - 2024-11-19
+### Fixed
+- Improve WP 6.7 integration with i18n functions.
+
+## [4.3.10] - 2024-11-15
+### Fixed
+- Fix translations missing on non-english websites.
+
+## [4.3.9] - 2024-11-15
+### Fixed
+- Fix translations missing on non-english websites.
+
+## [4.3.8] - 2024-11-13
+### Added
+- Support for WordPress 6.7
+
+## [4.3.7] - 2024-11-05
+### Fixed
+- Capturing guest data before checkout submission now works with WooCommerce Checkout Blocks.
+
+## [4.3.6] - 2024-10-24
+### Fixed
+- Decreased ShopMagic memory consumption for executing database migrations.
+### Changed
+- If WooCommerce logger is available, use it to save ShopMagic logs to WooCommerce -> Status -> Logs.
+
+## [4.3.5] - 2024-10-07
+### Added
+- Support for WooCommerce 9.4
+
+## [4.3.4] - 2024-09-18
+### Fixed
+- Issue with listing placeholders after selecting an event in automation editor.
+
+## [4.3.3] - 2024-09-12
+### Fixed
+- Fail to list actions, when GetResponse API key is not set.
+
+## [4.3.2] - 2024-09-12
+### Fixed
+- Rare error for users logging with multiple accounts from the same browser when multilingual module is enabled.
+- Database notice, when redundantly trying to upgrade schema table.
+### Improved
+- ShopMagic server-side performance, by lazy loading events, actions, and placeholders.
+
+## [4.3.1] - 2024-09-07
+### Added
+- Support for WooCommerce 9.3
+
+## [4.3.0] - 2024-09-05
+### Added
+- Integration with GetResponse. Add your API key in settings and add contacts from WordPress directly to GetResponse.
+- New placeholders: `order.status`, `customer.company`
+### Changed
+- Placeholder `order.total` can now show raw amount without currency symbol with `format: 'raw'` option
+
+## [4.2.22] - 2024-08-26
+### Fixed
+- Inactive checkbox in queue page.
+- Sending email to administrator for orders, which have no user or email assigned.
+
+## [4.2.21] - 2024-08-06
+### Fixed
+- Initial interception of unregistered customers into ShopMagic guests on the first plugin activation when HPOS is active.
+
+## [4.2.20] - 2024-07-23
+### Improved
+- The way how guest and registered users are handled and intercepted during checkout form filling (if enabled).
+### Changed
+- Merge ShopMagic guest, when the user is registered with the same email.
+- Handle recent version of ShopMagic for Google Sheets extension.
+
+## [4.2.19] - 2024-07-22
+### Improved
+- Compatibility with plain permalink settings in ShopMagic Manual Action preview.
+
+## [4.2.18] - 2024-07-21
+### Added
+- Support for WordPress 6.6
+- Support for WooCommerce 9.1
+
+## [4.2.17] - 2024-06-11
+### Fixed
+- Filter not being able to search products when plain permalinks enabled in WordPress.
+
+## [4.2.16] - 2024-06-07
+### Added
+- Support for WooCommerce 9.0
+
+## [4.2.15] - 2024-06-04
+### Fixed
+- Saving additional user data before order submission when Enable pre-submit data option is turned on.
+- Unpublished marketing lists no longer being visible on users' signed up lists.
+
+## [4.2.14] - 2024-05-21
+### Added
+- Support for WooCommerce 8.9
+
+## [4.2.13] - 2024-04-25
+### Fixed
+- Events of "Date Before" type with custom time scheduling being triggered at default execution time (i.e., at 04:00).
+- HTML tags displaying in the user account for marketing list description.
+- Placeholders in emails not being translated in multilingual variants of automations. The fix applies only when the website also uses the WPML plugin.
+
+## [4.2.12] - 2024-04-18
+### Changed
+- Raised supported version of WooCommerce to 8.8.
+### Fixed
+- Rare error on the admin dashboard when calling an undefined function.
+
+## [4.2.11] - 2024-04-04
+### Changed
+- Raised supported version of WordPress to 6.5.
+
+## [4.2.10] - 2024-03-14
+### Changed
+- Raised supported version of WooCommerce to 8.7.
+
+## [4.2.9] - 2024-02-26
+### Changed
+- Handle default value if the template is not set for placeholders like 'order.products_ordered', 'order.cross_sells', 'order.related_products'.
+
+## [4.2.8] - 2024-02-20
+### Improved
+- Support for placeholders template overrides.
+### Changed
+- Raised supported version of WooCommerce to 8.6.
+
+## [4.2.7] - 2024-02-07
+### Fixed
+- Fatal errors in cron jobs caused by attempting to intercept guest customers.
+
+## [4.2.6] - 2024-02-05
+### Improved
+- Integration with ShopMagic Manual Actions. The manual action preview screen can now provide information about the count of failed matches and notify the user if there were no matches at all.
+### Added
+- Link to the homepage for communication preferences management screen for guests signed up to marketing lists.
+### Changed
+- At WooCommerce guest checkout, when the user's email is changed, ShopMagic now accordingly updates the guest (visible on ShopMagic -> Guests admin page).
+
+## [4.2.5] - 2024-01-11
+### Added
+- Support for WooCommerce 8.5.
+### Fixed
+- ShopMagic for Google Sheets issue: ShopMagic had an issue presenting saved data in action edition screen regarding rows, which were meant to be sent to the spreadsheet. Now, loading action in admin view correctly displays the data.
+
+## [4.2.4] - 2023-12-18
+### Added
+- Ability to select which marketing list will be used in Customer Opted In and Customer Opted Out events.
+- Support for WooCommerce 8.4.
+### Changed
+- Following Action Scheduler's policy (which is a hard dependency for ShopMagic), changed last supported WordPress version to L-2 scheme. Dropped support for any WordPress version below 6.2.
+
+## [4.2.3] - 2023-11-15
+### Fixed
+- Unsubscribe link missing in email for automations created after ShopMagic 3.0.0 release if the unsubscribe checkbox was set.
+- Rare fatal error in checkout when the WC function cannot be found by PHP.
+
+## [4.2.2] - 2023-11-08
+### Improved
+- Reliability of manual actions PRO plugin processing with a large amount of data.
+### Fixed
+- Using wrong placeholders in automation no longer results in a fatal error. Misused placeholders are ignored in automation flow and reported to the logger.
+- Recurrent cleaning of outcomes if the settings option is enabled.
+- Added support for WooCommerce 8.3.
+- Added support for WordPress 6.4.
+
+## [4.2.1] - 2023-09-21
+### Added
+- Sorting automations by name in admin view.
+- Bulk action to export multiple automations from the admin view.
+- Support for WooCommerce 8.1.
+### Fixed
+- Using recipes shows an error message, despite the recipe being correctly used.
+- Admin view translations showing mostly in English. Now if ShopMagic is translated to your language, the admin area is also available in your language.
+- Missing customer email in Queue admin view.
+- Fatal error when accessing a tracking link from an email with a malicious URL. From now ShopMagic shows a proper message to the user and logs an error.
+### Improved
+- ShopMagic translation behavior when the admin user sets a different language than the default site language. ShopMagic now respects user-preferred language.
+
+## [4.2.0] - 2023-09-12
+### Added
+- `order.billing_phone` and `order.shipping_phone` placeholders.
+### Improved
+- ShopMagic behavior in unexpected cases: when some critical extension goes down (e.g., Delayed Actions is disabled, or the Advanced Filters filter is unavailable), prevent automation from running.
+
+## [4.1.0] - 2023-09-04
+### Improved
+- Handling of strict server settings, which disable DELETE/PUT/PATCH requests. Now, you can enable compatibility mode in ShopMagic settings.
+- Error messages when automation fails to save.
+### Fixed
+- Email tracking causes errors in non-customer-based automations (e.g., Post Updated event)
+- Automation errors occurring when the multilingual module is enabled for automations without customers (e.g., Post Updated event).
+
+## [4.0.3] - 2023-08-16
+### Added
+- Support for WordPress 6.3
+- Support for WooCommerce 8.0
+
+## [4.0.2] - 2023-07-03
+### Fixed
+- Admin not being able to remove guests from the guest list.
+
+## [4.0.1] - 2023-06-27
+### Fixed
+- An error with resolving template files for checkout opt-in checkbox and email styles in messages.
+
+## [4.0.0] - 2023-06-27
+### Changed
+- **Breaking Change:** ShopMagic no longer uses the unprefixed version of `Psr` libraries to increase its stability. Instead any `Psr` libraries are now scoped with the `ShopMagicVendor` prefix, meaning that external developers have to change logger or container class references.
+### Added
+- Extension for plugin authors to integrate own templates with ShopMagic, i.e., for marketing list confirmation message.
+### Fixed
+- Views missing data in admin site when using filters or pagination with plain permalinks setting (e.g., the next page of automations or filtering outcomes by status).
+### Improved
+- Fault-tolerant checking for customers in order-related events.
+
+## [3.0.15] - 2023-06-13
+### Fixed
+- An issue when automation action is not changed despite changing action type and saving automation. Now, you can overwrite an existing action.
+- Intercepting non-registered guests when the pre-submit data option is enabled.
+### Improved
+- The way of inferring the customer from an order when the customer is logged in and uses different email for account and billing details.
+
+## [3.0.14] - 2023-05-22
+### Fixed
+- Displaying an error message to users who have successfully signed up for a double opt-in marketing list.
+- Guest details no longer miss extra data (i.e., billing details) in admin Guest list view.
+### Improved
+- Safety of misusing placeholders: now, if a non-compatible placeholder is used, it will be ignored, instead of failing the whole automation, i.e., using `{{ product.name }}` in a post-based automation will no longer fail the automation.
+- Edit, duplicate and delete icons are now visible on the Safari browser.
+- The method of integration with contact form plugins, e.g., used in ShopMagic for Contact Form 7.
+- The order or Action Scheduler initialization, which generated notices before.
+- Restored images in the "Start here" page.
+- Compatibility with PHP 8.1 version.
+- Backward compatibility with PHP <7.4 versions.
+- Added support for the latest WooCommerce plugin.
+
+## [3.0.13] - 2023-04-11
+### Fixed
+- An error leading to either sending all automations or none. From now on, ShopMagic filters will work correctly and predictably.
+### Improved
+- Customer's language detection when the multilingual module is enabled.
+
+## [3.0.12] - 2023-03-29
+### Fixed
+- Restored backward compatibility with ShopMagic extensions.
+- An error on double opt-in email confirmation.
+- An issue with email tracking links leading to an error page.
+
+## [3.0.11] - 2023-03-24
+### Changed
+- Reapplied automation filters to be validated on an automation run.
+
+## [3.0.10] - 2023-03-24
+### Improved
+- Graceful handling of automation misconfiguration when looking for existing automations.
+
+## [3.0.9] - 2023-03-23
+### Changed
+- Reworked and improved multilingual support module.
+### Fixed
+- "Customer Opt In" and "Customer Opt Out" events.
+- Emails sometimes not being sent to registered users.
+- Various minor issues with events and actions keeping ShopMagic from working properly.
+- Marketing lists missing data and checkout errors.
+- Issue with MailChimp integration action.
+- Compatibility with WordPress Bedrock.
+- Various settings in TinyMCE editor.
+- Handling of incorrect email tracking links.
+- Restored plain text editor support in some actions (i.e., "Send email - Plain text").
+
+## [3.0.8] - 2023-01-12
+### Improved
+- Compatibility with the outdated \Psr\Container implementation from the WooCommerce plugin.
+
+## [3.0.7] - 2023-01-12
+### Fixed
+- Some customer-based placeholders (e.g., `customer.first_name`) not displaying any value.
+- Issues with marketing lists causing troubles at customer's checkout.
+- Re-added missing JS files handling customer marketing lists submission.
+### Improved
+- ShopMagic settings save -- you can now disable email tracking properly.
+
+## [3.0.6] - 2022-12-22
+### Fixed
+- Server error when fetching automation's actions.
+
+## [3.0.5] - 2022-12-21
+### Added
+- Possibility to disable email tracking in settings.
+- Clickable link to "Upgrade to PRO" button in the menu.
+### Improved
+- Saving settings, which before may be causing some modules to install and activate itself.
+- Display of unnamed automations in outcomes - from now on, such automation is marked as "(Unnamed)".
+- REST API handler not getting required values.
+- Attached compiled dependency injection container class to improve speed and avoid server-based errors.
+### Fixed
+- "Order - Pending Payment" event.
+- Issue, leaving order without products when the logged-in customer tries to order with another email.
+- The process of installing database tables - new installations correctly create tables now.
+- Database collation compatibility between `wp_users` and `wp_shomagic_guest`. From now, it fixes cases when the admin couldn't list customers in manual actions.
+
+## [3.0.4] - 2022-12-13
+### Fixed
+- Rare critical error in the admin panel with WC 7.1.1
+- Link tracking injection - from now on only HTTP links will be transformed, leaving `mailto`, `tel` and similar links untouched.
+- Placeholder `{{ order.total }}`
+- Saving guest customers result in error when ShopMagic Abandoned Carts is active.
+- Flexible Checkout Fields integration placeholder.
+- Event *Order - Note Added*.
+### Improved
+- Getting test data from the store when sending a test email action - using the last non-refund order to fill in the test data.
+- Error messages when failed to send a test message with action.
+
+## [3.0.3] - 2022-12-08
+### Fixed
+- Calling undefined function `is_ajax`.
+### Added
+- Possibility to bulk delete outcomes, guests, and subscribers.
+### Improved
+- Compatibility with PHP <8 and WordPress <5.9.
+- List of guests and queue items are now sorted from the most recent.
+- Synchronization between page tab and menu item when navigating across ShopMagic pages.
+- Added the possibility to open a pre-filtered view of subscribers from marketing lists by clicking in subscribers count.
+
+## [3.0.2] - 2022-12-07
+### Fixed
+- Compatibility with PHP <8 version.
+
+## [3.0.1] - 2022-12-07
+### Fixed
+- Error occurring when the guest customer attempts to pay in checkout.
+
+## [3.0.0] - 2022-12-06
+### Added
+- Totally rewritten admin user interface. ShopMagic features a dynamic, modern-looking UI suitable for your advanced automations.
+- Main admin panel dashboard with automation performance highlights and handy shortcuts.
+- Measuring email campaigns - all your emails are now enhanced with open and click information.
+- Integration with basic WordPress events as post publishing.
+- Builtin support for multilingual solutions - create emails in multiple languages tailored for your customers.
+### Changed
+- Simplified `shopmagic_form` shortcode parameters.
+- Lessened ShopMagic's impact on website performance - the plugin already has been lightweight, but now it's improved.
+- Dropped strict requirement to use WooCommerce. Although, ShopMagic still works perfectly with WooCommerce, you don't need to install it to enable ShopMagic. This may be useful for small blog websites, which want to notify subscribers about new articles.
+- Introduced numerous breaking changes in codebase. Migrate your custom extension along with [our migration guide](https://docs.shopmagic.app/search?query=migration+guide)
+- Bumped WooCommerce compatibility version
+- Bumped WordPress compatibility version
+### Removed
+- Shortcode `[shopmagic_communication_preferences]`
+
+## [2.37.12] - 2022-07-22
+### Changed
+- Bumped WooCommerce compatibility version.
+
+## [2.37.11] - 2022-06-22
+### Changed
+- Bumped WooCommerce compatibility version.
+
+## [2.37.10] - 2022-06-07
+### Fixed
+- Issue with attaching files.
+- Mails failing when using SendinBlue SMTP.
+### Improved
+- Error handling when using automation recipes.
+
+## [2.37.9] - 2022-06-01
+### Fixed
+- Call to undefined method, while generating account preferences url.
+
+## [2.37.8] - 2022-05-31
+### Fixed
+- Automation sometimes not receiving customer data with manual action.
+### Improved
+- Emails consistency for the double opt-in message.
+
+## [2.37.7] - 2022-05-24
+### Fixed
+- Version number.
+
+## [2.37.6] - 2022-05-24
+### Added
+- Placeholder `order.billing_company` and `order.shipping_company`
+### Fixed
+- Saving of automations for Shop Manager role.
+### Improved
+- Delayed saving of cookie for guest customers until they enter email in checkout. It optimizes cache usage.
+
+## [2.37.5] - 2022-05-10
+### Fixed
+- Fatal error thrown sometimes when the user registers.
+
+## [2.37.4] - 2022-04-28
+### Added
+- Marketing agreement checkbox to signup form shortcode.
+### Fixed
+- Opt-based events not receiving Customer data.
+### Changed
+- Normalized signup form shortcode.
+
+## [2.37.3] - 2022-04-05
+### Fixed
+- Customer - ID filter.
+- `shopmagic` cookie set on every guest request.
+- Processing automation for Customer - Account Created event uses the same user.
+- New marketing lists subscribers database table sometimes not created with previous update.
+- ShopMagic test mail feature sometimes breaks when store refund orders.
+### Improved
+- Send mail action text sanitization - now most HTML elements are allowed.
+
+## [2.37.2] - 2022-03-15
+### Fixed
+- List related events not triggering.
+- Marketing Lists tab links for WordPress instances installed in subdirectories.
+- Backward compatibility for Add To List action.
+
+## [2.37.1] - 2022-03-09
+### Added
+- Abstraction layer for easier contact form plugins integration.
+### Fixed
+- Database overflow sometimes caused by recent update for sites with a high volume of marketing lists subscribers.
+- List subscribers import and export on Safari browsers.
+### Improved
+- Admin tables list ordering.
+
+## [2.37.0] - 2022-03-02
+### Added
+- Rewritten current lists into Marketing Lists. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-37-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-37-is-here)
+- Possibility to export and import emails of customers signed on lists.
+- Form with shortcode for signing up on lists.
+- Double opt-in for marketing lists.
+- Filter Customer - Not Subscribed To List
+### Changed
+- Revamped admin area for managing list subscribers.
+- Changed communication preferences page into the hidden route. From now on, you don't have to create Communication Preferences page, we are handling that.
+- Changed access level for ShopMagic admin pages. Now Store Manager role can do everything in the admin dashboard.
+- Bumped WooCommerce compatibility.
+### Removed
+- Shortcode `[shopmagic_communication_preferences]`
+
+## [2.36.1] - 2022-02-07
+### Fixed
+- Showing queued outcomes as failed in conjunction with Delayed Actions extension
+
+## [2.36.0] - 2022-02-01
+### Added
+- Compatibility with ShopMagic Abandoned Carts 2.0. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-36-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-36-is-here)
+- Possibility to send a test automation message without orders in store
+- Possibility to remove Guests from admin table
+- Possibility to clear old Outcomes from the database
+- WordPress 5.9 compatibility
+### Fixed
+- `<head>` section being broken in admin views
+
+## [2.35.1] - 2022-01-20
+### Fixed
+- Compatibility issue with PHP <7.3 version, causing a fatal error.
+
+## [2.35.0] - 2022-01-18
+### Added
+- Released ShopMagic Advanced Filters 2.0 with support for automation-related filters and some new filters. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-35-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-35-is-here)
+### Improved
+- Distinguish between filters in admin view.
+### Changed
+- Dequeued Customer presubmit script from non-checkout pages.
+
+## [2.34.1] - 2021-12-29
+### Fixed
+- Saving customers to MailChimp when using Customer - Opted in event.
+
+## [2.34.0] - 2021-12-27
+### Added
+- Improved integration with ShopMagic Delayed Actions 3.0. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-34-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-34-is-here)
+- Simple documentation to each placeholder.
+- Parameter `$template_dir` to `shopmagic/core/placeholder/products_ordered/templates`.
+- WordPress' filter for dynamic attachments. [See more in documentation.](https://docs.shopmagic.app/article/1180-dynamic-email-attachments).
+### Deprecated
+- `OutocomeReposistory` class.
+
+## [2.33.0] - 2021-11-08
+### Added
+- Support for Google Sheets plugin as a free extension. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-33-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-33-is-here).
+### Fixed
+- Mailchimp action always marked as failed in Outcomes.
+- Issue with automation view related to attachments field in email action.
+
+## [2.32.0] - 2021-10-20
+### Added
+- Support for WPML multilingual plugin as a free extension. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-32-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-32-is-here).
+### Fixed
+- Fatal error due to lack of function related to attachments on server setup.
+
+## [2.31.2] - 2021-10-08
+### Fixed
+- Filters sometimes passing for all automations, even if should not be matched.
+
+## [2.31.1] - 2021-10-07
+### Fixed
+- Trailing comma in function call leading to a fatal error.
+
+## [2.31.0] - 2021-10-07
+### Added
+- `order.products_sku` placeholder.
+### Fixed
+- Automation sometimes failing without added attachments.
+- Minor fixes in the automation editor view.
+
+## [2.30.1] - 2021-09-17
+### Fixed
+- Adding new actions on new automation.
+- Removing automations from the queue.
+- Duplicated fields for adding attachments.
+
+## [2.30.0] - 2021-09-15
+### Added
+- "From" name and address email settings. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-30-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-30-is-here)
+- Possibility to attach PDF files to emails.
+- Possibility to duplicate, export, and import automations.
+- New placeholder `order.order_number`.
+### Changed
+- Now, when you change events, compatible filters are not pruned.
+
+## [2.29.1] - 2021-09-02
+### Fixed
+- Free addon installation in the automation screen.
+
+## [2.29.0] - 2021-09-01
+### Added
+- New addon for ShopMagic! Contact Form 7 integration. [Read the blog post](https://shopmagic.app/blog/shopmagic-2-29-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-29-is-here)
+- Notices about the pro version.
+### Fixed
+- A couple of bugs, i.e., the communication page in account showing 404 error, creating the communication page before `wp_loaded`.
+
+## [2.28.0] - 2021-08-09
+### Added
+- New filtering option in admin view for automation outcomes: [Filter by status](https://shopmagic.app/blog/shopmagic-2-28-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-28-is-here)
+### Fixed
+- Date-based placeholders returning date in English.
+- Compatibility with WordPress <5.3.
+
+## [2.27.3] - 2021-07-28
+### Changed
+- You can now dismiss the notice which appears when the Communication Preferences page is missing. However, recreating it is still the best option.
+
+## [2.27.2] - 2021-07-22
+### Fixed
+- Manual Actions stuck in constant Progress... screen.
+
+## [2.27.1] - 2021-07-21
+### Fixed
+- Admin view failing due to missing js resource.
+
+## [2.27.0] - 2021-07-19
+### Added
+- [UTM parameters in placeholders:](https://shopmagic.app/blog/shopmagic-2-27-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-27-is-here)
+### Fixed
+- Communication page not creating on plugin install/update.
+### Changed
+- Bumped WooCommerce compatibility version.
+- Added notification if the user has no communication page.
+
+## [2.26.1] - 2021-06-29
+### Fixed
+- `OutcomeRepository` querying only WP Users from the outcomes table.
+### Deprecated
+- `OutcomeReposistory::get_done_automation_count_for_customer`.
+
+## [2.26.0] - 2021-06-23
+### Added
+- New [placeholders:](https://shopmagic.app/blog/shopmagic-2-26-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-26-is-here) `order.related_products`, `order.cross_sells`.
+- Bulk action 'remove' for outcomes logs.
+- New recipe with a new cross-sells placeholder.
+### Fixed
+- Recipe with abandoned cart automation.
+
+## [2.25.1] - 2021-06-16
+### Fixed
+- Critical error when the correct automation is not found in the database.
+- Dependency class not found.
+
+## [2.25.0] - 2021-05-26
+### Added
+- New placeholders [read the blog post](https://shopmagic.app/blog/shopmagic-2-25-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-25-is-here):
+    - `order.payment_method`
+    - `order.shipping_method`
+    - `shop.title`
+    - `shop.url`
+    - `shop.tagline`
+- Change plugin welcome page.
+- Added a new hook: `shopmagic/core/placeholder/template_resolver`.
+### Deprecated
+- `PlaceholderFactoryCore::get_placeholder_template_renderer` function.
+
+## [2.24.0] - 2021-05-12
+### Changed
+- Library upgrade.
+### Fixed
+- Problems with list MailChimp list selection when there are more than 10 lists.
+
+## [2.23.2] - 2021-04-15
+### Fixed
+- Placeholder `order.total` no longer returns HTML.
+- Recipe usage when unavailable placeholders are used.
+
+## [2.23.1] - 2021-03-31
+### Fixed
+- Error when multiple automations for the same event are not firing.
+- Conflict with "YITH WooCommerce One-Click Checkout".
+
+## [2.23.0] - 2021-03-10
+### Added
+- Recipes [read the blog post](https://shopmagic.app/blog/shopmagic-2-23-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-23-is-here).
+- Support for asynchronous job queue in manual actions.
+- New hooks:
+    - `shopmagic/core/action/before_execution`
+    - `shopmagic/core/action/after_execution`
+    - `shopmagic/core/action/successful_execution`
+    - `shopmagic/core/action/failed_execution`
+### Fixed
+- Datetime placeholders when WooCommerce returns incorrect dates.
+- Warning "illegal offset in media.php on line 820".
+- Error when the order is created by API.
+- Tweaked cache in internal factories.
+
+## [2.22.1] - 2021-02-11
+### Fixed
+- Action Delete/Add email to list when no customer has been provided.
+
+## [2.22.0] - 2021-02-03
+### Added
+- Integration with Gravity Forms [read the blog post](https://shopmagic.app/blog/shopmagic-2-22-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-22-is-here).
+- Action: Add E-mail to List.
+- Action: Delete E-mail from List.
+- Backend support for automation history.
+### Fixed
+- CSS conflict with the `special-occasion-reminder` plugin.
+- Upgraded persistent library to a more stable version.
+
+## [2.21.1] - 2021-01-19
+### Fixed
+- Problems with mail delivery to guest users.
+
+## [2.21.0] - 2021-01-13
+### Added
+- SMS support with Twilio [read the blog post](https://shopmagic.app/blog/shopmagic-2-21-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-21-is-here).
+- Event sanity check to ensure that is provides declared data types.
+- Additional error message when WordPress can't send an e-mail without any error.
+### Fixed
+- Dropdown styles used when editing automations.
+- Rare problems "Element template_type not exists".
+
+## [2.20.1] - 2020-12-31
+### Fixed
+- Error "Call to a member function get_id() on null".
+
+## [2.20.0] - 2020-12-30
+### Added
+- `order.payment_url` placeholder to facilitate paying for the order [read the blog post](https://shopmagic.app/blog/shopmagic-2-20-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-20-is-here).
+- "Order Paid" event to react when a user pays for an order.
+- BCC field in email actions.
+- Support for guests in comments.
+### Fixed
+- Invalid "Manual Action" menu item.
+- Rare problems with WC styles/js when ShopMagic is enabled.
+- Problem with template override.
+- Problem when an order includes items that are not products.
+- Time errors when the default timezone is changed during the request.
+- Error in outcome when no customer has been found.
+
+## [2.19.2] - 2020-12-17
+### Fixed
+- Error with the new version of Flexible Checkout Fields plugin.
+
+## [2.19.1] - 2020-12-14
+### Fixed
+- Error when upgrading from 2.0 version to 2.19 with a serialized class interface in a cron job.
+- Error in cart settings when PHP8 is used.
+- Error "cannot resolve" in `order.products_ordered` placeholder.
+- Warning when no delayed action is selected.
+
+## [2.19.0] - 2020-12-10
+### Added
+- New placeholder `order.downloads` that can show the downloads table [read the blog post](https://shopmagic.app/blog/shopmagic-2-19-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-19-is-here).
+- New placeholder `order.shipment_tracking_links` integrating ShopMagic with "Table Rate for WooCommerce by Flexible Shipping" plugin.
+- New placeholder `order.checkout_field` integrating ShopMagic with "Flexible Checkout Fields" plugin.
+- Support for plain text in `order.details` placeholder.
+- The possibility to cancel queued automation.
+### Fixed
+- Error when Action is not sure whether it has been executed successfully.
+- Error when the order cannot be found.
+- Some translations.
+
+## [2.18.0] - 2020-11-26
+### Added
+- Support for templates and product images in `products_ordered` placeholder [read the blog post](https://shopmagic.app/blog/shopmagic-2-18-is-here-support-for-product-images/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-18-is-here-support-for-product-images).
+- Support for modification parameter for all date/time placeholders.
+### Fixed
+- Possibility of the endless loop while converting guests.
+- Format placeholder parameter when: char is used.
+
+## [2.17.1] - 2020-11-05
+### Fixed
+- Error in Outcome/Queue when invalid guest account exists.
+
+## [2.17.0] - 2020-11-04
+### Added
+- Support for the new and FREE Abandoned Carts add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-17-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-17-is-here).
+- Support for Guest session tracking and pre-submit data capture.
+- Cron events that allow execution of non-essential periodic tasks.
+### Improved
+- Better Customer handling for core and add-ons.
+### Fixed
+- Opt-in/opt-out events for Guests.
+
+## [2.16.0] - 2020-10-21
+### Added
+- Support for the new WooCommerce Memberships add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-16-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-16-is-here).
+- New filter: customer ID.
+- New placeholder: customer username.
+- New internal class `BeforeEventHelper`.
+### Fixed
+- Error while creating a manual order.
+- Error when statuses with chars outside of utf-8 are used.
+
+## [2.15.0] - 2020-10-14
+### Added
+- Support for sending newsletters or trigger manual subscription events from the Manual Actions add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-15-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-15-is-here).
+- Order Note Added event, filters (order note type and content) and placeholders (order note content and author).
+- `order.customer_note` placeholder for displaying customer notes from the checkout form.
+- Support for date formatting in date placeholders.
+- More useful information to outcomes including error messages.
+### Changed
+- `ManualEvent` interface and added support for more complex manual events.
+- Changed requirements of user-based placeholders to the customer.
+### Fixed
+- `SelectOneToManyType` based filtering when 'matches any' is selected.
+- Sending test mail for subscriptions.
+- Rare problems while upgrading internal database structure.
+- Data dependency for filters and placeholders when provided data is derived from requirements.
+
+## [2.14.0] - 2020-09-30
+### Added
+- Support for the new WooCommerce Subscriptions add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-14-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-14-is-here).
+- Hook emitters for firing before events.
+### Fixed
+- Possible "Guests" duplication in the admin menu.
+- Multiple firings of the "Order Pending" event.
+- Sending test mail when the unsubscribe link is used.
+- Rechecking status for the Order Status Change event.
+- Using float comparison when comparing strings.
+- Tooltips visibility.
+
+## [2.13.0] - 2020-09-16
+### Added
+- Guest listing, [read the blog post](https://shopmagic.app/blog/shopmagic-2-13-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-13-is-here).
+- Integration with Postmark Message Streams.
+- Customer filtering to automation queue and outcomes.
+- New data object accessible in placeholders and actions: Customer.
+### Changed
+- Plugin requirements. Requires PHP 7.0, WordPress 4.9, and WooCommerce 4.0.
+### Fixed
+- Invalid mail action used with mail testing.
+
+## [2.12.1] - 2020-08-11
+### Fixed
+- Styling compatibility with WordPress 5.5.
+- Logs in some MySQL.
+
+## [2.12.0] - 2020-08-05
+### Added
+- Support for Advanced Filters add-on 1.1.0.
+- Support for filters based on date.
+### Fixed
+- Warning "Use of undefined constant".
+
+## [2.11.0] - 2020-07-29
+### Added
+- Sending test emails for Send Email actions, [read the blog post](https://shopmagic.app/blog/shopmagic-2-11-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-11-is-here).
+- Support for logger in ShopMagic actions using `LoggerAwareInterface`.
+### Fixed
+- Unknown status in outcomes when a fatal error occurred.
+
+## [2.10.0] - 2020-07-22
+### Added
+- Support for the new Manual Actions add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-10-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-10-is-here).
+- Filtering to automation queue and outcomes.
+### Improved
+- Tweaked outcome statuses names and descriptions for better understanding.
+### Fixed
+- Conflict of menu position with other plugins.
+
+## [2.9.0] - 2020-07-15
+### Added
+- Automation queue and outcomes (logs), [read the blog post](https://shopmagic.app/blog/shopmagic-2-9-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-9-is-here).
+### Fixed
+- Invalid action call when `ALTERNATE_WP_CRON` is used.
+- Saving automation when invalid/empty filter was added.
+- Warning in the event metabox.
+
+## [2.8.1] - 2020-07-09
+### Fixed
+- Error while trying to access unavailable `CustomerIsGuest` filter.
+
+## [2.8.0] - 2020-07-08
+### Added
+- Marketing opt-ins and lists, [read the blog post](https://shopmagic.app/blog/shopmagic-2-8-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-8-is-here).
+- Ability for customers to subscribe to lists in WooCommerce checkout.
+- Ability for customers to subscribe or unsubscribe on Communication Preferences/My Account page.
+- Opt-in/opt-out events for lists.
+- `{{ customer.unsubscribe_url }}` placeholder.
+- Filter to match customers that subscribed to selected lists.
+### Improved
+- Tweaked scheduled actions to better integrate with WooCommerce.
+### Fixed
+- Mailchimp integration.
+
+## [2.7.0] - 2020-06-24
+### Changed
+- Order created event to also fire when an order is created using API.
+- Order pending event to also fire when an order with a pending status is created and this status persists.
+- Delayed the moment in which the running automation actions are executed.
+- Further delayed the moment in which the running automation events are attached.
+### Fixed
+- Compatibility with Slack integration.
+- Compatibility with WooCommerce Cart Abandonment Recovery plugin.
+- Emogrifier fatal error in some cases.
+- Duplicated placeholders in automation edit when an event is changed.
+
+## [2.6.1] / [2.6.2] - 2020-06-18
+### Fixed
+- Conflicts with WordPress update manager.
+
+## [2.6.0] - 2020-06-18
+### Added
+- New placeholder: `order.meta` to get order metadata.
+### Fixed
+- Warning "wc_get_product was called incorrectly".
+- Delayed the moment in which the running automation events are attached so it happens after the theme is loaded.
+
+## [2.5.0] - 2020-05-20
+### Added
+- Support for the new Advanced Filters add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-5-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-5-is-here).
+- Support for filter grouping into logical AND/OR groups.
+### Fixed
+- Error while applying `woocommerce_email_styles` filter.
+- JS type error when no private coupons exist.
+
+## [2.4.0] - 2020-05-06
+### Added
+- Support for the new Customer Coupons add-on, [read the blog post](https://shopmagic.app/blog/shopmagic-2-4-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-4-is-here).
+- Placeholder dialogs - the easiest way to configure and insert placeholder codes.
+- Ability to enable BCC field in email actions.
+
+## [2.3.2] - 2020-04-29
+### Fixed
+- Issues with not firing events.
+- Exception when order in delayed action no longer exists.
+- Exception when user in delayed action no longer exists.
+- Misleading success message when order status recheck fails.
+- Removed quantity in `order.products_ordered` list.
+
+## [2.3.1] - 2020-04-22
+### Changed
+- Bumped ShopMagic version to 2.3.1.
+
+## [2.3.0] - 2020-04-22
+### Added
+- Support for Review Requests add-on 2.1.0, [read the blog post](https://shopmagic.app/blog/shopmagic-2-3-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-3-is-here).
+- Support for guest reviews in Review Requests add-on.
+- New placeholders for products used in Review Requests add-on (`product.id`, `product.name`, `product.link`, `product.meta`).
+
+## [2.2.1] - 2020-04-16
+### Fixed
+- "Improve ShopMagic" notice to always appear only once.
+- Error "customer account does not exist" in subscriptions.
+
+## [2.2.0] - 2020-04-15
+### Added
+- New action: Send Email - Raw HTML.
+- New action: Send Email - Plain Text.
+- New placeholder: `order.admin_url` to get a direct link to the edit order page.
+- `apply_filters` for raw email message to allow for 3rd party customization (i.e., add WP shortcodes support).
+- Help beacon with help articles and ability to contact support directly from ShopMagic pages.
+
+## [2.1.2] - 2020-04-03
+### Fixed
+- Event data persistence layer which could cause error after upgrading to 2.1.0.
+
+## [2.1.1] - 2020-04-03
+### Fixed
+- Potential error when upgrading to 2.1.0.
+
+## [2.1.0] - 2020-04-02
+### Added
+- Order Status Changed event with support for custom order statuses.
+### Changed
+- Completely rewritten scheduling system to use Action Scheduler instead of WP-Cron.
+- Completely rewritten settings fields to prepare for developing new add-ons.
+### Removed
+- Password Reset event because of security reasons (sending a password in plain text).
+### Fixed
+- Saving HTML content with the text editor.
+
+## [2.0.0] - 2020-03-19
+### Added
+- Adopted Semantic Versioning for ShopMagic and all add-ons.
+- Support for email heading text.
+- New column with event name to Automations page.
+- New placeholder - `order.details`.
+- New placeholder - `customer.phone`.
+- Support for changes in ShopMagic PRO add-ons.
+### Changed
+- Major update, please [read the blog post](https://shopmagic.app/blog/shopmagic-2-0-is-here/?utm_source=wporg&utm_medium=readme&utm_campaign=shopmagic-for-woocommerce&utm_term=read-the-blog-post&utm_content=post-shopmagic-2-0-is-here).
+- Completely rewritten events, filters, and actions to prepare for next major updates.
+
+## [1.9.2] - 2020-02-25
+### Fixed
+- Missing `order.product_ordered` placeholder.
+
+## [1.9.1] - 2020-02-21
+### Fixed
+- Delayed Actions add-on compatibility.
+
+## [1.9.0] - 2020-02-19
+### Added
+- Placeholder groups (i.e., customer, order) to easily manage and add custom placeholders.
+- Support for all legacy placeholders (all old placeholders will seamlessly work after this update).
+### Changed
+- Major update!
+- Completely rewritten placeholders to prepare for next major updates.
+- Tweaked placeholders names to reflect new grouping feature.
+- Tweaked currency, country and date placeholders to reflect site format settings.
+- Added support for changes in ShopMagic PRO add-ons.
+
+## [1.8.0] - 2020-01-08
+### Added
+- Product variations support to product filter.
+
+## [1.7.1] - 2019-12-18
+### Fixed
+- Integration with "ShopMagic Delayed Actions" plugin.
+
+## [1.7.0] - 2019-12-16
+### Added
+- `customer_billing_*` and `customer_shipping_*` placeholders.
+### Fixed
+- Product filter.
+
+## [1.6.0] - 2019-11-14
+### Added
+- Better support for translations.
+- WP Desk libraries to unify plugin development.
+- Support for [premium add-ons](https://shopmagic.app/product-category/add-ons/).
+
+## [1.5.0] - 2019-10-30
+### Added
+- Support for default WooCommerce template in emails (use the WooCommerce template or style your own from scratch).
+- Translation support for event and action names.
+### Changed
+- "Predefined template blocks" name to "content blocks" for better understanding.
+- Legacy placeholders in content blocks.
+### Fixed
+- Fatal error for the New Order event with no action added.
+- Text editor buttons not showing up.
+- Visual editor errors when 2 or more actions were added.
+- `{{products_ordered}}` placeholder not displaying products for some events.
+- Some notices showing up for actions.
+
+## [1.4.0] - 2019-09-30
+### Added
+- Brand look and feel - ShopMagic now magically integrates with WordPress and has greatly improved user experience.
+- Support for WooCommerce 3.7.
+- Improved welcome page to help you get started with creating your first automation.
+- Quick links to settings, docs, and support.
+- Translation support.
+### Improved
+- Admin notices handling to improve UX.
+- Many things under the hood to prepare for next major versions.
+
+## [1.3.1] - 2019-09-18
+### Fixed
+- Issue with the text editor not being able to toggle between Visual and Text mode for automation emails.
+- Bug that would sometimes prevent New Order automation from firing.
+- Bug that prevented `{{customer_first}}` and `{{customer_last}}` placeholders from working when checkout is by guest instead of WP user.
+- Issue with a plugin generating white space in some admin files which caused issues with Updraft backup plugin.
+- Bug that de-activated plugin when the View Details link was clicked for the plugin on the Plugins admin page.
+
+## [1.3.0] - 2019-08-28
+### Added
+- Filters feature! Now you can add a condition that must be met before any action is taken.
+- "Products Purchased" placeholder to the free version - now you can list all products purchased in your customized confirmation email.
+- Improved deactivation survey feature.
+### Improved
+- Welcome screen to include more useful getting started information.
+
+## [1.2.5] - 2019-08-15
+### Fixed
+- Formatting in pre-written email templates.
+### Added
+- Optional deactivation survey to send back completely anonymous data to help us learn how we can improve the plugin.
+
+## [1.2.4] - 2019-08-07
+### Fixed
+- Bug which prevented admin from choosing a product as an event to trigger automation.
+- Updated links to correctly point to shopmagic.app for support and pro upgrades.
+
+## [1.2.3] - 2019-07-31
+### Fixed
+- Small bug causing warnings on activation for some users.
+
+## [1.2.2] - 2019-07-24
+### Fixed
+- Issue with not being able to name automations.
+
+## [1.2.0] - 2019-07-17
+### Changed
+- Updates to README - Change of Plugin Name.
+- Updates to URLs.
+
+## [1.1.8] - 2019-07-10
+### Fixed
+- Fixes to welcome page and admin banners.
+
+## [1.1.7] - 2019-07-03
+### Fixed
+- Add Media button issue.
+- Product Purchase in Draft mode issue - where products added wouldn't stay unless published.
+- Email formatting improvements.
+
+## [1.1.6] - 2019-06-26
+### Fixed
+- Compatibility issue with Gantry 5 based themes (Helium and Hydrogen).
+
+## [1.1.5] - 2019-06-19
+### Fixed
+- Media button issue on Send Email automations where the media button did not bring up the media browser.
+- Issue where automation emails would not send to guests after checkouts.
+### Changed
+- Placeholder prefix to `{{ customer_` from `{{ user`.
+### Added
+- Admin messages and pointers.
+
+## [1.1.4] - 2019-06-12
+### Improved
+- Email sending compatibility for more server environments.
+### Fixed
+- Bug which displayed warnings on checkout confirmation for Guests if WP debug was enabled.
+
+## [1.1.3] - 2019-06-05
+### Improved
+- Email sending compatibility for more server environments.
+### Fixed
+- Bug which displayed warnings on checkout confirmation for Guests if WP debug was enabled.
+
+## [1.1.2] - 2019-05-29
+### Fixed
+- Issue of emails not being sent consistently in all environmental setups.
+
+## [1.1.1] - 2019-05-22
+### Fixed
+- Issue where emails weren't sent out if guest checkout enabled.
+### Changed
+- Updated plugin description.
+
+## [1.1.0] - 2019-05-15
+### Added
+- Predefined Email Template block feature so that you can add prewritten text to your emails with ease.
+- Live descriptions for events next to the dropdown menu.
+- Welcome Page after activation.
+### Improved
+- Email formatting.
+### Fixed
+- Bugs.
+
+## [1.0.2] - 2019-05-08
+### Fixed
+- Plugin activation issue.
+
+## [1.0.1] - 2019-05-01
+### Fixed
+- JS bug that automatically closed download link information in the backend for orders.
+
+## [1.0.0] - 2019-04-24
+- Released the first version.
+

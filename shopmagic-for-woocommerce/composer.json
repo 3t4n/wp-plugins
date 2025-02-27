@@ -1,0 +1,105 @@
+{
+	"name": "wpdesk/shopmagic-for-woocommerce",
+	"prefer-stable": true,
+	"config": {
+		"sort-packages": true,
+		"platform": {
+			"php": "7.4.33"
+		},
+		"allow-plugins": {
+			"cweagans/composer-patches": true,
+			"kylekatarnls/update-helper": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"wpdesk/wp-wpdesk-composer": true,
+			"wpdesk/wp-codeception": true,
+			"phpstan/extension-installer": true
+		},
+		"archive-format": "zip"
+	},
+	"require": {
+		"php": ">=7.4|^8",
+		"ext-json": "*",
+		"ext-mbstring": "*",
+		"getresponse/sdk-php-client": "^2.0",
+		"woocommerce/action-scheduler": "^3.5.3",
+		"wpdesk/ltv-dashboard-widget": "^1.4",
+		"wpdesk/wp-wpdesk-helper-override": "^1.1.0"
+	},
+	"require-dev": {
+		"10up/wp_mock": "*",
+		"composer/composer": "^2.2.18",
+		"getresponse/sdk-php": "^3.0",
+		"league/csv": "^9.6.2",
+		"monolog/monolog": "^2.8",
+		"pelago/emogrifier": "^6",
+		"php-di/php-di": "^6.3.5",
+		"phpunit/phpunit": "^7.5.20 | ^8",
+		"psr/container": "^1.1.1",
+		"psr/log": "^1.1.4",
+		"ramsey/uuid": "^4.2.3",
+		"wpdesk/phpstan-rules": "^1.1",
+		"wpdesk/wp-code-sniffer": "^1.2.6",
+		"wpdesk/wp-codeception": "^2.11",
+		"wpdesk/wp-forms": "^3.1",
+		"wpdesk/wp-logs": "^1.13",
+		"wpdesk/wp-migrations": "^1.0.1",
+		"wpdesk/wp-persistence": "^3",
+		"wpdesk/wp-plugin-flow-free": "^1.0.2",
+		"wpdesk/wp-show-decision": "^1.0",
+		"wpdesk/wp-view": "^2",
+		"wpdesk/wp-wpdesk-composer": "^3"
+	},
+	"autoload": {
+		"psr-4": {
+			"WPDesk\\ShopMagic\\": "src",
+			"WPDesk\\ShopMagic\\migrations\\": "migrations"
+		},
+		"classmap": [
+			"vendor_prefixed"
+		],
+		"files": [
+			"inc/compat.php",
+			"functions.php"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"integration\\": "tests/integration",
+			"unit\\": "tests/unit",
+			"codecept\\integration\\": "tests/codeception/tests/integration"
+		},
+		"classmap": [
+			"tests/unit/stubs",
+			"bin"
+		]
+	},
+	"extra": {
+		"text-domain": "shopmagic-for-woocommerce",
+		"translations-folder": "lang",
+		"translation-file-headers": {
+			"Project-Id-Version": "ShopMagic",
+			"Last-Translator": "Krzysztof Dyszczyk <krzysiek@wpdesk.pl>",
+			"X-Poedit-WPHeader": "shopMagic.php"
+		},
+		"po-files": {
+			"pl_PL": "pl_PL.po"
+		}
+	},
+	"scripts": {
+		"test": "echo composer is alive",
+		"compile": "WPDesk\\Composer\\Composer::compile",
+		"phpcs": "./tools/phpcs",
+		"test:unit": "./tools/phpunit -c phpunit-unit.xml --no-coverage",
+		"phpunit-unit": "phpunit --configuration phpunit-unit.xml --coverage-text --colors=never",
+		"phpunit-unit-fast": "phpunit --configuration phpunit-unit.xml --no-coverage",
+		"phpunit-integration": "phpunit --configuration phpunit-integration.xml --coverage-text --colors=never",
+		"phpunit-integration-fast": "phpunit --configuration phpunit-integration.xml --no-coverage",
+		"docs": "apigen generate"
+	},
+	"repositories": {
+		"wpdesk": {
+			"type": "composer",
+			"url": "https://gitlab.wpdesk.dev/api/v4/group/wpdesk/-/packages/composer/"
+		}
+	}
+}
