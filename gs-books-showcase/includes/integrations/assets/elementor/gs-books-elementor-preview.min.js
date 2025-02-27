@@ -1,0 +1,1 @@
+!function(e){var o=function(e,o){e.find(".gs_book_showcase_area").length&&o(document).trigger("gsbooks:scripts:reprocess")};e(window).on("elementor/frontend/init",(function(){elementorFrontend.hooks.addAction("frontend/element_ready/gs-book-showcase.default",o)}))}(jQuery);
