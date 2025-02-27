@@ -1,0 +1,60 @@
+<p>
+  This tab is only visible to users with the capability to manage options, such as administrators.
+</p>
+<p>
+  <strong>Need more menus?</strong> Check out the premium add-on for unlimited menu options: 
+  <a href="https://beautiful-wp.com/wordpress-plugin/easy-pdf-restaurant-menu-upload-food-menu/" target="_blank">https://beautiful-wp.com</a>
+</p>
+
+<h2>Menu Filenames</h2>
+<p>
+  The uploaded file's name is automatically renamed. Therefore, the original file name does not matter. 
+  The new name follows this pattern: <code>menu-{type}</code>. 
+  In future plugin versions, you may be able to customize this pattern.
+</p>
+<p>
+  The renaming ensures that your menus always have consistent URLs, which allows you to maintain internal names for your menu files.
+</p>
+
+<h2>Links to Menus</h2>
+<h3>URL without Shortcodes</h3>
+<p>
+  If you prefer not to use shortcodes, you can directly use the URL pattern below, provided the 'Use filename as link' setting is disabled. Otherwise, the URL will be the uploaded file name:
+</p>
+<p>
+  <code>https://your-wp-page.com/easy-pdf-restaurant-menu/menu-files/menu-&lt;TYPE&gt;.png</code><br>
+  Replace <code>&lt;TYPE&gt;</code> with the corresponding menu type, like 'general' or 'lunch'.
+</p>
+<h3>Shortcodes</h3>
+
+<h4>Full HTML Tag</h4>
+<p>
+  You can reference the menus anywhere in WordPress using the following shortcodes. These shortcodes will return a full HTML tag:
+</p>
+<ul>
+  <li><strong>Lunch Menu:</strong> <code>[nsc_eprm_menu_link restaurant_menu_type="lunch" linktext="Lunch menu" p="true" nofollow="false"]</code></li>
+  <li><strong>General Menu:</strong> <code>[nsc_eprm_menu_link restaurant_menu_type="general" linktext="General Menu" p="true" nofollow="false"]</code></li>
+</ul>
+<p>
+  <strong>Note:</strong>
+  <ul>
+    <li><code>p="true"</code>: The link is wrapped in a <code>&lt;p&gt;</code> tag. Set it to <code>false</code> to use a simple <code>&lt;a&gt;</code> tag.</li>
+    <li><code>nofollow="false"</code>: If set to <code>true</code>, the <code>rel="nofollow"</code> attribute is added to the link. However, "nofollow" does not necessarily prevent menu files from being indexed by search engines. To prevent indexing, tick the "Prevent SEO Indexing" box.</li>
+  </ul>
+</p>
+<p>
+  You can customize the "linktext" to display your desired text. The shortcodes will return a ready-to-use HTML link with the defined "linktext". Place them wherever you want to link to your menu.
+</p>
+
+<h4>URL Only</h4>
+<p>
+  To retrieve the plain URL without any HTML tags, use this shortcode:
+</p>
+<p><code>[nsc_eprm_menu_file_url restaurant_menu_type="lunch" cachebuster=true]</code></p>
+
+
+
+<h2>New User Role</h2>
+<p>
+  This plugin adds a new role: <strong>Restaurant Menu Uploader</strong>. Users assigned to this role can only upload restaurant menus and access the dashboard. They have no access to other WordPress functionalities, making it ideal for employees.
+</p>

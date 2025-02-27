@@ -1,0 +1,115 @@
+{
+  "plugin_slug": "easy-pdf-restaurant-menu",
+  "plugin_name": "Easy PDF Restaurant Menu Upload",
+  "plugin_prefix": "nsc_eprm_",
+  "settings_page_configs": {
+    "page_title": "Restaurant Menu Upload",
+    "menu_title": "Easy Menu Upload",
+    "capability": "read",
+    "description": ""
+  },
+  "setting_page_fields": {
+    "active_tab_slug": "",
+    "active_tab_index": 0,
+    "tabs": [
+      {
+        "tabname": "Upload",
+        "tab_slug": "upload",
+        "tab_description": "tab_upload_description.html",
+        "active": false,
+        "capability": ["manage_options", "upload_restaurant_menu_nsc_eprm"],
+        "form_action": "",
+        "form_enctype": "multipart/form-data",
+        "save_button_text": "save menu(s)",
+        "tabfields": [
+          {
+            "field_slug": "uploadfile_lunch",
+            "type": "file",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "additional_text": "Currently live:<span style='font-weight: bold'>{{current_lunch_menu_filename}}</span>",
+            "helpertext": "Shortcode: [nsc_eprm_menu_link restaurant_menu_type='lunch' linktext='Lunch menu' p='true' nofollow='false']. Leave 'linktext' empty for filename as linktext.",
+            "name": "Lunch Menu",
+            "save_in_db": false
+          },
+          {
+            "field_slug": "uploadfile_general",
+            "type": "file",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "additional_text": "Currently live:<span font-weight: bold'>{{current_general_menu_filename}}</span>",
+            "helpertext": "Shortcode: [nsc_eprm_menu_link restaurant_menu_type='general' linktext='General Menu' p='true' nofollow='false']. Leave 'linktext' empty for filename as linktext.",
+            "name": "General Menu",
+            "save_in_db": false
+          }
+        ]
+      },
+      {
+        "tabname": "Settings",
+        "tab_slug": "settings",
+        "tab_description": "This tab is only visible to users with the capability to manage options, like administrators for example.",
+        "active": false,
+        "capability": "manage_options",
+        "form_action": "options.php",
+        "save_button_text": null,
+        "tabfields": [
+          {
+            "field_slug": "force_redirect_all_roles",
+            "type": "checkbox",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "additional_text": "",
+            "helpertext": "If you check this all admin users are redirected after login to the menu upload page. If unchecked, only users with role 'Restaurant Menu Uploader' are redirected.",
+            "name": "Force redirect for all after login",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "orifilename_for_download",
+            "type": "checkbox",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "additional_text": "",
+            "helpertext": "If checked, the original filename is kept in the download link. Otherwise the filename is changed to a combination of your page name and the file id.",
+            "name": "Use filename as link",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "disable_seo_index",
+            "type": "checkbox",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "additional_text": "",
+            "helpertext": "By enabling this option, search engines will be blocked from indexing your menu files through the addition of the 'X-Robots-Tag: noindex' header. <strong>Please note</strong> that the downlood link will change once the option is activated. If you're using shortcodes for integration, no further action is required. However, if you've hardcoded the links, you need to update them as follows:<br><br><strong>Before:</strong> /wp-content/uploads/easy-pdf-restaurant-menu/menu-files/menu-lunch.pdf <br><strong>After:</strong> /easy-pdf-restaurant-menu/menu-files/menu-lunch.pdf",
+            "name": "Prevent SEO Indexing",
+            "save_in_db": true
+          },
+          {
+            "field_slug": "text_for_uploader",
+            "type": "textarea",
+            "required": false,
+            "extra_validation_name": false,
+            "pre_selected_value": false,
+            "additional_text": "",
+            "helpertext": "You can define a text for the menu uploader, to help him upload the correct menu or anything else. It will be shown on the upload page.",
+            "name": "Custom text for uploader",
+            "save_in_db": true
+          }
+        ]
+      },
+      {
+        "tabname": "Help",
+        "tab_slug": "help",
+        "tab_description": "tab_description_help.html",
+        "active": false,
+        "capability": "manage_options",
+        "form_action": "options.php",
+        "tabfields": []
+      }
+    ]
+  }
+}
