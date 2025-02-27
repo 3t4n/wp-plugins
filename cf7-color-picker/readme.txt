@@ -1,0 +1,60 @@
+=== Color Picker for Contact Form 7 ===
+Contributors: Florent73
+Donate link: https://www.paypal.me/RestezConnectes/
+Tags: color picker, contact form 7, forms, wordpress
+Requires at least: 3.0
+Tested up to: 6.5
+Stable tag: 0.1.3
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Easily add a color field to your CF7 forms. This plugin depends on Contact Form 7.
+
+== Description ==
+
+Enables adding a color field for Contact Form 7 Wordpress Plugin.
+
+== Installation ==
+1. Upload the full directory into your '/wp-content/plugins' directory
+2. Activate the plugin at the plugin administration page
+3. Add a color field to your form with the color tag
+
+== Screenshots ==
+1. General view
+2. View by visitors to your site
+
+== Frequently Asked Questions ==
+
+= Color Picker for Contact Form 7 Needs Your Support =
+
+It is hard to continue development and support for this free plugin without contributions from users like you. If you enjoy using Color Picker and find it useful, please consider <a href="https://www.paypal.me/RestezConnectes/25">making a donation</a>. Your donation will help encourage and support the plugin's continued development and better user support.
+
+See our demo website <a href="https://demo.restezconnectes.fr/send-pdf-for-contact-form-7/" target="_blank">here</a>
+
+
+= This plugin is free ? =
+
+Yes. If you want, you can support this project here: <a href="https://www.paypal.me/RestezConnectes/25">making a donation</a>
+
+= Can I change the plugin code? =
+
+Yes. Thank you for submitting your changes to update the plugin.
+
+== Upgrade Notice ==
+
+= 0.1.3 =
+* Secure plugin code
+
+= 0.1.2 =
+* Secure plugin code
+
+= 0.1.1 =
+* Bug multi color field fixed
+
+== Changelog ==
+
+= 0.1 =
+* First version
+
+
+   
