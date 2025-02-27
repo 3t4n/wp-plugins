@@ -1,0 +1,112 @@
+// panel view
+.utv-panel-light{
+  background-color: #eee;
+  color: #000;
+}
+
+.utv-panel-dark{
+  background-color: #111;
+  color: #eee;
+}
+
+.utv-panel-transparent .utv-panel-thumbnails,
+.utv-panel-transparent .utv-panel-controls{
+  background-color: transparent;
+  color: #000;
+}
+
+.utv-panel-player {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+  }
+}
+
+.utv-panel-controls{
+  text-align: center;
+  padding: 10px;
+}
+
+.utv-panel-controls .utv-panel-bkarrow{
+  float: left;
+}
+
+.utv-panel-controls .utv-panel-fwarrow{
+  float: right;
+}
+
+.utv-panel-controls .utv-panel-title{
+  font-size: 16px;
+  display: inline-block;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.utv-panel-bkarrow,
+.utv-panel-fwarrow{
+  font-size: 26px!important;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.utv-panel-description{
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  margin: 0 15px 15px 15px;
+}
+
+.utv-icon-default .utv-panel-bkarrow:hover,
+.utv-icon-default .utv-panel-fwarrow:hover{
+  color: #777;
+}
+
+.utv-icon-blue .utv-panel-bkarrow:hover,
+.utv-icon-blue .utv-panel-fwarrow:hover{
+  color: #2e99e5;
+}
+
+.utv-icon-red .utv-panel-bkarrow:hover,
+.utv-icon-red .utv-panel-fwarrow:hover{
+  color: #cc181e;
+}
+
+.utv-panel-video-active .utv-play-btn{
+  opacity: .85!important;
+}
+
+.utv-panel-paging {
+  text-align: right;
+  padding: 10px;
+
+  .utv-panel-paging-handle {
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+
+    &:hover {
+      background-color: #999;
+      color: #fff;
+      min-width: 20px;
+    }
+
+    &.utv-panel-paging-active {
+      font-weight: bold;
+      background-color: #777;
+      color: #fff;
+      min-width: 20px;
+    }
+  }
+}

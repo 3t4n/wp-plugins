@@ -1,0 +1,6 @@
+/*!
+ Mailer Dragon Admin v1.0.0
+ Adds appropriate scripts to admin settings
+ (c) 2017 Norbert Dreszer - http://implecode.com
+ */
+jQuery(document).ready(function(){jQuery(".ic_chosen").on("chosen:ready",function(){jQuery("table.email-filters").show()});jQuery(".ic_chosen").chosen({width:"160px"}).change(function(){var i={};jQuery("#ic_mailer_groups .email-post-types").each(function(){var e=jQuery(this).data("type");i[e]=ic_dropdown_value(jQuery(this))});var e={action:"ic_mailer_receivers",ic_mailer_roles:ic_dropdown_value(jQuery("select[name='ic_mailer[roles][]']")),ic_mailer_users:ic_dropdown_value(jQuery("select[name='ic_mailer[users][]']")),ic_mailer_contents:i,ic_mailer_custom:ic_dropdown_value(jQuery("select[name='ic_mailer[custom][]']")),security:ic_mailer_ajax.nonce};jQuery.post(ajaxurl,e,function(e){jQuery(".receivers-info strong").text(e)});e["action"]="ic_mailer_delayed_receivers";jQuery.post(ajaxurl,e,function(e){jQuery(".delayed-info strong").text(e)})});jQuery("span.ic_tip").tooltip({position:{my:"left-48 top+37",at:"right+48 bottom-37",collision:"flip"},track:true})});function ic_dropdown_value(e){var i=e.val();var r=e.find(":selected");if(i!==undefined&&r.length>0){return i}else{return""}}

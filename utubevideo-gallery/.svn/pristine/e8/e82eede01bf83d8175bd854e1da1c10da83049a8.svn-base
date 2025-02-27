@@ -1,0 +1,72 @@
+/* Left and Right Columns */
+.utv-columns{
+  box-sizing: border-box;
+  overflow: auto;
+
+  .utv-left-two-thirds-column{
+    margin-right: 365px;
+  }
+
+  .utv-right-one-third-column{
+    float: right;
+    width: 350px;
+  }
+
+  .utv-left-one-thirds-column{
+    float: left;
+    width: 450px;
+  }
+
+  .utv-right-two-thirds-column{
+    margin-left: 465px;
+    max-width: 1500px;
+  }
+
+  .utv-left-fixed-single-column{
+    width: 1000px;
+  }
+
+  @media screen and (max-width: 1200px)
+  {
+    .utv-left-one-thirds-column {
+      float: none;
+      width: 100%;
+    }
+
+    .utv-right-two-thirds-column {
+      margin-left: 0;
+    }
+
+    .utv-left-two-thirds-column {
+      margin-right: 0;
+    }
+
+    .utv-right-one-third-column {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1000px)
+  {
+    .utv-left-fixed-single-column {
+      width: 100%;
+    }
+  }
+}
+
+/* Cards */
+.utv-card {
+  position: relative;
+  padding: .7em 2em 1em;
+  max-width: 100%;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  background: #fff;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+
+  &.utv-even-padding {
+    padding: 15px;
+  }
+}
