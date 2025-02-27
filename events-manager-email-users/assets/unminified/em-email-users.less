@@ -1,0 +1,239 @@
+@wordpress: 	#007cba;
+@disabled: 		#777777;
+@base: 			#212121;
+@white: 		#fcfcfc;
+@black: 		#23282d;
+@lightgray:		#dddddd;
+@gray: 			#b3b3b3;
+@darkgray: 		#525252;
+@green: 		#007c35;
+@bg_green: 		#d4edda;
+@blue: 			#31708f;
+@bg_blue: 		#d9edf7;
+@red: 			Crimson;
+@bg_red: 		#f8e4e4;
+@code: 			#0071a1;
+
+// Flip (Checkbox).
+.flip {
+	overflow: hidden;
+	display: inline-block;
+	width: 8em;
+	background: #dddddd;
+	padding: 0.125em;
+	cursor: pointer;
+}
+.flip input {
+	position: absolute;
+	visibility: hidden;
+}
+.flip span {
+	font-weight: normal;
+	position: relative;
+	left: 0%;
+	display: block;
+	text-align: center;
+	-webkit-transition: left 200ms ease-out;
+	   -moz-transition: left 200ms ease-out;
+	     -o-transition: left 200ms ease-out;
+	        transition: left 200ms ease-out;
+}
+.flip :checked + span {
+	left: 50%;
+}
+.flip span:before {
+	content: attr(data-unchecked);
+	display: block;
+	width: 50%;
+	background-color: #525252;
+	border-radius: 0.15em;
+	color: #b3b3b3;
+	padding: 1px;
+}
+.flip :checked + span:before {
+	content: attr(data-checked);
+	background-color: @wordpress;
+	color: #fff;
+	padding: 1px;
+}
+
+
+
+// Toggle (Radio).
+.switch-toggle {
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	margin-bottom: 3px;
+	vertical-align: middle;
+	width: 100px;
+	height: 1.4em;
+	a {
+		display: none;
+		display: block;
+		-webkit-transition: left 200ms ease-out;
+		-moz-transition: left 200ms ease-out;
+		-o-transition: left 200ms ease-out;
+		transition: left 200ms ease-out;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0;
+		z-index: 1;
+		width: 10px;
+		height: 100%;
+		background-color: @darkgray;
+		border-radius: 0.15em;
+		font-weight: normal;
+	}
+	&::after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+	* {
+		box-sizing: border-box;
+		outline: none;
+	}
+	&:before {
+		box-sizing: border-box;
+		outline: none;
+	}
+	&:after {
+		box-sizing: border-box;
+		outline: none;
+	}
+	label {
+		line-height: 1.0em;
+		color: @gray;
+		font-weight: normal;
+		&:nth-child(2) {
+			&:nth-last-child(4) {
+				width: 50%;
+				&~label {
+					width: 50%;
+				}
+				&~a {
+					width: 50%;
+				}
+				&~input {
+					&:checked {
+						&:nth-child(3) {
+							&+label {
+								&~a {
+									left: 50%;
+									background: @wordpress;
+								}
+							}
+						}
+					}
+				}
+			}
+			&+input {
+				&:checked {
+					&+label {
+						color: @white;
+					}
+				}
+			}
+		}
+	}
+	>span {
+		line-height: 1.0em;
+		span {
+			opacity: 0;
+			transition: all .1s;
+			&:first-of-type {
+				opacity: 1;
+			}
+		}
+	}
+	input {
+		&:focus {
+			&~span {
+				a {
+					outline: none;
+					outline-width: 0;
+					outline-style: none;
+					outline-color: -webkit-focus-ring-color;
+					outline-style: auto;
+				}
+			}
+			&+label {
+				outline: none;
+				outline-width: 0;
+				outline-style: none;
+				outline-color: -webkit-focus-ring-color;
+				outline-style: auto;
+			}
+		}
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		display: none;
+		&+label {
+			position: relative;
+			z-index: 2;
+			display: block;
+			float: left;
+			text-align: center;
+		}
+		&:checked {
+			&+label {
+				color: @gray;
+				font-weight: normal;
+			}
+			&~span {
+				a {
+					background-color: @wordpress;
+				}
+			}
+		}
+		&:disabled {
+			&:checked {
+				&+label {
+					color: @disabled;
+					cursor: not-allowed;
+					background-color: @lightgray;
+					box-shadow: 0 1px 0 @black;
+					text-shadow: none;
+					box-shadow: none;
+				}
+			}
+			&+label {
+				cursor: not-allowed;
+			}
+		}
+	}
+}
+.switch-light {
+	span {
+		span {
+			display: none;
+		}
+	}
+}
+.switch-toggle.switch-toggle {
+	background-color: @lightgray;
+	box-shadow: inset rgba(0, 0, 0, 0.24) 0 1px 2px;
+	padding-top: 3px;
+}
+.switch-light.switch-toggle {
+	>span {
+		background-color: @lightgray;
+		box-shadow: inset rgba(0, 0, 0, 0.24) 0 1px 2px;
+		padding-top: 3px;
+	}
+}
+.switch {
+	&:disabled {
+		&+span {
+			&:before {
+				background-color: @gray;
+				color: @lightgray;
+				cursor: not-allowed;
+			}
+			cursor: not-allowed;
+		}
+	}
+}
