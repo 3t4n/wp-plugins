@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "description-list-block/description-list",
+  "version": "1.2.5",
+  "title": "Description List Block",
+  "category": "text",
+  "icon": "clipboard",
+  "description": "Example block scaffolded with Create Block tool.",
+  "supports": {
+    "html": true,
+    "anchor": true,
+    "typography": {
+      "fontSize": false
+    },
+    "__unstablePasteTextInline": true
+  },
+  "attributes": {
+    "termsFontStyle": {
+      "type": "string"
+    },
+    "termsFontWeight": {
+      "type": "string"
+    },
+    "descriptionsFontStyle": {
+      "type": "string"
+    },
+    "descriptionsFontWeight": {
+      "type": "string"
+    },
+    "termsFontSize": {
+      "type": "string"
+    },
+    "descriptionsFontSize": {
+      "type": "string"
+    },
+    "termsColor": {
+      "type": "string"
+    },
+    "descriptionsColor": {
+      "type": "string"
+    },
+    "termsMargin": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "descriptionsMargin": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "termsPadding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "descriptionsPadding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "indent": {
+      "type": "integer",
+      "default": 10
+    },
+    "spacing": {
+      "type": "integer",
+      "default": 30
+    },
+    "horizontal": {
+      "type": "integer",
+      "default": 0
+    },
+    "list": {
+      "type": "array",
+      "default": [],
+      "source": "query",
+      "selector": "dt,dd",
+      "query": {
+        "content": {
+          "type": "rich-text",
+          "source": "rich-text"
+        },
+        "tag": {
+          "type": "string",
+          "default": "dt",
+          "source": "tag"
+        }
+      }
+    }
+  },
+  "textdomain": "description-list-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./style-index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
