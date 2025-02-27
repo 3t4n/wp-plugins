@@ -1,0 +1,42 @@
+{
+  "name": "vendor_name/upcasted-s3-offload",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Boar Dragos",
+      "email": "dragos@upcasted.com"
+    },
+    {
+      "name": "Andrei Rebenciuc",
+      "email": "andrei@upcasted.com"
+    }
+  ],
+  "config": {
+    "platform": {
+        "php": "7.4"
+    }
+  },
+  "require": {
+    "aws/aws-sdk-php": "3.319.4",
+    "freemius/wordpress-sdk": "^2.11"
+  },
+  "repositories": [
+  {
+      "type": "package",
+      "package": {
+          "name": "freemius/wordpress-sdk",
+          "version": "2.11.0",
+          "dist": {
+              "type": "zip",
+              "url": "tmp/wordpress-sdk-2.11.0.zip"
+          }
+      }
+  }],
+  "scripts": {
+    "post-install-cmd": [
+        "[ -d vendor/freemius/wordpress-sdk/wordpress-sdk-2.11.0 ] && mv vendor/freemius/wordpress-sdk/wordpress-sdk-2.11.0/* vendor/freemius/wordpress-sdk/ && rm -rf vendor/freemius/wordpress-sdk/wordpress-sdk-2.11.0 || true"
+    ]
+  }
+}
