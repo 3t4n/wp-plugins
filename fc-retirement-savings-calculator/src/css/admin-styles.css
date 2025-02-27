@@ -1,0 +1,130 @@
+/* admin-style.css */
+
+.ac-container {
+	padding: .5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.ac-option {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.ac-option label {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.ac-description,
+.ac-info,
+.ac-note {
+	font-size: 14px;
+	color: #555;
+	margin-top: 5px;
+}
+
+.ac-info {
+	text-align: center;
+}
+
+.ac-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	/* margin-bottom: 20px; */
+}
+
+.ac-grid__item {
+	display: flex;
+	flex-direction: column;
+}
+
+/* This will make the specific grid item span across two columns [only for the classic widget screen] */
+.widgets-holder-wrap .ac-grid__item.ac-grid__item--span-2 {
+	/* Span the item across 2 columns */
+	grid-column: span 2;
+}
+
+.ac-grid__item.text__item {
+	display: flex;
+	flex-direction: column;
+	/* Center vertically */
+	justify-content: center;
+	/* Ensure the text is centered within the flex container */
+	text-align: center;
+}
+
+.ac-grid__item span {
+	font-size: 14px;
+	color: #555;
+}
+
+
+.ac-grid__item label {
+	font-weight: normal;
+	font-size: 80%;
+	margin-bottom: 5px;
+	word-wrap: break-word;
+	/* Allows wrapping of long words */
+	white-space: normal;
+	/* Prevents the label from staying on one line */
+	width: 100%;
+	/* Ensures the label stays within the grid item's width */
+	box-sizing: border-box;
+	/* Ensures padding/margins are within the width */
+}
+
+.ac-option input[type="text"],
+.ac-grid__item input[type="text"] {
+	/* Add this rule */
+	width: 100%;
+	/* Ensure padding is included in the element's width */
+	box-sizing: border-box;
+}
+
+.ac-note {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+}
+
+button.button.is-primary {
+	margin: 10px 0 10px 30px;
+	font-size: 1.5rem;
+	color: white;
+	background-color: #28a745;
+}
+
+button.button.is-primary:focus,
+button.button.is-primary:active,
+button.button.is-primary:visited,
+button.button.is-primary:hover {
+	color: white;
+	background-color: #30c853;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid rgba(85, 85, 85, 0.3);
+	/* Center the hr with auto margins */
+	margin: 1em auto;
+	/* Set the width to 66.6% */
+	width: 66.6%;
+}
+
+.small {
+	font-size: 80%;
+	font-weight: normal;
+}
+
+strong {
+	font-weight: bold
+}
+
+.red {
+	color: #f00;
+	font-weight: bold;
+}
