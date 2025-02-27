@@ -1,0 +1,89 @@
+
+@import '../../constants.scss';
+
+.wp-calconic-app {
+  .calconic-page-header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .calconic-page-calculators {
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $bg-color;
+  }
+
+  .calconic-floating-card {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+
+    >div {
+      width: 50%;
+      padding: 10px;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, .65);
+    }
+
+    p {
+      font-size: 14px;
+      padding: 10px 70px 10px 0;
+    }
+  }
+
+  .calconic-list-wrapper {
+    max-height: 371px;
+    overflow: hidden;
+    overflow-y: scroll;
+    @include calconicShadow();
+  }
+
+  .calconic-item-wrapper {
+    display: flex;
+    align-items: center;
+
+    .calconic-activity-symbol {
+      font-size: 18px;
+      margin-right: 10px;
+
+      &.active {
+        color: #2ecc71
+      }
+    }
+  }
+
+  .calconic-embed-options {
+    h3 {
+      color: $brand-color-2;
+      //color: rgba(0, 0, 0, .65);
+      text-transform: uppercase;
+      margin: 0 0 40px;
+    }
+
+    h4 {
+      color: rgba(0, 0, 0, .55);
+      text-transform: uppercase;
+      margin: 15px 0;
+    }
+
+    .calconic-shortcode-embed {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: $paragraph-color;
+      cursor: text;
+      @include calconicShadow();
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@import '../constants.scss';
+
+@keyframes animButton {
+  0% {
+		transform: translateX(-50%) translateY(-50%) scale3d(0.3, 0.3, 1);
+	}
+	25%, 50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-50%) scale3d(1.1, 1.1, 1);
+	}
+}
+
+button.lumi-button,
+a.lumi-button {
+  padding: 12px 20px;
+  border-radius: 3px;
+  line-height: 14px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  //height: 38px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  @include transitions('easeOutQuint');
+  transition-duration: 200ms;
+
+  &.lumi-button-icon {
+    padding-right: 18px;
+
+    i {
+      font-size: 18px;
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    border-radius: 3px;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &:active:after {
+    opacity: 1;
+    animation: animButton 0.3s forwards;
+  }
+
+  &.lumi-button-blank {
+    color: #9A9A9A;
+    background: none;
+  }
+
+  &.lumi-button-primary {
+    color: #fff;
+    background-color: $button-primary;
+
+    &:after {
+      box-shadow: 0 0 12px $button-primary-highlight;
+    }
+
+    &:hover {
+      background-color: $button-primary-highlight;
+    }
+  }
+
+  &.lumi-button-default {
+    background-color: $button-default;
+
+    &:hover {
+      background-color: $button-default-highlight;
+    }
+  }
+
+  &.lumi-button-confirm {
+    color: #fff;
+    background-color: $button-confirm;
+
+    &:hover {
+      background-color: $button-confirm-highlight;
+    }
+  }
+}

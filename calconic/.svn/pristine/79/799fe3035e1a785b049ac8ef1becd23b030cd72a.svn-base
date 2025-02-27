@@ -1,0 +1,66 @@
+
+@import '../constants.scss';
+
+.wp-calconic-app {
+  .calconic-logo {
+    color: #fff;
+    font-size: 11px;
+    line-height: 1;
+    position: relative;
+    padding: 20px 17px 0;
+    letter-spacing: 7px;
+    font-family: 'Montserrat', sans-serif;
+    @include transitions('easeOutExp');
+    transition-duration: 300ms;
+
+    h1 {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .beta {
+      font-size: 80%;
+      line-height: 1.5;
+      float: left;
+      letter-spacing: 1px;
+      opacity: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .logo-underline {
+      width: 12px;
+      height: 3px;
+      bottom: 0;
+      transform: translateX(17px);
+      position: absolute;
+      background-color: $brand-color-alt-2;
+      @include transitions('easeOutExp');
+      transition-duration: 300ms;
+    }
+
+    .logo-overflow {
+      width: 17px;
+      min-width: 17px;
+      max-width: 194px;
+      overflow: hidden;
+    }
+
+    &.large {
+      padding: 36px 26px 0;
+
+      .beta {
+        opacity: 1;
+      }
+
+      .logo-overflow {
+        width: 166px;
+      }
+
+      .logo-underline {
+        left: 192px;
+        bottom: 12px;
+        transform: translateX(7px);
+      }
+    }
+  }
+}

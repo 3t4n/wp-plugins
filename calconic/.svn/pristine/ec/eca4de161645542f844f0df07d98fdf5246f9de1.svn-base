@@ -1,0 +1,31 @@
+{
+  "name": "wordpress-calconic",
+  "version": "0.0.1",
+  "description": "Wordpress Calconic integration",
+  "main": "dist/index.php",
+  "scripts": {
+    "prebuild:plugin": "rm -r -f build && rm -f calconic.zip",
+    "test": "test",
+    "build:plugin": "mkdir -p build && mkdir -p build/scripts && mkdir -p build/src && mkdir -p build/styles && mkdir -p build/scripts/dependencies && mkdir -p build/scripts/fonts && cp src/*.php build && cp src/scripts/wp-calconic/build/static/js/*.js build/scripts && cp src/scripts/wp-calconic/build/static/css/*.css build/styles && cp src/scripts/dependencies/* build/scripts/dependencies && cp src/scripts/fonts/*.css build/scripts/fonts",
+    "postbuild:plugin": "cp src/readme.txt build && cp -R src/scripts/wp-calconic build/src && rm -r build/src/wp-calconic/node_modules && rm -r build/src/wp-calconic/build && mv build ./calconic && zip -r -X calconic.zip ./calconic && mv calconic ./build && cp package.json ./build && mkdir ./build/assets"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^2.13.4",
+    "jsftp": "^2.0.0",
+    "promise": "^8.0.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^2.9.0"
+  }
+}

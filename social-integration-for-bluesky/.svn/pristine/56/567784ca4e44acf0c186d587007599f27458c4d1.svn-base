@@ -1,0 +1,366 @@
+.bluesky-social-integration-last-post {
+    --bluesky-card-bg: white;
+    --bluesky-card-txt: #0b0f14;
+    --bluesky-card-txt-alt: rgb(66, 87, 108);
+    --bluesky-image-br: var(--bluesky-card-avatar-size);
+    --bluesky-primary-color: #1083fe;
+    --bluesky-card-border: 1px solid rgb(212, 219, 226);
+    --bluesky-card-br: 8px;
+    --bluesky-card-spacing: 16px;
+    --bluesky-card-avatar-size: 90px;
+
+    line-height: var(--bluesky-posts-custom-global-line-height, 1.25)!important;
+    container-type: inline-size;
+}
+
+.bluesky-social-integration-embedded-record,
+.bluesky-social-integration-last-post {
+    background: var(--bluesky-card-bg)!important;
+    border: var(--bluesky-card-border)!important;
+    padding: 0;
+    list-style: none!important;
+    border-radius: var(--bluesky-card-br)!important;
+    color: var(--bluesky-card-txt)!important;
+    overflow: hidden;
+}
+
+.bluesky-social-integration-last-post,
+.bluesky-social-integration-last-post * {
+    box-sizing: border-box;
+}
+
+.bluesky-social-integration-last-post.has-no-posts {
+    padding: 24px;
+    text-align: center;
+}
+
+.bluesky-social-integration-last-post .screen-reader-text {
+    position: absolute;
+    inset-inline-start: -9999em;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.bluesky-social-integration-last-post.has-no-posts svg {
+    padding: 16px;
+    color: color-mix(in srgb, var(--bluesky-card-txt) 20%, var(--bluesky-card-txt) 20%);
+    background: color-mix(in srgb, var(--bluesky-card-txt) 5%, var(--bluesky-card-txt) 5%);
+    border-radius: 50%;
+}
+
+.bluesky-social-integration-last-post.has-no-posts p {
+    font-size: 1.1rem!important;
+    font-weight: 600!important;
+    color: color-mix(in srgb, var(--bluesky-card-txt) 30%, var(--bluesky-card-txt) 30%);
+}
+
+.bluesky-social-integration-last-post img {
+    max-width: 100%;
+    height: auto;
+}
+
+.bluesky-social-integration-embedded-record p,
+.bluesky-social-integration-last-post p {
+    color: var(--bluesky-card-txt)!important;
+}
+
+.bluesky-social-integration-last-post-list,
+.bluesky-social-integration-last-post-item {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    list-style: none!important;
+}
+
+.bluesky-social-integration-last-post-item,
+.bluesky-social-integration-embedded-record {
+    display: flex;
+    gap: 8px;
+    padding: 16px 8px;
+}
+
+.bluesky-social-integration-embedded-record.has-image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.bluesky-social-integration-embedded-record p:first-child {
+    margin-top: 0;
+}
+
+.bluesky-social-integration-embedded-record p:last-child {
+    margin-bottom: 0;
+}
+
+.bluesky-social-integration-external-content-title {
+    font-weight: bold!important;
+    font-size: var(--bluesky-posts-custom-external-content-title-fs, 18px)!important;
+}
+
+.bluesky-social-integration-external-content-description {
+    font-size: var(--bluesky-posts-custom-external-content-description-fs, 14px)!important;
+}
+
+.bluesky-social-integration-external-content-url {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    opacity: 0.7;
+    font-size: var(--bluesky-posts-custom-external-content-url-fs, .875em)!important;
+}
+
+.bluesky-social-integration-embedded-record.has-image .bluesky-social-integration-external-content {
+    padding: 8px;
+}
+
+.bluesky-social-integration-last-post-item + .bluesky-social-integration-last-post-item {
+    border-top: var(--bluesky-card-border)!important;
+}
+
+.bluesky-social-integration-last-post-link {
+    position: absolute;
+    inset: 0;
+}
+
+.bluesky-social-integration-last-post-item p,
+.bluesky-social-integration-last-post-item .bluesky-social-integration-last-post-content a,
+.bluesky-social-integration-post-content-text {
+    position: relative;
+    z-index: 1;
+}
+
+.bluesky-social-integration-post-content-text a {
+    color: var(--bluesky-primary-color);
+}
+
+.bluesky-social-integration-last-post-header {
+    flex-shrink: 0;
+}
+
+.bluesky-social-integration-last-post-header .avatar {
+    width: 42px!important;
+    height: 42px!important;
+    border-radius: 21px!important;
+}
+
+.bluesky-social-integration-post-account-info-names.bluesky-social-integration-post-account-info-names {
+    margin: 0 0 6px 0!important;
+    line-height: var(--bluesky-posts-custom-account-info-names-lh, 1.4)!important;
+    color: var(--bluesky-card-txt-alt)!important;
+}
+
+.bluesky-social-integration-post-account-info-name.bluesky-social-integration-post-account-info-name {
+    font-size: var(--bluesky-posts-custom-account-info-names-fs, 16px)!important;
+}
+
+.bluesky-social-integration-post-account-info-handle.bluesky-social-integration-post-account-info-handle,
+.bluesky-social-integration-post-account-info-date.bluesky-social-integration-post-account-info-date {
+    font-size: var(--bluesky-posts-custom-handle-fs, 14px)!important;
+}
+
+.bluesky-social-integration-post-account-info-name.bluesky-social-integration-post-account-info-name {
+    color: var(--bluesky-card-txt-alt)!important;
+    font-weight: bold!important;
+}
+
+.bluesky-social-integration-post-starterpack-name {
+    font-weight: bold!important;
+    font-size: var(--bluesky-posts-custom-starterpack-name-fs, 18px)!important;
+}
+
+.bluesky-social-integration-post-account-info-date::before {
+    content: ' · ';
+}
+
+.bluesky-social-integration-last-post-content {
+    word-wrap: break-word!important;
+    word-break: break-word!important;
+    font-size: var(--bluesky-posts-custom-post-content-fs, 15px)!important;
+}
+
+.bluesky-social-integration-last-post-content video {
+    max-width: 100%;
+    height: auto;
+    max-height: 420px;
+}
+
+.bluesky-social-integration-last-post-content > :first-child {
+    margin-top: 0;
+}
+
+.bluesky-social-integration-last-post-content > :last-child {
+    margin-bottom: 0;
+}
+
+.bluesky-social-integration-embedded-record {
+    margin-top: 16px;
+    text-decoration: none!important;
+    color: inherit!important;
+}
+
+.blueksy-social-integration-embedded-video {
+    margin-top: 16px;
+}
+
+.blueksy-social-integration-embedded-video video {
+    border-radius: 8px;
+}
+
+.bluesky-social-integration-post-gallery {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.bluesky-social-integration-post-gallery img {
+    border-radius: 4px;
+}
+
+.bluesky-social-integration-post-gallery .bluesky-gallery-image {
+    display: inline-flex;
+}
+
+.bluesky-posts-block {
+    position: relative;
+}
+
+.bluesky-posts-block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    z-index: 1;
+}
+
+/**
+ * Styles for Layouts
+ */
+ .bluesky-social-integration-last-post.display-layout_2 {
+    --bluesky-card-avatar-size: 42px;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-image {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    align-items: safe center;
+    min-height: 74px;
+    padding: 0 16px;
+    aspect-ratio: unset;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--bluesky-card-bg) 90%, black 10%), color-mix(in srgb, var(--bluesky-card-bg) 90%, black 10%) ), var(--bluesky-social-integration-banner);
+    background-blend-mode: hard-light;
+    background-size: cover, cover;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-avatar {
+    position: static;
+    flex-shrink: 0;
+    flex-grow: 0;
+    transform: unset;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-content {
+    display: flex;
+    gap: 8px;
+    padding: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-content-names p {
+    flex-basis: 100%;
+    margin: 0!important;
+    word-break: break-word;
+    font-size: var(--bluesky-posts-custom-handle-fs, 14px)!important;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-content-names .bluesky-social-integration-name {
+    font-size: var(--bluesky-posts-custom-account-info-names-fs, 16px)!important;
+}
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-profile-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid currentColor;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 ul {
+    padding: 0;
+    margin: 0;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 li {
+    display: block;
+    padding: 16px;
+ }
+
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-last-post-header,
+ .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-post-account-info-names {
+    display: none;
+ }
+
+
+/**
+ * Styles for the profile card darkmode
+ */
+@media (prefers-color-scheme: dark) {
+    .bluesky-social-integration-last-post.theme-system {
+        --bluesky-card-bg: #161e27;
+        --bluesky-card-txt: white;
+        --bluesky-card-txt-alt: #aebbc9;
+        --bluesky-card-border: 1px solid #2e4052;
+        --bluesky-primary-color: #3491f4;
+    }
+}
+
+.bluesky-social-integration-last-post.theme-dark {
+    --bluesky-card-bg: #161e27;
+    --bluesky-card-txt: white;
+    --bluesky-card-txt-alt: #aebbc9;
+    --bluesky-card-border: 1px solid #2e4052;
+    --bluesky-primary-color: #3491f4;
+}
+
+.bluesky-social-integration-last-post.theme-light {
+    --bluesky-card-bg: white;
+    --bluesky-card-txt: #0b0f14;
+    --bluesky-card-txt-alt: rgb(66, 87, 108);
+    --bluesky-card-border: 1px solid rgb(212, 219, 226);
+    --bluesky-primary-color: #1083fe;
+}
+
+/* If the container is below 340px wide */
+@container (max-width: 340px) {
+    /* On the default layout */
+    .bluesky-social-integration-last-post.display-default .bluesky-social-integration-last-post-header .avatar {
+        width: 32px!important;
+        height: 32px!important;
+    }
+
+    /* On the layout 2 */
+    .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-profile-button {
+        width: 32px;
+        height: 32px;
+    }
+    .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-profile-button svg {
+        transform: scale(0.8);
+    }
+
+    .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-image {
+        padding-inline: 12px;
+    }
+
+    .bluesky-social-integration-last-post.display-layout_2 .bluesky-social-integration-image,
+    .bluesky-social-integration-last-post.display-layout_2 li {
+        padding-inline: 12px;
+    }
+}
