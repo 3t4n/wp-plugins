@@ -1,0 +1,189 @@
+$breakpoint-tablet: 960px;
+$breakpoint-movil: 600px;
+
+.editor-styles-wrapper .wp-block[data-type='osomblocks/cpt-list'] {
+  max-width: 1200px;
+}
+
+.editor-styles-wrapper .osomblocks-cptlist {
+
+      h2, h3, h4 {
+
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+}
+
+.editor-styles-wrapper .osomblocks-cptlist.osomgrid {
+  display: grid; 
+  grid-template-columns: repeat(3,1fr);
+
+  .entry {
+    display: block;
+  }
+  a.more-link {
+    float: none;
+  }
+
+  h2, h3, h4 {
+
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+}
+
+$columns: 6;
+
+@for $i from 1 through $columns {
+  .editor-styles-wrapper .osomblocks-cptlist.osomgrid.cols-#{$i} { 
+        grid-template-columns: repeat($i,1fr);
+    }
+}
+.editor-styles-wrapper .osom-paginations {
+  display: block;
+  text-align: center;
+  margin-top: 0;
+}
+ 
+
+.entry-content .wp-block-osomblocks-cpt-list,
+.wp-block-osomblocks-cpt-list {
+
+  clear: both; 
+  max-width: 1200px; 
+  padding: 20px;
+
+  li {
+    list-style-position: inside;
+  }
+
+  .spinner {
+    float: none;
+    margin: 6px 2px 10px 0;
+  }
+
+  a.more-link {
+    float: right;
+  }
+ 
+
+}
+
+.osomblocks-cptlist {
+
+  padding: 40px 0px; 
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    margin: 20px;
+
+    &.no-img {
+      grid-template-columns: 1fr;
+    }
+
+    &:before {
+      content:'';
+      display:none;
+     }
+  }
+
+  img {
+     
+    border-radius: 6px;
+  }
+  a {
+    box-shadow: none;
+  }
+
+  a.more-link {
+    float: right;
+  }
+
+  h2, h3, h4 {
+
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  h2 a, h3 a, h4 a { 
+   
+    border: none;
+    box-shadow: none;
+    display: inline-block; 
+  }
+
+}
+
+.osomblocks-cptlist.osomgrid {
+  display: grid; 
+  grid-template-columns: repeat(3,1fr);
+
+  .entry {
+    display: block;
+  }
+  a.more-link {
+    float: none;
+  }
+
+  h2, h3, h4 {
+
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+}
+
+$columns: 6;
+
+@for $i from 1 through $columns {
+  .osomblocks-cptlist.osomgrid.cols-#{$i} { 
+        grid-template-columns: repeat($i,1fr);
+    }
+}
+
+.osom-pagination {
+  display: block;
+  clear: both;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.osom-pagination a.page-numbers {
+  padding: 5px;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+
+  @for $i from 2 through $columns {
+    .osomblocks-cptlist.osomgrid.cols-#{$i} { 
+          grid-template-columns: repeat(2,1fr);
+      }
+  }
+
+  .osomblocks-cptlist {
+
+    padding: 20px 40px; 
+  
+    .entry { 
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+      margin: 10px;
+    }
+
+  }
+
+}
+
+@media only screen and (max-width: $breakpoint-movil) {
+
+  @for $i from 1 through $columns {
+    .osomblocks-cptlist.osomgrid.cols-#{$i} { 
+          grid-template-columns: repeat(1,1fr);
+      }
+  }
+
+}
+
