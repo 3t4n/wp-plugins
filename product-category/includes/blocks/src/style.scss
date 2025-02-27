@@ -1,0 +1,73 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-product-cat__main {
+	.wp-block-product-cat__container {
+		display: grid;
+		grid-template-columns: auto;
+		gap: 20px;
+		box-sizing: border-box;
+		&.has-columns-2 {
+			grid-template-columns: 1fr 1fr;
+		}
+		&.has-columns-3 {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		&.has-columns-4 {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-5 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-6 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-7 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-8 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
+		.wp-block-product-cat__inner {
+			padding: 20px;
+			box-sizing: border-box;
+			box-shadow: 0px 10px 40px #6F89A333;
+			.cat-info {
+				.cat_name {
+					text-decoration: none !important;
+				}
+			}
+		}
+		.cat-img {
+			img {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+		}
+		&.equal-height {
+			.cat-img {
+				img {
+					height: 150px;
+					object-fit: cover;
+					width: 100%;
+					box-sizing: border-box;
+				}
+			}
+		}
+		@media only screen and (max-width: 1024px) {
+			grid-template-columns: 1fr 1fr 1fr !important;
+		}
+		@media only screen and (max-width: 567px) {
+			grid-template-columns: 1fr 1fr !important;
+		}
+		@media only screen and (max-width: 375px) {
+			grid-template-columns: 1fr !important;
+		}
+	}
+}

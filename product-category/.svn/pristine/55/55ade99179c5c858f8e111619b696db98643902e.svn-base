@@ -1,0 +1,191 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "product-category/product-category-block",
+	"version": "1.0.0",
+	"title": "Product Category Block",
+	"category": "widgets",
+	"icon": "category",
+	"description": "Manage your WooCommerce Product Category with this block.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": ""
+		},
+		"layoutSelection": {
+			"type": "string",
+			"default": "pcb-grid"
+		},
+		"layoutColumns": {
+			"type": "number",
+			"default": 3
+		},
+		"numberOfCat": {
+			"type": "number",
+			"default": 20
+		},
+		"catOrderByItems": {
+			"type": "array",
+			"default": []
+		},
+		"catOrderBy": {
+			"type": "string",
+			"default": "name"
+		},
+		"catOrderItems": {
+			"type": "array",
+			"default": []
+		},
+		"catOrder": {
+			"type": "string",
+			"default": "asc"
+		},
+		"hideEmptyCat": {
+			"type": "boolean",
+			"default": false
+		},
+		"parentCat": {
+			"type": "boolean",
+			"default": false
+		},
+		"categories": {
+			"type": "string",
+			"default": ""
+		},
+		"paging": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCatTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCatDesc": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCatCount": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCatImage": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleListItems": {
+			"type": "array",
+			"default": []
+		},
+		"fontSize": {
+			"type": "string",
+			"default": "14px"
+		},
+		"fontColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"bgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"fontDescColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"fontWeight": {
+			"type": "string",
+			"default": "400"
+		},
+		"fontStyle": {
+			"type": "string",
+			"default": ""
+		},
+		"fontDecoration": {
+			"type": "string",
+			"default": ""
+		},
+		"fontLetterSpacing": {
+			"type": "string",
+			"default": ""
+		},
+		"fontLineHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"fontTransform": {
+			"type": "string",
+			"default": ""
+		},
+		"descFontSize": {
+			"type": "string",
+			"default": "14px"
+		},
+		"descFontWeight": {
+			"type": "string",
+			"default": "400"
+		},
+		"descFontStyle": {
+			"type": "string",
+			"default": ""
+		},
+		"descFontDecoration": {
+			"type": "string",
+			"default": ""
+		},
+		"descFontLetterSpacing": {
+			"type": "string",
+			"default": ""
+		},
+		"descFontLineHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"descFontTransform": {
+			"type": "string",
+			"default": ""
+		},
+		"imageSize": {
+			"type": "string",
+			"default": ""
+		},
+		"imageEqualHeight": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageBorder": {
+			"type": "object",
+			"default": {}
+		},
+		"heightVal": {
+			"type": "number",
+			"default": 150
+		},
+		"imageRadius": {
+			"type": "string",
+			"default": "0"
+		},
+		"catBoxBorder": {
+			"type": "object",
+			"default": {}
+		},
+		"catBoxRadius": {
+			"type": "string",
+			"default": "0"
+		},
+		"boxMargin": {
+			"type": "object",
+			"default": {}
+		},
+		"boxPadding": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"textdomain": "product-category-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

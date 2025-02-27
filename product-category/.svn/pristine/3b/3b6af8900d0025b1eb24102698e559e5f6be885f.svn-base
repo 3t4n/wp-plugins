@@ -1,0 +1,213 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-product-cat__main {
+	.wp-block-product-cat__container {
+		display: grid;
+		grid-template-columns: auto;
+		gap: 20px;
+		box-sizing: border-box;
+		&.has-columns-2 {
+			grid-template-columns: 1fr 1fr;
+		}
+		&.has-columns-3 {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		&.has-columns-4 {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-5 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-6 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-7 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
+		&.has-columns-8 {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		}
+		.wp-block-product-cat__inner {
+			padding: 20px;
+			box-sizing: border-box;
+			box-shadow: 0px 10px 40px #6F89A333;
+			.cat-info {
+				.cat_name {
+					text-decoration: none;
+				}
+			}
+		}
+		.cat-img {
+			a {
+				pointer-events: none;
+			}
+			img {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+		}
+		&.equal-height {
+			.cat-img {
+				img {
+					height: 150px;
+					object-fit: cover;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * Editor Side - CSS
+ */
+.pcb-components-base-control {
+    width: 100%;
+	padding: 10px 0 15px;
+	box-sizing: border-box;
+	.components-base-control {
+		margin-bottom: 0 !important;
+		width: auto !important;
+		.components-base-control__field {
+			padding: 0;
+		}
+	}
+	.components-base-control__label, .pcb-control-label {
+		font-size: 11px;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin: 0 0 8px;
+		display: block;
+	}
+	.pcb-multi-button-group {
+		display: flex;
+		width: 100%;
+		.pcb-multi-button {
+			width: 100%;
+			justify-content: center;
+			height: unset;
+			padding: 6px;
+			line-height: 16px;
+			min-height: 30px;
+			font-size: 13px;
+			font-weight: 400;
+			box-shadow: inset 0 0 0 1px #eee;
+			&.is-primary {
+				color: #007cba;
+				background-color: #dcf2ff;
+				border-color: #cde9f9;
+				box-shadow: inset 0 0 0 1px #cde9f9;
+				border-radius: 3px 0 0 3px;
+			}
+		}
+	}
+	.components-range-control {
+		.components-range-control__root {
+			margin-left: 6px;
+		}
+	}
+	&.form-toggle {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.components-color-palette__custom-color-button {
+        height: 50px;
+    }
+	.components-circular-option-picker {
+        .components-circular-option-picker__custom-clear-wrapper {
+            margin-top: 0;
+        }
+    }
+	&.static-typo-block{
+        .typo-container {
+            box-shadow: 0px 0px 5px #d5d5d5;
+            padding: 15px;
+			.components-base-control {
+				padding: 10px 0 15px;
+				box-sizing: border-box;
+			}
+			.inspector-field {
+				padding: 5px 0 0;
+				.components-base-control {
+					padding: 0;
+				}
+			}
+        }
+        .sctab-flex-width {
+            width: 100%;
+            fieldset{
+                width: 100%;
+            }
+        }
+    }
+	.pcb-media-control {
+        height: auto;
+        box-sizing: border-box;
+        margin: 0 0 20px;
+        padding: 0;
+        text-align: left;
+        overflow: hidden;
+        position: relative;
+        picture {
+            height: auto;
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+        .components-button-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            align-items: center;
+            button {
+                width: 100%;
+                text-align: center;
+                display: block;
+                box-shadow: none;
+                background: #f4f4f4;
+                font-size: 14px;
+                border-radius: 0;
+                &:hover, &.remove-image {
+                    background: #0a7cba;
+                    color: #ffffff;
+                    border-color: #0a7cba;
+                }
+            }
+        }
+    }
+	.components-border-control {
+        .components-base-control {
+            margin-bottom: 0;
+        }
+    }
+	.pcb-panel__body-sub-heading {
+		font-size: 14px;
+		font-weight: 600;
+		border-top: 1px solid #ddd;
+		padding-top: 15px;
+	}
+}
+
+.pcb-block-panel {
+	.components-border-box-control {
+		.components-base-control {
+			&.components-input-control {
+				margin-bottom: 0;
+			}
+			&.components-range-control {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.components-unit-control  {
+		margin-bottom: 0 !important;
+	}
+}
