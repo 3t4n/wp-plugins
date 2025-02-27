@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "display-remote-posts-block/display-remote-posts",
+    "title": "Display Remote Posts",
+    "category": "embed",
+    "parent": [ "core/group" ],
+    "icon": "admin-post",
+    "description": "Block to display recent posts from a WordPress or Blogger blog",
+    "keywords": [
+        "blog",
+        "blogger",
+        "jetpack"
+    ],
+    "textdomain": "display-remote-posts-block",
+    "attributes": {
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "boolean",
+			"default": true
+		},
+		"post_date": {
+			"type": "boolean",
+			"default": false
+		},
+		"posts": {
+			"type": "number",
+			"default": 1
+		},
+		"offset": {
+			"type": "number",
+			"default": 0
+		},
+		"featured_images": {
+			"type": "boolean",
+			"default": true
+		},
+		"excerpts": {
+			"type": "boolean",
+			"default": true
+		},
+		"target_blank": {
+			"type": "boolean",
+			"default": false
+		},
+		"max_width": {
+			"type": "number",
+			"default": 0
+		}
+    },
+    "script": "file:./build/index.js",
+    "style": ""
+}
